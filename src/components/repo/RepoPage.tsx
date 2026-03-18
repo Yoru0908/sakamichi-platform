@@ -337,133 +337,97 @@ export default function RepoPage() {
       ) : (
         <>
           {/* Generator header */}
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
               <button type="button" onClick={() => setActiveTab('community')}
-                className="p-1.5 rounded-lg hover:bg-[var(--bg-tertiary)] text-[var(--text-tertiary)]">
-                <X size={18} />
+                className="p-2 rounded-lg hover:bg-[var(--bg-tertiary)] text-[var(--text-tertiary)]">
+                <X size={20} />
               </button>
-              <h2 className="text-lg font-bold text-[var(--text-primary)]">Repo作成</h2>
-            </div>
-            {/* Demo auth */}
-            {!user && (
-              <button type="button" onClick={() => setUser({ id: 'demo', name: 'ヨル' })}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-lg bg-[var(--text-primary)] text-white hover:opacity-90 transition-opacity">
-                <LogIn size={12} /> ログイン
-              </button>
-            )}
-          </div>
-
-          {/* Generator: 3-column layout */}
-          <div className="flex gap-5">
-            {/* Left sidebar: My Repos */}
-            <div className="hidden lg:block w-[200px] shrink-0">
-              <div className="sticky top-20 space-y-3">
-                <div className="bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-secondary)] p-3">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xs font-semibold text-[var(--text-secondary)]">マイレポ</h3>
-                    <button type="button" onClick={newRepo} className="p-1 rounded-md hover:bg-[var(--bg-tertiary)] text-[var(--text-tertiary)]" title="新規">
-                      <Plus size={14} />
-                    </button>
-                  </div>
-                  {!user ? (
-                    <div className="text-center py-6">
-                      <LogIn size={20} className="mx-auto text-[var(--text-tertiary)] opacity-40 mb-2" />
-                      <p className="text-[10px] text-[var(--text-tertiary)]">ログインすると保存できます</p>
-                    </div>
-                  ) : memberFolders.length === 0 ? (
-                    <div className="text-center py-6">
-                      <FolderOpen size={20} className="mx-auto text-[var(--text-tertiary)] opacity-40 mb-2" />
-                      <p className="text-[10px] text-[var(--text-tertiary)]">保存されたレポはありません</p>
-                    </div>
-                  ) : (
-                    <div className="space-y-1.5 max-h-[60vh] overflow-y-auto">
-                      {memberFolders.map(folder => {
-                        const isExpanded = expandedMemberId === folder.memberId;
-                        const color = GROUP_META[folder.groupId]?.color || '#999';
-                        return (
-                          <div key={folder.memberId}>
-                            <button type="button" onClick={() => setExpandedMemberId(isExpanded ? null : folder.memberId)}
-                              className="w-full flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors">
-                              <div className="w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-white text-[10px] font-bold" style={{ backgroundColor: color }}>
-                                {folder.memberName.charAt(0)}
-                              </div>
-                              <div className="flex-1 text-left min-w-0">
-                                <div className="text-[11px] font-medium truncate">{folder.memberName}</div>
-                                <div className="text-[9px] text-[var(--text-tertiary)]">{folder.repos.length} 件</div>
-                              </div>
-                              <ChevronDown size={12} className={`text-[var(--text-tertiary)] transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-                            </button>
-                            {isExpanded && (
-                              <div className="ml-4 pl-2 border-l-2 space-y-0.5 mt-0.5" style={{ borderColor: color + '40' }}>
-                                {folder.repos.map(repo => (
-                                  <div key={repo.id} onClick={() => loadRepo(repo)}
-                                    className={`group flex items-center gap-1.5 px-2 py-1.5 rounded-md cursor-pointer transition-colors text-[10px] ${activeRepoId === repo.id ? 'bg-[var(--bg-tertiary)] font-medium' : 'hover:bg-[var(--bg-tertiary)]'}`}>
-                                    <div className="flex-1 min-w-0 truncate text-[var(--text-secondary)]">{repo.label}</div>
-                                    <button type="button" onClick={e => { e.stopPropagation(); deleteRepo(repo.id); }}
-                                      className="shrink-0 opacity-0 group-hover:opacity-100 text-[var(--text-tertiary)] hover:text-red-400"><Trash2 size={10} /></button>
-                                  </div>
-                                ))}
-                                <button type="button" onClick={() => newRepoForMember(folder.memberId)}
-                                  className="w-full px-2 py-1 text-[10px] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] text-left">＋ 新規レポ</button>
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
+              <div>
+                <h2 className="text-xl font-bold text-[var(--text-primary)]">创建Repo</h2>
+                <p className="text-xs text-[var(--text-tertiary)]">选择成员 → 输入对话 → 预览 → 下载或发布</p>
               </div>
             </div>
+          </div>
 
-            {/* Middle: Editor */}
-            <div className="w-full lg:w-[380px] shrink-0 space-y-4">
-              <div className="bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-secondary)] p-5 space-y-4">
+          {/* Generator: 2-column layout (editor + preview) */}
+          <div className="flex flex-col lg:flex-row gap-6">
+            {/* Left: Editor */}
+            <div className="lg:w-[440px] shrink-0 space-y-4">
+              {/* My Repos - horizontal compact bar */}
+              {savedRepos.length > 0 && (
+                <div className="bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-3">
+                  <div className="flex items-center gap-2 mb-2">
+                    <FolderOpen size={14} className="text-[var(--text-tertiary)]" />
+                    <h3 className="text-xs font-semibold text-[var(--text-secondary)]">我的Repo</h3>
+                    <div className="flex-1" />
+                    <button type="button" onClick={newRepo} className="text-[10px] text-[var(--color-brand-nogi)] hover:underline">+ 新建</button>
+                  </div>
+                  <div className="flex gap-1.5 overflow-x-auto pb-1">
+                    {memberFolders.map(folder => {
+                      const color = GROUP_META[folder.groupId]?.color || '#999';
+                      return folder.repos.map(repo => (
+                        <button key={repo.id} type="button" onClick={() => loadRepo(repo)}
+                          className={`shrink-0 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] transition-colors ${
+                            activeRepoId === repo.id ? 'bg-[var(--bg-tertiary)] font-medium' : 'hover:bg-[var(--bg-tertiary)]'
+                          }`}>
+                          <div className="w-4 h-4 rounded-full flex items-center justify-center text-white text-[7px] font-bold" style={{ backgroundColor: color }}>
+                            {folder.memberName.charAt(0)}
+                          </div>
+                          <span className="text-[var(--text-secondary)] whitespace-nowrap">{repo.label}</span>
+                        </button>
+                      ));
+                    })}
+                  </div>
+                </div>
+              )}
+
+              <div className="bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-5 space-y-4">
+                <h3 className="text-sm font-semibold text-[var(--text-primary)]">基本信息</h3>
                 <MemberSelector selectedMemberId={selectedMemberId} onSelect={handleMemberSelect} />
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">日付</label>
+                    <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">日期</label>
                     <input type="text" value={eventDate} onChange={e => setEventDate(e.target.value)} placeholder="2026/3/8"
-                      className="w-full px-3 py-2 rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none focus:ring-2 focus:ring-[var(--border-primary)]" />
+                      className="w-full px-3 py-2 rounded-lg border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none focus:border-[var(--color-brand-nogi)]" />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">イベント</label>
+                    <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">活动</label>
                     <select value={eventType} onChange={e => setEventType(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none">
+                      className="w-full px-3 py-2 rounded-lg border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none">
                       <option>ミーグリ</option><option>オンラインミート&グリート</option><option>個別握手会</option><option>全国握手会</option>
                     </select>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">部</label>
+                    <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">场次</label>
                     <div className="flex items-center gap-2">
                       <span className="text-sm text-[var(--text-tertiary)]">第</span>
                       <input type="number" min={1} max={20} value={slotNumber} onChange={e => setSlotNumber(Number(e.target.value))}
-                        className="flex-1 px-3 py-2 rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none" />
+                        className="flex-1 px-3 py-2 rounded-lg border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none" />
                       <span className="text-sm text-[var(--text-tertiary)]">部</span>
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">枚数</label>
+                    <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">券数</label>
                     <input type="number" min={1} max={30} value={ticketCount} onChange={e => setTicketCount(Number(e.target.value))}
-                      className="w-full px-3 py-2 rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none" />
+                      className="w-full px-3 py-2 rounded-lg border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">ニックネーム</label>
-                  <input type="text" value={nickname} onChange={e => setNickname(e.target.value)} placeholder="ミーグリで呼ばれる名前"
-                    className="w-full px-3 py-2 rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none" />
+                  <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">昵称</label>
+                  <input type="text" value={nickname} onChange={e => setNickname(e.target.value)} placeholder="见面会上被叫的名字"
+                    className="w-full px-3 py-2 rounded-lg border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none" />
                 </div>
               </div>
 
-              <div className="bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-secondary)] p-5">
+              <div className="bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-5">
                 <ChatEditor messages={messages} onChange={setMessages} memberName={selectedMember?.name || ''} groupColor={groupColor} />
               </div>
 
-              <div className="bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-secondary)] p-5">
-                <h2 className="text-xs font-medium text-[var(--text-tertiary)] mb-2">雰囲気タグ（最大2つ）</h2>
+              <div className="bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-5">
+                <h3 className="text-xs font-medium text-[var(--text-tertiary)] mb-2">氛围标签（最多2个）</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {ATMOSPHERE_TAGS.map(t => (
                     <button key={t.id} type="button" onClick={() => toggleTag(t.id)}
@@ -478,32 +442,33 @@ export default function RepoPage() {
             {/* Right: Preview */}
             <div className="flex-1 min-w-0">
               <div className="sticky top-20 space-y-4">
-                <div className="bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-secondary)] p-4">
+                <div className="bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-4">
+                  <h3 className="text-xs font-medium text-[var(--text-tertiary)] mb-2">模板选择</h3>
                   <div className="flex gap-2">
                     {TEMPLATES.map(t => (
                       <button key={t.id} type="button" onClick={() => setTemplate(t.id)}
-                        className={`flex-1 px-3 py-2 rounded-xl text-xs transition-all text-center ${template === t.id ? 'bg-[var(--text-primary)] text-white shadow-sm' : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)]'}`}>
+                        className={`flex-1 px-3 py-2 rounded-lg text-xs transition-all text-center ${template === t.id ? 'bg-[var(--text-primary)] text-white shadow-sm' : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)]'}`}>
                         <div className="font-medium">{t.label}</div>
                       </button>
                     ))}
                   </div>
                 </div>
-                <div className={`bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-secondary)] p-6 flex justify-center ${!hasContent ? 'opacity-60' : ''}`}>
+                <div className={`bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-6 flex justify-center ${!hasContent ? 'opacity-50' : ''}`}>
                   <div ref={previewRef}>{renderPreview()}</div>
                 </div>
                 <div className="flex gap-2">
                   <button type="button" onClick={handleDownload} disabled={!hasContent}
-                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-[var(--text-primary)] text-white text-xs font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
-                    <Download size={14} /> ダウンロード
+                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-[var(--text-primary)] text-white text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                    <Download size={14} /> 下载图片
                   </button>
-                  <button type="button" onClick={handleSave} disabled={!user}
-                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border border-[var(--border-secondary)] text-xs font-medium text-[var(--text-secondary)] disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
-                    <Save size={14} /> {activeRepoId ? '上書き' : '保存'}
+                  <button type="button" onClick={handleSave}
+                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg border border-[var(--border-primary)] text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors">
+                    <Save size={14} /> {activeRepoId ? '覆盖保存' : '保存'}
                   </button>
-                  <button type="button" disabled={!hasContent || !user}
-                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-white"
+                  <button type="button" disabled={!hasContent}
+                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-white"
                     style={{ backgroundColor: groupColor }}>
-                    <Send size={14} /> 公開
+                    <Send size={14} /> 发布
                   </button>
                 </div>
               </div>
