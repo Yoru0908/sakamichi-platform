@@ -137,10 +137,12 @@ interface OAuthProfile {
   avatar: string | null;
 }
 
-/** Validate origin against allowed CORS origins */
+/** Validate origin against allowed CORS origins (includes pages.dev wildcard) */
 function validateOrigin(origin: string, env: Env): string | null {
   const allowed = env.CORS_ORIGIN.split(',').map((s: string) => s.trim());
-  return allowed.includes(origin) ? origin : null;
+  if (allowed.includes(origin)) return origin;
+  if (/^https:\/\/[a-z0-9-]+\.sakamichi-platform-test\.pages\.dev$/.test(origin)) return origin;
+  return null;
 }
 
 async function handleOAuthUser(env: Env, profile: OAuthProfile, redirectBase: string): Promise<Response> {
@@ -213,10 +215,10 @@ async function handleOAuthUser(env: Env, profile: OAuthProfile, redirectBase: st
     .bind(refreshToken, user.id, refreshExpires)
     .run();
 
-  // Redirect to callback page with cookies
+  // Redirect directly — cookies are set, initAuth() picks them up on any page
   const redirectUrl = user.is_first_login
     ? `${redirectBase}/auth/onboarding`
-    : `${redirectBase}/auth/callback`;
+    : `${redirectBase}/`;
 
   const res = Response.redirect(redirectUrl, 302);
   return setCookies(res, [

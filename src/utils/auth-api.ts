@@ -77,7 +77,8 @@ async function authFetch<T>(
 
     return data;
   } catch (err) {
-    return { success: false, error: 'network_error', message: '网络连接失败' };
+    console.error('[authFetch]', url, err);
+    return { success: false, error: 'network_error', message: '网络连接失败，请检查网络或稍后重试' };
   }
 }
 
@@ -171,6 +172,24 @@ export async function updateProfile(
     return await res.json() as ApiResponse;
   } catch {
     return { success: false, error: 'network_error' };
+  }
+}
+
+// ── Password Change ──
+
+export async function changePassword(
+  data: { currentPassword: string; newPassword: string },
+): Promise<ApiResponse> {
+  try {
+    const res = await fetch(`${USER_BASE}/password`, {
+      method: 'PUT',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    return await res.json() as ApiResponse;
+  } catch {
+    return { success: false, error: 'network_error', message: '网络连接失败' };
   }
 }
 

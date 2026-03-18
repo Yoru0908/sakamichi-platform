@@ -1,6 +1,7 @@
 import type { TranslationKey } from './zh';
 
 export const en: Record<TranslationKey, string> = {
+  'nav.home': 'Home',
   'nav.blog': 'Blog',
   'nav.messages': 'MSG Archive',
   'nav.radio': 'Radio',

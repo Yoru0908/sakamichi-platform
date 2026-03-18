@@ -1,5 +1,6 @@
 export const zh = {
   // Nav
+  'nav.home': '首页',
   'nav.blog': '博客',
   'nav.messages': 'MSG',
   'nav.radio': '广播',

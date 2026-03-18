@@ -72,8 +72,10 @@ function formatCountdown(ms: number): string {
   if (ms <= 0) return 'まもなく開始';
   const h = Math.floor(ms / 3600_000);
   const m = Math.floor((ms % 3600_000) / 60_000);
-  if (h > 0) return `${h}時間${m}分後`;
-  return `${m}分後`;
+  const s = Math.floor((ms % 60_000) / 1000);
+  const ss = s.toString().padStart(2, '0');
+  if (h > 0) return `${h}時間${m}分${ss}秒後`;
+  return `${m}分${ss}秒後`;
 }
 
 // ─── Component ──────────────────────────────────
@@ -223,14 +225,15 @@ export default function LiveRadioPlayer() {
         if (!res.ok) return;
         const data = await res.json();
         const now = new Date();
+        const dayAgo = new Date(now.getTime() - 24 * 3600_000);
         const weekLater = new Date(now.getTime() + 7 * 86400_000);
         const progs = (data.programs || []).filter((p: Program) => {
           const t = new Date(p.startTime);
-          return t >= now && t <= weekLater;
+          return t >= dayAgo && t <= weekLater;
         });
         setSchedule(progs);
 
-        // Find next upcoming
+        // Find next upcoming (future only)
         const upcoming = progs
           .filter((p: Program) => new Date(p.startTime) > now)
           .sort((a: Program, b: Program) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime());
@@ -254,13 +257,17 @@ export default function LiveRadioPlayer() {
       setCountdown(formatCountdown(diff));
     };
     update();
-    const id = setInterval(update, 30_000);
+    const id = setInterval(update, 1_000);
     return () => clearInterval(id);
   }, [nextProgram, liveStatus?.primary_running]);
 
-  // ─── Auto-select today ────────────────────────
+  // ─── Auto-select today (before 5 AM counts as previous day) ──
   useEffect(() => {
-    if (!selectedDay) setSelectedDay(DAY_LABELS[new Date().getDay()]);
+    if (!selectedDay) {
+      const now = new Date();
+      if (now.getHours() < 5) now.setDate(now.getDate() - 1);
+      setSelectedDay(DAY_LABELS[now.getDay()]);
+    }
   }, [selectedDay]);
 
   // ─── Group schedule by day ────────────────────

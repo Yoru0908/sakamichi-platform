@@ -33,7 +33,8 @@ const ARCHIVE_API_BASE = 'https://msg-archive.srzwyuu.workers.dev/api/archive';
 // --- Custom Voice Player (replaces native <audio> which has seek issues) ---
 function VoicePlayer({ src, color }: { src: string; color: string }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const draggingRef = useRef(false);
   const [playing, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -42,7 +43,9 @@ function VoicePlayer({ src, color }: { src: string; color: string }) {
     const audio = new Audio(src);
     audio.preload = 'metadata';
     audio.addEventListener('loadedmetadata', () => setDuration(audio.duration || 0));
-    audio.addEventListener('timeupdate', () => setCurrentTime(audio.currentTime));
+    audio.addEventListener('timeupdate', () => {
+      if (!draggingRef.current) setCurrentTime(audio.currentTime);
+    });
     audio.addEventListener('ended', () => { setPlaying(false); setCurrentTime(0); });
     audioRef.current = audio;
     return () => { audio.pause(); audio.src = ''; };
@@ -55,14 +58,45 @@ function VoicePlayer({ src, color }: { src: string; color: string }) {
     setPlaying(!playing);
   };
 
-  const seek = (e: React.MouseEvent<HTMLDivElement>) => {
+  const seekFromEvent = useCallback((clientX: number) => {
     const a = audioRef.current;
-    if (!a || !duration) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-    a.currentTime = ratio * duration;
-    setCurrentTime(a.currentTime);
-  };
+    const bar = barRef.current;
+    if (!a || !bar || !duration) return;
+    const rect = bar.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    const newTime = ratio * duration;
+    a.currentTime = newTime;
+    setCurrentTime(newTime);
+  }, [duration]);
+
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    draggingRef.current = true;
+    seekFromEvent(e.clientX);
+
+    const onMove = (ev: MouseEvent) => seekFromEvent(ev.clientX);
+    const onUp = () => {
+      draggingRef.current = false;
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+    };
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  }, [seekFromEvent]);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    draggingRef.current = true;
+    seekFromEvent(e.touches[0].clientX);
+
+    const onMove = (ev: TouchEvent) => { ev.preventDefault(); seekFromEvent(ev.touches[0].clientX); };
+    const onEnd = () => {
+      draggingRef.current = false;
+      document.removeEventListener('touchmove', onMove);
+      document.removeEventListener('touchend', onEnd);
+    };
+    document.addEventListener('touchmove', onMove, { passive: false });
+    document.addEventListener('touchend', onEnd);
+  }, [seekFromEvent]);
 
   const fmt = (s: number) => {
     if (!s || !isFinite(s)) return '0:00';
@@ -87,18 +121,21 @@ function VoicePlayer({ src, color }: { src: string; color: string }) {
         {fmt(currentTime)} / {fmt(duration)}
       </span>
       <div
-        ref={progressRef}
-        onClick={seek}
-        className="flex-1 h-2 rounded-full cursor-pointer relative group"
-        style={{ background: '#d1d5db', minWidth: '60px' }}
+        ref={barRef}
+        onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
+        className="flex-1 relative cursor-pointer group"
+        style={{ minWidth: '60px', padding: '6px 0' }}
       >
+        <div className="h-1.5 rounded-full w-full" style={{ background: '#d1d5db' }}>
+          <div
+            className="h-full rounded-full"
+            style={{ width: `${progress}%`, background: '#374151', pointerEvents: 'none' }}
+          />
+        </div>
         <div
-          className="h-full rounded-full transition-[width] duration-100"
-          style={{ width: `${progress}%`, background: '#374151' }}
-        />
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
-          style={{ left: `calc(${progress}% - 6px)`, background: '#374151' }}
+          className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full shadow-sm"
+          style={{ left: `calc(${progress}% - 7px)`, background: '#374151', pointerEvents: 'none' }}
         />
       </div>
       <Volume2 size={14} style={{ color: '#6b7280', flexShrink: 0 }} />

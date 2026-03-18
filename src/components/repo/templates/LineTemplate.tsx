@@ -59,6 +59,16 @@ export default function LineTemplate({ data }: Props) {
           </span>
         </div>
 
+        {/* Nickname */}
+        {data.nickname && (
+          <div className="text-center py-1">
+            <div className="text-[10px] text-white/50 mb-0.5">♠ ニックネーム</div>
+            <div className="text-base font-semibold" style={{ color: '#4ECDC4' }}>
+              {data.nickname}<span className="text-white/40 font-normal text-sm">様</span>
+            </div>
+          </div>
+        )}
+
         {data.messages.map(msg => {
           if (msg.speaker === 'narration') {
             return (

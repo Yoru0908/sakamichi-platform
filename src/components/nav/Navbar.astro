@@ -1,11 +1,9 @@
 ---
-import { NAV_ITEMS } from '@/utils/navigation';
-import { t } from '@/i18n';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import LanguageSwitch from '@/components/ui/LanguageSwitch';
-import ToolsDropdown from './ToolsDropdown';
 import MobileDrawer from './MobileDrawer';
 import AuthButton from './AuthButton';
+import NavPill from './NavPill';
 
 interface Props {
   hideMobileDrawer?: boolean;
@@ -27,31 +25,8 @@ const currentPath = Astro.url.pathname;
         Sakamichi Tools
       </a>
 
-      <!-- Desktop links (Dynamic Island / floating bar) -->
-      <div class="hidden md:flex items-center gap-0.5 bg-[var(--bg-tertiary)]/60 backdrop-blur-sm rounded-full px-1 py-0.5 border border-[var(--border-secondary)]">
-        {NAV_ITEMS.map((item) =>
-          item.children ? (
-            <ToolsDropdown
-              client:load
-              item={item}
-              currentPath={currentPath}
-            />
-          ) : (
-            <a
-              href={item.href}
-              {...(item.href === '/blog' ? { 'data-astro-reload': true } : {})}
-              class:list={[
-                'px-3 py-1.5 text-xs font-medium rounded-full transition-all',
-                currentPath === item.href || currentPath.startsWith(item.href + '/')
-                  ? 'bg-[var(--color-brand-nogi)] text-white shadow-sm'
-                  : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)]',
-              ]}
-            >
-              {t(item.labelKey, 'zh')}
-            </a>
-          )
-        )}
-      </div>
+      <!-- Desktop links (Dynamic Island with sliding pill) -->
+      <NavPill client:load currentPath={currentPath} />
 
       <!-- Right actions -->
       <div class="flex items-center gap-1">

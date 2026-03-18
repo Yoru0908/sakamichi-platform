@@ -2,12 +2,12 @@ import { useState, useEffect, useCallback } from 'react';
 import { useStore } from '@nanostores/react';
 import {
   User, Star, Heart, Trash2, Edit3, Check, X, Shield,
-  Mail, Calendar, Clock, Link2, Search,
+  Mail, Calendar, Clock, Link2, Search, PenLine, FileImage, Image,
 } from 'lucide-react';
 import { $auth, initAuth, setAuth } from '@/stores/auth';
 import { $favorites, removeFavorite, addFavorite, toggleFavorite } from '@/stores/favorites';
 import {
-  getProfile, updateProfile,
+  getProfile, updateProfile, updatePreferences, changePassword,
   type UserProfile, type OAuthLink,
 } from '@/utils/auth-api';
 import { getGroupColor, getR2AvatarUrl, GROUP_CONFIG, sortedGenEntries, type MemberInfo } from '@/components/messages/msg-styles';
@@ -58,10 +58,15 @@ function ProviderIcon({ provider }: { provider: string }) {
 
 // ── Profile Tab ──
 function ProfileTab({ profile }: { profile: UserProfile }) {
+  const auth = useStore($auth);
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState(profile.user.displayName || '');
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
+  const [editingOshi, setEditingOshi] = useState(false);
+  const [oshiSearch, setOshiSearch] = useState('');
+  const [members, setMembers] = useState<MemberInfo[]>([]);
+  const [oshiSaving, setOshiSaving] = useState(false);
 
   const handleSave = async () => {
     setSaving(true);
@@ -154,15 +159,42 @@ function ProfileTab({ profile }: { profile: UserProfile }) {
             <p className="text-sm text-[var(--text-primary)] truncate">{profile.user.email}</p>
           </div>
         </div>
-        <div className="flex items-center gap-3 p-3 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)]">
+        <button
+          type="button"
+          onClick={() => {
+            setEditingOshi(!editingOshi);
+            if (!editingOshi && members.length === 0) {
+              fetch('/data/member-images.json')
+                .then(r => r.json())
+                .then(data => {
+                  const images = data.images || {};
+                  const allNames = new Set(Object.keys(images));
+                  const list: MemberInfo[] = Object.entries(images)
+                    .filter(([n]) => {
+                      if (!n.includes(' ')) {
+                        for (const other of allNames) {
+                          if (other !== n && other.includes(' ') && other.replace(/\s+/g, '') === n) return false;
+                        }
+                      }
+                      return true;
+                    })
+                    .map(([n, info]: [string, any]) => ({ name: n, imageUrl: info.imageUrl || info.url, group: info.group, generation: info.generation }));
+                  setMembers(list);
+                })
+                .catch(console.error);
+            }
+          }}
+          className="flex items-center gap-3 p-3 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] hover:border-amber-400 transition-colors cursor-pointer w-full text-left"
+        >
           <Star size={16} className="text-amber-500 flex-shrink-0" />
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <p className="text-[10px] text-[var(--text-tertiary)]">推しメン</p>
             <p className="text-sm text-[var(--text-primary)] truncate">
-              {profile.user.oshiMember || '未设置'}
+              {auth.oshiMember || '未设置'}
             </p>
           </div>
-        </div>
+          <Edit3 size={12} className="text-[var(--text-tertiary)] flex-shrink-0" />
+        </button>
         <div className="flex items-center gap-3 p-3 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)]">
           <Calendar size={16} className="text-[var(--text-tertiary)] flex-shrink-0" />
           <div className="min-w-0">
@@ -178,6 +210,71 @@ function ProfileTab({ profile }: { profile: UserProfile }) {
           </div>
         </div>
       </div>
+
+      {/* Oshi change panel */}
+      {editingOshi && (
+        <div className="border border-amber-300 rounded-lg p-4 bg-[var(--bg-secondary)]">
+          <div className="flex items-center justify-between mb-3">
+            <h4 className="text-sm font-semibold text-[var(--text-primary)]">推しメン変更</h4>
+            <button onClick={() => setEditingOshi(false)} className="p-1 rounded text-[var(--text-tertiary)] hover:bg-[var(--bg-tertiary)] cursor-pointer">
+              <X size={14} />
+            </button>
+          </div>
+          <div className="relative mb-3">
+            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
+            <input
+              type="text"
+              value={oshiSearch}
+              onChange={(e) => setOshiSearch(e.target.value)}
+              className="w-full pl-9 pr-3 py-2 text-sm border border-[var(--border-primary)] rounded-lg bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:outline-none focus:ring-2 focus:ring-amber-400/30"
+              placeholder="搜索成员..."
+            />
+          </div>
+          <div className="max-h-[30vh] overflow-y-auto">
+            <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
+              {members
+                .filter(m => !oshiSearch || m.name.toLowerCase().includes(oshiSearch.toLowerCase()))
+                .slice(0, 30)
+                .map(m => {
+                  const isCurrentOshi = auth.oshiMember === m.name;
+                  return (
+                    <button
+                      key={m.name}
+                      disabled={oshiSaving}
+                      onClick={async () => {
+                        setOshiSaving(true);
+                        await updatePreferences({ oshiMember: m.name });
+                        setAuth({ oshiMember: m.name });
+                        setOshiSaving(false);
+                        setEditingOshi(false);
+                      }}
+                      className={`rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
+                        isCurrentOshi ? 'border-amber-400 ring-2 ring-amber-400/30' : 'border-transparent hover:border-[var(--border-secondary)]'
+                      }`}
+                    >
+                      <div className="aspect-square w-full overflow-hidden">
+                        <img
+                          src={getR2AvatarUrl(m.name)}
+                          alt={m.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const img = e.target as HTMLImageElement;
+                            if (!img.dataset.fb) { img.dataset.fb = '1'; img.src = m.imageUrl; }
+                          }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <p className="text-[10px] text-[var(--text-primary)] truncate px-1 py-1 text-center">{m.name}</p>
+                    </button>
+                  );
+                })}
+            </div>
+            {members.length === 0 && (
+              <p className="text-xs text-[var(--text-tertiary)] text-center py-4">加载中...</p>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* OAuth links */}
       <div>
@@ -204,6 +301,79 @@ function ProfileTab({ profile }: { profile: UserProfile }) {
           </div>
         )}
       </div>
+
+      {/* Password change */}
+      <PasswordChangeSection />
+    </div>
+  );
+}
+
+// ── Password Change Section ──
+function PasswordChangeSection() {
+  const [open, setOpen] = useState(false);
+  const [currentPw, setCurrentPw] = useState('');
+  const [newPw, setNewPw] = useState('');
+  const [confirmPw, setConfirmPw] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [msg, setMsg] = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setMsg(null);
+    if (newPw.length < 8) { setMsg({ type: 'err', text: '新密码至少 8 个字符' }); return; }
+    if (newPw !== confirmPw) { setMsg({ type: 'err', text: '两次输入的密码不一致' }); return; }
+    setSaving(true);
+    const res = await changePassword({ currentPassword: currentPw, newPassword: newPw });
+    setSaving(false);
+    if (res.success) {
+      setMsg({ type: 'ok', text: '密码已修改' });
+      setCurrentPw(''); setNewPw(''); setConfirmPw('');
+      setTimeout(() => { setOpen(false); setMsg(null); }, 1500);
+    } else {
+      setMsg({ type: 'err', text: res.message || '修改失败' });
+    }
+  };
+
+  return (
+    <div>
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-2 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--color-brand-nogi)] transition-colors cursor-pointer"
+      >
+        <Shield size={14} />
+        修改密码
+        <svg className={`w-3 h-3 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+      </button>
+
+      {open && (
+        <form onSubmit={handleSubmit} className="mt-3 space-y-3 p-4 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)]">
+          {msg && (
+            <div className={`text-xs px-3 py-2 rounded-lg ${msg.type === 'ok' ? 'bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400' : 'bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400'}`}>
+              {msg.text}
+            </div>
+          )}
+          <div>
+            <label className="block text-xs text-[var(--text-tertiary)] mb-1">当前密码</label>
+            <input type="password" value={currentPw} onChange={e => setCurrentPw(e.target.value)} required
+              className="w-full px-3 py-2 text-sm border border-[var(--border-primary)] rounded-lg bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-nogi)]/30" />
+          </div>
+          <div>
+            <label className="block text-xs text-[var(--text-tertiary)] mb-1">新密码</label>
+            <input type="password" value={newPw} onChange={e => setNewPw(e.target.value)} required minLength={8}
+              className="w-full px-3 py-2 text-sm border border-[var(--border-primary)] rounded-lg bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-nogi)]/30" placeholder="至少 8 个字符" />
+          </div>
+          <div>
+            <label className="block text-xs text-[var(--text-tertiary)] mb-1">确认新密码</label>
+            <input type="password" value={confirmPw} onChange={e => setConfirmPw(e.target.value)} required
+              className="w-full px-3 py-2 text-sm border border-[var(--border-primary)] rounded-lg bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-nogi)]/30" />
+          </div>
+          <button type="submit" disabled={saving}
+            className="px-4 py-2 text-xs font-medium text-white rounded-lg cursor-pointer disabled:opacity-60"
+            style={{ backgroundColor: 'var(--color-brand-nogi)' }}>
+            {saving ? '保存中...' : '确认修改'}
+          </button>
+        </form>
+      )}
     </div>
   );
 }
@@ -460,8 +630,145 @@ function FavoritesTab() {
   );
 }
 
+// ── Saved Repo type (mirrors RepoPage) ──
+interface SavedRepo {
+  id: string;
+  label: string;
+  memberId: string;
+  memberName: string;
+  groupId: string;
+  memberImageUrl: string;
+  templateId: string;
+  updatedAt: number;
+}
+
+const REPO_LS_KEY = 'sakamichi_saved_repos';
+
+function loadSavedRepos(): SavedRepo[] {
+  try {
+    const raw = typeof window !== 'undefined' ? localStorage.getItem(REPO_LS_KEY) : null;
+    return raw ? JSON.parse(raw) : [];
+  } catch { return []; }
+}
+
+// ── Publications Tab ──
+function PublicationsTab() {
+  const [repos, setRepos] = useState<SavedRepo[]>(loadSavedRepos);
+  const [subTab, setSubTab] = useState<'repo' | 'photocard'>('repo');
+
+  const deleteRepo = (id: string) => {
+    const next = repos.filter(r => r.id !== id);
+    setRepos(next);
+    try { localStorage.setItem(REPO_LS_KEY, JSON.stringify(next)); } catch {}
+  };
+
+  const byMember: Record<string, SavedRepo[]> = {};
+  repos.forEach(r => {
+    if (!byMember[r.memberName]) byMember[r.memberName] = [];
+    byMember[r.memberName].push(r);
+  });
+
+  return (
+    <div className="space-y-4">
+      {/* Sub-tab toggle */}
+      <div className="flex gap-1 bg-[var(--bg-tertiary)] rounded-lg p-0.5">
+        <button
+          onClick={() => setSubTab('repo')}
+          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-md text-xs font-medium transition-all cursor-pointer ${
+            subTab === 'repo'
+              ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
+              : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+          }`}
+        >
+          <PenLine size={12} />
+          握手Repo ({repos.length})
+        </button>
+        <button
+          onClick={() => setSubTab('photocard')}
+          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-md text-xs font-medium transition-all cursor-pointer ${
+            subTab === 'photocard'
+              ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
+              : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+          }`}
+        >
+          <Image size={12} />
+          生写卡片 (0)
+        </button>
+      </div>
+
+      {/* Repo sub-tab */}
+      {subTab === 'repo' && (
+        repos.length === 0 ? (
+          <div className="text-center py-10">
+            <PenLine size={32} className="mx-auto text-[var(--text-tertiary)] mb-2" />
+            <p className="text-sm text-[var(--text-tertiary)] mb-1">还没有保存的 Repo</p>
+            <a href="/repo" className="inline-block mt-3 text-xs px-4 py-2 rounded-lg font-medium text-white" style={{ backgroundColor: 'var(--color-brand-nogi)' }}>
+              去创建
+            </a>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {Object.entries(byMember).map(([memberName, memberRepos]) => (
+              <div key={memberName} className="rounded-lg border border-[var(--border-primary)] overflow-hidden">
+                <div className="flex items-center gap-2 px-3 py-2 bg-[var(--bg-secondary)]">
+                  <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-[var(--bg-tertiary)]">
+                    <img
+                      src={getR2AvatarUrl(memberName)}
+                      alt={memberName}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const img = e.target as HTMLImageElement;
+                        if (!img.dataset.fb && memberRepos[0]) { img.dataset.fb = '1'; img.src = memberRepos[0].memberImageUrl; }
+                      }}
+                    />
+                  </div>
+                  <span className="text-xs font-medium text-[var(--text-primary)]">{memberName}</span>
+                  <span className="text-[10px] text-[var(--text-tertiary)] ml-auto">{memberRepos.length} 个</span>
+                </div>
+                <div className="divide-y divide-[var(--border-primary)]">
+                  {memberRepos.map(repo => (
+                    <div key={repo.id} className="flex items-center gap-3 px-3 py-2 group hover:bg-[var(--bg-secondary)] transition-colors">
+                      <PenLine size={12} className="text-[var(--text-tertiary)] flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <a href="/repo" className="text-xs font-medium text-[var(--text-primary)] hover:text-[var(--color-brand-nogi)] truncate block">
+                          {repo.label}
+                        </a>
+                        <p className="text-[10px] text-[var(--text-tertiary)]">
+                          {new Date(repo.updatedAt).toLocaleDateString('zh-CN', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => deleteRepo(repo.id)}
+                        className="p-1 rounded opacity-0 group-hover:opacity-100 text-[var(--text-tertiary)] hover:text-red-500 transition-all cursor-pointer"
+                        title="删除"
+                      >
+                        <Trash2 size={12} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )
+      )}
+
+      {/* Photocard sub-tab (placeholder) */}
+      {subTab === 'photocard' && (
+        <div className="text-center py-10">
+          <Image size={32} className="mx-auto text-[var(--text-tertiary)] mb-2" />
+          <p className="text-sm text-[var(--text-tertiary)] mb-1">生写卡片保存功能即将上线</p>
+          <a href="/photocard" className="inline-block mt-3 text-xs px-4 py-2 rounded-lg font-medium text-white" style={{ backgroundColor: 'var(--color-brand-nogi)' }}>
+            去创建
+          </a>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Main Dashboard ──
-type Tab = 'profile' | 'favorites';
+type Tab = 'profile' | 'favorites' | 'publications';
 
 export default function UserDashboard() {
   const auth = useStore($auth);
@@ -502,35 +809,41 @@ export default function UserDashboard() {
   const tabs: { key: Tab; label: string; icon: typeof User }[] = [
     { key: 'profile', label: '个人资料', icon: User },
     { key: 'favorites', label: '收藏管理', icon: Heart },
+    { key: 'publications', label: '我的发布', icon: PenLine },
   ];
 
   return (
-    <div className="max-w-2xl mx-auto">
-      {/* Tab navigation */}
-      <div className="flex gap-1 mb-6 border-b border-[var(--border-primary)]">
-        {tabs.map((t) => {
-          const Icon = t.icon;
-          const isActive = tab === t.key;
-          return (
-            <button
-              key={t.key}
-              onClick={() => setTab(t.key)}
-              className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium border-b-2 transition-colors cursor-pointer ${
-                isActive
-                  ? 'border-[var(--color-brand-nogi)] text-[var(--color-brand-nogi)]'
-                  : 'border-transparent text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
-              }`}
-            >
-              <Icon size={14} />
-              {t.label}
-            </button>
-          );
-        })}
+    <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-6">
+      {/* Left sidebar tabs */}
+      <div className="md:w-48 flex-shrink-0">
+        <nav className="flex md:flex-col gap-1 md:sticky md:top-20 overflow-x-auto md:overflow-visible border-b md:border-b-0 border-[var(--border-primary)] md:border-r md:border-[var(--border-primary)] pb-2 md:pb-0 md:pr-4">
+          {tabs.map((t) => {
+            const Icon = t.icon;
+            const isActive = tab === t.key;
+            return (
+              <button
+                key={t.key}
+                onClick={() => setTab(t.key)}
+                className={`flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer whitespace-nowrap ${
+                  isActive
+                    ? 'bg-[var(--color-brand-nogi)]/10 text-[var(--color-brand-nogi)]'
+                    : 'text-[var(--text-tertiary)] hover:bg-[var(--bg-tertiary)] hover:text-[var(--text-secondary)]'
+                }`}
+              >
+                <Icon size={14} />
+                {t.label}
+              </button>
+            );
+          })}
+        </nav>
       </div>
 
-      {/* Tab content */}
-      {tab === 'profile' && profile && <ProfileTab profile={profile} />}
-      {tab === 'favorites' && <FavoritesTab />}
+      {/* Right content */}
+      <div className="flex-1 min-w-0">
+        {tab === 'profile' && profile && <ProfileTab profile={profile} />}
+        {tab === 'favorites' && <FavoritesTab />}
+        {tab === 'publications' && <PublicationsTab />}
+      </div>
     </div>
   );
 }

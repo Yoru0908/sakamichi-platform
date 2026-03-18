@@ -43,10 +43,18 @@ export function clearCookies(res: Response, names: string[]): Response {
   return new Response(res.body, { status: res.status, headers });
 }
 
+/** Check if origin is allowed (exact match or *.pages.dev pattern) */
+function isAllowedOrigin(origin: string, allowed: string[]): boolean {
+  if (allowed.includes(origin)) return true;
+  // Allow any *.sakamichi-platform-test.pages.dev deployment URL
+  if (/^https:\/\/[a-z0-9-]+\.sakamichi-platform-test\.pages\.dev$/.test(origin)) return true;
+  return false;
+}
+
 /** Add CORS headers (supports multiple origins via CORS_ORIGIN comma-separated) */
 export function withCors(res: Response, env: Env, requestOrigin?: string | null): Response {
   const allowed = env.CORS_ORIGIN.split(',').map((s: string) => s.trim());
-  const origin = requestOrigin && allowed.includes(requestOrigin) ? requestOrigin : allowed[0];
+  const origin = requestOrigin && isAllowedOrigin(requestOrigin, allowed) ? requestOrigin : allowed[0];
 
   const headers = new Headers(res.headers);
   headers.set('Access-Control-Allow-Origin', origin);

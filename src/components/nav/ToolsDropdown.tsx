@@ -8,9 +8,10 @@ import type { NavItem } from '@/utils/navigation';
 interface Props {
   item: NavItem;
   currentPath: string;
+  pillState?: 'active' | 'hovered' | 'idle';
 }
 
-export default function ToolsDropdown({ item, currentPath }: Props) {
+export default function ToolsDropdown({ item, currentPath, pillState = 'idle' }: Props) {
   const lang = useStore($language);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -47,11 +48,15 @@ export default function ToolsDropdown({ item, currentPath }: Props) {
     >
       <a
         href={item.href}
-        className={`flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full transition-all ${
-          isActive
-            ? 'bg-[var(--color-brand-nogi)] text-white shadow-sm'
-            : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)]'
-        }`}
+        className="relative z-10 flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full transition-colors"
+        style={{
+          color:
+            pillState === 'hovered'
+              ? 'var(--text-primary)'
+              : pillState === 'active'
+                ? '#fff'
+                : 'var(--text-secondary)',
+        }}
       >
         {t(item.labelKey, lang)}
         <ChevronDown

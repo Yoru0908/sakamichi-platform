@@ -40,7 +40,7 @@ export default function SakumimiArchive() {
   const [error, setError] = useState('');
 
   // Members data
-  const [sakuraMembers, setSakuraMembers] = useState<{ name: string; imageUrl: string }[]>([]);
+  const [sakuraMembers, setSakuraMembers] = useState<{ name: string; imageUrl: string; generation: string }[]>([]);
   const [selectedMembers, setSelectedMembers] = useState<Set<string>>(new Set());
   const [showMemberFilter, setShowMemberFilter] = useState(false);
 
@@ -79,11 +79,17 @@ export default function SakumimiArchive() {
           .sort((a, b) => b.ep - a.ep);
         setEpisodes(eps);
 
-        // Extract sakurazaka members (no-space names only)
+        // Extract sakurazaka members (no-space names only), sort by generation then あいうえお
+        const GEN_ORDER: Record<string, number> = { '二期生': 1, '三期生': 2, '四期生': 3 };
         const members = Object.entries(membersData.images || {})
           .filter(([name, v]: [string, any]) => v.group === '樱坂46' && !name.includes(' '))
-          .map(([name, v]: [string, any]) => ({ name, imageUrl: v.imageUrl }))
-          .sort((a, b) => a.name.localeCompare(b.name, 'ja'));
+          .map(([name, v]: [string, any]) => ({ name, imageUrl: v.imageUrl, generation: v.generation || '' }))
+          .sort((a, b) => {
+            const ga = GEN_ORDER[a.generation] ?? 99;
+            const gb = GEN_ORDER[b.generation] ?? 99;
+            if (ga !== gb) return ga - gb;
+            return a.name.localeCompare(b.name, 'ja');
+          });
         setSakuraMembers(members);
       })
       .catch(e => {
@@ -235,7 +241,7 @@ export default function SakumimiArchive() {
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={i} className="animate-pulse rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5">
             <div className="flex gap-4">
-              <div className="w-24 h-24 rounded-lg bg-[var(--bg-tertiary)]" />
+              <div className="w-36 sm:w-48 aspect-video rounded-lg bg-[var(--bg-tertiary)]" />
               <div className="flex-1 space-y-2">
                 <div className="h-4 bg-[var(--bg-tertiary)] rounded w-20" />
                 <div className="h-3 bg-[var(--bg-tertiary)] rounded w-full" />
@@ -270,30 +276,53 @@ export default function SakumimiArchive() {
 
         {showMemberFilter && (
           <div className="px-4 pb-4 border-t border-[var(--border-primary)]">
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 mt-3">
-              {sakuraMembers.map(m => (
-                <button
-                  key={m.name}
-                  onClick={() => toggleMember(m.name)}
-                  className={`flex items-center gap-1.5 px-2 py-1.5 rounded-lg text-[10px] font-medium transition-all ${
-                    selectedMembers.has(m.name)
-                      ? 'text-white shadow-sm'
-                      : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
-                  }`}
-                  style={selectedMembers.has(m.name) ? { backgroundColor: BRAND_PINK } : {}}
-                >
-                  {m.imageUrl && (
-                    <img
-                      src={m.imageUrl}
-                      alt={m.name}
-                      className="w-5 h-5 rounded-full object-cover shrink-0"
-                      loading="lazy"
-                    />
-                  )}
-                  <span className="truncate">{m.name}</span>
-                </button>
-              ))}
-            </div>
+            {(() => {
+              const groups: { gen: string; members: typeof sakuraMembers }[] = [];
+              let current: typeof sakuraMembers = [];
+              let currentGen = '';
+              for (const m of sakuraMembers) {
+                if (m.generation !== currentGen) {
+                  if (current.length > 0) groups.push({ gen: currentGen, members: current });
+                  current = [m];
+                  currentGen = m.generation;
+                } else {
+                  current.push(m);
+                }
+              }
+              if (current.length > 0) groups.push({ gen: currentGen, members: current });
+
+              return groups.map((g, gi) => (
+                <div key={g.gen}>
+                  <div className={`text-[10px] font-semibold text-[var(--text-tertiary)] ${gi > 0 ? 'mt-3 pt-2 border-t border-[var(--border-primary)]' : 'mt-3'} mb-1.5`}>
+                    {g.gen || '不明'}
+                  </div>
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+                    {g.members.map(m => (
+                      <button
+                        key={m.name}
+                        onClick={() => toggleMember(m.name)}
+                        className={`flex items-center gap-1.5 px-2 py-1.5 rounded-lg text-[10px] font-medium transition-all ${
+                          selectedMembers.has(m.name)
+                            ? 'text-white shadow-sm'
+                            : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
+                        }`}
+                        style={selectedMembers.has(m.name) ? { backgroundColor: BRAND_PINK } : {}}
+                      >
+                        {m.imageUrl && (
+                          <img
+                            src={m.imageUrl}
+                            alt={m.name}
+                            className="w-5 h-5 rounded-full object-cover shrink-0"
+                            loading="lazy"
+                          />
+                        )}
+                        <span className="truncate">{m.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ));
+            })()}
             {selectedMembers.size > 0 && (
               <div className="mt-3 flex items-center gap-2">
                 <button
@@ -343,12 +372,12 @@ export default function SakumimiArchive() {
                   <img
                     src={ep.cover_url || ep.image}
                     alt={`#${ep.ep}`}
-                    className="w-28 sm:w-36 aspect-[3/4] rounded-lg object-cover bg-[var(--bg-tertiary)]"
+                    className="w-36 sm:w-48 aspect-video rounded-lg object-cover bg-[var(--bg-tertiary)]"
                     loading="lazy"
                   />
                 ) : (
                   <div
-                    className="w-28 sm:w-36 aspect-[3/4] rounded-lg flex items-center justify-center text-white text-lg font-bold"
+                    className="w-36 sm:w-48 aspect-video rounded-lg flex items-center justify-center text-white text-lg font-bold"
                     style={{ backgroundColor: BRAND_PINK }}
                   >
                     #{ep.ep}

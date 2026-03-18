@@ -15,6 +15,7 @@ export interface NavGroup {
 
 /** Desktop top-level navigation items (Phase 1: flat + 1 dropdown) */
 export const NAV_ITEMS: NavItem[] = [
+  { labelKey: 'nav.home', href: '/', icon: 'Home' },
   { labelKey: 'nav.blog', href: '/blog', icon: 'Pen' },
   { labelKey: 'nav.messages', href: '/messages', icon: 'MessageCircle' },
   { labelKey: 'nav.radio', href: '/radio', icon: 'Radio' },

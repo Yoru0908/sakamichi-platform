@@ -23,6 +23,7 @@ import {
   handleRemoveBookmark,
 } from './routes/preferences';
 import { handleGetProfile, handleUpdateProfile } from './routes/profile';
+import { handleChangePassword } from './routes/password';
 
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
@@ -78,6 +79,8 @@ export default {
         res = await handleGetFavorites(req, env);
       } else if (path === '/api/user/favorites' && method === 'PUT') {
         res = await handleUpdateFavorites(req, env);
+      } else if (path === '/api/user/password' && method === 'PUT') {
+        res = await handleChangePassword(req, env);
 
       // ── Episode bookmark routes ──
       } else if (path === '/api/user/bookmarks' && method === 'GET') {

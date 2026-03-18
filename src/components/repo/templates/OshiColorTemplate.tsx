@@ -41,9 +41,10 @@ export default function OshiColorTemplate({ data }: Props) {
         </div>
         {data.nickname && (
           <div className="mt-3 text-center">
-            <span className="inline-block px-3 py-1 rounded-full bg-white/15 text-xs font-medium">
-              ♠ {data.nickname}様
-            </span>
+            <div className="text-[10px] opacity-60 mb-0.5">♠ ニックネーム</div>
+            <div className="text-base font-semibold" style={{ color: '#4ECDC4' }}>
+              {data.nickname}<span className="opacity-50 font-normal text-sm">様</span>
+            </div>
           </div>
         )}
       </div>
