@@ -1,21 +1,13 @@
 ---
-import { ClientRouter } from 'astro:transitions';
 import '@/styles/global.css';
 import Navbar from '@/components/nav/Navbar.astro';
 import Footer from '@/components/footer/Footer.astro';
 
 interface Props {
   title?: string;
-  description?: string;
 }
 
-const {
-  title = '坂道博客翻译 - Sakamichi Tools',
-  description = '坂道博客翻译 - 乃木坂46、樱坂46、日向坂46成员博客中文翻译，每日更新，提供双语对照阅读',
-} = Astro.props;
-
-const siteUrl = Astro.site || new URL('https://sakamichi-tools.cn');
-const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const { title = '坂道博客翻译 - Sakamichi Tools' } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -23,34 +15,26 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content={description}>
-  <meta name="theme-color" content="#742581">
+  <meta name="description" content="坂道博客翻译 - 乃木坂46、樱坂46、日向坂46成员博客中文翻译，每日更新，提供双语对照阅读">
   <title>{title}</title>
-  <link rel="canonical" href={canonicalURL} />
-
-  <!-- Favicons -->
+  
   <link rel="icon" type="image/jpeg" href="/images/sakamichi.jpg">
   <link rel="apple-touch-icon" href="/images/sakamichi.jpg">
+  <meta name="theme-color" content="#742581">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content={canonicalURL}>
-  <meta property="og:title" content={title}>
-  <meta property="og:description" content={description}>
-  <meta property="og:image" content={new URL('/images/sakamichi.jpg', siteUrl).toString()}>
-
-  <!-- Fonts (shared with BaseLayout) -->
+  <!-- Fonts (same as BaseLayout) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  
   <link rel="preconnect" href="https://api.sakamichi-tools.cn">
   <link rel="preconnect" href="https://res.cloudinary.com">
-
-  <!-- Blog-specific CSS (scoped — no global reset, no DaisyUI) -->
-  <link rel="stylesheet" href="/css/blog/main-styles.css?v=5">
+  
+  <!-- Blog-specific CSS (from existing project) -->
+  <link rel="stylesheet" href="/css/blog/tailwind-output.css?v=2">
+  <link rel="stylesheet" href="/css/blog/main-styles.css?v=4">
   <link rel="stylesheet" href="/css/blog/mobile.css?v=2" media="(max-width: 768px)">
-
+  
   <link rel="preload" href="/css/blog/transitions.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="/css/blog/calendar-component.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="/css/blog/dark-theme.css?v=3" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -69,12 +53,12 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
   <script src="/js/blog/members-data.js?v=2" defer is:inline></script>
   <script src="/js/blog/utils/markdown-processor.js?v=2" defer is:inline></script>
   <script src="/js/blog/structured-renderer.js?v=2" defer is:inline></script>
-
+  
   <!-- Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js" defer></script>
-
+  
   <!-- UI modules -->
   <script src="/js/blog/theme-toggle.js?v=2" defer is:inline></script>
   <script src="/js/blog/language-toggle.js?v=2" defer is:inline></script>
@@ -85,7 +69,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
   <script src="/js/blog/image-download.js?v=2" defer is:inline></script>
   <script src="/js/blog/mobile-download.js?v=2" defer is:inline></script>
 
-  <!-- Theme: prevent flash of wrong theme -->
+  <!-- Theme: prevent flash of wrong theme (synced with platform + blog toggle) -->
   <script is:inline>
     (function() {
       var t = localStorage.getItem('theme');
@@ -102,16 +86,59 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     .blog-image-wrapper { background: #f5f5f5; border-radius: 8px; min-height: 200px; overflow: hidden; position: relative; }
     .blog-image-wrapper img { width: 100%; height: auto; display: block; opacity: 0; transition: opacity 0.3s ease-in; }
     .blog-image-wrapper img.loaded { opacity: 1; }
+    /* Fix: blog's tailwind-output.css (Tailwind v3 + DaisyUI) overrides platform nav */
+    @media (min-width: 768px) {
+      nav .hidden.md\:flex { display: flex !important; }
+      nav .hidden.md\:inline-flex { display: inline-flex !important; }
+    }
+    /* Protect Navbar auth button from blog CSS interference */
+    nav a[href="/auth/login"] {
+      background-color: var(--color-brand-nogi) !important;
+      color: #fff !important;
+      border-radius: 0.5rem !important;
+      padding: 0.375rem 0.875rem !important;
+      font-size: 0.875rem !important;
+      font-weight: 500 !important;
+      border: none !important;
+      text-decoration: none !important;
+      line-height: 1.25rem !important;
+    }
+    nav a[href="/auth/login"]:hover {
+      background-color: var(--color-brand-nogi-dark, #5e1a66) !important;
+    }
+    /* Protect nav layout from DaisyUI/Tailwind v3 resets */
+    nav.sticky {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 40 !important;
+    }
+    nav .flex { display: flex !important; }
+    nav .items-center { align-items: center !important; }
+    nav .justify-between { justify-content: space-between !important; }
+    nav .h-14 { height: 3.5rem !important; }
+    /* Protect Dynamic Island floating bar from blog CSS */
+    nav .gap-0\.5 { gap: 0.125rem !important; }
+    nav .gap-1 { gap: 0.25rem !important; }
+    nav .gap-1\.5 { gap: 0.375rem !important; }
+    nav .rounded-full { border-radius: 9999px !important; }
+    nav .backdrop-blur-sm { backdrop-filter: blur(4px) !important; -webkit-backdrop-filter: blur(4px) !important; }
+    nav .px-1 { padding-left: 0.25rem !important; padding-right: 0.25rem !important; }
+    nav .py-0\.5 { padding-top: 0.125rem !important; padding-bottom: 0.125rem !important; }
+    nav .px-3 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+    nav .py-1\.5 { padding-top: 0.375rem !important; padding-bottom: 0.375rem !important; }
+    nav .text-xs { font-size: 0.75rem !important; line-height: 1rem !important; }
+    nav .font-medium { font-weight: 500 !important; }
+    nav .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important; }
+    nav .border { border-width: 1px !important; }
   </style>
 
-  <ClientRouter />
 </head>
 <body class="min-h-screen font-sans antialiased">
   <a href="#main-content" class="skip-link">Skip to content</a>
 
   <Navbar hideMobileDrawer={true} />
 
-  <main id="main-content" class="blog-page-root min-h-[calc(100vh-3.5rem)]">
+  <main id="main-content">
     <slot />
   </main>
 

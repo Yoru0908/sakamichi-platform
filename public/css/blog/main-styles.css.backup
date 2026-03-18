@@ -3,11 +3,21 @@
    从index.html提取的样式
    ================================ */
 
-/* 基础样式 — 全局 reset 已由平台 global.css 提供，此处仅补充博客页面特有 */
-.blog-page-root {
+/* 基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans SC", "Noto Sans JP", "Microsoft YaHei UI", "Yu Gothic UI", "Microsoft YaHei", "Yu Gothic", sans-serif;
   background-color: var(--bg-secondary);
   color: var(--text-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* 桌面端隐藏移动端元素 */
