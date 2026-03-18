@@ -1,12 +1,13 @@
 export const zh = {
   // Nav
-  'nav.blog': '博客翻译',
-  'nav.messages': 'MSG归档',
+  'nav.blog': '博客',
+  'nav.messages': 'MSG',
   'nav.radio': '广播',
-  'nav.instagram': 'INS归档',
+  'nav.instagram': 'INS',
   'nav.gallery': '画廊',
-  'nav.photocard': '生写卡片',
-  'nav.tools': '工具箱',
+  'nav.photocard': '生写生成',
+  'nav.repo': '握手Repo',
+  'nav.tools': '更多工具',
   'nav.tools.photocard': '生写生成器',
   'nav.tools.msg_generator': 'MSG样式生成器',
   'nav.tools.subtitle_bg': '字幕底图制作',

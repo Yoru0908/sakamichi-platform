@@ -7,6 +7,7 @@ export const en: Record<TranslationKey, string> = {
   'nav.instagram': 'INS Archive',
   'nav.gallery': 'Gallery',
   'nav.photocard': 'Photocard',
+  'nav.repo': 'Repo',
   'nav.tools': 'Tools',
   'nav.tools.photocard': 'Photocard Generator',
   'nav.tools.msg_generator': 'MSG Style Generator',

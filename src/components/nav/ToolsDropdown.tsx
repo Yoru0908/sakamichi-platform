@@ -47,15 +47,15 @@ export default function ToolsDropdown({ item, currentPath }: Props) {
     >
       <a
         href={item.href}
-        className={`flex items-center gap-1 px-1 py-2 text-sm font-medium transition-colors ${
+        className={`flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-full transition-all ${
           isActive
-            ? 'text-[var(--color-brand-nogi)]'
-            : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+            ? 'bg-[var(--color-brand-nogi)] text-white shadow-sm'
+            : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)]'
         }`}
       >
         {t(item.labelKey, lang)}
         <ChevronDown
-          size={14}
+          size={12}
           className={`transition-transform ${open ? 'rotate-180' : ''}`}
         />
       </a>

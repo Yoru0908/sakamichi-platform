@@ -20,6 +20,7 @@ export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'nav.radio', href: '/radio', icon: 'Radio' },
   { labelKey: 'nav.instagram', href: '/instagram', icon: 'Camera' },
   { labelKey: 'nav.photocard', href: '/photocard', icon: 'Image' },
+  { labelKey: 'nav.repo', href: '/repo', icon: 'Mic' },
   {
     labelKey: 'nav.tools',
     href: '/tools',
@@ -48,6 +49,7 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
   {
     groupKey: 'nav.group.community',
     items: [
+      { labelKey: 'nav.repo', href: '/repo', icon: 'Mic' },
       { labelKey: 'nav.photocard', href: '/photocard', icon: 'Image' },
       { labelKey: 'nav.gallery', href: '/gallery', icon: 'ImagePlus' },
     ],

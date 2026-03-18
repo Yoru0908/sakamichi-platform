@@ -7,6 +7,7 @@ export const ja: Record<TranslationKey, string> = {
   'nav.instagram': 'INSアーカイブ',
   'nav.gallery': 'ギャラリー',
   'nav.photocard': '生写真カード',
+  'nav.repo': '握手Repo',
   'nav.tools': 'ツールボックス',
   'nav.tools.photocard': '生写真ジェネレーター',
   'nav.tools.msg_generator': 'MSGスタイルジェネレーター',
