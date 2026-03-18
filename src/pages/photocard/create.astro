@@ -1,0 +1,20 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { ArrowLeft } from 'lucide-astro';
+import PhotocardGenerator from '@/components/photocard/PhotocardGenerator';
+---
+
+<BaseLayout title="创作生写卡片 - Sakamichi Tools">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="mb-6">
+      <a href="/photocard" class="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--color-brand-sakura)] hover:underline mb-3">
+        <ArrowLeft size={14} />
+        返回生写卡片
+      </a>
+      <h1 class="text-2xl font-bold text-[var(--text-primary)]">创作生写卡片</h1>
+      <p class="text-sm text-[var(--text-tertiary)] mt-1">选择团体和成员，自定义文字与样式，生成高清卡片</p>
+    </div>
+
+    <PhotocardGenerator client:load />
+  </div>
+</BaseLayout>

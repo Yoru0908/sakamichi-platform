@@ -1,0 +1,68 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Image, Heart, Upload, Filter } from 'lucide-astro';
+---
+
+<BaseLayout title="作品画廊 - Sakamichi Tools">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Page header -->
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-2">
+        <Image size={18} class="text-[var(--color-brand-sakura)]" />
+        <h1 class="text-2xl font-bold text-[var(--text-primary)]">作品画廊</h1>
+        <span class="text-[10px] px-1.5 py-0.5 rounded bg-[var(--bg-tertiary)] text-[var(--text-tertiary)] font-medium">Phase 9+</span>
+      </div>
+      <button class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg text-white transition-opacity hover:opacity-90" style="background-color: var(--color-brand-sakura);">
+        <Upload size={12} />
+        分享作品
+      </button>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="flex items-center gap-3 mb-6 flex-wrap">
+      <div class="flex items-center gap-1 text-[var(--text-tertiary)]">
+        <Filter size={12} />
+        <span class="text-[10px]">筛选:</span>
+      </div>
+      {['全部', '生写卡片', 'MSG截图', '最新', '最热'].map((tag, i) => (
+        <button
+          class:list={[
+            "px-2.5 py-1 text-[10px] rounded-full border transition-colors duration-200",
+            i === 0
+              ? "border-[var(--color-brand-sakura)] text-[var(--color-brand-sakura)] bg-[var(--color-brand-sakura)]/5"
+              : "border-[var(--border-primary)] text-[var(--text-tertiary)] hover:border-[var(--border-secondary)]",
+          ]}
+        >
+          {tag}
+        </button>
+      ))}
+    </div>
+
+    <!-- Gallery grid (skeleton) -->
+    <div class="columns-2 sm:columns-3 md:columns-4 gap-3 space-y-3">
+      {[180, 240, 200, 280, 220, 160, 260, 200, 180, 240, 200, 220].map((h) => (
+        <div
+          class="break-inside-avoid rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] overflow-hidden"
+        >
+          <div class="bg-[var(--bg-tertiary)] animate-pulse" style={`height: ${h}px;`}></div>
+          <div class="p-2.5">
+            <div class="flex items-center justify-between">
+              <div class="h-2.5 bg-[var(--bg-tertiary)] rounded animate-pulse w-16"></div>
+              <div class="flex items-center gap-1 text-[var(--text-tertiary)]">
+                <Heart size={10} />
+                <span class="text-[10px]">--</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Status -->
+    <div class="mt-8 text-center">
+      <p class="text-xs text-[var(--text-tertiary)]">
+        画廊功能将在用户系统上线后启用（Phase 9+）
+      </p>
+    </div>
+  </div>
+</BaseLayout>

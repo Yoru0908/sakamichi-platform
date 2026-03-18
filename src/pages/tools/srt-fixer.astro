@@ -1,0 +1,80 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Clock, ArrowLeft } from 'lucide-astro';
+---
+
+<BaseLayout title="SRT时间轴修复 - Sakamichi Tools">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header -->
+    <div class="mb-6">
+      <a href="/tools" class="inline-flex items-center gap-1 text-xs text-[var(--text-tertiary)] hover:text-[var(--color-brand-nogi)] transition-colors mb-3">
+        <ArrowLeft size={12} /> 返回工具箱
+      </a>
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: color-mix(in srgb, var(--color-brand-nogi) 12%, transparent); color: var(--color-brand-nogi);">
+          <Clock size={18} />
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-[var(--text-primary)]">SRT/ASS 时间轴修复工具</h1>
+          <p class="text-xs text-[var(--text-tertiary)]">修复字幕时间戳格式不规范导致的时间轴异常</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drop zone -->
+    <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5 mb-5">
+      <p class="text-sm font-medium text-[var(--text-primary)] mb-3">选择 SRT, ASS, 或 TXT 文件</p>
+      <div id="drop-area" class="border-2 border-dashed border-[var(--border-secondary)] rounded-lg p-8 text-center cursor-pointer hover:border-[var(--color-brand-nogi)] transition-colors bg-[var(--bg-secondary)]">
+        <p class="text-sm text-[var(--text-tertiary)] mb-2">拖拽文件到这里，或者</p>
+        <button type="button" id="btn-select-file" class="px-4 py-2 text-sm font-medium rounded-lg text-white transition-colors" style="background: var(--color-brand-nogi);">
+          点击选择文件
+        </button>
+        <input id="file-input" type="file" accept=".srt,.txt,.ass" class="hidden" />
+      </div>
+      <div class="mt-4 text-xs text-[var(--text-tertiary)] space-y-2">
+        <p class="font-semibold text-[var(--text-secondary)]">核心功能（两阶段修复）：</p>
+        <ul class="list-disc list-inside space-y-1 ml-1">
+          <li><strong>格式与顺序修复:</strong> 解决时间戳格式不规范导致的时间轴"倒流"问题</li>
+          <li><strong>缺少分钟/小时:</strong> 自动推测并修正缺失的时间部分</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tool switcher -->
+    <div class="flex justify-center mb-5">
+      <div id="tool-switcher" class="relative flex items-center bg-[var(--bg-tertiary)] p-1 rounded-full">
+        <div class="tool-switcher-bg"></div>
+        <button id="btn-tool-srt" class="tool-switcher-btn relative z-10 px-4 py-1.5 text-xs font-medium rounded-full transition-colors" data-tool="srt">SRT 修复</button>
+        <button id="btn-tool-ass" class="tool-switcher-btn relative z-10 px-4 py-1.5 text-xs font-medium rounded-full transition-colors" data-tool="ass">ASS 修复</button>
+      </div>
+    </div>
+
+    <!-- Preview panels -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+      <div>
+        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-2">原始文件预览</label>
+        <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
+          <textarea id="preview-src" rows="18" class="w-full p-3 border border-[var(--border-primary)] rounded-lg text-xs font-mono resize-vertical bg-[var(--bg-secondary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)]" placeholder="载入文件后显示"></textarea>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-2">修复后文件预览</label>
+        <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
+          <textarea id="preview-fixed" rows="18" class="w-full p-3 border border-[var(--border-primary)] rounded-lg text-xs font-mono resize-vertical bg-[var(--bg-secondary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)]" placeholder="点击修复后显示"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5">
+      <div id="summary-panel" class="text-sm text-[var(--text-secondary)] mb-3"></div>
+      <div class="flex flex-wrap items-center gap-3">
+        <input id="filename-fixed" class="flex-1 min-w-[200px] px-3 py-2 border border-[var(--border-primary)] rounded-lg text-sm bg-[var(--bg-secondary)] text-[var(--text-primary)]" placeholder="fixed_subtitle" />
+        <button id="btn-fix" class="px-4 py-2 text-sm font-medium rounded-lg text-white transition-colors" style="background: var(--color-brand-nogi);">执行修复</button>
+        <button id="btn-export-fixed" class="px-4 py-2 text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-colors">导出修复后的文件</button>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline src="/js/tools/srt-fixer.js"></script>
+</BaseLayout>

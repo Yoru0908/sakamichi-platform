@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="关于本站 - Sakamichi Tools">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="text-2xl font-bold text-[var(--text-primary)] mb-8">关于本站</h1>
+    <div class="prose prose-sm max-w-none text-[var(--text-secondary)] space-y-4">
+      <p>
+        <strong>Sakamichi Tools</strong> 是一个非官方坂道系列粉丝工具平台，
+        旨在为乃木坂46、樱坂46、日向坂46的粉丝提供便利的信息聚合与创作工具。
+      </p>
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">主要功能</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>博客翻译</strong> — 成员博客中日翻译，每日更新</li>
+        <li><strong>MSG归档</strong> — 成员消息归档与翻译</li>
+        <li><strong>广播</strong> — 实时收听与节目归档</li>
+        <li><strong>INS归档</strong> — Instagram 动态归档</li>
+        <li><strong>工具箱</strong> — 生写生成器、字幕工具等</li>
+      </ul>
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">技术栈</h2>
+      <p>Astro 6 + React + Tailwind CSS 4 + Cloudflare (Pages / Workers / D1 / R2)</p>
+    </div>
+  </div>
+</BaseLayout>

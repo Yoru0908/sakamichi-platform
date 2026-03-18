@@ -1,0 +1,182 @@
+/**
+ * 日历组件样式
+ * 仿照官网蓝色主题的日历设计
+ */
+
+.calendar-section {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 20px;
+  overflow: visible;
+}
+
+.calendar-month-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calendar-month-selector:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--color-brand-nogi, #742581);
+}
+
+.calendar-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text-secondary);
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.calendar-nav-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--color-brand-nogi, #742581);
+}
+
+.calendar-dates {
+  margin-top: 16px;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.calendar-weekday {
+  text-align: center;
+  padding: 8px 0;
+  font-weight: bold;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  font-size: 12px;  /* 参照成员页 */
+}
+
+.calendar-day-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 12px;
+}
+
+.calendar-day-cell:hover {
+  background: var(--bg-tertiary);
+}
+
+.calendar-day-cell.has-blog {
+  background: var(--bg-tertiary);
+  color: var(--color-brand-nogi, #742581);
+  font-weight: bold;
+}
+
+.calendar-day-cell.is-today {
+  background: var(--color-brand-nogi, #742581);
+  color: white;
+}
+
+.calendar-day-empty {
+  aspect-ratio: 1;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calendar-dates {
+  animation: fadeIn 0.3s ease;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .calendar-section {
+    padding: 16px;
+  }
+  
+  .calendar-day-cell {
+    font-size: 12px;
+    padding: 6px;
+  }
+  
+  .calendar-weekday {
+    font-size: 10px;
+    padding: 6px 0;
+  }
+}
+
+/* ========== 暗色模式支持（使用CSS变量系统）========== */
+.dark .calendar-section {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .calendar-month-selector {
+  background: var(--bg-tertiary) !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .calendar-month-selector:hover {
+  background: var(--bg-tertiary) !important;
+  border-color: var(--border-primary) !important;
+}
+
+.dark .calendar-nav-btn {
+  color: var(--text-secondary) !important;
+}
+
+.dark .calendar-nav-btn:hover {
+  background: var(--bg-hover) !important;
+  color: var(--accent-primary) !important;
+}
+
+.dark .calendar-weekday {
+  color: var(--text-secondary) !important;
+}
+
+.dark .calendar-day-cell {
+  color: var(--text-primary) !important;
+}
+
+.dark .calendar-day-cell:hover {
+  background: var(--bg-tertiary) !important;
+}
+
+.dark .calendar-day-cell.has-blog {
+  background: var(--bg-tertiary) !important;
+  color: var(--accent-primary) !important;
+}
+
+.dark .calendar-day-cell.is-today {
+  background: var(--accent-primary) !important;
+  color: white !important;
+}

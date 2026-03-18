@@ -1,0 +1,170 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Radio, Play, Clock, Calendar, Archive, Headphones, Disc3, ChevronDown } from 'lucide-astro';
+import SakumimiArchive from '@/components/radio/SakumimiArchive';
+import LiveRadioPlayer from '@/components/radio/LiveRadioPlayer';
+import RadikoPlayer from '@/components/radio/RadikoPlayer';
+
+const tabs = [
+  { id: 'live', label: '实时收听', icon: 'radio' },
+  { id: 'recordings', label: '录制回放', icon: 'archive' },
+  { id: 'sakumimi', label: 'さくみみ', icon: 'headphones' },
+  { id: 'radiko', label: 'Radiko', icon: 'disc' },
+];
+---
+
+<BaseLayout title="广播 - Sakamichi Tools">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header row: title + group dropdown -->
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-2">
+        <Radio size={18} class="text-[var(--color-brand-sakura)]" />
+        <h1 class="text-2xl font-bold text-[var(--text-primary)]">广播</h1>
+      </div>
+
+      <!-- Group dropdown -->
+      <div class="relative" id="group-dropdown-wrapper">
+        <button
+          id="group-dropdown-btn"
+          class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] transition-colors"
+        >
+          <span class="w-1.5 h-1.5 rounded-full" id="group-dot" style="background: var(--color-brand-nogi);"></span>
+          <span id="group-label">全部团体</span>
+          <ChevronDown size={12} />
+        </button>
+        <div
+          id="group-dropdown-menu"
+          class="absolute right-0 top-full mt-1 w-40 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] shadow-lg py-1 z-50 hidden"
+        >
+          <button class="group-option w-full text-left px-3 py-2 text-xs hover:bg-[var(--bg-secondary)] transition-colors text-[var(--text-secondary)]" data-group="all" data-color="">全部团体</button>
+          <button class="group-option w-full text-left px-3 py-2 text-xs hover:bg-[var(--bg-secondary)] transition-colors" data-group="nogizaka" data-color="var(--color-brand-nogi)">
+            <span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5" style="background: var(--color-brand-nogi);"></span>乃木坂46
+          </button>
+          <button class="group-option w-full text-left px-3 py-2 text-xs hover:bg-[var(--bg-secondary)] transition-colors" data-group="sakurazaka" data-color="var(--color-brand-sakura)">
+            <span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5" style="background: var(--color-brand-sakura);"></span>櫻坂46
+          </button>
+          <button class="group-option w-full text-left px-3 py-2 text-xs hover:bg-[var(--bg-secondary)] transition-colors" data-group="hinatazaka" data-color="var(--color-brand-hinata)">
+            <span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5" style="background: var(--color-brand-hinata);"></span>日向坂46
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pill tab bar + おたより -->
+    <div class="flex items-center gap-3 mb-6">
+    <div class="flex-1 flex gap-1.5 p-1 bg-[var(--bg-tertiary)] rounded-xl overflow-x-auto">
+      {tabs.map((tab, i) => (
+        <button
+          class={`radio-pill flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-lg transition-all duration-200 whitespace-nowrap ${i === 0 ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm' : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'}`}
+          data-tab={tab.id}
+        >
+          {tab.icon === 'radio' && <Radio size={13} />}
+          {tab.icon === 'archive' && <Archive size={13} />}
+          {tab.icon === 'headphones' && <Headphones size={13} />}
+          {tab.icon === 'disc' && <Disc3 size={13} />}
+          {tab.label}
+        </button>
+      ))}
+    </div>
+    <a
+      id="otayori-btn"
+      href="https://sakurazaka46.com/s/s46/diary/radio?cd=radio&ima=0000"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden shrink-0 items-center gap-1 px-3 py-1.5 rounded-lg text-[10px] font-medium text-white transition-opacity hover:opacity-90"
+      style="background-color: #F19DB5;"
+    >
+      ✉ おたよりを送る
+    </a>
+    </div>
+
+    <!-- Tab: 实时收听 -->
+    <div id="tab-live" class="radio-tab-content">
+      <LiveRadioPlayer client:visible />
+    </div>
+
+    <!-- Tab: 录制回放 -->
+    <div id="tab-recordings" class="radio-tab-content hidden">
+      <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-8 text-center">
+        <Archive size={32} class="mx-auto mb-3 text-[var(--text-tertiary)]" />
+        <p class="text-sm font-medium text-[var(--text-primary)]">录制回放</p>
+        <p class="text-xs text-[var(--text-tertiary)] mt-1">HomeServer 录制的广播将在此处归档</p>
+        <p class="text-[10px] text-[var(--text-tertiary)] mt-3 px-6">支持按日期、节目名检索 · 自动保留近30天录音</p>
+      </div>
+    </div>
+
+    <!-- Tab: さくみみ -->
+    <div id="tab-sakumimi" class="radio-tab-content hidden">
+      <SakumimiArchive client:visible />
+    </div>
+
+    <!-- Tab: Radiko -->
+    <div id="tab-radiko" class="radio-tab-content hidden">
+      <RadikoPlayer client:visible />
+    </div>
+  </div>
+
+  <script>
+    // Pill tab switching
+    const pills = document.querySelectorAll('.radio-pill');
+    const tabContents = document.querySelectorAll('.radio-tab-content');
+
+    pills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const tabId = (pill as HTMLElement).dataset.tab;
+        
+        pills.forEach((p) => {
+          p.classList.remove('bg-[var(--bg-primary)]', 'text-[var(--text-primary)]', 'shadow-sm');
+          p.classList.add('text-[var(--text-tertiary)]');
+        });
+        pill.classList.add('bg-[var(--bg-primary)]', 'text-[var(--text-primary)]', 'shadow-sm');
+        pill.classList.remove('text-[var(--text-tertiary)]');
+
+        tabContents.forEach((tc) => {
+          (tc as HTMLElement).classList.toggle('hidden', tc.id !== `tab-${tabId}`);
+        });
+
+        // Show おたより button only on sakumimi tab
+        const otayoriBtn = document.getElementById('otayori-btn');
+        if (otayoriBtn) {
+          if (tabId === 'sakumimi') {
+            otayoriBtn.classList.remove('hidden');
+            otayoriBtn.classList.add('flex');
+          } else {
+            otayoriBtn.classList.add('hidden');
+            otayoriBtn.classList.remove('flex');
+          }
+        }
+      });
+    });
+
+    // Group dropdown
+    const dropdownBtn = document.getElementById('group-dropdown-btn');
+    const dropdownMenu = document.getElementById('group-dropdown-menu');
+    const groupDot = document.getElementById('group-dot');
+    const groupLabel = document.getElementById('group-label');
+    const groupOptions = document.querySelectorAll('.group-option');
+
+    dropdownBtn?.addEventListener('click', () => {
+      dropdownMenu?.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      const wrapper = document.getElementById('group-dropdown-wrapper');
+      if (wrapper && !wrapper.contains(e.target as Node)) {
+        dropdownMenu?.classList.add('hidden');
+      }
+    });
+
+    groupOptions.forEach((opt) => {
+      opt.addEventListener('click', () => {
+        const color = (opt as HTMLElement).dataset.color || '';
+        if (groupLabel) groupLabel.textContent = opt.textContent?.trim() || '全部团体';
+        if (groupDot) {
+          (groupDot as HTMLElement).style.background = color || 'var(--text-tertiary)';
+        }
+        dropdownMenu?.classList.add('hidden');
+      });
+    });
+  </script>
+</BaseLayout>

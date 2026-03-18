@@ -1,0 +1,85 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '@/styles/global.css';
+import Navbar from '@/components/nav/Navbar.astro';
+import Footer from '@/components/footer/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  hideNav?: boolean;
+  hideFooter?: boolean;
+}
+
+const {
+  title = 'Sakamichi Tools - 坂道系列综合工具平台',
+  description = '坂道系列综合粉丝平台 — 博客翻译、MSG消息归档、广播收听、创作工具',
+  image = '/images/sakamichi.jpg',
+  hideNav = false,
+  hideFooter = false,
+} = Astro.props;
+
+const siteUrl = Astro.site || new URL('https://sakamichi-tools.cn');
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toString();
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <meta name="theme-color" content="#742581">
+
+  <title>{title}</title>
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/jpeg" href="/images/sakamichi.jpg">
+  <link rel="apple-touch-icon" href="/images/sakamichi.jpg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={ogImage}>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Theme: prevent flash of wrong theme -->
+  <script is:inline>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <ClientRouter />
+</head>
+<body class="min-h-screen font-sans antialiased">
+  <!-- Accessibility: skip to main content -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  {!hideNav && <Navbar />}
+
+  <main id="main-content" class="min-h-[calc(100vh-3.5rem)]">
+    <slot />
+  </main>
+
+  {!hideFooter && <Footer />}
+</body>
+</html>

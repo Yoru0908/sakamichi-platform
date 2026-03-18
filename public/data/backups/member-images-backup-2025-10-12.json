@@ -1,0 +1,563 @@
+{
+  "lastUpdate": "2025-10-12T21:49:06.180Z",
+  "note": "成员真实图片 - 樱坂46、日向坂46、乃木坂46均为官网真实图片",
+  "source": "官网API",
+  "images": {
+    "石森 璃花": {
+      "imageUrl": "https://sakurazaka46.com/images/14/f84/000e812e34b92a517f88c0e1ab9f8/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "井上 梨名": {
+      "imageUrl": "https://sakurazaka46.com/images/14/b19/4b9bfd6d600102f911b94c1ada103/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "遠藤 光莉": {
+      "imageUrl": "https://sakurazaka46.com/images/14/dc0/94d7cdae2f72390f4fb06d8042d0b/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "遠藤 理子": {
+      "imageUrl": "https://sakurazaka46.com/images/14/fb8/33b79df1a181d3a21e23d21422cb1/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "大園 玲": {
+      "imageUrl": "https://sakurazaka46.com/images/14/264/4723da4508f477fe5f2da70bba4b3/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "大沼 晶保": {
+      "imageUrl": "https://sakurazaka46.com/images/14/c8e/27b5891f5cbd50fd4de6000ed37c3/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "小田倉 麗奈": {
+      "imageUrl": "https://sakurazaka46.com/images/14/ac6/72c53251c1034657acd9be0c09ba9/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "幸阪 茉里乃": {
+      "imageUrl": "https://sakurazaka46.com/images/14/afe/7dd7bb436a5de47ade0575bda744f/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "小島 凪紗": {
+      "imageUrl": "https://sakurazaka46.com/images/14/833/2715333dadd74a1157f37fdbf0108/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "武元 唯衣": {
+      "imageUrl": "https://sakurazaka46.com/images/14/188/20e0a8033e39df007cf34f3d8efa3/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "谷口 愛季": {
+      "imageUrl": "https://sakurazaka46.com/images/14/dd9/ef473ddc2db5bcb9f292df216aff3/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "田村 保乃": {
+      "imageUrl": "https://sakurazaka46.com/images/14/d64/f3aad591987805162227830f33734/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "中嶋 優月": {
+      "imageUrl": "https://sakurazaka46.com/images/14/c4f/333b700dfdb745af4b0f375a3dd3f/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "藤吉 夏鈴": {
+      "imageUrl": "https://sakurazaka46.com/images/14/afd/51823010f3577f32bf7a8146b5d99/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "増本 綺良": {
+      "imageUrl": "https://sakurazaka46.com/images/14/4eb/62d5a821fca366662513f9e12cea7/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "松田 里奈": {
+      "imageUrl": "https://sakurazaka46.com/images/14/99a/30cd86661500ac50a02670516252f/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "的野 美青": {
+      "imageUrl": "https://sakurazaka46.com/images/14/74a/4fbc9c0ee8ef016d81c1d52aee23d/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "向井 純葉": {
+      "imageUrl": "https://sakurazaka46.com/images/14/754/bc6ea8285e20e5f167ee7eacc31e1/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "村井 優": {
+      "imageUrl": "https://sakurazaka46.com/images/14/3fb/82d100ecdf6f7eb667b7b0782edfe/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "村山 美羽": {
+      "imageUrl": "https://sakurazaka46.com/images/14/578/f65d04c371834316d4addf71c7b9a/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "森田 ひかる": {
+      "imageUrl": "https://sakurazaka46.com/images/14/f6a/385e70c721f6d30065ef377c34654/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "守屋 麗奈": {
+      "imageUrl": "https://sakurazaka46.com/images/14/2e4/7662aae2c7059221311d34aa4c6a3/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "山﨑 天": {
+      "imageUrl": "https://sakurazaka46.com/images/14/7d3/e33b1d6ac91cf58a836e55a6c25ad/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "山下 瞳月": {
+      "imageUrl": "https://sakurazaka46.com/images/14/45d/5ddc2679f0e7a2dcca1905b1e6012/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "浅井 恋乃未": {
+      "imageUrl": "https://sakurazaka46.com/images/14/4c3/1ddbf780024df3164450dc65fff12/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "稲熊 ひな": {
+      "imageUrl": "https://sakurazaka46.com/images/14/5df/743ca24e09d69be785c6339ed318f/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "勝又 春": {
+      "imageUrl": "https://sakurazaka46.com/images/14/abc/68d30887b7eab270febd23cb2607d/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "佐藤 愛桜": {
+      "imageUrl": "https://sakurazaka46.com/images/14/c3f/d7f2f1a47d14132dddb3ea29c8f09/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "中川 智尋": {
+      "imageUrl": "https://sakurazaka46.com/images/14/22b/b397bfde982a1ff3c2a3aa8ab1353/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "松本 和子": {
+      "imageUrl": "https://sakurazaka46.com/images/14/18c/ff0622d4ad4a12ba1ce3a141a00ec/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "目黒 陽色": {
+      "imageUrl": "https://sakurazaka46.com/images/14/c1e/ba544bf5472491923f3c2c0a2ea8c/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "山川 宇衣": {
+      "imageUrl": "https://sakurazaka46.com/images/14/d37/36727e01aae8a390c3ff6dc4615c2/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "山田 桃実": {
+      "imageUrl": "https://sakurazaka46.com/images/14/16b/03d38a618a7ec9962d3a2c134d63f/400_640_102400.jpg",
+      "group": "樱坂46"
+    },
+    "石塚 瑶季": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/1ad/5ac47cabb38c185c0048973531d26/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "金村 美玖": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/cbc/d1cb5ac751a0038704dcb1f03462f/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "上村 ひなの": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/f5a/11215aab89ddb4f3229fc10abbb3d/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "河田 陽菜": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/b91/c85a566828c5b52b392ead7cb9d35/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "小坂 菜緒": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/a5b/07f4597c589bc06d3a9daf61c355a/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "小西 夏菜実": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/02d/7472616773e47e0b00af1d73fe0a0/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "清水 理央": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/b0a/2ac28754d5f9965bc864182b8d35d/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "正源司 陽子": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/58b/b8c0350612a2ab0d73290b58df49c/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "髙橋 未来虹": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/7d0/0e90ce02923eb0cd872e2fa8d3f00/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "竹内 希来里": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/db3/b0ef9dd99d5d161d5c6a74ccded88/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "平尾 帆夏": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/b94/d6fb430765ba4e52e1dff3770ca74/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "平岡 海月": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/371/9264a91c28a52a627b6431b53bc6b/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "藤嶌 果歩": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/d93/562a91de03cf903757a8c78fdf0de/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "松田 好花": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/5f6/8fff4d82a94f458f8e93ab2cd8bdc/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "宮地 すみれ": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/ed9/4bf9b8c45c896fc82510b36fef853/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "森本 茉莉": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/abc/8bab66b616bdc2da0d70ac7e9793f/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "山口 陽世": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/f08/9749323f550c0a3576e6b0cb2fe8b/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "山下 葉留花": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/239/c487339f2d9093124c05f45fdf7a2/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "渡辺 莉奈": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/4c4/b90f140e1bfddda84b099083159c1/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "大田 美月": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/325/4c87d9c8e738b16a035a9a8ac174d/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "大野 愛実": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/db5/593ef57f48945415097679c838dbc/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "片山 紗希": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/e92/c4ee448d69f4e440856329fc9dbec/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "蔵盛 妃那乃": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/934/a5fde0c1aa6626255c888fc4a0a0f/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "坂井 新奈": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/0ef/f301c0034434b8d1124862e96cd32/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "佐藤 優羽": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/2f7/3d8d0410361f8237a311082a85cff/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "下田 衣珠季": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/7c2/d7eb3651cf3c905eec9fc62261fe1/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "高井 俐香": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/962/d2eb46b321a8c8b15b0a588514344/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "鶴崎 仁香": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/7ae/60b2e53359c77316cd7d490c337b7/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "松尾 桜": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/fe4/1645f537167c2f6e7b3205fe0826e/800_800_102400.jpg",
+      "group": "日向坂46"
+    },
+    "伊藤 理々杏": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E4%BC%8A%E8%97%A4%20%E7%90%86%E3%80%85%E6%9D%8F&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "岩本 蓮加": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%B2%A9%E6%9C%AC%20%E8%93%AE%E5%8A%A0&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "梅澤 美波": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E6%A2%85%E6%BE%A4%20%E7%BE%8E%E6%B3%A2&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "久保 史緒里": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E4%B9%85%E4%BF%9D%20%E5%8F%B2%E7%B7%92%E9%87%8C&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "吉田 綾乃クリスティー": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%90%89%E7%94%B0%20%E7%B6%BE%E4%B9%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%86%E3%82%A3%E3%83%BC&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "遠藤 さくら": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E9%81%A0%E8%97%A4%20%E3%81%95%E3%81%8F%E3%82%89&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "賀喜 遥香": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E8%B3%80%E5%96%9C%20%E9%81%A5%E9%A6%99&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "金川 紗耶": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E9%87%91%E5%B7%9D%20%E7%B4%97%E8%80%B6&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "柴田 柚菜": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E6%9F%B4%E7%94%B0%20%E6%9F%9A%E8%8F%9C&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "田村 真佑": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E7%94%B0%E6%9D%91%20%E7%9C%9F%E4%BD%91&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "筒井 あやめ": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E7%AD%92%E4%BA%95%20%E3%81%82%E3%82%84%E3%82%81&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "矢久保 美緒": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E7%9F%A2%E4%B9%85%E4%BF%9D%20%E7%BE%8E%E7%B7%92&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "黒見 明香": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E9%BB%92%E8%A6%8B%20%E6%98%8E%E9%A6%99&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "弓木 奈於": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%BC%93%E6%9C%A8%20%E5%A5%88%E6%96%BC&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "井上 和": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E4%BA%95%E4%B8%8A%20%E5%92%8C&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "一ノ瀬 美空": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E4%B8%80%E3%83%8E%E7%80%AC%20%E7%BE%8E%E7%A9%BA&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "池田 瑛紗": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E6%B1%A0%E7%94%B0%20%E7%91%9B%E7%B4%97&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "五百城 茉央": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E4%BA%94%E7%99%BE%E5%9F%8E%20%E8%8C%89%E5%A4%AE&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "奥田 いろは": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%A5%A5%E7%94%B0%20%E3%81%84%E3%82%8D%E3%81%AF&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "小川 彩": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%B0%8F%E5%B7%9D%20%E5%BD%A9&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "岡本 姫奈": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%B2%A1%E6%9C%AC%20%E5%A7%AB%E5%A5%88&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "川﨑 桜": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%B7%9D%EF%A8%91%20%E6%A1%9C&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "佐藤 璃果": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E4%BD%90%E8%97%A4%20%E7%92%83%E6%9E%9C&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "菅原 咲月": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E8%8F%85%E5%8E%9F%20%E5%92%B2%E6%9C%88&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "冨里 奈央": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%86%A8%E9%87%8C%20%E5%A5%88%E5%A4%AE&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "中西 アルノ": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E4%B8%AD%E8%A5%BF%20%E3%82%A2%E3%83%AB%E3%83%8E&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "林 瑠奈": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E6%9E%97%20%E7%91%A0%E5%A5%88&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "松尾 美佑": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E6%9D%BE%E5%B0%BE%20%E7%BE%8E%E4%BD%91&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "愛宕 心響": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E6%84%9B%E5%AE%95%20%E5%BF%83%E9%9F%BF&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "大越 ひなの": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%A4%A7%E8%B6%8A%20%E3%81%B2%E3%81%AA%E3%81%AE&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "海邉 朱莉": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E6%B5%B7%E9%82%89%20%E6%9C%B1%E8%8E%89&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "川端 晃菜": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%B7%9D%E7%AB%AF%20%E6%99%83%E8%8F%9C&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "鈴木 佑捺": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E9%88%B4%E6%9C%A8%20%E4%BD%91%E6%8D%BA&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "瀬戸口 心月": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E7%80%AC%E6%88%B8%E5%8F%A3%20%E5%BF%83%E6%9C%88&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "長嶋 凛桜": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E9%95%B7%E5%B6%8B%20%E5%87%9B%E6%A1%9C&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "増田 三莉音": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E5%A2%97%E7%94%B0%20%E4%B8%89%E8%8E%89%E9%9F%B3&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "森平 麗心": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E6%A3%AE%E5%B9%B3%20%E9%BA%97%E5%BF%83&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "矢田 萌華": {
+      "imageUrl": "https://ui-avatars.com/api/?name=%E7%9F%A2%E7%94%B0%20%E8%90%8C%E8%8F%AF&background=7C4DFF&color=fff&size=400&font-size=0.4&bold=true",
+      "group": "乃木坂46"
+    },
+    "愛宕心響": {
+      "imageUrl": "https://img.neirong.plus/o/a1/00/a1003bb0564311f0a17c434fdc7d8f4e.png",
+      "group": "乃木坂46"
+    },
+    "大越ひなの": {
+      "imageUrl": "https://img.neirong.plus/o/94/d1/94d1cb60564311f08462ef76a1dc9b9d.png",
+      "group": "乃木坂46"
+    },
+    "小津玲奈": {
+      "imageUrl": "https://img.neirong.plus/o/93/23/93233100564311f0b0ca81744a4b0cc4.png",
+      "group": "乃木坂46"
+    },
+    "海邉朱莉": {
+      "imageUrl": "https://img.neirong.plus/o/91/8d/918d9ce0564311f083173514a2d84c3c.png",
+      "group": "乃木坂46"
+    },
+    "川端晃菜": {
+      "imageUrl": "https://img.neirong.plus/o/8f/ba/8fba6380564311f0a6214d14eac5bb86.png",
+      "group": "乃木坂46"
+    },
+    "鈴木佑捺": {
+      "imageUrl": "https://img.neirong.plus/o/8d/f8/8df8b650564311f0905ea532d9391dc0.png",
+      "group": "乃木坂46"
+    },
+    "瀬戸口心月": {
+      "imageUrl": "https://img.neirong.plus/o/8c/40/8c40a610564311f0b9c847560c76ae34.png",
+      "group": "乃木坂46"
+    },
+    "長嶋凛桜": {
+      "imageUrl": "https://img.neirong.plus/o/8a/b2/8ab2b310564311f0ac7a6b387fd795f1.png",
+      "group": "乃木坂46"
+    },
+    "増田三莉音": {
+      "imageUrl": "https://img.neirong.plus/o/89/11/89115f20564311f0945321c7d06cc45d.png",
+      "group": "乃木坂46"
+    },
+    "森平麗心": {
+      "imageUrl": "https://img.neirong.plus/o/87/60/876053c0564311f0a7a03543c904654d.png",
+      "group": "乃木坂46"
+    },
+    "矢田萌華": {
+      "imageUrl": "https://img.neirong.plus/o/80/fd/80fd0af0564311f09c9e4dd2386edfa1.png",
+      "group": "乃木坂46"
+    },
+    "吉田綾乃クリスティー": {
+      "imageUrl": "https://img.neirong.plus/o/a2/cc/a2cc4920564311f0a0d451f891d58224.png",
+      "group": "乃木坂46"
+    },
+    "弓木奈於": {
+      "imageUrl": "https://img.neirong.plus/o/a4/55/a4558130564311f082eb1bdd357baae4.png",
+      "group": "乃木坂46"
+    },
+    "矢久保美緒": {
+      "imageUrl": "https://img.neirong.plus/o/a5/f3/a5f3c7e0564311f0a0b5e97c064c3361.png",
+      "group": "乃木坂46"
+    },
+    "松尾美佑": {
+      "imageUrl": "https://img.neirong.plus/o/a7/7d/a77d7520564311f090669198c1396fac.png",
+      "group": "乃木坂46"
+    },
+    "林瑠奈": {
+      "imageUrl": "https://img.neirong.plus/o/a9/17/a91700e0564311f0a10c4d8de61ccba7.png",
+      "group": "乃木坂46"
+    },
+    "中西アルノ": {
+      "imageUrl": "https://img.neirong.plus/o/aa/a9/aaa939a0564311f08020e5d6be293f19.png",
+      "group": "乃木坂46"
+    },
+    "冨里奈央": {
+      "imageUrl": "https://img.neirong.plus/o/ac/6d/ac6dcd00564311f0b0759767e8aca98a.png",
+      "group": "乃木坂46"
+    },
+    "筒井あやめ": {
+      "imageUrl": "https://img.neirong.plus/o/ae/1d/ae1d9fe0564311f0a0d451f891d58224.png",
+      "group": "乃木坂46"
+    },
+    "田村真佑": {
+      "imageUrl": "https://img.neirong.plus/o/af/b0/afb0c300564311f0a056ffbe9de9597f.png",
+      "group": "乃木坂46"
+    },
+    "菅原咲月": {
+      "imageUrl": "https://img.neirong.plus/o/b1/48/b148a110564311f092a8239c8b33c2dc.png",
+      "group": "乃木坂46"
+    },
+    "柴田柚菜": {
+      "imageUrl": "https://img.neirong.plus/o/b3/18/b3187f10564311f0b503e3bfe15254a1.png",
+      "group": "乃木坂46"
+    },
+    "佐藤璃果": {
+      "imageUrl": "https://img.neirong.plus/o/b4/9a/b49a1600564311f099106b3cadf6b610.png",
+      "group": "乃木坂46"
+    },
+    "黒見明香": {
+      "imageUrl": "https://img.neirong.plus/o/b6/18/b6185190564311f0a01417decce377d8.png",
+      "group": "乃木坂46"
+    },
+    "久保史緒里": {
+      "imageUrl": "https://img.neirong.plus/o/b8/0d/b80d1cb0564311f0bf7bff8b31fe2435.png",
+      "group": "乃木坂46"
+    },
+    "川﨑桜": {
+      "imageUrl": "https://img.neirong.plus/o/b9/a3/b9a3c240564311f0b641e53400f90949.png",
+      "group": "乃木坂46"
+    },
+    "金川紗耶": {
+      "imageUrl": "https://img.neirong.plus/o/bb/23/bb23ab80564311f0ad29df70c1ef847c.png",
+      "group": "乃木坂46"
+    },
+    "賀喜遥香": {
+      "imageUrl": "https://img.neirong.plus/o/bc/ae/bcae4320564311f0b2c7613e06ed8d83.png",
+      "group": "乃木坂46"
+    },
+    "奥田いろは": {
+      "imageUrl": "https://img.neirong.plus/o/be/2a/be2a5bd0564311f097371d7c13cff154.png",
+      "group": "乃木坂46"
+    },
+    "小川彩": {
+      "imageUrl": "https://img.neirong.plus/o/bf/9b/bf9b02d0564311f0b94a152f73182375.png",
+      "group": "乃木坂46"
+    },
+    "岡本姫奈": {
+      "imageUrl": "https://img.neirong.plus/o/c1/11/c1110100564311f0839dbb4873b14d3c.png",
+      "group": "乃木坂46"
+    },
+    "遠藤さくら": {
+      "imageUrl": "https://img.neirong.plus/o/c2/88/c288d3f0564311f082911968c7b6f0dc.png",
+      "group": "乃木坂46"
+    },
+    "梅澤美波": {
+      "imageUrl": "https://img.neirong.plus/o/c4/17/c417ff70564311f080f4f315c0b64551.png",
+      "group": "乃木坂46"
+    },
+    "岩本蓮加": {
+      "imageUrl": "https://img.neirong.plus/o/c6/7d/c67d66b0564311f0b8fce7bca97bfe35.png",
+      "group": "乃木坂46"
+    },
+    "井上和": {
+      "imageUrl": "https://img.neirong.plus/o/c8/43/c843ced0564311f0b7f5432efc7fe718.png",
+      "group": "乃木坂46"
+    },
+    "伊藤理々杏": {
+      "imageUrl": "https://img.neirong.plus/o/c9/c7/c9c788a0564311f0aa014d6404810be9.png",
+      "group": "乃木坂46"
+    },
+    "一ノ瀬美空": {
+      "imageUrl": "https://img.neirong.plus/o/cb/48/cb480e20564311f0b183fdab6f77f4c0.png",
+      "group": "乃木坂46"
+    },
+    "池田瑛紗": {
+      "imageUrl": "https://img.neirong.plus/o/cc/ec/ccec6f50564311f087caf16fe5041e72.png",
+      "group": "乃木坂46"
+    },
+    "五百城茉央": {
+      "imageUrl": "https://img.neirong.plus/o/ce/79/ce799f00564311f0a6214d14eac5bb86.png",
+      "group": "乃木坂46"
+    }
+  }
+}

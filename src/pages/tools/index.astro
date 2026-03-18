@@ -1,0 +1,65 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { MessageSquare, Film, FileText, Clock, Sparkles, Wrench, ArrowRight } from 'lucide-astro';
+
+const categories = [
+  {
+    label: 'MSG工具',
+    tools: [
+      { title: 'MSG样式生成器', desc: '坂道MSG聊天气泡截图生成，支持全成员头像', href: '/tools/msg-generator', color: 'var(--color-brand-hinata)', iconIdx: 0 },
+    ],
+  },
+  {
+    label: '字幕工具',
+    tools: [
+      { title: '字幕底图制作', desc: '为视频字幕添加半透明背景底图', href: '/tools/subtitle-bg', color: 'var(--color-brand-nogi)', iconIdx: 1 },
+      { title: '字幕合并与导出', desc: '智能合并短句 · 格式转换 · 日语语气词处理', href: '/tools/subtitle-merge', color: 'var(--color-brand-nogi)', iconIdx: 2 },
+      { title: 'SRT时间轴修复', desc: '修复字幕时间戳格式不规范导致的时间轴异常', href: '/tools/srt-fixer', color: 'var(--color-brand-nogi)', iconIdx: 3 },
+      { title: 'FAD特效工具', desc: '字幕淡入淡出特效处理与多格式转换', href: '/tools/fad-effect', color: 'var(--color-brand-nogi)', iconIdx: 4 },
+    ],
+  },
+];
+---
+
+<BaseLayout title="工具箱 - Sakamichi Tools">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex items-center gap-2 mb-1">
+        <Wrench size={16} class="text-[var(--text-tertiary)]" />
+        <h1 class="text-2xl font-bold text-[var(--text-primary)]">工具箱</h1>
+      </div>
+      <p class="text-sm text-[var(--text-tertiary)]">创作工具与实用小工具集合</p>
+    </div>
+
+    {categories.map((cat) => (
+      <div class="mb-8">
+        <h2 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-tertiary)] mb-3">{cat.label}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {cat.tools.map((tool) => (
+            <a
+              href={tool.href}
+              class="group relative flex flex-col p-5 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--border-secondary)] transition-all duration-200"
+            >
+              <div class="flex items-start justify-between mb-3">
+                <div
+                  class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+                  style={`background: color-mix(in srgb, ${tool.color} 12%, transparent); color: ${tool.color};`}
+                >
+                  {tool.iconIdx === 0 && <MessageSquare size={18} />}
+                  {tool.iconIdx === 1 && <Film size={18} />}
+                  {tool.iconIdx === 2 && <FileText size={18} />}
+                  {tool.iconIdx === 3 && <Clock size={18} />}
+                  {tool.iconIdx === 4 && <Sparkles size={18} />}
+                </div>
+                <ArrowRight size={14} class="text-[var(--text-tertiary)] opacity-0 group-hover:opacity-100 transition-opacity mt-1" />
+              </div>
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] mb-1">{tool.title}</h3>
+              <p class="text-xs text-[var(--text-tertiary)] leading-relaxed flex-1">{tool.desc}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>

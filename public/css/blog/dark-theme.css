@@ -1,0 +1,358 @@
+/**
+ * 暗色主题样式 (重构版)
+ * 使用平台 .dark 类 + 设计令牌
+ * main-styles.css 已使用 var(--bg-primary) 等令牌，大部分覆盖不再需要
+ * 本文件仅保留：
+ *   1. 主题切换按钮基础样式
+ *   2. 博客特有的暗色额外变量
+ *   3. JS动态创建DOM的内联样式覆盖 (!important)
+ */
+
+/* ================================
+   主题切换按钮基础样式（亮色）
+   ================================ */
+
+.theme-toggle-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-primary);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-secondary);
+  transform: scale(1.05);
+}
+
+.theme-toggle-btn svg {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-icon-dark { display: none; }
+
+.mobile-theme-toggle {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  border-top: 1px solid var(--border-primary);
+  padding-top: 20px;
+}
+
+.theme-toggle-btn-mobile {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn-mobile:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-secondary);
+}
+
+.theme-toggle-btn-mobile svg { flex-shrink: 0; }
+.theme-toggle-btn-mobile .theme-icon-dark { display: none; }
+
+.theme-toggle-btn-mobile .theme-text {
+  flex: 1;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .desktop-only { display: none !important; }
+}
+
+/* ================================
+   博客暗色额外变量
+   平台 .dark 已提供 --bg-primary 等
+   此处仅补充博客特有变量
+   ================================ */
+
+.dark {
+  --bg-hover: #404040;
+  --accent-primary: #4a9eff;
+  --accent-secondary: #667eea;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* ================================
+   暗色模式 — 图标切换
+   ================================ */
+
+.dark .theme-icon-light { display: none; }
+.dark .theme-icon-dark { display: block; }
+
+/* ================================
+   暗色模式 — 搜索框 placeholder
+   ================================ */
+
+.dark #searchInput::placeholder,
+.dark .mobile-search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* ================================
+   暗色模式 — 移动端侧边栏
+   (JS toggleClass，需 !important 覆盖)
+   ================================ */
+
+.dark .mobile-sidebar { background: var(--bg-secondary); }
+
+.dark .mobile-sidebar-header {
+  background: var(--bg-tertiary);
+  border-bottom-color: var(--border-primary);
+}
+
+.dark .mobile-nav-item {
+  color: var(--text-primary) !important;
+  background: var(--bg-tertiary) !important;
+  border-color: var(--border-primary) !important;
+}
+
+.dark .mobile-nav-item:hover {
+  background: var(--bg-hover) !important;
+}
+
+.dark .mobile-nav-item.active {
+  background: var(--bg-hover) !important;
+  border-color: var(--accent-primary) !important;
+  font-weight: 600;
+}
+
+.dark .mobile-sidebar-close {
+  background: var(--bg-tertiary) !important;
+  border-color: var(--border-primary) !important;
+}
+
+/* ================================
+   暗色模式 — JS动态DOM 覆盖
+   (showBlogDetail 等生成的内联样式)
+   ================================ */
+
+/* 博客详情页 */
+.dark #blogDetail { color: var(--text-primary) !important; }
+
+.dark #blogDetail article {
+  background: var(--bg-secondary) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.dark #blogDetail h1 { color: var(--text-primary) !important; }
+
+.dark #blogDetail .blog-content-official { color: var(--text-primary) !important; }
+
+.dark #blogDetail header { border-bottom: 1px solid var(--border-primary) !important; }
+.dark #blogDetail footer { border-top: 1px solid var(--border-primary) !important; }
+
+/* 详情侧边栏 */
+.dark .member-sidebar-detail > div {
+  background: var(--bg-secondary) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.dark .member-sidebar-detail h3 { color: var(--text-primary) !important; }
+.dark .member-sidebar-detail p { color: var(--text-secondary) !important; }
+
+.dark .member-sidebar-detail div[style*="background: #f5f5f5"],
+.dark .member-sidebar-detail div[style*="background:#f5f5f5"] {
+  background: var(--bg-tertiary) !important;
+}
+
+.dark .member-sidebar-detail h3[style*="color: #333"] { color: var(--text-primary) !important; }
+.dark .member-sidebar-detail p[style*="color: #999"] { color: var(--text-secondary) !important; }
+
+.dark #detailNewEntries li { border-bottom-color: var(--border-primary) !important; }
+.dark #detailNewEntries a { color: var(--text-primary) !important; }
+
+/* 图片 — 暗色模式稍降亮度 */
+.dark img { opacity: 0.9; transition: opacity 0.3s ease; }
+.dark img:hover { opacity: 1; }
+
+/* ================================
+   暗色模式 — 成员页面
+   (JS 渲染，含内联 style)
+   ================================ */
+
+.dark .member-blog-detail-page { background: var(--bg-primary) !important; }
+.dark .member-page-nogizaka-style { background: var(--bg-primary) !important; }
+.dark .member-main-content { background: var(--bg-secondary) !important; }
+
+.dark .detail-header { background: var(--bg-secondary) !important; border-bottom-color: var(--border-primary) !important; }
+.dark .detail-header h2 { color: var(--text-primary) !important; }
+
+.dark .detail-content { background: var(--bg-secondary) !important; }
+.dark .detail-content h3 { color: var(--text-primary) !important; }
+
+.dark .sidebar-section { background: var(--bg-secondary) !important; }
+.dark .sidebar-section h4 { color: var(--text-primary) !important; }
+
+.dark .member-profile-card { color: var(--text-primary) !important; }
+.dark .member-profile-card p { color: var(--text-secondary) !important; }
+.dark .member-avatar-medium { background: var(--bg-tertiary) !important; }
+
+.dark .blog-item { background: var(--bg-tertiary) !important; border-color: var(--border-primary) !important; }
+.dark .blog-item:hover { background: var(--bg-hover) !important; border-color: var(--accent-primary) !important; }
+.dark .blog-thumbnail { background: var(--bg-hover) !important; }
+.dark .blog-date { color: var(--text-tertiary) !important; }
+
+.dark .blog-list-header { color: var(--text-primary) !important; }
+.dark .blog-list-item { border-bottom-color: var(--border-primary) !important; }
+.dark .blog-list-item:hover { background: var(--bg-tertiary) !important; }
+.dark .blog-list-title { color: var(--text-primary) !important; }
+.dark .blog-list-meta { color: var(--text-secondary) !important; }
+.dark .blog-list-excerpt { color: var(--text-secondary) !important; }
+
+.dark .member-name-sidebar { color: var(--text-primary) !important; }
+.dark .member-kana-sidebar { color: var(--text-secondary) !important; }
+.dark .member-avatar-sidebar { background: var(--bg-tertiary) !important; }
+
+.dark .back-btn,
+.dark .back-button,
+.dark #memberBackBtn {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-primary) !important;
+}
+
+.dark .back-btn:hover,
+.dark .back-button:hover,
+.dark #memberBackBtn:hover {
+  background: var(--bg-hover) !important;
+}
+
+.dark #memberPagination button {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark #memberPagination button:hover:not(:disabled) { background: var(--bg-hover) !important; }
+.dark #memberPageInfo { color: var(--text-secondary) !important; }
+.dark #memberNameHeader { color: var(--text-primary) !important; }
+.dark #memberAvatarSidebar,
+.dark div[style*="background:#f5f5f5"] { background: var(--bg-tertiary) !important; }
+
+/* ================================
+   暗色模式 — 日历组件
+   ================================ */
+
+.dark .calendar-section { background: var(--bg-secondary) !important; }
+.dark .calendar-section h3 { color: #9575cd !important; }
+
+.dark .calendar-month-selector-new { background: var(--bg-tertiary) !important; border-color: #9575cd !important; }
+.dark .calendar-month-selector-new:hover { background: var(--bg-hover) !important; }
+.dark #calendarMonth { color: #b39ddb !important; }
+.dark #dropdownArrow { color: #b39ddb !important; }
+.dark #monthDropdown { background: var(--bg-secondary) !important; border-color: #9575cd !important; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important; }
+
+.dark .calendar-day { color: var(--text-primary) !important; background: transparent !important; }
+.dark .calendar-day:hover { background: var(--bg-tertiary) !important; }
+.dark .calendar-day.has-blog { background: var(--bg-tertiary) !important; color: var(--accent-primary) !important; }
+.dark .calendar-day.today { background: var(--accent-primary) !important; color: white !important; }
+
+.dark .archive-month { background: var(--bg-tertiary) !important; color: var(--text-primary) !important; border-color: var(--border-primary) !important; }
+.dark .archive-month:hover { background: var(--bg-hover) !important; border-color: var(--accent-primary) !important; }
+.dark .archive-month.active { background: var(--accent-primary) !important; color: white !important; border-color: var(--accent-primary) !important; }
+
+.dark .calendar-dates div[style*="color: #999"] { color: var(--text-tertiary) !important; }
+.dark .calendar-dates div[style*="color: #ccc"] { color: var(--text-tertiary) !important; }
+.dark .calendar-dates button[style*="background: #ede7f6"] { background: rgba(149, 117, 205, 0.2) !important; color: #b39ddb !important; }
+
+/* ================================
+   暗色模式 — interactions 页
+   ================================ */
+
+.dark .page-container .group-tabs { background: var(--bg-secondary) !important; box-shadow: var(--shadow-sm) !important; }
+.dark .page-container .group-tab { background: var(--bg-secondary) !important; color: var(--text-secondary) !important; }
+.dark .page-container .group-tab:hover { background: var(--bg-tertiary) !important; color: var(--text-primary) !important; }
+.dark .page-container .group-tab.active { color: #b39ddb !important; border-bottom-color: #7e57c2 !important; }
+
+.dark .month-nav-btn { background: var(--bg-secondary) !important; border-color: var(--border-primary) !important; color: var(--text-secondary) !important; }
+.dark .month-nav-btn:hover { background: var(--bg-tertiary) !important; border-color: #7e57c2 !important; color: #b39ddb !important; }
+.dark .month-display { color: var(--text-primary) !important; }
+
+.dark .analysis-tabs { background: var(--bg-secondary) !important; }
+.dark .analysis-tab { color: var(--text-secondary) !important; }
+.dark .analysis-tab:hover { color: var(--text-primary) !important; }
+.dark .analysis-tab.active { background: var(--bg-tertiary) !important; color: #b39ddb !important; box-shadow: var(--shadow-sm) !important; }
+
+.dark .panel { background: var(--bg-secondary) !important; box-shadow: var(--shadow-sm) !important; }
+.dark .panel-title { color: var(--text-primary) !important; }
+
+.dark .mention-table th { color: var(--text-secondary) !important; border-bottom-color: var(--border-primary) !important; }
+.dark .mention-table td { color: var(--text-primary) !important; border-bottom-color: var(--border-primary) !important; }
+.dark .mention-table tr:hover td { background: var(--bg-tertiary) !important; }
+.dark .mention-tag { background: rgba(126, 87, 194, 0.2) !important; color: #b39ddb !important; }
+.dark .mention-total { color: var(--text-tertiary) !important; }
+
+.dark .ranking-item { border-bottom-color: var(--border-primary) !important; }
+.dark .ranking-name { color: var(--text-primary) !important; }
+.dark .ranking-bar-wrapper { background: var(--bg-tertiary) !important; }
+.dark .ranking-count { color: #b39ddb !important; }
+.dark .ranking-gen { color: var(--text-tertiary) !important; }
+.dark .heatmap-header { color: var(--text-secondary) !important; }
+
+.dark .gen-detail-section { border-top-color: var(--border-primary) !important; }
+.dark .gen-detail-title { color: var(--text-primary) !important; }
+.dark .gen-detail-item { color: var(--text-secondary) !important; }
+.dark .gen-sub-tab { background: var(--bg-secondary) !important; border-color: var(--border-primary) !important; color: var(--text-secondary) !important; }
+.dark .gen-sub-tab:hover { border-color: #7e57c2 !important; color: #b39ddb !important; }
+.dark .gen-sub-tab.active { background: #7e57c2 !important; color: white !important; border-color: #7e57c2 !important; }
+
+/* ================================
+   暗色模式 — stats 页
+   ================================ */
+
+.dark .chart-container { background: var(--bg-secondary) !important; box-shadow: var(--shadow-sm) !important; }
+.dark .chart-container h2 { color: var(--text-primary) !important; }
+
+.dark h1[style*="color: #1f2937"],
+.dark h2[style*="color: #1f2937"] { color: var(--text-primary) !important; }
+
+/* ================================
+   暗色模式 — Tailwind 类覆盖
+   (博客HTML中使用的 Tailwind 硬编码类)
+   ================================ */
+
+.dark .bg-white { background: var(--bg-secondary) !important; }
+.dark .bg-gray-100 { background: var(--bg-primary) !important; }
+.dark .bg-gray-50,
+.dark .hover\:bg-gray-50:hover { background: var(--bg-tertiary) !important; }
+.dark .hover\:bg-gray-100:hover { background: var(--bg-hover) !important; }
+.dark .text-gray-900 { color: var(--text-primary) !important; }
+.dark .text-gray-700 { color: var(--text-secondary) !important; }
+.dark .text-gray-600 { color: var(--text-secondary) !important; }
+.dark .text-gray-500 { color: var(--text-tertiary) !important; }
+.dark .border-gray-200,
+.dark .border-gray-300 { border-color: var(--border-primary) !important; }
+.dark .shadow-sm { box-shadow: var(--shadow-sm) !important; }
+
+/* ================================
+   暗色模式 — 滚动条
+   ================================ */
+
+.dark::-webkit-scrollbar { width: 10px; height: 10px; }
+.dark::-webkit-scrollbar-track { background: var(--bg-primary); }
+.dark::-webkit-scrollbar-thumb { background: var(--bg-tertiary); border-radius: 5px; }
+.dark::-webkit-scrollbar-thumb:hover { background: var(--bg-hover); }

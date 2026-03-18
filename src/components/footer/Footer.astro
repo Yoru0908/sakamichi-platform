@@ -1,0 +1,100 @@
+---
+import { FOOTER_CONTENT_LINKS, FOOTER_COMMUNITY_LINKS, FOOTER_TOOL_LINKS, FOOTER_HELP_LINKS } from '@/utils/navigation';
+import { t } from '@/i18n';
+import type { Language } from '@/stores/language';
+
+const lang: Language = 'zh';
+const year = new Date().getFullYear().toString();
+---
+
+<footer class="border-t border-[var(--border-primary)] bg-[var(--bg-secondary)] mt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <!-- Brand / About -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="text-lg font-bold text-[var(--text-primary)]">Sakamichi Tools</a>
+        <p class="mt-3 text-sm text-[var(--text-tertiary)] leading-relaxed">
+          {t('footer.description', lang)}
+        </p>
+      </div>
+
+      <!-- Content links -->
+      <div>
+        <h4 class="text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider mb-4">
+          {t('footer.col.content', lang)}
+        </h4>
+        <ul class="space-y-2.5">
+          {FOOTER_CONTENT_LINKS.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                {...(link.href === '/blog' ? { 'data-astro-reload': true } : {})}
+                class="text-sm text-[var(--text-secondary)] hover:text-[var(--color-brand-nogi)] transition-colors"
+              >
+                {t(link.labelKey, lang)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Community + Tool links -->
+      <div>
+        <h4 class="text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider mb-4">
+          社区 & 工具
+        </h4>
+        <ul class="space-y-2.5">
+          {FOOTER_COMMUNITY_LINKS.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-[var(--text-secondary)] hover:text-[var(--color-brand-nogi)] transition-colors"
+              >
+                {t(link.labelKey, lang)}
+              </a>
+            </li>
+          ))}
+          {FOOTER_TOOL_LINKS.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-[var(--text-secondary)] hover:text-[var(--color-brand-nogi)] transition-colors"
+              >
+                {t(link.labelKey, lang)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Help / Legal links -->
+      <div>
+        <h4 class="text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider mb-4">
+          {t('footer.col.help', lang)}
+        </h4>
+        <ul class="space-y-2.5">
+          {FOOTER_HELP_LINKS.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-[var(--text-secondary)] hover:text-[var(--color-brand-nogi)] transition-colors"
+              >
+                {t(link.labelKey, lang)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Disclaimer + Copyright -->
+    <div class="border-t border-[var(--border-primary)] mt-10 pt-8">
+      <p class="text-xs text-[var(--text-tertiary)] leading-relaxed max-w-3xl">
+        {t('footer.disclaimer', lang)}
+      </p>
+      <p class="mt-4 text-xs text-[var(--text-tertiary)]">
+        {t('footer.copyright', lang, { year })}
+      </p>
+    </div>
+  </div>
+</footer>

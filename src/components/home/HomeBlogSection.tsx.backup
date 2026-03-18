@@ -1,0 +1,372 @@
+import { useEffect, useState } from 'react';
+import { Pen, ArrowRight } from 'lucide-react';
+import { GROUP_COLORS } from '@/utils/mock-data';
+
+const API_BASE = 'https://api.sakamichi-tools.cn';
+const CLOUDINARY = 'https://res.cloudinary.com/djoegafjn/image/fetch';
+
+interface BlogItem {
+  id: string;
+  member_name: string;
+  title: string;
+  group: 'nogizaka' | 'sakurazaka' | 'hinatazaka';
+  group_name: string;
+  formatted_date: string;
+  preview: string;
+  image: string | null;
+  hero_image: string | null;
+  hero_images: string[];
+}
+
+function extractFirstImage(content: string): string | null {
+  if (!content) return null;
+  const match = content.match(/!\[.*?\]\((https?:\/\/[^)]+)\)/);
+  return match ? match[1] : null;
+}
+
+function extractImages(content: string, max = 5): string[] {
+  if (!content) return [];
+  const regex = /!\[.*?\]\((https?:\/\/[^)]+)\)/g;
+  const urls: string[] = [];
+  let m;
+  while ((m = regex.exec(content)) !== null && urls.length < max) {
+    urls.push(m[1]);
+  }
+  return urls;
+}
+
+function cloudinaryUrl(url: string, width: number): string {
+  return `${CLOUDINARY}/w_${width},q_auto,f_auto,c_limit/${encodeURIComponent(url)}`;
+}
+
+function mapGroup(groupName: string): 'nogizaka' | 'sakurazaka' | 'hinatazaka' {
+  if (groupName?.includes('乃木坂')) return 'nogizaka';
+  if (groupName?.includes('樱坂') || groupName?.includes('櫻坂')) return 'sakurazaka';
+  return 'hinatazaka';
+}
+
+function extractPreview(content: string): string {
+  let c = content || '';
+  if (c.startsWith('---')) {
+    const end = c.indexOf('---', 3);
+    if (end !== -1) c = c.substring(end + 3).trim();
+  }
+  return c
+    .replace(/!\[.*?\]\(.*?\)/g, '')
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/\[.*?\]\(.*?\)/g, '')
+    .replace(/#+\s/g, '')
+    .replace(/\n+/g, ' ')
+    .trim()
+    .substring(0, 100);
+}
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return '';
+  // Match "2026.03.16 21:41" or "2026-03-16 21:41" or just "2026.03.16"
+  const match = dateStr.match(/(\d{4})[.\-/](\d{2})[.\-/](\d{2})(?:\s+(\d{2}):(\d{2}))?/);
+  if (match) {
+    const [, y, m, day, hh, mm] = match;
+    // Treat as JST (UTC+9) — subtract 9h to get UTC
+    const isoStr = `${y}-${m}-${day}T${hh || '00'}:${mm || '00'}:00+09:00`;
+    const d = new Date(isoStr);
+    const diff = Date.now() - d.getTime();
+    const hours = Math.floor(diff / 3600000);
+    if (hours < 1) return '刚刚';
+    if (hours < 24) return `${hours}小时前`;
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days}天前`;
+    return `${m}/${day}`;
+  }
+  return dateStr;
+}
+
+/* ─── 方案A：左右分割 + 图片轮播 ─── */
+function HeroBlogA({ blog }: { blog: BlogItem }) {
+  const color = GROUP_COLORS[blog.group] || 'var(--color-brand-nogi)';
+  const images = blog.hero_images.length > 0 ? blog.hero_images : (blog.hero_image ? [blog.hero_image] : []);
+  const [slide, setSlide] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => setSlide(s => (s + 1) % images.length), 4000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <section className="relative overflow-hidden">
+      <a
+        href={`/blog#blog/${blog.id}`}
+        data-astro-reload
+        className="group block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8"
+      >
+        <div className="flex flex-col sm:flex-row rounded-2xl overflow-hidden border border-[var(--border-primary)]" style={{ minHeight: '220px' }}>
+          {/* Left: image carousel */}
+          <div className="sm:w-[40%] w-full aspect-[4/3] sm:aspect-auto bg-[var(--bg-tertiary)] overflow-hidden shrink-0 relative">
+            {images.length > 0 ? (
+              <>
+                {images.map((url, i) => (
+                  <img
+                    key={i}
+                    src={url}
+                    alt={`${blog.title} ${i + 1}`}
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700"
+                    style={{ opacity: i === slide ? 1 : 0 }}
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                  />
+                ))}
+                {images.length > 1 && (
+                  <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
+                    {images.map((_, i) => (
+                      <span
+                        key={i}
+                        className="w-1.5 h-1.5 rounded-full transition-all duration-300"
+                        style={{
+                          backgroundColor: i === slide ? '#fff' : 'rgba(255,255,255,0.4)',
+                          transform: i === slide ? 'scale(1.3)' : 'scale(1)',
+                        }}
+                      />
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-white text-5xl font-bold" style={{ backgroundColor: color }}>
+                {blog.member_name.charAt(0)}
+              </div>
+            )}
+          </div>
+          {/* Right: text on group-color bg */}
+          <div className="flex-1 flex flex-col justify-center p-6 sm:p-8 text-white" style={{ background: `linear-gradient(135deg, ${color} 0%, ${color}dd 100%)` }}>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-white/15 backdrop-blur-sm">
+                {blog.group_name}
+              </span>
+              <span className="text-xs text-white/60">{blog.formatted_date}</span>
+            </div>
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold leading-snug mb-2">
+              {blog.member_name}「{blog.title}」
+            </h2>
+            <p className="text-sm text-white/70 leading-relaxed line-clamp-2 max-w-lg mb-4">
+              {blog.preview}
+            </p>
+            <span className="inline-flex items-center gap-1 text-sm font-medium text-white/90 group-hover:text-white transition-colors">
+              阅读全文 <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+            </span>
+          </div>
+        </div>
+      </a>
+    </section>
+  );
+}
+
+/* ─── 方案B：上图下文 ─── */
+function HeroBlogB({ blog }: { blog: BlogItem }) {
+  const color = GROUP_COLORS[blog.group] || 'var(--color-brand-nogi)';
+  return (
+    <section className="relative overflow-hidden">
+      <a
+        href={`/blog#blog/${blog.id}`}
+        data-astro-reload
+        className="group block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8"
+      >
+        <div className="rounded-2xl overflow-hidden border border-[var(--border-primary)] bg-[var(--bg-primary)]">
+          {/* Top: image */}
+          <div className="w-full aspect-[21/9] sm:aspect-[3/1] bg-[var(--bg-tertiary)] overflow-hidden">
+            {blog.hero_image ? (
+              <img
+                src={blog.hero_image}
+                alt={blog.title}
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                loading="eager"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-white text-5xl font-bold" style={{ backgroundColor: color }}>
+                {blog.member_name.charAt(0)}
+              </div>
+            )}
+          </div>
+          {/* Bottom: text with accent line */}
+          <div className="p-5 sm:p-6 border-l-4" style={{ borderLeftColor: color }}>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: color }} />
+              <span className="text-[11px] font-medium" style={{ color }}>{blog.group_name}</span>
+              <span className="text-xs text-[var(--text-tertiary)]">{blog.formatted_date}</span>
+            </div>
+            <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-2 leading-snug">
+              {blog.member_name}「{blog.title}」
+            </h2>
+            <p className="text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-2 max-w-2xl mb-3">
+              {blog.preview}
+            </p>
+            <span className="inline-flex items-center gap-1 text-sm font-medium" style={{ color }}>
+              阅读全文 <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+            </span>
+          </div>
+        </div>
+      </a>
+    </section>
+  );
+}
+
+function HeroFallback() {
+  return (
+    <section className="relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 text-center">
+        <h1 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] tracking-tight">Sakamichi Tools</h1>
+        <p className="mt-3 text-base text-[var(--text-secondary)]">坂道系列综合粉丝平台</p>
+        <div className="mt-3 flex justify-center gap-1.5">
+          <span className="w-8 h-0.5 rounded-full bg-[var(--color-brand-nogi)]" />
+          <span className="w-8 h-0.5 rounded-full bg-[var(--color-brand-sakura)]" />
+          <span className="w-8 h-0.5 rounded-full bg-[var(--color-brand-hinata)]" />
+        </div>
+      </div>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-primary)]" />
+    </section>
+  );
+}
+
+function BlogCard({ blog }: { blog: BlogItem }) {
+  const color = GROUP_COLORS[blog.group] || 'var(--color-brand-nogi)';
+  return (
+    <a
+      href={`/blog#blog/${blog.id}`}
+      data-astro-reload
+      className="group flex flex-col rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 overflow-hidden"
+    >
+      {blog.image && (
+        <div className="w-full aspect-[4/5] bg-[var(--bg-tertiary)] overflow-hidden">
+          <img
+            src={blog.image}
+            alt={blog.title}
+            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+        </div>
+      )}
+      <div className="p-3 flex flex-col flex-1">
+        <div className="flex items-center gap-2 mb-2">
+          <div
+            className="w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-white text-[10px] font-bold"
+            style={{ backgroundColor: color }}
+          >
+            {blog.member_name.charAt(0)}
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-medium text-[var(--text-primary)] truncate">{blog.member_name}</p>
+            <p className="text-[10px] text-[var(--text-tertiary)]">{blog.formatted_date}</p>
+          </div>
+        </div>
+        <h3 className="text-sm font-semibold text-[var(--text-primary)] line-clamp-2 leading-snug">{blog.title}</h3>
+      </div>
+    </a>
+  );
+}
+
+function SkeletonCard() {
+  return (
+    <div className="flex flex-col rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] overflow-hidden animate-pulse">
+      <div className="w-full h-28 bg-[var(--bg-tertiary)]" />
+      <div className="p-4 flex flex-col gap-3">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full bg-[var(--bg-tertiary)]" />
+          <div className="flex-1 space-y-1">
+            <div className="h-3 bg-[var(--bg-tertiary)] rounded w-16" />
+            <div className="h-2 bg-[var(--bg-tertiary)] rounded w-10" />
+          </div>
+        </div>
+        <div className="h-3 bg-[var(--bg-tertiary)] rounded w-3/4" />
+        <div className="h-2 bg-[var(--bg-tertiary)] rounded w-full" />
+      </div>
+    </div>
+  );
+}
+
+export default function HomeBlogSection() {
+  const [blogs, setBlogs] = useState<BlogItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [heroVariant, setHeroVariant] = useState<'A' | 'B'>('A');
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(`${API_BASE}/api/blogs?limit=6`, { signal: controller.signal })
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.success && data.blogs) {
+          const mapped = data.blogs.map((b: any) => {
+            const group = mapGroup(b.group_name);
+            const rawContent = b.translated_content || b.bilingual_content || '';
+            const firstImg = extractFirstImage(rawContent);
+            return {
+              id: b.id,
+              member_name: b.member || '',
+              title: b.title || '',
+              group,
+              group_name: b.group_name || '',
+              formatted_date: formatDate(b.publish_date || ''),
+              preview: extractPreview(b.translated_content || ''),
+              image: firstImg ? cloudinaryUrl(firstImg, 400) : null,
+              hero_image: firstImg ? cloudinaryUrl(firstImg, 800) : null,
+              hero_images: extractImages(rawContent, 5).map(u => cloudinaryUrl(u, 600)),
+            };
+          });
+          setBlogs(mapped);
+        }
+      })
+      .catch((e) => {
+        if (e.name !== 'AbortError') console.error('[HomeBlogSection] fetch failed:', e);
+      })
+      .finally(() => setLoading(false));
+    return () => controller.abort();
+  }, []);
+
+  const heroBlog = blogs[0] || null;
+  const latestBlogs = blogs.slice(1, 5);
+
+  return (
+    <>
+      {/* Hero Blog */}
+      {loading ? (
+        <section className="relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 animate-pulse">
+            <div className="rounded-2xl bg-[var(--bg-tertiary)]" style={{ minHeight: '220px' }} />
+          </div>
+        </section>
+      ) : heroBlog ? (
+        <>
+          {heroVariant === 'A' ? <HeroBlogA blog={heroBlog} /> : <HeroBlogB blog={heroBlog} />}
+          <div className="flex justify-center gap-2 -mt-4 mb-2">
+            <button
+              onClick={() => setHeroVariant('A')}
+              className={`px-3 py-1 text-[10px] rounded-full border transition-colors ${heroVariant === 'A' ? 'bg-[var(--text-primary)] text-[var(--bg-primary)] border-transparent' : 'border-[var(--border-secondary)] text-[var(--text-tertiary)]'}`}
+            >方案A 左右分割</button>
+            <button
+              onClick={() => setHeroVariant('B')}
+              className={`px-3 py-1 text-[10px] rounded-full border transition-colors ${heroVariant === 'B' ? 'bg-[var(--text-primary)] text-[var(--bg-primary)] border-transparent' : 'border-[var(--border-secondary)] text-[var(--text-tertiary)]'}`}
+            >方案B 上图下文</button>
+          </div>
+        </>
+      ) : (
+        <HeroFallback />
+      )}
+
+      {/* Latest Blogs Grid */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2 text-[var(--text-tertiary)]">
+            <Pen size={14} />
+            <h2 className="text-xs font-semibold uppercase tracking-wider">最新博客翻译</h2>
+          </div>
+          <a href="/blog" data-astro-reload className="flex items-center gap-1 text-xs font-medium text-[var(--color-brand-nogi)] hover:underline">
+            查看全部 <ArrowRight size={12} />
+          </a>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {loading
+            ? Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)
+            : latestBlogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)}
+        </div>
+      </section>
+    </>
+  );
+}

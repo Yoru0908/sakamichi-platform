@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import OnboardingWizard from '@/components/auth/OnboardingWizard';
+---
+
+<BaseLayout title="个性化设置 - Sakamichi Tools">
+  <div class="min-h-[calc(100vh-7rem)] flex items-center justify-center py-10 px-4">
+    <OnboardingWizard client:load />
+  </div>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import { Construction } from 'lucide-astro';
+
+interface Props {
+  title: string;
+  description: string;
+  status?: 'building' | 'planned';
+}
+
+const { title, description, status = 'building' } = Astro.props;
+---
+
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+  <div class="w-14 h-14 mx-auto rounded-2xl bg-[var(--bg-tertiary)] flex items-center justify-center text-[var(--text-tertiary)] mb-6">
+    <Construction size={28} />
+  </div>
+  <h1 class="text-2xl font-bold text-[var(--text-primary)] mb-3">{title}</h1>
+  <p class="text-sm text-[var(--text-tertiary)] leading-relaxed max-w-md mx-auto mb-6">
+    {description}
+  </p>
+  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[var(--bg-tertiary)] text-[var(--text-tertiary)]">
+    {status === 'building' ? '开发中' : '规划中'}
+  </span>
+  <div class="mt-10">
+    <a href="/" class="text-sm text-[var(--color-brand-nogi)] hover:underline">
+      返回首页
+    </a>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+name = "sakamichi-auth"
+main = "src/index.ts"
+compatibility_date = "2024-05-01"
+
+[vars]
+CORS_ORIGIN = "https://sakamichi-tools.cn,https://test.sakamichi-tools.cn,https://sakamichi-platform-test.pages.dev"
+EMAIL_FROM = "noreply@sakamichi-tools.cn"
+# JWT_SECRET, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, etc.
+# are set via `wrangler secret put <KEY>`
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sakamichi-auth"
+database_id = "3fb05a7a-13bc-4f0c-8e30-31ac07eff235"
+
+# Routes: auth Worker handles /api/auth/* and /api/user/* on api subdomain
+[[routes]]
+pattern = "api.sakamichi-tools.cn/api/auth/*"
+zone_name = "sakamichi-tools.cn"
+
+[[routes]]
+pattern = "api.sakamichi-tools.cn/api/user/*"
+zone_name = "sakamichi-tools.cn"
+
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "TO_BE_CREATED"

@@ -1,0 +1,360 @@
+/* ================================
+   移动端响应式优化
+   ================================ */
+
+/* 🔧 修复：防止移动端横向滚动（CLS问题） */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* 汉堡菜单按钮 */
+.mobile-menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.mobile-menu-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-secondary);
+}
+
+.mobile-menu-btn svg {
+  width: 24px;
+  height: 24px;
+  color: var(--text-primary);
+}
+
+/* 侧边栏菜单 - 优化性能 */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: var(--bg-primary);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  transition: right 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  border-left: 1px solid var(--border-primary);
+  will-change: right;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-sidebar.open {
+  right: 0;
+}
+
+.mobile-sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--border-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-secondary);
+}
+
+.mobile-sidebar-header h2 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.025em;
+}
+
+.mobile-sidebar-close {
+  width: 36px;
+  height: 36px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  transition: all 0.2s;
+}
+
+.mobile-sidebar-close:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-secondary);
+}
+
+.mobile-sidebar-close svg {
+  width: 20px;
+  height: 20px;
+  color: var(--text-primary);
+}
+
+.mobile-sidebar-nav {
+  padding: 20px 16px;
+}
+
+.mobile-nav-item {
+  display: block;
+  padding: 14px 16px;
+  margin-bottom: 2px;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-primary);
+  letter-spacing: 0.015em;
+}
+
+.mobile-nav-item:hover {
+  background: var(--bg-secondary);
+  border-color: var(--color-brand-nogi, #742581);
+  color: var(--color-brand-nogi, #742581);
+}
+
+.mobile-nav-item.active {
+  background: var(--bg-secondary);
+  color: var(--color-brand-nogi, #742581);
+  border-color: var(--color-brand-nogi, #742581);
+  font-weight: 400;
+}
+
+/* 遮罩层 */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+
+  /* Header适配 */
+  header .flex.items-center.justify-between {
+    height: 56px !important;
+    padding: 0;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    flex: 1;
+    letter-spacing: 0.025em;
+    color: var(--text-primary);
+    padding-left: 16px;
+    /* 修复：防止"坂"字被遮挡 */
+  }
+
+  /* 隐藏PC端标签页 */
+  .desktop-tabs {
+    display: none !important;
+  }
+
+  /* 显示汉堡菜单 */
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  /* 搜索框移动端 - 隐藏在主header */
+  #searchInput {
+    display: none !important;
+  }
+
+  /* 移动端搜索栏 */
+  .mobile-search-bar {
+    display: block;
+    padding: 8px 16px;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .mobile-search-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .mobile-search-input:focus {
+    border-color: var(--text-primary);
+  }
+
+  /* 统计卡片移动端 */
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  /* 博客卡片移动端 */
+  .blog-card-content {
+    padding: 1rem;
+  }
+
+  .blog-title {
+    font-size: 1rem;
+  }
+
+  /* 成员网格移动端 */
+  .member-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .member-item {
+    padding: 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  /* 博客详情页移动端 */
+  #blogDetail {
+    padding: 1rem 0.5rem;
+  }
+
+  #blogDetail article {
+    padding: 1rem;
+  }
+
+  #blogDetail h1 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  /* 移动端博客详情头部优化 */
+  #blogDetail header {
+    margin-bottom: 1.5rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  #blogDetail header .flex {
+    flex-wrap: wrap;
+    gap: 0.5rem !important;
+    font-size: 0.875rem;
+  }
+
+  #blogDetail header .font-medium {
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  /* 操作按钮移动端 */
+  .action-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 1.5rem !important;
+  }
+
+  .action-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+
+  .action-btn.primary {
+    background: #2563eb;
+    border-color: #2563eb;
+  }
+
+  .share-dropdown {
+    width: 100%;
+    position: relative;
+  }
+
+  .share-menu {
+    /* 移动端：向下居中弹出 */
+    top: calc(100% + 8px);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    /* 移动端：2列布局 */
+    grid-template-columns: repeat(2, 1fr);
+    min-width: 200px;
+  }
+
+  /* Toast移动端 */
+  .toast {
+    bottom: 20px;
+    max-width: 90%;
+    font-size: 13px;
+  }
+
+  /* 进度对话框移动端 */
+  .download-progress {
+    width: 90%;
+    min-width: auto;
+    padding: 20px;
+  }
+
+  /* 博客内容移动端字体优化 */
+  .blog-content-official {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .blog-content-official img {
+    margin: 1rem 0;
+  }
+
+  /* 容器移动端 */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* 小屏幕手机 (<375px) */
+@media (max-width: 374px) {
+  header h1 {
+    font-size: 0.9rem;
+  }
+
+  .tab-item {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .blog-title {
+    font-size: 0.9rem;
+  }
+
+  #blogDetail h1 {
+    font-size: 1.25rem;
+  }
+
+  .action-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

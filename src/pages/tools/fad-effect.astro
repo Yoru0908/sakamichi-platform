@@ -1,0 +1,98 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Sparkles, ArrowLeft } from 'lucide-astro';
+---
+
+<BaseLayout title="FAD特效工具 - Sakamichi Tools">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header -->
+    <div class="mb-6">
+      <a href="/tools" class="inline-flex items-center gap-1 text-xs text-[var(--text-tertiary)] hover:text-[var(--color-brand-nogi)] transition-colors mb-3">
+        <ArrowLeft size={12} /> 返回工具箱
+      </a>
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: color-mix(in srgb, var(--color-brand-nogi) 12%, transparent); color: var(--color-brand-nogi);">
+          <Sparkles size={18} />
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-[var(--text-primary)]">FAD特效工具</h1>
+          <p class="text-xs text-[var(--text-tertiary)]">字幕淡入淡出特效处理与格式转换</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drop zone -->
+    <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5 mb-5">
+      <p class="text-sm font-medium text-[var(--text-primary)] mb-3">选择 JSON, SRT, ASS, 或 TXT 文件</p>
+      <div id="drop-area" class="border-2 border-dashed border-[var(--border-secondary)] rounded-lg p-8 text-center cursor-pointer hover:border-[var(--color-brand-nogi)] transition-colors bg-[var(--bg-secondary)]">
+        <p class="text-sm text-[var(--text-tertiary)] mb-2">拖拽文件到这里，或者</p>
+        <button type="button" onclick="document.getElementById('file-input').click()" class="px-4 py-2 text-sm font-medium rounded-lg text-white transition-colors" style="background: var(--color-brand-nogi);">
+          点击选择文件
+        </button>
+        <input id="file-input" type="file" accept=".json,application/json,.srt,.txt,.ass" class="hidden" />
+      </div>
+      <div class="mt-4 text-xs text-[var(--text-tertiary)] space-y-1">
+        <p class="font-semibold text-[var(--text-secondary)]">功能说明：</p>
+        <ul class="list-disc list-inside space-y-1 ml-1">
+          <li><strong>批量添加淡入淡出特效:</strong> 为 ASS, SRT, TXT 字幕批量添加或修改淡入淡出</li>
+          <li><strong>格式转换:</strong> 支持 JSON (CapCut/Whisper), SRT, ASS, TXT 多种格式导入</li>
+          <li><strong>一键导出:</strong> 将添加了FAD特效的字幕导出为 ASS 文件</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+      <!-- Left: Preview -->
+      <div>
+        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-2">预览ASS正文</label>
+        <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
+          <textarea id="preview-fad" rows="18" class="w-full p-3 border border-[var(--border-primary)] rounded-lg text-xs font-mono resize-vertical bg-[var(--bg-secondary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)]" placeholder="载入 ASS 文件后显示"></textarea>
+        </div>
+      </div>
+
+      <!-- Right: Settings -->
+      <div class="space-y-4">
+        <!-- FAD Settings -->
+        <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5">
+          <h3 class="text-sm font-semibold text-[var(--text-primary)] mb-4">FAD 特效设置</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <label for="fad-in-duration" class="text-xs text-[var(--text-secondary)] w-24">淡入时长 (ms)</label>
+              <input id="fad-in-duration" type="number" value="200" min="0" step="50" class="w-24 px-3 py-1.5 border border-[var(--border-primary)] rounded-lg text-sm bg-[var(--bg-secondary)] text-[var(--text-primary)]" />
+            </div>
+            <div class="flex items-center gap-3">
+              <label for="fad-out-duration" class="text-xs text-[var(--text-secondary)] w-24">淡出时长 (ms)</label>
+              <input id="fad-out-duration" type="number" value="100" min="0" step="50" class="w-24 px-3 py-1.5 border border-[var(--border-primary)] rounded-lg text-sm bg-[var(--bg-secondary)] text-[var(--text-primary)]" />
+            </div>
+            <div class="flex gap-2 pt-1">
+              <button id="btn-apply-fad" class="flex-1 px-3 py-2 text-xs font-medium rounded-lg text-white transition-colors" style="background: var(--color-brand-nogi);">全局应用</button>
+              <button id="btn-clear-fad" class="flex-1 px-3 py-2 text-xs font-medium rounded-lg bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] transition-colors border border-[var(--border-primary)]">一键清除FAD</button>
+            </div>
+            <button id="btn-export-fad-ass" class="w-full px-3 py-2 text-xs font-bold rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-colors">一键添加FAD并导出</button>
+          </div>
+        </div>
+
+        <!-- Quick Export -->
+        <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5">
+          <h3 class="text-sm font-semibold text-[var(--text-primary)] mb-3">快速导出（原始）</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-2">
+              <label class="text-xs text-[var(--text-tertiary)]">文件名</label>
+              <input id="filename-quick" class="flex-1 px-3 py-1.5 border border-[var(--border-primary)] rounded-lg text-sm bg-[var(--bg-secondary)] text-[var(--text-primary)]" placeholder="subtitle" />
+            </div>
+            <p class="text-[10px] text-[var(--text-tertiary)]">上传任意支持的格式后，可直接导出为其他格式</p>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="btn-quick-srt" class="px-3 py-2 text-xs font-medium rounded-lg text-white transition-colors" style="background: var(--color-brand-nogi);">导出 SRT</button>
+              <button id="btn-quick-ass" class="px-3 py-2 text-xs font-medium rounded-lg text-white bg-purple-600 hover:bg-purple-700 transition-colors">导出 ASS</button>
+              <button id="btn-quick-txt-ts" class="px-3 py-2 text-xs font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-colors">导出 TXT</button>
+              <button id="btn-quick-txt" class="px-3 py-2 text-xs font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors">纯文本</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline src="/js/tools/fad-tool.js"></script>
+</BaseLayout>

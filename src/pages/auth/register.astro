@@ -1,0 +1,26 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Info } from 'lucide-astro';
+import RegisterForm from '@/components/auth/RegisterForm';
+---
+
+<BaseLayout title="注册 - Sakamichi Tools">
+  <div class="min-h-[calc(100vh-7rem)] flex items-center justify-center py-10 px-4">
+    <div class="w-full flex flex-col items-center gap-4">
+      <RegisterForm client:load />
+
+      <!-- Access notice -->
+      <div class="max-w-sm w-full">
+        <div class="rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-3">
+          <div class="flex items-start gap-2">
+            <Info size={12} class="text-[var(--text-tertiary)] shrink-0 mt-0.5" />
+            <p class="text-[10px] text-[var(--text-tertiary)] leading-relaxed">
+              <strong class="text-[var(--text-secondary)]">注册须知：</strong>
+              注册后需要邮箱验证激活账号。激活后即可访问 MSG 原文、图片等受限内容。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

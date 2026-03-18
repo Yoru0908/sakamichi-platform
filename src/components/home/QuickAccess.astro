@@ -1,0 +1,36 @@
+---
+import { Pen, MessageCircle, Radio, Camera, Image, MessageSquare, Wrench } from 'lucide-astro';
+
+const items = [
+  { label: '博客翻译', href: '/blog', icon: 'pen', color: 'var(--color-brand-nogi)' },
+  { label: 'MSG归档', href: '/messages', icon: 'msg', color: 'var(--color-brand-hinata)' },
+  { label: '广播', href: '/radio', icon: 'radio', color: 'var(--color-brand-sakura)' },
+  { label: 'INS归档', href: '/instagram', icon: 'camera', color: 'var(--color-brand-nogi)' },
+  { label: '生写生成器', href: '/tools/photocard', icon: 'image', color: 'var(--color-brand-sakura)' },
+  { label: 'MSG生成器', href: '/tools/msg-generator', icon: 'msgsq', color: 'var(--color-brand-hinata)' },
+  { label: '更多工具', href: '/tools', icon: 'wrench', color: 'var(--text-tertiary)' },
+];
+---
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+  <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+    {items.map((item) => (
+      <a
+        href={item.href}
+        {...(item.href.startsWith('/blog') ? { 'data-astro-reload': true } : {})}
+        class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-[var(--text-secondary)] bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors duration-200"
+      >
+        <span style={`color: ${item.color};`}>
+          {item.icon === 'pen' && <Pen size={13} />}
+          {item.icon === 'msg' && <MessageCircle size={13} />}
+          {item.icon === 'radio' && <Radio size={13} />}
+          {item.icon === 'camera' && <Camera size={13} />}
+          {item.icon === 'image' && <Image size={13} />}
+          {item.icon === 'msgsq' && <MessageSquare size={13} />}
+          {item.icon === 'wrench' && <Wrench size={13} />}
+        </span>
+        {item.label}
+      </a>
+    ))}
+  </div>
+</section>

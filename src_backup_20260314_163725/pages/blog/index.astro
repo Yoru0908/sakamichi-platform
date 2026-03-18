@@ -1,0 +1,682 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+---
+
+<BlogLayout title="坂道博客翻译 - Sakamichi Tools">
+  <!-- Header (matches existing project structure) -->
+  <header class="bg-white shadow-sm sticky top-0 z-50 border-b">
+    <div class="container mx-auto pl-0 pr-4">
+      <div class="flex items-center justify-between" style="height: 56px;">
+        <div class="flex items-center gap-8">
+          <!-- Platform back link -->
+          <a href="/" class="platform-back-link">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            平台首页
+          </a>
+          
+          <h1 class="text-xl font-bold whitespace-nowrap">坂道博客翻译</h1>
+          
+          <!-- Desktop tabs (same data-group attributes as original) -->
+          <div class="flex items-center desktop-tabs">
+            <div class="tab-item active" data-group="all" onclick="Router.navigate('#all')">全部</div>
+            <div class="tab-item" data-group="nogizaka" onclick="Router.navigate('#nogizaka')">乃木坂46</div>
+            <div class="tab-item" data-group="sakurazaka" onclick="Router.navigate('#sakurazaka')">樱坂46</div>
+            <div class="tab-item" data-group="hinatazaka" onclick="Router.navigate('#hinatazaka')">日向坂46</div>
+            <div class="tab-item" onclick="window.open('/blog/stats', '_self')">数据统计</div>
+            <div class="tab-item" onclick="window.open('/blog/interactions', '_self')">关系分析</div>
+            <div class="tab-item" onclick="window.open('/tools/photocard', '_self')">生写生成器</div>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-3">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="搜索成员或标题..." 
+            class="input input-bordered input-sm w-64"
+            style="height: 36px;"
+            onkeyup="handleSearchInput(event)"
+          />
+          
+          <button id="themeToggleDesktop" class="theme-toggle-btn desktop-only" title="切换主题">
+            <svg class="theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+          
+          <button id="langToggleDesktop" class="lang-toggle-btn desktop-only" title="切换到繁体中文">
+            <span class="lang-text">简</span>
+          </button>
+          
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile sidebar menu -->
+  <div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+  <div class="mobile-sidebar">
+    <div class="mobile-sidebar-header">
+      <h2>菜单</h2>
+      <button class="mobile-sidebar-close" onclick="toggleMobileMenu()">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-search-bar">
+      <input type="text" id="mobileSearchInput" placeholder="搜索成员或标题..." class="mobile-search-input" onkeyup="handleSearchInput(event)" />
+    </div>
+    <nav class="mobile-sidebar-nav">
+      <div class="mobile-nav-item active" data-group="all" onclick="Router.navigate('#all')">全部</div>
+      <div class="mobile-nav-item" data-group="nogizaka" onclick="Router.navigate('#nogizaka')">乃木坂46</div>
+      <div class="mobile-nav-item" data-group="sakurazaka" onclick="Router.navigate('#sakurazaka')">樱坂46</div>
+      <div class="mobile-nav-item" data-group="hinatazaka" onclick="Router.navigate('#hinatazaka')">日向坂46</div>
+      <div class="mobile-nav-item" onclick="window.open('/blog/stats', '_self')">数据统计</div>
+      <div class="mobile-nav-item" onclick="window.open('/blog/interactions', '_self')">关系分析</div>
+      <div class="mobile-nav-item" onclick="window.open('/tools/photocard', '_self')">生写生成器</div>
+      <!-- Platform links -->
+      <div class="mobile-nav-item" onclick="window.location.href='/'">← 返回平台首页</div>
+      <div class="mobile-nav-item" onclick="window.location.href='/messages'">MSG归档</div>
+      <div class="mobile-nav-item" onclick="window.location.href='/shop'">周边商城</div>
+    </nav>
+    <div class="mobile-theme-toggle">
+      <button id="themeToggleMobile" class="theme-toggle-btn-mobile">
+        <svg class="theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <span class="theme-text">亮色模式</span>
+      </button>
+    </div>
+    <div class="mobile-lang-toggle">
+      <button id="langToggleMobile" class="lang-toggle-btn-mobile">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h2m-1 0v6"/>
+        </svg>
+        <span class="lang-text">简体中文</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content (same structure as existing project) -->
+  <main class="container mx-auto px-4 py-8 max-w-6xl">
+    <!-- Group info section (visible when specific group selected) -->
+    <div id="groupInfo" class="hidden mb-8">
+      <div class="flex flex-col md:flex-row gap-4 mb-6">
+        <div class="grid grid-cols-2 gap-4 flex-1">
+          <div class="stat-card">
+            <div class="stat-number" id="memberCount">-</div>
+            <div class="stat-label">成员数</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="todayCount">-</div>
+            <div class="stat-label">今日更新</div>
+          </div>
+        </div>
+        <div class="filter-card" style="min-width: 300px;">
+          <div class="filter-label">FILTER</div>
+          <select id="memberSelect" class="select select-bordered w-full" onchange="filterByMember()">
+            <option value="">全部成员</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog grid container -->
+    <div class="mb-8">
+      <div id="blogsContainer" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4" style="min-height: 400px;">
+      </div>
+    </div>
+
+    <!-- Loading state -->
+    <div id="loadingState" class="hidden fixed inset-0 flex items-center justify-center bg-white bg-opacity-90 z-40">
+      <div class="text-center">
+        <span class="loading loading-spinner loading-lg"></span>
+        <p class="mt-4 text-gray-600">加载中...</p>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div id="emptyState" class="hidden text-center py-12 bg-white">
+      <p class="text-gray-500">暂无博客</p>
+    </div>
+
+    <!-- Scroll hint -->
+    <div id="scrollHint" class="hidden text-center mb-8">
+      <div class="inline-flex flex-col items-center text-gray-400">
+        <span class="text-sm mb-2">继续滚动查看更多</span>
+        <svg class="animate-bounce w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div id="paginationContainer" class="hidden mb-8 mt-8">
+      <div class="flex flex-col items-center gap-4">
+        <div id="pageInfo" class="text-sm text-gray-600 font-medium"></div>
+        <div class="inline-flex items-center gap-2">
+          <button id="prevPageBtn" class="flex items-center justify-center w-8 h-8 text-sm border border-gray-300 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors" disabled>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <div id="pageButtons" class="flex items-center gap-1"></div>
+          <button id="nextPageBtn" class="flex items-center justify-center w-8 h-8 text-sm border border-gray-300 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Infinite scroll sentinel -->
+    <div id="scrollSentinel" class="hidden" style="height: 1px;"></div>
+    
+    <!-- Loading indicator -->
+    <div id="loadingIndicator" class="hidden text-center mb-8">
+      <div class="inline-flex items-center">
+        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+        <span class="ml-3 text-gray-600">加载中...</span>
+      </div>
+    </div>
+
+    <!-- Member grid section -->
+    <div id="memberListSection" class="hidden bg-white p-8">
+      <h2 class="section-title">メンバー別ブログ</h2>
+      <div id="memberGrid" class="member-grid"></div>
+    </div>
+  </main>
+
+  <!-- Inline scripts from original index.html (core functions) -->
+  <script is:inline>
+    // App namespace initialization
+    if (typeof window.App === 'undefined') { window.App = {}; }
+    window.App = window.App || {};
+    if (typeof window.App.ui === 'undefined') { window.App.ui = {}; }
+
+    // switchGroup
+    async function switchGroup(group) {
+      console.log('切换团体:', group);
+      if (!window.Router) { console.error('Router 未初始化！'); return; }
+      App.state.group = group;
+      App.state.page = 1;
+      App.state.search = '';
+      App.state.hasMore = true;
+      App.state.loading = false;
+      if (typeof syncMenuActiveState === 'function') {
+        syncMenuActiveState(group);
+      } else {
+        document.querySelectorAll('.tab-item').forEach(tab => {
+          tab.classList.remove('active');
+          if (tab.dataset.group === group) tab.classList.add('active');
+        });
+      }
+      const groupInfo = document.getElementById('groupInfo');
+      const memberListSection = document.getElementById('memberListSection');
+      if (group !== 'all') {
+        groupInfo.classList.remove('hidden');
+        memberListSection.classList.remove('hidden');
+        await loadGroupInfo(group);
+      } else {
+        groupInfo.classList.add('hidden');
+        memberListSection.classList.add('hidden');
+      }
+      await loadBlogs();
+    }
+
+    // loadGroupInfo
+    window.loadGroupInfo = async function loadGroupInfo(group) {
+      try {
+        const groupName = window.GroupConfig?.getDisplayName(group) || group;
+        const apiBase = window.API_BASE_URL || window.API_BASE;
+        const response = await fetch(`${apiBase}/api/blogs?group=${encodeURIComponent(groupName)}&limit=500`);
+        const data = await response.json();
+        if (data.success && data.blogs) {
+          let groupData;
+          try {
+            const membersResponse = await fetch(`${apiBase}/api/members/${group}?t=${Date.now()}`);
+            if (membersResponse.ok) { groupData = await membersResponse.json(); }
+          } catch (e) {
+            groupData = window.MEMBERS_DATA ? { generations: window.MEMBERS_DATA[group]?.generations } : null;
+          }
+          let totalMembers = 0;
+          let allMembers = [];
+          let memberLastUpdate = {};
+          if (groupData && groupData.generations) {
+            groupData.generations.forEach(generation => {
+              totalMembers += generation.members.length;
+              allMembers.push(...generation.members);
+            });
+            if (groupData.graduated) { allMembers.push(...groupData.graduated); }
+          }
+          data.blogs.forEach(blog => {
+            if (blog.member && blog.publish_date) {
+              const member = blog.member.replace(/\s+/g, '');
+              const dateStr = blog.publish_date;
+              const normalizedDate = dateStr.replace(/\./g, '/');
+              if (!memberLastUpdate[member]) {
+                memberLastUpdate[member] = normalizedDate;
+              } else {
+                const currentDate = new Date(memberLastUpdate[member].replace(/\//g, '-'));
+                const newDate = new Date(normalizedDate.replace(/\//g, '-'));
+                if (newDate > currentDate) memberLastUpdate[member] = normalizedDate;
+              }
+            }
+          });
+          document.getElementById('memberCount').textContent = groupData?.totalMembers ?? totalMembers;
+          const membersWithBlogs = [...new Set(data.blogs
+            .map(blog => blog.member)
+            .filter(member => member && member !== '未知成员' && !member.includes('未知'))
+            .map(member => member.replace(/\s+/g, ''))
+          )].sort();
+          const now = new Date();
+          const japanTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
+          const today = japanTime.toISOString().split('T')[0];
+          const todayBlogs = data.blogs.filter(blog => {
+            if (!blog.publish_date) return false;
+            const blogDate = window.parseBlogDate ? window.parseBlogDate(blog.publish_date) : new Date(blog.publish_date);
+            if (!blogDate) return false;
+            return blogDate.toISOString().split('T')[0] === today;
+          });
+          document.getElementById('todayCount').textContent = todayBlogs.length;
+          populateMemberSelect(groupData, memberLastUpdate);
+          await renderMemberGrid(groupData, membersWithBlogs);
+        }
+      } catch (error) { console.error('加载团体信息失败:', error); }
+    }
+
+    // populateMemberSelect
+    function populateMemberSelect(groupData, memberLastUpdate = {}) {
+      function formatMemberOption(member) {
+        if (!memberLastUpdate[member]) return `${member}（未更新）`;
+        const date = memberLastUpdate[member];
+        const parts = date.split(' ');
+        const datePart = parts[0];
+        const timePart = parts[1] || '';
+        const dc = datePart.split('/');
+        if (dc.length === 3) {
+          const month = dc[1].padStart(2, '0');
+          const day = dc[2].padStart(2, '0');
+          return timePart ? `${member}（${month}.${day} ${timePart} 更新）` : `${member}（${month}.${day} 更新）`;
+        }
+        return `${member}（${date}）`;
+      }
+      const select = document.getElementById('memberSelect');
+      select.innerHTML = '<option value="">全部成员</option>';
+      if (!groupData || !groupData.generations) return;
+      groupData.generations.forEach(generation => {
+        generation.members.forEach(member => {
+          if (groupData.graduated && groupData.graduated.includes(member)) return;
+          const option = document.createElement('option');
+          option.value = member;
+          option.textContent = formatMemberOption(member);
+          select.appendChild(option);
+        });
+      });
+      if (groupData.graduated && groupData.graduated.length > 0) {
+        const optgroup = document.createElement('optgroup');
+        optgroup.label = '── 已毕业 ──';
+        groupData.graduated.forEach(member => {
+          const option = document.createElement('option');
+          option.value = member;
+          option.textContent = memberLastUpdate[member] ? formatMemberOption(member) : `${member}（已毕业）`;
+          optgroup.appendChild(option);
+        });
+        select.appendChild(optgroup);
+      }
+    }
+
+    // renderMemberGrid
+    async function renderMemberGrid(groupData, membersWithBlogs = []) {
+      const grid = document.getElementById('memberGrid');
+      if (!grid) return;
+      if (!App.state.group || App.state.group === 'all') return;
+      grid.innerHTML = '';
+      if (Array.isArray(groupData)) {
+        groupData.forEach(member => {
+          const item = document.createElement('div');
+          item.className = 'member-item';
+          item.textContent = member;
+          if (!membersWithBlogs.includes(member)) item.classList.add('opacity-50');
+          item.onclick = () => Router.navigate(`#${App.state.group}/member/${encodeURIComponent(member)}`);
+          grid.appendChild(item);
+        });
+        return;
+      }
+      if (!groupData || !groupData.generations) return;
+      groupData.generations.forEach((generation) => {
+        const genTitle = document.createElement('div');
+        genTitle.className = 'col-span-full text-sm font-bold text-gray-700 mt-4 mb-2 px-2';
+        genTitle.textContent = generation.name;
+        grid.appendChild(genTitle);
+        generation.members.forEach(member => {
+          const item = document.createElement('div');
+          const isGraduated = groupData.graduated && groupData.graduated.includes(member);
+          item.className = isGraduated ? 'member-item member-item--graduated' : 'member-item';
+          item.textContent = member;
+          if (!membersWithBlogs.includes(member)) item.classList.add('opacity-50');
+          item.onclick = () => Router.navigate(`#${App.state.group}/member/${encodeURIComponent(member)}`);
+          grid.appendChild(item);
+        });
+      });
+    }
+
+    // filterByMember
+    function filterByMember() {
+      const select = document.getElementById('memberSelect');
+      const memberName = select.value;
+      App.state.search = memberName;
+      App.state.page = 1;
+      App.state.hasMore = true;
+      App.state.loading = false;
+      const container = document.getElementById('blogsContainer');
+      if (container) container.innerHTML = '<div style="text-align: center; padding: 40px; color: #999;">正在加载...</div>';
+      const newHash = memberName 
+        ? `#${App.state.group}?member=${encodeURIComponent(memberName)}`
+        : `#${App.state.group}`;
+      history.pushState({ view: 'list', group: App.state.group, member: memberName || '' }, '', newHash);
+      loadBlogs();
+    }
+    
+    window.resetMemberFilter = function() {
+      const select = document.getElementById('memberSelect');
+      if (select) select.value = '';
+    }
+    
+    window.restoreMemberFilter = function(memberName) {
+      const select = document.getElementById('memberSelect');
+      if (select && memberName) {
+        const tryRestore = () => {
+          const options = select.querySelectorAll('option');
+          for (const option of options) {
+            if (option.value === memberName) { select.value = memberName; return true; }
+          }
+          return false;
+        };
+        if (!tryRestore()) { setTimeout(() => tryRestore(), 500); }
+      }
+    }
+
+    // handleSearchInput
+    function handleSearchInput(event) {
+      if (event.key === 'Enter') {
+        const query = event.target.value.trim();
+        if (query) { performRealSearch(query); }
+        else { App.state.search = ''; App.state.page = 1; loadBlogs(); }
+      }
+    }
+
+    async function performRealSearch(query) {
+      try {
+        const container = document.getElementById('blogsContainer');
+        container.innerHTML = '<div style="text-align: center; padding: 40px; color: #999;">正在搜索...</div>';
+        const apiBase = window.API_BASE_URL || 'https://api.sakamichi-tools.cn';
+        const params = new URLSearchParams({ q: query, limit: 50 });
+        if (App.state.group !== 'all') {
+          const groupNames = { 'nogizaka': '乃木坂46', 'sakurazaka': '樱坂46', 'hinatazaka': '日向坂46' };
+          params.append('group', groupNames[App.state.group] || '');
+        }
+        const response = await fetch(`${apiBase}/api/search?${params}`);
+        const data = await response.json();
+        if (data.success && data.data) { displaySearchResults(data.data, query, data.count); }
+        else { throw new Error(data.error || '搜索失败'); }
+      } catch (error) {
+        console.error('[performRealSearch] 搜索失败:', error);
+        const container = document.getElementById('blogsContainer');
+        container.innerHTML = `<div style="text-align: center; padding: 40px;"><p style="color: #f56565;">搜索失败: ${error.message}</p></div>`;
+      }
+    }
+
+    function renderBlogContent(markdown, groupName) {
+      if (window.renderMarkdown) return window.renderMarkdown(markdown, groupName);
+      return markdown.replace(/\n/g, '<br>');
+    }
+
+    // renderBlogItem (official card style)
+    App.ui.renderBlogItem = function(blog, index = 999) {
+      const item = document.createElement('a');
+      item.className = 'blog-card';
+      item.href = `#blog/${blog.id}`;
+      item.onclick = (e) => { e.preventDefault(); if (window.Router) Router.navigate(`#blog/${blog.id}`); };
+      
+      let imageHtml = '';
+      let hasImage = false;
+      if (blog.translated_content) {
+        const imageMatch = blog.translated_content.match(/!\[.*?\]\((https?:\/\/[^\)]+)\)/);
+        if (imageMatch && imageMatch[1]) {
+          hasImage = true;
+          const originalUrl = imageMatch[1];
+          const url400 = window.getCloudinaryUrl ? window.getCloudinaryUrl(originalUrl, 400) : originalUrl;
+          const url600 = window.getCloudinaryUrl ? window.getCloudinaryUrl(originalUrl, 600) : originalUrl;
+          const loadingAttr = index < 8 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
+          imageHtml = `<img src="${url400}" srcset="${url400} 400w, ${url600} 600w" sizes="(max-width: 640px) 50vw, 300px" alt="${blog.title}" ${loadingAttr} style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">`;
+        }
+      }
+      if (!hasImage) {
+        let gradientColor = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        if (blog.group_name) {
+          if (blog.group_name.includes('乃木坂')) gradientColor = 'linear-gradient(135deg, #9b4dca 0%, #6b21a8 100%)';
+          else if (blog.group_name.includes('樱坂') || blog.group_name.includes('櫻坂')) gradientColor = 'linear-gradient(135deg, #ec4899 0%, #be185d 100%)';
+          else if (blog.group_name.includes('日向坂')) gradientColor = 'linear-gradient(135deg, #60a5fa 0%, #2563eb 100%)';
+        }
+        const initial = (blog.member || '?').charAt(0);
+        imageHtml = `<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: ${gradientColor}; display: flex; align-items: center; justify-content: center;"><span style="font-size: 48px; color: rgba(255,255,255,0.8); font-weight: 300;">${initial}</span></div>`;
+      }
+
+      const formattedDate = blog.formatted_date || blog.publish_date || '未知日期';
+      const _gn = blog.group_name || '';
+      const _groupKey = _gn.includes('\u4e43\u6728\u5742') ? 'nogizaka'
+        : (_gn.includes('\u6a31\u5742') || _gn.includes('\u6afb\u5742')) ? 'sakurazaka'
+        : _gn.includes('\u65e5\u5411\u5742') ? 'hinatazaka'
+        : (App.state?.group || 'nogizaka');
+
+      item.innerHTML = `
+        <div class="blog-card-image" style="position: relative; background: #f5f5f5;">${imageHtml}</div>
+        <div class="blog-card-content">
+          <div class="member-name mb-2" lang="ja"><span class="member-name-link" style="cursor:pointer; text-decoration:none;">${blog.member || '未知成员'}</span></div>
+          <div class="blog-meta mb-2">${formattedDate} ${blog.group_name || ''}</div>
+          <h3 class="blog-title" lang="ja">${blog.title || ''}</h3>
+        </div>`;
+
+      const memberNameEl = item.querySelector('.member-name-link');
+      if (memberNameEl && blog.member) {
+        memberNameEl.addEventListener('click', (e) => {
+          e.preventDefault(); e.stopPropagation();
+          if (window.Router) Router.navigate(`#${_groupKey}/member/${encodeURIComponent(blog.member)}`);
+        });
+        memberNameEl.addEventListener('mouseenter', () => { memberNameEl.style.textDecoration = 'underline'; });
+        memberNameEl.addEventListener('mouseleave', () => { memberNameEl.style.textDecoration = 'none'; });
+      }
+      return item;
+    }
+    window.renderBlogItem = App.ui.renderBlogItem;
+
+    // showBlogDetail - loads content in detail view
+    window.showBlogDetail = function(blog, skipHistory, blogData) {
+      const existingDetail = document.getElementById('blogDetail');
+      if (existingDetail) existingDetail.remove();
+      const main = document.querySelector('main');
+      const footer = document.querySelector('footer');
+      if (main) main.style.display = 'none';
+      if (footer) footer.style.display = 'none';
+
+      const detailPage = document.createElement('main');
+      detailPage.id = 'blogDetail';
+      detailPage.className = 'container mx-auto px-4 py-8';
+      detailPage.style.maxWidth = '1200px';
+      detailPage.innerHTML = `
+        <style>@media (max-width: 768px) { #blogDetail > div { grid-template-columns: 1fr !important; } .member-sidebar-detail { display: none !important; } }</style>
+        <div style="display: grid; grid-template-columns: 1fr 320px; gap: 32px;">
+          <article class="bg-white p-8 shadow-sm" style="border-radius: 8px;">
+            <header class="mb-8 pb-6 border-b">
+              <h1 class="text-3xl font-bold mb-4">${blog.title}</h1>
+              <div class="flex items-center gap-4 text-gray-600">
+                <span class="font-medium">${blog.member}</span><span>·</span>
+                <span>${blog.formatted_date || blog.publish_date || '未知日期'}</span><span>·</span>
+                <span class="text-sm">${window.GroupConfig?.getDisplayName(blog.group_name) || blog.group_name}</span>
+              </div>
+              <div class="action-buttons">
+                <div id="bilingualControlMount"></div>
+                <button class="action-btn primary" id="downloadAllBtn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>下载全部图片</span><span id="imageCount"></span>
+                </button>
+              </div>
+            </header>
+            <div id="blogContent" class="blog-content-official"><p class="text-gray-500">正在加载翻译内容...</p></div>
+            <footer class="mt-8 pt-6 border-t">
+              <a href="${blog.original_url || '#'}" target="_blank" class="more-btn">查看原文</a>
+            </footer>
+          </article>
+          <aside class="member-sidebar-detail" style="position: sticky; top: 80px; height: fit-content;">
+            <div class="sidebar-card" style="padding: 24px; margin-bottom: 20px; text-align: center;">
+              <div style="width: 240px; height: 300px; overflow: hidden; background: #f5f5f5; margin: 0 auto 16px; clip-path: polygon(0 0, 100% 0, 100% 80%, 75% 100%, 0 100%);">
+                <div id="detailMemberAvatar" style="width:100%;height:100%;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:48px;color:#999;"><span>${blog.member.charAt(0)}</span></div>
+              </div>
+              <h3 style="font-size: 16px; font-weight: bold; margin-bottom: 4px;">${blog.member}</h3>
+              <p style="font-size: 12px; color: #999;">${window.GroupConfig?.getDisplayName(blog.group_name) || blog.group_name}</p>
+            </div>
+            <div class="sidebar-card calendar-section" style="padding: 24px;"><h3 style="font-size: 14px; font-weight: bold; margin-bottom: 16px;">カレンダー</h3><div id="detailCalendarDates"></div></div>
+            <div class="sidebar-card" style="padding: 20px; margin-top: 20px;"><h3 style="font-size: 14px; font-weight: bold; margin-bottom: 16px;">NEW ENTRY</h3><ul id="detailNewEntries" style="list-style: none; padding: 0; margin: 0;"></ul>
+              <div style="margin-top: 16px;"><a id="viewMoreLink" href="#" style="display: inline-block; color: #fff; background: #9dccb5; font-size: 14px; width: 100%; height: 45px; line-height: 45px; text-align: center; border-radius: 5px; text-decoration: none;">もっと見る</a></div>
+            </div>
+          </aside>
+        </div>`;
+      document.body.appendChild(detailPage);
+
+      // Load blog content
+      const contentEl = document.getElementById('blogContent');
+      if (blogData && blogData.translated_content) {
+        const rendered = renderBlogContent(
+          typeof blogData.translated_content === 'string' ? blogData.translated_content : blogData.translated_content.translatedText || '',
+          blogData.group_name
+        );
+        contentEl.innerHTML = rendered;
+      } else {
+        loadBlogContent(blog.id);
+      }
+
+      // Initialize sidebar
+      if (window.BlogDetailSidebar && window.BlogDetailSidebar.init) {
+        window.BlogDetailSidebar.init(blog);
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // loadBlogContent
+    async function loadBlogContent(blogId) {
+      try {
+        const apiBase = window.API_BASE_URL || window.API_BASE;
+        const response = await fetch(`${apiBase}/api/blogs/${blogId}`);
+        const data = await response.json();
+        if (data.success && data.blog) {
+          const blog = data.blog;
+          const content = typeof blog.translated_content === 'string'
+            ? blog.translated_content
+            : blog.translated_content?.translatedText || '';
+          const contentEl = document.getElementById('blogContent');
+          if (contentEl) contentEl.innerHTML = renderBlogContent(content, blog.group_name);
+        }
+      } catch (error) {
+        console.error('加载博客内容失败:', error);
+        const contentEl = document.getElementById('blogContent');
+        if (contentEl) contentEl.innerHTML = '<p class="text-red-500">加载失败，请稍后重试</p>';
+      }
+    }
+
+    // Loading state helpers
+    window.showLoading = function() {
+      const el = document.getElementById('loadingState');
+      if (el) el.classList.remove('hidden');
+    }
+    window.hideLoading = function() {
+      const el = document.getElementById('loadingState');
+      if (el) el.classList.add('hidden');
+    }
+    function showEmptyState() {
+      const el = document.getElementById('emptyState');
+      if (el) el.classList.remove('hidden');
+    }
+    function hideEmptyState() {
+      const el = document.getElementById('emptyState');
+      if (el) el.classList.add('hidden');
+    }
+    function showError(msg) {
+      console.error(msg);
+      const container = document.getElementById('blogsContainer');
+      if (container) container.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 40px;"><p style="color: #f56565;">${msg}</p></div>`;
+    }
+
+    // Mobile menu
+    function toggleMobileMenu() {
+      const overlay = document.querySelector('.mobile-overlay');
+      const sidebar = document.querySelector('.mobile-sidebar');
+      overlay?.classList.toggle('active');
+      sidebar?.classList.toggle('active');
+    }
+
+    // Smooth transition
+    window.smoothTransition = async function(callback) {
+      const container = document.getElementById('blogsContainer');
+      if (container) { container.style.opacity = '0.5'; container.style.transition = 'opacity 0.2s'; }
+      await callback();
+      if (container) { container.style.opacity = '1'; }
+    }
+
+    // Auto-refresh
+    function startAutoRefresh() {
+      setInterval(async () => {
+        if (document.hidden || App.state.loading) return;
+        if (App.state.group === 'all' && App.state.page === 1) {
+          console.log('[AutoRefresh] 刷新全部博客列表');
+        }
+      }, 5 * 60 * 1000);
+    }
+
+    // Infinite scroll setup
+    window.setupInfiniteScroll = function() {
+      const sentinel = document.getElementById('scrollSentinel');
+      if (!sentinel) return;
+      if (App.state.scrollObserver) { App.state.scrollObserver.disconnect(); }
+      App.state.scrollObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && App.state.hasMore && !App.state.loading && !App.state.loadingMore) {
+          App.state.page++;
+          App.state.loadingMore = true;
+          window.loadBlogs(true).then(() => { App.state.loadingMore = false; });
+        }
+      }, { rootMargin: '200px' });
+      App.state.scrollObserver.observe(sentinel);
+    }
+  </script>
+
+  <!-- Core app module (blog loading, search, caching logic) -->
+  <script src="/js/blog/state.js?v=2" is:inline></script>
+  <script src="/js/blog/blog-renderer.js?v=2" defer is:inline></script>
+  <script src="/js/blog/seo-manager.js?v=2" defer is:inline></script>
+  <script src="/js/blog/app.js?v=2" defer is:inline></script>
+  <script src="/js/blog/image-download.js?v=2" defer is:inline></script>
+  <script src="/js/blog/share-module.js?v=2" defer is:inline></script>
+  <script src="/js/blog/blog-detail-sidebar.js?v=2" defer is:inline></script>
+</BlogLayout>

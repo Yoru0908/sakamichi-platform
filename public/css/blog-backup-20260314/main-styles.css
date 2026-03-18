@@ -1,0 +1,685 @@
+/* ================================
+   主样式文件
+   从index.html提取的样式
+   ================================ */
+
+/* 基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans SC", "Noto Sans JP", "Microsoft YaHei UI", "Yu Gothic UI", "Microsoft YaHei", "Yu Gothic", sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 桌面端隐藏移动端元素 */
+@media (min-width: 769px) {
+
+  .mobile-sidebar,
+  .mobile-overlay,
+  .mobile-menu-btn,
+  .mobile-search-bar {
+    display: none !important;
+  }
+}
+
+/* Header样式优化 */
+header h1 {
+  font-size: 1.375rem;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  color: #1f2937;
+}
+
+/* 侧边栏卡片 */
+.sidebar-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 博客卡片 - 官网网格样式 */
+.blog-card {
+  background: white;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.blog-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.blog-card-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 125%;
+  /* 4:5 比例（高/宽 = 5/4 = 125%） */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.blog-card-content {
+  padding: 1.25rem;
+}
+
+.blog-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.blog-excerpt {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.8;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  letter-spacing: 0.01em;
+}
+
+.blog-meta {
+  font-size: 0.75rem;
+  color: #999;
+  letter-spacing: 0.05em;
+}
+
+.member-name {
+  font-weight: 500;
+  color: #666;
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+/* 状态显示 */
+.loading-state,
+.empty-state {
+  background: white;
+  border: 1px solid #e8e8e8;
+  padding: 4rem;
+  text-align: center;
+  color: #666;
+}
+
+/* 成员网格 */
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1px;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+}
+
+.member-item {
+  background: white;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  color: #333;
+  letter-spacing: 0.02em;
+  min-height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e8e8e8;
+}
+
+.member-item:hover {
+  background-color: #f5f5f5;
+  color: #000;
+  border-color: #d0d0d0;
+}
+
+.member-item.opacity-50 {
+  opacity: 0.4;
+}
+
+/* 已毕业成员样式：视觉区分，但可点击 */
+.member-item--graduated {
+  background: #fafafa;
+  color: #aaa;
+  border-color: #e8e8e8;
+  font-style: italic;
+  position: relative;
+}
+
+.member-item--graduated::after {
+  content: '†';
+  font-size: 0.65rem;
+  color: #bbb;
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  font-style: normal;
+}
+
+.member-item--graduated:hover {
+  background: #f5f5f5;
+  color: #888;
+}
+
+/* 操作按钮 */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.15s, transform 0.1s;
+  text-decoration: none;
+  position: relative;
+  height: 38px;
+  /* 固定高度确保对齐 */
+}
+
+.action-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.action-btn:active {
+  transform: scale(0.97);
+}
+
+.action-btn.primary {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.action-btn.primary:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.action-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* 分享菜单 */
+.share-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.share-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  /* PC端：向下弹出 */
+  left: 0;
+  /* PC端：左对齐，出现在分享按钮右下方 */
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 240px;
+  /* 减小宽度以更紧凑 */
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
+  /* 4列 */
+  gap: 4px;
+  /* 减小间距使更紧凑 */
+}
+
+.share-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  /* 减小按钮尺寸 */
+  height: 44px;
+  flex-shrink: 0;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid #e5e7eb;
+}
+
+.share-option svg {
+  width: 20px;
+  /* 减小图标尺寸 */
+  height: 20px;
+}
+
+.share-option:hover {
+  background: #f9fafb;
+  color: #111827;
+  border-color: #2563eb;
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+/* 统计卡片 */
+.stat-card {
+  background: white;
+  border: 1px solid #e8e8e8;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #222;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* 筛选器卡片 */
+.filter-card {
+  background: white;
+  border: 1px solid #e8e8e8;
+  padding: 2rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.filter-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.filter-label {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* 标签页 */
+.tab-item {
+  padding: 0.5rem 1.25rem;
+  border-bottom: 2px solid transparent;
+  font-weight: 400;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9375rem;
+  letter-spacing: 0.015em;
+  line-height: 1.5;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  top: 2px;
+}
+
+.tab-item:hover {
+  color: #1f2937;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px 4px 0 0;
+}
+
+.tab-item.active {
+  color: #742581;
+  border-bottom-color: #742581;
+  font-weight: 500;
+}
+
+/* 筛选器下拉框 */
+#memberSelect {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e8e8e8;
+  background: white;
+  color: #333;
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+
+#memberSelect:hover {
+  border-color: #d0d0d0;
+}
+
+#memberSelect:focus {
+  border-color: #333;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* 章节标题 */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #222;
+  letter-spacing: 0.03em;
+}
+
+/* 查看更多按钮 */
+.more-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 1px solid #333;
+  color: #333;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.more-btn:hover {
+  background: #333;
+  color: white;
+}
+
+/* Toast提示 */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  z-index: 10000;
+  animation: toastSlideUp 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes toastSlideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* 博客内容官网样式 - 匹配官网 */
+.blog-content-official {
+  font-size: 14px;
+  /* 官网字体大小 */
+  line-height: 1.75;
+  /* 官网行高 */
+  color: #333;
+  letter-spacing: 0.02em;
+  max-width: none;
+  /* 保持原始格式和空白 */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  /* 优先使用日文字体以正确显示颜文字和组合字符 */
+  font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "MS PGothic", "ＭＳ Ｐゴシック", "MS Gothic", "ＭＳ ゴシック", Osaka, "メイリオ", Meiryo, "Yu Gothic", YuGothic, Monaco, Menlo, Consolas, "Courier New", monospace, -apple-system, BlinkMacSystemFont, sans-serif;
+  /* 确保组合字符正确渲染 */
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: normal;
+  -webkit-font-feature-settings: "liga" 0;
+  font-feature-settings: "liga" 0;
+}
+
+.blog-content-official br {
+  display: block;
+  content: "";
+  margin: 0;
+  /* 关键：移除br的margin */
+  padding: 0;
+  height: 0;
+  line-height: inherit;
+}
+
+.blog-content-official p {
+  margin: 0;
+  /* 关键：移除p的margin */
+  padding: 0;
+  line-height: 1.75;
+}
+
+.blog-content-official img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.blog-content-official strong {
+  font-weight: 600;
+  color: #111;
+}
+
+.blog-content-official a {
+  color: #2563eb;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.blog-content-official a:hover {
+  color: #1d4ed8;
+}
+
+/* 下载进度对话框 */
+.download-progress {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 30px;
+  z-index: 10000;
+  min-width: 320px;
+}
+
+.progress-content {
+  text-align: center;
+}
+
+.progress-message {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.progress-percent {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2563eb;
+  margin-top: 15px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* 分页组件样式 */
+#paginationContainer {
+  padding: 24px 0;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 48px;
+}
+
+#paginationContainer button {
+  transition: all 0.2s ease;
+}
+
+#paginationContainer button:not(:disabled):hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#pageButtons button.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+#pageInfo {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* 博客网格布局优化 */
+#blogsContainer {
+  min-height: 600px;
+}
+
+#blogsContainer.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* 网格响应式调整 */
+@media (min-width: 768px) {
+  #blogsContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #blogsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #paginationContainer {
+    padding: 16px 0;
+  }
+}
+
+/* ================================
+   简繁切换按钮样式
+   ================================ */
+
+/* PC端简繁切换按钮 */
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 15px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.lang-toggle-btn:hover {
+  background: #f3f4f6;
+  border-color: #3b82f6;
+  color: #3b82f6;
+  transform: scale(1.05);
+}
+
+.lang-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.lang-toggle-btn .lang-text {
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+/* 移动端简繁切换 */
+.mobile-lang-toggle {
+  padding: 16px 20px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lang-toggle-btn-mobile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: auto;
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  color: #374151;
+}
+
+.lang-toggle-btn-mobile:hover {
+  background: #f9fafb;
+  border-color: #7e57c2;
+}
+
+.lang-toggle-btn-mobile svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.lang-toggle-btn-mobile .lang-text {
+  font-family: "Noto Sans SC", sans-serif;
+  font-weight: 500;
+}

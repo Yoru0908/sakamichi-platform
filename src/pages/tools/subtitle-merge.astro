@@ -1,0 +1,256 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { FileText, ArrowLeft } from 'lucide-astro';
+---
+
+<BaseLayout title="字幕合并 - Sakamichi Tools">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header -->
+    <div class="mb-6">
+      <a href="/tools" class="inline-flex items-center gap-1 text-xs text-[var(--text-tertiary)] hover:text-[var(--color-brand-nogi)] transition-colors mb-3">
+        <ArrowLeft size={12} /> 返回工具箱
+      </a>
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background: color-mix(in srgb, var(--color-brand-nogi) 12%, transparent); color: var(--color-brand-nogi);">
+          <FileText size={18} />
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-[var(--text-primary)]">字幕格式导出与合并</h1>
+          <p class="text-xs text-[var(--text-tertiary)]">智能合并短句 · 格式转换 · 日语语气词处理</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drop zone -->
+    <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5 mb-5">
+      <p class="text-sm font-medium text-[var(--text-primary)] mb-3">选择 JSON, SRT, ASS, 或 TXT 文件</p>
+      <div id="drop-zone" class="border-2 border-dashed border-[var(--border-secondary)] rounded-lg p-8 text-center cursor-pointer hover:border-[var(--color-brand-nogi)] transition-colors bg-[var(--bg-secondary)]">
+        <p class="text-sm text-[var(--text-tertiary)] mb-2">拖拽文件到这里，或者</p>
+        <button type="button" onclick="document.getElementById('file-input').click()" class="px-4 py-2 text-sm font-medium rounded-lg text-white transition-colors" style="background: var(--color-brand-nogi);">
+          点击选择文件
+        </button>
+        <input id="file-input" type="file" accept=".json,application/json,.srt,.txt,.ass" class="hidden" />
+      </div>
+      <div class="mt-4 text-xs text-[var(--text-tertiary)] space-y-1">
+        <p class="font-semibold text-[var(--text-secondary)]">核心功能：</p>
+        <ul class="list-disc list-inside space-y-1 ml-1">
+          <li><strong>格式转换:</strong> 支持 JSON (CapCut/Whisper), SRT, ASS, TXT 多种格式</li>
+          <li><strong>字幕合并:</strong> 智能合并时间轴相近的短句，优化断句</li>
+          <li><strong>文本处理:</strong> 批量删除日语语气词、文本替换</li>
+        </ul>
+        <div class="mt-2">
+          <button id="capcut-path-toggle" class="text-[var(--color-brand-nogi)] hover:underline text-xs">Capcut生成json文件常见目录？</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tool views -->
+    <div id="tool-views">
+      <div id="tool-merge-view">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+          <!-- Left: Preview -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-[var(--text-secondary)] mb-2">原始文件预览</label>
+              <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
+                <textarea id="preview-src" rows="8" class="w-full p-3 border border-[var(--border-primary)] rounded-lg text-xs font-mono resize-vertical bg-[var(--bg-secondary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)]" placeholder="载入文件后显示"></textarea>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-[var(--text-secondary)] mb-2">合并结果（SRT 预览）</label>
+              <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
+                <textarea id="preview-merged" rows="8" class="w-full p-3 border border-[var(--border-primary)] rounded-lg text-xs font-mono resize-vertical bg-[var(--bg-secondary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)]" placeholder="点击执行合并后显示"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Settings -->
+          <div class="space-y-4">
+            <!-- Quick Export -->
+            <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] mb-3">快速导出（原始）</h3>
+              <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                  <label class="text-xs text-[var(--text-tertiary)]">文件名</label>
+                  <input id="filename-quick" class="flex-1 px-3 py-1.5 border border-[var(--border-primary)] rounded-lg text-sm bg-[var(--bg-secondary)] text-[var(--text-primary)]" placeholder="subtitle" />
+                </div>
+                <p class="text-[10px] text-[var(--text-tertiary)]">上传任意格式后，可直接导出为其他格式</p>
+                <div class="grid grid-cols-2 gap-2">
+                  <button id="btn-quick-srt" class="px-3 py-2 text-xs font-medium rounded-lg text-white transition-colors" style="background: var(--color-brand-nogi);">导出 SRT</button>
+                  <button id="btn-quick-ass" class="px-3 py-2 text-xs font-medium rounded-lg text-white bg-purple-600 hover:bg-purple-700 transition-colors">导出 ASS</button>
+                  <button id="btn-quick-txt-ts" class="px-3 py-2 text-xs font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-colors">导出 TXT</button>
+                  <button id="btn-quick-txt" class="px-3 py-2 text-xs font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors">纯文本</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Text Processing -->
+            <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] mb-3">文本处理</h3>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <label class="text-xs text-[var(--text-secondary)]">删除日语语气词（可多选）</label>
+                  <button id="btn-filler-select-all" class="px-2 py-1 rounded border border-[var(--border-primary)] text-[var(--text-tertiary)] hover:bg-[var(--bg-secondary)] text-[10px]">全选</button>
+                </div>
+                <div id="filler-panels" class="space-y-2">
+                  <!-- 填充词 -->
+                  <div class="border border-[var(--border-primary)] rounded-lg overflow-hidden">
+                    <div class="flex items-center justify-between px-3 py-2 bg-[var(--bg-secondary)]" data-group-header data-group="fill">
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-medium text-[var(--text-primary)]">填充词</span>
+                        <span class="text-[10px] text-[var(--text-tertiary)]" id="count-fill">0</span>
+                      </div>
+                      <div class="flex items-center gap-1">
+                        <button class="text-[10px] px-2 py-0.5 bg-[var(--bg-tertiary)] rounded group-toggle-select" data-group="fill">全选</button>
+                        <button class="text-[10px] px-2 py-0.5 bg-[var(--bg-tertiary)] rounded group-expand" data-group="fill">展开</button>
+                      </div>
+                    </div>
+                    <div id="panel-fill" data-panel class="hidden px-3 py-2 text-xs space-y-2">
+                      <div>
+                        <div class="text-[10px] font-semibold text-[var(--text-secondary)] mb-1">低风险</div>
+                        <div class="flex flex-wrap gap-1.5">
+                          <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="ええと" /> ええと</label>
+                          <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="えっと" /> えっと</label>
+                          <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="あのね" /> あのね</label>
+                          <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="うーん" /> うーん</label>
+                          <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="なんか" /> なんか</label>
+                          <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="まあ" /> まあ</label>
+                        </div>
+                      </div>
+                      <div class="border-t border-[var(--border-primary)] pt-2">
+                        <div class="text-[10px] font-semibold text-[var(--text-secondary)] mb-1">高风险</div>
+                        <div class="flex flex-wrap gap-1.5">
+                          <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="えっ" /> えっ</label>
+                          <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="えー" /> えー</label>
+                          <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="あの" /> あの</label>
+                          <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="あー" /> あー</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 附和 -->
+                  <div class="border border-[var(--border-primary)] rounded-lg overflow-hidden">
+                    <div class="flex items-center justify-between px-3 py-2 bg-[var(--bg-secondary)]" data-group-header data-group="laugh">
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-medium text-[var(--text-primary)]">附和</span>
+                        <span class="text-[10px] text-[var(--text-tertiary)]" id="count-laugh">0</span>
+                      </div>
+                      <div class="flex items-center gap-1">
+                        <button class="text-[10px] px-2 py-0.5 bg-[var(--bg-tertiary)] rounded group-toggle-select" data-group="laugh">全选</button>
+                        <button class="text-[10px] px-2 py-0.5 bg-[var(--bg-tertiary)] rounded group-expand" data-group="laugh">展开</button>
+                      </div>
+                    </div>
+                    <div id="panel-laugh" data-panel class="hidden px-3 py-2 text-xs space-y-2">
+                      <div class="flex flex-wrap gap-1.5">
+                        <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="ええ" /> ええ</label>
+                        <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="はい" /> はい</label>
+                        <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="うん" /> うん</label>
+                        <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="そう" /> そう</label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 拟声词 -->
+                  <div class="border border-[var(--border-primary)] rounded-lg overflow-hidden">
+                    <div class="flex items-center justify-between px-3 py-2 bg-[var(--bg-secondary)]" data-group-header data-group="kou">
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-medium text-[var(--text-primary)]">拟声词</span>
+                        <span class="text-[10px] text-[var(--text-tertiary)]" id="count-kou">0</span>
+                      </div>
+                      <div class="flex items-center gap-1">
+                        <button class="text-[10px] px-2 py-0.5 bg-[var(--bg-tertiary)] rounded group-toggle-select" data-group="kou">全选</button>
+                        <button class="text-[10px] px-2 py-0.5 bg-[var(--bg-tertiary)] rounded group-expand" data-group="kou">展开</button>
+                      </div>
+                    </div>
+                    <div id="panel-kou" data-panel class="hidden px-3 py-2 text-xs">
+                      <div class="flex flex-wrap gap-1.5">
+                        <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="ははは" /> ははは</label>
+                        <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="ふふ" /> ふふ</label>
+                        <label class="inline-flex items-center gap-1 text-[var(--text-primary)]"><input type="checkbox" class="jp-filler accent-[var(--color-brand-nogi)]" value="イェー" /> イェー</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Text Replace -->
+                <div class="space-y-2 pt-2 border-t border-[var(--border-primary)]">
+                  <div class="flex items-center justify-between">
+                    <label class="text-xs text-[var(--text-secondary)]">文本替换</label>
+                    <div class="flex items-center gap-1">
+                      <button id="replace-apply" class="px-2 py-1 text-[10px] font-medium rounded bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">应用</button>
+                      <button id="replace-add" class="w-6 h-6 flex items-center justify-center rounded-full bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] text-xs">＋</button>
+                    </div>
+                  </div>
+                  <div id="replace-rows" class="space-y-2">
+                    <div class="replace-row flex items-center gap-2">
+                      <span class="text-[10px] text-[var(--text-tertiary)]">将</span>
+                      <input class="replace-from flex-1 px-2 py-1 border border-[var(--border-primary)] rounded text-xs bg-[var(--bg-secondary)] text-[var(--text-primary)]" placeholder="原文本">
+                      <span class="text-[10px] text-[var(--text-tertiary)]">→</span>
+                      <input class="replace-to flex-1 px-2 py-1 border border-[var(--border-primary)] rounded text-xs bg-[var(--bg-secondary)] text-[var(--text-primary)]" placeholder="新文本">
+                      <button class="replace-remove px-1.5 py-0.5 text-[10px] bg-[var(--bg-tertiary)] text-[var(--text-tertiary)] rounded hover:bg-[var(--bg-secondary)]">✕</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Merge Settings -->
+            <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5">
+              <h3 class="text-sm font-semibold text-[var(--text-primary)] mb-1">合并设置</h3>
+              <p class="text-[10px] text-[var(--text-tertiary)] mb-3">广播等多说话人场景慎用</p>
+              <div class="space-y-3">
+                <div>
+                  <label class="text-xs text-[var(--text-secondary)] mb-1 block">推荐配置预设</label>
+                  <div class="flex flex-wrap gap-2">
+                    <button id="preset-live" class="px-3 py-1.5 text-xs rounded-lg border border-[var(--border-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">单人直播</button>
+                    <button id="preset-interview" class="px-3 py-1.5 text-xs rounded-lg border border-[var(--border-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">多人访谈</button>
+                    <button id="preset-radio" class="px-3 py-1.5 text-xs rounded-lg border border-[var(--border-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">广播档</button>
+                    <button id="reset-settings" class="px-2 py-1.5 text-xs rounded-lg border border-[var(--border-primary)] text-[var(--text-tertiary)] hover:bg-[var(--bg-secondary)]" title="重置">↻</button>
+                  </div>
+                </div>
+                <div>
+                  <label class="text-xs text-[var(--text-secondary)]">时间间隔阈值: <span id="gap-label" class="font-medium" style="color: var(--color-brand-nogi);">500ms</span></label>
+                  <input id="gap-slider" type="range" min="200" max="1500" step="50" value="500" class="w-full mt-1 accent-[var(--color-brand-nogi)]" />
+                </div>
+                <div class="space-y-1">
+                  <label class="inline-flex items-center gap-2 text-xs text-[var(--text-secondary)]">
+                    <input id="dynamic-threshold-enable" type="checkbox" class="accent-[var(--color-brand-nogi)]" checked /> 启用动态合并阈值
+                  </label>
+                  <div class="flex items-center gap-1 text-[10px] text-[var(--text-tertiary)]">
+                    句子长度 ≤ <input id="dynamic-word-count" type="number" min="1" max="10" step="1" value="2" class="w-10 px-1 py-0.5 border border-[var(--border-primary)] rounded text-center bg-[var(--bg-secondary)] text-[var(--text-primary)]" /> 字时，
+                    宽松阈值: <input id="dynamic-threshold" type="number" min="300" max="2000" step="50" value="800" class="w-16 px-1 py-0.5 border border-[var(--border-primary)] rounded text-center bg-[var(--bg-secondary)] text-[var(--text-primary)]" /> ms
+                  </div>
+                </div>
+                <div>
+                  <label class="text-xs text-[var(--text-secondary)]">行长度上限: <span id="len-label" class="font-medium" style="color: var(--color-brand-nogi);">36</span></label>
+                  <input id="len-slider" type="range" min="10" max="60" step="1" value="22" class="w-full mt-1 accent-[var(--color-brand-nogi)]" />
+                </div>
+                <div class="flex flex-wrap gap-2 pt-1">
+                  <button id="btn-merge" class="px-3 py-2 text-xs font-medium rounded-lg text-white transition-colors" style="background: var(--color-brand-nogi);">执行合并</button>
+                  <button id="btn-merge-export-srt" class="px-3 py-2 text-xs font-medium rounded-lg text-white transition-colors" style="background: var(--color-brand-nogi);">导出合并SRT</button>
+                  <button id="btn-merge-export-txt-ts" class="px-3 py-2 text-xs font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-colors">导出 TXT</button>
+                  <button id="btn-merge-export-txt" class="px-3 py-2 text-xs font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors">纯文本</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Capcut Path Modal -->
+  <div id="capcut-path-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-[var(--bg-primary)] rounded-xl p-6 w-full max-w-lg mx-auto border border-[var(--border-primary)]">
+      <h2 class="text-base font-semibold text-[var(--text-primary)] mb-4">Capcut生成json文件常见目录</h2>
+      <div class="text-xs text-[var(--text-secondary)] space-y-2">
+        <p><strong>Windows:</strong> <code class="text-[10px]">C:\Users\YourName\AppData\Local\Capcut\User Data\Projects\com.lveditor.draft\</code></p>
+        <p><strong>MacOS:</strong> <code class="text-[10px]">/Users/YourName/Movies/Capcut/User Data/Projects/com.lveditor.draft/</code></p>
+        <p class="mt-3 text-[var(--text-tertiary)]">Windows 选 draft_content.json；macOS 选 draft_info.json</p>
+      </div>
+      <button id="close-capcut-modal" class="mt-4 w-full px-3 py-2 text-xs rounded-lg bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">关闭</button>
+    </div>
+  </div>
+
+  <script is:inline src="/js/tools/subtitle-merger.js"></script>
+  <script is:inline src="/js/tools/subtitle.js"></script>
+</BaseLayout>

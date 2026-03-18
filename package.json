@@ -12,6 +12,23 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.0.4"
+    "@astrojs/check": "^0.9.7",
+    "@astrojs/node": "^10.0.1",
+    "@astrojs/react": "^5.0.0",
+    "@nanostores/react": "^1.0.0",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.0.4",
+    "cropperjs": "^1.6.2",
+    "hls.js": "^1.6.15",
+    "html2canvas": "^1.4.1",
+    "lucide-astro": "^0.556.0",
+    "lucide-react": "^0.577.0",
+    "nanostores": "^1.1.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
   }
 }

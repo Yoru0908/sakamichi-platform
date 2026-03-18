@@ -1,0 +1,89 @@
+---
+import { GROUP_COLORS } from '@/utils/mock-data';
+
+interface Props {
+  blog?: {
+    id: string;
+    member_name: string;
+    title: string;
+    group: 'nogizaka' | 'sakurazaka' | 'hinatazaka';
+    group_name: string;
+    formatted_date: string;
+    preview: string;
+    hero_image: string | null;
+  } | null;
+}
+
+const { blog } = Astro.props;
+---
+
+{blog ? (
+  <section class="relative overflow-hidden">
+    <a
+      href={`/blog#blog/${blog.id}`}
+      data-astro-reload
+      class="block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8"
+    >
+      <div class="flex flex-col sm:flex-row items-start gap-5">
+        {/* Blog image or avatar fallback */}
+        {blog.hero_image ? (
+          <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl shrink-0 overflow-hidden bg-[var(--bg-tertiary)]">
+            <img
+              src={blog.hero_image}
+              alt={blog.title}
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+        ) : (
+          <div
+            class="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl shrink-0 flex items-center justify-center text-white text-3xl font-bold"
+            style={`background-color: ${GROUP_COLORS[blog.group]};`}
+          >
+            {blog.member_name.charAt(0)}
+          </div>
+        )}
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 mb-2">
+            <span
+              class="w-2 h-2 rounded-full shrink-0"
+              style={`background-color: ${GROUP_COLORS[blog.group]};`}
+            />
+            <span class="text-xs text-[var(--text-tertiary)]">
+              {blog.formatted_date}
+            </span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-2">
+            {blog.member_name}「{blog.title}」
+          </h2>
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-3 max-w-2xl">
+            {blog.preview}
+          </p>
+          <span class="mt-3 inline-flex items-center text-sm font-medium" style={`color: ${GROUP_COLORS[blog.group]};`}>
+            阅读全文 →
+          </span>
+        </div>
+      </div>
+    </a>
+
+    {/* Background gradient */}
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-primary)]" />
+  </section>
+) : (
+  <section class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 text-center">
+      <h1 class="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] tracking-tight">
+        Sakamichi Tools
+      </h1>
+      <p class="mt-3 text-base text-[var(--text-secondary)]">
+        坂道系列综合粉丝平台
+      </p>
+      <div class="mt-3 flex justify-center gap-1.5">
+        <span class="w-8 h-0.5 rounded-full bg-[var(--color-brand-nogi)]" />
+        <span class="w-8 h-0.5 rounded-full bg-[var(--color-brand-sakura)]" />
+        <span class="w-8 h-0.5 rounded-full bg-[var(--color-brand-hinata)]" />
+      </div>
+    </div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-primary)]" />
+  </section>
+)}

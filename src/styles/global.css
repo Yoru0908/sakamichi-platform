@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Photocard Generator — Custom Fonts
+   ============================================================ */
+@font-face {
+  font-family: 'UDXinWan';
+  src: url('/photocard/fonts/A-OTF 新丸ゴ Pro-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'UDXinWan';
+  src: url('/photocard/fonts/A-OTF 新丸ゴ Pro-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'UDXinWan';
+  src: url('/photocard/fonts/A-OTF 新丸ゴ Pro-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'mplus1p';
+  src: url('/photocard/fonts/MPLUS1p-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'mplus1p';
+  src: url('/photocard/fonts/MPLUS1p-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'mplus1p';
+  src: url('/photocard/fonts/MPLUS1p-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Kosugi Maru';
+  src: url('/photocard/fonts/KosugiMaru-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* ============================================================
+   Sakamichi Tools — Design Tokens
+   Source: design-system/sakamichi-tools/MASTER.md
+   ============================================================ */
+
+/* --- Brand Colors (official, do NOT change) --- */
+@theme {
+  --color-brand-nogi: #742581;
+  --color-brand-sakura: #F19DB5;
+  --color-brand-hinata: #7BC7E8;
+
+  --color-brand-nogi-light: #9b4dca;
+  --color-brand-sakura-light: #f4b8ca;
+  --color-brand-hinata-light: #a3d9f0;
+
+  --color-brand-nogi-dark: #5a1c66;
+  --color-brand-sakura-dark: #d4849c;
+  --color-brand-hinata-dark: #5ea8c9;
+}
+
+/* --- Font Families --- */
+@theme {
+  --font-sans: 'Noto Sans JP', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', 'Yu Gothic', 'Meiryo', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Segoe UI', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
+  --font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', 'MS PMincho', serif;
+  --font-blog: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Yu Gothic', 'YuGothic', 'Meiryo', 'メイリオ', 'MS PGothic', 'ＭＳ Ｐゴシック', 'MS Gothic', 'ＭＳ ゴシック', Osaka, -apple-system, BlinkMacSystemFont, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
+  --font-mono: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* --- Semantic Colors (Light) --- */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #9ca3af;
+  --border-primary: #e5e7eb;
+  --border-secondary: #d1d5db;
+}
+
+/* --- Semantic Colors (Dark) --- */
+.dark {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #171717;
+  --bg-tertiary: #262626;
+  --text-primary: #fafafa;
+  --text-secondary: #a3a3a3;
+  --text-tertiary: #737373;
+  --border-primary: #262626;
+  --border-secondary: #404040;
+}
+
+/* --- Base Styles --- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Accessibility: skip to main content */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 0.5rem 1rem;
+    background: var(--color-brand-nogi);
+    color: white;
+    border-radius: 0 0 0.5rem 0.5rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: top 0.2s;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* --- Blog Content (kaomoji-safe) --- */
+@layer components {
+  .blog-content-original {
+    font-family: var(--font-blog);
+    text-rendering: optimizeLegibility;
+    font-variant-ligatures: normal;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.8;
+  }
+
+  .blog-content-translated {
+    font-family: var(--font-sans);
+    line-height: 1.7;
+  }
+}

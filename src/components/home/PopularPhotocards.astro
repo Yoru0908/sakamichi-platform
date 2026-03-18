@@ -1,0 +1,53 @@
+---
+import { Image, Heart, ArrowRight } from 'lucide-astro';
+
+const cards = [
+  { member: '山下美月', group: 'nogizaka', likes: 342 },
+  { member: '藤吉夏鈴', group: 'sakurazaka', likes: 298 },
+  { member: '金村美玖', group: 'hinatazaka', likes: 276 },
+  { member: '久保史緒里', group: 'nogizaka', likes: 251 },
+  { member: '山﨑天', group: 'sakurazaka', likes: 237 },
+  { member: '丹生明里', group: 'hinatazaka', likes: 219 },
+];
+
+const groupColors: Record<string, string> = {
+  nogizaka: 'var(--color-brand-nogi)',
+  sakurazaka: 'var(--color-brand-sakura)',
+  hinatazaka: 'var(--color-brand-hinata)',
+};
+---
+
+<section class="py-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between mb-3">
+      <div class="flex items-center gap-2">
+        <Image size={14} class="text-[var(--color-brand-sakura)]" />
+        <h2 class="text-sm font-semibold text-[var(--text-primary)]">人气生写卡片</h2>
+      </div>
+      <a href="/photocard" class="flex items-center gap-1 text-[10px] text-[var(--text-tertiary)] hover:text-[var(--color-brand-sakura)] transition-colors">
+        查看全部
+        <ArrowRight size={10} />
+      </a>
+    </div>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5">
+      {cards.map((card) => (
+        <a href="/photocard" class="group rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] overflow-hidden hover:shadow-md transition-shadow">
+          <div class="aspect-[3/4] bg-[var(--bg-tertiary)] relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <Image size={20} class="text-[var(--text-tertiary)] opacity-15" />
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-0.5" style={`background-color: ${groupColors[card.group]};`}></div>
+          </div>
+          <div class="px-2 py-1.5">
+            <p class="text-[10px] font-medium text-[var(--text-primary)] truncate">{card.member}</p>
+            <div class="flex items-center gap-0.5 text-[var(--text-tertiary)]">
+              <Heart size={8} />
+              <span class="text-[8px]">{card.likes}</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

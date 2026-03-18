@@ -1,0 +1,182 @@
+/**
+ * 日历组件样式
+ * 仿照官网蓝色主题的日历设计
+ */
+
+.calendar-section {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  overflow: visible;
+}
+
+.calendar-month-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid #e3e6ea;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calendar-month-selector:hover {
+  background: #e8f0fe;
+  border-color: #1a73e8;
+}
+
+.calendar-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #5f6368;
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.calendar-nav-btn:hover {
+  background: #e8f0fe;
+  color: #1a73e8;
+}
+
+.calendar-dates {
+  margin-top: 16px;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.calendar-weekday {
+  text-align: center;
+  padding: 8px 0;
+  font-weight: bold;
+  color: #666;
+  font-size: 12px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  font-size: 12px;  /* 参照成员页 */
+}
+
+.calendar-day-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 12px;
+}
+
+.calendar-day-cell:hover {
+  background: #f0f0f0;
+}
+
+.calendar-day-cell.has-blog {
+  background: #e8f0ff;
+  color: #1e88e5;
+  font-weight: bold;
+}
+
+.calendar-day-cell.is-today {
+  background: #1e88e5;
+  color: white;
+}
+
+.calendar-day-empty {
+  aspect-ratio: 1;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.calendar-dates {
+  animation: fadeIn 0.3s ease;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .calendar-section {
+    padding: 16px;
+  }
+  
+  .calendar-day-cell {
+    font-size: 12px;
+    padding: 6px;
+  }
+  
+  .calendar-weekday {
+    font-size: 10px;
+    padding: 6px 0;
+  }
+}
+
+/* ========== 暗色模式支持（使用CSS变量系统）========== */
+.dark-theme .calendar-section {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark-theme .calendar-month-selector {
+  background: var(--bg-tertiary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark-theme .calendar-month-selector:hover {
+  background: var(--bg-hover) !important;
+  border-color: var(--accent-primary) !important;
+}
+
+.dark-theme .calendar-nav-btn {
+  color: var(--text-secondary) !important;
+}
+
+.dark-theme .calendar-nav-btn:hover {
+  background: var(--bg-hover) !important;
+  color: var(--accent-primary) !important;
+}
+
+.dark-theme .calendar-weekday {
+  color: var(--text-secondary) !important;
+}
+
+.dark-theme .calendar-day-cell {
+  color: var(--text-primary) !important;
+}
+
+.dark-theme .calendar-day-cell:hover {
+  background: var(--bg-tertiary) !important;
+}
+
+.dark-theme .calendar-day-cell.has-blog {
+  background: var(--bg-tertiary) !important;
+  color: var(--accent-primary) !important;
+}
+
+.dark-theme .calendar-day-cell.is-today {
+  background: var(--accent-primary) !important;
+  color: white !important;
+}

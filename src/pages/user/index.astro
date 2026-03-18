@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import UserDashboard from '@/components/user/UserDashboard';
+---
+
+<BaseLayout title="个人中心 - Sakamichi Tools">
+  <div class="px-4 sm:px-6 lg:px-8 py-8">
+    <UserDashboard client:only="react" />
+  </div>
+</BaseLayout>

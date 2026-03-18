@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_CONFIG } from '../../utils/constants';
+
+const groups = Object.values(SITE_CONFIG.groups);
+---
+
+<BaseLayout title="MSG消息归档 - Sakamichi Tools">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">MSG消息归档</h1>
+      <p class="text-gray-600">成员消息中文翻译归档，支持文字、图片、视频、语音</p>
+      
+      <div class="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <div class="text-sm text-yellow-800">
+            <p class="font-medium mb-1">内容分级说明</p>
+            <ul class="space-y-1 text-xs">
+              <li>• 游客可查看：消息翻译</li>
+              <li>• 登录用户可查看：原文、图片、视频</li>
+              <li>• 认证用户可查看：语音消息</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 团体切换 -->
+    <div class="flex gap-4 mb-8 border-b border-gray-200">
+      {groups.map((group) => (
+        <button 
+          class="px-6 py-3 text-sm font-medium border-b-2 transition-colors msg-tab"
+          style="border-color: transparent"
+          data-group={group.siteKey}
+        >
+          {group.name}
+        </button>
+      ))}
+    </div>
+
+    <!-- 成员网格 -->
+    <div id="member-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      {[...Array(18)].map(() => (
+        <div class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+          <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 animate-pulse"></div>
+          <div class="h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
+          <div class="h-3 bg-gray-200 rounded animate-pulse w-16 mx-auto"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- 提示信息 -->
+    <div class="mt-12 text-center">
+      <div class="inline-block bg-blue-50 border border-blue-200 rounded-lg px-6 py-4">
+        <p class="text-blue-800 text-sm">
+          💡 此页面将接入 MSG推送后端 存储的 D1 数据库
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.msg-tab');
+    tabs.forEach((tab, index) => {
+      if (index === 0) {
+        tab.style.borderColor = '#742581';
+        tab.classList.add('text-purple-700');
+      }
+      
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.style.borderColor = 'transparent';
+          t.classList.remove('text-purple-700', 'text-pink-400', 'text-blue-500');
+        });
+        
+        const colors: Record<string, string> = {
+          'nogizaka': '#742581',
+          'sakurazaka': '#F19DB5',
+          'hinatazaka': '#3b82f6'
+        };
+        
+        const group = tab.dataset.group || 'nogizaka';
+        tab.style.borderColor = colors[group];
+        
+        if (group === 'nogizaka') tab.classList.add('text-purple-700');
+        if (group === 'sakurazaka') tab.classList.add('text-pink-400');
+        if (group === 'hinatazaka') tab.classList.add('text-blue-500');
+      });
+    });
+  </script>
+</BaseLayout>

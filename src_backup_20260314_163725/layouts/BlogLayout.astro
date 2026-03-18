@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title = '坂道博客翻译 - Sakamichi Tools' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="坂道博客翻译 - 乃木坂46、樱坂46、日向坂46成员博客中文翻译，每日更新，提供双语对照阅读">
+  <title>{title}</title>
+  
+  <link rel="icon" type="image/jpeg" href="/images/sakamichi.jpg">
+  <link rel="apple-touch-icon" href="/images/sakamichi.jpg">
+  <meta name="theme-color" content="#742581">
+  
+  <link rel="preconnect" href="https://api.sakamichi-tools.cn">
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  
+  <!-- Blog-specific CSS (from existing project) -->
+  <link rel="stylesheet" href="/css/blog/tailwind-output.css?v=2">
+  <link rel="stylesheet" href="/css/blog/main-styles.css?v=3">
+  <link rel="stylesheet" href="/css/blog/mobile.css?v=2" media="(max-width: 768px)">
+  
+  <link rel="preload" href="/css/blog/transitions.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/blog/calendar-component.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/blog/dark-theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/blog/bilingual.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/css/blog/transitions.css">
+    <link rel="stylesheet" href="/css/blog/calendar-component.css">
+    <link rel="stylesheet" href="/css/blog/dark-theme.css">
+    <link rel="stylesheet" href="/css/blog/bilingual.css">
+  </noscript>
+
+  <!-- Core JS modules (load order matters) -->
+  <script src="/js/blog/config.js?v=2" is:inline></script>
+  <script src="/js/blog/group-config.js?v=2" defer is:inline></script>
+  <script type="module" src="/js/blog/members-api.js?v=2" is:inline></script>
+  <script src="/js/blog/members-data.js?v=2" defer is:inline></script>
+  <script src="/js/blog/structured-renderer.js?v=2" defer is:inline></script>
+  
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js" defer></script>
+  
+  <!-- UI modules -->
+  <script src="/js/blog/theme-toggle.js?v=2" defer is:inline></script>
+  <script src="/js/blog/language-toggle.js?v=2" defer is:inline></script>
+  <script src="/js/blog/pagination.js?v=2" defer is:inline></script>
+  <script src="/js/blog/router.js?v=3" defer is:inline></script>
+  <script src="/js/blog/scroll-animations.js?v=2" defer is:inline></script>
+  <script src="/js/blog/member-default-images.js?v=2" defer is:inline></script>
+
+  <style>
+    .mobile-search-bar { display: none; }
+    .share-menu.show { display: grid !important; }
+    .action-buttons { display: flex; gap: 8px; margin-top: 24px; padding-top: 0; }
+    .blog-image-wrapper { background: #f5f5f5; border-radius: 8px; min-height: 200px; overflow: hidden; position: relative; }
+    .blog-image-wrapper img { width: 100%; height: auto; display: block; opacity: 0; transition: opacity 0.3s ease-in; }
+    .blog-image-wrapper img.loaded { opacity: 1; }
+    
+    /* Platform nav link to go back */
+    .platform-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: #6b7280;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-right: 12px;
+    }
+    .platform-back-link:hover {
+      color: #742581;
+      border-color: #742581;
+      background: #faf5ff;
+    }
+  </style>
+</head>
+<body>
+  <slot />
+</body>
+</html>

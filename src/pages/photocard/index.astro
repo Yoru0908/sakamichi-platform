@@ -1,0 +1,91 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Image, Sparkles, TrendingUp, Users } from 'lucide-astro';
+import CommunityTabs from '@/components/photocard/CommunityTabs';
+---
+
+<BaseLayout title="生写卡片 - Sakamichi Tools">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <Image size={20} class="text-[var(--color-brand-sakura)]" />
+          <h1 class="text-2xl font-bold text-[var(--text-primary)]">生写卡片</h1>
+        </div>
+        <p class="text-sm text-[var(--text-tertiary)]">创作官方风格的成员生写真卡片，浏览社区热门作品</p>
+      </div>
+      <a
+        href="/photocard/create"
+        class="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-lg transition-opacity hover:opacity-90"
+        style="background-color: var(--color-brand-sakura);"
+      >
+        <Sparkles size={14} />
+        开始创作
+      </a>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="grid grid-cols-3 gap-4 mb-8">
+      <div class="flex items-center gap-3 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-4 py-3">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: color-mix(in srgb, var(--color-brand-nogi) 10%, transparent); color: var(--color-brand-nogi);">
+          <Image size={16} />
+        </div>
+        <div>
+          <p class="text-lg font-bold text-[var(--text-primary)]">1,247</p>
+          <p class="text-[10px] text-[var(--text-tertiary)]">总作品数</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-4 py-3">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: color-mix(in srgb, var(--color-brand-sakura) 10%, transparent); color: var(--color-brand-sakura);">
+          <Users size={16} />
+        </div>
+        <div>
+          <p class="text-lg font-bold text-[var(--text-primary)]">86</p>
+          <p class="text-[10px] text-[var(--text-tertiary)]">创作者</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-4 py-3">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: color-mix(in srgb, var(--color-brand-hinata) 10%, transparent); color: var(--color-brand-hinata);">
+          <TrendingUp size={16} />
+        </div>
+        <div>
+          <p class="text-lg font-bold text-[var(--text-primary)]">+32</p>
+          <p class="text-[10px] text-[var(--text-tertiary)]">今日新增</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create CTA (prominent) -->
+    <div class="rounded-xl border border-[var(--border-primary)] bg-gradient-to-r from-[var(--bg-primary)] to-[var(--bg-secondary)] p-6 mb-8">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div class="flex-1">
+          <h2 class="text-base font-semibold text-[var(--text-primary)] mb-1">制作你的生写卡片</h2>
+          <p class="text-xs text-[var(--text-tertiary)]">
+            选择团体 → 选择成员 → 自定义文字/字体/颜色 → 生成并下载高清卡片
+          </p>
+        </div>
+        <a
+          href="/photocard/create"
+          class="flex items-center gap-1.5 px-5 py-2.5 text-sm font-medium text-white rounded-lg transition-opacity hover:opacity-90 shrink-0"
+          style="background-color: var(--color-brand-sakura);"
+        >
+          <Sparkles size={14} />
+          进入生成器
+        </a>
+      </div>
+    </div>
+
+    <!-- Community tabs (热门作品 / 我的作品) -->
+    <div class="mb-8">
+      <CommunityTabs client:load />
+    </div>
+
+    <!-- Status notice -->
+    <div class="text-center">
+      <p class="text-xs text-[var(--text-tertiary)]">
+        社区功能将在用户系统上线后启用 · 生成器功能现已可用
+      </p>
+    </div>
+  </div>
+</BaseLayout>

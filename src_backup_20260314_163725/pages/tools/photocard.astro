@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="生写生成器 - Sakamichi Tools">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="mb-8">
+      <a href="/tools" class="inline-flex items-center text-purple-600 hover:text-purple-700 mb-4">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        返回工具列表
+      </a>
+      <h1 class="text-3xl font-bold text-gray-900">生写生成器</h1>
+      <p class="text-gray-600 mt-2">生成官方风格的成员生写卡片</p>
+    </div>
+
+    <!-- iframe 嵌入现有工具 -->
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div class="p-4 bg-purple-50 border-b border-purple-200">
+        <p class="text-sm text-purple-800">
+          💡 此工具复用现有的生写生成器，完整保留所有功能
+        </p>
+      </div>
+      
+      <iframe 
+        src="https://photocard.sakamichi-tools.cn" 
+        class="w-full border-0"
+        style="height: calc(100vh - 300px); min-height: 800px;"
+        title="生写生成器"
+      ></iframe>
+    </div>
+
+    <!-- 使用说明 -->
+    <div class="mt-8 bg-gray-50 rounded-lg p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">使用说明</h2>
+      <ol class="space-y-2 text-sm text-gray-700 list-decimal list-inside">
+        <li>选择团体（乃木坂46/樱坂46/日向坂46）</li>
+        <li>选择成员</li>
+        <li>输入自定义文字（支持日语/中文）</li>
+        <li>调整字体、颜色、样式</li>
+        <li>点击"生成"并下载图片</li>
+      </ol>
+    </div>
+  </div>
+</BaseLayout>

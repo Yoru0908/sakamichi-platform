@@ -1,0 +1,967 @@
+{
+  "lastUpdate": "2026-03-14T19:35:09.980Z",
+  "note": "成员真实图片 - 乃木坂46(HTML解析)、樱坂46/日向坂46(JSON API) 官网自动更新",
+  "source": "官网API + HTML解析",
+  "images": {
+    "矢田 萌華": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/1b6/eb145a98c28698e68696ed7deeab0.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "矢田萌華": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/1b6/eb145a98c28698e68696ed7deeab0.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "森平 麗心": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/035/aca8b6dccc829b810d24d6fbfc7c3.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "森平麗心": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/035/aca8b6dccc829b810d24d6fbfc7c3.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "増田 三莉音": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/86b/0333e9148ad78d217822ccde31db8.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "増田三莉音": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/86b/0333e9148ad78d217822ccde31db8.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "瀬戸口 心月": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/4b1/dbd952eb8141c36fae23b5b3b6098.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "瀬戸口心月": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/4b1/dbd952eb8141c36fae23b5b3b6098.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "鈴木 佑捺": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/4f9/78599b601e4a5abe702f5c84241ae.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "鈴木佑捺": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/4f9/78599b601e4a5abe702f5c84241ae.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "川端 晃菜": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/c95/5958d930809c5a57bf2e1b29a8354.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "川端晃菜": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/c95/5958d930809c5a57bf2e1b29a8354.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "海邉 朱莉": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/9f0/a5e7a663deb87b228ebded01540be.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "海邉朱莉": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/9f0/a5e7a663deb87b228ebded01540be.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "小津 玲奈": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/59c/974b3199023a021b45c9d1b5a7635.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "小津玲奈": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/59c/974b3199023a021b45c9d1b5a7635.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "大越 ひなの": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/e94/f1e863935213cd18a7c25e87795f6.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "大越ひなの": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/e94/f1e863935213cd18a7c25e87795f6.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "愛宕 心響": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/abd/4779c6d304e1c50c16d3f08e6e818.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "愛宕心響": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/abd/4779c6d304e1c50c16d3f08e6e818.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "長嶋 凛桜": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/c1d/2368d8afc850d797155f7d93d0569.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "長嶋凛桜": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/c1d/2368d8afc850d797155f7d93d0569.jpg",
+      "group": "乃木坂46",
+      "generation": "6期生"
+    },
+    "岡本 姫奈": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/0b4/6e7b29737ae59929b3b5d54901df9.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "岡本姫奈": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/0b4/6e7b29737ae59929b3b5d54901df9.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "川﨑 桜": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/b4e/2a4faecdf5e257fa5e8aae4672f82.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "川﨑桜": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/b4e/2a4faecdf5e257fa5e8aae4672f82.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "池田 瑛紗": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/3cd/248094368f7aab375f1900195098a.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "池田瑛紗": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/3cd/248094368f7aab375f1900195098a.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "五百城 茉央": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/ec1/9c670b4ade367a2f551f26eef4450.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "五百城茉央": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/ec1/9c670b4ade367a2f551f26eef4450.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "中西 アルノ": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/605/fde6153cac131c43a2e8e0ac0bfcb.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "中西アルノ": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/605/fde6153cac131c43a2e8e0ac0bfcb.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "奥田 いろは": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/c2f/3eeaa463de1b7c93ce62b62270ec8.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "奥田いろは": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/c2f/3eeaa463de1b7c93ce62b62270ec8.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "冨里 奈央": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/e27/66bd6c894d1a96288bb9dfaf8809f.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "冨里奈央": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/e27/66bd6c894d1a96288bb9dfaf8809f.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "小川 彩": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/e8f/d4b6b2c5802a42f04de0b62f4ab7f.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "小川彩": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/e8f/d4b6b2c5802a42f04de0b62f4ab7f.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "菅原 咲月": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/c09/dfacda505809637c8214da8a8432f.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "菅原咲月": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/c09/dfacda505809637c8214da8a8432f.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "井上 和": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/540/61c907a38e56dced12a57ab544fd3.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "井上和": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/540/61c907a38e56dced12a57ab544fd3.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "弓木 奈於": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/f75/2ec1740de010cde723653a4794af2.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "弓木奈於": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/f75/2ec1740de010cde723653a4794af2.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "林 瑠奈": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/cb1/f34ad14ecbf7be125b2f2f243f841.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "林瑠奈": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/cb1/f34ad14ecbf7be125b2f2f243f841.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "佐藤 璃果": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/d5c/22cbd1c9536b89d66fb470e34f51e.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "佐藤璃果": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/d5c/22cbd1c9536b89d66fb470e34f51e.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "黒見 明香": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/143/57bc0bef04a325148a8a7c62541e1.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "黒見明香": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/143/57bc0bef04a325148a8a7c62541e1.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "金川 紗耶": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/880/87280a20095abdde1ffcd122d8d42.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "金川紗耶": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/880/87280a20095abdde1ffcd122d8d42.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "賀喜 遥香": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/9e1/b4f576fdc288cc8cc68320f657a5d.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "賀喜遥香": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/9e1/b4f576fdc288cc8cc68320f657a5d.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "筒井 あやめ": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/9db/414579921f85d8dd289e573c96dc3.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "筒井あやめ": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/9db/414579921f85d8dd289e573c96dc3.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "田村 真佑": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/de5/915861e02d78a55180a5d58ea5c80.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "田村真佑": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/de5/915861e02d78a55180a5d58ea5c80.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "柴田 柚菜": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/6d8/4643f09fc585a92576513888606c2.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "柴田柚菜": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/6d8/4643f09fc585a92576513888606c2.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "遠藤 さくら": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/d90/5ca63b14dde51e680517af2216408.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "遠藤さくら": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/d90/5ca63b14dde51e680517af2216408.jpg",
+      "group": "乃木坂46",
+      "generation": "4期生"
+    },
+    "吉田 綾乃クリスティー": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/7ae/b1038e6c3ecb60b9941b6aed7c276.jpg",
+      "group": "乃木坂46",
+      "generation": "3期生"
+    },
+    "吉田綾乃クリスティー": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/7ae/b1038e6c3ecb60b9941b6aed7c276.jpg",
+      "group": "乃木坂46",
+      "generation": "3期生"
+    },
+    "梅澤 美波": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/8c7/646b36a936a7b4502c3020bbc090a.jpg",
+      "group": "乃木坂46",
+      "generation": "3期生"
+    },
+    "梅澤美波": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/8c7/646b36a936a7b4502c3020bbc090a.jpg",
+      "group": "乃木坂46",
+      "generation": "3期生"
+    },
+    "岩本 蓮加": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/4a8/fa2fc4b3c75b9568ce9adbc16d4bd.jpg",
+      "group": "乃木坂46",
+      "generation": "3期生"
+    },
+    "岩本蓮加": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/4a8/fa2fc4b3c75b9568ce9adbc16d4bd.jpg",
+      "group": "乃木坂46",
+      "generation": "3期生"
+    },
+    "伊藤 理々杏": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/1d1/b0f71982a410acda6e979d41cfb51.jpg",
+      "group": "乃木坂46",
+      "generation": "3期生"
+    },
+    "伊藤理々杏": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/1d1/b0f71982a410acda6e979d41cfb51.jpg",
+      "group": "乃木坂46",
+      "generation": "3期生"
+    },
+    "一ノ瀬 美空": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/d21/1d87f2203680137df7346b7551ed0.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "一ノ瀬美空": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/d21/1d87f2203680137df7346b7551ed0.jpg",
+      "group": "乃木坂46",
+      "generation": "5期生"
+    },
+    "石森 璃花": {
+      "imageUrl": "https://sakurazaka46.com/images/14/cd8/11c3587bb87a5ddc9e4e63f941bf1/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "石森璃花": {
+      "imageUrl": "https://sakurazaka46.com/images/14/cd8/11c3587bb87a5ddc9e4e63f941bf1/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "遠藤 光莉": {
+      "imageUrl": "https://sakurazaka46.com/images/14/857/d0120b9769f3d70674079f22bfb93/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "遠藤光莉": {
+      "imageUrl": "https://sakurazaka46.com/images/14/857/d0120b9769f3d70674079f22bfb93/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "遠藤 理子": {
+      "imageUrl": "https://sakurazaka46.com/images/14/b22/3713b6987a8e214d6fe5a57854634/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "遠藤理子": {
+      "imageUrl": "https://sakurazaka46.com/images/14/b22/3713b6987a8e214d6fe5a57854634/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "大園 玲": {
+      "imageUrl": "https://sakurazaka46.com/images/14/24b/9ec4f53fd6bdff10e11184718fdc6/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "大園玲": {
+      "imageUrl": "https://sakurazaka46.com/images/14/24b/9ec4f53fd6bdff10e11184718fdc6/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "大沼 晶保": {
+      "imageUrl": "https://sakurazaka46.com/images/14/12f/8c6160d77812688b7e5f29b89119c/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "大沼晶保": {
+      "imageUrl": "https://sakurazaka46.com/images/14/12f/8c6160d77812688b7e5f29b89119c/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "小田倉 麗奈": {
+      "imageUrl": "https://sakurazaka46.com/images/14/263/20608a9c45d8afddc128ae180ab71/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "小田倉麗奈": {
+      "imageUrl": "https://sakurazaka46.com/images/14/263/20608a9c45d8afddc128ae180ab71/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "幸阪 茉里乃": {
+      "imageUrl": "https://sakurazaka46.com/images/14/2f9/1e452e7822839ea7c313a6f72beca/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "幸阪茉里乃": {
+      "imageUrl": "https://sakurazaka46.com/images/14/2f9/1e452e7822839ea7c313a6f72beca/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "小島 凪紗": {
+      "imageUrl": "https://sakurazaka46.com/images/14/44a/4e7a8c8ab86faba15404dffa70f48/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "小島凪紗": {
+      "imageUrl": "https://sakurazaka46.com/images/14/44a/4e7a8c8ab86faba15404dffa70f48/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "武元 唯衣": {
+      "imageUrl": "https://sakurazaka46.com/images/14/fde/33bda495de83cc021bc791ee1f815/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "武元唯衣": {
+      "imageUrl": "https://sakurazaka46.com/images/14/fde/33bda495de83cc021bc791ee1f815/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "谷口 愛季": {
+      "imageUrl": "https://sakurazaka46.com/images/14/025/cbcd2e8333953131b14d1e1b85ffe/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "谷口愛季": {
+      "imageUrl": "https://sakurazaka46.com/images/14/025/cbcd2e8333953131b14d1e1b85ffe/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "田村 保乃": {
+      "imageUrl": "https://sakurazaka46.com/images/14/d78/15b07c7fcfa61ee38717e3ead9190/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "田村保乃": {
+      "imageUrl": "https://sakurazaka46.com/images/14/d78/15b07c7fcfa61ee38717e3ead9190/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "中嶋 優月": {
+      "imageUrl": "https://sakurazaka46.com/images/14/7e9/80345b3421394aac9b2ce72b0c6f5/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "中嶋優月": {
+      "imageUrl": "https://sakurazaka46.com/images/14/7e9/80345b3421394aac9b2ce72b0c6f5/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "藤吉 夏鈴": {
+      "imageUrl": "https://sakurazaka46.com/images/14/ac8/bdf305ca6fe3150253309e3162b38/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "藤吉夏鈴": {
+      "imageUrl": "https://sakurazaka46.com/images/14/ac8/bdf305ca6fe3150253309e3162b38/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "増本 綺良": {
+      "imageUrl": "https://sakurazaka46.com/images/14/b0b/6c435985fee683a63a4e111d08c66/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "増本綺良": {
+      "imageUrl": "https://sakurazaka46.com/images/14/b0b/6c435985fee683a63a4e111d08c66/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "松田 里奈": {
+      "imageUrl": "https://sakurazaka46.com/images/14/751/48de20a8332db5f761ac1277f5e55/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "松田里奈": {
+      "imageUrl": "https://sakurazaka46.com/images/14/751/48de20a8332db5f761ac1277f5e55/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "的野 美青": {
+      "imageUrl": "https://sakurazaka46.com/images/14/b8b/bfc2cd7717c347546f5d88dcc5521/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "的野美青": {
+      "imageUrl": "https://sakurazaka46.com/images/14/b8b/bfc2cd7717c347546f5d88dcc5521/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "向井 純葉": {
+      "imageUrl": "https://sakurazaka46.com/images/14/e82/320adae04d6b88c9ec11f065b8d9e/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "向井純葉": {
+      "imageUrl": "https://sakurazaka46.com/images/14/e82/320adae04d6b88c9ec11f065b8d9e/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "村井 優": {
+      "imageUrl": "https://sakurazaka46.com/images/14/f66/d3ee063660b09ae19c9ae6faddb3b/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "村井優": {
+      "imageUrl": "https://sakurazaka46.com/images/14/f66/d3ee063660b09ae19c9ae6faddb3b/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "村山 美羽": {
+      "imageUrl": "https://sakurazaka46.com/images/14/8cd/9eae10b884ede12c4445a0958b70f/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "村山美羽": {
+      "imageUrl": "https://sakurazaka46.com/images/14/8cd/9eae10b884ede12c4445a0958b70f/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "森田 ひかる": {
+      "imageUrl": "https://sakurazaka46.com/images/14/653/60ba6e0df07c5a0f5dedf11db6186/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "森田ひかる": {
+      "imageUrl": "https://sakurazaka46.com/images/14/653/60ba6e0df07c5a0f5dedf11db6186/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "守屋 麗奈": {
+      "imageUrl": "https://sakurazaka46.com/images/14/ca6/ea887c53d101dcd1ec2154334e1b1/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "守屋麗奈": {
+      "imageUrl": "https://sakurazaka46.com/images/14/ca6/ea887c53d101dcd1ec2154334e1b1/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "山﨑 天": {
+      "imageUrl": "https://sakurazaka46.com/images/14/d79/76fa08f7e62c5b15ff4ba200ba199/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "山﨑天": {
+      "imageUrl": "https://sakurazaka46.com/images/14/d79/76fa08f7e62c5b15ff4ba200ba199/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "二期生"
+    },
+    "山下 瞳月": {
+      "imageUrl": "https://sakurazaka46.com/images/14/f38/3108b02a46500ce0d6093234a2dc0/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "山下瞳月": {
+      "imageUrl": "https://sakurazaka46.com/images/14/f38/3108b02a46500ce0d6093234a2dc0/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "三期生"
+    },
+    "浅井 恋乃未": {
+      "imageUrl": "https://sakurazaka46.com/images/14/571/5f8ff9c3868beec870183b2d31c3a/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "浅井恋乃未": {
+      "imageUrl": "https://sakurazaka46.com/images/14/571/5f8ff9c3868beec870183b2d31c3a/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "稲熊 ひな": {
+      "imageUrl": "https://sakurazaka46.com/images/14/399/dd195ad9a0d52b851a86c1dedbf6c/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "稲熊ひな": {
+      "imageUrl": "https://sakurazaka46.com/images/14/399/dd195ad9a0d52b851a86c1dedbf6c/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "勝又 春": {
+      "imageUrl": "https://sakurazaka46.com/images/14/d1b/9c4d1ed47ac4c11e75c9eb9627a2a/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "勝又春": {
+      "imageUrl": "https://sakurazaka46.com/images/14/d1b/9c4d1ed47ac4c11e75c9eb9627a2a/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "佐藤 愛桜": {
+      "imageUrl": "https://sakurazaka46.com/images/14/73f/cb69cae91954986017e139dabeef4/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "佐藤愛桜": {
+      "imageUrl": "https://sakurazaka46.com/images/14/73f/cb69cae91954986017e139dabeef4/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "中川 智尋": {
+      "imageUrl": "https://sakurazaka46.com/images/14/eeb/7f18c42636b09a6d7d497071a549f/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "中川智尋": {
+      "imageUrl": "https://sakurazaka46.com/images/14/eeb/7f18c42636b09a6d7d497071a549f/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "松本 和子": {
+      "imageUrl": "https://sakurazaka46.com/images/14/ecc/679134dea971e03bce13c7f41f82e/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "松本和子": {
+      "imageUrl": "https://sakurazaka46.com/images/14/ecc/679134dea971e03bce13c7f41f82e/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "目黒 陽色": {
+      "imageUrl": "https://sakurazaka46.com/images/14/343/e99d35233cec8a3d6aeaaf71e598e/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "目黒陽色": {
+      "imageUrl": "https://sakurazaka46.com/images/14/343/e99d35233cec8a3d6aeaaf71e598e/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "山川 宇衣": {
+      "imageUrl": "https://sakurazaka46.com/images/14/c45/b723790606854ed9be6119727ea7e/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "山川宇衣": {
+      "imageUrl": "https://sakurazaka46.com/images/14/c45/b723790606854ed9be6119727ea7e/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "山田 桃実": {
+      "imageUrl": "https://sakurazaka46.com/images/14/3f0/982a8a5790f0825271e4224658219/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "山田桃実": {
+      "imageUrl": "https://sakurazaka46.com/images/14/3f0/982a8a5790f0825271e4224658219/400_640_102400.jpg",
+      "group": "樱坂46",
+      "generation": "四期生"
+    },
+    "石塚 瑶季": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/6ef/94cf9c2b6f3254dce52494c4f4925/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "石塚瑶季": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/6ef/94cf9c2b6f3254dce52494c4f4925/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "金村 美玖": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/0f8/aa8dbc0edabe45368031be6c79492/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "二期生"
+    },
+    "金村美玖": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/0f8/aa8dbc0edabe45368031be6c79492/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "二期生"
+    },
+    "上村 ひなの": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/d04/9a8fe13f4636d8ca094adb4f9726e/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "三期生"
+    },
+    "上村ひなの": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/d04/9a8fe13f4636d8ca094adb4f9726e/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "三期生"
+    },
+    "小坂 菜緒": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/e96/64a2bafa84fdd35dd0b436e535348/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "二期生"
+    },
+    "小坂菜緒": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/e96/64a2bafa84fdd35dd0b436e535348/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "二期生"
+    },
+    "小西 夏菜実": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/827/757404acbe92864d153817acb12e0/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "小西夏菜実": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/827/757404acbe92864d153817acb12e0/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "清水 理央": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/1d6/385624baf3cd18f3f4d7709fcb6f7/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "清水理央": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/1d6/385624baf3cd18f3f4d7709fcb6f7/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "正源司 陽子": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/74e/ebfcb3a5f10ed852335cb2172ebec/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "正源司陽子": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/74e/ebfcb3a5f10ed852335cb2172ebec/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "髙橋 未来虹": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/d34/4927ef132fb234361a518f97e369d/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "三期生"
+    },
+    "髙橋未来虹": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/d34/4927ef132fb234361a518f97e369d/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "三期生"
+    },
+    "竹内 希来里": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/543/a0e493c0270a6757baa8b4a54c52e/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "竹内希来里": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/543/a0e493c0270a6757baa8b4a54c52e/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "平尾 帆夏": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/bf5/bd726453f34d3d133d9bb0d3bae0c/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "平尾帆夏": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/bf5/bd726453f34d3d133d9bb0d3bae0c/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "平岡 海月": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/956/ac38f15f5656b78b1341f8fb6a028/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "平岡海月": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/956/ac38f15f5656b78b1341f8fb6a028/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "藤嶌 果歩": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/fb7/4074ff96e2c41ae13615c9861118b/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "藤嶌果歩": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/fb7/4074ff96e2c41ae13615c9861118b/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "松田 好花": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/797/97d4adf5917b888076c79a5b8e50e/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "二期生"
+    },
+    "松田好花": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/797/97d4adf5917b888076c79a5b8e50e/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "二期生"
+    },
+    "宮地 すみれ": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/275/21cfa2f15b51c5bc4af0a176770da/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "宮地すみれ": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/275/21cfa2f15b51c5bc4af0a176770da/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "森本 茉莉": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/1e3/48fcdd30cf477f27f93a21a6b6dd8/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "三期生"
+    },
+    "森本茉莉": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/1e3/48fcdd30cf477f27f93a21a6b6dd8/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "三期生"
+    },
+    "山口 陽世": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/fed/5df39f1b192930fee694173c600f0/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "三期生"
+    },
+    "山口陽世": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/fed/5df39f1b192930fee694173c600f0/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "三期生"
+    },
+    "山下 葉留花": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/f41/4a8eabba27e31011b513be1b464ca/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "山下葉留花": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/f41/4a8eabba27e31011b513be1b464ca/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "渡辺 莉奈": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/fd4/fcc2d6a008ca2e5734fa78a2a1010/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "渡辺莉奈": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/fd4/fcc2d6a008ca2e5734fa78a2a1010/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "四期生"
+    },
+    "大田 美月": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/10c/8419990a3e524e45906d43870ba73/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "大田美月": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/10c/8419990a3e524e45906d43870ba73/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "大野 愛実": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/3e3/b7820aaa689ee4ee5f05c2c0a3031/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "大野愛実": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/3e3/b7820aaa689ee4ee5f05c2c0a3031/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "片山 紗希": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/d26/478d286661b35c072d39ee43816d3/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "片山紗希": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/d26/478d286661b35c072d39ee43816d3/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "蔵盛 妃那乃": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/8cb/1d6c0466c2a7d563c4e058c29b217/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "蔵盛妃那乃": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/8cb/1d6c0466c2a7d563c4e058c29b217/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "坂井 新奈": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/bbb/f1892edb55d2730f713aa01798c2c/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "坂井新奈": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/bbb/f1892edb55d2730f713aa01798c2c/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "佐藤 優羽": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/3dd/e4729797e5c1780c27a0c008ac814/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "佐藤優羽": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/3dd/e4729797e5c1780c27a0c008ac814/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "下田 衣珠季": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/b47/9ae06a5dacf77719550757a1cfbdb/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "下田衣珠季": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/b47/9ae06a5dacf77719550757a1cfbdb/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "高井 俐香": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/df1/1f43ebd9dda159fe4776239dc769b/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "高井俐香": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/df1/1f43ebd9dda159fe4776239dc769b/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "鶴崎 仁香": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/8a9/65fe0c09a4abe4023e2f98f917e80/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "鶴崎仁香": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/8a9/65fe0c09a4abe4023e2f98f917e80/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "松尾 桜": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/282/6b6351372bdc873e897152790c45a/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    },
+    "松尾桜": {
+      "imageUrl": "https://cdn.hinatazaka46.com/images/14/282/6b6351372bdc873e897152790c45a/800_800_102400.jpg",
+      "group": "日向坂46",
+      "generation": "五期生"
+    }
+  }
+}

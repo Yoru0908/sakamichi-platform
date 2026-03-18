@@ -1,0 +1,85 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { CheckCircle, XCircle } from 'lucide-astro';
+---
+
+<BaseLayout title="邮箱验证 - Sakamichi Tools">
+  <div class="min-h-[calc(100vh-7rem)] flex items-center justify-center py-10 px-4">
+    <div class="max-w-sm w-full text-center">
+      <!-- Loading state (shown initially) -->
+      <div id="verify-loading">
+        <div class="w-8 h-8 border-2 border-t-transparent rounded-full animate-spin mx-auto mb-4" style="border-color: var(--color-brand-nogi) transparent var(--color-brand-nogi) var(--color-brand-nogi);"></div>
+        <p class="text-sm text-[var(--text-secondary)]">正在验证邮箱...</p>
+      </div>
+
+      <!-- Success state (hidden initially) -->
+      <div id="verify-success" class="hidden">
+        <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-8">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 mb-4">
+            <CheckCircle size={24} class="text-green-500" />
+          </div>
+          <h2 class="text-lg font-bold text-[var(--text-primary)] mb-2">验证成功!</h2>
+          <p class="text-xs text-[var(--text-tertiary)] mb-6">你的邮箱已验证，现在可以登录了</p>
+          <a
+            href="/auth/login?verified=true"
+            class="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium text-white rounded-lg transition-all"
+            style="background-color: var(--color-brand-nogi);"
+          >
+            前往登录
+          </a>
+        </div>
+      </div>
+
+      <!-- Error state (hidden initially) -->
+      <div id="verify-error" class="hidden">
+        <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-8">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 mb-4">
+            <XCircle size={24} class="text-red-500" />
+          </div>
+          <h2 class="text-lg font-bold text-[var(--text-primary)] mb-2">验证失败</h2>
+          <p id="verify-error-msg" class="text-xs text-[var(--text-tertiary)] mb-6">验证链接无效或已过期</p>
+          <a
+            href="/auth/register"
+            class="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium text-white rounded-lg transition-all"
+            style="background-color: var(--color-brand-nogi);"
+          >
+            重新注册
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    import { verifyEmail } from '@/utils/auth-api';
+
+    async function handleVerify() {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get('token');
+
+      const loadingEl = document.getElementById('verify-loading')!;
+      const successEl = document.getElementById('verify-success')!;
+      const errorEl = document.getElementById('verify-error')!;
+      const errorMsg = document.getElementById('verify-error-msg')!;
+
+      if (!token) {
+        loadingEl.classList.add('hidden');
+        errorEl.classList.remove('hidden');
+        errorMsg.textContent = '缺少验证 token';
+        return;
+      }
+
+      const res = await verifyEmail(token);
+
+      loadingEl.classList.add('hidden');
+      if (res.success) {
+        successEl.classList.remove('hidden');
+      } else {
+        errorEl.classList.remove('hidden');
+        errorMsg.textContent = res.message || '验证链接无效或已过期';
+      }
+    }
+
+    handleVerify();
+  </script>
+</BaseLayout>

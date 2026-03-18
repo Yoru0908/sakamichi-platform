@@ -1,0 +1,486 @@
+/**
+ * 双语博客显示模式 CSS
+ * 方案1：使用 <br> 标签还原空行，继承 line-height
+ * 完全匹配官网的换行间距
+ */
+
+/* ========== 固定挂载点 ========== */
+#bilingualControlMount {
+  min-height: 0;
+}
+
+#bilingualControlMount:empty {
+  display: none;
+}
+
+/* ========== 桌面端：下拉选择器 ========== */
+.language-selector {
+  position: relative;
+  min-width: 160px;
+}
+
+.selector-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-secondary);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.selector-button:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.selector-button.open {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.selector-arrow {
+  width: 14px;
+  height: 14px;
+  color: var(--text-tertiary);
+  transition: transform 0.2s;
+}
+
+.selector-button.open .selector-arrow {
+  transform: rotate(180deg);
+}
+
+/* 下拉菜单 */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: all 0.15s ease-out;
+}
+
+.language-selector.open .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: background 0.1s;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-secondary);
+}
+
+.dropdown-item.selected {
+  background: #eff6ff;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.check-icon {
+  width: 14px;
+  height: 14px;
+  color: #3b82f6;
+}
+
+/* ========== 博客内容样式（匹配官网） ========== */
+
+/* 基础样式 - 完全匹配官网 */
+.blog-content-official {
+  font-size: 14px;
+  /* 官网字体大小 */
+  line-height: 1.75;
+  /* 官网行高 */
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  max-width: none;
+}
+
+/* br标签样式 - 关键：继承行高 */
+.blog-content-official br {
+  display: block;
+  content: "";
+  margin: 0;
+  padding: 0;
+  height: 0;
+  line-height: inherit;
+  /* 🎯 继承 1.75，自动匹配官网 */
+}
+
+/* 段落基础样式 */
+.blog-content-official p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.75;
+}
+
+/* ========== 双语段落样式 ========== */
+
+.blog-content-official p[lang] {
+  line-height: 1.75;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 日文原文样式 */
+.blog-content-official p[lang="ja"] {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 0;
+  /* 移除底部间距，让原文和译文紧贴 */
+}
+
+/* 中文译文样式 */
+.blog-content-official p[lang="zh"] {
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 450;
+  margin-bottom: 0;
+  /* 段落间距由<br>标签控制 */
+}
+
+/* 图片样式 */
+.blog-content-official img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  margin: 1em 0;
+  box-shadow: none;
+  display: block;
+}
+
+/* ========== 显示模式控制 ========== */
+
+/* 仅中文模式：隐藏日文 */
+.blog-content-official.mode-chinese p[lang="ja"] {
+  display: none;
+}
+
+/* 仅日文模式：隐藏中文 */
+.blog-content-official.mode-japanese p[lang="zh"] {
+  display: none;
+}
+
+/* 仅日文模式：调整日文样式为主要内容 */
+.blog-content-official.mode-japanese p[lang="ja"] {
+  color: var(--text-primary);
+  font-style: normal;
+  font-weight: 450;
+}
+
+/* ========== 平滑过渡效果 ========== */
+
+.blog-content-official.mode-chinese p[lang="ja"],
+.blog-content-official.mode-japanese p[lang="zh"] {
+  opacity: 0;
+  transform: translateX(-10px);
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== 移动端：悬浮按钮（FAB）========== */
+
+/* 悬浮按钮容器 - 主按钮在下，选项向上展开 */
+.fab-container {
+  position: fixed;
+  bottom: 80px;
+  /* 避开底部广告 */
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  /* 从上往下排列：选项在上，主按钮在下 */
+  align-items: flex-end;
+  gap: 12px;
+  z-index: 2147483640;
+  /* 确保在AdSense广告之上 */
+}
+
+/* 主按钮 */
+.fab-main {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fab-main:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
+}
+
+.fab-main:active {
+  transform: scale(0.95);
+}
+
+.fab-main.open {
+  transform: rotate(135deg);
+}
+
+.fab-main svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 次要按钮 - 从下往上展开动画 */
+.fab-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(60px) scale(0.8);
+  /* 从主按钮下方60px开始 */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fab-container.open .fab-action {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  /* 向上移动到正常位置 */
+}
+
+/* 从下往上的渐进式延迟 - 越靠近主按钮的越先出现 */
+.fab-container.open .fab-action:nth-child(3) {
+  transition-delay: 0s;
+  /* 最下方的选项（日文）最先出现 */
+}
+
+.fab-container.open .fab-action:nth-child(2) {
+  transition-delay: 0.05s;
+  /* 中间的选项（中文）*/
+}
+
+.fab-container.open .fab-action:nth-child(1) {
+  transition-delay: 0.1s;
+  /* 最上方的选项（双语）最后出现 */
+}
+
+.fab-label {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+.fab-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.fab-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #3b82f6;
+}
+
+.fab-button svg {
+  width: 18px;
+  height: 18px;
+  color: var(--text-primary);
+}
+
+/* 遮罩层 */
+.fab-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 2147483639;
+  /* 比FAB低1层 */
+  backdrop-filter: blur(2px);
+}
+
+.fab-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+
+  /* 隐藏桌面端语言选择器 */
+  .language-selector {
+    display: none;
+  }
+
+  /* 显示悬浮按钮 */
+  .fab-container {
+    display: flex;
+  }
+
+  .blog-content-official {
+    font-size: 14px;
+    padding: 16px;
+  }
+}
+
+@media (min-width: 769px) {
+
+  /* 桌面端隐藏悬浮按钮 */
+  .fab-container {
+    display: none;
+  }
+}
+
+/* ========== 暗色主题支持（使用CSS变量系统）========== */
+
+.dark .selector-button {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark .selector-button:hover {
+  border-color: var(--accent-primary);
+}
+
+.dark .dropdown-menu {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+.dark .dropdown-item {
+  color: var(--text-primary);
+}
+
+.dark .dropdown-item:hover {
+  background: var(--bg-tertiary);
+}
+
+.dark .dropdown-item.selected {
+  background: var(--bg-hover);
+  color: var(--accent-primary);
+}
+
+.dark .display-mode-controls {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.dark .display-mode-controls label {
+  color: var(--text-primary);
+}
+
+.dark .display-mode-controls button {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.dark .display-mode-controls button:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent-secondary);
+}
+
+.dark .blog-content-official {
+  color: var(--text-primary);
+}
+
+.dark .blog-content-official p[lang="ja"] {
+  color: var(--text-secondary);
+}
+
+.dark .blog-content-official p[lang="zh"] {
+  color: var(--text-primary);
+}
+
+.dark .fab-main {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+}
+
+.dark .fab-button {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.dark .fab-button svg {
+  color: var(--text-primary);
+}
+
+/* ========== 打印样式 ========== */
+
+@media print {
+  .display-mode-controls {
+    display: none !important;
+  }
+
+  /* 打印时默认显示中日对照 */
+  .blog-content-official p[lang] {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    height: auto !important;
+  }
+
+  .blog-content-official {
+    font-size: 12pt;
+  }
+}
+
+/* ========== 无障碍支持 ========== */
+
+.blog-content-official p[lang="ja"]:lang(ja) {
+  quotes: "「" "」" "『" "』";
+}
+
+.blog-content-official p[lang="zh"]:lang(zh) {
+  quotes: "" " " "" "'" "'";
+}
+
+/* 焦点可见性 */
+.display-mode-controls button:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}

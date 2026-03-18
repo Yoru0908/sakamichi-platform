@@ -1,0 +1,32 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { ExternalLink } from 'lucide-astro';
+
+const links = [
+  { name: '乃木坂46 Official', url: 'https://www.nogizaka46.com', desc: '乃木坂46 官方网站' },
+  { name: '櫻坂46 Official', url: 'https://sakurazaka46.com', desc: '樱坂46 官方网站' },
+  { name: '日向坂46 Official', url: 'https://www.hinatazaka46.com', desc: '日向坂46 官方网站' },
+];
+---
+
+<BaseLayout title="友情链接 - Sakamichi Tools">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="text-2xl font-bold text-[var(--text-primary)] mb-8">友情链接</h1>
+    <div class="space-y-3">
+      {links.map((link) => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-between p-4 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] hover:border-[var(--color-brand-nogi)] transition-colors"
+        >
+          <div>
+            <h3 class="text-sm font-semibold text-[var(--text-primary)]">{link.name}</h3>
+            <p class="text-xs text-[var(--text-tertiary)] mt-0.5">{link.desc}</p>
+          </div>
+          <ExternalLink size={16} class="text-[var(--text-tertiary)] shrink-0" />
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
