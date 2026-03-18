@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useStore } from '@nanostores/react';
-import { MessageCircle, ArrowLeft, Image, Video, Mic, ChevronLeft, Star } from 'lucide-react';
+import { MessageCircle, ArrowLeft, Image, Video, Mic, ChevronLeft, Star, Play, Pause, Volume2, MoreVertical } from 'lucide-react';
 import {
   getGroupColor, getR2AvatarUrl, getHeaderStyle,
   GROUP_CONFIG, sortedGenEntries, fetchMemberData, deduplicateMembers,
@@ -29,6 +29,82 @@ interface Message {
 
 // --- Constants ---
 const ARCHIVE_API_BASE = 'https://msg-archive.srzwyuu.workers.dev/api/archive';
+
+// --- Custom Voice Player (replaces native <audio> which has seek issues) ---
+function VoicePlayer({ src, color }: { src: string; color: string }) {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  useEffect(() => {
+    const audio = new Audio(src);
+    audio.preload = 'metadata';
+    audio.addEventListener('loadedmetadata', () => setDuration(audio.duration || 0));
+    audio.addEventListener('timeupdate', () => setCurrentTime(audio.currentTime));
+    audio.addEventListener('ended', () => { setPlaying(false); setCurrentTime(0); });
+    audioRef.current = audio;
+    return () => { audio.pause(); audio.src = ''; };
+  }, [src]);
+
+  const toggle = () => {
+    const a = audioRef.current;
+    if (!a) return;
+    if (playing) { a.pause(); } else { a.play().catch(() => {}); }
+    setPlaying(!playing);
+  };
+
+  const seek = (e: React.MouseEvent<HTMLDivElement>) => {
+    const a = audioRef.current;
+    if (!a || !duration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    a.currentTime = ratio * duration;
+    setCurrentTime(a.currentTime);
+  };
+
+  const fmt = (s: number) => {
+    if (!s || !isFinite(s)) return '0:00';
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return `${m}:${sec.toString().padStart(2, '0')}`;
+  };
+
+  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+
+  return (
+    <div className="flex items-center gap-2" style={{ marginTop: '10px', padding: '8px 12px', borderRadius: '20px', background: '#f3f4f6' }}>
+      <Mic size={14} style={{ color, flexShrink: 0 }} />
+      <button
+        onClick={toggle}
+        className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors"
+        style={{ background: '#e5e7eb' }}
+      >
+        {playing ? <Pause size={12} fill="currentColor" style={{ color: '#374151' }} /> : <Play size={12} fill="currentColor" style={{ color: '#374151', marginLeft: '1px' }} />}
+      </button>
+      <span style={{ fontSize: '12px', color: '#6b7280', minWidth: '70px', fontVariantNumeric: 'tabular-nums' }}>
+        {fmt(currentTime)} / {fmt(duration)}
+      </span>
+      <div
+        ref={progressRef}
+        onClick={seek}
+        className="flex-1 h-2 rounded-full cursor-pointer relative group"
+        style={{ background: '#d1d5db', minWidth: '60px' }}
+      >
+        <div
+          className="h-full rounded-full transition-[width] duration-100"
+          style={{ width: `${progress}%`, background: '#374151' }}
+        />
+        <div
+          className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
+          style={{ left: `calc(${progress}% - 6px)`, background: '#374151' }}
+        />
+      </div>
+      <Volume2 size={14} style={{ color: '#6b7280', flexShrink: 0 }} />
+    </div>
+  );
+}
 
 function getGroupSiteKey(group: string): string {
   return GROUP_CONFIG[group]?.key || 'nogizaka';
@@ -296,10 +372,7 @@ function MemberDetail({
                   )}
 
                   {msg.type === 'voice' && msg.media_url && (
-                    <div className="flex items-center gap-2" style={{ marginTop: '10px', padding: '8px 12px', borderRadius: '8px', background: '#f9fafb' }}>
-                      <Mic size={14} style={{ color, flexShrink: 0 }} />
-                      <audio src={msg.media_url} controls className="flex-1 h-8" preload="metadata" />
-                    </div>
+                    <VoicePlayer src={msg.media_url} color={color} />
                   )}
 
                   {msg.type === 'picture' && !msg.media_url && (
