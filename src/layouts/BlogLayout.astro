@@ -62,28 +62,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <link rel="stylesheet" href="/css/blog/bilingual.css">
   </noscript>
 
-  <!-- Core JS modules (load order matters) -->
-  <script src="/js/blog/config.js?v=2" is:inline></script>
-  <script src="/js/blog/group-config.js?v=2" defer is:inline></script>
-  <script type="module" src="/js/blog/members-api.js?v=2" is:inline></script>
-  <script src="/js/blog/members-data.js?v=2" defer is:inline></script>
-  <script src="/js/blog/utils/markdown-processor.js?v=2" defer is:inline></script>
-  <script src="/js/blog/structured-renderer.js?v=2" defer is:inline></script>
-
-  <!-- Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js" defer></script>
-
-  <!-- UI modules -->
-  <script src="/js/blog/theme-toggle.js?v=2" defer is:inline></script>
-  <script src="/js/blog/language-toggle.js?v=2" defer is:inline></script>
-  <script src="/js/blog/pagination.js?v=2" defer is:inline></script>
-  <script src="/js/blog/router.js?v=3" defer is:inline></script>
-  <script src="/js/blog/scroll-animations.js?v=2" defer is:inline></script>
-  <script src="/js/blog/member-default-images.js?v=3" defer is:inline></script>
-  <script src="/js/blog/image-download.js?v=2" defer is:inline></script>
-  <script src="/js/blog/mobile-download.js?v=2" defer is:inline></script>
+  <!-- Legacy JS removed — all blog logic is now in React BlogApp component -->
 
   <!-- Theme: prevent flash of wrong theme -->
   <script is:inline>
@@ -109,7 +88,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 <body class="min-h-screen font-sans antialiased">
   <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <Navbar hideMobileDrawer={true} />
+  <Navbar />
 
   <main id="main-content" class="blog-page-root min-h-[calc(100vh-3.5rem)]">
     <slot />

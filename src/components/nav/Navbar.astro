@@ -59,5 +59,11 @@ const currentPath = Astro.url.pathname;
 <script>
   import { toggleDrawer } from '@/stores/ui';
 
-  document.getElementById('mobile-menu-trigger')?.addEventListener('click', toggleDrawer);
+  function bindMobileMenu() {
+    document.getElementById('mobile-menu-trigger')?.addEventListener('click', toggleDrawer);
+  }
+
+  // Run on initial load and after every ClientRouter navigation
+  bindMobileMenu();
+  document.addEventListener('astro:after-swap', bindMobileMenu);
 </script>
