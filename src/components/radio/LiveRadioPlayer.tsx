@@ -95,7 +95,11 @@ export default function LiveRadioPlayer() {
   // Schedule state
   const [schedule, setSchedule] = useState<Program[]>([]);
   const [scheduleLoading, setScheduleLoading] = useState(true);
-  const [selectedDay, setSelectedDay] = useState<string>('');
+  const [selectedDay, setSelectedDay] = useState<string>(() => {
+    const now = new Date();
+    if (now.getHours() < 5) now.setDate(now.getDate() - 1);
+    return DAY_LABELS[now.getDay()];
+  });
   const [nextProgram, setNextProgram] = useState<Program | null>(null);
   const [countdown, setCountdown] = useState('');
 
@@ -262,13 +266,14 @@ export default function LiveRadioPlayer() {
   }, [nextProgram, liveStatus?.primary_running]);
 
   // ─── Auto-select today (before 5 AM counts as previous day) ──
+  // (initialized in useState above, effect kept for schedule data refresh)
   useEffect(() => {
     if (!selectedDay) {
       const now = new Date();
       if (now.getHours() < 5) now.setDate(now.getDate() - 1);
       setSelectedDay(DAY_LABELS[now.getDay()]);
     }
-  }, [selectedDay]);
+  }, []);
 
   // ─── Group schedule by day ────────────────────
   const scheduleByDay = schedule.reduce<Record<string, Program[]>>((acc, p) => {

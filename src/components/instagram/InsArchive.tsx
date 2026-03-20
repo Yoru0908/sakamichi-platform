@@ -557,7 +557,6 @@ export default function InsArchive() {
                             <div className="w-full px-2 py-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                               <span className="text-[8px] text-white/80 bg-black/40 px-1.5 py-0.5 rounded">
                                 {item.username ? getDisplayName(item.username) : ''}
-                                {item.contentType === 'stories' ? ' · Story' : ' · Post'}
                                 {item.date ? ` · ${item.date}` : ''}
                               </span>
                             </div>
