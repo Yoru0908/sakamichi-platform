@@ -275,15 +275,44 @@ export default function LiveRadioPlayer() {
     }
   }, []);
 
-  // ─── Group schedule by day ────────────────────
-  const scheduleByDay = schedule.reduce<Record<string, Program[]>>((acc, p) => {
-    const day = getDayLabel(p.startTime);
-    (acc[day] ??= []).push(p);
-    return acc;
-  }, {});
-  Object.values(scheduleByDay).forEach(arr =>
-    arr.sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime())
-  );
+  // ─── Group schedule by day (dedup same-title programs across weeks) ──
+  const scheduleByDay = (() => {
+    const raw: Record<string, Program[]> = {};
+    for (const p of schedule) {
+      const day = getDayLabel(p.startTime);
+      (raw[day] ??= []).push(p);
+    }
+    // Dedup: keep only the nearest-future occurrence per title per day
+    const now = Date.now();
+    const deduped: Record<string, Program[]> = {};
+    for (const [day, progs] of Object.entries(raw)) {
+      const seen = new Map<string, Program>();
+      for (const p of progs) {
+        const normTitle = p.title.replace(/[\s\u3000]/g, '');
+        const existing = seen.get(normTitle);
+        if (!existing) {
+          seen.set(normTitle, p);
+        } else {
+          // Prefer the occurrence closest to (but >= ) now; fallback to nearest overall
+          const eDiff = Math.abs(new Date(existing.startTime).getTime() - now);
+          const pDiff = Math.abs(new Date(p.startTime).getTime() - now);
+          if (pDiff < eDiff) seen.set(normTitle, p);
+        }
+      }
+      deduped[day] = Array.from(seen.values());
+    }
+    // Sort each day by start time (display time)
+    Object.values(deduped).forEach(arr =>
+      arr.sort((a, b) => {
+        const ha = new Date(a.startTime).getHours();
+        const hb = new Date(b.startTime).getHours();
+        const ta = ha < 5 ? ha + 24 : ha;
+        const tb = hb < 5 ? hb + 24 : hb;
+        return ta * 60 + new Date(a.startTime).getMinutes() - (tb * 60 + new Date(b.startTime).getMinutes());
+      })
+    );
+    return deduped;
+  })();
 
   const isLive = liveStatus?.primary_running && liveStatus.current_task;
   const currentTask = liveStatus?.current_task;
