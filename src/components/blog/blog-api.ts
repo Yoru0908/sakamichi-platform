@@ -28,6 +28,7 @@ export interface BlogItem {
 export interface Generation {
   name: string;
   members: string[];
+  lastPostDates?: Record<string, string>;
 }
 
 export interface GroupMembersData {

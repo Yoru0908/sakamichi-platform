@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import BlogCard from './BlogCard';
 import { fetchBlogs, fetchGroupMembers, searchBlogs, type BlogItem, type GroupMembersData } from './blog-api';
-import { getGroupDisplayName, formatBlogDate, ALL_PAGE_SIZE, PAGE_SIZE, getApiBaseUrl, getGroupApiName } from './blog-config';
+import { getGroupDisplayName, formatBlogDate, ALL_PAGE_SIZE, PAGE_SIZE } from './blog-config';
 
 interface Props {
   group: string;
@@ -24,7 +24,6 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
   const [memberSelect, setMemberSelect] = useState(memberFilter || '');
   const [searchResults, setSearchResults] = useState<BlogItem[] | null>(null);
   const [searchCount, setSearchCount] = useState(0);
-  const [allBlogsForDates, setAllBlogsForDates] = useState<BlogItem[]>([]);
   const sentinelRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const prevGroupRef = useRef(group);
@@ -80,16 +79,6 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
     }
   }, [group]);
 
-  // Fetch all blogs once per group for member latest date computation
-  useEffect(() => {
-    if (group === 'all') { setAllBlogsForDates([]); return; }
-    const apiBase = getApiBaseUrl();
-    const apiGroup = getGroupApiName(group);
-    fetch(`${apiBase}/api/blogs?limit=5000&offset=0&group=${apiGroup}`)
-      .then(r => r.json())
-      .then(data => { if (data.success && data.blogs) setAllBlogsForDates(data.blogs); })
-      .catch(() => {});
-  }, [group]);
 
   // Reset on group change
   useEffect(() => {
@@ -198,30 +187,27 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
     } catch { return false; }
   }).length;
 
-  // Latest blog date per member for filter display (uses allBlogsForDates for full coverage)
+  // Latest blog date per member from API (groupData.generations[].lastPostDates)
   const memberLatestDate = useMemo(() => {
-    const source = allBlogsForDates.length > 0 ? allBlogsForDates : blogs;
-    const map = new Map<string, string>();
-    for (const b of source) {
-      if (!b.member || !b.publish_date) continue;
-      const existing = map.get(b.member);
-      if (!existing || b.publish_date > existing) map.set(b.member, b.publish_date);
-    }
     const fmt = new Map<string, string>();
-    map.forEach((date, member) => {
-      try {
-        const d = new Date(date.replace(/[\/\.]/g, '-'));
-        if (!isNaN(d.getTime())) {
-          const mm = String(d.getMonth() + 1).padStart(2, '0');
-          const dd = String(d.getDate()).padStart(2, '0');
-          const hh = String(d.getHours()).padStart(2, '0');
-          const min = String(d.getMinutes()).padStart(2, '0');
-          fmt.set(member, `${mm}.${dd} ${hh}:${min} 更新`);
-        }
-      } catch {}
-    });
+    if (!groupData?.generations) return fmt;
+    for (const gen of groupData.generations) {
+      if (!gen.lastPostDates) continue;
+      for (const [member, date] of Object.entries(gen.lastPostDates)) {
+        try {
+          const d = new Date(date.replace(/[\/\.]/g, '-'));
+          if (!isNaN(d.getTime())) {
+            const mm = String(d.getMonth() + 1).padStart(2, '0');
+            const dd = String(d.getDate()).padStart(2, '0');
+            const hh = String(d.getHours()).padStart(2, '0');
+            const min = String(d.getMinutes()).padStart(2, '0');
+            fmt.set(member, `${mm}.${dd} ${hh}:${min} 更新`);
+          }
+        } catch {}
+      }
+    }
     return fmt;
-  }, [allBlogsForDates, blogs]);
+  }, [groupData]);
 
   const displayBlogs = searchResults ?? blogs;
 
