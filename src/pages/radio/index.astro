@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Radio, Play, Clock, Calendar, Archive, Headphones, Disc3, ChevronDown } from 'lucide-astro';
 import SakumimiArchive from '@/components/radio/SakumimiArchive';
 import LiveRadioPlayer from '@/components/radio/LiveRadioPlayer';
+import RecordingArchive from '@/components/radio/RecordingArchive';
 import RadikoPlayer from '@/components/radio/RadikoPlayer';
 
 const tabs = [
@@ -85,12 +86,7 @@ const tabs = [
 
     <!-- Tab: 录制回放 -->
     <div id="tab-recordings" class="radio-tab-content hidden">
-      <div class="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-8 text-center">
-        <Archive size={32} class="mx-auto mb-3 text-[var(--text-tertiary)]" />
-        <p class="text-sm font-medium text-[var(--text-primary)]">录制回放</p>
-        <p class="text-xs text-[var(--text-tertiary)] mt-1">HomeServer 录制的广播将在此处归档</p>
-        <p class="text-[10px] text-[var(--text-tertiary)] mt-3 px-6">支持按日期、节目名检索 · 自动保留近30天录音</p>
-      </div>
+      <RecordingArchive client:visible />
     </div>
 
     <!-- Tab: さくみみ -->
