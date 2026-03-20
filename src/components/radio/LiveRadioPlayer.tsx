@@ -6,11 +6,24 @@ import { Play, Pause, Volume2, VolumeX, Clock, Calendar, AlertCircle, Loader2, R
 const API_BASE = 'https://radio.sakamichi-tools.cn';
 const POLL_INTERVAL = 15_000;
 const HLS_BUFFER_SEC = 10;
-const HLS_PRIMARY_URL = '/hls/primary/index.m3u8';
-
 // ─── Types ──────────────────────────────────────
+interface ActiveStream {
+  task_id: string;
+  station: string;
+  path: string;
+  engine_state: string;
+  started_at: string | null;
+  title?: string;
+  performer?: string;
+  startTime?: string;
+  endTime?: string;
+  station_id?: string;
+}
+
 interface NowPlayingStatus {
   primary_running: boolean;
+  active_count: number;
+  streams: ActiveStream[];
   current_task: {
     title: string;
     station: string;
@@ -48,8 +61,8 @@ const GROUP_COLORS: Record<string, string> = {
   hinatazaka: 'var(--color-brand-hinata, #64B5F6)',
   unknown: 'var(--text-tertiary, #999)',
 };
-function detectGroup(p: Program | { title: string; performer: string; station: string }): string {
-  const text = `${p.title} ${p.performer} ${p.station}`;
+function detectGroup(p: { title?: string; performer?: string; station?: string; station_id?: string }): string {
+  const text = `${p.title || ''} ${p.performer || ''} ${p.station || ''}`;
   for (const [kw, group] of Object.entries(GROUP_MAP)) {
     if (text.includes(kw)) return group;
   }
@@ -91,6 +104,7 @@ export default function LiveRadioPlayer() {
   // Live status
   const [liveStatus, setLiveStatus] = useState<NowPlayingStatus | null>(null);
   const [wasLive, setWasLive] = useState(false);
+  const [activeStreamPath, setActiveStreamPath] = useState<string | null>(null);
 
   // Schedule state
   const [schedule, setSchedule] = useState<Program[]>([]);
@@ -112,21 +126,27 @@ export default function LiveRadioPlayer() {
       const res = await fetch(`${API_BASE}/api/now-playing`);
       if (!res.ok) return;
       const data = await res.json();
+      const streams: ActiveStream[] = data.status?.streams ?? [];
       const status: NowPlayingStatus = {
         primary_running: data.status?.primary_running ?? false,
+        active_count: data.status?.active_count ?? 0,
+        streams,
         current_task: data.status?.current_task ?? null,
         backup_station: data.status?.backup_station ?? '',
       };
       setLiveStatus(status);
 
-      // Auto-connect when primary starts
-      if (status.primary_running && !wasLive) {
+      // Auto-connect when streams start
+      if (streams.length > 0 && !wasLive) {
         setWasLive(true);
-        loadHls(HLS_PRIMARY_URL);
+        const firstPath = streams[0].path;
+        setActiveStreamPath(firstPath);
+        loadHls(`/hls/${firstPath}/index.m3u8`);
       }
-      // Auto-disconnect when primary stops
-      if (!status.primary_running && wasLive) {
+      // Auto-disconnect when all streams stop
+      if (streams.length === 0 && wasLive) {
         setWasLive(false);
+        setActiveStreamPath(null);
         hlsRef.current?.destroy();
         audioRef.current?.pause();
         setIsPlaying(false);
@@ -197,6 +217,13 @@ export default function LiveRadioPlayer() {
   }, []);
 
   // ─── Play/Pause ───────────────────────────────
+  const switchStream = useCallback((path: string) => {
+    setActiveStreamPath(path);
+    setIsPlaying(false);
+    setHlsReady(false);
+    loadHls(`/hls/${path}/index.m3u8`);
+  }, [loadHls]);
+
   const togglePlay = useCallback(() => {
     const audio = audioRef.current;
     if (!audio || !liveStatus?.primary_running) return;
@@ -205,7 +232,7 @@ export default function LiveRadioPlayer() {
       setIsPlaying(false);
     } else {
       setIsLoading(true);
-      if (!hlsReady) loadHls(HLS_PRIMARY_URL);
+      if (!hlsReady && activeStreamPath) loadHls(`/hls/${activeStreamPath}/index.m3u8`);
       audio.play().then(() => {
         setIsPlaying(true);
         setIsLoading(false);
@@ -214,7 +241,7 @@ export default function LiveRadioPlayer() {
         setHlsError('再生失敗');
       });
     }
-  }, [isPlaying, hlsReady, liveStatus, loadHls]);
+  }, [isPlaying, hlsReady, liveStatus, loadHls, activeStreamPath]);
 
   // ─── Volume ───────────────────────────────────
   useEffect(() => {
@@ -314,8 +341,8 @@ export default function LiveRadioPlayer() {
     return deduped;
   })();
 
-  const isLive = liveStatus?.primary_running && liveStatus.current_task;
-  const currentTask = liveStatus?.current_task;
+  const activeStreams = liveStatus?.streams ?? [];
+  const isLive = activeStreams.length > 0;
 
   // ─── Render ───────────────────────────────────
   return (
@@ -323,118 +350,160 @@ export default function LiveRadioPlayer() {
       <audio ref={audioRef} preload="none" />
 
       {/* Live Player / Waiting Card */}
-      <div className="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5 mb-5">
-        {isLive && currentTask ? (
-          <>
-            {/* Currently airing sakamichi program */}
-            <div className="flex items-center gap-2 mb-4">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75 animate-ping" style={{ animationDuration: '2s' }} />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-500" />
-              </span>
-              <span className="text-[10px] font-bold text-red-500 uppercase">ON AIR</span>
-              {hlsError && (
-                <span className="flex items-center gap-1 text-[10px] text-red-400 ml-2">
-                  <AlertCircle size={10} /> {hlsError}
-                </span>
-              )}
-              <span className="ml-auto text-[10px] text-[var(--text-tertiary)]">
-                Buffer: {HLS_BUFFER_SEC}s
-              </span>
-            </div>
-
-            <div className="flex items-center gap-4 py-2">
-              <button
-                onClick={togglePlay}
-                disabled={isLoading}
-                className="w-14 h-14 rounded-full flex items-center justify-center text-white shrink-0 hover:opacity-90 transition-opacity disabled:opacity-50"
-                style={{ backgroundColor: GROUP_COLORS[detectGroup(currentTask)] || GROUP_COLORS.unknown }}
-              >
-                {isLoading ? (
-                  <Loader2 size={22} className="animate-spin" />
-                ) : isPlaying ? (
-                  <Pause size={22} />
-                ) : (
-                  <Play size={22} className="ml-0.5" />
-                )}
-              </button>
-              <div className="flex-1 min-w-0">
-                <p className="text-base font-bold text-[var(--text-primary)] truncate">{currentTask.title}</p>
-                <p className="text-xs text-[var(--text-secondary)] mt-0.5 truncate">
-                  {currentTask.station}
-                  {currentTask.performer && ` · ${currentTask.performer}`}
-                </p>
-                <p className="text-[10px] text-[var(--text-tertiary)] mt-1">
-                  {formatTime(currentTask.startTime)} - {formatTime(currentTask.endTime)}
-                </p>
-              </div>
-              <div className="hidden sm:flex items-center gap-2">
-                <button
-                  onClick={() => setIsMuted(!isMuted)}
-                  className="text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] transition-colors"
-                >
-                  {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-                </button>
-                <input
-                  type="range" min="0" max="1" step="0.05"
-                  value={isMuted ? 0 : volume}
-                  onChange={e => { setVolume(parseFloat(e.target.value)); setIsMuted(false); }}
-                  className="w-20 h-1 accent-[var(--color-brand-sakura,#F19DB5)]"
-                />
-              </div>
-            </div>
-
-            <div className="h-1 bg-[var(--bg-tertiary)] rounded-full overflow-hidden mt-3">
+      {isLive ? (
+        <div className="space-y-3 mb-5">
+          {activeStreams.map(stream => {
+            const isActive = stream.path === activeStreamPath;
+            const color = GROUP_COLORS[detectGroup(stream)] || GROUP_COLORS.unknown;
+            return (
               <div
-                className="h-full rounded-full transition-all"
-                style={{
-                  width: isPlaying ? '100%' : '0%',
-                  background: GROUP_COLORS[detectGroup(currentTask)] || GROUP_COLORS.unknown,
-                  opacity: isPlaying ? 0.5 : 0,
-                }}
-              />
-            </div>
-          </>
-        ) : (
-          <>
-            {/* No sakamichi program currently airing */}
-            <div className="flex items-center gap-2 mb-4">
-              <span className="relative flex h-2 w-2">
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--text-tertiary)]" />
-              </span>
-              <span className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase">STANDBY</span>
-            </div>
-
-            <div className="py-6 text-center">
-              <Radio size={28} className="mx-auto mb-3 text-[var(--text-tertiary)] opacity-40" />
-              <p className="text-sm text-[var(--text-secondary)] font-medium">
-                現在放送中の坂道番組はありません
-              </p>
-              {nextProgram && (
-                <div className="mt-4 inline-flex flex-col items-center gap-1 px-5 py-3 rounded-lg bg-[var(--bg-secondary)]">
-                  <p className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">次回放送</p>
-                  <p className="text-sm font-medium text-[var(--text-primary)]">{nextProgram.title}</p>
-                  <p className="text-xs text-[var(--text-secondary)]">
-                    {nextProgram.station}
-                    {nextProgram.performer && ` · ${nextProgram.performer}`}
-                  </p>
-                  <p className="text-xs text-[var(--text-tertiary)]">
-                    {formatTime(nextProgram.startTime)} - {formatTime(nextProgram.endTime)}
-                  </p>
-                  {countdown && (
-                    <p className="text-xs font-medium mt-1" style={{ color: GROUP_COLORS[detectGroup(nextProgram)] }}>
-                      {countdown}
-                    </p>
+                key={stream.task_id}
+                className={`rounded-xl border bg-[var(--bg-primary)] p-5 transition-all cursor-pointer ${
+                  isActive
+                    ? 'border-[var(--color-brand-sakura,#F19DB5)] ring-1 ring-[var(--color-brand-sakura,#F19DB5)]/30'
+                    : 'border-[var(--border-primary)] opacity-80 hover:opacity-100'
+                }`}
+                onClick={() => { if (!isActive) switchStream(stream.path); }}
+              >
+                {/* ON AIR badge */}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75 animate-ping" style={{ animationDuration: '2s' }} />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-500" />
+                  </span>
+                  <span className="text-[10px] font-bold text-red-500 uppercase">ON AIR</span>
+                  {isActive && hlsError && (
+                    <span className="flex items-center gap-1 text-[10px] text-red-400 ml-2">
+                      <AlertCircle size={10} /> {hlsError}
+                    </span>
+                  )}
+                  {!isActive && (
+                    <span className="text-[10px] text-[var(--text-tertiary)] ml-auto">
+                      クリックして切替
+                    </span>
+                  )}
+                  {isActive && (
+                    <span className="ml-auto text-[10px] text-[var(--text-tertiary)]">
+                      Buffer: {HLS_BUFFER_SEC}s
+                    </span>
                   )}
                 </div>
-              )}
-              <p className="text-[10px] text-[var(--text-tertiary)] mt-4">
-                番組開始時に自動的にストリームが開始されます
-              </p>
-            </div>
-          </>
-        )}
-      </div>
+
+                <div className="flex items-center gap-4 py-1">
+                  {/* Play button only on active stream */}
+                  {isActive ? (
+                    <button
+                      onClick={e => { e.stopPropagation(); togglePlay(); }}
+                      disabled={isLoading}
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white shrink-0 hover:opacity-90 transition-opacity disabled:opacity-50"
+                      style={{ backgroundColor: color }}
+                    >
+                      {isLoading ? (
+                        <Loader2 size={20} className="animate-spin" />
+                      ) : isPlaying ? (
+                        <Pause size={20} />
+                      ) : (
+                        <Play size={20} className="ml-0.5" />
+                      )}
+                    </button>
+                  ) : (
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 opacity-40"
+                      style={{ backgroundColor: color }}
+                    >
+                      <Radio size={18} className="text-white" />
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-bold text-[var(--text-primary)] truncate">
+                      {stream.title || stream.station}
+                    </p>
+                    <p className="text-xs text-[var(--text-secondary)] mt-0.5 truncate">
+                      {stream.station}
+                      {stream.performer && ` · ${stream.performer}`}
+                    </p>
+                    {stream.startTime && stream.endTime && (
+                      <p className="text-[10px] text-[var(--text-tertiary)] mt-1">
+                        {formatTime(stream.startTime)} - {formatTime(stream.endTime)}
+                      </p>
+                    )}
+                  </div>
+                  {/* Volume control on active stream (desktop) */}
+                  {isActive && (
+                    <div className="hidden sm:flex items-center gap-2">
+                      <button
+                        onClick={e => { e.stopPropagation(); setIsMuted(!isMuted); }}
+                        className="text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] transition-colors"
+                      >
+                        {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                      </button>
+                      <input
+                        type="range" min="0" max="1" step="0.05"
+                        value={isMuted ? 0 : volume}
+                        onClick={e => e.stopPropagation()}
+                        onChange={e => { setVolume(parseFloat(e.target.value)); setIsMuted(false); }}
+                        className="w-20 h-1 accent-[var(--color-brand-sakura,#F19DB5)]"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* Progress bar only on active stream */}
+                {isActive && (
+                  <div className="h-1 bg-[var(--bg-tertiary)] rounded-full overflow-hidden mt-3">
+                    <div
+                      className="h-full rounded-full transition-all"
+                      style={{
+                        width: isPlaying ? '100%' : '0%',
+                        background: color,
+                        opacity: isPlaying ? 0.5 : 0,
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5 mb-5">
+          {/* No sakamichi program currently airing */}
+          <div className="flex items-center gap-2 mb-4">
+            <span className="relative flex h-2 w-2">
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--text-tertiary)]" />
+            </span>
+            <span className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase">STANDBY</span>
+          </div>
+
+          <div className="py-6 text-center">
+            <Radio size={28} className="mx-auto mb-3 text-[var(--text-tertiary)] opacity-40" />
+            <p className="text-sm text-[var(--text-secondary)] font-medium">
+              現在放送中の坂道番組はありません
+            </p>
+            {nextProgram && (
+              <div className="mt-4 inline-flex flex-col items-center gap-1 px-5 py-3 rounded-lg bg-[var(--bg-secondary)]">
+                <p className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">次回放送</p>
+                <p className="text-sm font-medium text-[var(--text-primary)]">{nextProgram.title}</p>
+                <p className="text-xs text-[var(--text-secondary)]">
+                  {nextProgram.station}
+                  {nextProgram.performer && ` · ${nextProgram.performer}`}
+                </p>
+                <p className="text-xs text-[var(--text-tertiary)]">
+                  {formatTime(nextProgram.startTime)} - {formatTime(nextProgram.endTime)}
+                </p>
+                {countdown && (
+                  <p className="text-xs font-medium mt-1" style={{ color: GROUP_COLORS[detectGroup(nextProgram)] }}>
+                    {countdown}
+                  </p>
+                )}
+              </div>
+            )}
+            <p className="text-[10px] text-[var(--text-tertiary)] mt-4">
+              番組開始時に自動的にストリームが開始されます
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Schedule */}
       <div className="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)]">
