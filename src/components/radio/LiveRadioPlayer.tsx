@@ -136,12 +136,10 @@ export default function LiveRadioPlayer() {
       };
       setLiveStatus(status);
 
-      // Auto-connect when streams start
+      // Click-to-activate: only update state, don't auto-connect HLS
       if (streams.length > 0 && !wasLive) {
         setWasLive(true);
-        const firstPath = streams[0].path;
-        setActiveStreamPath(firstPath);
-        loadHls(`/hls/${firstPath}/index.m3u8`);
+        if (!activeStreamPath) setActiveStreamPath(streams[0].path);
       }
       // Auto-disconnect when all streams stop
       if (streams.length === 0 && wasLive) {
@@ -226,13 +224,18 @@ export default function LiveRadioPlayer() {
 
   const togglePlay = useCallback(() => {
     const audio = audioRef.current;
-    if (!audio || !liveStatus?.primary_running) return;
+    if (!audio || !liveStatus?.streams?.length) return;
     if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
     } else {
       setIsLoading(true);
-      if (!hlsReady && activeStreamPath) loadHls(`/hls/${activeStreamPath}/index.m3u8`);
+      if (!hlsReady && activeStreamPath) {
+        // First click: load HLS first (auto-plays on MANIFEST_PARSED)
+        loadHls(`/hls/${activeStreamPath}/index.m3u8`);
+        return;
+      }
+      // HLS already loaded, just resume
       audio.play().then(() => {
         setIsPlaying(true);
         setIsLoading(false);

@@ -6,10 +6,10 @@ import LiveRadioPlayer from '@/components/radio/LiveRadioPlayer';
 import RadikoPlayer from '@/components/radio/RadikoPlayer';
 
 const tabs = [
-  { id: 'live', label: '实时收听', icon: 'radio' },
+  { id: 'live', label: '坂道广播', icon: 'radio' },
   { id: 'recordings', label: '录制回放', icon: 'archive' },
   { id: 'sakumimi', label: 'さくみみ', icon: 'headphones' },
-  { id: 'radiko', label: 'Radiko', icon: 'disc' },
+  { id: 'radiko', label: '日本電台', icon: 'disc' },
 ];
 ---
 
@@ -78,7 +78,7 @@ const tabs = [
     </a>
     </div>
 
-    <!-- Tab: 实时收听 -->
+    <!-- Tab: 坂道广播 -->
     <div id="tab-live" class="radio-tab-content">
       <LiveRadioPlayer client:visible />
     </div>
@@ -98,7 +98,7 @@ const tabs = [
       <SakumimiArchive client:visible />
     </div>
 
-    <!-- Tab: Radiko -->
+    <!-- Tab: 日本電台 -->
     <div id="tab-radiko" class="radio-tab-content hidden">
       <RadikoPlayer client:visible />
     </div>

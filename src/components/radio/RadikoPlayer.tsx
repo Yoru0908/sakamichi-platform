@@ -310,7 +310,7 @@ export default function RadikoPlayer() {
       </div>
 
       <p className="text-[10px] text-[var(--text-tertiary)] mt-3 text-center">
-        Radiko ライブストリーミング · 30分無操作で自動停止 · 日本国内電台
+        日本電台 ライブストリーミング · 30分無操作で自動停止 · Radiko経由
       </p>
     </div>
   );
