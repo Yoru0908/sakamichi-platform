@@ -172,12 +172,12 @@ export default function LiveRadioPlayer() {
     if (Hls.isSupported()) {
       const hls = new Hls({
         enableWorker: true,
-        lowLatencyMode: false,
+        lowLatencyMode: true,
         backBufferLength: 60,
         maxBufferLength: HLS_BUFFER_SEC + 5,
         maxMaxBufferLength: HLS_BUFFER_SEC + 15,
-        liveSyncDurationCount: 5,
-        liveMaxLatencyDurationCount: 10,
+        liveSyncDurationCount: 3,
+        liveMaxLatencyDurationCount: 6,
         liveDurationInfinity: true,
         highBufferWatchdogPeriod: 3,
       });
@@ -191,11 +191,13 @@ export default function LiveRadioPlayer() {
       });
       hls.on(Hls.Events.ERROR, (_event, data) => {
         if (data.fatal) {
-          setHlsError('ストリーム接続失敗');
-          setIsPlaying(false);
-          setIsLoading(false);
           if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-            setTimeout(() => hls.startLoad(), 3000);
+            // Retry on network error before showing failure
+            setTimeout(() => hls.startLoad(), 2000);
+          } else {
+            setHlsError('ストリーム接続失敗');
+            setIsPlaying(false);
+            setIsLoading(false);
           }
         }
       });
