@@ -1,11 +1,14 @@
 /** Blog App — main entry point, view switching based on hash route */
 
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef, lazy, Suspense } from 'react';
 import { useBlogRouter } from './useBlogRouter';
 import BlogGrid from './BlogGrid';
 import MemberPage from './MemberPage';
 import BlogDetail from './BlogDetail';
 import { GROUPS, type GroupKey, getApiBaseUrl } from './blog-config';
+
+const BlogStats = lazy(() => import('./BlogStats'));
+const BlogInteractions = lazy(() => import('./BlogInteractions'));
 
 type TabId = 'blog' | 'stats' | 'interactions';
 
@@ -132,28 +135,16 @@ export default function BlogApp() {
       )}
 
       {activeTab === 'stats' && (
-        <StatsPlaceholder />
+        <Suspense fallback={<div className="loading-state">正在加载统计组件...</div>}>
+          <BlogStats />
+        </Suspense>
       )}
 
       {activeTab === 'interactions' && (
-        <InteractionsPlaceholder />
+        <Suspense fallback={<div className="loading-state">正在加载互动分析组件...</div>}>
+          <BlogInteractions />
+        </Suspense>
       )}
-    </div>
-  );
-}
-
-function StatsPlaceholder() {
-  return (
-    <div className="text-center py-12" style={{ color: 'var(--text-secondary)' }}>
-      <p>数据统计功能 — 即将迁移至 React</p>
-    </div>
-  );
-}
-
-function InteractionsPlaceholder() {
-  return (
-    <div className="text-center py-12" style={{ color: 'var(--text-secondary)' }}>
-      <p>关系分析功能 — 即将迁移至 React</p>
     </div>
   );
 }
