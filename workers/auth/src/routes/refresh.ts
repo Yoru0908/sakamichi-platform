@@ -1,6 +1,7 @@
 import type { Env, UserRow, RefreshTokenRow } from '../types';
 import { signAccessToken } from '../utils/jwt';
 import { error, success, setCookies } from '../utils/response';
+import { generateGeoPass, shouldIssueGeoPass } from '../utils/geo-pass';
 
 /** Extract refresh_token from cookie */
 function getRefreshToken(req: Request): string | null {
@@ -52,8 +53,16 @@ export async function handleRefresh(req: Request, env: Env): Promise<Response> {
     .run();
 
   const res = success({});
-  return setCookies(res, [
-    { name: 'access_token', value: newAccessToken, maxAge: 15 * 60 },
-    { name: 'refresh_token', value: newRefreshToken, maxAge: 7 * 24 * 60 * 60, path: '/api/auth' },
-  ]);
+  const cookies: { name: string; value: string; maxAge: number; path?: string; domain?: string }[] = [
+    { name: 'access_token', value: newAccessToken, maxAge: 15 * 60, domain: '.46log.com' },
+    { name: 'refresh_token', value: newRefreshToken, maxAge: 7 * 24 * 60 * 60, path: '/api/auth', domain: '.46log.com' },
+  ];
+
+  if (shouldIssueGeoPass(user)) {
+    const ua = req.headers.get('User-Agent') || '';
+    const geoPassValue = await generateGeoPass(user.id, env.GEO_PASS_SECRET, ua);
+    cookies.push({ name: 'geo_pass', value: geoPassValue, maxAge: 365 * 24 * 60 * 60, domain: '.46log.com' });
+  }
+
+  return setCookies(res, cookies);
 }

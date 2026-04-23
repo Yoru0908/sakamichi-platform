@@ -11,7 +11,7 @@ function Avatar({ src, fallbackChar, color, size = 32 }: { src?: string; fallbac
   if (!src || failed) {
     return (
       <div
-        className="rounded-full shrink-0 flex items-center justify-center text-white font-bold"
+        className="rounded-sm shrink-0 flex items-center justify-center text-white font-bold"
         style={{ width: size, height: size, backgroundColor: color, fontSize: size * 0.35 }}
       >
         {fallbackChar}
@@ -22,7 +22,7 @@ function Avatar({ src, fallbackChar, color, size = 32 }: { src?: string; fallbac
     <img
       src={src}
       alt=""
-      className="rounded-full object-cover object-top shrink-0"
+      className="rounded-sm object-cover object-top shrink-0"
       style={{ width: size, height: size, backgroundColor: '#f0f0f0' }}
       onError={() => setFailed(true)}
     />

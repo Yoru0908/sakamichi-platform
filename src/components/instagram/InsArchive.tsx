@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useStore } from '@nanostores/react';
 import {
   Camera, Search, Download, ChevronDown, Star,
@@ -686,84 +687,99 @@ export default function InsArchive() {
       </div>
 
       {/* === Preview modal === */}
-      {modalItem && (
+      {modalItem && createPortal(
         <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
+          className="fixed inset-0 bg-black/90 flex flex-col"
+          style={{ zIndex: 9999 }}
           onClick={(e) => { if (e.target === e.currentTarget) setModalItem(null); }}
         >
-          {/* Close */}
-          <button onClick={() => setModalItem(null)} className="absolute top-4 right-4 text-white/70 hover:text-white z-10">
-            <X size={24} />
-          </button>
-
-          {/* Download */}
-          <a
-            href={modalItem.AlistUrl || INS_CONFIG.getMediaUrl(modalItem.Key)}
-            download
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute top-4 right-14 text-white/70 hover:text-white z-10"
-            title="下载"
-          >
-            <Download size={20} />
-          </a>
-
-          {/* Copy link */}
-          <button
-            onClick={() => {
-              navigator.clipboard.writeText(modalItem.AlistUrl || INS_CONFIG.getMediaUrl(modalItem.Key));
-              setLinkCopied(true);
-              setTimeout(() => setLinkCopied(false), 2000);
-            }}
-            className="absolute top-4 right-24 text-white/70 hover:text-white z-10"
-            title={linkCopied ? '已复制' : '复制链接'}
-          >
-            <Link2 size={20} />
-            {linkCopied && <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-white/80 whitespace-nowrap bg-black/60 px-2 py-0.5 rounded">已复制</span>}
-          </button>
-
-          {/* Nav prev */}
-          {modalIndex > 0 && (
-            <button onClick={() => navigateModal(-1)} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white z-10">
-              <ChevronLeft size={32} />
+          {/* Top toolbar */}
+          <div className="flex-none flex items-center justify-end gap-1 p-3">
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(modalItem.AlistUrl || INS_CONFIG.getMediaUrl(modalItem.Key));
+                setLinkCopied(true);
+                setTimeout(() => setLinkCopied(false), 2000);
+              }}
+              className="relative flex items-center justify-center w-9 h-9 rounded-full bg-white/10 text-white/80 hover:text-white hover:bg-white/20 transition-colors"
+              title={linkCopied ? '已复制' : '复制链接'}
+            >
+              <Link2 size={18} />
+              {linkCopied && <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] text-white/80 whitespace-nowrap bg-black/70 px-2 py-0.5 rounded">已复制</span>}
             </button>
-          )}
-
-          {/* Nav next */}
-          {modalIndex < filteredItems.length - 1 && (
-            <button onClick={() => navigateModal(1)} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white z-10">
-              <ChevronRight size={32} />
+            <a
+              href={modalItem.AlistUrl || INS_CONFIG.getMediaUrl(modalItem.Key)}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 text-white/80 hover:text-white hover:bg-white/20 transition-colors"
+              title="下载"
+            >
+              <Download size={18} />
+            </a>
+            <button
+              onClick={() => setModalItem(null)}
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 text-white/80 hover:text-white hover:bg-white/20 transition-colors"
+            >
+              <X size={20} />
             </button>
-          )}
+          </div>
 
-          {/* Content */}
-          <div className="max-w-4xl max-h-[85vh] w-full mx-4">
-            {modalItem.isVideo ? (
-              <video
-                ref={videoRef}
-                src={modalItem.AlistUrl || INS_CONFIG.getMediaUrl(modalItem.Key)}
-                controls
-                autoPlay
-                className="w-full max-h-[80vh] object-contain rounded-lg"
-              />
-            ) : (
-              <img
-                src={modalItem.AlistUrl || INS_CONFIG.getMediaUrl(modalItem.Key)}
-                alt=""
-                className="w-full max-h-[80vh] object-contain rounded-lg"
-              />
+          {/* Middle: content + nav */}
+          <div className="flex-1 flex items-center justify-center min-h-0 relative px-12">
+            {/* Nav prev */}
+            {modalIndex > 0 && (
+              <button
+                onClick={() => navigateModal(-1)}
+                className="absolute left-2 top-1/2 -translate-y-1/2 text-white/60 hover:text-white"
+                style={{ zIndex: 1 }}
+              >
+                <ChevronLeft size={32} />
+              </button>
             )}
-            <div className="mt-2 text-center">
-              <span className="text-[10px] text-white/50">
-                {modalItem.username ? getDisplayName(modalItem.username) : ''}
-                {modalItem.contentType === 'stories' ? ' · Story' : ' · Post'}
-                {modalItem.date ? ` · ${modalItem.date}` : ''}
-                {` · ${modalIndex + 1}/${filteredItems.length}`}
-              </span>
+
+            {/* Nav next */}
+            {modalIndex < filteredItems.length - 1 && (
+              <button
+                onClick={() => navigateModal(1)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-white/60 hover:text-white"
+                style={{ zIndex: 1 }}
+              >
+                <ChevronRight size={32} />
+              </button>
+            )}
+
+            {/* Media */}
+            <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+              {modalItem.isVideo ? (
+                <video
+                  ref={videoRef}
+                  src={modalItem.AlistUrl || INS_CONFIG.getMediaUrl(modalItem.Key)}
+                  controls
+                  autoPlay
+                  className="w-full max-h-[78vh] object-contain rounded-lg"
+                />
+              ) : (
+                <img
+                  src={modalItem.AlistUrl || INS_CONFIG.getMediaUrl(modalItem.Key)}
+                  alt=""
+                  className="w-full max-h-[78vh] object-contain rounded-lg"
+                />
+              )}
             </div>
           </div>
+
+          {/* Bottom caption */}
+          <div className="flex-none py-2 text-center">
+            <span className="text-[10px] text-white/50">
+              {modalItem.username ? getDisplayName(modalItem.username) : ''}
+              {modalItem.contentType === 'stories' ? ' · Story' : ' · Post'}
+              {modalItem.date ? ` · ${modalItem.date}` : ''}
+              {` · ${modalIndex + 1}/${filteredItems.length}`}
+            </span>
+          </div>
         </div>
-      )}
+      , document.body)}
 
       {/* Close download menu on outside click */}
       {showDownloadMenu && (

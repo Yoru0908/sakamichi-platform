@@ -21,6 +21,8 @@ export interface AuthState {
   isFirstLogin: boolean;
   oshiMember: string | null;
   verificationStatus: 'none' | 'pending' | 'approved' | 'rejected';
+  geoStatus: string | null;
+  paymentStatus: string | null;
   loading: boolean;
 }
 
@@ -34,6 +36,8 @@ const defaultAuth: AuthState = {
   isFirstLogin: false,
   oshiMember: null,
   verificationStatus: 'none',
+  geoStatus: null,
+  paymentStatus: null,
   loading: false,
 };
 
@@ -52,6 +56,8 @@ function userToState(user: AuthUser): AuthState {
     isFirstLogin: user.isFirstLogin,
     oshiMember: user.oshiMember,
     verificationStatus: user.verificationStatus,
+    geoStatus: user.geoStatus,
+    paymentStatus: user.paymentStatus,
     loading: false,
   };
 }

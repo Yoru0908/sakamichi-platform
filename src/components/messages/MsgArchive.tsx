@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useStore } from '@nanostores/react';
+import { $auth } from '@/stores/auth';
 import { MessageCircle, ArrowLeft, Image, Video, Mic, ChevronLeft, Star, Play, Pause, Volume2, MoreVertical } from 'lucide-react';
 import {
-  getGroupColor, getR2AvatarUrl, getHeaderStyle,
+  getGroupColor, getR2AvatarUrl, getOptimizedAvatarUrl, getHeaderStyle,
   GROUP_CONFIG, sortedGenEntries, fetchMemberData, deduplicateMembers,
   type MemberInfo,
 } from './msg-styles';
@@ -28,7 +29,7 @@ interface Message {
 }
 
 // --- Constants ---
-const ARCHIVE_API_BASE = 'https://msg-archive.srzwyuu.workers.dev/api/archive';
+const ARCHIVE_API_BASE = 'https://msg-archive.46log.com/api/archive';
 
 // --- Custom Voice Player (replaces native <audio> which has seek issues) ---
 function VoicePlayer({ src, color }: { src: string; color: string }) {
@@ -170,7 +171,7 @@ function MemberList({
   onChangeGroup: (g: string) => void;
 }) {
   const favorites = useStore($favorites);
-  const groups = ['乃木坂46', '櫻坂46', '日向坂46'];
+  const groups = ['櫻坂46', '日向坂46']; // 乃木坂46 暂时隐藏（未订阅MSG）
   const isFavTab = activeGroup === '__favorites__';
 
   const filtered = isFavTab
@@ -254,8 +255,9 @@ function MemberList({
                   <div onClick={() => onSelectMember(m)}>
                     <div className="aspect-[3/4] w-full overflow-hidden">
                       <img
-                        src={getR2AvatarUrl(m.name)}
+                        src={getOptimizedAvatarUrl(m.name, 400)}
                         alt={m.name}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         onError={(e) => {
                           const img = e.target as HTMLImageElement;
@@ -266,7 +268,6 @@ function MemberList({
                             img.src = m.placeholder || '/images/placeholder.png';
                           }
                         }}
-                        loading="lazy"
                       />
                     </div>
                     <p className="text-xs font-medium text-[var(--text-primary)] truncate px-2 py-2">{m.name}</p>
@@ -287,11 +288,13 @@ function MemberDetail({
   messages,
   msgLoading,
   onBack,
+  nickname,
 }: {
   member: ArchiveMemberInfo;
   messages: Message[];
   msgLoading: boolean;
   onBack: () => void;
+  nickname: string;
 }) {
   const color = getGroupColor(member.group);
   const headerStyle = getHeaderStyle(member.group);
@@ -305,7 +308,7 @@ function MemberDetail({
   }, [messages]);
 
   return (
-    <div className="max-w-[500px] mx-auto">
+    <div className="max-w-[380px] mx-auto">
       {/* Back button */}
       <button
         onClick={onBack}
@@ -329,7 +332,7 @@ function MemberDetail({
           boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
           border: '1px solid #e5e7eb',
           borderTop: 'none',
-          maxHeight: 'calc(100vh - 200px)',
+          maxHeight: 'calc(100vh - 100px)',
           overflowY: 'auto',
         }}
       >
@@ -358,7 +361,7 @@ function MemberDetail({
             >
               {/* Avatar (70px, matches MSG生成 .avatar) */}
               <img
-                src={getR2AvatarUrl(member.name)}
+                src={getOptimizedAvatarUrl(member.name, 280)}
                 alt={member.name}
                 style={{ width: '70px', height: '70px', borderRadius: '50%', border: '2px solid #e5e7eb', objectFit: 'cover', flexShrink: 0 }}
                 onError={(e) => {
@@ -381,7 +384,9 @@ function MemberDetail({
                 {/* Message body (matches MSG生成 .chat-body) */}
                 <div style={{ fontSize: '15px', lineHeight: 1.6, color: '#1f2937' }}>
                   {msg.text && (
-                    <p style={{ margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>{msg.text}</p>
+                    <p style={{ margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                      {nickname ? msg.text.replace(/%%%/g, nickname) : msg.text}
+                    </p>
                   )}
 
                   {msg.translated_text && (
@@ -439,8 +444,9 @@ function MemberDetail({
 
 // --- Main Component ---
 export default function MsgArchive() {
+  const auth = useStore($auth);
   const [members, setMembers] = useState<ArchiveMemberInfo[]>([]);
-  const [activeGroup, setActiveGroup] = useState('乃木坂46');
+  const [activeGroup, setActiveGroup] = useState('櫻坂46');
   const [selectedMember, setSelectedMember] = useState<ArchiveMemberInfo | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
@@ -519,6 +525,7 @@ export default function MsgArchive() {
         messages={messages}
         msgLoading={msgLoading}
         onBack={() => setSelectedMember(null)}
+        nickname={auth.displayName || ''}
       />
     );
   }

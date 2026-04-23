@@ -3,6 +3,7 @@ import { toPublicUser } from '../types';
 import { verifyPassword } from '../utils/password';
 import { signAccessToken } from '../utils/jwt';
 import { error, success, setCookies } from '../utils/response';
+import { generateGeoPass, shouldIssueGeoPass } from '../utils/geo-pass';
 
 export async function handleLogin(req: Request, env: Env): Promise<Response> {
   let body: { email?: string; password?: string };
@@ -58,8 +59,16 @@ export async function handleLogin(req: Request, env: Env): Promise<Response> {
 
   const res = success({ data: { user: toPublicUser(user) } });
 
-  return setCookies(res, [
-    { name: 'access_token', value: accessToken, maxAge: 15 * 60 },
-    { name: 'refresh_token', value: refreshToken, maxAge: 7 * 24 * 60 * 60, path: '/api/auth' },
-  ]);
+  const cookies: { name: string; value: string; maxAge: number; path?: string; domain?: string }[] = [
+    { name: 'access_token', value: accessToken, maxAge: 15 * 60, domain: '.46log.com' },
+    { name: 'refresh_token', value: refreshToken, maxAge: 7 * 24 * 60 * 60, path: '/api/auth', domain: '.46log.com' },
+  ];
+
+  if (shouldIssueGeoPass(user)) {
+    const ua = req.headers.get('User-Agent') || '';
+    const geoPassValue = await generateGeoPass(user.id, env.GEO_PASS_SECRET, ua);
+    cookies.push({ name: 'geo_pass', value: geoPassValue, maxAge: 365 * 24 * 60 * 60, domain: '.46log.com' });
+  }
+
+  return setCookies(res, cookies);
 }

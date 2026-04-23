@@ -215,8 +215,8 @@ export default function MemberPage({ member, group, onNavigate }: Props) {
       {/* Mobile sidebar responsive — show member card + calendar above blog list */}
       <style>{`
         @media (max-width: 768px) {
-          .member-page-layout { grid-template-columns: 1fr !important; }
-          .member-page-sidebar { position: static !important; order: -1; }
+          .member-page-layout { grid-template-columns: 1fr !important; gap: 0 !important; }
+          .member-page-sidebar { display: none !important; }
         }
       `}</style>
     </div>

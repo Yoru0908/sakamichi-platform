@@ -1,0 +1,87 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Tv } from 'lucide-astro';
+import VideoLibrary from '@/components/video/VideoLibrary';
+import GeoPassGate from '@/components/shared/GeoPassGate';
+
+const tabs = [
+  { id: 'sokokyoku', label: 'そこ曲がったら、櫻坂？' },
+  { id: 'chokosaku', label: 'ちょこさく' },
+];
+---
+
+<BaseLayout title="冠番 - Sakamichi Tools">
+  <GeoPassGate client:load />
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Notice banner -->
+    <div id="video-notice" class="mb-4 px-4 py-3 rounded-xl flex items-center justify-between gap-3" style="background: var(--bg-secondary); border: 1px solid var(--border-primary);">
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="shrink-0 text-base">🚧</span>
+        <p class="text-xs" style="color: var(--text-secondary);">内容还在测试中，视频和功能可能随时调整。</p>
+      </div>
+      <button id="close-notice" class="shrink-0 p-1 rounded-md hover:opacity-70 transition-opacity" style="color: var(--text-tertiary);" aria-label="关闭">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Header -->
+    <div class="flex items-center gap-2 mb-6">
+      <Tv size={18} class="text-[var(--color-brand-sakura)]" />
+      <h1 class="text-2xl font-bold text-[var(--text-primary)]">冠番</h1>
+    </div>
+
+    <!-- Pill tab bar -->
+    <div class="flex gap-1.5 p-1 bg-[var(--bg-tertiary)] rounded-xl overflow-x-auto mb-6">
+      {tabs.map((tab, i) => (
+        <button
+          class={`video-pill flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-lg transition-all duration-200 whitespace-nowrap ${i === 0 ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm' : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'}`}
+          data-tab={tab.id}
+        >
+          <Tv size={13} />
+          {tab.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Tab: そこ曲がったら -->
+    <div id="tab-sokokyoku" class="video-tab-content">
+      <VideoLibrary client:visible showId="sokokyoku" alistBase="https://alist.46log.com" alistPath="/lemino/そこ曲がったら櫻坂" r2Base="https://r2.46log.com" r2Prefix="sokokyoku" />
+    </div>
+
+    <!-- Tab: ちょこさく -->
+    <div id="tab-chokosaku" class="video-tab-content hidden">
+      <VideoLibrary client:visible showId="chokosaku" alistBase="https://alist.46log.com" alistPath="/lemino/ちょこさく" r2Base="https://r2.46log.com" r2Prefix="chokosaku" />
+    </div>
+  </div>
+
+  <script>
+    // Notice banner dismiss (session-only)
+    const notice = document.getElementById('video-notice');
+    const closeBtn = document.getElementById('close-notice');
+    if (sessionStorage.getItem('video-notice-dismissed')) {
+      notice?.remove();
+    }
+    closeBtn?.addEventListener('click', () => {
+      notice?.remove();
+      sessionStorage.setItem('video-notice-dismissed', '1');
+    });
+
+    const pills = document.querySelectorAll('.video-pill');
+    const tabContents = document.querySelectorAll('.video-tab-content');
+
+    pills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const tabId = (pill as HTMLElement).dataset.tab;
+        pills.forEach((p) => {
+          p.classList.remove('bg-[var(--bg-primary)]', 'text-[var(--text-primary)]', 'shadow-sm');
+          p.classList.add('text-[var(--text-tertiary)]');
+        });
+        pill.classList.add('bg-[var(--bg-primary)]', 'text-[var(--text-primary)]', 'shadow-sm');
+        pill.classList.remove('text-[var(--text-tertiary)]');
+        tabContents.forEach((tc) => {
+          (tc as HTMLElement).classList.toggle('hidden', tc.id !== `tab-${tabId}`);
+        });
+      });
+    });
+  </script>
+</BaseLayout>

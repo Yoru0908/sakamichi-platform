@@ -1,9 +1,11 @@
-import { useState, useMemo } from 'react';
-import { Search, SlidersHorizontal } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Search, SlidersHorizontal, RefreshCw } from 'lucide-react';
 import type { GroupId, AtmosphereTag } from '@/types/repo';
 import { GROUP_META, ATMOSPHERE_TAGS } from '@/types/repo';
-import { MOCK_REPOS, MOCK_MEMBERS } from '@/utils/repo-mock-data';
+import { listRepoWorks } from '@/utils/auth-api';
+import type { RepoWorkItem, RepoReaction } from '@/utils/auth-api';
 import RepoCard from './RepoCard';
+import RepoDetailModal from './RepoDetailModal';
 
 type SortMode = 'latest' | 'popular';
 
@@ -12,54 +14,85 @@ export default function RepoCommunity() {
   const [memberFilter, setMemberFilter] = useState<string | null>(null);
   const [tagFilter, setTagFilter] = useState<AtmosphereTag | null>(null);
   const [sortMode, setSortMode] = useState<SortMode>('latest');
-  const [searchQuery, setSearchQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
 
-  const filteredMembers = useMemo(() => {
-    if (groupFilter === 'all') return MOCK_MEMBERS;
-    return MOCK_MEMBERS.filter(m => m.group === groupFilter);
-  }, [groupFilter]);
+  const [repos, setRepos] = useState<RepoWorkItem[]>([]);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedRepo, setSelectedRepo] = useState<RepoWorkItem | null>(null);
 
-  const filteredRepos = useMemo(() => {
-    let repos = [...MOCK_REPOS];
+  const LIMIT = 18;
 
-    if (groupFilter !== 'all') repos = repos.filter(r => r.groupId === groupFilter);
-    if (memberFilter) repos = repos.filter(r => r.memberId === memberFilter);
-    if (tagFilter) repos = repos.filter(r => r.tags.includes(tagFilter));
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      repos = repos.filter(r =>
-        r.memberName.toLowerCase().includes(q) ||
-        r.nickname.toLowerCase().includes(q) ||
-        r.messages.some(m => m.text.toLowerCase().includes(q))
-      );
-    }
-
-    if (sortMode === 'latest') {
-      repos.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-    } else {
-      repos.sort((a, b) => {
-        const totalA = a.reactions.lemon + a.reactions.sweet + a.reactions.funny + a.reactions.pray;
-        const totalB = b.reactions.lemon + b.reactions.sweet + b.reactions.funny + b.reactions.pray;
-        return totalB - totalA;
+  const fetchRepos = useCallback(async (reset = false) => {
+    setLoading(true);
+    setError(null);
+    const currentPage = reset ? 1 : page;
+    try {
+      const res = await listRepoWorks({
+        group: groupFilter !== 'all' ? groupFilter : undefined,
+        memberId: memberFilter || undefined,
+        tag: tagFilter || undefined,
+        sort: sortMode,
+        page: currentPage,
+        limit: LIMIT,
       });
+      if (res.success && res.data) {
+        const newRepos = res.data.repos;
+        setRepos(reset ? newRepos : prev => [...prev, ...newRepos]);
+        setTotal(res.data!.pagination.total);
+        setHasMore(currentPage < res.data!.pagination.totalPages);
+        if (reset) setPage(1);
+      } else {
+        setError(res.message || '加载失败');
+      }
+    } catch {
+      setError('网络错误，请稍后重试');
+    } finally {
+      setLoading(false);
     }
+  }, [groupFilter, memberFilter, tagFilter, sortMode, page]);
 
-    return repos;
-  }, [groupFilter, memberFilter, tagFilter, sortMode, searchQuery]);
+  // Fetch on filter/sort change (reset)
+  useEffect(() => {
+    setPage(1);
+    fetchRepos(true);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [groupFilter, memberFilter, tagFilter, sortMode]);
+
+  function handleLoadMore() {
+    setPage(p => p + 1);
+  }
+
+  // Fetch when page increments (for load more)
+  useEffect(() => {
+    if (page > 1) fetchRepos(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page]);
+
+  // Update a single card's reactions optimistically
+  function handleReactionUpdate(workId: string, updatedReactions: RepoReaction, myReactions: string[]) {
+    setRepos(prev => prev.map(r =>
+      r.id === workId ? { ...r, reactions: updatedReactions, myReactions } : r
+    ));
+    setSelectedRepo(prev =>
+      prev?.id === workId ? { ...prev, reactions: updatedReactions, myReactions } : prev
+    );
+  }
 
   return (
     <div className="space-y-4">
-      {/* Search + Filter bar */}
+      {/* Search-like filter bar */}
       <div className="flex items-center gap-2">
         <div className="flex-1 relative">
           <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
             type="text"
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-            placeholder="メンバー名、キーワードで検索..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-white border border-gray-200 text-sm outline-none focus:ring-2 focus:ring-gray-200 transition-shadow"
+            readOnly
+            placeholder="キーワード検索（近日実装）"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-white border border-gray-200 text-sm outline-none cursor-not-allowed opacity-60"
           />
         </div>
         <button
@@ -93,35 +126,6 @@ export default function RepoCommunity() {
                   style={groupFilter === g && g !== 'all' ? { backgroundColor: GROUP_META[g].color } : undefined}
                 >
                   {g === 'all' ? '全部' : GROUP_META[g].name}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Member filter */}
-          <div>
-            <div className="text-[10px] text-gray-400 font-medium mb-1.5 uppercase tracking-wider">メンバー</div>
-            <div className="flex flex-wrap gap-1.5">
-              <button
-                type="button"
-                onClick={() => setMemberFilter(null)}
-                className={`px-2.5 py-1 text-[11px] rounded-full transition-colors ${
-                  !memberFilter ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
-                }`}
-              >
-                全員
-              </button>
-              {filteredMembers.map(m => (
-                <button
-                  key={m.id}
-                  type="button"
-                  onClick={() => setMemberFilter(m.id)}
-                  className={`px-2.5 py-1 text-[11px] rounded-full transition-colors ${
-                    memberFilter === m.id ? 'text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
-                  }`}
-                  style={memberFilter === m.id ? { backgroundColor: GROUP_META[m.group].color } : undefined}
-                >
-                  {m.name}
                 </button>
               ))}
             </div>
@@ -176,24 +180,88 @@ export default function RepoCommunity() {
         </div>
       )}
 
-      {/* Results count */}
-      <div className="text-xs text-gray-400">
-        {filteredRepos.length} 件のレポ
+      {/* Results count + refresh */}
+      <div className="flex items-center justify-between">
+        <div className="text-xs text-gray-400">{total} 件のレポ</div>
+        <button type="button" onClick={() => fetchRepos(true)} disabled={loading}
+          className="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-40">
+          <RefreshCw size={13} className={loading ? 'animate-spin' : ''} />
+        </button>
       </div>
 
-      {/* Repo grid */}
-      {filteredRepos.length === 0 ? (
-        <div className="text-center py-16">
-          <div className="text-4xl mb-3">📝</div>
-          <div className="text-sm text-gray-500">レポが見つかりません</div>
-          <div className="text-xs text-gray-400 mt-1">フィルターを変更してみてください</div>
+      {/* Error state */}
+      {error && (
+        <div className="rounded-xl border border-red-100 bg-red-50 p-4 text-sm text-red-600 text-center">
+          {error}
+          <button type="button" onClick={() => fetchRepos(true)} className="ml-2 underline text-red-500 text-xs">重试</button>
         </div>
-      ) : (
+      )}
+
+      {/* Loading skeleton */}
+      {loading && repos.length === 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredRepos.map(repo => (
-            <RepoCard key={repo.id} repo={repo} />
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="rounded-xl border border-gray-100 bg-white p-4 animate-pulse space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gray-100" />
+                <div className="flex-1 space-y-1.5">
+                  <div className="h-3 bg-gray-100 rounded w-2/3" />
+                  <div className="h-2.5 bg-gray-100 rounded w-1/2" />
+                </div>
+              </div>
+              <div className="space-y-1.5">
+                <div className="h-8 bg-gray-100 rounded" />
+                <div className="h-8 bg-gray-100 rounded" />
+              </div>
+            </div>
           ))}
         </div>
+      )}
+
+      {/* Empty state */}
+      {!loading && !error && repos.length === 0 && (
+        <div className="text-center py-16">
+          <div className="text-4xl mb-3">📝</div>
+          <div className="text-sm text-gray-500">まだRepoがありません</div>
+          <div className="text-xs text-gray-400 mt-1">最初のRepoを書いてみよう！</div>
+        </div>
+      )}
+
+      {/* Repo grid */}
+      {repos.length > 0 && (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {repos.map(repo => (
+              <RepoCard
+                key={repo.id}
+                repo={repo}
+                onReactionUpdate={handleReactionUpdate}
+                onCardClick={setSelectedRepo}
+              />
+            ))}
+          </div>
+
+          {/* Load more */}
+          {hasMore && (
+            <div className="flex justify-center pt-2">
+              <button
+                type="button"
+                onClick={handleLoadMore}
+                disabled={loading}
+                className="px-6 py-2 rounded-full text-sm border border-gray-200 bg-white text-gray-500 hover:border-gray-300 transition-colors disabled:opacity-40"
+              >
+                {loading ? '加载中...' : '加载更多'}
+              </button>
+            </div>
+          )}
+        </>
+      )}
+      {selectedRepo && (
+        <RepoDetailModal
+          repo={selectedRepo}
+          onClose={() => setSelectedRepo(null)}
+          onReactionUpdate={handleReactionUpdate}
+        />
       )}
     </div>
   );

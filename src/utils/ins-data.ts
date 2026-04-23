@@ -31,8 +31,8 @@ export const GROUP_HEX: Record<GroupKey, string> = {
 
 // API config (matches existing frontend config.js)
 export const INS_CONFIG = {
-  apiDomain: 'ins-download.sakamichi-tools.cn',
-  alistDomain: 'alist.sakamichi-tools.cn',
+  apiDomain: 'ins-download.46log.com',
+  alistDomain: 'alist.46log.com',
 
   getFileListUrl() {
     return `https://${this.apiDomain}/api/file-list`;
@@ -105,6 +105,7 @@ const RAW_ACCOUNTS: Record<string, Record<string, string>> = {
     'nishino.nanase.official': '西野七瀬',
     'ikutaerika.official': '生田絵梨花',
     'matsumura_sayuri_official': '松村沙友理',
+    'nogizaka46_official': '乃木坂46',
   },
   '櫻坂46': {
     'miichan_official': '小池美波',
@@ -133,6 +134,8 @@ const RAW_ACCOUNTS: Record<string, Record<string, string>> = {
     'watanabe.rika.official': '渡辺梨加',
     'akane.moriya_official': '守屋茜',
     'nerunagahama_': '長濱ねる',
+    'riko_matsudaira_official': '松平璃子',
+    '_risawatanabe_': '渡辺理佐',
   },
   '日向坂46': {
     'katoshi.official': '加藤史帆',
@@ -163,6 +166,7 @@ const RAW_ACCOUNTS: Record<string, Record<string, string>> = {
     'mitsuki.hiraoka': '平岡海月',
     'haruyoyamaguchi.official': '山口陽世',
     'ishizukatamaki_official': '石塚瑶季',
+    'hinatazaka46': '日向坂46',
   },
 };
 

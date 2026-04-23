@@ -5,17 +5,98 @@ import LiveNowBar from '@/components/home/LiveNowBar';
 import TrendingMSG from '@/components/home/TrendingMSG';
 import PopularPhotocards from '@/components/home/PopularPhotocards.astro';
 import QuickAccess from '@/components/home/QuickAccess.astro';
+
+// ── SSG: pre-fetch hero blog at build time for LCP optimization ──
+const API_BASE = 'https://api.46log.com';
+
+const GROUP_HEX: Record<string, string> = {
+  nogizaka: '#742581', sakurazaka: '#F19DB5', hinatazaka: '#7BC7E8',
+};
+
+function mapGroup(g: string) {
+  if (g?.includes('乃木坂')) return 'nogizaka';
+  if (g?.includes('樱坂') || g?.includes('櫻坂')) return 'sakurazaka';
+  return 'hinatazaka';
+}
+
+let heroBlog: { title: string; member: string; group: string; groupName: string; heroImage: string; id: string; hex: string } | null = null;
+try {
+  const res = await fetch(`${API_BASE}/api/blogs?limit=1`);
+  const data = await res.json();
+  if (data.success && data.blogs?.[0]) {
+    const b = data.blogs[0];
+    const content = b.translated_content || b.bilingual_content || '';
+    const imgMatch = content.match(/!\[.*?\]\((https?:\/\/[^)]+)\)/);
+    const group = mapGroup(b.group_name || '');
+    if (imgMatch) {
+      heroBlog = {
+        id: b.id,
+        title: b.title || '',
+        member: b.member || '',
+        group,
+        groupName: b.group_name || '',
+        heroImage: imgMatch[1],
+        hex: GROUP_HEX[group] || '#742581',
+      };
+    }
+  }
+} catch (e) {
+  // Build-time fetch failed — React island will handle it at runtime
+}
 ---
 
 <BaseLayout>
-  <!-- 1+3. Hero Blog + Latest Blogs (React Island — fetches at runtime) -->
-  <HomeBlogSection client:load />
+  {/* SSG Hero: static HTML with preloaded LCP image — no JS needed */}
+  {heroBlog && (
+    <link rel="preload" as="image" href={heroBlog.heroImage} slot="head" />
+  )}
+
+  <div id="hero-wrapper" style="position: relative;">
+    {heroBlog && (
+      <section id="hero-static" style="display: none; position: relative; z-index: 1;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2" style="color: var(--text-tertiary)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+              <h2 class="text-xs font-semibold uppercase tracking-wider">最新博客翻译</h2>
+            </div>
+            <a href="/blog" data-astro-reload class="flex items-center gap-1 text-xs font-medium hover:underline" style={`color: var(--color-brand-nogi)`}>
+              查看全部 →
+            </a>
+          </div>
+          <a href={`/blog#blog/${heroBlog.id}`} data-astro-reload class="group flex flex-col sm:flex-row rounded-2xl overflow-hidden border" style="border-color: var(--border-primary)">
+            <div class="sm:w-[40%] w-full aspect-[4/3] sm:aspect-auto overflow-hidden shrink-0" style="min-height: 320px; background: var(--bg-tertiary)">
+              <img
+                src={heroBlog.heroImage}
+                alt={heroBlog.title}
+                class="w-full h-full object-cover object-top"
+                loading="eager"
+                fetchpriority="high"
+                style="transition: transform 0.5s"
+              />
+            </div>
+            <div class="flex-1 flex flex-col justify-center p-6 sm:p-8 text-white" style={`background: linear-gradient(135deg, ${heroBlog.hex} 0%, ${heroBlog.hex}dd 100%)`}>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-semibold" style="background: rgba(255,255,255,0.15)">{heroBlog.groupName}</span>
+              </div>
+              <h2 class="text-lg sm:text-xl lg:text-2xl font-bold leading-snug mb-2">
+                {heroBlog.member}「{heroBlog.title}」
+              </h2>
+              <span class="inline-flex items-center gap-1 text-sm font-medium" style="color: rgba(255,255,255,0.9)">阅读全文 →</span>
+            </div>
+          </a>
+        </div>
+      </section>
+    )}
+    <!-- React Island: carousel replaces static hero when ready (hydrate when idle) -->
+    <HomeBlogSection client:load />
+  </div>
 
   <!-- 2. Live Now Bar (React Island — polls /api/radio/now-playing) -->
   <LiveNowBar client:load />
 
   <!-- 4. Trending MSG (React Island — slow marquee scroll on desktop) -->
-  <TrendingMSG client:visible />
+  <TrendingMSG client:load />
 
   <!-- 5. Popular Photocards (Astro static — community showcase) -->
   <PopularPhotocards />

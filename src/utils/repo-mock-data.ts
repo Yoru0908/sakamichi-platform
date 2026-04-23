@@ -1,24 +1,32 @@
 import type { Member, PublishedRepo, GroupId } from '@/types/repo';
+import memberImagesJson from '../../public/data/member-images.json';
 
-/* ── Mock member data (mirrors member-images.json structure) ── */
+/* ── Group name → GroupId/groupName mapping ── */
+const GROUP_MAP: Record<string, { group: 'nogizaka' | 'sakurazaka' | 'hinatazaka'; groupName: string }> = {
+  '乃木坂46': { group: 'nogizaka', groupName: '乃木坂46' },
+  '樱坂46':   { group: 'sakurazaka', groupName: '櫻坂46' },
+  '日向坂46': { group: 'hinatazaka', groupName: '日向坂46' },
+};
 
-export const MOCK_MEMBERS: Member[] = [
-  // 乃木坂46
-  { id: 'endo_sakura', name: '遠藤さくら', group: 'nogizaka', groupName: '乃木坂46', imageUrl: 'https://www.nogizaka46.com/images/14/nogivideo/32392/showPhoto/f54e1da3b8c92a2d29ff71dc1c3b6f91.jpg' },
-  { id: 'kaki_haruka', name: '賀喜遥香', group: 'nogizaka', groupName: '乃木坂46', imageUrl: 'https://www.nogizaka46.com/images/14/nogivideo/32386/showPhoto/1afde4f5b1e9d3e1f80f6f36ea0df28c.jpg' },
-  { id: 'inoue_nagi', name: '井上和', group: 'nogizaka', groupName: '乃木坂46', imageUrl: 'https://www.nogizaka46.com/images/14/nogivideo/36758/showPhoto/a4ccbb0e3f789eb254ad2ca84be0a4fc.jpg' },
-  { id: 'okuda_iroha', name: '奥田いろは', group: 'nogizaka', groupName: '乃木坂46', imageUrl: 'https://www.nogizaka46.com/images/14/nogivideo/36762/showPhoto/58459b9b5c1b01a6b62e439ef2c3f3eb.jpg' },
-  // 櫻坂46
-  { id: 'yamasaki_ten', name: '山﨑天', group: 'sakurazaka', groupName: '櫻坂46', imageUrl: 'https://sakurazaka46.com/images/14/eb2/a44d0281a6b41e2e940b22ef44a8c/1000_1000_102400.jpg' },
-  { id: 'morita_hikaru', name: '森田ひかる', group: 'sakurazaka', groupName: '櫻坂46', imageUrl: 'https://sakurazaka46.com/images/14/e92/aef02e08e2ae5ba30be39b58e9c9f/1000_1000_102400.jpg' },
-  { id: 'fujiyoshi_karin', name: '藤吉夏鈴', group: 'sakurazaka', groupName: '櫻坂46', imageUrl: 'https://sakurazaka46.com/images/14/e12/59cbee7f5a0bc5ad68c3c58bc6bce/1000_1000_102400.jpg' },
-  { id: 'yamashita_shizuki', name: '山下瞳月', group: 'sakurazaka', groupName: '櫻坂46', imageUrl: 'https://sakurazaka46.com/images/14/129/2ec4b3bd6ed117e46f50a9e9e1bc8/1000_1000_102400.jpg' },
-  // 日向坂46
-  { id: 'kosaka_nao', name: '小坂菜緒', group: 'hinatazaka', groupName: '日向坂46', imageUrl: 'https://cdn.hinatazaka46.com/images/14/14a/43b4abb54680ae63d18b697db4498/1000_1000_102400.jpg' },
-  { id: 'takai_rika', name: '高井俐香', group: 'hinatazaka', groupName: '日向坂46', imageUrl: 'https://cdn.hinatazaka46.com/images/14/1c2/e5ce52f6b2d641c16db3843b8a01d/1000_1000_102400.jpg' },
-  { id: 'kamimura_hinano', name: '上村ひなの', group: 'hinatazaka', groupName: '日向坂46', imageUrl: 'https://cdn.hinatazaka46.com/images/14/0e9/f31a29fce2c98b85db8b1bb91feb7/1000_1000_102400.jpg' },
-  { id: 'masumoto_kira', name: '正源司陽子', group: 'hinatazaka', groupName: '日向坂46', imageUrl: 'https://cdn.hinatazaka46.com/images/14/1b2/ba7dfd5e8efd1f2db2fdbfe5fbe80/1000_1000_102400.jpg' },
-];
+/* ── Build member list from member-images.json (official website photos) ── */
+function buildMemberList(): Member[] {
+  const images = (memberImagesJson as any).images as Record<string, { group: string; imageUrl?: string }>;
+  const seen = new Set<string>();
+  const members: Member[] = [];
+  for (const [rawName, entry] of Object.entries(images)) {
+    if (!rawName.includes(' ')) continue; // skip de-spaced duplicates; use spaced version
+    const name = rawName.replace(/\s/g, '');
+    if (seen.has(name)) continue;
+    seen.add(name);
+    const g = GROUP_MAP[entry.group];
+    if (!g) continue;
+    members.push({ id: name, name, group: g.group, groupName: g.groupName, imageUrl: entry.imageUrl || '' });
+  }
+  members.sort((a, b) => a.group.localeCompare(b.group) || a.name.localeCompare(b.name));
+  return members;
+}
+
+export const MOCK_MEMBERS: Member[] = buildMemberList();
 
 export function getMembersByGroup(group?: GroupId): Member[] {
   if (!group) return MOCK_MEMBERS;
@@ -34,11 +42,11 @@ export function getMemberById(id: string): Member | undefined {
 export const MOCK_REPOS: PublishedRepo[] = [
   {
     id: 1,
-    memberId: 'takai_rika',
+    memberId: '高井俐香',
     memberName: '高井俐香',
     groupId: 'hinatazaka',
     groupName: '日向坂46',
-    memberImageUrl: 'https://cdn.hinatazaka46.com/images/14/1c2/e5ce52f6b2d641c16db3843b8a01d/1000_1000_102400.jpg',
+    memberImageUrl: getMemberById('高井俐香')?.imageUrl || '',
     eventDate: '2026/3/8',
     eventType: 'ミーグリ',
     slotNumber: 1,
@@ -64,11 +72,11 @@ export const MOCK_REPOS: PublishedRepo[] = [
   },
   {
     id: 2,
-    memberId: 'yamashita_shizuki',
+    memberId: '山下瞳月',
     memberName: '山下瞳月',
     groupId: 'sakurazaka',
     groupName: '櫻坂46',
-    memberImageUrl: 'https://sakurazaka46.com/images/14/129/2ec4b3bd6ed117e46f50a9e9e1bc8/1000_1000_102400.jpg',
+    memberImageUrl: getMemberById('山下瞳月')?.imageUrl || '',
     eventDate: '2026/3/15',
     eventType: 'ミーグリ',
     slotNumber: 2,
@@ -92,11 +100,11 @@ export const MOCK_REPOS: PublishedRepo[] = [
   },
   {
     id: 3,
-    memberId: 'morita_hikaru',
+    memberId: '森田ひかる',
     memberName: '森田ひかる',
     groupId: 'sakurazaka',
     groupName: '櫻坂46',
-    memberImageUrl: 'https://sakurazaka46.com/images/14/e92/aef02e08e2ae5ba30be39b58e9c9f/1000_1000_102400.jpg',
+    memberImageUrl: getMemberById('森田ひかる')?.imageUrl || '',
     eventDate: '2026/3/9',
     eventType: 'ミーグリ',
     slotNumber: 3,
@@ -120,11 +128,11 @@ export const MOCK_REPOS: PublishedRepo[] = [
   },
   {
     id: 4,
-    memberId: 'inoue_nagi',
+    memberId: '井上和',
     memberName: '井上和',
     groupId: 'nogizaka',
     groupName: '乃木坂46',
-    memberImageUrl: 'https://www.nogizaka46.com/images/14/nogivideo/36758/showPhoto/a4ccbb0e3f789eb254ad2ca84be0a4fc.jpg',
+    memberImageUrl: getMemberById('井上和')?.imageUrl || '',
     eventDate: '2026/3/22',
     eventType: 'ミーグリ',
     slotNumber: 1,
@@ -148,11 +156,11 @@ export const MOCK_REPOS: PublishedRepo[] = [
   },
   {
     id: 5,
-    memberId: 'kosaka_nao',
+    memberId: '小坂菜緒',
     memberName: '小坂菜緒',
     groupId: 'hinatazaka',
     groupName: '日向坂46',
-    memberImageUrl: 'https://cdn.hinatazaka46.com/images/14/14a/43b4abb54680ae63d18b697db4498/1000_1000_102400.jpg',
+    memberImageUrl: getMemberById('小坂菜緒')?.imageUrl || '',
     eventDate: '2026/3/1',
     eventType: 'ミーグリ',
     slotNumber: 2,
@@ -174,11 +182,11 @@ export const MOCK_REPOS: PublishedRepo[] = [
   },
   {
     id: 6,
-    memberId: 'yamasaki_ten',
+    memberId: '山﨑天',
     memberName: '山﨑天',
     groupId: 'sakurazaka',
     groupName: '櫻坂46',
-    memberImageUrl: 'https://sakurazaka46.com/images/14/eb2/a44d0281a6b41e2e940b22ef44a8c/1000_1000_102400.jpg',
+    memberImageUrl: getMemberById('山﨑天')?.imageUrl || '',
     eventDate: '2026/3/16',
     eventType: 'ミーグリ',
     slotNumber: 1,

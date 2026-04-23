@@ -20,14 +20,13 @@ export function success(data: unknown = {}, status = 200): Response {
 
 export function setCookies(
   res: Response,
-  cookies: { name: string; value: string; maxAge: number; path?: string }[],
+  cookies: { name: string; value: string; maxAge: number; path?: string; domain?: string }[],
 ): Response {
   const headers = new Headers(res.headers);
   for (const c of cookies) {
-    headers.append(
-      'Set-Cookie',
-      `${c.name}=${c.value}; HttpOnly; Secure; SameSite=Lax; Max-Age=${c.maxAge}; Path=${c.path || '/'}`,
-    );
+    let cookie = `${c.name}=${c.value}; HttpOnly; Secure; SameSite=None; Max-Age=${c.maxAge}; Path=${c.path || '/'}`;
+    if (c.domain) cookie += `; Domain=${c.domain}`;
+    headers.append('Set-Cookie', cookie);
   }
   return new Response(res.body, { status: res.status, headers });
 }
@@ -37,7 +36,7 @@ export function clearCookies(res: Response, names: string[]): Response {
   for (const name of names) {
     headers.append(
       'Set-Cookie',
-      `${name}=; HttpOnly; Secure; SameSite=Lax; Max-Age=0; Path=/`,
+      `${name}=; HttpOnly; Secure; SameSite=None; Max-Age=0; Path=/; Domain=.46log.com`,
     );
   }
   return new Response(res.body, { status: res.status, headers });

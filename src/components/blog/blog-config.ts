@@ -1,6 +1,6 @@
 /** Blog configuration constants */
 
-export const API_BASE = 'https://api.sakamichi-tools.cn';
+export const API_BASE = 'https://api.46log.com';
 export const LOCAL_API = 'http://localhost:8787';
 export const PAGE_SIZE = 32;
 export const ALL_PAGE_SIZE = 16;
@@ -9,11 +9,10 @@ export const DETAIL_LIMIT = 50;
 export const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 export const API_TIMEOUT = 15000;
 
-export const CLOUDINARY_BASE = 'https://res.cloudinary.com/djoegafjn/image/fetch';
-
+// Cloudinary 国内不可用，直接返回原始 URL（未来可接 img.46log.com 图片代理 Worker）
 export function getCloudinaryUrl(originalUrl: string, width = 600): string {
   if (!originalUrl || !originalUrl.startsWith('http')) return originalUrl;
-  return `${CLOUDINARY_BASE}/w_${width},q_75,f_auto,c_scale/${encodeURIComponent(originalUrl)}`;
+  return originalUrl;
 }
 
 export type GroupKey = 'nogizaka' | 'sakurazaka' | 'hinatazaka';

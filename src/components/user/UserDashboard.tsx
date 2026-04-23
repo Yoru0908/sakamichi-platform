@@ -3,21 +3,23 @@ import { useStore } from '@nanostores/react';
 import {
   User, Star, Heart, Trash2, Edit3, Check, X, Shield,
   Mail, Calendar, Clock, Link2, Search, PenLine, FileImage, Image,
+  CreditCard, BadgeCheck, ExternalLink, Plus, AlertCircle, CheckCircle, Loader2,
 } from 'lucide-react';
 import { $auth, initAuth, setAuth } from '@/stores/auth';
 import { $favorites, removeFavorite, addFavorite, toggleFavorite } from '@/stores/favorites';
 import {
   getProfile, updateProfile, updatePreferences, changePassword,
-  type UserProfile, type OAuthLink,
+  addPaymentLink, removePaymentLink, requestVerification,
+  type UserProfile, type OAuthLink, type SubscriptionInfo, type PaymentLinkInfo,
 } from '@/utils/auth-api';
-import { getGroupColor, getR2AvatarUrl, GROUP_CONFIG, sortedGenEntries, type MemberInfo } from '@/components/messages/msg-styles';
+import { getGroupColor, getR2AvatarUrl, getOptimizedAvatarUrl, GROUP_CONFIG, sortedGenEntries, type MemberInfo } from '@/components/messages/msg-styles';
 
 // ── Role badge ──
 const ROLE_LABELS: Record<string, { label: string; color: string }> = {
   admin:      { label: '管理员', color: '#dc2626' },
   translator: { label: '翻译者', color: '#7c3aed' },
   verified:   { label: '已认证', color: '#059669' },
-  member:     { label: '会员',   color: '#2563eb' },
+  member:     { label: 'Free',   color: '#2563eb' },
   guest:      { label: '游客',   color: '#6b7280' },
 };
 
@@ -254,7 +256,7 @@ function ProfileTab({ profile }: { profile: UserProfile }) {
                     >
                       <div className="aspect-square w-full overflow-hidden">
                         <img
-                          src={getR2AvatarUrl(m.name)}
+                          src={getOptimizedAvatarUrl(m.name, 400)}
                           alt={m.name}
                           className="w-full h-full object-cover"
                           onError={(e) => {
@@ -275,6 +277,16 @@ function ProfileTab({ profile }: { profile: UserProfile }) {
           </div>
         </div>
       )}
+
+      {/* Subscription & Verification status */}
+      <SubscriptionCard
+        subscription={profile.subscription}
+        paymentStatus={profile.user.paymentStatus}
+        verificationStatus={profile.user.verificationStatus}
+      />
+
+      {/* Payment links management */}
+      <PaymentLinksSection initialLinks={profile.paymentLinks} />
 
       {/* OAuth links */}
       <div>
@@ -304,6 +316,360 @@ function ProfileTab({ profile }: { profile: UserProfile }) {
 
       {/* Password change */}
       <PasswordChangeSection />
+    </div>
+  );
+}
+
+// ── Subscription & Verification Card ──
+const PLAN_LABELS: Record<string, string> = {
+  all_groups: '全坂道',
+  single_nogizaka: '乃木坂46',
+  single_sakurazaka: '櫻坂46',
+  single_hinatazaka: '日向坂46',
+  lifetime: '终身会员',
+};
+
+const VERIFICATION_LABELS: Record<string, { label: string; color: string; icon: typeof CheckCircle }> = {
+  none: { label: '未认证', color: '#6b7280', icon: AlertCircle },
+  pending: { label: '认证审核中', color: '#d97706', icon: Loader2 },
+  approved: { label: '已认证', color: '#059669', icon: CheckCircle },
+  rejected: { label: '认证未通过', color: '#dc2626', icon: AlertCircle },
+};
+
+function SubscriptionCard({ subscription, paymentStatus, verificationStatus }: {
+  subscription: SubscriptionInfo | null;
+  paymentStatus: string | null;
+  verificationStatus: string;
+}) {
+  const isActive = paymentStatus === 'active';
+  const isExpired = paymentStatus === 'expired';
+  const vInfo = VERIFICATION_LABELS[verificationStatus] || VERIFICATION_LABELS.none;
+  const VIcon = vInfo.icon;
+
+  const fmtDate = (iso: string | null) => {
+    if (!iso) return '永久';
+    return new Date(iso).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+  };
+
+  return (
+    <div className="space-y-3">
+      <h4 className="text-sm font-semibold text-[var(--text-primary)]">订阅与认证</h4>
+
+      {/* Subscription status */}
+      <div className={`p-4 rounded-xl border-2 ${
+        isActive ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-900/10' :
+        isExpired ? 'border-amber-400 bg-amber-50 dark:bg-amber-900/10' :
+        'border-[var(--border-primary)] bg-[var(--bg-secondary)]'
+      }`}>
+        <div className="flex items-start justify-between">
+          <div className="flex items-center gap-2">
+            <CreditCard size={16} className={isActive ? 'text-emerald-600' : 'text-[var(--text-tertiary)]'} />
+            <div>
+              <p className="text-sm font-semibold text-[var(--text-primary)]">
+                {isActive ? '订阅生效中' : isExpired ? '订阅已过期' : '未订阅'}
+              </p>
+              {subscription && (
+                <p className="text-xs text-[var(--text-tertiary)] mt-0.5">
+                  {PLAN_LABELS[subscription.plan] || subscription.plan}
+                  {subscription.expires_at ? ` · 到期 ${fmtDate(subscription.expires_at)}` : ' · 永久有效'}
+                </p>
+              )}
+            </div>
+          </div>
+          {isActive && (
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
+              <CheckCircle size={10} />
+              Active
+            </span>
+          )}
+        </div>
+
+        {!isActive && (
+          <div className="mt-3 space-y-2">
+            <div className="text-[11px] text-[var(--text-tertiary)] space-y-1">
+              <p className="font-medium text-[var(--text-secondary)]">订阅权益：</p>
+              <p>· 根据投喂金额解锁对应组合的 MSG 消息存档</p>
+              <p>· 支持网站持续运营与开发</p>
+            </div>
+            <a
+              href="https://ko-fi.com/srzwyuu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white rounded-lg transition-colors"
+              style={{ backgroundColor: 'var(--color-brand-nogi)' }}
+            >
+              <ExternalLink size={12} />
+              前往 Ko-fi 订阅
+            </a>
+          </div>
+        )}
+      </div>
+
+      {/* Verification status */}
+      <VerificationStatusCard verificationStatus={verificationStatus} />
+    </div>
+  );
+}
+
+function VerificationStatusCard({ verificationStatus }: { verificationStatus: string }) {
+  const [requesting, setRequesting] = useState(false);
+  const [localStatus, setLocalStatus] = useState(verificationStatus);
+  const [reason, setReason] = useState('');
+  const [msg, setMsg] = useState('');
+  const [showForm, setShowForm] = useState(false);
+
+  const handleRequest = async () => {
+    if (reason.trim().length < 20) {
+      setMsg('请至少填写 20 字');
+      return;
+    }
+    setRequesting(true);
+    setMsg('');
+    const res = await requestVerification(reason.trim());
+    setRequesting(false);
+    if (res.success) {
+      setLocalStatus('pending');
+      setMsg('认证申请已提交，等待管理员审核');
+      setShowForm(false);
+    } else {
+      setMsg(res.message || '申请失败');
+    }
+  };
+
+  const currentInfo = VERIFICATION_LABELS[localStatus] || VERIFICATION_LABELS.none;
+  const CurrentIcon = currentInfo.icon;
+
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center gap-3 p-3 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)]">
+        <CurrentIcon size={16} style={{ color: currentInfo.color }} />
+        <div className="flex-1 min-w-0">
+          <p className="text-[10px] text-[var(--text-tertiary)]">认证状态（GeoPass）</p>
+          <p className="text-sm font-medium" style={{ color: currentInfo.color }}>{currentInfo.label}</p>
+        </div>
+        {(localStatus === 'none' || localStatus === 'rejected') && !showForm && (
+          <button
+            onClick={() => setShowForm(true)}
+            className="px-3 py-1.5 text-[10px] font-medium text-white rounded-lg cursor-pointer"
+            style={{ backgroundColor: 'var(--color-brand-nogi)' }}
+          >
+            {localStatus === 'rejected' ? '重新申请' : '申请认证'}
+          </button>
+        )}
+      </div>
+
+      {showForm && (localStatus === 'none' || localStatus === 'rejected') && (
+        <div className="p-3 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] space-y-2">
+          <p className="text-[11px] text-[var(--text-secondary)] leading-relaxed">
+            请简单介绍一下你自己，并说明你平时关注的坂道内容或使用本站的目的。
+          </p>
+          <p className="text-[10px] text-[var(--text-tertiary)]">
+            这段说明仅用于辅助审核，不会公开展示。如果仅凭说明无法判断，管理员会引导你进群完成人工验证。
+          </p>
+          <textarea
+            value={reason}
+            onChange={(e) => setReason(e.target.value)}
+            placeholder="例如：我平时主要关注櫻坂/日向坂，会看博客翻译、MSG归档和广播内容…"
+            className="w-full px-3 py-2 text-xs border border-[var(--border-primary)] rounded-lg bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] resize-none"
+            rows={3}
+          />
+          <div className="flex items-center justify-between">
+            <span className={`text-[10px] ${reason.trim().length >= 20 ? 'text-green-500' : 'text-[var(--text-tertiary)]'}`}>
+              {reason.trim().length}/20 字
+            </span>
+            <div className="flex gap-2">
+              <button onClick={() => { setShowForm(false); setMsg(''); }} className="px-3 py-1.5 text-[10px] text-[var(--text-tertiary)] rounded-lg hover:bg-[var(--bg-tertiary)] cursor-pointer">
+                取消
+              </button>
+              <button
+                onClick={handleRequest}
+                disabled={requesting || reason.trim().length < 20}
+                className="px-3 py-1.5 text-[10px] font-medium text-white rounded-lg cursor-pointer disabled:opacity-60"
+                style={{ backgroundColor: 'var(--color-brand-nogi)' }}
+              >
+                {requesting ? '提交中...' : '提交申请'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {msg && (
+        <p className={`text-[10px] px-1 ${msg.includes('失败') || msg.includes('至少') ? 'text-red-500' : 'text-green-600 dark:text-green-400'}`}>{msg}</p>
+      )}
+
+      {localStatus === 'rejected' && !showForm && (
+        <div className="p-3 rounded-lg bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800 space-y-2">
+          <p className="text-[11px] text-red-700 dark:text-red-400 font-medium">
+            认证未通过，请加入以下群组联系管理员完成人工验证：
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <span onClick={() => navigator.clipboard.writeText('915448805')}
+              className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-medium rounded-lg bg-[#12B7F5]/10 text-[#12B7F5] hover:bg-[#12B7F5]/20 transition-colors cursor-pointer">
+              QQ 群: 915448805（点击复制）
+            </span>
+            <a href="https://discord.gg/n8F7Eq4vyD" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-medium rounded-lg bg-[#5865F2]/10 text-[#5865F2] hover:bg-[#5865F2]/20 transition-colors">
+              Discord
+            </a>
+          </div>
+        </div>
+      )}
+
+      {localStatus === 'none' && !showForm && (
+        <p className="text-[10px] text-[var(--text-tertiary)] px-1">
+          日本地区访问部分内容需要通过认证（免费）。
+        </p>
+      )}
+
+      {localStatus === 'pending' && (
+        <p className="text-[10px] text-amber-600 dark:text-amber-400 px-1">
+          申请审核中，通常 24 小时内完成。如需加急可加群联系管理员。
+        </p>
+      )}
+    </div>
+  );
+}
+
+// ── Payment Links Section ──
+const PLATFORM_CONFIG: Record<string, { label: string; color: string }> = {
+  kofi: { label: 'Ko-fi', color: '#FF5E5B' },
+  afdian: { label: '爱发电', color: '#946CE6' },
+  stripe: { label: 'Stripe', color: '#635BFF' },
+};
+
+function PaymentLinksSection({ initialLinks }: { initialLinks: PaymentLinkInfo[] }) {
+  const [links, setLinks] = useState(initialLinks);
+  const [showAdd, setShowAdd] = useState(false);
+  const [addPlatform, setAddPlatform] = useState('kofi');
+  const [addEmail, setAddEmail] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [removing, setRemoving] = useState<string | null>(null);
+  const [msg, setMsg] = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
+
+  const availablePlatforms = Object.keys(PLATFORM_CONFIG).filter(
+    (p) => !links.some((l) => l.platform === p)
+  );
+
+  const handleAdd = async () => {
+    if (!addEmail.trim()) { setMsg({ type: 'err', text: '请输入邮箱' }); return; }
+    setSaving(true);
+    setMsg(null);
+    const res = await addPaymentLink({ platform: addPlatform, platformEmail: addEmail.trim() });
+    setSaving(false);
+    if (res.success) {
+      setLinks([...links, { platform: addPlatform, email: addEmail.trim(), linkedAt: new Date().toISOString() }]);
+      setShowAdd(false);
+      setAddEmail('');
+      setMsg({ type: 'ok', text: '已关联' });
+      setTimeout(() => setMsg(null), 2000);
+    } else {
+      setMsg({ type: 'err', text: res.message || res.error || '关联失败' });
+    }
+  };
+
+  const handleRemove = async (platform: string) => {
+    setRemoving(platform);
+    const res = await removePaymentLink(platform);
+    setRemoving(null);
+    if (res.success) {
+      setLinks(links.filter((l) => l.platform !== platform));
+    }
+  };
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <h4 className="text-sm font-semibold text-[var(--text-primary)]">付款账号关联</h4>
+        {availablePlatforms.length > 0 && !showAdd && (
+          <button
+            onClick={() => { setShowAdd(true); setAddPlatform(availablePlatforms[0]); }}
+            className="text-xs px-2 py-1 rounded-lg font-medium text-white cursor-pointer"
+            style={{ backgroundColor: 'var(--color-brand-nogi)' }}
+          >
+            <Plus size={12} className="inline -mt-0.5 mr-0.5" />关联
+          </button>
+        )}
+      </div>
+
+      <p className="text-[10px] text-[var(--text-tertiary)] mb-2">
+        关联后，Ko-fi/爱发电付款会自动匹配到你的账号，激活订阅。
+      </p>
+
+      {msg && (
+        <div className={`text-xs px-3 py-2 rounded-lg mb-2 ${msg.type === 'ok' ? 'bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400' : 'bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400'}`}>
+          {msg.text}
+        </div>
+      )}
+
+      {links.length === 0 && !showAdd ? (
+        <p className="text-xs text-[var(--text-tertiary)] py-2">暂无关联的付款账号</p>
+      ) : (
+        <div className="space-y-2">
+          {links.map((link) => {
+            const cfg = PLATFORM_CONFIG[link.platform] || { label: link.platform, color: '#6b7280' };
+            return (
+              <div
+                key={link.platform}
+                className="flex items-center gap-3 p-3 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)]"
+              >
+                <div className="w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0" style={{ backgroundColor: cfg.color }}>
+                  {cfg.label.charAt(0)}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-[var(--text-primary)]">{cfg.label}</p>
+                  <p className="text-xs text-[var(--text-tertiary)] truncate">{link.email || '—'}</p>
+                </div>
+                <button
+                  onClick={() => handleRemove(link.platform)}
+                  disabled={removing === link.platform}
+                  className="p-1.5 rounded-lg text-[var(--text-tertiary)] hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors cursor-pointer disabled:opacity-50"
+                  title="移除"
+                >
+                  {removing === link.platform ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {showAdd && (
+        <div className="mt-2 p-3 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] space-y-2">
+          <select
+            value={addPlatform}
+            onChange={(e) => setAddPlatform(e.target.value)}
+            className="w-full px-3 py-2 text-sm border border-[var(--border-primary)] rounded-lg bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-nogi)]/30"
+          >
+            {availablePlatforms.map((p) => (
+              <option key={p} value={p}>{PLATFORM_CONFIG[p]?.label || p}</option>
+            ))}
+          </select>
+          <input
+            type="email"
+            value={addEmail}
+            onChange={(e) => setAddEmail(e.target.value)}
+            placeholder="付款时使用的邮箱"
+            className="w-full px-3 py-2 text-sm border border-[var(--border-primary)] rounded-lg bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-nogi)]/30"
+          />
+          <div className="flex gap-2">
+            <button
+              onClick={handleAdd}
+              disabled={saving}
+              className="px-3 py-1.5 text-xs font-medium text-white rounded-lg cursor-pointer disabled:opacity-60"
+              style={{ backgroundColor: 'var(--color-brand-nogi)' }}
+            >
+              {saving ? '保存中...' : '确认关联'}
+            </button>
+            <button
+              onClick={() => { setShowAdd(false); setMsg(null); }}
+              className="px-3 py-1.5 text-xs font-medium text-[var(--text-tertiary)] rounded-lg hover:bg-[var(--bg-tertiary)] cursor-pointer"
+            >
+              取消
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -483,7 +849,7 @@ function FavoritesTab() {
               <div className="flex items-center gap-4 p-4">
                 <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-amber-400 ring-offset-2 ring-offset-[var(--bg-primary)]">
                   <img
-                    src={getR2AvatarUrl(oshiFav.name)}
+                    src={getOptimizedAvatarUrl(oshiFav.name, 160)}
                     alt={oshiFav.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -533,7 +899,7 @@ function FavoritesTab() {
                     >
                       <div className="aspect-square w-full overflow-hidden">
                         <img
-                          src={getR2AvatarUrl(fav.name)}
+                          src={getOptimizedAvatarUrl(fav.name, 400)}
                           alt={fav.name}
                           className="w-full h-full object-cover"
                           onError={(e) => {
@@ -604,7 +970,7 @@ function FavoritesTab() {
                     >
                       <div className="aspect-square w-full overflow-hidden">
                         <img
-                          src={getR2AvatarUrl(m.name)}
+                          src={getOptimizedAvatarUrl(m.name, 400)}
                           alt={m.name}
                           className="w-full h-full object-cover"
                           onError={(e) => {
@@ -713,7 +1079,7 @@ function PublicationsTab() {
                 <div className="flex items-center gap-2 px-3 py-2 bg-[var(--bg-secondary)]">
                   <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-[var(--bg-tertiary)]">
                     <img
-                      src={getR2AvatarUrl(memberName)}
+                      src={getOptimizedAvatarUrl(memberName, 80)}
                       alt={memberName}
                       className="w-full h-full object-cover"
                       onError={(e) => {
@@ -808,7 +1174,7 @@ export default function UserDashboard() {
 
   const tabs: { key: Tab; label: string; icon: typeof User }[] = [
     { key: 'profile', label: '个人资料', icon: User },
-    { key: 'favorites', label: '收藏管理', icon: Heart },
+    { key: 'favorites', label: '推しメン設定', icon: Heart },
     { key: 'publications', label: '我的发布', icon: PenLine },
   ];
 

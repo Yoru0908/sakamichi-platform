@@ -2,6 +2,7 @@ import type { Env, UserRow } from '../types';
 import { toPublicUser } from '../types';
 import { signAccessToken } from '../utils/jwt';
 import { setCookies } from '../utils/response';
+import { generateGeoPass, shouldIssueGeoPass } from '../utils/geo-pass';
 
 /** Get primary site URL from comma-separated CORS_ORIGIN */
 function getSiteUrl(env: Env): string {
@@ -58,7 +59,7 @@ export async function handleDiscordCallback(req: Request, env: Env): Promise<Res
     id: string; username: string; email?: string; avatar?: string;
   };
 
-  return await handleOAuthUser(env, {
+  return await handleOAuthUser(req, env, {
     provider: 'discord',
     providerId: discordUser.id,
     email: discordUser.email || `${discordUser.id}@discord.user`,
@@ -118,7 +119,7 @@ export async function handleGoogleCallback(req: Request, env: Env): Promise<Resp
     id: string; email: string; name?: string; picture?: string;
   };
 
-  return await handleOAuthUser(env, {
+  return await handleOAuthUser(req, env, {
     provider: 'google',
     providerId: googleUser.id,
     email: googleUser.email,
@@ -145,7 +146,7 @@ function validateOrigin(origin: string, env: Env): string | null {
   return null;
 }
 
-async function handleOAuthUser(env: Env, profile: OAuthProfile, redirectBase: string): Promise<Response> {
+async function handleOAuthUser(req: Request, env: Env, profile: OAuthProfile, redirectBase: string): Promise<Response> {
   // Check if OAuth link exists
   const existing = await env.DB.prepare(
     'SELECT user_id FROM user_oauth WHERE provider = ? AND provider_id = ?',
@@ -221,8 +222,16 @@ async function handleOAuthUser(env: Env, profile: OAuthProfile, redirectBase: st
     : `${redirectBase}/`;
 
   const res = Response.redirect(redirectUrl, 302);
-  return setCookies(res, [
-    { name: 'access_token', value: accessToken, maxAge: 15 * 60 },
-    { name: 'refresh_token', value: refreshToken, maxAge: 7 * 24 * 60 * 60, path: '/api/auth' },
-  ]);
+  const cookies: { name: string; value: string; maxAge: number; path?: string; domain?: string }[] = [
+    { name: 'access_token', value: accessToken, maxAge: 15 * 60, domain: '.46log.com' },
+    { name: 'refresh_token', value: refreshToken, maxAge: 7 * 24 * 60 * 60, path: '/api/auth', domain: '.46log.com' },
+  ];
+
+  if (shouldIssueGeoPass(user)) {
+    const ua = req.headers.get('User-Agent') || '';
+    const geoPassValue = await generateGeoPass(user.id, env.GEO_PASS_SECRET, ua);
+    cookies.push({ name: 'geo_pass', value: geoPassValue, maxAge: 365 * 24 * 60 * 60, domain: '.46log.com' });
+  }
+
+  return setCookies(res, cookies);
 }

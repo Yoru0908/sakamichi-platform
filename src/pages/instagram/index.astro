@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import InsArchive from '@/components/instagram/InsArchive';
+import GeoPassGate from '@/components/shared/GeoPassGate';
 ---
 
 <BaseLayout title="INS归档 - Sakamichi Tools">
+  <GeoPassGate client:load />
   <InsArchive client:load />
 </BaseLayout>

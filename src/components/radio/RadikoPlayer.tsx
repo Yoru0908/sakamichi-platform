@@ -3,9 +3,9 @@ import Hls from 'hls.js';
 import { Play, Pause, Volume2, VolumeX, AlertCircle, Loader2, Radio } from 'lucide-react';
 
 // ─── Config ─────────────────────────────────────
-const API_BASE = 'https://radio.sakamichi-tools.cn';
+const API_BASE = 'https://radio.46log.com';
 const HEARTBEAT_INTERVAL = 60_000;
-const HLS_BUFFER_SEC = 10;
+const HLS_BUFFER_SEC = 18;
 
 // ─── Types ──────────────────────────────────────
 interface Station {
@@ -68,8 +68,8 @@ export default function RadikoPlayer() {
         backBufferLength: 60,
         maxBufferLength: HLS_BUFFER_SEC + 5,
         maxMaxBufferLength: HLS_BUFFER_SEC + 15,
-        liveSyncDurationCount: 5,
-        liveMaxLatencyDurationCount: 10,
+        liveSyncDurationCount: 6,
+        liveMaxLatencyDurationCount: 12,
         liveDurationInfinity: true,
         highBufferWatchdogPeriod: 3,
       });

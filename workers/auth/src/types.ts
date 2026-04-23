@@ -10,6 +10,11 @@ export interface Env {
   GOOGLE_CLIENT_SECRET: string;
   GOOGLE_REDIRECT_URI: string;
   RESEND_API_KEY: string;
+  GEO_PASS_SECRET: string;
+  KOFI_VERIFICATION_TOKEN: string;
+  ALIST_USER: string;
+  ALIST_PASS: string;
+  ALIST_URL: string;
 }
 
 export interface UserRow {
@@ -22,7 +27,10 @@ export interface UserRow {
   email_verified: number;
   is_first_login: number;
   verification_status: string;
+  geo_status: string | null;
+  payment_status: string | null;
   oshi_member: string | null;
+  verification_reason: string | null;
   created_at: string;
   updated_at: string;
   last_login_at: string | null;
@@ -45,6 +53,8 @@ export interface UserPublic {
   isFirstLogin: boolean;
   oshiMember: string | null;
   verificationStatus: string;
+  geoStatus: string | null;
+  paymentStatus: string | null;
 }
 
 export function toPublicUser(row: UserRow): UserPublic {
@@ -57,5 +67,7 @@ export function toPublicUser(row: UserRow): UserPublic {
     isFirstLogin: row.is_first_login === 1,
     oshiMember: row.oshi_member,
     verificationStatus: row.verification_status,
+    geoStatus: row.geo_status,
+    paymentStatus: row.payment_status,
   };
 }

@@ -4,6 +4,7 @@ import { PenLine, Users, Download, Send, Palette, Save, Plus, LogIn, FolderOpen,
 import type { Message, RepoData, TemplateId, AtmosphereTag, Member, GroupId } from '@/types/repo';
 import { TEMPLATES, ATMOSPHERE_TAGS, GROUP_META } from '@/types/repo';
 import { getMemberById, MOCK_REPOS } from '@/utils/repo-mock-data';
+import { createRepoWork } from '@/utils/auth-api';
 import { $auth } from '@/stores/auth';
 import { $favorites } from '@/stores/favorites';
 import MemberSelector from './MemberSelector';
@@ -120,7 +121,12 @@ export default function RepoPage() {
   const [customMemberAvatar, setCustomMemberAvatar] = useState<string | undefined>();
   const [userAvatar, setUserAvatar] = useState<string | undefined>();
 
+  const [publishing, setPublishing] = useState(false);
+  const [publishError, setPublishError] = useState<string | null>(null);
+
   const previewRef = useRef<HTMLDivElement>(null);
+  const memberAvatarInputRef = useRef<HTMLInputElement>(null);
+  const userAvatarInputRef = useRef<HTMLInputElement>(null);
 
   const selectedMember = selectedMemberId ? getMemberById(selectedMemberId) : null;
   const groupColor = selectedMember ? GROUP_META[selectedMember.group].color : '#742581';
@@ -283,6 +289,41 @@ export default function RepoPage() {
       alert('画像の生成に失敗しました。');
     }
   }, [selectedMember, eventDate]);
+
+  const handlePublish = useCallback(async () => {
+    if (!selectedMember || !hasContent) return;
+    if (!auth.isLoggedIn) {
+      setPublishError('请先登录才能发布');
+      return;
+    }
+    setPublishing(true);
+    setPublishError(null);
+    try {
+      const res = await createRepoWork({
+        memberId: selectedMember.id,
+        memberName: selectedMember.name,
+        groupId: selectedMember.group,
+        eventDate,
+        eventType,
+        slotNumber,
+        ticketCount,
+        nickname,
+        messages: messages.filter(m => m.text.trim() || m.imageUrl).map(({ speaker, text, imageUrl }) => ({ speaker, text, imageUrl })),
+        tags,
+        template,
+        isPublic: true,
+      });
+      if (res.success) {
+        setActiveTab('community');
+      } else {
+        setPublishError(res.message || '发布失败，请稍后重试');
+      }
+    } catch {
+      setPublishError('网络错误，请稍后重试');
+    } finally {
+      setPublishing(false);
+    }
+  }, [auth.isLoggedIn, selectedMember, hasContent, eventDate, eventType, slotNumber, ticketCount, nickname, messages, tags, template]);
 
   function renderPreview() {
     switch (template) {
@@ -470,6 +511,44 @@ export default function RepoPage() {
               <div className="bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-5 space-y-4">
                 <h3 className="text-sm font-semibold text-[var(--text-primary)]">基本信息</h3>
                 <MemberSelector selectedMemberId={selectedMemberId} onSelect={handleMemberSelect} />
+                {/* Hidden file inputs */}
+                <input ref={memberAvatarInputRef} type="file" accept="image/*" className="hidden"
+                  onChange={e => { const f = e.target.files?.[0]; if (f) handleAvatarUpload(f, 'member'); e.target.value = ''; }} />
+                <input ref={userAvatarInputRef} type="file" accept="image/*" className="hidden"
+                  onChange={e => { const f = e.target.files?.[0]; if (f) handleAvatarUpload(f, 'user'); e.target.value = ''; }} />
+                {/* Avatar upload buttons */}
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">成员头像</label>
+                    <button type="button" onClick={() => memberAvatarInputRef.current?.click()}
+                      className="w-full flex items-center gap-1.5 px-3 py-2 rounded-lg border border-dashed border-[var(--border-secondary)] bg-[var(--bg-tertiary)] text-xs text-[var(--text-secondary)] hover:border-[var(--color-brand-nogi)] hover:text-[var(--color-brand-nogi)] transition-colors">
+                      {customMemberAvatar ? (
+                        <><img src={customMemberAvatar} className="w-4 h-4 rounded object-cover shrink-0" alt="" /><span className="truncate">已自定义</span></>
+                      ) : (
+                        <span>上传自定义图</span>
+                      )}
+                    </button>
+                    {customMemberAvatar && (
+                      <button type="button" onClick={() => setCustomMemberAvatar(undefined)}
+                        className="mt-1 text-[10px] text-[var(--text-tertiary)] hover:text-red-400 w-full text-center">还原默认</button>
+                    )}
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">自己头像</label>
+                    <button type="button" onClick={() => userAvatarInputRef.current?.click()}
+                      className="w-full flex items-center gap-1.5 px-3 py-2 rounded-lg border border-dashed border-[var(--border-secondary)] bg-[var(--bg-tertiary)] text-xs text-[var(--text-secondary)] hover:border-[#4ECDC4] hover:text-[#4ECDC4] transition-colors">
+                      {userAvatar ? (
+                        <><img src={userAvatar} className="w-4 h-4 rounded-full object-cover shrink-0" alt="" /><span className="truncate">已上传</span></>
+                      ) : (
+                        <span>上传自己图</span>
+                      )}
+                    </button>
+                    {userAvatar && (
+                      <button type="button" onClick={() => setUserAvatar(undefined)}
+                        className="mt-1 text-[10px] text-[var(--text-tertiary)] hover:text-red-400 w-full text-center">移除</button>
+                    )}
+                  </div>
+                </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">日期</label>
@@ -551,11 +630,14 @@ export default function RepoPage() {
                     className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg border border-[var(--border-primary)] text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors">
                     <Save size={14} /> {activeRepoId ? '覆盖保存' : '保存'}
                   </button>
-                  <button type="button" disabled={!hasContent}
+                  <button type="button" onClick={handlePublish} disabled={!hasContent || publishing}
                     className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-white"
                     style={{ backgroundColor: groupColor }}>
-                    <Send size={14} /> 发布
+                    <Send size={14} /> {publishing ? '发布中...' : '发布'}
                   </button>
+                  {publishError && (
+                    <div className="text-xs text-red-500 text-center mt-1 px-1">{publishError}</div>
+                  )}
                 </div>
               </div>
             </div>

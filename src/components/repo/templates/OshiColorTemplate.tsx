@@ -23,11 +23,11 @@ export default function OshiColorTemplate({ data }: Props) {
             <img
               src={data.memberImageUrl}
               alt={data.memberName}
-              className="w-16 h-16 rounded-full object-cover object-top border-2 border-white/40"
+              className="w-16 h-16 rounded-sm object-cover object-top border-2 border-white/40"
               onError={() => setImgFailed(true)}
             />
           ) : (
-            <div className="w-16 h-16 rounded-full border-2 border-white/40 flex items-center justify-center bg-white/20 text-xl font-bold">
+            <div className="w-16 h-16 rounded-sm border-2 border-white/40 flex items-center justify-center bg-white/20 text-xl font-bold">
               {data.memberName.charAt(0)}
             </div>
           )}

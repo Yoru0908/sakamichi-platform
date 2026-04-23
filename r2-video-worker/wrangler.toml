@@ -1,0 +1,14 @@
+name = "r2-video"
+main = "src/index.ts"
+compatibility_date = "2024-09-25"
+
+routes = [
+  { pattern = "r2.46log.com/*", zone_name = "46log.com" }
+]
+
+[[r2_buckets]]
+binding = "VIDEO_BUCKET"
+bucket_name = "sakamichi-video"
+
+[vars]
+ALLOWED_ORIGINS = "https://46log.com,https://sakamichi-platform-test.pages.dev,http://localhost:4321"

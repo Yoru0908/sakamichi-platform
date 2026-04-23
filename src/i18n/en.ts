@@ -5,6 +5,7 @@ export const en: Record<TranslationKey, string> = {
   'nav.blog': 'Blog',
   'nav.messages': 'MSG Archive',
   'nav.radio': 'Radio',
+  'nav.video': 'Video',
   'nav.instagram': 'INS Archive',
   'nav.gallery': 'Gallery',
   'nav.photocard': 'Photocard',

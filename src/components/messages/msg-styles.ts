@@ -21,7 +21,7 @@ export const GROUP_CONFIG: Record<string, { name: string; key: string }> = {
 };
 
 // ── R2 avatar URL (msg-avatars = member thumbnails from /v2/members) ──
-export const R2_AVATAR_BASE = 'https://msgmedia.srzwyuu.workers.dev/msg-avatars';
+export const R2_AVATAR_BASE = 'https://media.46log.com/msg-avatars';
 const AVATAR_VERSION = 'v2'; // bump to bust browser cache after re-upload
 
 // 半角カタカナ→全角カタカナ (must match upload script normalization)
@@ -42,6 +42,11 @@ function normalizeKana(s: string): string {
 
 export function getR2AvatarUrl(name: string): string {
   return `${R2_AVATAR_BASE}/${normalizeKana(name).replace(/\s+/g, '_')}.jpg?${AVATAR_VERSION}`;
+}
+
+// ── Optimized avatar URL (direct R2 via custom domain, Cloudinary 国内不可用已移除) ──
+export function getOptimizedAvatarUrl(name: string, size: number = 100): string {
+  return getR2AvatarUrl(name);
 }
 
 // ── Group-specific MSG header styles ──

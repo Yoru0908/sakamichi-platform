@@ -3,9 +3,10 @@ import Hls from 'hls.js';
 import { Play, Pause, Volume2, VolumeX, Clock, Calendar, AlertCircle, Loader2, Radio } from 'lucide-react';
 
 // ─── Config ─────────────────────────────────────
-const API_BASE = 'https://radio.sakamichi-tools.cn';
+const API_BASE = 'https://radio.46log.com';
 const POLL_INTERVAL = 15_000;
-const HLS_BUFFER_SEC = 10;
+const HLS_BUFFER_SEC = 18;
+const HLS_MAX_RETRIES = 3;
 // ─── Types ──────────────────────────────────────
 interface ActiveStream {
   task_id: string;
@@ -18,6 +19,7 @@ interface ActiveStream {
   startTime?: string;
   endTime?: string;
   station_id?: string;
+  image?: string;
 }
 
 interface NowPlayingStatus {
@@ -119,6 +121,85 @@ export default function LiveRadioPlayer() {
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const hlsRef = useRef<Hls | null>(null);
+  const hlsRetryCount = useRef(0);
+  const activeStreamPathRef = useRef<string | null>(null);
+  const isPlayingRef = useRef(false);
+  const reconnectBackoffRef = useRef(0);
+
+  // ─── HLS Setup ────────────────────────────────
+  const loadHls = useCallback((hlsUrl: string) => {
+    hlsRef.current?.destroy();
+    setHlsReady(false);
+    setHlsError('');
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const fullUrl = `${API_BASE}${hlsUrl}`;
+
+    if (Hls.isSupported()) {
+      const hls = new Hls({
+        enableWorker: true,
+        lowLatencyMode: false,
+        backBufferLength: 60,
+        maxBufferLength: HLS_BUFFER_SEC + 5,
+        maxMaxBufferLength: HLS_BUFFER_SEC + 15,
+        liveSyncDurationCount: 6,
+        liveMaxLatencyDurationCount: 12,
+        liveDurationInfinity: true,
+        highBufferWatchdogPeriod: 3,
+      });
+      hlsRetryCount.current = 0;
+      hls.loadSource(fullUrl);
+      hls.attachMedia(audio);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        hlsRetryCount.current = 0;
+        reconnectBackoffRef.current = 0;
+        setHlsReady(true);
+        setHlsError('');
+        setIsLoading(false);
+        audio.play().then(() => { setIsPlaying(true); isPlayingRef.current = true; }).catch(() => {
+          setIsPlaying(false);
+          isPlayingRef.current = false;
+          setIsLoading(false);
+          setHlsError('再生がブロックされました');
+        });
+      });
+      hls.on(Hls.Events.ERROR, (_event, data) => {
+        if (data.fatal) {
+          if (data.type === Hls.ErrorTypes.NETWORK_ERROR && hlsRetryCount.current < HLS_MAX_RETRIES) {
+            hlsRetryCount.current++;
+            setTimeout(() => hls.startLoad(), 2000);
+          } else if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+            // Retries exhausted → full reconnect with exponential backoff
+            reconnectBackoffRef.current = Math.min(30000, (reconnectBackoffRef.current || 2000) * 2);
+            setHlsError(`再接続中… (${Math.round(reconnectBackoffRef.current / 1000)}s)`);
+            setIsLoading(true);
+            setTimeout(() => {
+              const path = activeStreamPathRef.current;
+              if (path) loadHls(`/hls/${path}/index.m3u8`);
+            }, reconnectBackoffRef.current);
+          } else {
+            setHlsError('ストリーム接続失敗');
+            setIsPlaying(false);
+            isPlayingRef.current = false;
+            setIsLoading(false);
+          }
+        }
+      });
+      hlsRef.current = hls;
+    } else if (audio.canPlayType('application/vnd.apple.mpegurl')) {
+      audio.src = fullUrl;
+      audio.addEventListener('loadedmetadata', () => {
+        setHlsReady(true);
+        setIsLoading(false);
+        audio.play().then(() => setIsPlaying(true)).catch(() => {});
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => { hlsRef.current?.destroy(); };
+  }, []);
 
   // ─── Poll now-playing status ──────────────────
   const fetchStatus = useCallback(async () => {
@@ -139,19 +220,32 @@ export default function LiveRadioPlayer() {
       // Click-to-activate: only update state, don't auto-connect HLS
       if (streams.length > 0 && !wasLive) {
         setWasLive(true);
-        if (!activeStreamPath) setActiveStreamPath(streams[0].path);
+        setActiveStreamPath(prev => prev ?? streams[0].path);
+        activeStreamPathRef.current = activeStreamPathRef.current ?? streams[0].path;
       }
       // Auto-disconnect when all streams stop
       if (streams.length === 0 && wasLive) {
         setWasLive(false);
         setActiveStreamPath(null);
+        activeStreamPathRef.current = null;
         hlsRef.current?.destroy();
         audioRef.current?.pause();
         setIsPlaying(false);
+        isPlayingRef.current = false;
         setHlsReady(false);
       }
+      // Auto-switch: if playing and active path is gone, reconnect to new primary
+      if (isPlayingRef.current && activeStreamPathRef.current && streams.length > 0) {
+        const stillActive = streams.some(s => s.path === activeStreamPathRef.current);
+        if (!stillActive) {
+          const newPath = streams[0].path;
+          activeStreamPathRef.current = newPath;
+          setActiveStreamPath(newPath);
+          loadHls(`/hls/${newPath}/index.m3u8`);
+        }
+      }
     } catch { /* ignore */ }
-  }, [wasLive]);
+  }, [wasLive, activeStreamPath, loadHls]);
 
   useEffect(() => {
     fetchStatus();
@@ -159,68 +253,15 @@ export default function LiveRadioPlayer() {
     return () => clearInterval(id);
   }, [fetchStatus]);
 
-  // ─── HLS Setup ────────────────────────────────
-  const loadHls = useCallback((hlsUrl: string) => {
-    hlsRef.current?.destroy();
-    setHlsReady(false);
-    setHlsError('');
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const fullUrl = `${API_BASE}${hlsUrl}`;
-
-    if (Hls.isSupported()) {
-      const hls = new Hls({
-        enableWorker: true,
-        lowLatencyMode: true,
-        backBufferLength: 60,
-        maxBufferLength: HLS_BUFFER_SEC + 5,
-        maxMaxBufferLength: HLS_BUFFER_SEC + 15,
-        liveSyncDurationCount: 3,
-        liveMaxLatencyDurationCount: 6,
-        liveDurationInfinity: true,
-        highBufferWatchdogPeriod: 3,
-      });
-      hls.loadSource(fullUrl);
-      hls.attachMedia(audio);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        setHlsReady(true);
-        setHlsError('');
-        setIsLoading(false);
-        audio.play().then(() => setIsPlaying(true)).catch(() => {});
-      });
-      hls.on(Hls.Events.ERROR, (_event, data) => {
-        if (data.fatal) {
-          if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-            // Retry on network error before showing failure
-            setTimeout(() => hls.startLoad(), 2000);
-          } else {
-            setHlsError('ストリーム接続失敗');
-            setIsPlaying(false);
-            setIsLoading(false);
-          }
-        }
-      });
-      hlsRef.current = hls;
-    } else if (audio.canPlayType('application/vnd.apple.mpegurl')) {
-      audio.src = fullUrl;
-      audio.addEventListener('loadedmetadata', () => {
-        setHlsReady(true);
-        setIsLoading(false);
-        audio.play().then(() => setIsPlaying(true)).catch(() => {});
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    return () => { hlsRef.current?.destroy(); };
-  }, []);
-
   // ─── Play/Pause ───────────────────────────────
   const switchStream = useCallback((path: string) => {
+    activeStreamPathRef.current = path;
     setActiveStreamPath(path);
     setIsPlaying(false);
+    isPlayingRef.current = false;
     setHlsReady(false);
+    setHlsError('');
+    setIsLoading(true);
     loadHls(`/hls/${path}/index.m3u8`);
   }, [loadHls]);
 
@@ -230,6 +271,7 @@ export default function LiveRadioPlayer() {
     if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
+      isPlayingRef.current = false;
     } else {
       setIsLoading(true);
       if (!hlsReady && activeStreamPath) {
@@ -240,6 +282,7 @@ export default function LiveRadioPlayer() {
       // HLS already loaded, just resume
       audio.play().then(() => {
         setIsPlaying(true);
+        isPlayingRef.current = true;
         setIsLoading(false);
       }).catch(() => {
         setIsLoading(false);
@@ -394,63 +437,80 @@ export default function LiveRadioPlayer() {
                   )}
                 </div>
 
-                <div className="flex items-center gap-4 py-1">
-                  {/* Play button only on active stream */}
-                  {isActive ? (
-                    <button
-                      onClick={e => { e.stopPropagation(); togglePlay(); }}
-                      disabled={isLoading}
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-white shrink-0 hover:opacity-90 transition-opacity disabled:opacity-50"
-                      style={{ backgroundColor: color }}
-                    >
-                      {isLoading ? (
-                        <Loader2 size={20} className="animate-spin" />
-                      ) : isPlaying ? (
-                        <Pause size={20} />
-                      ) : (
-                        <Play size={20} className="ml-0.5" />
-                      )}
-                    </button>
-                  ) : (
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 opacity-40"
-                      style={{ backgroundColor: color }}
-                    >
-                      <Radio size={18} className="text-white" />
-                    </div>
-                  )}
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-bold text-[var(--text-primary)] truncate">
-                      {stream.title || stream.station}
-                    </p>
-                    <p className="text-xs text-[var(--text-secondary)] mt-0.5 truncate">
-                      {stream.station}
-                      {stream.performer && ` · ${stream.performer}`}
-                    </p>
-                    {stream.startTime && stream.endTime && (
-                      <p className="text-[10px] text-[var(--text-tertiary)] mt-1">
-                        {formatTime(stream.startTime)} - {formatTime(stream.endTime)}
-                      </p>
+                <div className="flex flex-col sm:flex-row gap-4 py-1">
+                  <div className="shrink-0">
+                    {stream.image ? (
+                      <img
+                        src={stream.image}
+                        alt={stream.title || stream.station}
+                        className="w-full sm:w-36 lg:w-44 aspect-video rounded-lg object-cover bg-[var(--bg-tertiary)]"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div
+                        className="w-full sm:w-36 lg:w-44 aspect-video rounded-lg flex items-center justify-center text-white"
+                        style={{ backgroundColor: color }}
+                      >
+                        <Radio size={24} className="opacity-90" />
+                      </div>
                     )}
                   </div>
-                  {/* Volume control on active stream (desktop) */}
-                  {isActive && (
-                    <div className="hidden sm:flex items-center gap-2">
+                  <div className="flex items-center gap-4 flex-1 min-w-0">
+                    {isActive ? (
                       <button
-                        onClick={e => { e.stopPropagation(); setIsMuted(!isMuted); }}
-                        className="text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] transition-colors"
+                        onClick={e => { e.stopPropagation(); togglePlay(); }}
+                        disabled={isLoading}
+                        className="w-12 h-12 rounded-full flex items-center justify-center text-white shrink-0 hover:opacity-90 transition-opacity disabled:opacity-50"
+                        style={{ backgroundColor: color }}
                       >
-                        {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                        {isLoading ? (
+                          <Loader2 size={20} className="animate-spin" />
+                        ) : isPlaying ? (
+                          <Pause size={20} />
+                        ) : (
+                          <Play size={20} className="ml-0.5" />
+                        )}
                       </button>
-                      <input
-                        type="range" min="0" max="1" step="0.05"
-                        value={isMuted ? 0 : volume}
-                        onClick={e => e.stopPropagation()}
-                        onChange={e => { setVolume(parseFloat(e.target.value)); setIsMuted(false); }}
-                        className="w-20 h-1 accent-[var(--color-brand-sakura,#F19DB5)]"
-                      />
+                    ) : (
+                      <div
+                        className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 opacity-40"
+                        style={{ backgroundColor: color }}
+                      >
+                        <Radio size={18} className="text-white" />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-bold text-[var(--text-primary)] line-clamp-2">
+                        {stream.title || stream.station}
+                      </p>
+                      <p className="text-xs text-[var(--text-secondary)] mt-1 line-clamp-2">
+                        {stream.station}
+                        {stream.performer && ` · ${stream.performer}`}
+                      </p>
+                      {stream.startTime && stream.endTime && (
+                        <p className="text-[10px] text-[var(--text-tertiary)] mt-2">
+                          {formatTime(stream.startTime)} - {formatTime(stream.endTime)}
+                        </p>
+                      )}
                     </div>
-                  )}
+                    {isActive && (
+                      <div className="hidden sm:flex items-center gap-2">
+                        <button
+                          onClick={e => { e.stopPropagation(); setIsMuted(!isMuted); }}
+                          className="text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] transition-colors"
+                        >
+                          {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                        </button>
+                        <input
+                          type="range" min="0" max="1" step="0.05"
+                          value={isMuted ? 0 : volume}
+                          onClick={e => e.stopPropagation()}
+                          onChange={e => { setVolume(parseFloat(e.target.value)); setIsMuted(false); }}
+                          className="w-20 h-1 accent-[var(--color-brand-sakura,#F19DB5)]"
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 {/* Progress bar only on active stream */}
@@ -486,21 +546,42 @@ export default function LiveRadioPlayer() {
               現在放送中の坂道番組はありません
             </p>
             {nextProgram && (
-              <div className="mt-4 inline-flex flex-col items-center gap-1 px-5 py-3 rounded-lg bg-[var(--bg-secondary)]">
-                <p className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">次回放送</p>
-                <p className="text-sm font-medium text-[var(--text-primary)]">{nextProgram.title}</p>
-                <p className="text-xs text-[var(--text-secondary)]">
-                  {nextProgram.station}
-                  {nextProgram.performer && ` · ${nextProgram.performer}`}
-                </p>
-                <p className="text-xs text-[var(--text-tertiary)]">
-                  {formatTime(nextProgram.startTime)} - {formatTime(nextProgram.endTime)}
-                </p>
-                {countdown && (
-                  <p className="text-xs font-medium mt-1" style={{ color: GROUP_COLORS[detectGroup(nextProgram)] }}>
-                    {countdown}
-                  </p>
-                )}
+              <div className="mt-4 w-full max-w-3xl mx-auto rounded-xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-4 text-left">
+                <div className="flex flex-col sm:flex-row gap-4 items-start">
+                  <div className="shrink-0 w-full sm:w-auto">
+                    {nextProgram.image ? (
+                      <img
+                        src={nextProgram.image}
+                        alt={nextProgram.title}
+                        className="w-full sm:w-36 lg:w-44 aspect-video rounded-lg object-cover bg-[var(--bg-tertiary)]"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div
+                        className="w-full sm:w-36 lg:w-44 aspect-video rounded-lg flex items-center justify-center text-white"
+                        style={{ backgroundColor: GROUP_COLORS[detectGroup(nextProgram)] }}
+                      >
+                        <Radio size={24} className="opacity-90" />
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">次回放送</p>
+                    <p className="text-sm font-semibold text-[var(--text-primary)] mt-1 line-clamp-2">{nextProgram.title}</p>
+                    <p className="text-xs text-[var(--text-secondary)] mt-1 line-clamp-2">
+                      {nextProgram.station}
+                      {nextProgram.performer && ` · ${nextProgram.performer}`}
+                    </p>
+                    <p className="text-xs text-[var(--text-tertiary)] mt-2">
+                      {formatTime(nextProgram.startTime)} - {formatTime(nextProgram.endTime)}
+                    </p>
+                    {countdown && (
+                      <p className="text-xs font-medium mt-2" style={{ color: GROUP_COLORS[detectGroup(nextProgram)] }}>
+                        {countdown}
+                      </p>
+                    )}
+                  </div>
+                </div>
               </div>
             )}
             <p className="text-[10px] text-[var(--text-tertiary)] mt-4">
@@ -545,7 +626,7 @@ export default function LiveRadioPlayer() {
         </div>
 
         {/* Programs */}
-        <div className="divide-y divide-[var(--border-primary)]">
+        <div className="p-4 space-y-3">
           {scheduleLoading ? (
             <div className="flex items-center justify-center py-8 text-[var(--text-tertiary)]">
               <Loader2 size={16} className="animate-spin mr-2" />
@@ -559,19 +640,43 @@ export default function LiveRadioPlayer() {
             scheduleByDay[selectedDay].map(prog => {
               const color = GROUP_COLORS[detectGroup(prog)];
               return (
-                <div key={prog.id} className="flex items-center gap-3 px-5 py-3 hover:bg-[var(--bg-secondary)] transition-colors">
-                  <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color }} />
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-[var(--text-primary)] truncate">{prog.title}</p>
-                    <p className="text-[10px] text-[var(--text-tertiary)] mt-0.5">
-                      {prog.station}{prog.performer && ` · ${prog.performer}`}
-                    </p>
+                <div key={prog.id} className="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] overflow-hidden hover:border-[var(--border-secondary)] transition-colors">
+                  <div className="flex flex-col sm:flex-row gap-4 p-4">
+                    <div className="shrink-0">
+                      {prog.image ? (
+                        <img
+                          src={prog.image}
+                          alt={prog.title}
+                          className="w-full sm:w-36 lg:w-44 aspect-video rounded-lg object-cover bg-[var(--bg-tertiary)]"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div
+                          className="w-full sm:w-36 lg:w-44 aspect-video rounded-lg flex items-center justify-center text-white"
+                          style={{ backgroundColor: color }}
+                        >
+                          <Radio size={24} className="opacity-90" />
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 mb-2 text-[10px] text-[var(--text-tertiary)]">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[var(--bg-secondary)]">
+                          <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color }} />
+                          {prog.station}
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <Clock size={10} />
+                          {formatTime(prog.startTime)} - {formatTime(prog.endTime)}
+                        </span>
+                        <span>{prog.duration}m</span>
+                      </div>
+                      <p className="text-sm font-semibold text-[var(--text-primary)] line-clamp-2">{prog.title}</p>
+                      {prog.performer && (
+                        <p className="text-xs text-[var(--text-secondary)] mt-1 line-clamp-2">{prog.performer}</p>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1 text-[var(--text-tertiary)] shrink-0">
-                    <Clock size={10} />
-                    <span className="text-[10px]">{formatTime(prog.startTime)}-{formatTime(prog.endTime)}</span>
-                  </div>
-                  <span className="text-[10px] text-[var(--text-tertiary)] w-8 text-right shrink-0">{prog.duration}m</span>
                 </div>
               );
             })

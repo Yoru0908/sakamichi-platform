@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>握手Repo — 社区 Demo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-primary:   #ffffff;
+  --bg-secondary: #f8f7f5;
+  --bg-tertiary:  #f0eeea;
+  --border:       #e5e1d9;
+  --text-primary: #1a1814;
+  --text-secondary:#5a5550;
+  --text-tertiary: #a09a92;
+  --nogi: #742581;
+  --sakura: #d63384;
+  --hinata: #f97316;
+  --radius: 14px;
+}
+
+body {
+  background: var(--bg-secondary);
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* ── PAGE SHELL ── */
+.shell {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+/* ── HEADER ── */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.page-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.page-header .sub {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+.btn-write {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--nogi);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ── FILTER BAR ── */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.filter-chip {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.filter-chip:hover { border-color: var(--nogi); color: var(--nogi); }
+.filter-chip.active {
+  background: var(--nogi);
+  border-color: var(--nogi);
+  color: white;
+  font-weight: 600;
+}
+.filter-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-primary);
+  margin-left: auto;
+}
+.search-box input {
+  border: none;
+  outline: none;
+  font-size: 11px;
+  font-family: inherit;
+  color: var(--text-primary);
+  width: 100px;
+  background: transparent;
+}
+.search-box input::placeholder { color: var(--text-tertiary); }
+
+/* ── REPO CARD ── */
+.repo-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.15s, border-color 0.15s;
+  cursor: pointer;
+}
+.repo-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  border-color: #d0c8c0;
+}
+
+/* Card header */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px 10px;
+}
+.member-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  font-family: 'Noto Serif JP', serif;
+}
+.card-meta {
+  flex: 1;
+  min-width: 0;
+}
+.card-meta .name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.card-meta .detail {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  margin-top: 1px;
+}
+.card-header .author {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  text-align: right;
+}
+
+/* Tags */
+.tag-row {
+  display: flex;
+  gap: 5px;
+  padding: 0 16px 10px;
+  flex-wrap: wrap;
+}
+.tag {
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+/* Chat preview */
+.chat-preview {
+  padding: 0 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.chat-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+.chat-line.me { flex-direction: row-reverse; }
+.chat-line .bubble {
+  max-width: 80%;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+.chat-line.me .bubble {
+  background: #f0e9f8;
+  color: #4a1575;
+}
+.chat-line .speaker {
+  font-size: 9px;
+  color: var(--text-tertiary);
+  padding-top: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.chat-more {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  text-align: center;
+  padding-top: 2px;
+}
+
+/* Divider */
+.card-sep {
+  height: 1px;
+  background: var(--bg-tertiary);
+  margin: 0 16px;
+}
+
+/* ── STAMP REACTIONS ── */
+.reaction-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  flex-wrap: wrap;
+}
+.reaction-row .row-label {
+  font-size: 9px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+  margin-right: 2px;
+}
+
+/* Compact 御朱印 stamp for cards */
+.stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.stamp-body {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+.stamp-body svg {
+  width: 100%;
+  height: 100%;
+}
+.stamp-n {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 9.5px;
+  color: var(--text-tertiary);
+  min-width: 20px;
+  text-align: center;
+  transition: color 0.15s;
+}
+.stamp.active .stamp-n { font-weight: 700; }
+
+@keyframes stamp-press {
+  0%   { transform: scale(1.18) rotate(5deg); opacity: 0.35; }
+  38%  { transform: scale(0.86) rotate(-2.5deg); opacity: 1; }
+  68%  { transform: scale(1.03) rotate(0.5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.stamp.pressing .stamp-body {
+  animation: stamp-press 0.33s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+}
+.stamp:hover .stamp-body { transform: scale(1.07); transition: transform 0.1s; }
+
+/* ── CARD FOOTER ── */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 0 16px 14px;
+}
+.foot-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: var(--text-tertiary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.12s, color 0.12s;
+}
+.foot-btn:hover { background: var(--bg-tertiary); color: var(--text-secondary); }
+
+/* ── REACTION COMPARE ── */
+.compare-section {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 24px 20px;
+  margin-bottom: 28px;
+}
+.compare-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.compare-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.compare-col { display: flex; flex-direction: column; gap: 8px; }
+.compare-col .col-label {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+}
+.emoji-reactions {
+  display: flex;
+  gap: 6px;
+}
+.emoji-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-primary);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s;
+  color: var(--text-secondary);
+}
+.emoji-btn .cnt { font-size: 10px; }
+.emoji-btn:hover { border-color: var(--nogi); }
+.emoji-btn.active {
+  background: #f5edfb;
+  border-color: var(--nogi);
+  color: var(--nogi);
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div>
+      <h1>握手 Repo</h1>
+      <div class="sub">记录线上见面会对话，浏览社区精彩互动</div>
+    </div>
+    <button class="btn-write">✍ 写Repo</button>
+  </div>
+
+  <!-- STYLE COMPARE (just the reactions) -->
+  <div class="compare-section">
+    <div class="compare-title">反応スタイル比較</div>
+    <div class="compare-row">
+      <div class="compare-col">
+        <div class="col-label">A — 通常 emoji ボタン</div>
+        <div class="emoji-reactions" id="emojiRow"></div>
+      </div>
+      <div class="compare-col">
+        <div class="col-label">B — 御朱印スタンプ（縮小版 48px）</div>
+        <div style="display:flex; gap:8px;" id="stampCompare"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="filter-chip active" onclick="setFilter(this,'all')">全部</button>
+    <button class="filter-chip" onclick="setFilter(this,'nogizaka')">乃木坂</button>
+    <button class="filter-chip" onclick="setFilter(this,'sakurazaka')">櫻坂</button>
+    <button class="filter-chip" onclick="setFilter(this,'hinatazaka')">日向坂</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" onclick="setFilter(this,'latest')">最新</button>
+    <button class="filter-chip" onclick="setFilter(this,'hot')">最热</button>
+    <div class="filter-divider"></div>
+    <button class="filter-chip" onclick="setFilter(this,'sweet')">🍭 甜</button>
+    <button class="filter-chip" onclick="setFilter(this,'sour')">🍋 酸</button>
+    <div class="search-box">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#a09a92" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input placeholder="搜索成员或内容..." />
+    </div>
+  </div>
+
+  <!-- CARD LIST -->
+  <div id="cardList"></div>
+
+</div>
+
+<script>
+/* ─────────────────────────────────────
+   MOCK DATA
+───────────────────────────────────── */
+const REACTIONS = [
+  { type: 'sour',   emoji: '🍋', label: '酸了',  color: '#ca8a04', bg: '#fefce8', ink: '#92400e' },
+  { type: 'sweet',  emoji: '🍭', label: '甜',     color: '#db2777', bg: '#fdf2f8', ink: '#9d174d' },
+  { type: 'lol',    emoji: '🤣', label: '笑死',  color: '#ea580c', bg: '#fff7ed', ink: '#9a3412' },
+  { type: 'thanks', emoji: '🙏', label: '感谢',  color: '#7c3aed', bg: '#f5f3ff', ink: '#4c1d95' },
+];
+
+const REPOS = [
+  {
+    id: 1,
+    memberName: '齋藤飛鳥',
+    memberInitial: '飛',
+    group: 'nogizaka',
+    groupColor: '#742581',
+    eventDate: '2026/3/18',
+    eventType: 'ミーグリ',
+    slot: 1,
+    authorNick: 'asuka_love',
+    tags: ['エモい', '泣き', '神回'],
+    messages: [
+      { s: 'me',     t: 'また来ました！毎回楽しみにしてます' },
+      { s: 'member', t: 'えー！来てくれてありがとう！嬉しいな…覚えてるよ♡' },
+      { s: 'me',     t: 'ほんとに覚えてくれてたの！？泣きそう' },
+    ],
+    totalMessages: 8,
+    reactions: { sour: 12, sweet: 63, lol: 9, thanks: 41 },
+    views: 284,
+  },
+  {
+    id: 2,
+    memberName: '山下美月',
+    memberInitial: '美',
+    group: 'nogizaka',
+    groupColor: '#742581',
+    eventDate: '2026/3/8',
+    eventType: 'ミーグリ',
+    slot: 3,
+    authorNick: 'tsuki_fan',
+    tags: ['切ない', '神回'],
+    messages: [
+      { s: 'me',     t: '今日で最後のミーグリになりそうです' },
+      { s: 'member', t: 'え！！なんで！？急になんで！' },
+      { s: 'me',     t: 'ちょっと遠い場所に引っ越すことになって...' },
+    ],
+    totalMessages: 10,
+    reactions: { sour: 97, sweet: 22, lol: 3, thanks: 66 },
+    views: 531,
+  },
+  {
+    id: 3,
+    memberName: '小坂菜緒',
+    memberInitial: '菜',
+    group: 'hinatazaka',
+    groupColor: '#f97316',
+    eventDate: '2026/3/22',
+    eventType: 'ミーグリ',
+    slot: 2,
+    authorNick: 'nao_hina',
+    tags: ['面白い', '笑った'],
+    messages: [
+      { s: 'me',     t: '小坂さん今日のポーズ何ですか笑' },
+      { s: 'member', t: 'え！？これ！？あのね、今日なんか気分でフラミンゴしてみた！笑' },
+      { s: 'me',     t: 'フラミンゴ！？！？！？笑笑笑' },
+    ],
+    totalMessages: 7,
+    reactions: { sour: 4, sweet: 38, lol: 112, thanks: 19 },
+    views: 441,
+  },
+];
+
+/* ─────────────────────────────────────
+   SVG STAMP BUILDER (compact 48px)
+───────────────────────────────────── */
+let fid = 0;
+function buildStamp(rx, active) {
+  const { emoji, label, color, bg, ink } = rx;
+  const id = `sf${fid++}`;
+  const c  = active ? ink   : '#c0b8ae';
+  const t  = active ? ink   : '#b0a898';
+  const a  = active ? 1     : 0.6;
+  const bk = active ? bg    : '#faf8f5';
+  const fw = active ? 2.0   : 1.1;
+  const tilts  = { sour: -2.1, sweet: 1.3, lol: -0.8, thanks: 1.7 };
+  const tilt   = active ? (tilts[rx.type] || 0) : 0;
+
+  return `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="${id}" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="${active ? '0.7' : '0.45'}" numOctaves="3" seed="${rx.emoji.codePointAt(0) % 99}" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="${active ? 1.4 : 0.5}" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g transform="rotate(${tilt},24,24)">
+    <rect x="4" y="4" width="40" height="40" rx="2.5" fill="${bk}"/>
+    <rect x="4" y="4" width="40" height="40" rx="2.5" fill="none" stroke="${c}" stroke-width="${fw}" opacity="${a}" filter="url(#${id})"/>
+    <rect x="7" y="7" width="34" height="34" rx="1.5" fill="none" stroke="${c}" stroke-width="${active ? 0.7 : 0.4}" opacity="${a * 0.65}" filter="url(#${id})"/>
+    <line x1="9" y1="14.5" x2="39" y2="14.5" stroke="${c}" stroke-width="${active ? 0.65 : 0.35}" opacity="${a * 0.5}"/>
+    <line x1="9" y1="36.5" x2="39" y2="36.5" stroke="${c}" stroke-width="${active ? 0.65 : 0.35}" opacity="${a * 0.5}"/>
+    <text x="24" y="27" text-anchor="middle" dominant-baseline="middle" font-size="14" opacity="${a}" filter="url(#${id})">${emoji}</text>
+    <text x="24" y="41.5" text-anchor="middle" dominant-baseline="middle"
+      font-family="'Noto Serif JP','Yu Mincho',serif" font-size="7" font-weight="${active?700:400}"
+      fill="${t}" opacity="${a * 0.9}" letter-spacing="0.5">${label}</text>
+    <circle cx="11" cy="11" r="${active?1.1:0.7}" fill="${c}" opacity="${a*0.55}"/>
+    <circle cx="37" cy="11" r="${active?1.1:0.7}" fill="${c}" opacity="${a*0.55}"/>
+    <circle cx="11" cy="38" r="${active?1.1:0.7}" fill="${c}" opacity="${a*0.55}"/>
+    <circle cx="37" cy="38" r="${active?1.1:0.7}" fill="${c}" opacity="${a*0.55}"/>
+  </g>
+</svg>`;
+}
+
+/* ─────────────────────────────────────
+   COMPARE ROW (style A vs B)
+───────────────────────────────────── */
+const compareActive = {};
+REACTIONS.forEach(r => compareActive[r.type] = r.type === 'sweet');
+
+function renderCompare() {
+  // A: emoji buttons
+  const er = document.getElementById('emojiRow');
+  er.innerHTML = '';
+  REACTIONS.forEach(r => {
+    const a = compareActive[r.type];
+    const btn = document.createElement('button');
+    btn.className = `emoji-btn${a ? ' active' : ''}`;
+    btn.innerHTML = `${r.emoji} <span class="cnt">${a ? 32 : (r.type === 'sour' ? 12 : r.type === 'lol' ? 9 : 18)}</span>`;
+    btn.style.setProperty('--nogi', r.color);
+    if (a) { btn.style.background = r.bg; btn.style.borderColor = r.color; btn.style.color = r.color; }
+    btn.addEventListener('click', () => { compareActive[r.type] = !a; renderCompare(); });
+    er.appendChild(btn);
+  });
+
+  // B: stamps
+  const sr = document.getElementById('stampCompare');
+  sr.innerHTML = '';
+  REACTIONS.forEach(r => {
+    const a = compareActive[r.type];
+    const cnt = a ? 32 : (r.type === 'sour' ? 12 : r.type === 'lol' ? 9 : 18);
+    const wrap = document.createElement('div');
+    wrap.className = `stamp${a ? ' active' : ''}`;
+    wrap.innerHTML = `<div class="stamp-body">${buildStamp(r, a)}</div><div class="stamp-n" style="color:${a ? r.color : ''}">${cnt}</div>`;
+    wrap.addEventListener('click', () => {
+      compareActive[r.type] = !a;
+      wrap.classList.add('pressing');
+      setTimeout(() => { wrap.classList.remove('pressing'); renderCompare(); }, 360);
+    });
+    sr.appendChild(wrap);
+  });
+}
+
+renderCompare();
+
+/* ─────────────────────────────────────
+   REPO CARDS
+───────────────────────────────────── */
+// Per-card active state
+const cardActive = {};
+REPOS.forEach(repo => {
+  cardActive[repo.id] = {};
+  REACTIONS.forEach(r => { cardActive[repo.id][r.type] = false; });
+});
+
+const cardCounts = {};
+REPOS.forEach(repo => {
+  cardCounts[repo.id] = { ...repo.reactions };
+});
+
+function renderCards() {
+  const list = document.getElementById('cardList');
+  list.innerHTML = '';
+
+  REPOS.forEach(repo => {
+    const card = document.createElement('div');
+    card.className = 'repo-card';
+    card.innerHTML = `
+      <!-- Header -->
+      <div class="card-header">
+        <div class="member-avatar" style="background:${repo.groupColor}">${repo.memberInitial}</div>
+        <div class="card-meta">
+          <div class="name">${repo.memberName}</div>
+          <div class="detail">${repo.eventDate} · ${repo.eventType} · 第${repo.slot}部</div>
+        </div>
+        <div class="author">by ${repo.authorNick}</div>
+      </div>
+
+      <!-- Tags -->
+      ${repo.tags.length ? `<div class="tag-row">${repo.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : ''}
+
+      <!-- Chat Preview -->
+      <div class="chat-preview">
+        ${repo.messages.map(m => `
+          <div class="chat-line${m.s === 'me' ? ' me' : ''}">
+            <span class="speaker">${m.s === 'me' ? 'you' : repo.memberName.slice(0,2)}</span>
+            <span class="bubble">${m.t}</span>
+          </div>
+        `).join('')}
+        ${repo.totalMessages > repo.messages.length
+          ? `<div class="chat-more">… 全${repo.totalMessages}通 ›</div>` : ''}
+      </div>
+
+      <div class="card-sep"></div>
+
+      <!-- Reactions -->
+      <div class="reaction-row">
+        <span class="row-label">共感</span>
+        <div class="stamp-group-${repo.id}" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
+        <div style="flex:1"></div>
+        <div style="font-size:10px;color:var(--text-tertiary)">👁 ${repo.views}</div>
+      </div>
+    `;
+    list.appendChild(card);
+
+    // Render stamps inside reaction row
+    renderCardStamps(repo);
+  });
+}
+
+function renderCardStamps(repo) {
+  const container = document.querySelector(`.stamp-group-${repo.id}`);
+  if (!container) return;
+  container.innerHTML = '';
+
+  REACTIONS.forEach(r => {
+    const active = cardActive[repo.id][r.type];
+    const count  = cardCounts[repo.id][r.type];
+
+    const wrap = document.createElement('div');
+    wrap.className = `stamp${active ? ' active' : ''}`;
+    wrap.innerHTML = `<div class="stamp-body">${buildStamp(r, active)}</div><div class="stamp-n" style="color:${active ? r.color : ''}">${count}</div>`;
+
+    wrap.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const wasActive = cardActive[repo.id][r.type];
+      cardActive[repo.id][r.type] = !wasActive;
+      cardCounts[repo.id][r.type] += wasActive ? -1 : 1;
+
+      wrap.classList.add('pressing');
+      setTimeout(() => {
+        wrap.classList.remove('pressing');
+        renderCardStamps(repo);
+      }, 360);
+    });
+
+    container.appendChild(wrap);
+  });
+}
+
+renderCards();
+
+/* ─────────────────────────────────────
+   FILTER
+───────────────────────────────────── */
+function setFilter(el, key) {
+  const siblings = el.parentElement.querySelectorAll('.filter-chip');
+  const groups = ['all','nogizaka','sakurazaka','hinatazaka'];
+  const sorts  = ['latest','hot'];
+  const tags   = ['sweet','sour'];
+
+  if (groups.includes(key)) groups.forEach(k => siblings.forEach(c => { if(c.getAttribute('onclick')?.includes(`'${k}'`)) c.classList.remove('active'); }));
+  if (sorts.includes(key))  sorts.forEach(k  => siblings.forEach(c => { if(c.getAttribute('onclick')?.includes(`'${k}'`)) c.classList.remove('active'); }));
+  if (tags.includes(key))   el.classList.toggle('active');
+  else                      el.classList.add('active');
+}
+</script>
+</body>
+</html>

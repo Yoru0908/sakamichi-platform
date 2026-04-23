@@ -5,7 +5,7 @@ import { $auth, setAuth } from '@/stores/auth';
 import { addFavorite } from '@/stores/favorites';
 import { updatePreferences } from '@/utils/auth-api';
 import {
-  getGroupColor, getR2AvatarUrl, GROUP_CONFIG, sortedGenEntries,
+  getGroupColor, getOptimizedAvatarUrl, GROUP_CONFIG, sortedGenEntries,
   type MemberInfo,
 } from '@/components/messages/msg-styles';
 
@@ -92,14 +92,14 @@ function OshiStep({
                   >
                     <div className="aspect-square w-full overflow-hidden relative">
                       <img
-                        src={getR2AvatarUrl(m.name)}
+                        src={getOptimizedAvatarUrl(m.name, 400)}
+                        loading="lazy"
                         alt={m.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           const img = e.target as HTMLImageElement;
                           if (!img.dataset.fb) { img.dataset.fb = '1'; img.src = m.imageUrl; }
                         }}
-                        loading="lazy"
                       />
                       {isSelected && (
                         <div className="absolute inset-0 bg-amber-400/20 flex items-center justify-center">
@@ -194,14 +194,14 @@ function FollowStep({
                   >
                     <div className="aspect-square w-full overflow-hidden relative">
                       <img
-                        src={getR2AvatarUrl(m.name)}
+                        src={getOptimizedAvatarUrl(m.name, 400)}
+                        loading="lazy"
                         alt={m.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           const img = e.target as HTMLImageElement;
                           if (!img.dataset.fb) { img.dataset.fb = '1'; img.src = m.imageUrl; }
                         }}
-                        loading="lazy"
                       />
                       {isSelected && (
                         <div className="absolute top-1 right-1 w-4 h-4 rounded-full flex items-center justify-center" style={{ backgroundColor: color }}>

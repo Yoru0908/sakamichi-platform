@@ -1,8 +1,10 @@
 ---
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import BlogApp from '@/components/blog/BlogApp';
+import GeoPassGate from '@/components/shared/GeoPassGate';
 ---
 
 <BlogLayout title="坂道博客翻译 - Sakamichi Tools">
+  <GeoPassGate client:load />
   <BlogApp client:only="react" />
 </BlogLayout>

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { MessageCircle, Image, Video, Mic, ArrowRight } from 'lucide-react';
 import { GROUP_COLORS, relativeTime } from '@/utils/mock-data';
-import { getR2AvatarUrl } from '@/components/messages/msg-styles';
+import { getOptimizedAvatarUrl } from '@/components/messages/msg-styles';
 
-const ARCHIVE_API_BASE = 'https://msg-archive.srzwyuu.workers.dev/api/archive';
+const ARCHIVE_API_BASE = 'https://api.46log.com/api/archive';
 
 const SITE_TO_GROUP: Record<string, string> = {
   nogizaka: 'nogizaka',
@@ -43,20 +43,27 @@ export default function TrendingMSG() {
   const [paused, setPaused] = useState(false);
   const [msgs, setMsgs] = useState<ArchiveMessage[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // Fetch real data from archive API
   useEffect(() => {
     const controller = new AbortController();
     fetch(`${ARCHIVE_API_BASE}/recent?limit=8`, { signal: controller.signal })
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then((data) => {
         if (data.success && data.messages) {
           setMsgs(data.messages);
+        } else {
+          setError('unexpected response');
         }
       })
       .catch((e) => {
         if (e.name !== 'AbortError') {
           console.error('[TrendingMSG] Failed to fetch:', e);
+          setError(e.message || 'fetch failed');
         }
       })
       .finally(() => setLoading(false));
@@ -92,8 +99,18 @@ export default function TrendingMSG() {
     return () => cancelAnimationFrame(raf);
   }, [paused, msgs]);
 
-  // Don't render section if no data and not loading
-  if (!loading && msgs.length === 0) return null;
+  // Show error hint if fetch failed (helps debug)
+  if (!loading && msgs.length === 0) {
+    return (
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex items-center gap-2 text-[var(--text-tertiary)]">
+          <MessageCircle size={14} />
+          <h2 className="text-xs font-semibold uppercase tracking-wider">最新MSG</h2>
+          {error && <span className="text-[10px] text-red-400 ml-2">[{error}]</span>}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -144,7 +161,7 @@ export default function TrendingMSG() {
               >
                 <div className="flex items-center gap-3 mb-3">
                   <img
-                    src={getR2AvatarUrl(msg.member_name)}
+                    src={getOptimizedAvatarUrl(msg.member_name, 80)}
                     alt=""
                     className="w-8 h-8 rounded-full shrink-0 object-cover"
                     onError={(e) => {

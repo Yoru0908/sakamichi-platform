@@ -1,5 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const ui = {
+(() => {
+  const initSubtitleTool = () => {
+    const root = document.getElementById('subtitle-tool-root');
+    if (!root || root.dataset.initialized === 'true') return;
+    root.dataset.initialized = 'true';
+
+    const ui = {
     file: document.getElementById('file-input'),
     dropZone: document.getElementById('drop-zone'),
     gap: document.getElementById('gap-slider'),
@@ -50,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     capcutPathToggle: document.getElementById('capcut-path-toggle'),
     capcutPathModal: document.getElementById('capcut-path-modal'),
     closeCapcutModal: document.getElementById('close-capcut-modal'),
-  };
+    };
 
   const defaultSettings = {
     gap: 500,
@@ -102,11 +107,35 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
+  const showStatus = (msg, type) => {
+    const el = document.getElementById('parse-status');
+    if (!el) return;
+    el.textContent = msg;
+    el.className = 'mt-3 px-3 py-2 rounded-lg text-xs font-medium ' + (
+      type === 'error'   ? 'bg-red-50 text-red-700' :
+      type === 'warn'    ? 'bg-yellow-50 text-yellow-700' :
+      type === 'loading' ? 'bg-blue-50 text-blue-700' :
+                           'bg-green-50 text-green-700'
+    );
+  };
+
   const handleFile = (f) => {
     if (!f) return;
-    
+
+    const MAX_SIZE = 60 * 1024 * 1024; // 60 MB hard limit
+    const WARN_SIZE = 10 * 1024 * 1024; // 10 MB soft warn
+    const sizeMB = (f.size / 1024 / 1024).toFixed(1);
+    if (f.size > MAX_SIZE) {
+      showStatus(`文件过大 (${sizeMB} MB)，请上传 60 MB 以内的文件。CapCut 请删除素材后导出。`, 'error');
+      return;
+    }
+
     const rawName = f.name || '';
     currentBaseName = basenameNoExt(rawName) || 'subtitle';
+
+    if (f.size > WARN_SIZE) {
+      showStatus(`文件较大 (${sizeMB} MB)，解析中…`, 'loading');
+    }
     
     const reader = new FileReader();
     reader.onload = () => {
@@ -116,25 +145,41 @@ document.addEventListener('DOMContentLoaded', function() {
       
       const isAssFile = fileExt === 'ass' || trimmedContent.includes('[Script Info]') || trimmedContent.includes('[Events]');
 
-      if (fileExt === 'json' || trimmedContent.startsWith('{') || trimmedContent.startsWith('[')) {
-        segments = parseJsonToSegments(content);
-        const guessed = guessBaseNameFromJson(content);
-        if (guessed) currentBaseName = guessed;
-        switchTool('merge');
-      } else if (isAssFile) {
-        segments = parseAssToSegments(content);
-        switchTool('fad');
-      } else if (fileExt === 'srt' || trimmedContent.includes('-->')) {
-        segments = parseSrtToSegments(content);
-        switchTool('merge');
+      const parse = () => {
+        if (fileExt === 'json' || trimmedContent.startsWith('{') || trimmedContent.startsWith('[')) {
+          segments = parseJsonToSegments(content);
+          const guessed = guessBaseNameFromJson(content);
+          if (guessed) currentBaseName = guessed;
+          switchTool('merge');
+        } else if (isAssFile) {
+          segments = parseAssToSegments(content);
+          switchTool('fad');
+        } else if (fileExt === 'srt' || trimmedContent.includes('-->')) {
+          segments = parseSrtToSegments(content);
+          switchTool('merge');
+        } else {
+          segments = parseTxtToSegments(content);
+          switchTool('merge');
+        }
+
+        refreshSrcPreview();
+        mergedSegments = [];
+        ui.previewMerged.value = '';
+
+        if (segments.length === 0) {
+          showStatus('⚠️ 未找到字幕数据。CapCut 请确认选的是 draft_content.json；当前文件格式可能不支持。（详情见浏览器控制台）', 'error');
+          console.warn('[subtitle] 0 segments found. File extension:', fileExt, '| file size:', (f.size/1024/1024).toFixed(1)+'MB');
+        } else {
+          showStatus(`✅ 解析完成，共 ${segments.length} 条字幕。`, 'ok');
+        }
+      };
+
+      // yield to UI thread for large files so the "loading" status renders first
+      if (f.size > WARN_SIZE) {
+        setTimeout(parse, 20);
       } else {
-        segments = parseTxtToSegments(content);
-        switchTool('merge');
+        parse();
       }
-      
-      refreshSrcPreview();
-      mergedSegments = [];
-      ui.previewMerged.value = '';
     };
     reader.readAsText(f, 'utf-8');
   };
@@ -168,14 +213,16 @@ document.addEventListener('DOMContentLoaded', function() {
       for (const v of videos) {
         if (typeof v?.material_name === 'string' && v.material_name.trim()) return pick(v.material_name);
       }
-      const q = [data];
+      // BFS with depth limit to avoid hanging on huge files
+      const MAX_DEPTH = 4;
+      const q = [{ node: data, depth: 0 }];
       while (q.length) {
-        const cur = q.shift();
-        if (!cur || typeof cur !== 'object') continue;
+        const { node: cur, depth } = q.shift();
+        if (!cur || typeof cur !== 'object' || depth > MAX_DEPTH) continue;
         if (typeof cur.material_name === 'string' && cur.material_name.trim()) return pick(cur.material_name);
         for (const k in cur) {
           const vv = cur[k];
-          if (vv && typeof vv === 'object') q.push(vv);
+          if (vv && typeof vv === 'object') q.push({ node: vv, depth: depth + 1 });
         }
       }
       return '';
@@ -394,16 +441,22 @@ document.addEventListener('DOMContentLoaded', function() {
         return '';
       };
 
-      // 2) CapCut 模式：从 tracks + materials.texts 中提取
+      // 2) CapCut 模式：从 tracks + materials 中提取
       const capcutExtract = () => {
         const results = [];
         const materialsMap = new Map();
-        const texts = data?.materials?.texts || data?.materials?.subtitles || data?.materials?.captions || [];
-        for (const t of texts) {
+        // 合并所有文本/字幕材料（用 || 会在 texts=[] 时误跳过 subtitles）
+        const allTextMaterials = [
+          ...(Array.isArray(data?.materials?.texts)    ? data.materials.texts    : []),
+          ...(Array.isArray(data?.materials?.subtitles) ? data.materials.subtitles : []),
+          ...(Array.isArray(data?.materials?.captions)  ? data.materials.captions  : []),
+        ];
+        for (const t of allTextMaterials) {
           const id = t.id || t.material_id || t.mid || t.materialId;
           const content = extractText(t);
           if (id) materialsMap.set(id, content);
         }
+        console.debug('[subtitle] CapCut materialMap size:', materialsMap.size);
 
         const tracks = data?.tracks || data?.main_track || data?.editor_tracks || [];
         const trackList = Array.isArray(tracks) ? tracks : [];
@@ -442,6 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
         results.sort((a,b)=> a.start - b.start || a.end - b.end);
+        console.debug('[subtitle] CapCut extracted segments:', results.length);
         return results;
       };
 
@@ -479,7 +533,7 @@ document.addEventListener('DOMContentLoaded', function() {
       norm.sort((a,b)=> a.start - b.start || a.end - b.end);
       return norm;
     } catch (e) {
-      console.error('解析 JSON 失败:', e);
+      console.error('[subtitle] 解析 JSON 失败:', e);
       return [];
     }
   };
@@ -800,24 +854,23 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   if (ui.dropZone) {
-    window.addEventListener('dragover', (e) => {
+    ui.dropZone.addEventListener('dragover', (e) => {
       e.preventDefault();
       e.stopPropagation();
-    }, false);
+      ui.dropZone.classList.add('bg-violet-50');
+    });
 
-    window.addEventListener('drop', (e) => {
+    ui.dropZone.addEventListener('drop', (e) => {
       e.preventDefault();
       e.stopPropagation();
       
       ui.dropZone.classList.remove('bg-violet-50');
-      
-      if (e.target === ui.dropZone || ui.dropZone.contains(e.target)) {
-        const files = e.dataTransfer.files;
-        if (files.length) {
-          handleFile(files[0]);
-        }
+
+      const files = e.dataTransfer.files;
+      if (files.length) {
+        handleFile(files[0]);
       }
-    }, false);
+    });
 
     ui.dropZone.addEventListener('dragenter', (e) => {
       e.preventDefault();
@@ -1044,11 +1097,20 @@ document.addEventListener('DOMContentLoaded', function() {
       updateLabels();
     });
   });
-  document.addEventListener('change', (e) => {
+  root.addEventListener('change', (e) => {
     if (e.target && e.target.classList.contains('jp-filler')) {
       updatePresetButtonUI(null);
     }
   });
 
   updateLabels();
-});
+  };
+
+  document.addEventListener('astro:page-load', initSubtitleTool);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSubtitleTool, { once: true });
+  } else {
+    initSubtitleTool();
+  }
+})();

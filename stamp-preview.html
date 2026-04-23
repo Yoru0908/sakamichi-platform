@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>御朱印風 スタンプ Preview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ebe2;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(180,160,120,0.08) 39px, rgba(180,160,120,0.08) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(180,160,120,0.08) 39px, rgba(180,160,120,0.08) 40px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 48px 24px;
+    gap: 40px;
+  }
+
+  .page-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px;
+    letter-spacing: 0.35em;
+    color: #8a7a65;
+    text-transform: uppercase;
+  }
+
+  /* ──────────────────────────────────────
+     STAMP COMPONENT
+  ────────────────────────────────────── */
+
+  .stamp-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stamp-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+  }
+
+  .stamp-img {
+    width: 72px;
+    height: 72px;
+    transition: transform 0.08s ease;
+    position: relative;
+  }
+
+  .stamp-img svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .stamp-wrap:hover .stamp-img {
+    transform: scale(1.05);
+  }
+
+  /* Press: stamp down */
+  @keyframes goshuin-press {
+    0%   { transform: scale(1.15) rotate(4deg); opacity: 0.3; }
+    35%  { transform: scale(0.87) rotate(-2deg); opacity: 1; }
+    65%  { transform: scale(1.03) rotate(0.5deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+
+  .stamp-wrap.pressing .stamp-img {
+    animation: goshuin-press 0.38s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+  }
+
+  /* Ink bloom on press */
+  .ink-bloom {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 72px; height: 72px;
+    border-radius: 4px;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @keyframes bloom {
+    0%   { transform: translate(-50%,-50%) scale(0.4); opacity: 0.5; }
+    50%  { transform: translate(-50%,-50%) scale(1.7); opacity: 0.2; }
+    100% { transform: translate(-50%,-50%) scale(2.4); opacity: 0; }
+  }
+
+  .stamp-wrap.pressing .ink-bloom {
+    animation: bloom 0.45s ease-out forwards;
+  }
+
+  .stamp-count {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 11px;
+    color: #a89a84;
+    min-width: 24px;
+    text-align: center;
+    transition: color 0.2s;
+  }
+
+  .stamp-wrap.active .stamp-count {
+    font-weight: 700;
+  }
+
+  /* ──────────────────────────────────────
+     CARD
+  ────────────────────────────────────── */
+
+  .card {
+    background: #fdfaf5;
+    border: 1px solid #e2d9c8;
+    border-radius: 12px;
+    padding: 32px 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    min-width: 520px;
+    max-width: 640px;
+    box-shadow: 0 2px 16px rgba(100,80,40,0.07), 0 1px 3px rgba(100,80,40,0.06);
+  }
+
+  .card-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: #6b5c45;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .note {
+    font-size: 11px;
+    color: #b0a090;
+    font-style: italic;
+    letter-spacing: 0.05em;
+  }
+
+  .divider {
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ddd, transparent);
+  }
+
+  /* State demo */
+  .state-row { display: flex; gap: 36px; align-items: flex-end; }
+  .state-label {
+    font-size: 10px;
+    color: #b0a090;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">御朱印風スタンプ — Preview</div>
+
+<!-- MAIN INTERACTIVE -->
+<div class="card">
+  <div class="card-title">クリックして押してみよう</div>
+  <div class="stamp-row" id="stampRow"></div>
+  <div class="note">各スタンプは1回だけ押せる（再クリックで取り消し）</div>
+</div>
+
+<!-- STATE COMPARISON -->
+<div class="card">
+  <div class="card-title">押す前 / 押した後</div>
+  <div class="state-row" id="stateRow"></div>
+</div>
+
+<script>
+/* ──────────────────────────────────────
+   Stamp Definitions
+   Each stamp has a "symbol" (rendered as SVG path/text at top)
+   and a word below it — just like 御朱印
+────────────────────────────────────── */
+const STAMPS = [
+  {
+    type: 'totoi',
+    top: '尊',
+    label: '尊い',
+    inkColor:   '#c1440e',
+    bgActive:   '#fdf0eb',
+    bgInactive: '#faf8f5',
+  },
+  {
+    type: 'numa',
+    top: '沼',
+    label: '沼った',
+    inkColor:   '#1a4480',
+    bgActive:   '#edf2fb',
+    bgInactive: '#faf8f5',
+  },
+  {
+    type: 'ose',
+    top: '推',
+    label: '推せる',
+    inkColor:   '#6b2fa0',
+    bgActive:   '#f5eefc',
+    bgInactive: '#faf8f5',
+  },
+  {
+    type: 'kami',
+    top: '神',
+    label: '神すぎ',
+    inkColor:   '#7a5200',
+    bgActive:   '#fdf6e3',
+    bgInactive: '#faf8f5',
+  },
+  {
+    type: 'yusho',
+    top: '優',
+    label: '優勝',
+    inkColor:   '#9b1c3c',
+    bgActive:   '#fdf0f3',
+    bgInactive: '#faf8f5',
+  },
+];
+
+/* ──────────────────────────────────────
+   SVG Builder — 御朱印 style
+   Rectangle with:
+   - outer double-stroke border (slightly rough via feTurbulence)
+   - top decorative bar
+   - big kanji in center
+   - small label text at bottom
+   - vermillion ink feel
+────────────────────────────────────── */
+let filterIdCounter = 0;
+
+function buildShuinSVG(stamp, active) {
+  const { top, label, inkColor, bgActive, bgInactive } = stamp;
+  const bg = active ? bgActive : bgInactive;
+
+  // Main ink color
+  const ink     = active ? inkColor : '#c8bfb2';
+  const textInk = active ? inkColor : '#b0a898';
+  const alpha   = active ? 1 : 0.65;
+
+  // Unique filter ID per render
+  const fid = `rough-${filterIdCounter++}`;
+
+  // Label font size
+  const lblLen = [...label].length;
+  const lblSize = lblLen <= 3 ? 9.5 : lblLen <= 4 ? 8.5 : 7.5;
+
+  // Slight random tilt per stamp type (static per type)
+  const tilts = { totoi: -1.8, numa: 0.9, ose: -0.7, kami: 1.5, yusho: -1.2 };
+  const tilt = active ? (tilts[stamp.type] || 0) : 0;
+
+  return `<svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Rough paper/ink texture filter -->
+    <filter id="${fid}" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="${active ? '0.65' : '0.4'}" numOctaves="4" seed="${stamp.type.charCodeAt(0)}" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="${active ? 1.6 : 0.6}" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <g transform="rotate(${tilt}, 36, 36)">
+    <!-- Background fill -->
+    <rect x="7" y="7" width="58" height="58" rx="3" fill="${bg}" />
+
+    <!-- Outer border — thick, rough -->
+    <rect x="7" y="7" width="58" height="58" rx="3"
+      fill="none"
+      stroke="${ink}"
+      stroke-width="${active ? 2.4 : 1.4}"
+      opacity="${alpha}"
+      filter="url(#${fid})"
+    />
+
+    <!-- Inner border — thinner -->
+    <rect x="11" y="11" width="50" height="50" rx="2"
+      fill="none"
+      stroke="${ink}"
+      stroke-width="${active ? 1.0 : 0.6}"
+      opacity="${alpha * 0.7}"
+      filter="url(#${fid})"
+    />
+
+    <!-- Top decorative bar (horizontal rule) -->
+    <line x1="14" y1="20" x2="58" y2="20"
+      stroke="${ink}" stroke-width="${active ? 0.9 : 0.5}"
+      opacity="${alpha * 0.55}"
+    />
+
+    <!-- Bottom decorative bar -->
+    <line x1="14" y1="54" x2="58" y2="54"
+      stroke="${ink}" stroke-width="${active ? 0.9 : 0.5}"
+      opacity="${alpha * 0.55}"
+    />
+
+    <!-- Top kanji (大きく、中央) -->
+    <text
+      x="36" y="41"
+      text-anchor="middle"
+      dominant-baseline="middle"
+      font-family="'Noto Serif JP', 'Yu Mincho', 'HiraMinProN-W3', serif"
+      font-size="22"
+      font-weight="900"
+      fill="${textInk}"
+      opacity="${alpha}"
+      filter="url(#${fid})"
+      letter-spacing="0"
+    >${top}</text>
+
+    <!-- Bottom label -->
+    <text
+      x="36" y="60"
+      text-anchor="middle"
+      dominant-baseline="middle"
+      font-family="'Noto Serif JP', 'Yu Mincho', serif"
+      font-size="${lblSize}"
+      font-weight="${active ? 700 : 400}"
+      fill="${textInk}"
+      opacity="${alpha * 0.85}"
+      letter-spacing="${lblLen <= 3 ? 1.5 : 0.8}"
+    >${label}</text>
+
+    <!-- Small decorative dots at top corners -->
+    <circle cx="18" cy="16" r="${active ? 1.5 : 1}" fill="${ink}" opacity="${alpha * 0.6}"/>
+    <circle cx="54" cy="16" r="${active ? 1.5 : 1}" fill="${ink}" opacity="${alpha * 0.6}"/>
+    <circle cx="18" cy="57" r="${active ? 1.5 : 1}" fill="${ink}" opacity="${alpha * 0.6}"/>
+    <circle cx="54" cy="57" r="${active ? 1.5 : 1}" fill="${ink}" opacity="${alpha * 0.6}"/>
+  </g>
+</svg>`;
+}
+
+/* ──────────────────────────────────────
+   State
+────────────────────────────────────── */
+const activeMap = {};
+const countMap  = {};
+STAMPS.forEach(s => {
+  activeMap[s.type] = false;
+  countMap[s.type]  = Math.floor(Math.random() * 60) + 8;
+});
+
+function makeStampEl(stamp, active, count, interactive) {
+  const wrap = document.createElement('div');
+  wrap.className = `stamp-wrap${active ? ' active' : ''}`;
+
+  wrap.innerHTML = `
+    <div class="ink-bloom" style="background: ${stamp.inkColor}18;"></div>
+    <div class="stamp-img">${buildShuinSVG(stamp, active)}</div>
+    <div class="stamp-count" style="color: ${active ? stamp.inkColor : '#b0a090'}">${count}</div>
+  `;
+
+  if (interactive) {
+    wrap.addEventListener('click', () => {
+      activeMap[stamp.type] = !activeMap[stamp.type];
+      countMap[stamp.type] += activeMap[stamp.type] ? 1 : -1;
+
+      wrap.classList.add('pressing');
+      setTimeout(() => {
+        wrap.classList.remove('pressing');
+        renderStampRow();
+      }, 420);
+    });
+  }
+
+  return wrap;
+}
+
+function renderStampRow() {
+  const row = document.getElementById('stampRow');
+  row.innerHTML = '';
+  STAMPS.forEach(s => {
+    row.appendChild(makeStampEl(s, activeMap[s.type], countMap[s.type], true));
+  });
+}
+
+renderStampRow();
+
+/* ──────────────────────────────────────
+   State comparison row
+────────────────────────────────────── */
+const stateRow = document.getElementById('stateRow');
+STAMPS.slice(0, 3).forEach((s, i) => {
+  const isActive = i === 1;
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:6px;';
+
+  const el = makeStampEl(s, isActive, isActive ? 24 : 10, false);
+  const lbl = document.createElement('div');
+  lbl.className = 'state-label';
+  lbl.textContent = isActive ? '押した ✓' : '未押し';
+
+  wrap.appendChild(el);
+  wrap.appendChild(lbl);
+  stateRow.appendChild(wrap);
+});
+</script>
+</body>
+</html>

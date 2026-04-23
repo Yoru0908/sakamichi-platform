@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import '@/styles/global.css';
 import Navbar from '@/components/nav/Navbar.astro';
 import Footer from '@/components/footer/Footer.astro';
+import AnnouncementBanner from '@/components/shared/AnnouncementBanner';
 
 interface Props {
   title?: string;
@@ -20,7 +21,7 @@ const {
   hideFooter = false,
 } = Astro.props;
 
-const siteUrl = Astro.site || new URL('https://sakamichi-tools.cn');
+const siteUrl = Astro.site || new URL('https://46log.com');
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toString();
 ---
@@ -32,6 +33,7 @@ const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toStr
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content={description}>
   <meta name="theme-color" content="#742581">
+  <meta name="robots" content="noimageindex">
 
   <title>{title}</title>
   <link rel="canonical" href={canonicalURL} />
@@ -53,10 +55,16 @@ const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toStr
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={ogImage}>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Preconnect: CDN & API -->
+  <link rel="preconnect" href="https://fonts.font.im">
+  <link rel="preconnect" href="https://gstatic.font.im" crossorigin>
+  <link rel="preconnect" href="https://media.46log.com">
+  <link rel="preconnect" href="https://msg-archive.46log.com">
+  <link rel="preconnect" href="https://api.46log.com">
+
+  <!-- Fonts: Noto Sans JP/SC — kaomoji-compatible, reduced to 3 weights (fonts.font.im = 国内镜像) -->
+  <link rel="preload" as="style" href="https://fonts.font.im/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.font.im/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Theme: prevent flash of wrong theme -->
   <script is:inline>
@@ -68,12 +76,14 @@ const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toStr
     })();
   </script>
 
+  <slot name="head" />
   <ClientRouter />
 </head>
 <body class="min-h-screen font-sans antialiased">
   <!-- Accessibility: skip to main content -->
   <a href="#main-content" class="skip-link">Skip to content</a>
 
+  <AnnouncementBanner client:load />
   {!hideNav && <Navbar />}
 
   <main id="main-content" class="min-h-[calc(100vh-3.5rem)]">

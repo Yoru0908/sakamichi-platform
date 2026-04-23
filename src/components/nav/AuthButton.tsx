@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useStore } from '@nanostores/react';
-import { User, LogIn, LogOut } from 'lucide-react';
+import { User, LogIn, LogOut, Shield } from 'lucide-react';
 import { $auth, initAuth, logout } from '@/stores/auth';
 
 export default function AuthButton() {
@@ -21,6 +21,15 @@ export default function AuthButton() {
   if (auth.isLoggedIn) {
     return (
       <div className="hidden md:flex items-center gap-2 ml-2">
+        {auth.role === 'admin' && (
+          <a
+            href="/dashboard"
+            className="p-1.5 rounded-lg text-red-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+            title="管理后台"
+          >
+            <Shield size={14} />
+          </a>
+        )}
         <a
           href="/user"
           className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors"

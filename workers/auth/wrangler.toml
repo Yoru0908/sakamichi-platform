@@ -3,8 +3,9 @@ main = "src/index.ts"
 compatibility_date = "2024-05-01"
 
 [vars]
-CORS_ORIGIN = "https://sakamichi-tools.cn,https://test.sakamichi-tools.cn,https://sakamichi-platform-test.pages.dev"
+CORS_ORIGIN = "https://46log.com,https://sakamichi-tools.cn,https://test.sakamichi-tools.cn,https://sakamichi-platform-test.pages.dev"
 EMAIL_FROM = "noreply@sakamichi-tools.cn"
+ALIST_URL = "https://gallery.46log.com"
 # JWT_SECRET, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, etc.
 # are set via `wrangler secret put <KEY>`
 
@@ -21,6 +22,45 @@ zone_name = "sakamichi-tools.cn"
 [[routes]]
 pattern = "api.sakamichi-tools.cn/api/user/*"
 zone_name = "sakamichi-tools.cn"
+
+[[routes]]
+pattern = "api.46log.com/api/auth/*"
+zone_name = "46log.com"
+
+[[routes]]
+pattern = "api.46log.com/api/user/*"
+zone_name = "46log.com"
+
+[[routes]]
+pattern = "api.46log.com/api/community/*"
+zone_name = "46log.com"
+
+[[routes]]
+pattern = "api.46log.com/api/repo/*"
+zone_name = "46log.com"
+
+[[routes]]
+pattern = "api.46log.com/api/manage/*"
+zone_name = "46log.com"
+
+[[routes]]
+pattern = "api.46log.com/api/webhook/*"
+zone_name = "46log.com"
+
+[[routes]]
+pattern = "api.sakamichi-tools.cn/api/community/*"
+zone_name = "sakamichi-tools.cn"
+
+[[routes]]
+pattern = "api.sakamichi-tools.cn/api/manage/*"
+zone_name = "sakamichi-tools.cn"
+
+[[routes]]
+pattern = "api.sakamichi-tools.cn/api/webhook/*"
+zone_name = "sakamichi-tools.cn"
+
+[triggers]
+crons = ["0 3 * * *"]  # Daily at 03:00 UTC (12:00 JST)
 
 # [[kv_namespaces]]
 # binding = "CACHE"

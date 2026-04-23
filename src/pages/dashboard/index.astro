@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AdminDashboard from '@/components/admin/AdminDashboard';
+---
+
+<BaseLayout title="管理后台 - Sakamichi Tools">
+  <div class="px-4 sm:px-6 lg:px-8 py-8">
+    <AdminDashboard client:only="react" />
+  </div>
+</BaseLayout>

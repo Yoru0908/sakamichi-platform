@@ -5,6 +5,7 @@ import SakumimiArchive from '@/components/radio/SakumimiArchive';
 import LiveRadioPlayer from '@/components/radio/LiveRadioPlayer';
 import RecordingArchive from '@/components/radio/RecordingArchive';
 import RadikoPlayer from '@/components/radio/RadikoPlayer';
+import GeoPassGate from '@/components/shared/GeoPassGate';
 
 const tabs = [
   { id: 'live', label: '坂道广播', icon: 'radio' },
@@ -15,6 +16,7 @@ const tabs = [
 ---
 
 <BaseLayout title="广播 - Sakamichi Tools">
+  <GeoPassGate client:load />
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Header row: title + group dropdown -->
     <div class="flex items-center justify-between mb-6">

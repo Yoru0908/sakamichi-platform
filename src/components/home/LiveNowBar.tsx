@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Radio } from 'lucide-react';
 
-const RADIO_API = 'https://radio.sakamichi-tools.cn';
+const RADIO_API = 'https://radio.46log.com';
 
 interface Program {
   title: string;

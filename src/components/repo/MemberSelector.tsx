@@ -14,7 +14,7 @@ function MemberAvatar({ src, name, color, size = 36 }: { src: string; name: stri
   if (failed) {
     return (
       <div
-        className="rounded-full shrink-0 flex items-center justify-center text-white font-bold"
+        className="rounded-sm shrink-0 flex items-center justify-center text-white font-bold"
         style={{ width: size, height: size, backgroundColor: color, fontSize: size * 0.35 }}
       >
         {name.charAt(0)}
@@ -25,7 +25,7 @@ function MemberAvatar({ src, name, color, size = 36 }: { src: string; name: stri
     <img
       src={src}
       alt={name}
-      className="rounded-full object-cover object-top bg-gray-100"
+      className="rounded-sm object-cover object-top bg-gray-100"
       style={{ width: size, height: size }}
       onError={() => setFailed(true)}
     />

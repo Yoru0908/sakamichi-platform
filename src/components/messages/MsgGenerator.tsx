@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useStore } from '@nanostores/react';
-import { Plus, Trash2, Download, Image as ImageIcon, MessageSquare, Star, GripVertical } from 'lucide-react';
+import { Plus, Trash2, Download, Image as ImageIcon, MessageSquare, Star, GripVertical, X } from 'lucide-react';
 import {
-  getGroupColor, getR2AvatarUrl, getHeaderStyle,
+  getGroupColor, getR2AvatarUrl, getOptimizedAvatarUrl, getHeaderStyle,
   GROUP_CONFIG, sortedGenEntries, fetchMemberData, deduplicateMembers,
   type MemberInfo,
 } from './msg-styles';
@@ -23,6 +23,57 @@ function nowTimeStr(): string {
   return new Date().toLocaleString('zh-Hant', {
     month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false,
   });
+}
+
+// ── Canvas 2D helpers for export ──
+function drawRoundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h);
+  ctx.arcTo(x, y + h, x, y + h - r, r);
+  ctx.lineTo(x, y + r);
+  ctx.arcTo(x, y, x + r, y, r);
+  ctx.closePath();
+}
+
+function wrapTextLines(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
+  const lines: string[] = [];
+  for (const para of text.split('\n')) {
+    if (!para) { lines.push(''); continue; }
+    let line = '';
+    for (const char of para) {
+      const test = line + char;
+      if (ctx.measureText(test).width > maxWidth && line) {
+        lines.push(line);
+        line = char;
+      } else {
+        line = test;
+      }
+    }
+    if (line) lines.push(line);
+  }
+  return lines;
+}
+
+async function imageToDataUrl(url: string): Promise<string> {
+  try {
+    // Route through api.46log.com proxy to avoid WAF challenge on media.46log.com
+    const proxyUrl = url.replace('https://media.46log.com/', 'https://api.46log.com/api/media/');
+    const res = await fetch(proxyUrl, { mode: 'cors' });
+    const blob = await res.blob();
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  } catch {
+    return url;
+  }
 }
 
 // ── Member Sidebar ──
@@ -106,8 +157,9 @@ function MemberSidebar({
                     onClick={() => onSelectMember(m)}
                   >
                     <img
-                      src={getR2AvatarUrl(m.name)}
+                      src={getOptimizedAvatarUrl(m.name, 80)}
                       alt=""
+                      loading="lazy"
                       className="w-8 h-8 rounded-full object-cover shrink-0 border border-[var(--border-primary)]"
                       onError={(e) => {
                         const img = e.target as HTMLImageElement;
@@ -173,7 +225,7 @@ function ChatPreview({
           <div
             key={box.id}
             className="relative group"
-            style={{ display: 'flex', padding: '20px', borderBottom: '1px solid #f3f4f6', alignItems: 'flex-start' }}
+            style={{ display: 'flex', padding: '24px 20px', borderBottom: '1px solid #f3f4f6', alignItems: 'flex-start' }}
           >
             {/* Delete button */}
             <button
@@ -193,51 +245,61 @@ function ChatPreview({
 
             {/* Content */}
             <div style={{ flex: 1, marginLeft: '12px', minWidth: 0 }}>
-              {/* Name + time */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+              {/* Name + time + ⋯ (official MSG style) */}
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '14px' }}>
                 <span
                   contentEditable
                   suppressContentEditableWarning
                   onBlur={(e) => onUpdateChat(box.id, 'name', e.currentTarget.textContent || '')}
-                  style={{ fontWeight: 300, fontSize: '14px', color: '#8a8a8a', outline: 'none' }}
+                  style={{ fontWeight: 400, fontSize: '14px', color: '#8a8a8a', outline: 'none' }}
                 >
                   {box.name}
                 </span>
+                <span style={{ margin: '0 12px', fontSize: '12px', color: '#c0c0c0' }}>·</span>
                 <span
                   contentEditable
                   suppressContentEditableWarning
                   onBlur={(e) => onUpdateChat(box.id, 'time', e.currentTarget.textContent || '')}
-                  style={{ fontSize: '12px', color: '#8a8a8a', outline: 'none' }}
+                  style={{ fontSize: '12px', color: '#b0b0b0', outline: 'none' }}
                 >
                   {box.time}
                 </span>
+                <span style={{ marginLeft: 'auto', fontSize: '16px', color: '#c0c0c0', letterSpacing: '1px', userSelect: 'none' }}>⋯</span>
               </div>
 
-              {/* Body */}
-              {box.isImageChat && box.imageDataUrl ? (
-                <div>
-                  <img
-                    src={box.imageDataUrl}
-                    alt=""
-                    style={{ maxWidth: '100%', borderRadius: '8px' }}
+              {/* Body — wrapped in bubble */}
+              {box.isImageChat ? (
+                <div style={{ background: '#f7f7f7', borderRadius: '6px', padding: '12px 18px 18px', marginTop: '2px' }}>
+                  {box.imageDataUrl ? (
+                    <img
+                      src={box.imageDataUrl}
+                      alt=""
+                      style={{ maxWidth: '100%', borderRadius: '8px', marginBottom: '4px' }}
+                    />
+                  ) : (
+                    <ImageDropZone
+                      onImageLoad={(dataUrl) => onUpdateChat(box.id, 'imageDataUrl' as keyof ChatBox, dataUrl)}
+                    />
+                  )}
+                  {/* Editable text below image */}
+                  <div
+                    contentEditable
+                    suppressContentEditableWarning
+                    onBlur={(e) => onUpdateChat(box.id, 'body', e.currentTarget.innerHTML)}
+                    onPaste={(e) => {
+                      e.preventDefault();
+                      const text = e.clipboardData.getData('text/plain');
+                      document.execCommand('insertText', false, text);
+                    }}
+                    style={{ fontSize: '16px', lineHeight: 1.5, color: '#1f2937', outline: 'none', marginTop: box.imageDataUrl ? '10px' : '0', minHeight: '1.5em' }}
+                    data-placeholder="添加文字（可选）"
+                    dangerouslySetInnerHTML={{ __html: box.body }}
                   />
                 </div>
-              ) : box.isImageChat ? (
-                <ImageDropZone
-                  onImageLoad={(dataUrl) => onUpdateChat(box.id, 'imageDataUrl' as keyof ChatBox, dataUrl)}
-                />
               ) : (
-                <div
-                  contentEditable
-                  suppressContentEditableWarning
-                  onBlur={(e) => onUpdateChat(box.id, 'body', e.currentTarget.innerHTML)}
-                  onPaste={(e) => {
-                    e.preventDefault();
-                    const text = e.clipboardData.getData('text/plain');
-                    document.execCommand('insertText', false, text);
-                  }}
-                  style={{ fontSize: '15px', lineHeight: 1.6, color: '#1f2937', outline: 'none' }}
-                  dangerouslySetInnerHTML={{ __html: box.body }}
+                <TextChatBody
+                  box={box}
+                  onUpdateChat={onUpdateChat}
                 />
               )}
             </div>
@@ -251,6 +313,73 @@ function ChatPreview({
           </div>
         )}
       </div>
+    </div>
+  );
+}
+
+// ── Text Chat Body (supports double-click/tap to insert inline image) ──
+function TextChatBody({
+  box,
+  onUpdateChat,
+}: {
+  box: ChatBox;
+  onUpdateChat: (id: number, field: keyof ChatBox, value: string) => void;
+}) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleInsertImage = (file: File) => {
+    if (!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      if (!e.target?.result) return;
+      const dataUrl = e.target.result as string;
+      // Convert text chat to image chat with the selected image
+      onUpdateChat(box.id, 'isImageChat' as keyof ChatBox, 'true');
+      onUpdateChat(box.id, 'imageDataUrl' as keyof ChatBox, dataUrl);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  return (
+    <div>
+      <div
+        contentEditable
+        suppressContentEditableWarning
+        onBlur={(e) => onUpdateChat(box.id, 'body', e.currentTarget.innerHTML)}
+        onPaste={(e) => {
+          // Handle pasted images
+          const items = e.clipboardData.items;
+          for (let i = 0; i < items.length; i++) {
+            if (items[i].type.startsWith('image/')) {
+              e.preventDefault();
+              const file = items[i].getAsFile();
+              if (file) handleInsertImage(file);
+              return;
+            }
+          }
+          // Plain text paste
+          e.preventDefault();
+          const text = e.clipboardData.getData('text/plain');
+          document.execCommand('insertText', false, text);
+        }}
+        onDoubleClick={() => inputRef.current?.click()}
+        style={{ background: '#f7f7f7', borderRadius: '6px', padding: '14px 18px', marginTop: '2px', fontSize: '16px', lineHeight: 1.5, color: '#1f2937', outline: 'none' }}
+        dangerouslySetInnerHTML={{ __html: box.body }}
+      />
+      <p
+        data-hint="true"
+        style={{ fontSize: '10px', color: '#c0c0c0', marginTop: '4px', userSelect: 'none' }}
+        className="opacity-0 group-hover:opacity-100 transition-opacity"
+      >
+        双击可插入图片
+      </p>
+      <input
+        ref={inputRef}
+        type="file"
+        accept="image/*"
+        className="hidden"
+        onChange={(e) => { if (e.target.files?.[0]) handleInsertImage(e.target.files[0]); e.target.value = ''; }}
+      />
     </div>
   );
 }
@@ -298,11 +427,13 @@ export default function MsgGenerator() {
 
   // Chat boxes
   const [chatBoxes, setChatBoxes] = useState<ChatBox[]>([
-    { id: 1, name: '成员名', time: nowTimeStr(), body: '<p>1. 从左侧选择成员</p><p>2. 点击文字可直接编辑</p>', isImageChat: false },
+    { id: 1, name: '成员名', time: nowTimeStr(), body: '1. 从左侧选择成员<br>2. 点击文字可直接编辑', isImageChat: false },
   ]);
   const nextId = useRef(2);
 
   const previewRef = useRef<HTMLDivElement>(null);
+  const [downloading, setDownloading] = useState(false);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   // Load members (shared: R2 msg-avatars/members.json → fallback /data/member-images.json)
   useEffect(() => {
@@ -332,7 +463,7 @@ export default function MsgGenerator() {
       .finally(() => setLoading(false));
   }, []);
 
-  const applyMember = useCallback((m: MemberInfo) => {
+  const applyMember = useCallback(async (m: MemberInfo) => {
     setSelectedName(m.name);
     setSelectedGroup(m.group);
     const r2Url = getR2AvatarUrl(m.name);
@@ -340,11 +471,14 @@ export default function MsgGenerator() {
     // Update all chat box names
     setChatBoxes((prev) => prev.map((box) => ({ ...box, name: m.name })));
     setSidebarOpen(false);
+    // Pre-convert to data URL for html2canvas (avoid cross-origin taint)
+    const dataUrl = await imageToDataUrl(r2Url);
+    setAvatarSrc(dataUrl);
   }, []);
 
   const addTextChat = useCallback(() => {
     const id = nextId.current++;
-    setChatBoxes((prev) => [...prev, { id, name: selectedName, time: nowTimeStr(), body: '<p>输入文字...</p>', isImageChat: false }]);
+    setChatBoxes((prev) => [...prev, { id, name: selectedName, time: nowTimeStr(), body: '输入文字...', isImageChat: false }]);
   }, [selectedName]);
 
   const addImageChat = useCallback(() => {
@@ -361,18 +495,184 @@ export default function MsgGenerator() {
   }, []);
 
   const downloadImage = useCallback(async () => {
-    if (!previewRef.current) return;
-    const html2canvas = (await import('html2canvas')).default;
-    const el = previewRef.current;
-    const scale = 1000 / el.offsetWidth;
-    const canvas = await html2canvas(el, { scale, useCORS: true, allowTaint: true });
-    const link = document.createElement('a');
-    const name = selectedName.replace(/\s+/g, '');
-    const date = new Date().toLocaleDateString('zh', { month: '2-digit', day: '2-digit' }).replace(/\//g, '');
-    link.download = `${name}_${date}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-  }, [selectedName]);
+    if (!previewRef.current || downloading) return;
+    setDownloading(true);
+    try {
+      await document.fonts.ready;
+      const el = previewRef.current;
+      const rect = el.getBoundingClientRect();
+      const scaleFactor = 1000 / rect.width;
+
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(rect.width * scaleFactor);
+      canvas.height = Math.round(rect.height * scaleFactor);
+      const ctx = canvas.getContext('2d')!;
+      ctx.scale(scaleFactor, scaleFactor);
+
+      // Helpers: position relative to preview container
+      const rx = (r: DOMRect) => r.left - rect.left;
+      const ry = (r: DOMRect) => r.top - rect.top;
+
+      // 1. White background
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, rect.width, rect.height);
+
+      // 2. Header (gradient bg + centered text)
+      const headerEl = el.children[0] as HTMLElement;
+      if (headerEl) {
+        const hR = headerEl.getBoundingClientRect();
+        const hX = rx(hR), hY = ry(hR), hW = hR.width, hH = hR.height;
+        if (selectedGroup === '日向坂46') {
+          const g = ctx.createLinearGradient(hX, hY, hX + hW, hY);
+          g.addColorStop(0.4, 'rgb(142,196,230)');
+          g.addColorStop(1, 'rgb(167,123,208)');
+          ctx.fillStyle = g;
+          ctx.fillRect(hX, hY, hW, hH);
+        } else if (selectedGroup === '樱坂46' || selectedGroup === '櫻坂46') {
+          ctx.fillStyle = '#fff';
+          ctx.fillRect(hX, hY, hW, hH);
+          const g = ctx.createLinearGradient(hX, hY, hX + hW, hY);
+          g.addColorStop(0, '#fff');
+          g.addColorStop(0.4, 'rgb(243,144,177)');
+          g.addColorStop(1, 'rgb(162,84,165)');
+          ctx.fillStyle = g;
+          ctx.fillRect(hX, hY + hH - 2, hW, 2);
+        } else {
+          const g = ctx.createLinearGradient(hX, hY, hX + hW, hY);
+          g.addColorStop(0, 'rgb(196,133,230)');
+          g.addColorStop(1, 'rgb(147,63,185)');
+          ctx.fillStyle = g;
+          ctx.fillRect(hX, hY, hW, hH);
+        }
+        const hCs = getComputedStyle(headerEl);
+        ctx.fillStyle = hCs.color;
+        ctx.font = `${hCs.fontWeight} ${hCs.fontSize} ${hCs.fontFamily}`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(headerEl.textContent || '', hX + hW / 2, hY + hH / 2);
+      }
+
+      // 3. Chat boxes
+      const chatContainer = el.children[1] as HTMLElement;
+      if (chatContainer) {
+        for (let i = 0; i < chatContainer.children.length; i++) {
+          const boxEl = chatContainer.children[i] as HTMLElement;
+          if (boxEl.classList.contains('py-16')) continue;
+          const bxR = boxEl.getBoundingClientRect();
+
+          // Bottom border
+          ctx.strokeStyle = '#f3f4f6';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(rx(bxR), ry(bxR) + bxR.height - 0.5);
+          ctx.lineTo(rx(bxR) + bxR.width, ry(bxR) + bxR.height - 0.5);
+          ctx.stroke();
+
+          // Avatar (direct child img)
+          const avatarImg = boxEl.querySelector(':scope > img') as HTMLImageElement;
+          if (avatarImg?.complete && avatarImg.naturalWidth > 0) {
+            const aR = avatarImg.getBoundingClientRect();
+            const aX = rx(aR), aY = ry(aR), radius = aR.width / 2;
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(aX + radius, aY + radius, radius, 0, Math.PI * 2);
+            ctx.clip();
+            ctx.drawImage(avatarImg, aX, aY, aR.width, aR.height);
+            ctx.restore();
+            ctx.strokeStyle = '#e5e7eb';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(aX + radius, aY + radius, radius, 0, Math.PI * 2);
+            ctx.stroke();
+          }
+
+          // Content div (first <div> child)
+          const contentDiv = boxEl.querySelector(':scope > div') as HTMLElement;
+          if (!contentDiv) continue;
+
+          // Name/time row
+          const nameRow = contentDiv.children[0] as HTMLElement;
+          if (nameRow) {
+            for (let j = 0; j < nameRow.children.length; j++) {
+              const span = nameRow.children[j] as HTMLElement;
+              const sR = span.getBoundingClientRect();
+              const sCs = getComputedStyle(span);
+              ctx.fillStyle = sCs.color;
+              ctx.font = `${sCs.fontWeight} ${parseFloat(sCs.fontSize)}px ${sCs.fontFamily}`;
+              ctx.textAlign = 'left';
+              ctx.textBaseline = 'middle';
+              ctx.fillText(span.textContent || '', rx(sR), ry(sR) + sR.height / 2);
+            }
+          }
+
+          // Bubble (second child of content — TextChatBody wrapper or image chat div)
+          const bubbleArea = contentDiv.children[1] as HTMLElement;
+          if (!bubbleArea) continue;
+          const baBg = getComputedStyle(bubbleArea).backgroundColor;
+          const bubbleEl = (baBg === 'rgb(247, 247, 247)') ? bubbleArea : (bubbleArea.children[0] as HTMLElement);
+          if (!bubbleEl) continue;
+
+          const bubR = bubbleEl.getBoundingClientRect();
+          ctx.fillStyle = '#f7f7f7';
+          drawRoundedRect(ctx, rx(bubR), ry(bubR), bubR.width, bubR.height, 6);
+          ctx.fill();
+
+          // Image inside bubble (if present)
+          const chatImg = bubbleEl.querySelector('img') as HTMLImageElement;
+          if (chatImg?.complete && chatImg.naturalWidth > 0) {
+            const iR = chatImg.getBoundingClientRect();
+            ctx.save();
+            drawRoundedRect(ctx, rx(iR), ry(iR), iR.width, iR.height, 8);
+            ctx.clip();
+            ctx.drawImage(chatImg, rx(iR), ry(iR), iR.width, iR.height);
+            ctx.restore();
+          }
+
+          // Text content in bubble
+          const textEl = (bubbleEl.hasAttribute('contenteditable') ? bubbleEl : bubbleEl.querySelector('[contenteditable]')) as HTMLElement | null;
+          if (textEl) {
+            const text = textEl.innerText.trim();
+            if (text) {
+              const tCs = getComputedStyle(textEl);
+              ctx.fillStyle = tCs.color;
+              const fontSize = parseFloat(tCs.fontSize);
+              const lh = tCs.lineHeight === 'normal' ? fontSize * 1.5 : parseFloat(tCs.lineHeight);
+              ctx.font = `${tCs.fontWeight} ${fontSize}px ${tCs.fontFamily}`;
+              ctx.textAlign = 'left';
+              ctx.textBaseline = 'top';
+              const tR = textEl.getBoundingClientRect();
+              const padL = parseFloat(tCs.paddingLeft);
+              const padT = parseFloat(tCs.paddingTop);
+              const maxW = tR.width - padL - parseFloat(tCs.paddingRight);
+              const lines = wrapTextLines(ctx, text, maxW);
+              for (let k = 0; k < lines.length; k++) {
+                ctx.fillText(lines[k], rx(tR) + padL, ry(tR) + padT + k * lh);
+              }
+            }
+          }
+        }
+      }
+
+      const dataUrl = canvas.toDataURL('image/png');
+
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        setPreviewImage(dataUrl);
+      } else {
+        const link = document.createElement('a');
+        const name = selectedName.replace(/\s+/g, '');
+        const date = new Date().toLocaleDateString('zh', { month: '2-digit', day: '2-digit' }).replace(/\//g, '');
+        link.download = `${name}_${date}.png`;
+        link.href = dataUrl;
+        link.click();
+      }
+    } catch (err: any) {
+      console.error('[MsgGenerator] Download failed:', err);
+      alert(`下载失败: ${err?.message || err}`);
+    } finally {
+      setDownloading(false);
+    }
+  }, [selectedName, selectedGroup, downloading]);
 
   return (
     <div className="flex gap-4" style={{ minHeight: 'calc(100vh - 240px)' }}>
@@ -436,10 +736,11 @@ export default function MsgGenerator() {
           </button>
           <button
             onClick={downloadImage}
-            className="flex items-center gap-1 px-3 py-1.5 text-xs rounded-lg text-white transition-colors cursor-pointer"
+            disabled={downloading}
+            className="flex items-center gap-1 px-3 py-1.5 text-xs rounded-lg text-white transition-colors cursor-pointer disabled:opacity-60"
             style={{ background: getGroupColor(selectedGroup) }}
           >
-            <Download size={12} /> 下载图片
+            <Download size={12} /> {downloading ? '生成中...' : '下载图片'}
           </button>
         </div>
 
@@ -457,6 +758,29 @@ export default function MsgGenerator() {
           />
         </div>
       </div>
+
+      {/* Mobile image preview modal — long-press to save */}
+      {previewImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
+          onClick={() => setPreviewImage(null)}
+        >
+          <div className="relative max-w-[90vw] max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setPreviewImage(null)}
+              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-white text-gray-700 flex items-center justify-center shadow-lg cursor-pointer z-10"
+            >
+              <X size={16} />
+            </button>
+            <img
+              src={previewImage}
+              alt="MSG preview"
+              className="max-w-full max-h-[85vh] rounded-lg shadow-2xl"
+            />
+            <p className="text-center text-white/80 text-sm mt-3">长按图片保存到相册</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

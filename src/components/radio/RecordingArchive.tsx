@@ -10,10 +10,33 @@ interface Recording {
   format: string;
   created_at: string;
   modified_at: string;
+  station?: string;
+  station_id?: string;
+  performer?: string;
+  image?: string;
+  url?: string;
+  info?: string;
+  description?: string;
+}
+
+type GroupFilter = 'all' | 'nogizaka' | 'sakurazaka' | 'hinatazaka' | 'other';
+
+const GROUP_META: Record<Exclude<GroupFilter, 'all'>, { label: string; color: string; keywords: string[] }> = {
+  nogizaka:  { label: '乃木坂', color: '#7B4BC1', keywords: ['乃木坂'] },
+  sakurazaka:{ label: '櫻坂',  color: '#F19DB5', keywords: ['櫻坂', '桜坂'] },
+  hinatazaka:{ label: '日向坂', color: '#64B5F6', keywords: ['日向坂'] },
+  other:     { label: 'その他', color: '#9CA3AF', keywords: [] },
+};
+
+function detectGroup(title: string): Exclude<GroupFilter, 'all'> {
+  for (const [key, meta] of Object.entries(GROUP_META) as [Exclude<GroupFilter,'all'>, typeof GROUP_META[keyof typeof GROUP_META]][]) {
+    if (key === 'other') continue;
+    if (meta.keywords.some(kw => title.includes(kw))) return key;
+  }
+  return 'other';
 }
 
 // ─── Constants ───────────────────────────────────
-const API_BASE = 'https://radio.sakamichi-tools.cn';
 const PAGE_SIZE = 12;
 
 // ─── Helpers ─────────────────────────────────────
@@ -30,8 +53,19 @@ function formatTime(sec: number): string {
   return `${m}:${s.toString().padStart(2, '0')}`;
 }
 
+function getRadioApiBase(): string {
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1') {
+      return 'http://127.0.0.1:8500';
+    }
+  }
+  return 'https://radio.46log.com';
+}
+
 // ─── Component ───────────────────────────────────
 export default function RecordingArchive() {
+  const apiBase = getRadioApiBase();
   const [recordings, setRecordings] = useState<Recording[]>([]);
   const [dates, setDates] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -40,6 +74,7 @@ export default function RecordingArchive() {
   // Filters
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
+  const [groupFilter, setGroupFilter] = useState<GroupFilter>('all');
   const [page, setPage] = useState(1);
 
   // Audio player
@@ -55,7 +90,7 @@ export default function RecordingArchive() {
     const controller = new AbortController();
     setLoading(true);
 
-    fetch(`${API_BASE}/api/recordings`, { signal: controller.signal })
+    fetch(`${apiBase}/api/recordings`, { signal: controller.signal })
       .then(r => r.json())
       .then(data => {
         setRecordings(data.recordings || []);
@@ -70,7 +105,7 @@ export default function RecordingArchive() {
       .finally(() => setLoading(false));
 
     return () => controller.abort();
-  }, []);
+  }, [apiBase]);
 
   // ─── Filtering ─────────────────────────────────
   const filtered = recordings.filter(r => {
@@ -79,13 +114,16 @@ export default function RecordingArchive() {
       const q = searchQuery.toLowerCase();
       if (!r.title.toLowerCase().includes(q) && !r.filename.toLowerCase().includes(q)) return false;
     }
+    if (groupFilter !== 'all') {
+      if (detectGroup(r.title) !== groupFilter) return false;
+    }
     return true;
   });
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  useEffect(() => { setPage(1); }, [selectedDate, searchQuery]);
+  useEffect(() => { setPage(1); }, [selectedDate, searchQuery, groupFilter]);
 
   // ─── Audio controls ────────────────────────────
   const stopProgressTracking = useCallback(() => {
@@ -108,7 +146,7 @@ export default function RecordingArchive() {
   }, [stopProgressTracking]);
 
   const togglePlay = useCallback((rec: Recording) => {
-    const audioUrl = `${API_BASE}/api/recordings/play/${encodeURIComponent(rec.filename)}`;
+    const audioUrl = `${apiBase}/api/recordings/play/${encodeURIComponent(rec.filename)}`;
 
     if (playingFile === rec.filename) {
       audioRef.current?.pause();
@@ -129,7 +167,7 @@ export default function RecordingArchive() {
       setAudioCurrentTime(0);
       startProgressTracking();
     }
-  }, [playingFile, stopProgressTracking, startProgressTracking]);
+  }, [apiBase, playingFile, stopProgressTracking, startProgressTracking]);
 
   const seekAudio = useCallback((delta: number) => {
     const a = audioRef.current;
@@ -170,6 +208,34 @@ export default function RecordingArchive() {
 
   return (
     <div className="space-y-4">
+      {/* Group filter tabs */}
+      <div className="flex gap-1.5 flex-wrap">
+        {(['all', 'nogizaka', 'sakurazaka', 'hinatazaka', 'other'] as GroupFilter[]).map(g => {
+          const isActive = groupFilter === g;
+          const meta = g !== 'all' ? GROUP_META[g] : null;
+          return (
+            <button
+              key={g}
+              type="button"
+              onClick={() => setGroupFilter(g)}
+              className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors border ${
+                isActive
+                  ? 'text-white border-transparent'
+                  : 'bg-[var(--bg-primary)] text-[var(--text-tertiary)] border-[var(--border-primary)] hover:border-[var(--border-secondary)]'
+              }`}
+              style={isActive ? { backgroundColor: meta?.color ?? 'var(--text-primary)', borderColor: 'transparent' } : undefined}
+            >
+              {g === 'all' ? '全部' : meta!.label}
+              {g !== 'all' && (
+                <span className={`ml-1 text-[10px] ${isActive ? 'opacity-70' : 'opacity-50'}`}>
+                  {recordings.filter(r => detectGroup(r.title) === g).length}
+                </span>
+              )}
+            </button>
+          );
+        })}
+      </div>
+
       {/* Filters row */}
       <div className="flex flex-col sm:flex-row gap-2">
         {/* Search */}
@@ -210,6 +276,8 @@ export default function RecordingArchive() {
       <div className="space-y-2">
         {paged.map(rec => {
           const isActive = playingFile === rec.filename;
+          const group = detectGroup(rec.title);
+          const groupColor = GROUP_META[group].color;
           return (
             <div
               key={rec.filename}
@@ -217,15 +285,27 @@ export default function RecordingArchive() {
                 isActive ? 'border-[var(--color-brand-sakura)]/50' : 'border-[var(--border-primary)] hover:border-[var(--border-secondary)]'
               }`}
             >
-              <div className="flex items-center gap-3 p-4">
+              <div className="flex items-start gap-3 p-4">
+                {rec.image ? (
+                  <img
+                    src={rec.image}
+                    alt={rec.title}
+                    className="hidden sm:block w-28 lg:w-32 aspect-video rounded-lg object-cover bg-[var(--bg-tertiary)] shrink-0"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="hidden sm:flex w-28 lg:w-32 aspect-video rounded-lg bg-[var(--bg-tertiary)] shrink-0 items-center justify-center text-[10px] text-[var(--text-tertiary)]">
+                    NO IMAGE
+                  </div>
+                )}
+
                 {/* Play button */}
                 <button
                   onClick={() => togglePlay(rec)}
                   className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                    isActive
-                      ? 'bg-[var(--color-brand-sakura)] text-white'
-                      : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]'
+                    isActive ? 'text-white' : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]'
                   }`}
+                  style={isActive ? { backgroundColor: groupColor } : undefined}
                 >
                   {isActive ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
                 </button>
@@ -235,18 +315,33 @@ export default function RecordingArchive() {
                   <p className="text-sm font-medium text-[var(--text-primary)] truncate">
                     {rec.title}
                   </p>
+                  {(rec.station || rec.performer) && (
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-[11px] text-[var(--text-secondary)]">
+                      {rec.station && <span>{rec.station}</span>}
+                      {rec.station && rec.performer && <span>·</span>}
+                      {rec.performer && <span className="truncate">{rec.performer}</span>}
+                    </div>
+                  )}
                   <div className="flex items-center gap-2 mt-0.5 text-[10px] text-[var(--text-tertiary)]">
+                    <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: groupColor }} />
+                    <span>{GROUP_META[group].label}</span>
+                    <span>·</span>
                     <span>{rec.date}</span>
                     <span>·</span>
                     <span>{formatFileSize(rec.size)}</span>
                     <span>·</span>
                     <span>{rec.format.toUpperCase()}</span>
                   </div>
+                  {rec.description && (
+                    <p className="mt-1.5 text-[11px] leading-5 text-[var(--text-tertiary)] line-clamp-2">
+                      {rec.description}
+                    </p>
+                  )}
                 </div>
 
                 {/* Download */}
                 <a
-                  href={`${API_BASE}/api/recordings/play/${encodeURIComponent(rec.filename)}`}
+                  href={`${apiBase}/api/recordings/play/${encodeURIComponent(rec.filename)}`}
                   download={rec.filename}
                   className="shrink-0 p-2 rounded-lg text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
                   title="ダウンロード"
@@ -336,7 +431,7 @@ export default function RecordingArchive() {
       )}
 
       <p className="text-[10px] text-[var(--text-tertiary)] text-center">
-        HomeServer 録制アーカイブ · 自動保留近30天
+        HomeServer 録制アーカイブ
       </p>
     </div>
   );

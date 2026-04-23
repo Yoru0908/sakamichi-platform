@@ -2,8 +2,7 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { Pen, ArrowRight } from 'lucide-react';
 import { GROUP_COLORS } from '@/utils/mock-data';
 
-const API_BASE = 'https://api.sakamichi-tools.cn';
-const CLOUDINARY = 'https://res.cloudinary.com/djoegafjn/image/fetch';
+const API_BASE = 'https://api.46log.com';
 
 // Hex colors for gradient backgrounds (CSS vars can't be used with alpha in linear-gradient)
 const GROUP_HEX: Record<string, string> = {
@@ -43,7 +42,7 @@ function extractImages(content: string, max = 5): string[] {
 }
 
 function cloudinaryUrl(url: string, width: number): string {
-  return `${CLOUDINARY}/w_${width},q_auto,f_auto,c_limit/${encodeURIComponent(url)}`;
+  return url;
 }
 
 function mapGroup(groupName: string): 'nogizaka' | 'sakurazaka' | 'hinatazaka' {
@@ -105,10 +104,51 @@ function HeroFallback() {
   );
 }
 
+function HeroSkeleton() {
+  return (
+    <section className="relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2 text-[var(--text-tertiary)]">
+            <Pen size={14} />
+            <h2 className="text-xs font-semibold uppercase tracking-wider">最新博客翻译</h2>
+          </div>
+          <span className="flex items-center gap-1 text-xs font-medium text-[var(--text-tertiary)]">
+            查看全部 <ArrowRight size={12} />
+          </span>
+        </div>
+
+        <div className="relative rounded-2xl overflow-hidden border border-[var(--border-primary)] animate-pulse">
+          <div className="flex flex-col sm:flex-row">
+            <div className="sm:w-[40%] w-full aspect-[4/3] sm:aspect-auto sm:min-h-[320px] bg-[var(--bg-tertiary)] shrink-0" />
+            <div className="flex-1 flex flex-col justify-center p-6 sm:p-8 bg-[var(--bg-secondary)]">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="h-5 w-16 rounded-full bg-[var(--border-secondary)]" />
+                <div className="h-3 w-12 rounded bg-[var(--border-secondary)]" />
+              </div>
+              <div className="space-y-3 mb-4">
+                <div className="h-7 w-3/4 rounded bg-[var(--border-secondary)]" />
+                <div className="h-7 w-1/2 rounded bg-[var(--border-secondary)]" />
+              </div>
+              <div className="space-y-2 mb-6 max-w-lg">
+                <div className="h-4 w-full rounded bg-[var(--border-secondary)]" />
+                <div className="h-4 w-11/12 rounded bg-[var(--border-secondary)]" />
+              </div>
+              <div className="h-4 w-24 rounded bg-[var(--border-secondary)]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HomeBlogSection() {
   const [blogs, setBlogs] = useState<BlogItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [current, setCurrent] = useState(0);
+  const [contentVisible, setContentVisible] = useState(false);
+  const [hasStaticHero, setHasStaticHero] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -165,20 +205,54 @@ export default function HomeBlogSection() {
     touchStart.current = null;
   }, [blogs.length]);
 
-  if (loading) {
-    return (
-      <section className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 animate-pulse">
-          <div className="rounded-2xl bg-[var(--bg-tertiary)]" style={{ minHeight: '220px' }} />
-        </div>
-      </section>
-    );
-  }
+  useEffect(() => {
+    setHasStaticHero(Boolean(document.getElementById('hero-static')));
+  }, []);
 
-  if (blogs.length === 0) return <HeroFallback />;
+  // Keep build-time static hero as fallback when client fetch has no displayable content
+  useEffect(() => {
+    const staticHero = document.getElementById('hero-static');
+    if (!staticHero) return;
+
+    if (loading || blogs.length > 0) {
+      staticHero.style.display = 'none';
+      return;
+    }
+
+    staticHero.style.removeProperty('display');
+  }, [loading, blogs.length]);
+
+  useEffect(() => {
+    if (loading || blogs.length === 0) {
+      setContentVisible(false);
+      return;
+    }
+
+    let firstFrame = 0;
+    let secondFrame = 0;
+
+    firstFrame = requestAnimationFrame(() => {
+      secondFrame = requestAnimationFrame(() => {
+        setContentVisible(true);
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(firstFrame);
+      cancelAnimationFrame(secondFrame);
+    };
+  }, [loading, blogs.length]);
+
+  // Don't render skeleton while loading — SSG static hero provides the visual content
+  if (loading) return <HeroSkeleton />;
+
+  if (blogs.length === 0) return hasStaticHero ? null : <HeroFallback />;
 
   return (
-    <section className="relative overflow-hidden">
+    <section
+      className="relative overflow-hidden transition-opacity duration-500 ease-out"
+      style={{ opacity: contentVisible ? 1 : 0 }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-3">
@@ -216,6 +290,7 @@ export default function HomeBlogSection() {
                       alt={blog.title}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       loading={idx < 2 ? 'eager' : 'lazy'}
+                      fetchPriority={idx === 0 ? 'high' : 'auto'}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-white text-5xl font-bold" style={{ backgroundColor: hex }}>

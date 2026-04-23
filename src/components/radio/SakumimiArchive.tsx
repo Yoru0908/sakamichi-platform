@@ -26,7 +26,7 @@ interface SakumimiIndex {
 }
 
 // ─── Constants ───────────────────────────────────
-const INDEX_URL = 'https://alist.sakamichi-tools.cn/d/sakumimi/sakumimi_index.json?t=' + Date.now();
+const INDEX_URL = 'https://alist.46log.com/d/sakumimi/sakumimi_index.json?t=' + Date.now();
 const MEMBERS_URL = '/data/member-images.json';
 const PAGE_SIZE = 12;
 
@@ -50,6 +50,7 @@ export default function SakumimiArchive() {
 
   // Audio player
   const [playingEp, setPlayingEp] = useState<number | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [audioProgress, setAudioProgress] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
   const [audioCurrentTime, setAudioCurrentTime] = useState(0);
@@ -187,9 +188,15 @@ export default function SakumimiArchive() {
   const togglePlay = useCallback((ep: Episode) => {
     if (!ep.audio_url) return;
     if (playingEp === ep.ep) {
-      audioRef.current?.pause();
-      setPlayingEp(null);
-      stopProgressTracking();
+      if (isPlaying) {
+        audioRef.current?.pause();
+        setIsPlaying(false);
+        stopProgressTracking();
+      } else {
+        audioRef.current?.play().catch(() => {});
+        setIsPlaying(true);
+        startProgressTracking();
+      }
     } else {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -197,15 +204,16 @@ export default function SakumimiArchive() {
       }
       const audio = new Audio(ep.audio_url);
       audio.play().catch(() => {});
-      audio.onended = () => { setPlayingEp(null); stopProgressTracking(); setAudioProgress(0); };
+      audio.onended = () => { setPlayingEp(null); setIsPlaying(false); stopProgressTracking(); setAudioProgress(0); };
       audio.onloadedmetadata = () => setAudioDuration(audio.duration);
       audioRef.current = audio;
       setPlayingEp(ep.ep);
+      setIsPlaying(true);
       setAudioProgress(0);
       setAudioCurrentTime(0);
       startProgressTracking();
     }
-  }, [playingEp, stopProgressTracking, startProgressTracking]);
+  }, [playingEp, isPlaying, stopProgressTracking, startProgressTracking]);
 
   const seekAudio = useCallback((delta: number) => {
     const a = audioRef.current;
@@ -451,8 +459,8 @@ export default function SakumimiArchive() {
                       className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-medium text-white transition-opacity hover:opacity-90"
                       style={{ backgroundColor: BRAND_PINK }}
                     >
-                      {playingEp === ep.ep ? <Pause size={10} /> : <Play size={10} />}
-                      {playingEp === ep.ep ? '停止' : '再生'}
+                      {playingEp === ep.ep && isPlaying ? <Pause size={10} /> : <Play size={10} />}
+                      {playingEp === ep.ep && isPlaying ? '一時停止' : '再生'}
                     </button>
                   )}
 

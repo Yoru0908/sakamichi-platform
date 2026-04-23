@@ -1,0 +1,14 @@
+name = "geo-auth-worker"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Routes: Tunnel domains that need JP geo-fence protection
+# Excludes: api.46log.com (handled by blog-proxy), 46log.com (CF Pages)
+routes = [
+  { pattern = "alist.46log.com/*", zone_name = "46log.com" },
+  { pattern = "radio.46log.com/*", zone_name = "46log.com" },
+  { pattern = "videodownload.46log.com/*", zone_name = "46log.com" },
+]
+
+# GEO_PASS_SECRET set via: npx wrangler secret put GEO_PASS_SECRET

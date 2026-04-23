@@ -7,6 +7,20 @@ import LoginForm from '@/components/auth/LoginForm';
 <BaseLayout title="登录 - Sakamichi Tools">
   <div class="min-h-[calc(100vh-7rem)] flex items-center justify-center py-10 px-4">
     <div class="w-full flex flex-col items-center gap-4">
+      {Astro.url.searchParams.get('reason') === 'geo_restricted' && (
+        <div class="max-w-sm w-full">
+          <div class="rounded-lg border border-amber-500/30 bg-amber-500/5 p-3">
+            <p class="text-[11px] text-amber-200 leading-relaxed">
+              <strong>地域制限について：</strong>
+              日本国内からのアクセスにはアカウント認証が必要です。
+              ログイン後、管理者の承認を経てすべてのコンテンツにアクセスできます。
+            </p>
+            <p class="text-[10px] text-amber-200/60 mt-1">
+              日本地区访问需要登录认证。登录后需管理员审批方可无限制访问全部内容。
+            </p>
+          </div>
+        </div>
+      )}
       <LoginForm client:load />
 
       <!-- Access notice -->

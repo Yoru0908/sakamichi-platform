@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: 'Sakamichi Tools',
   description: '坂道系列综合工具平台',
-  url: 'https://sakamichi-tools.cn',
+  url: 'https://46log.com',
   author: 'Sakamichi Tools',
   
   colors: {
@@ -33,7 +33,7 @@ export const SITE_CONFIG = {
 } as const;
 
 export const API_CONFIG = {
-  baseUrl: process.env.PUBLIC_API_URL || 'https://api.sakamichi-tools.cn',
+  baseUrl: 'https://api.46log.com',
   endpoints: {
     blog: '/api/blog',
     messages: '/api/messages',

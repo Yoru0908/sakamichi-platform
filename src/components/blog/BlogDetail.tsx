@@ -1,6 +1,8 @@
 /** Blog detail page — content + sidebar */
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { Download } from 'lucide-react';
+import SharePanel from '@/components/shared/SharePanel';
 import { fetchBlogById, fetchMemberBlogs, fetchMemberImages, type BlogItem } from './blog-api';
 import {
   getGroupDisplayName, getGroupColor, getCloudinaryUrl,
@@ -94,12 +96,24 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
   });
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [fabOpen, setFabOpen] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [mobileGalleryUrls, setMobileGalleryUrls] = useState<string[] | null>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
   const selectorRef = useRef<HTMLDivElement>(null);
 
   // Persist bilingual mode
   useEffect(() => {
     try { localStorage.setItem('bilingualMode', bilingualMode); } catch {}
   }, [bilingualMode]);
+
+  // Lock body scroll when mobile gallery is open
+  useEffect(() => {
+    if (mobileGalleryUrls) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = prev; };
+    }
+  }, [mobileGalleryUrls]);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -164,6 +178,49 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
     window.history.back();
   }, []);
 
+  const handleDownloadImages = useCallback(async () => {
+    if (!blog) return;
+    const urls = extractImageUrls(blog.translated_content || '');
+    if (urls.length === 0) { alert('没有找到可下载的图片'); return; }
+
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      setMobileGalleryUrls(urls);
+      return;
+    }
+
+    setDownloading(true);
+    try {
+      const JSZip = (await import('jszip')).default;
+      const zip = new JSZip();
+      let success = 0;
+      for (let i = 0; i < urls.length; i++) {
+        try {
+          const proxyUrl = urls[i].replace('https://media.46log.com/', 'https://api.46log.com/api/media/');
+          const res = await fetch(proxyUrl);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const blob = await res.blob();
+          const ext = blob.type.includes('png') ? 'png' : 'jpg';
+          zip.file(`${String(i + 1).padStart(2, '0')}.${ext}`, blob);
+          success++;
+        } catch (e) {
+          console.warn(`图片 ${i + 1} 下载失败:`, e);
+        }
+      }
+      if (success === 0) { alert('图片下载失败，请检查网络'); return; }
+      const zipBlob = await zip.generateAsync({ type: 'blob', compression: 'DEFLATE', compressionOptions: { level: 6 } });
+      const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      const safeTitle = (blog.title || 'photos').slice(0, 20).replace(/[/\\?%*:|"<>]/g, '');
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(zipBlob);
+      a.download = `${blog.member || ''}_${date}_${safeTitle}.zip`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    } finally {
+      setDownloading(false);
+    }
+  }, [blog]);
+
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
@@ -206,15 +263,16 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
   });
 
   // Image count for download button
-  const imageCount = extractImageUrls(blog.translated_content || '').length;
+  const imageUrls = extractImageUrls(blog.translated_content || '');
+  const imageCount = imageUrls.length;
 
   // Check if content has bilingual markup (p[lang] tags)
   const hasBilingualContent = !!blog.bilingual_content;
 
   return (
     <div>
-      {/* Back button bar + bilingual desktop selector */}
-      <div className="mb-6 flex items-center justify-between">
+      {/* Back button bar — desktop only (mobile uses swipe) */}
+      <div className="mb-6 hidden md:flex items-center justify-between">
         <button
           onClick={handleBack}
           className="inline-flex items-center gap-2 text-sm transition-colors"
@@ -225,29 +283,10 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
           </svg>
           返回
         </button>
-        <div className="flex items-center gap-4">
-          {/* Desktop bilingual selector */}
-          {hasBilingualContent && (
-            <div ref={selectorRef} className={`language-selector${dropdownOpen ? ' open' : ''}`}>
-              <button className={`selector-button${dropdownOpen ? ' open' : ''}`} onClick={(e) => { e.stopPropagation(); setDropdownOpen(d => !d); }}>
-                <span>{MODE_LABELS[bilingualMode]}</span>
-                <svg className="selector-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><polyline points="6 9 12 15 18 9" /></svg>
-              </button>
-              <div className="dropdown-menu">
-                {MODES.map(mode => (
-                  <div key={mode} className={`dropdown-item${mode === bilingualMode ? ' selected' : ''}`} onClick={() => { setBilingualMode(mode); setDropdownOpen(false); }}>
-                    <span>{MODE_LABELS[mode]}</span>
-                    {mode === bilingualMode && <svg className="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><polyline points="20 6 9 17 4 12" /></svg>}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-          <div className="text-sm" style={{ color: 'var(--text-tertiary)' }}>
-            <a href={`#${groupKey}`} onClick={e => { e.preventDefault(); onNavigate(`#${groupKey}`); }} style={{ color: 'inherit' }}>{groupName}</a>
-            <span> / </span>
-            <a href={`#${groupKey}/member/${encodeURIComponent(blog.member)}`} onClick={e => { e.preventDefault(); onNavigate(`#${groupKey}/member/${encodeURIComponent(blog.member)}`); }} style={{ color: 'inherit' }}>{blog.member}</a>
-          </div>
+        <div className="text-sm" style={{ color: 'var(--text-tertiary)' }}>
+          <a href={`#${groupKey}`} onClick={e => { e.preventDefault(); onNavigate(`#${groupKey}`); }} style={{ color: 'inherit' }}>{groupName}</a>
+          <span> / </span>
+          <a href={`#${groupKey}/member/${encodeURIComponent(blog.member)}`} onClick={e => { e.preventDefault(); onNavigate(`#${groupKey}/member/${encodeURIComponent(blog.member)}`); }} style={{ color: 'inherit' }}>{blog.member}</a>
         </div>
       </div>
 
@@ -256,33 +295,101 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
         {/* Article */}
         <article style={{ background: 'var(--bg-primary)', padding: 32, borderRadius: 8 }}>
           <header className="mb-8 pb-6" style={{ borderBottom: '1px solid var(--border-primary)' }}>
-            <h1 className="text-3xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>{blog.title}</h1>
-            <div className="flex items-center gap-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
+            <h1 className="text-3xl font-bold mb-3 text-center md:text-left" style={{ color: 'var(--text-primary)' }}>{blog.title}</h1>
+            {/* Meta row */}
+            <div className="flex items-center justify-center md:justify-start gap-4 text-sm mb-3" style={{ color: 'var(--text-secondary)' }}>
               <span className="font-medium">{blog.member}</span>
               <span>·</span>
               <span>{formattedDate}</span>
               <span>·</span>
               <span>{groupName}</span>
             </div>
+            {/* Action row — desktop only */}
+            <div className="hidden md:flex items-center gap-2 blog-action-row">
+              {hasBilingualContent && (
+                <div ref={selectorRef} className={`language-selector${dropdownOpen ? ' open' : ''}`}>
+                  <button className={`selector-button${dropdownOpen ? ' open' : ''}`} onClick={(e) => { e.stopPropagation(); setDropdownOpen(d => !d); }}>
+                    <span>{MODE_LABELS[bilingualMode]}</span>
+                    <svg className="selector-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><polyline points="6 9 12 15 18 9" /></svg>
+                  </button>
+                  <div className="dropdown-menu">
+                    {MODES.map(mode => (
+                      <div key={mode} className={`dropdown-item${mode === bilingualMode ? ' selected' : ''}`} onClick={() => { setBilingualMode(mode); setDropdownOpen(false); }}>
+                        <span>{MODE_LABELS[mode]}</span>
+                        {mode === bilingualMode && <svg className="check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><polyline points="20 6 9 17 4 12" /></svg>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {imageCount > 0 && (
+                <button
+                  onClick={handleDownloadImages}
+                  disabled={downloading}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 5, flexShrink: 0,
+                    padding: '6px 12px', fontSize: 13, cursor: 'pointer', whiteSpace: 'nowrap',
+                    background: 'var(--bg-primary)', border: '1px solid var(--border-primary)',
+                    borderRadius: 8, color: 'var(--text-secondary)',
+                  }}
+                  title={`下载全部图片 (${imageCount}张)`}
+                >
+                  <Download size={13} />
+                  {downloading ? '打包中...' : `下载图片 (${imageCount})`}
+                </button>
+              )}
+              {/* Share — far right */}
+              <div style={{ marginLeft: 'auto' }}>
+                <SharePanel
+                  config={{
+                    url: typeof window !== 'undefined' ? window.location.href : '',
+                    title: blog.title,
+                  }}
+                  className="text-xs"
+                />
+              </div>
+            </div>
           </header>
 
           <div
             ref={contentRef}
             className={`blog-content-official blog-detail-body${bilingualMode === 'chinese' ? ' mode-chinese' : bilingualMode === 'japanese' ? ' mode-japanese' : ''}`}
-            style={{ fontSize: 16, lineHeight: 1.8, color: 'var(--text-primary)' }}
+            style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--text-primary)' }}
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
 
-          <footer className="mt-8 pt-6" style={{ borderTop: '1px solid var(--border-primary)' }}>
+          <footer className="mt-8 pt-6 flex flex-wrap items-center gap-3" style={{ borderTop: '1px solid var(--border-primary)' }}>
             {blog.original_url && (
               <a href={blog.original_url} target="_blank" rel="noopener noreferrer" className="more-btn">查看原文</a>
+            )}
+            {imageCount > 0 && (
+              <button
+                onClick={handleDownloadImages}
+                disabled={downloading}
+                className="more-btn hidden md:block"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}
+              >
+                <Download size={15} />
+                {downloading ? '打包中...' : `下载图片 (${imageCount}张)`}
+              </button>
             )}
           </footer>
         </article>
 
-        {/* Mobile FAB for bilingual mode */}
+        {/* Mobile FAB for bilingual mode + download */}
         <div className={`fab-overlay${fabOpen ? ' show' : ''}`} onClick={() => setFabOpen(false)} />
         <div className={`fab-container${fabOpen ? ' open' : ''}`}>
+          {imageCount > 0 && (
+            <div className="fab-action">
+              <span className="fab-label">下载图片</span>
+              <button
+                className="fab-button"
+                onClick={() => { setFabOpen(false); handleDownloadImages(); }}
+              >
+                <Download size={18} />
+              </button>
+            </div>
+          )}
           {[...MODES].reverse().map(mode => (
             <div key={mode} className="fab-action" data-mode={mode}>
               <span className="fab-label">{MODE_LABELS[mode]}</span>
@@ -411,11 +518,43 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
         </aside>
       </div>
 
+      {/* Mobile image gallery for long-press saving */}
+      {mobileGalleryUrls && (
+        <div
+          ref={galleryRef}
+          onTouchStart={e => e.stopPropagation()}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 9999, background: '#000',
+            overflowY: 'scroll',
+            WebkitOverflowScrolling: 'touch' as any,
+            overscrollBehavior: 'contain',
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 16px', background: '#111', position: 'sticky', top: 0, zIndex: 1 }}>
+            <span style={{ color: '#fff', fontSize: 14 }}>长按图片保存到相册（{mobileGalleryUrls.length} 张）</span>
+            <button
+              onClick={() => setMobileGalleryUrls(null)}
+              style={{ color: '#fff', background: 'none', border: 'none', fontSize: 24, lineHeight: 1, cursor: 'pointer' }}
+            >✕</button>
+          </div>
+          <div style={{ padding: '4px 0' }}>
+            {mobileGalleryUrls.map((url, i) => (
+              <img key={i} src={url} alt={`图片 ${i + 1}`} style={{ width: '100%', display: 'block', marginBottom: 4, touchAction: 'pan-y' }} loading="lazy" />
+            ))}
+          </div>
+        </div>
+      )}
+
       <style>{`
         @media (max-width: 768px) {
-          .blog-detail-layout { grid-template-columns: 1fr !important; }
-          .blog-detail-sidebar { position: static !important; order: -1; }
+          .blog-detail-layout { display: block !important; max-width: 100% !important; overflow-x: hidden !important; }
+          .blog-detail-sidebar { display: none !important; }
+          .blog-detail-layout article { padding: 16px !important; border-radius: 0 !important; max-width: none !important; box-sizing: border-box !important; margin: 0 -16px !important; }
+          .blog-detail-layout article h1 { font-size: 1.25rem !important; word-break: break-word !important; overflow-wrap: break-word !important; }
+          .blog-detail-body .blog-image-wrapper { min-height: 100px !important; }
         }
+        .blog-action-row .selector-button { padding: 6px 12px !important; font-size: 13px !important; }
+        .blog-action-row .language-selector { min-width: auto !important; }
         .blog-detail-body img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; }
         .blog-detail-body .blog-image-wrapper { background: #f5f5f5; border-radius: 8px; min-height: 200px; overflow: hidden; position: relative; }
         .blog-detail-body .blog-image-wrapper img { width: 100%; height: auto; display: block; opacity: 0; transition: opacity 0.3s ease-in; }

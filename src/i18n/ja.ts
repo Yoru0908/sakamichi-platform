@@ -5,6 +5,7 @@ export const ja: Record<TranslationKey, string> = {
   'nav.blog': 'ブログ翻訳',
   'nav.messages': 'MSGアーカイブ',
   'nav.radio': 'ラジオ',
+  'nav.video': '冠番',
   'nav.instagram': 'INSアーカイブ',
   'nav.gallery': 'ギャラリー',
   'nav.photocard': '生写真カード',

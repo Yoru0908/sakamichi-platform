@@ -3,8 +3,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { FileText, ArrowLeft } from 'lucide-astro';
 ---
 
-<BaseLayout title="字幕合并 - Sakamichi Tools">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<BaseLayout title="字幕导出 - Sakamichi Tools">
+  <div id="subtitle-tool-root" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Header -->
     <div class="mb-6">
       <a href="/tools" class="inline-flex items-center gap-1 text-xs text-[var(--text-tertiary)] hover:text-[var(--color-brand-nogi)] transition-colors mb-3">
@@ -31,6 +31,7 @@ import { FileText, ArrowLeft } from 'lucide-astro';
         </button>
         <input id="file-input" type="file" accept=".json,application/json,.srt,.txt,.ass" class="hidden" />
       </div>
+      <div id="parse-status" class="hidden mt-3 px-3 py-2 rounded-lg text-xs font-medium"></div>
       <div class="mt-4 text-xs text-[var(--text-tertiary)] space-y-1">
         <p class="font-semibold text-[var(--text-secondary)]">核心功能：</p>
         <ul class="list-disc list-inside space-y-1 ml-1">

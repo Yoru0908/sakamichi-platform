@@ -1,10 +1,11 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { useStore } from '@nanostores/react';
 import { $auth } from '@/stores/auth';
+import { publishWork } from '@/utils/community-api';
 import {
   Download, Upload, RotateCcw, ChevronDown, ChevronUp,
   Type, Palette, SlidersHorizontal, Loader2,
-  Share2, Bookmark, LogIn, Crop, X, ZoomIn, ZoomOut, Move,
+  Share2, Bookmark, LogIn, Crop, X, ZoomIn, ZoomOut, Move, Check,
 } from 'lucide-react';
 import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.css';
@@ -117,6 +118,7 @@ const GROUP_NAME_IMAGES: Record<GroupStyle, string> = {
 };
 
 const FONT_OPTIONS = [
+  { value: "'UDXinWan', sans-serif", label: 'Default' },
   { value: "'UDXinWan', sans-serif", label: 'UDXinWan (新丸ゴ)' },
   { value: "'mplus1p', sans-serif", label: 'M PLUS 1p' },
   { value: "'Kosugi Maru', sans-serif", label: 'Kosugi Maru' },
@@ -240,11 +242,20 @@ export default function PhotocardGenerator() {
   const [customFonts, setCustomFonts] = useState<{ value: string; label: string }[]>([]);
   const fontUploadRef = useRef<HTMLInputElement>(null);
 
+  // Custom logo upload
+  const [customLogoSrc, setCustomLogoSrc] = useState<string | null>(null);
+  const logoUploadRef = useRef<HTMLInputElement>(null);
+
   // Layout
   const [layout, setLayout] = useState<LayoutPreset>({ ...LAYOUT_PRESETS['櫻坂46'] });
 
   // State
   const [generating, setGenerating] = useState(false);
+  const [publishing, setPublishing] = useState(false);
+  const [mobileImageUrl, setMobileImageUrl] = useState<string | null>(null);
+  const [showPublishConfirm, setShowPublishConfirm] = useState(false);
+  const [allowDownload, setAllowDownload] = useState(true);
+  const [isAnonymous, setIsAnonymous] = useState(false);
   const [publishToast, setPublishToast] = useState<string | null>(null);
   const auth = useStore($auth);
 
@@ -433,100 +444,157 @@ export default function PhotocardGenerator() {
     setShowBorder(true);
     setBorderThickness(1);
     setImageState({ scale: 1, translateX: 0, translateY: 0 });
+    setCustomLogoSrc(null);
   };
 
-  // Canvas-based download (matches original)
+  // Generate canvas from card (reusable for download & publish)
+  const generateCanvas = async (scaleFactor = 3): Promise<HTMLCanvasElement | null> => {
+    if (!cardRef.current) return null;
+    await document.fonts.ready;
+    const rect = cardRef.current.getBoundingClientRect();
+    const canvas = document.createElement('canvas');
+    canvas.width = rect.width * scaleFactor;
+    canvas.height = rect.height * scaleFactor;
+    const ctx = canvas.getContext('2d')!;
+    ctx.scale(scaleFactor, scaleFactor);
+
+    // 1. Draw main image
+    if (imageSrc) {
+      const img = await loadImage(imageSrc);
+      const containerEl = imageContainerRef.current;
+      if (containerEl) {
+        const containerRect = containerEl.getBoundingClientRect();
+        const containerX = containerRect.left - rect.left;
+        const containerY = containerRect.top - rect.top;
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(containerX, containerY, containerRect.width, containerRect.height);
+        ctx.clip();
+        const transformedW = containerRect.width * imageState.scale;
+        const transformedH = containerRect.height * imageState.scale;
+        const drawX = containerX + imageState.translateX + (containerRect.width - transformedW) / 2;
+        const drawY = containerY + imageState.translateY + (containerRect.height - transformedH) / 2;
+        ctx.drawImage(img, drawX, drawY, transformedW, transformedH);
+        ctx.restore();
+      }
+    }
+
+    // 2. Draw info bar
+    const infoBarEl = cardRef.current.querySelector('[data-info-bar]') as HTMLElement;
+    if (infoBarEl) {
+      const infoRect = infoBarEl.getBoundingClientRect();
+      const ibX = infoRect.left - rect.left;
+      const ibY = infoRect.top - rect.top;
+      const ibW = infoRect.width;
+      const ibH = infoRect.height;
+
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(ibX, ibY, ibW, ibH);
+
+      if (showBorder) {
+        ctx.strokeStyle = borderColor;
+        ctx.lineWidth = borderThickness;
+        ctx.strokeRect(ibX, ibY, ibW, ibH);
+      }
+
+      // 3. Draw logos (as images)
+      const drawables = infoBarEl.querySelectorAll('[data-draw]');
+      for (const el of Array.from(drawables)) {
+        const elRect = el.getBoundingClientRect();
+        const dX = elRect.left - rect.left;
+        const dY = elRect.top - rect.top;
+        const drawType = el.getAttribute('data-draw');
+
+        if (drawType === 'image') {
+          const imgEl = el.querySelector('img') || el as HTMLImageElement;
+          if (imgEl instanceof HTMLImageElement && imgEl.complete && imgEl.naturalWidth > 0) {
+            ctx.drawImage(imgEl, dX, dY, elRect.width, elRect.height);
+          }
+        } else if (drawType === 'text') {
+          const cs = getComputedStyle(el as HTMLElement);
+          ctx.fillStyle = cs.color;
+          ctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+          ctx.letterSpacing = cs.letterSpacing;
+          ctx.textBaseline = 'middle';
+
+          const textAlign = cs.textAlign;
+          let tX = dX;
+          if (textAlign === 'right') tX = dX + elRect.width;
+          else if (textAlign === 'center') tX = dX + elRect.width / 2;
+          ctx.textAlign = textAlign as CanvasTextAlign;
+          ctx.fillText((el as HTMLElement).textContent || '', tX, dY + elRect.height / 2);
+        }
+      }
+    }
+    return canvas;
+  };
+
+  // Canvas-based download
   const handleDownload = async () => {
-    if (!cardRef.current) return;
     setGenerating(true);
     try {
-      await document.fonts.ready;
-      const scaleFactor = 3;
-      const rect = cardRef.current.getBoundingClientRect();
-      const canvas = document.createElement('canvas');
-      canvas.width = rect.width * scaleFactor;
-      canvas.height = rect.height * scaleFactor;
-      const ctx = canvas.getContext('2d')!;
-      ctx.scale(scaleFactor, scaleFactor);
-
-      // 1. Draw main image
-      if (imageSrc) {
-        const img = await loadImage(imageSrc);
-        const containerEl = imageContainerRef.current;
-        if (containerEl) {
-          const containerRect = containerEl.getBoundingClientRect();
-          const containerX = containerRect.left - rect.left;
-          const containerY = containerRect.top - rect.top;
-          ctx.save();
-          ctx.beginPath();
-          ctx.rect(containerX, containerY, containerRect.width, containerRect.height);
-          ctx.clip();
-          const transformedW = containerRect.width * imageState.scale;
-          const transformedH = containerRect.height * imageState.scale;
-          const drawX = containerX + imageState.translateX + (containerRect.width - transformedW) / 2;
-          const drawY = containerY + imageState.translateY + (containerRect.height - transformedH) / 2;
-          ctx.drawImage(img, drawX, drawY, transformedW, transformedH);
-          ctx.restore();
-        }
+      const canvas = await generateCanvas(3);
+      if (!canvas) return;
+      const dataUrl = canvas.toDataURL('image/png');
+      const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        setMobileImageUrl(dataUrl);
+      } else {
+        const link = document.createElement('a');
+        link.download = `photocard_${memberName || 'card'}_${Date.now()}.png`;
+        link.href = dataUrl;
+        link.click();
       }
-
-      // 2. Draw info bar
-      const infoBarEl = cardRef.current.querySelector('[data-info-bar]') as HTMLElement;
-      if (infoBarEl) {
-        const infoRect = infoBarEl.getBoundingClientRect();
-        const ibX = infoRect.left - rect.left;
-        const ibY = infoRect.top - rect.top;
-        const ibW = infoRect.width;
-        const ibH = infoRect.height;
-
-        ctx.fillStyle = bgColor;
-        ctx.fillRect(ibX, ibY, ibW, ibH);
-
-        if (showBorder) {
-          ctx.strokeStyle = borderColor;
-          ctx.lineWidth = borderThickness;
-          ctx.strokeRect(ibX, ibY, ibW, ibH);
-        }
-
-        // 3. Draw logos (as images)
-        const drawables = infoBarEl.querySelectorAll('[data-draw]');
-        for (const el of Array.from(drawables)) {
-          const elRect = el.getBoundingClientRect();
-          const dX = elRect.left - rect.left;
-          const dY = elRect.top - rect.top;
-          const drawType = el.getAttribute('data-draw');
-
-          if (drawType === 'image') {
-            const imgEl = el.querySelector('img') || el as HTMLImageElement;
-            if (imgEl instanceof HTMLImageElement && imgEl.complete && imgEl.naturalWidth > 0) {
-              ctx.drawImage(imgEl, dX, dY, elRect.width, elRect.height);
-            }
-          } else if (drawType === 'text') {
-            const cs = getComputedStyle(el as HTMLElement);
-            ctx.fillStyle = cs.color;
-            ctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
-            ctx.letterSpacing = cs.letterSpacing;
-            ctx.textBaseline = 'middle';
-
-            const textAlign = cs.textAlign;
-            let tX = dX;
-            if (textAlign === 'right') tX = dX + elRect.width;
-            else if (textAlign === 'center') tX = dX + elRect.width / 2;
-            ctx.textAlign = textAlign as CanvasTextAlign;
-            ctx.fillText((el as HTMLElement).textContent || '', tX, dY + elRect.height / 2);
-          }
-        }
-      }
-
-      // 4. Download
-      const link = document.createElement('a');
-      link.download = `photocard_${memberName || 'card'}_${Date.now()}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
     } catch (err) {
       console.error('Generation failed:', err);
     } finally {
       setGenerating(false);
+    }
+  };
+
+  // Publish to community
+  const handlePublish = async () => {
+    setPublishing(true);
+    try {
+      // Generate full image (3x)
+      const fullCanvas = await generateCanvas(3);
+      if (!fullCanvas) throw new Error('Canvas generation failed');
+
+      // Generate thumbnail (1x, WebP)
+      const thumbCanvas = await generateCanvas(1);
+
+      // Convert to blobs
+      const fullBlob = await new Promise<Blob>((resolve, reject) => {
+        fullCanvas.toBlob(b => b ? resolve(b) : reject(new Error('toBlob failed')), 'image/png');
+      });
+      let thumbBlob: Blob | undefined;
+      if (thumbCanvas) {
+        thumbBlob = await new Promise<Blob>((resolve, reject) => {
+          thumbCanvas.toBlob(b => b ? resolve(b) : reject(new Error('toBlob failed')), 'image/webp', 0.8);
+        });
+      }
+
+      const result = await publishWork({
+        image: fullBlob,
+        thumbnail: thumbBlob,
+        memberName: memberName,
+        romajiName: romajiName || undefined,
+        groupStyle: group,
+        theme: theme || undefined,
+        allowDownload,
+        anonymous: isAnonymous,
+      });
+
+      setShowPublishConfirm(false);
+      setPublishToast('发布成功！');
+      setTimeout(() => setPublishToast(null), 3000);
+      console.log('Published work:', result.id);
+    } catch (err: any) {
+      console.error('Publish failed:', err);
+      setPublishToast(err.message || '发布失败，请稍后重试');
+      setTimeout(() => setPublishToast(null), 3000);
+    } finally {
+      setPublishing(false);
     }
   };
 
@@ -566,7 +634,7 @@ export default function PhotocardGenerator() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-[5fr_4fr] gap-6">
         {/* === Left: Control Panel === */}
         <div className="space-y-3 order-2 md:order-1">
           {/* 1. Image upload */}
@@ -679,17 +747,44 @@ export default function PhotocardGenerator() {
 
           {/* 6. Font style */}
           <Section title="6. 字体样式" icon={<Type size={12} />}>
+            {/* カスタムロゴ */}
+            <div>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mb-1.5">
+                <span className="text-[10px] font-semibold text-[var(--text-primary)]">自定义Logo</span>
+                <a href="https://onedrive.live.com/?cid=93705e697511183e&id=93705E697511183E%21s4142bd8518f142feb0d37b8b92f42825&resid=93705E697511183E%21s4142bd8518f142feb0d37b8b92f42825&ithint=folder&e=X9pOds&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy85MzcwNWU2OTc1MTExODNlL0VvVzlRa0h4R1A1Q3NOTjdpNUwwS0NVQjBqOUpDNmcxaGpwc1pQLWtPN3hXWnc%5FZT1YOXBPZHM&v=validatepermission" target="_blank" rel="noopener noreferrer" className="text-[10px] text-green-600 hover:underline">(SVG文件下载)</a>
+                <a href="https://www.jyshare.com/more/svgeditor/" target="_blank" rel="noopener noreferrer" className="text-[10px] text-indigo-600 hover:underline">(SVG在线改色工具)</a>
+                <a href="https://www.iloveimg.com/ja/crop-image" target="_blank" rel="noopener noreferrer" className="text-[10px] text-green-600 hover:underline">(PNG裁剪工具)</a>
+              </div>
+              <input ref={logoUploadRef} type="file" accept=".svg,.png,.jpg,.jpeg,.webp" onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (ev) => setCustomLogoSrc(ev.target!.result as string);
+                reader.readAsDataURL(file);
+              }} className="hidden" />
+              <div className="flex items-center gap-2">
+                <button type="button" onClick={() => logoUploadRef.current?.click()}
+                  className="px-3 py-1.5 text-[10px] border border-dashed border-[var(--border-secondary)] rounded-md text-[var(--text-tertiary)] hover:border-[var(--color-brand-sakura)] hover:text-[var(--color-brand-sakura)] transition-colors"
+                >选择文件</button>
+                <span className="text-[10px] text-[var(--text-tertiary)]">{customLogoSrc ? 'Logo已选择' : '未选择'}</span>
+                {customLogoSrc && (
+                  <button type="button" onClick={() => setCustomLogoSrc(null)} className="text-[10px] text-red-400 hover:text-red-600">✕</button>
+                )}
+              </div>
+            </div>
+
+            {/* テーマ / 名前 font selectors */}
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-[10px] text-[var(--text-tertiary)] mb-0.5 block">主题字体</label>
+                <span className="text-[10px] text-[var(--text-tertiary)] mb-0.5 block">主题</span>
                 <select value={themeFont} onChange={(e) => setThemeFont(e.target.value)} className="w-full px-2 py-1 text-[10px] border border-[var(--border-primary)] rounded-md bg-[var(--bg-primary)] text-[var(--text-primary)]">
-                  {allFonts.map((f) => <option key={f.value} value={f.value}>{f.label}</option>)}
+                  {allFonts.map((f, i) => <option key={`${f.value}-${i}`} value={f.value}>{f.label}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-[10px] text-[var(--text-tertiary)] mb-0.5 block">姓名/罗马字字体</label>
+                <span className="text-[10px] text-[var(--text-tertiary)] mb-0.5 block">姓名/罗马字</span>
                 <select value={nameFont} onChange={(e) => setNameFont(e.target.value)} className="w-full px-2 py-1 text-[10px] border border-[var(--border-primary)] rounded-md bg-[var(--bg-primary)] text-[var(--text-primary)]">
-                  {allFonts.map((f) => <option key={f.value} value={f.value}>{f.label}</option>)}
+                  {allFonts.map((f, i) => <option key={`${f.value}-${i}`} value={f.value}>{f.label}</option>)}
                 </select>
               </div>
             </div>
@@ -842,41 +937,60 @@ export default function PhotocardGenerator() {
 
             {/* Community actions */}
             <div className="flex gap-2">
-              {auth.isLoggedIn ? (
-                <>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setPublishToast('发布功能将在社区系统上线后启用');
-                      setTimeout(() => setPublishToast(null), 2500);
-                    }}
-                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-medium border border-[var(--border-primary)] rounded-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] transition-colors"
-                  >
-                    <Share2 size={12} />
-                    发布到社区
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setPublishToast('收藏功能将在社区系统上线后启用');
-                      setTimeout(() => setPublishToast(null), 2500);
-                    }}
-                    className="flex items-center gap-1.5 px-3 py-2 text-[10px] font-medium border border-[var(--border-primary)] rounded-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] transition-colors"
-                  >
-                    <Bookmark size={12} />
-                    收藏
-                  </button>
-                </>
-              ) : (
-                <a
-                  href="/auth/login"
-                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-medium border border-dashed border-[var(--border-secondary)] rounded-lg text-[var(--text-tertiary)] hover:border-[var(--color-brand-sakura)] hover:text-[var(--color-brand-sakura)] transition-colors"
-                >
-                  <LogIn size={12} />
-                  登录后可发布到社区 & 收藏作品
-                </a>
-              )}
+              <button
+                type="button"
+                onClick={() => setShowPublishConfirm(true)}
+                disabled={publishing || !imageSrc}
+                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-medium border border-[var(--border-primary)] rounded-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] transition-colors disabled:opacity-40"
+              >
+                {publishing ? <Loader2 size={12} className="animate-spin" /> : <Share2 size={12} />}
+                {publishing ? '发布中...' : '发布到社区'}
+              </button>
             </div>
+
+            {/* Publish confirm dialog */}
+            {showPublishConfirm && (
+              <div className="border border-[var(--border-primary)] rounded-lg p-3 bg-[var(--bg-secondary)] space-y-2">
+                <p className="text-[11px] font-medium text-[var(--text-primary)]">确认发布到社区</p>
+                <label className="flex items-center gap-2 text-[10px] text-[var(--text-secondary)] cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={allowDownload}
+                    onChange={(e) => setAllowDownload(e.target.checked)}
+                    className="rounded"
+                  />
+                  允许他人下载原图
+                </label>
+                <label className="flex items-center gap-2 text-[10px] text-[var(--text-secondary)] cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={isAnonymous}
+                    onChange={(e) => setIsAnonymous(e.target.checked)}
+                    className="rounded"
+                  />
+                  匿名发布（不显示用户名）
+                </label>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={handlePublish}
+                    disabled={publishing}
+                    className="flex-1 flex items-center justify-center gap-1 px-3 py-1.5 text-[10px] font-medium text-white rounded-lg disabled:opacity-50"
+                    style={{ backgroundColor: 'var(--color-brand-sakura)' }}
+                  >
+                    {publishing ? <Loader2 size={10} className="animate-spin" /> : <Check size={10} />}
+                    确认发布
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowPublishConfirm(false)}
+                    className="px-3 py-1.5 text-[10px] text-[var(--text-tertiary)] border border-[var(--border-primary)] rounded-lg"
+                  >
+                    取消
+                  </button>
+                </div>
+              </div>
+            )}
 
             {/* Toast */}
             {publishToast && (
@@ -952,7 +1066,7 @@ export default function PhotocardGenerator() {
                       }}
                     >
                       <img
-                        src={GROUP_LOGOS[group]}
+                        src={customLogoSrc || GROUP_LOGOS[group]}
                         alt="Logo"
                         style={{ height: `${layout.logoSize}px` }}
                         className="h-auto w-auto"
@@ -1070,6 +1184,37 @@ export default function PhotocardGenerator() {
           </div>
         </div>
       </div>
+
+      {/* Mobile save modal */}
+      {mobileImageUrl && (
+        <div
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          onClick={() => setMobileImageUrl(null)}
+        >
+          <div
+            className="relative bg-white rounded-xl shadow-2xl max-w-sm w-full overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setMobileImageUrl(null)}
+              className="absolute top-2 right-2 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+            >
+              <X size={16} />
+            </button>
+            <img
+              src={mobileImageUrl}
+              alt="生成的卡片"
+              className="w-full h-auto block"
+              style={{ WebkitTouchCallout: 'default' }}
+            />
+            <div className="px-4 py-3 text-center">
+              <p className="text-sm font-semibold text-gray-800">長押しして画像を保存</p>
+              <p className="text-xs text-gray-500 mt-0.5">长按上方图片 → 保存到相册</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
