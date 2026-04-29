@@ -11,6 +11,7 @@ import {
   handleDiscordRedirect,
   handleDiscordCallback,
   handleGoogleRedirect,
+  handleGoogleCalendarConnectRedirect,
   handleGoogleCallback,
 } from './routes/oauth';
 import {
@@ -36,6 +37,7 @@ import {
   handleDeleteWork,
   handleToggleLike,
   handleMyWorks,
+  handleUserWorks,
   handleToggleBookmark,
   handleMyBookmarks,
   handleToggleStamp,
@@ -43,12 +45,23 @@ import {
 import {
   handleListRepoWorks,
   handleCreateRepoWork,
+  handleUpdateRepoWork,
   handleDeleteRepoWork,
   handleRepoReact,
   handleMyRepoWorks,
   handleGetRepoWork,
+  handleGetRepoStats,
 } from './routes/repo';
 import { handleSubmitReport, handleListReports, handleUpdateReport } from './routes/report';
+import {
+  handleGetMiguriEvents,
+  handleCreateMiguriEntries,
+  handleUpdateMiguriEntry,
+  handleDeleteMiguriEntry,
+  handleGetMiguriCalendarIcs,
+  handleGetMiguriGoogleCalendarUrl,
+} from './routes/miguri';
+import { handleMiguriSync, syncMiguriFromSource } from './routes/manage-miguri';
 
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
@@ -93,6 +106,8 @@ export default {
         res = await handleDiscordCallback(req, env);
       } else if (path === '/api/auth/google' && method === 'GET') {
         res = await handleGoogleRedirect(req, env);
+      } else if (path === '/api/auth/google/calendar' && method === 'GET') {
+        res = await handleGoogleCalendarConnectRedirect(req, env);
       } else if (path === '/api/auth/callback/google' && method === 'GET') {
         res = await handleGoogleCallback(req, env);
 
@@ -155,10 +170,31 @@ export default {
         res = await handleListVerifications(req, env);
       } else if (path === '/api/manage/verifications/resolve' && method === 'POST') {
         res = await handleResolveVerification(req, env);
+      } else if (path === '/api/manage/miguri/sync' && method === 'POST') {
+        res = await handleMiguriSync(req, env);
 
       // ── User verification request ──
       } else if (path === '/api/user/request-verification' && method === 'POST') {
         res = await handleRequestVerification(req, env);
+      } else if (path === '/api/miguri/events' && method === 'GET') {
+        res = await handleGetMiguriEvents(req, env);
+      } else if (path === '/api/miguri/entries' && method === 'POST') {
+        res = await handleCreateMiguriEntries(req, env);
+      } else if (path.startsWith('/api/miguri/entries/') && method === 'PUT') {
+        const entryId = path.slice('/api/miguri/entries/'.length);
+        res = await handleUpdateMiguriEntry(req, env, entryId);
+      } else if (path.startsWith('/api/miguri/entries/') && method === 'DELETE') {
+        const entryId = path.slice('/api/miguri/entries/'.length);
+        res = await handleDeleteMiguriEntry(req, env, entryId);
+      } else if (path === '/api/miguri/calendar.ics' && method === 'GET') {
+        res = await handleGetMiguriCalendarIcs(req, env);
+      } else if (path === '/api/miguri/calendar/google-url' && method === 'GET') {
+        res = await handleGetMiguriGoogleCalendarUrl(req, env);
+      }
+
+      // ── Community routes ──
+      else if (path === '/api/community/works' && method === 'GET') {
+        res = await handleListWorks(req, env);
 
       // ── Community routes ──
       } else if (path === '/api/community/works' && method === 'GET') {
@@ -167,6 +203,9 @@ export default {
         res = await handleCreateWork(req, env);
       } else if (path === '/api/community/my-works' && method === 'GET') {
         res = await handleMyWorks(req, env);
+      } else if (path.startsWith('/api/community/users/') && path.endsWith('/works') && method === 'GET') {
+        const userId = path.slice('/api/community/users/'.length, -'/works'.length);
+        res = await handleUserWorks(req, env, userId);
       } else if (path.startsWith('/api/community/works/') && path.endsWith('/like') && method === 'POST') {
         const workId = path.slice('/api/community/works/'.length, -'/like'.length);
         res = await handleToggleLike(req, env, workId);
@@ -197,6 +236,8 @@ export default {
       // ── Repo community routes ──
       } else if (path === '/api/repo/works' && method === 'GET') {
         res = await handleListRepoWorks(req, env);
+      } else if (path === '/api/repo/stats' && method === 'GET') {
+        res = await handleGetRepoStats(req, env);
       } else if (path === '/api/repo/works' && method === 'POST') {
         res = await handleCreateRepoWork(req, env);
       } else if (path === '/api/repo/my-works' && method === 'GET') {
@@ -204,6 +245,9 @@ export default {
       } else if (path.startsWith('/api/repo/works/') && path.endsWith('/react') && method === 'POST') {
         const workId = path.slice('/api/repo/works/'.length, -'/react'.length);
         res = await handleRepoReact(req, env, workId);
+      } else if (path.startsWith('/api/repo/works/') && method === 'PUT') {
+        const workId = path.slice('/api/repo/works/'.length);
+        res = await handleUpdateRepoWork(req, env, workId);
       } else if (path.startsWith('/api/repo/works/') && method === 'GET') {
         const workId = path.slice('/api/repo/works/'.length);
         res = await handleGetRepoWork(req, env, workId);
@@ -268,5 +312,12 @@ export default {
       WHERE status IN ('expired', 'cancelled') AND updated_at < datetime('now', '-180 days')
     `).run();
     console.log(`[Cron] Cleaned ${cleanSubs.meta.changes} old subscriptions`);
+
+    try {
+      const miguriResult = await syncMiguriFromSource(env);
+      console.log(`[Cron] Miguri synced ${miguriResult.eventCount} events (${miguriResult.slotCount} slots, ${miguriResult.slotMemberCount} slot members)`);
+    } catch (err) {
+      console.error('[Cron] Miguri sync failed:', err);
+    }
   },
 };

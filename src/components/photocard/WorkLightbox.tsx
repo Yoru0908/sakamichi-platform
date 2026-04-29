@@ -9,6 +9,7 @@ import { useStore } from '@nanostores/react';
 import { $auth } from '@/stores/auth';
 import { toggleLike, deleteWork, toggleBookmark, toggleStamp, STAMP_DEFS } from '@/utils/community-api';
 import type { CommunityWork, StampCounts, StampType } from '@/utils/community-api';
+import { buildPhotocardAuthorPath, buildPhotocardWorkPath } from './photocard-community-links';
 
 const groupColors: Record<string, string> = {
   '櫻坂46': 'var(--color-brand-sakura)',
@@ -69,6 +70,7 @@ export default function WorkLightbox({ work, onClose, onLikeUpdate, onBookmarkUp
   const isOwner = auth.isLoggedIn && auth.userId === work.author.id;
   const isAdmin = auth.role === 'admin';
   const canDelete = isOwner || isAdmin;
+  const authorPath = buildPhotocardAuthorPath(work.author.id);
 
   const handleLike = async () => {
     if (!auth.isLoggedIn || liking) return;
@@ -234,7 +236,11 @@ export default function WorkLightbox({ work, onClose, onLikeUpdate, onBookmarkUp
               <p className="text-sm text-[var(--text-secondary)] mt-0.5">{work.theme}</p>
             )}
             <p className="text-xs text-[var(--text-tertiary)] mt-1">
-              by {work.author.displayName} · {formattedDate}
+              {authorPath ? (
+                <a href={authorPath} onClick={(e) => e.stopPropagation()} className="hover:underline text-[var(--text-secondary)]">by {work.author.displayName}</a>
+              ) : (
+                <span>by {work.author.displayName}</span>
+              )} · {formattedDate}
             </p>
           </div>
 
@@ -308,11 +314,11 @@ export default function WorkLightbox({ work, onClose, onLikeUpdate, onBookmarkUp
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-2 mt-3">
+          <div className="grid grid-cols-2 gap-2 mt-3 sm:flex sm:flex-wrap sm:items-center">
             <button
               onClick={handleLike}
               disabled={!auth.isLoggedIn || liking}
-              className={`flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg border transition-colors ${
+              className={`w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 text-sm rounded-lg border transition-colors whitespace-nowrap ${
                 work.liked
                   ? 'border-red-200 bg-red-50 text-red-500 dark:border-red-800 dark:bg-red-900/20'
                   : 'border-[var(--border-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
@@ -327,7 +333,7 @@ export default function WorkLightbox({ work, onClose, onLikeUpdate, onBookmarkUp
               <button
                 onClick={handleDownload}
                 disabled={downloading}
-                className="flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg border border-[var(--border-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors disabled:opacity-50"
+                className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 text-sm rounded-lg border border-[var(--border-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors disabled:opacity-50 whitespace-nowrap"
               >
                 <Download size={14} />
                 {downloading ? '...' : '下载原图'}
@@ -337,7 +343,7 @@ export default function WorkLightbox({ work, onClose, onLikeUpdate, onBookmarkUp
             <button
               onClick={handleBookmark}
               disabled={!auth.isLoggedIn || bookmarking}
-              className={`flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg border transition-colors ${
+              className={`w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2 text-sm rounded-lg border transition-colors whitespace-nowrap ${
                 work.bookmarked
                   ? 'border-amber-200 bg-amber-50 text-amber-600 dark:border-amber-800 dark:bg-amber-900/20'
                   : 'border-[var(--border-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
@@ -350,18 +356,20 @@ export default function WorkLightbox({ work, onClose, onLikeUpdate, onBookmarkUp
 
             <SharePanel
               config={{
-                url: `${typeof window !== 'undefined' ? window.location.origin : 'https://46log.com'}/photocard?id=${work.id}`,
+                url: `${typeof window !== 'undefined' ? window.location.origin : 'https://46log.com'}${buildPhotocardWorkPath(work.id)}`,
                 title: `${work.memberName} (${work.groupStyle}) — 生写卡片`,
                 imageUrl: work.fullImageUrl,
               }}
+              className="w-full sm:w-auto"
+              buttonClassName="w-full sm:w-auto justify-center whitespace-nowrap"
             />
 
-            <div className="flex-1" />
+            <div className="hidden sm:block sm:flex-1" />
 
             {auth.isLoggedIn && !canDelete && (
               <button
                 onClick={() => setShowReport(true)}
-                className="flex items-center gap-1 px-2 py-2 text-xs rounded-lg text-[var(--text-tertiary)] hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                className="w-full sm:w-auto flex items-center justify-center gap-1 px-2 py-2 text-xs rounded-lg text-[var(--text-tertiary)] hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors whitespace-nowrap"
                 title="举报"
               >
                 <Flag size={12} />
@@ -372,7 +380,7 @@ export default function WorkLightbox({ work, onClose, onLikeUpdate, onBookmarkUp
               <button
                 onClick={handleDelete}
                 disabled={deleting}
-                className={`flex items-center gap-1.5 px-3 py-2 text-sm rounded-lg transition-colors ${
+                className={`w-full sm:w-auto flex items-center justify-center gap-1.5 px-3 py-2 text-sm rounded-lg transition-colors whitespace-nowrap ${
                   confirmDelete
                     ? 'bg-red-500 text-white'
                     : 'text-[var(--text-tertiary)] hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20'

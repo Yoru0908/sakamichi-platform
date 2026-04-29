@@ -1,8 +1,10 @@
-import type { Env, UserRow } from '../types';
-import { toPublicUser } from '../types';
-import { signAccessToken } from '../utils/jwt';
-import { setCookies } from '../utils/response';
-import { generateGeoPass, shouldIssueGeoPass } from '../utils/geo-pass';
+import type { Env, UserRow } from '../types.ts';
+import { toPublicUser } from '../types.ts';
+import { signAccessToken } from '../utils/jwt.ts';
+import { setCookies } from '../utils/response.ts';
+import { generateGeoPass, shouldIssueGeoPass } from '../utils/geo-pass.ts';
+import { getAuthUser } from './preferences.ts';
+import { buildGoogleAuthState, parseGoogleAuthState, saveGoogleCalendarConnection, syncAllMiguriToGoogleCalendar } from './google-calendar.ts';
 
 /** Get primary site URL from comma-separated CORS_ORIGIN */
 function getSiteUrl(env: Env): string {
@@ -74,7 +76,11 @@ export async function handleDiscordCallback(req: Request, env: Env): Promise<Res
 
 export async function handleGoogleRedirect(req: Request, env: Env): Promise<Response> {
   const origin = new URL(req.url).searchParams.get('origin') || getSiteUrl(env);
-  const state = encodeURIComponent(origin);
+  const state = buildGoogleAuthState({
+    origin,
+    action: 'login',
+    returnTo: '/',
+  });
   const params = new URLSearchParams({
     client_id: env.GOOGLE_CLIENT_ID,
     redirect_uri: env.GOOGLE_REDIRECT_URI,
@@ -86,11 +92,33 @@ export async function handleGoogleRedirect(req: Request, env: Env): Promise<Resp
   return Response.redirect(`https://accounts.google.com/o/oauth2/v2/auth?${params}`, 302);
 }
 
+export async function handleGoogleCalendarConnectRedirect(req: Request, env: Env): Promise<Response> {
+  const url = new URL(req.url);
+  const origin = url.searchParams.get('origin') || getSiteUrl(env);
+  const returnTo = url.searchParams.get('returnTo') || '/prototypes/miguri';
+  const state = buildGoogleAuthState({
+    origin,
+    action: 'calendar_connect',
+    returnTo,
+  });
+  const params = new URLSearchParams({
+    client_id: env.GOOGLE_CLIENT_ID,
+    redirect_uri: env.GOOGLE_REDIRECT_URI,
+    response_type: 'code',
+    scope: 'openid email profile https://www.googleapis.com/auth/calendar.events',
+    state,
+    access_type: 'offline',
+    prompt: 'consent',
+    include_granted_scopes: 'true',
+  });
+  return Response.redirect(`https://accounts.google.com/o/oauth2/v2/auth?${params}`, 302);
+}
+
 export async function handleGoogleCallback(req: Request, env: Env): Promise<Response> {
   const url = new URL(req.url);
   const code = url.searchParams.get('code');
-  const originFromState = decodeURIComponent(url.searchParams.get('state') || '');
-  const redirectBase = validateOrigin(originFromState, env) || getSiteUrl(env);
+  const authState = parseGoogleAuthState(url.searchParams.get('state'));
+  const redirectBase = validateOrigin(authState.origin, env) || getSiteUrl(env);
   if (!code) return Response.redirect(`${redirectBase}/auth/login?error=missing_code`, 302);
 
   const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
@@ -107,7 +135,7 @@ export async function handleGoogleCallback(req: Request, env: Env): Promise<Resp
 
   if (!tokenRes.ok) return Response.redirect(`${redirectBase}/auth/login?error=token_failed`, 302);
 
-  const tokenData = await tokenRes.json() as { access_token: string };
+  const tokenData = await tokenRes.json() as { access_token: string; refresh_token?: string; scope?: string; expires_in?: number };
 
   const userRes = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
     headers: { Authorization: `Bearer ${tokenData.access_token}` },
@@ -118,6 +146,27 @@ export async function handleGoogleCallback(req: Request, env: Env): Promise<Resp
   const googleUser = await userRes.json() as {
     id: string; email: string; name?: string; picture?: string;
   };
+
+  if (authState.action === 'calendar_connect') {
+    const auth = await getAuthUser(req, env);
+    if (!auth?.userId) {
+      return Response.redirect(`${redirectBase}/auth/login?error=calendar_login_required`, 302);
+    }
+
+    const expiresAt = new Date(Date.now() + Math.max(300, Number(tokenData.expires_in || 3600)) * 1000).toISOString();
+    await saveGoogleCalendarConnection(env, auth.userId, {
+      googleSub: googleUser.id,
+      googleEmail: googleUser.email,
+      refreshToken: tokenData.refresh_token || null,
+      accessToken: tokenData.access_token,
+      accessTokenExpiresAt: expiresAt,
+      scope: tokenData.scope || '',
+      calendarId: 'primary',
+    });
+    await syncAllMiguriToGoogleCalendar(env, auth.userId);
+
+    return Response.redirect(`${redirectBase}${authState.returnTo}?googleCalendar=connected`, 302);
+  }
 
   return await handleOAuthUser(req, env, {
     provider: 'google',

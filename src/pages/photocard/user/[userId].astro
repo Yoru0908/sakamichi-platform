@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GeoPassGate from '@/components/shared/GeoPassGate';
+import PhotocardUserWorksPage from '@/components/photocard/PhotocardUserWorksPage';
+
+export function getStaticPaths() {
+  return [];
+}
+
+const { userId } = Astro.params;
+---
+
+<BaseLayout title="创作者作品 - Sakamichi Tools">
+  <GeoPassGate client:load />
+  {userId && <PhotocardUserWorksPage client:load userId={userId} />}
+</BaseLayout>

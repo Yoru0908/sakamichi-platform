@@ -9,7 +9,8 @@ export const en: Record<TranslationKey, string> = {
   'nav.instagram': 'INS Archive',
   'nav.gallery': 'Gallery',
   'nav.photocard': 'Photocard',
-  'nav.repo': 'Repo',
+  'nav.miguri': 'Miguri Manager',
+  'nav.repo': 'Miguri Repo',
   'nav.tools': 'Tools',
   'nav.tools.photocard': 'Photocard Generator',
   'nav.tools.msg_generator': 'MSG Style Generator',
@@ -17,6 +18,7 @@ export const en: Record<TranslationKey, string> = {
   'nav.tools.subtitle_merge': 'Subtitle Merge',
   'nav.tools.srt_fixer': 'SRT Timeline Fixer',
   'nav.tools.fad_effect': 'FAD Effect',
+  'nav.tools.ticket_form': 'Ticket Form Tool',
   'nav.login': 'Login',
   'nav.register': 'Register',
 

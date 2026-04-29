@@ -58,6 +58,8 @@ const year = new Date().getFullYear().toString();
             <li>
               <a
                 href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
                 class="text-sm text-[var(--text-secondary)] hover:text-[var(--color-brand-nogi)] transition-colors"
               >
                 {t(link.labelKey, lang)}
@@ -92,9 +94,13 @@ const year = new Date().getFullYear().toString();
       <p class="text-xs text-[var(--text-tertiary)] leading-relaxed max-w-3xl">
         {t('footer.disclaimer', lang)}
       </p>
-      <p class="mt-4 text-xs text-[var(--text-tertiary)]">
-        {t('footer.copyright', lang, { year })}
-      </p>
+      <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[var(--text-tertiary)]">
+        <span>{t('footer.copyright', lang, { year })}</span>
+        <span class="hidden sm:inline">·</span>
+        <span>Sakamichi Tools — A fan platform for Sakamichi Series blog translations, MSG archive, radio streaming, and creative tools.</span>
+        <a href="/privacy" class="underline hover:text-[var(--text-secondary)]">Privacy Policy</a>
+        <a href="/terms" class="underline hover:text-[var(--text-secondary)]">Terms of Service</a>
+      </div>
     </div>
   </div>
 </footer>

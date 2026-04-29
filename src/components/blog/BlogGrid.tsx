@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import BlogCard from './BlogCard';
-import { fetchBlogs, fetchGroupMembers, searchBlogs, type BlogItem, type GroupMembersData } from './blog-api';
+import { fetchBlogs, fetchGroupMembers, fetchGroupBlogsForLatestDates, searchBlogs, type BlogItem, type GroupMembersData } from './blog-api';
 import { getGroupDisplayName, formatBlogDate, ALL_PAGE_SIZE, PAGE_SIZE } from './blog-config';
+import { collectLatestMemberDateLabels, countMembersMissingLatestDates, normalizeMemberName } from './blog-member-latest-dates';
 
 interface Props {
   group: string;
@@ -21,6 +22,7 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
   const [totalPages, setTotalPages] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [groupData, setGroupData] = useState<GroupMembersData | null>(null);
+  const [latestDateBlogs, setLatestDateBlogs] = useState<BlogItem[]>([]);
   const [memberSelect, setMemberSelect] = useState(memberFilter || '');
   const [searchResults, setSearchResults] = useState<BlogItem[] | null>(null);
   const [searchCount, setSearchCount] = useState(0);
@@ -79,12 +81,42 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
     }
   }, [group]);
 
+  useEffect(() => {
+    if (group === 'all') {
+      setLatestDateBlogs([]);
+      return;
+    }
+
+    if (!groupData || countMembersMissingLatestDates(groupData) === 0) {
+      setLatestDateBlogs([]);
+      return;
+    }
+
+    let cancelled = false;
+    fetchGroupBlogsForLatestDates(group)
+      .then(data => {
+        if (!cancelled) {
+          setLatestDateBlogs(data);
+        }
+      })
+      .catch(error => {
+        if (!cancelled) {
+          console.error('[BlogGrid] 加载成员最新时间兜底数据失败:', error);
+          setLatestDateBlogs([]);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [group, groupData]);
 
   // Reset on group change
   useEffect(() => {
     if (prevGroupRef.current !== group) {
       setPage(1);
       setBlogs([]);
+      setLatestDateBlogs([]);
       setSearchResults(null);
       setMemberSelect('');
       prevGroupRef.current = group;
@@ -189,25 +221,8 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
 
   // Latest blog date per member from API (groupData.generations[].lastPostDates)
   const memberLatestDate = useMemo(() => {
-    const fmt = new Map<string, string>();
-    if (!groupData?.generations) return fmt;
-    for (const gen of groupData.generations) {
-      if (!gen.lastPostDates) continue;
-      for (const [member, date] of Object.entries(gen.lastPostDates)) {
-        try {
-          const d = new Date(date.replace(/[\/\.]/g, '-'));
-          if (!isNaN(d.getTime())) {
-            const mm = String(d.getMonth() + 1).padStart(2, '0');
-            const dd = String(d.getDate()).padStart(2, '0');
-            const hh = String(d.getHours()).padStart(2, '0');
-            const min = String(d.getMinutes()).padStart(2, '0');
-            fmt.set(member, `${mm}.${dd} ${hh}:${min} 更新`);
-          }
-        } catch {}
-      }
-    }
-    return fmt;
-  }, [groupData]);
+    return collectLatestMemberDateLabels(groupData, latestDateBlogs);
+  }, [groupData, latestDateBlogs]);
 
   const displayBlogs = searchResults ?? blogs;
 
@@ -257,7 +272,7 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
                     {gen.members
                       .filter(m => !groupData.graduated?.includes(m))
                       .map(m => (
-                        <option key={m} value={m}>{m}{memberLatestDate.has(m) ? `（${memberLatestDate.get(m)}）` : ''}</option>
+                        <option key={m} value={m}>{m}{memberLatestDate.has(normalizeMemberName(m)) ? `（${memberLatestDate.get(normalizeMemberName(m))}）` : ''}</option>
                       ))}
                   </optgroup>
                 ))}

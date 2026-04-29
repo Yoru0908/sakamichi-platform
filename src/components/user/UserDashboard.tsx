@@ -6,11 +6,13 @@ import {
   CreditCard, BadgeCheck, ExternalLink, Plus, AlertCircle, CheckCircle, Loader2,
 } from 'lucide-react';
 import { $auth, initAuth, setAuth } from '@/stores/auth';
-import { $favorites, removeFavorite, addFavorite, toggleFavorite } from '@/stores/favorites';
+import {
+  $favorites, addFavorite, removeFavorite, replaceFavorites, toggleFavorite,
+} from '@/stores/favorites';
 import {
   getProfile, updateProfile, updatePreferences, changePassword,
-  addPaymentLink, removePaymentLink, requestVerification,
-  type UserProfile, type OAuthLink, type SubscriptionInfo, type PaymentLinkInfo,
+  addPaymentLink, removePaymentLink, requestVerification, deleteRepoWork, getMyRepoWorks,
+  type UserProfile, type OAuthLink, type SubscriptionInfo, type PaymentLinkInfo, type RepoWorkItem,
 } from '@/utils/auth-api';
 import { getGroupColor, getR2AvatarUrl, getOptimizedAvatarUrl, GROUP_CONFIG, sortedGenEntries, type MemberInfo } from '@/components/messages/msg-styles';
 
@@ -246,7 +248,18 @@ function ProfileTab({ profile }: { profile: UserProfile }) {
                       onClick={async () => {
                         setOshiSaving(true);
                         await updatePreferences({ oshiMember: m.name });
+                        const currentFavorites = $favorites.get();
                         setAuth({ oshiMember: m.name });
+                        replaceFavorites([
+                          { name: m.name, group: m.group, imageUrl: m.imageUrl },
+                          ...currentFavorites
+                            .filter((favorite) => favorite.name !== m.name)
+                            .map((favorite) => ({
+                              name: favorite.name,
+                              group: favorite.group,
+                              imageUrl: favorite.imageUrl,
+                            })),
+                        ]);
                         setOshiSaving(false);
                         setEditingOshi(false);
                       }}
@@ -1006,33 +1019,137 @@ interface SavedRepo {
   memberImageUrl: string;
   templateId: string;
   updatedAt: number;
+  status: 'draft' | 'published';
+  href: string;
 }
 
-const REPO_LS_KEY = 'sakamichi_saved_repos';
-
-function loadSavedRepos(): SavedRepo[] {
-  try {
-    const raw = typeof window !== 'undefined' ? localStorage.getItem(REPO_LS_KEY) : null;
-    return raw ? JSON.parse(raw) : [];
-  } catch { return []; }
+function toSavedRepo(work: RepoWorkItem): SavedRepo {
+  const updatedAt = new Date(work.updatedAt || work.createdAt).getTime();
+  const status = work.status === 'draft' ? 'draft' : 'published';
+  return {
+    id: work.id,
+    label: `${work.eventDate} 第${work.slotNumber}部`,
+    memberId: work.memberId,
+    memberName: work.memberName,
+    groupId: work.groupId,
+    memberImageUrl: work.customMemberAvatar || getR2AvatarUrl(work.memberName),
+    templateId: work.template,
+    updatedAt,
+    status,
+    href: status === 'draft' ? `/repo/create?id=${encodeURIComponent(work.id)}` : `/repo?id=${encodeURIComponent(work.id)}`,
+  };
 }
 
 // ── Publications Tab ──
 function PublicationsTab() {
-  const [repos, setRepos] = useState<SavedRepo[]>(loadSavedRepos);
+  const [repos, setRepos] = useState<SavedRepo[]>([]);
   const [subTab, setSubTab] = useState<'repo' | 'photocard'>('repo');
+  const [repoLoading, setRepoLoading] = useState(true);
+  const [repoError, setRepoError] = useState('');
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
-  const deleteRepo = (id: string) => {
-    const next = repos.filter(r => r.id !== id);
-    setRepos(next);
-    try { localStorage.setItem(REPO_LS_KEY, JSON.stringify(next)); } catch {}
+  const loadRepos = useCallback(async () => {
+    setRepoLoading(true);
+    setRepoError('');
+    try {
+      const res = await getMyRepoWorks({ status: 'all', limit: 100 });
+      if (res.success && res.data) {
+        setRepos(
+          res.data.repos
+            .map(toSavedRepo)
+            .sort((left, right) => right.updatedAt - left.updatedAt),
+        );
+      } else {
+        setRepos([]);
+        setRepoError(res.message || '加载 Repo 失败');
+      }
+    } catch {
+      setRepos([]);
+      setRepoError('加载 Repo 失败');
+    } finally {
+      setRepoLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    void loadRepos();
+  }, [loadRepos]);
+
+  const deleteRepo = async (id: string) => {
+    setDeletingId(id);
+    setRepoError('');
+    try {
+      const res = await deleteRepoWork(id);
+      if (res.success) {
+        setRepos((prev) => prev.filter((repo) => repo.id !== id));
+      } else {
+        setRepoError(res.message || '删除 Repo 失败');
+      }
+    } catch {
+      setRepoError('删除 Repo 失败');
+    } finally {
+      setDeletingId(null);
+    }
   };
 
-  const byMember: Record<string, SavedRepo[]> = {};
-  repos.forEach(r => {
-    if (!byMember[r.memberName]) byMember[r.memberName] = [];
-    byMember[r.memberName].push(r);
-  });
+  const draftRepos = repos.filter((repo) => repo.status === 'draft');
+  const publishedRepos = repos.filter((repo) => repo.status === 'published');
+
+  const renderRepoGroups = (items: SavedRepo[]) => {
+    const byMember: Record<string, SavedRepo[]> = {};
+    items.forEach((repo) => {
+      if (!byMember[repo.memberName]) byMember[repo.memberName] = [];
+      byMember[repo.memberName].push(repo);
+    });
+
+    return Object.entries(byMember).map(([memberName, memberRepos]) => (
+      <div key={memberName} className="rounded-lg border border-[var(--border-primary)] overflow-hidden">
+        <div className="flex items-center gap-2 px-3 py-2 bg-[var(--bg-secondary)]">
+          <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-[var(--bg-tertiary)]">
+            <img
+              src={getOptimizedAvatarUrl(memberName, 80)}
+              alt={memberName}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                const img = e.target as HTMLImageElement;
+                if (!img.dataset.fb && memberRepos[0]) { img.dataset.fb = '1'; img.src = memberRepos[0].memberImageUrl; }
+              }}
+            />
+          </div>
+          <span className="text-xs font-medium text-[var(--text-primary)]">{memberName}</span>
+          <span className="text-[10px] text-[var(--text-tertiary)] ml-auto">{memberRepos.length} 个</span>
+        </div>
+        <div className="divide-y divide-[var(--border-primary)]">
+          {memberRepos.map((repo) => (
+            <div key={repo.id} className="flex items-center gap-3 px-3 py-2 group hover:bg-[var(--bg-secondary)] transition-colors">
+              <PenLine size={12} className="text-[var(--text-tertiary)] flex-shrink-0" />
+              <div className="flex-1 min-w-0">
+                <a href={repo.href} className="text-xs font-medium text-[var(--text-primary)] hover:text-[var(--color-brand-nogi)] truncate block">
+                  {repo.label}
+                </a>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <span className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-medium ${repo.status === 'draft' ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300' : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300'}`}>
+                    {repo.status === 'draft' ? '草稿' : '已发布'}
+                  </span>
+                  <p className="text-[10px] text-[var(--text-tertiary)]">
+                    {new Date(repo.updatedAt).toLocaleDateString('zh-CN', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => void deleteRepo(repo.id)}
+                disabled={deletingId === repo.id}
+                className="p-1 rounded opacity-0 group-hover:opacity-100 text-[var(--text-tertiary)] hover:text-red-500 transition-all cursor-pointer disabled:opacity-100 disabled:cursor-not-allowed"
+                title="删除"
+              >
+                {deletingId === repo.id ? <Loader2 size={12} className="animate-spin" /> : <Trash2 size={12} />}
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    ));
+  };
 
   return (
     <div className="space-y-4">
@@ -1064,57 +1181,57 @@ function PublicationsTab() {
 
       {/* Repo sub-tab */}
       {subTab === 'repo' && (
-        repos.length === 0 ? (
+        repoLoading ? (
+          <div className="text-center py-10">
+            <Loader2 size={32} className="mx-auto text-[var(--text-tertiary)] mb-2 animate-spin" />
+            <p className="text-sm text-[var(--text-tertiary)]">加载 Repo 中...</p>
+          </div>
+        ) : repoError ? (
+          <div className="text-center py-10">
+            <AlertCircle size={32} className="mx-auto text-red-500 mb-2" />
+            <p className="text-sm text-red-500 mb-3">{repoError}</p>
+            <button onClick={() => void loadRepos()} className="inline-block text-xs px-4 py-2 rounded-lg font-medium text-white cursor-pointer" style={{ backgroundColor: 'var(--color-brand-nogi)' }}>
+              重试
+            </button>
+          </div>
+        ) : repos.length === 0 ? (
           <div className="text-center py-10">
             <PenLine size={32} className="mx-auto text-[var(--text-tertiary)] mb-2" />
-            <p className="text-sm text-[var(--text-tertiary)] mb-1">还没有保存的 Repo</p>
+            <p className="text-sm text-[var(--text-tertiary)] mb-1">还没有创建过 Repo</p>
             <a href="/repo" className="inline-block mt-3 text-xs px-4 py-2 rounded-lg font-medium text-white" style={{ backgroundColor: 'var(--color-brand-nogi)' }}>
               去创建
             </a>
           </div>
         ) : (
           <div className="space-y-3">
-            {Object.entries(byMember).map(([memberName, memberRepos]) => (
-              <div key={memberName} className="rounded-lg border border-[var(--border-primary)] overflow-hidden">
-                <div className="flex items-center gap-2 px-3 py-2 bg-[var(--bg-secondary)]">
-                  <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-[var(--bg-tertiary)]">
-                    <img
-                      src={getOptimizedAvatarUrl(memberName, 80)}
-                      alt={memberName}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        const img = e.target as HTMLImageElement;
-                        if (!img.dataset.fb && memberRepos[0]) { img.dataset.fb = '1'; img.src = memberRepos[0].memberImageUrl; }
-                      }}
-                    />
-                  </div>
-                  <span className="text-xs font-medium text-[var(--text-primary)]">{memberName}</span>
-                  <span className="text-[10px] text-[var(--text-tertiary)] ml-auto">{memberRepos.length} 个</span>
-                </div>
-                <div className="divide-y divide-[var(--border-primary)]">
-                  {memberRepos.map(repo => (
-                    <div key={repo.id} className="flex items-center gap-3 px-3 py-2 group hover:bg-[var(--bg-secondary)] transition-colors">
-                      <PenLine size={12} className="text-[var(--text-tertiary)] flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <a href="/repo" className="text-xs font-medium text-[var(--text-primary)] hover:text-[var(--color-brand-nogi)] truncate block">
-                          {repo.label}
-                        </a>
-                        <p className="text-[10px] text-[var(--text-tertiary)]">
-                          {new Date(repo.updatedAt).toLocaleDateString('zh-CN', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
-                        </p>
-                      </div>
-                      <button
-                        onClick={() => deleteRepo(repo.id)}
-                        className="p-1 rounded opacity-0 group-hover:opacity-100 text-[var(--text-tertiary)] hover:text-red-500 transition-all cursor-pointer"
-                        title="删除"
-                      >
-                        <Trash2 size={12} />
-                      </button>
-                    </div>
-                  ))}
-                </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 py-2">
+                <p className="text-[10px] text-[var(--text-tertiary)] mb-1">草稿</p>
+                <p className="text-lg font-bold text-[var(--text-primary)]">{draftRepos.length}</p>
               </div>
-            ))}
+              <div className="rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 py-2">
+                <p className="text-[10px] text-[var(--text-tertiary)] mb-1">已发布</p>
+                <p className="text-lg font-bold text-[var(--text-primary)]">{publishedRepos.length}</p>
+              </div>
+            </div>
+            {draftRepos.length > 0 && (
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-xs font-semibold text-[var(--text-secondary)]">草稿箱</h4>
+                  <a href="/repo/create" className="text-[10px] text-[var(--color-brand-nogi)] hover:underline">去继续编辑</a>
+                </div>
+                {renderRepoGroups(draftRepos)}
+              </div>
+            )}
+            {publishedRepos.length > 0 && (
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-xs font-semibold text-[var(--text-secondary)]">已发布作品</h4>
+                  <a href="/repo" className="text-[10px] text-[var(--color-brand-nogi)] hover:underline">查看社区</a>
+                </div>
+                {renderRepoGroups(publishedRepos)}
+              </div>
+            )}
           </div>
         )
       )}

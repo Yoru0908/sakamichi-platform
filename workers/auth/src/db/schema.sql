@@ -33,6 +33,32 @@ CREATE TABLE IF NOT EXISTS user_oauth (
   UNIQUE(provider, provider_id)
 );
 
+CREATE TABLE IF NOT EXISTS user_google_calendar_connections (
+  user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+  google_sub TEXT NOT NULL UNIQUE,
+  google_email TEXT NOT NULL,
+  calendar_id TEXT NOT NULL DEFAULT 'primary',
+  refresh_token TEXT NOT NULL,
+  access_token TEXT,
+  access_token_expires_at TEXT,
+  scope TEXT,
+  sync_enabled INTEGER NOT NULL DEFAULT 1,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS miguri_google_calendar_events (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  miguri_entry_id TEXT NOT NULL,
+  calendar_id TEXT NOT NULL,
+  google_event_id TEXT NOT NULL,
+  last_synced_at TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+  UNIQUE(user_id, miguri_entry_id)
+);
+
 -- Refresh Token 表
 CREATE TABLE IF NOT EXISTS refresh_tokens (
   id TEXT PRIMARY KEY,
@@ -194,6 +220,7 @@ CREATE TABLE IF NOT EXISTS repo_works (
   member_id TEXT NOT NULL,
   member_name TEXT NOT NULL,
   group_id TEXT NOT NULL,
+  custom_member_avatar TEXT,
 
   event_date TEXT NOT NULL,
   event_type TEXT NOT NULL DEFAULT 'ミーグリ',

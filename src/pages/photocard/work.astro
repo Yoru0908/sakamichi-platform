@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GeoPassGate from '@/components/shared/GeoPassGate';
+import PhotocardWorkDetailPage from '@/components/photocard/PhotocardWorkDetailPage';
+---
+
+<BaseLayout title="生写卡片详情 - Sakamichi Tools">
+  <GeoPassGate client:load />
+  <PhotocardWorkDetailPage client:load />
+</BaseLayout>

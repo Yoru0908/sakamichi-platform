@@ -1,30 +1,27 @@
-import { useState } from 'react';
 import type { RepoData } from '@/types/repo';
 import { GROUP_META } from '@/types/repo';
+import RepoMemberImage from '../RepoMemberImage';
 
 interface Props {
   data: RepoData;
 }
 
-function Avatar({ src, fallbackChar, color, size = 32 }: { src?: string; fallbackChar: string; color: string; size?: number }) {
-  const [failed, setFailed] = useState(false);
-  if (!src || failed) {
-    return (
-      <div
-        className="rounded-sm shrink-0 flex items-center justify-center text-white font-bold"
-        style={{ width: size, height: size, backgroundColor: color, fontSize: size * 0.35 }}
-      >
-        {fallbackChar}
-      </div>
-    );
-  }
+function Avatar({ src, memberName, fallbackChar, color, size = 32 }: { src?: string; memberName?: string; fallbackChar: string; color: string; size?: number }) {
   return (
-    <img
-      src={src}
+    <RepoMemberImage
+      memberName={memberName}
+      preferredSrc={src}
       alt=""
       className="rounded-sm object-cover object-top shrink-0"
       style={{ width: size, height: size, backgroundColor: '#f0f0f0' }}
-      onError={() => setFailed(true)}
+      fallback={(
+        <div
+          className="rounded-sm shrink-0 flex items-center justify-center text-white font-bold"
+          style={{ width: size, height: size, backgroundColor: color, fontSize: size * 0.35 }}
+        >
+          {fallbackChar}
+        </div>
+      )}
     />
   );
 }
@@ -38,6 +35,7 @@ export default function LineTemplate({ data }: Props) {
       <div className="flex items-center gap-3 px-4 py-3 text-white" style={{ backgroundColor: '#06C755' }}>
         <Avatar
           src={data.memberImageUrl}
+          memberName={data.memberName}
           fallbackChar={data.memberName.charAt(0)}
           color="#04a648"
           size={36}
@@ -82,7 +80,7 @@ export default function LineTemplate({ data }: Props) {
             <div key={msg.id} className={`flex items-end gap-2 ${msg.speaker === 'me' ? 'flex-row-reverse' : ''}`}>
               {msg.speaker === 'member' && (
                 <div className="shrink-0 flex flex-col items-center gap-0.5">
-                  <Avatar src={data.memberImageUrl} fallbackChar={data.memberName.charAt(0)} color={group.color} size={28} />
+                  <Avatar src={data.memberImageUrl} memberName={data.memberName} fallbackChar={data.memberName.charAt(0)} color={group.color} size={28} />
                   <span className="text-[9px] text-white/80 max-w-[32px] truncate">{data.memberName.slice(0, 3)}</span>
                 </div>
               )}

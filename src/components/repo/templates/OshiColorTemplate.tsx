@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import type { RepoData } from '@/types/repo';
 import { GROUP_META } from '@/types/repo';
+import RepoMemberImage from '../RepoMemberImage';
 
 interface Props {
   data: RepoData;
@@ -8,7 +8,6 @@ interface Props {
 
 export default function OshiColorTemplate({ data }: Props) {
   const group = GROUP_META[data.groupId];
-  const [imgFailed, setImgFailed] = useState(false);
 
   return (
     <div className="rounded-xl overflow-hidden shadow-sm" style={{ width: 380 }}>
@@ -19,18 +18,17 @@ export default function OshiColorTemplate({ data }: Props) {
       >
         <div className="flex items-center gap-4">
           {/* Member avatar */}
-          {!imgFailed && data.memberImageUrl ? (
-            <img
-              src={data.memberImageUrl}
-              alt={data.memberName}
-              className="w-16 h-16 rounded-sm object-cover object-top border-2 border-white/40"
-              onError={() => setImgFailed(true)}
-            />
-          ) : (
-            <div className="w-16 h-16 rounded-sm border-2 border-white/40 flex items-center justify-center bg-white/20 text-xl font-bold">
-              {data.memberName.charAt(0)}
-            </div>
-          )}
+          <RepoMemberImage
+            memberName={data.memberName}
+            preferredSrc={data.memberImageUrl}
+            alt={data.memberName}
+            className="w-16 h-16 rounded-sm object-cover object-top border-2 border-white/40"
+            fallback={(
+              <div className="w-16 h-16 rounded-sm border-2 border-white/40 flex items-center justify-center bg-white/20 text-xl font-bold">
+                {data.memberName.charAt(0)}
+              </div>
+            )}
+          />
           <div className="flex-1 min-w-0">
             <div className="text-xl font-bold">{data.memberName}</div>
             <div className="text-xs opacity-80 mt-0.5">{data.groupName}</div>

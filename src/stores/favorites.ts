@@ -1,5 +1,7 @@
 import { atom } from 'nanostores';
 import { $auth } from './auth';
+import { getFavorites, getPreferences, syncFavorites } from '@/utils/auth-api';
+import { mergeFavoriteSources } from './favorites-helpers';
 
 // ── Types ──
 export interface FavoriteMember {
@@ -16,6 +18,8 @@ const LEGACY_LS_KEY = 'msggen_pinned';
 
 // ── Store ──
 export const $favorites = atom<FavoriteMember[]>([]);
+let hydratedUserId: string | null = null;
+let hydratePromise: Promise<void> | null = null;
 
 // ── Init: load from localStorage (+ migrate legacy data) ──
 function loadFromLocalStorage(): FavoriteMember[] {
@@ -44,37 +48,158 @@ function loadFromLocalStorage(): FavoriteMember[] {
   return [];
 }
 
-// Initialize store
-if (typeof window !== 'undefined') {
-  $favorites.set(loadFromLocalStorage());
-}
-
 // ── Persist helper ──
-function persist(list: FavoriteMember[]) {
-  // Phase 1: always write to localStorage
+function persistLocal(list: FavoriteMember[]) {
   try {
     localStorage.setItem(LS_KEY, JSON.stringify(list));
   } catch { /* quota exceeded etc */ }
+}
 
-  // Phase 2 placeholder: when auth API is ready, sync to server
-  // const auth = $auth.get();
-  // if (auth.isLoggedIn && auth.userId) {
-  //   syncToServer(auth.userId, list);
-  // }
+async function persistRemote(list: FavoriteMember[]) {
+  const auth = $auth.get();
+  if (!auth.isLoggedIn || !auth.userId) return;
+
+  try {
+    await syncFavorites(list.map((favorite) => ({
+      name: favorite.name,
+      group: favorite.group,
+    })));
+  } catch {
+    /* ignore network sync errors, local copy remains authoritative fallback */
+  }
+}
+
+function persist(list: FavoriteMember[], options?: { syncRemote?: boolean }) {
+  persistLocal(list);
+
+  if (options?.syncRemote === false) return;
+
+  void persistRemote(list);
+}
+
+export async function initFavorites(): Promise<void> {
+  if (typeof window === 'undefined') return;
+
+  const auth = $auth.get();
+  if (!auth.isLoggedIn || !auth.userId) {
+    hydratedUserId = null;
+    $favorites.set(loadFromLocalStorage());
+    return;
+  }
+
+  if (hydratePromise) return hydratePromise;
+
+  hydratePromise = (async () => {
+    const localFavorites = loadFromLocalStorage();
+    const [favoritesRes, preferencesRes] = await Promise.all([
+      getFavorites(),
+      getPreferences(),
+    ]);
+
+    const remoteFavorites = favoritesRes.success && favoritesRes.data
+      ? favoritesRes.data.favorites
+      : [];
+    const legacyFollowedFavorites = preferencesRes.success && preferencesRes.data
+      ? preferencesRes.data.followedMembers.map((name) => ({
+          name,
+          group: '',
+          imageUrl: '',
+          addedAt: Date.now(),
+        }))
+      : [];
+
+    const shouldSeedFromLegacyFollowed = remoteFavorites.length === 0
+      && legacyFollowedFavorites.length > 0
+      && localFavorites.length === 0;
+
+    const merged = mergeFavoriteSources({
+      localFavorites: shouldSeedFromLegacyFollowed ? legacyFollowedFavorites : localFavorites,
+      remoteFavorites,
+      oshiMember: preferencesRes.success && preferencesRes.data
+        ? preferencesRes.data.oshiMember
+        : auth.oshiMember,
+    });
+
+    $favorites.set(merged);
+    persistLocal(merged);
+    hydratedUserId = auth.userId;
+
+    const remoteNames = new Set(remoteFavorites.map((favorite) => favorite.name));
+    const needsBackfill = merged.some((favorite) => !remoteNames.has(favorite.name)) || (remoteFavorites.length === 0 && merged.length > 0);
+    if (needsBackfill) {
+      await persistRemote(merged);
+    }
+  })().finally(() => {
+    hydratePromise = null;
+  });
+
+  return hydratePromise;
+}
+
+if (typeof window !== 'undefined') {
+  $auth.subscribe((auth) => {
+    if (auth.loading) return;
+
+    if (auth.isLoggedIn && auth.userId) {
+      if (hydratedUserId !== auth.userId) {
+        void initFavorites();
+      }
+      return;
+    }
+
+    hydratedUserId = null;
+    $favorites.set(loadFromLocalStorage());
+  });
 }
 
 // ── Public API ──
 export function addFavorite(member: { name: string; group: string; imageUrl: string }) {
   const current = $favorites.get();
-  if (current.some((f) => f.name === member.name)) return; // already exists
-  const next = [...current, { ...member, addedAt: Date.now() }];
+  const auth = $auth.get();
+  const next = mergeFavoriteSources({
+    localFavorites: [
+      ...current,
+      { ...member, addedAt: Date.now() },
+    ],
+    remoteFavorites: [],
+    oshiMember: auth.oshiMember,
+  });
   $favorites.set(next);
   persist(next);
 }
 
+export function replaceFavorites(members: { name: string; group: string; imageUrl: string }[]) {
+  const current = $favorites.get();
+  const auth = $auth.get();
+  const currentMap = new Map(current.map((favorite) => [favorite.name, favorite]));
+  const next = members.map((member) => {
+    const existing = currentMap.get(member.name);
+    return {
+      name: member.name,
+      group: member.group,
+      imageUrl: member.imageUrl,
+      addedAt: existing?.addedAt || Date.now(),
+    };
+  });
+
+  const normalized = mergeFavoriteSources({
+    localFavorites: next,
+    remoteFavorites: [],
+    oshiMember: auth.oshiMember,
+  });
+
+  $favorites.set(normalized);
+  persist(normalized);
+}
+
 export function removeFavorite(name: string) {
   const current = $favorites.get();
-  const next = current.filter((f) => f.name !== name);
+  const auth = $auth.get();
+  const next = mergeFavoriteSources({
+    localFavorites: current.filter((f) => f.name !== name),
+    remoteFavorites: [],
+    oshiMember: auth.oshiMember,
+  });
   $favorites.set(next);
   persist(next);
 }
@@ -96,11 +221,15 @@ export function enrichFavorites(members: { name: string; group: string; imageUrl
   const current = $favorites.get();
   let changed = false;
   const next = current.map((f) => {
-    if (!f.group) {
+    if (!f.group || !f.imageUrl) {
       const match = members.find((m) => m.name === f.name);
       if (match) {
         changed = true;
-        return { ...f, group: match.group, imageUrl: match.imageUrl };
+        return {
+          ...f,
+          group: f.group || match.group,
+          imageUrl: f.imageUrl || match.imageUrl,
+        };
       }
     }
     return f;
@@ -110,8 +239,3 @@ export function enrichFavorites(members: { name: string; group: string; imageUrl
     persist(next);
   }
 }
-
-// ── Phase 2 stubs (account sync) ──
-// export async function syncToServer(userId: string, list: FavoriteMember[]) { ... }
-// export async function loadFromServer(userId: string): Promise<FavoriteMember[]> { ... }
-// export async function mergeLocalAndRemote(userId: string) { ... }

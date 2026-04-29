@@ -2,10 +2,12 @@
   "name": "sakamichi-auth-worker",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "db:migrate": "wrangler d1 execute sakamichi-auth --file=./src/db/schema.sql"
+    "db:migrate": "wrangler d1 execute sakamichi-auth --file=./src/db/schema.sql",
+    "db:migrate:miguri": "wrangler d1 execute miguri --file=./src/db/migrations/005_miguri.sql"
   },
   "dependencies": {},
   "devDependencies": {

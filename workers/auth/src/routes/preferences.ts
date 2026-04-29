@@ -1,18 +1,58 @@
-import type { Env, UserRow } from '../types';
-import { verifyAccessToken } from '../utils/jwt';
-import { error, success } from '../utils/response';
+import type { Env } from '../types.ts';
+import { verifyAccessToken } from '../utils/jwt.ts';
+import { error, success } from '../utils/response.ts';
 
-function getAccessToken(req: Request): string | null {
+export function getAccessToken(req: Request): string | null {
   const cookie = req.headers.get('Cookie') || '';
   const match = cookie.match(/access_token=([^;]+)/);
   return match ? match[1] : null;
 }
 
-async function getAuthUserId(req: Request, env: Env): Promise<string | null> {
+export async function getAuthUserId(req: Request, env: Env): Promise<string | null> {
   const token = getAccessToken(req);
   if (!token) return null;
   const payload = await verifyAccessToken(token, env.JWT_SECRET);
   return payload?.sub || null;
+}
+
+export async function getAuthUser(req: Request, env: Env): Promise<{ userId: string; role: string } | null> {
+  const token = getAccessToken(req);
+  if (!token) return null;
+  const payload = await verifyAccessToken(token, env.JWT_SECRET);
+  if (!payload) return null;
+  return { userId: payload.sub, role: payload.role };
+}
+
+export async function getUserMemberPreferences(
+  env: Env,
+  userId: string,
+  options: { includeFollowedMembers?: boolean } = {},
+): Promise<{ oshiMember: string | null; followedMembers: string[] }> {
+  const user = await env.DB.prepare(
+    'SELECT oshi_member FROM users WHERE id = ?',
+  ).bind(userId).first<{ oshi_member: string | null }>();
+
+  if (options.includeFollowedMembers === false) {
+    return {
+      oshiMember: user?.oshi_member || null,
+      followedMembers: [],
+    };
+  }
+
+  const followed = await env.DB.prepare(
+    'SELECT member_name, member_group FROM user_followed_members WHERE user_id = ?',
+  ).bind(userId).all<{ member_name: string; member_group: string }>();
+
+  return {
+    oshiMember: user?.oshi_member || null,
+    followedMembers: (followed.results || []).map((r) => r.member_name),
+  };
+}
+
+export function mergePreferredMembers(
+  prefs: { oshiMember: string | null; followedMembers: string[] },
+): string[] {
+  return Array.from(new Set([prefs.oshiMember, ...prefs.followedMembers].filter((value): value is string => Boolean(value))));
 }
 
 /** GET /api/user/preferences */
@@ -20,19 +60,10 @@ export async function handleGetPreferences(req: Request, env: Env): Promise<Resp
   const userId = await getAuthUserId(req, env);
   if (!userId) return error('unauthorized', 401);
 
-  const user = await env.DB.prepare(
-    'SELECT oshi_member FROM users WHERE id = ?',
-  ).bind(userId).first<{ oshi_member: string | null }>();
-
-  const followed = await env.DB.prepare(
-    'SELECT member_name, member_group FROM user_followed_members WHERE user_id = ?',
-  ).bind(userId).all<{ member_name: string; member_group: string }>();
+  const prefs = await getUserMemberPreferences(env, userId);
 
   return success({
-    data: {
-      oshiMember: user?.oshi_member || null,
-      followedMembers: (followed.results || []).map((r) => r.member_name),
-    },
+    data: prefs,
   });
 }
 
@@ -48,14 +79,12 @@ export async function handleUpdatePreferences(req: Request, env: Env): Promise<R
     return error('无效的请求体', 400);
   }
 
-  // Update oshi
   if (body.oshiMember !== undefined) {
     await env.DB.prepare(
       'UPDATE users SET oshi_member = ?, is_first_login = 0, updated_at = datetime(\'now\') WHERE id = ?',
     ).bind(body.oshiMember, userId).run();
   }
 
-  // Update followed members
   if (body.followedMembers !== undefined) {
     await env.DB.prepare('DELETE FROM user_followed_members WHERE user_id = ?')
       .bind(userId).run();
@@ -74,18 +103,28 @@ export async function handleUpdatePreferences(req: Request, env: Env): Promise<R
 export async function handleGetFavorites(req: Request, env: Env): Promise<Response> {
   const userId = await getAuthUserId(req, env);
   if (!userId) return error('unauthorized', 401);
+  const prefs = await getUserMemberPreferences(env, userId, { includeFollowedMembers: false });
 
   const rows = await env.DB.prepare(
     'SELECT member_name, member_group, added_at FROM user_favorites WHERE user_id = ? ORDER BY added_at',
   ).bind(userId).all<{ member_name: string; member_group: string; added_at: string }>();
 
+  const favorites = (rows.results || []).map((r) => ({
+    name: r.member_name,
+    group: r.member_group,
+    addedAt: r.added_at,
+  }));
+  const oshiName = prefs.oshiMember?.trim();
+  const oshiFavorite = oshiName
+    ? favorites.find((favorite) => favorite.name === oshiName) || { name: oshiName, group: '', addedAt: '' }
+    : null;
+  const orderedFavorites = oshiFavorite
+    ? [oshiFavorite, ...favorites.filter((favorite) => favorite.name !== oshiFavorite.name)]
+    : favorites;
+
   return success({
     data: {
-      favorites: (rows.results || []).map((r) => ({
-        name: r.member_name,
-        group: r.member_group,
-        addedAt: r.added_at,
-      })),
+      favorites: orderedFavorites,
     },
   });
 }
@@ -106,7 +145,6 @@ export async function handleUpdateFavorites(req: Request, env: Env): Promise<Res
     return error('缺少 favorites 字段', 400);
   }
 
-  // Replace all favorites
   await env.DB.prepare('DELETE FROM user_favorites WHERE user_id = ?')
     .bind(userId).run();
 
@@ -118,8 +156,6 @@ export async function handleUpdateFavorites(req: Request, env: Env): Promise<Res
 
   return success({ message: '收藏已同步' });
 }
-
-// ── Episode Bookmarks (Sakumimi) ──
 
 /** GET /api/user/bookmarks */
 export async function handleGetBookmarks(req: Request, env: Env): Promise<Response> {

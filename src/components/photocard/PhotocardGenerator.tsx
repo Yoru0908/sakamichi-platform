@@ -103,18 +103,20 @@ const LAYOUT_PRESETS: Record<GroupStyle, LayoutPreset> = {
   },
 };
 
+const PHOTOCARD_ASSET_BASE = '/photocard-assets';
+
 const GROUP_LOGOS: Record<GroupStyle, string> = {
-  '櫻坂46': '/photocard/樱坂46logo.png',
-  '日向坂46': '/photocard/日向坂46logo.png',
-  '乃木坂46': '/photocard/乃木坂46logo.png',
-  '乃木坂46②': '/photocard/乃木坂46logo.png',
+  '櫻坂46': `${PHOTOCARD_ASSET_BASE}/樱坂46logo.png`,
+  '日向坂46': `${PHOTOCARD_ASSET_BASE}/日向坂46logo.png`,
+  '乃木坂46': `${PHOTOCARD_ASSET_BASE}/乃木坂46logo.png`,
+  '乃木坂46②': `${PHOTOCARD_ASSET_BASE}/乃木坂46logo.png`,
 };
 
 const GROUP_NAME_IMAGES: Record<GroupStyle, string> = {
-  '櫻坂46': '/photocard/樱坂46文字.png',
-  '日向坂46': '/photocard/日向坂46文字.png',
-  '乃木坂46': '/photocard/乃木坂46文字.png',
-  '乃木坂46②': '/photocard/乃木坂46文字.png',
+  '櫻坂46': `${PHOTOCARD_ASSET_BASE}/樱坂46文字.png`,
+  '日向坂46': `${PHOTOCARD_ASSET_BASE}/日向坂46文字.png`,
+  '乃木坂46': `${PHOTOCARD_ASSET_BASE}/乃木坂46文字.png`,
+  '乃木坂46②': `${PHOTOCARD_ASSET_BASE}/乃木坂46文字.png`,
 };
 
 const FONT_OPTIONS = [

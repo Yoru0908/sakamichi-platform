@@ -14,6 +14,11 @@ binding = "DB"
 database_name = "sakamichi-auth"
 database_id = "3fb05a7a-13bc-4f0c-8e30-31ac07eff235"
 
+[[d1_databases]]
+binding = "MIGURI_DB"
+database_name = "miguri"
+database_id = "969491b9-4960-4e5a-ab2d-37fa8e457b67"
+
 # Routes: auth Worker handles /api/auth/* and /api/user/* on api subdomain
 [[routes]]
 pattern = "api.sakamichi-tools.cn/api/auth/*"
@@ -44,6 +49,10 @@ pattern = "api.46log.com/api/manage/*"
 zone_name = "46log.com"
 
 [[routes]]
+pattern = "api.46log.com/api/miguri/*"
+zone_name = "46log.com"
+
+[[routes]]
 pattern = "api.46log.com/api/webhook/*"
 zone_name = "46log.com"
 
@@ -53,6 +62,10 @@ zone_name = "sakamichi-tools.cn"
 
 [[routes]]
 pattern = "api.sakamichi-tools.cn/api/manage/*"
+zone_name = "sakamichi-tools.cn"
+
+[[routes]]
+pattern = "api.sakamichi-tools.cn/api/miguri/*"
 zone_name = "sakamichi-tools.cn"
 
 [[routes]]

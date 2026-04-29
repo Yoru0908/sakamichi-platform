@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { Search, Play, Pause, SkipBack, SkipForward, Calendar, Download, Loader2 } from 'lucide-react';
+import { Search, Play, Pause, SkipBack, SkipForward, Calendar, Download, Loader2, Music } from 'lucide-react';
 
 // ─── Types ───────────────────────────────────────
 interface Recording {
@@ -17,21 +17,49 @@ interface Recording {
   url?: string;
   info?: string;
   description?: string;
+  matched_keyword?: string;
 }
 
 type GroupFilter = 'all' | 'nogizaka' | 'sakurazaka' | 'hinatazaka' | 'other';
 
-const GROUP_META: Record<Exclude<GroupFilter, 'all'>, { label: string; color: string; keywords: string[] }> = {
-  nogizaka:  { label: '乃木坂', color: '#7B4BC1', keywords: ['乃木坂'] },
-  sakurazaka:{ label: '櫻坂',  color: '#F19DB5', keywords: ['櫻坂', '桜坂'] },
-  hinatazaka:{ label: '日向坂', color: '#64B5F6', keywords: ['日向坂'] },
-  other:     { label: 'その他', color: '#9CA3AF', keywords: [] },
+const GROUP_META: Record<Exclude<GroupFilter, 'all'>, { label: string; color: string }> = {
+  nogizaka:  { label: '乃木坂', color: '#7B4BC1' },
+  sakurazaka:{ label: '櫻坂',  color: '#F19DB5' },
+  hinatazaka:{ label: '日向坂', color: '#64B5F6' },
+  other:     { label: 'その他', color: '#9CA3AF' },
 };
 
-function detectGroup(title: string): Exclude<GroupFilter, 'all'> {
-  for (const [key, meta] of Object.entries(GROUP_META) as [Exclude<GroupFilter,'all'>, typeof GROUP_META[keyof typeof GROUP_META]][]) {
-    if (key === 'other') continue;
-    if (meta.keywords.some(kw => title.includes(kw))) return key;
+const KEYWORD_TO_GROUP: Record<string, Exclude<GroupFilter, 'all' | 'other'>> = (() => {
+  const map: Record<string, Exclude<GroupFilter, 'all' | 'other'>> = {};
+  const nogi = ['乃木坂','久保史緒里','秋元真夏','松尾美佑','田村真佑','弓木奈於','柴田柚菜','小川彩','矢久保美緒','川﨑桜','筒井あやめ','遠藤さくら','賀喜遥香','井上和','五百城茉央','池田瑛紗','一ノ瀬美空','冨里奈央','奥田いろは','岩本蓮加','大越ひなの','岡本姫奈','鈴木佑捺','山崎怜奈','バナナマン','バナナムーン','乃木坂に相談だ','沈黙の金曜日'];
+  const hina = ['日向坂','丹生明里','髙橋未来虹','藤嶌果歩','松田好花','小坂菜緒','井上梨名','佐々木久美','佐々木美玲','金村美玖','上村ひなの','河田陽菜','加藤史帆','富田鈴花','濱岸ひより','森本茉莉','正源司陽子','平尾帆夏','清水理央','宮地すみれ','竹内希来里','石塚瑶季','佐藤和奏','オードリー','ほっとひといき','HAPPY CARAVAN','Cheer up','おかひな時間'];
+  const saku = ['櫻坂','桜坂','菅井友香','山﨑天','森田ひかる','田村保乃','大園玲','守屋麗奈','小島凪紗','中嶋優月','村井優','村山美羽','山下瞳月','谷口愛季','有楽町星空放送局','baby baby maybe','Dreaming time','がんばりき','Time chan','タイムちゃん','さくみみ'];
+  nogi.forEach(k => map[k] = 'nogizaka');
+  hina.forEach(k => map[k] = 'hinatazaka');
+  saku.forEach(k => map[k] = 'sakurazaka');
+  return map;
+})();
+
+function detectGroup(rec: Recording): Exclude<GroupFilter, 'all'> {
+  // 1. matched_keyword (most reliable, from scheduling system)
+  if (rec.matched_keyword) {
+    const g = KEYWORD_TO_GROUP[rec.matched_keyword];
+    if (g) return g;
+  }
+  // 2. performer field
+  const perf = rec.performer || '';
+  if (perf.includes('乃木坂')) return 'nogizaka';
+  if (perf.includes('日向坂')) return 'hinatazaka';
+  if (perf.includes('櫻坂') || perf.includes('桜坂')) return 'sakurazaka';
+  // 3. title fallback
+  const title = rec.title || '';
+  if (title.includes('乃木坂')) return 'nogizaka';
+  if (title.includes('日向坂')) return 'hinatazaka';
+  if (title.includes('櫻坂') || title.includes('桜坂')) return 'sakurazaka';
+  // 4. scan all keyword keys against title + performer
+  const combined = title + perf;
+  for (const [kw, g] of Object.entries(KEYWORD_TO_GROUP)) {
+    if (combined.includes(kw)) return g;
   }
   return 'other';
 }
@@ -60,7 +88,7 @@ function getRadioApiBase(): string {
       return 'http://127.0.0.1:8500';
     }
   }
-  return 'https://radio.46log.com';
+  return 'https://api.46log.com';
 }
 
 // ─── Component ───────────────────────────────────
@@ -75,6 +103,7 @@ export default function RecordingArchive() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
   const [groupFilter, setGroupFilter] = useState<GroupFilter>('all');
+  const [selectedProgram, setSelectedProgram] = useState('');
   const [page, setPage] = useState(1);
 
   // Audio player
@@ -90,7 +119,7 @@ export default function RecordingArchive() {
     const controller = new AbortController();
     setLoading(true);
 
-    fetch(`${apiBase}/api/recordings`, { signal: controller.signal })
+    fetch(`${apiBase}/api/radio/recordings`, { signal: controller.signal })
       .then(r => r.json())
       .then(data => {
         setRecordings(data.recordings || []);
@@ -108,6 +137,18 @@ export default function RecordingArchive() {
   }, [apiBase]);
 
   // ─── Filtering ─────────────────────────────────
+  // Build program list for current group (before other filters)
+  const programsInGroup = (() => {
+    const counts = new Map<string, number>();
+    for (const r of recordings) {
+      if (groupFilter !== 'all' && detectGroup(r) !== groupFilter) continue;
+      counts.set(r.title, (counts.get(r.title) || 0) + 1);
+    }
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([title, count]) => ({ title, count }));
+  })();
+
   const filtered = recordings.filter(r => {
     if (selectedDate && r.date !== selectedDate) return false;
     if (searchQuery) {
@@ -115,15 +156,17 @@ export default function RecordingArchive() {
       if (!r.title.toLowerCase().includes(q) && !r.filename.toLowerCase().includes(q)) return false;
     }
     if (groupFilter !== 'all') {
-      if (detectGroup(r.title) !== groupFilter) return false;
+      if (detectGroup(r) !== groupFilter) return false;
     }
+    if (selectedProgram && r.title !== selectedProgram) return false;
     return true;
   });
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  useEffect(() => { setPage(1); }, [selectedDate, searchQuery, groupFilter]);
+  useEffect(() => { setSelectedProgram(''); setPage(1); }, [groupFilter]);
+  useEffect(() => { setPage(1); }, [selectedDate, searchQuery, selectedProgram]);
 
   // ─── Audio controls ────────────────────────────
   const stopProgressTracking = useCallback(() => {
@@ -146,7 +189,7 @@ export default function RecordingArchive() {
   }, [stopProgressTracking]);
 
   const togglePlay = useCallback((rec: Recording) => {
-    const audioUrl = `${apiBase}/api/recordings/play/${encodeURIComponent(rec.filename)}`;
+    const audioUrl = `${apiBase}/api/radio/recordings/play/${encodeURIComponent(rec.filename)}`;
 
     if (playingFile === rec.filename) {
       audioRef.current?.pause();
@@ -228,13 +271,46 @@ export default function RecordingArchive() {
               {g === 'all' ? '全部' : meta!.label}
               {g !== 'all' && (
                 <span className={`ml-1 text-[10px] ${isActive ? 'opacity-70' : 'opacity-50'}`}>
-                  {recordings.filter(r => detectGroup(r.title) === g).length}
+                  {recordings.filter(r => detectGroup(r) === g).length}
                 </span>
               )}
             </button>
           );
         })}
       </div>
+
+      {/* Program filter */}
+      {programsInGroup.length > 1 && (
+        <div className="flex gap-1.5 flex-wrap">
+          <button
+            type="button"
+            onClick={() => setSelectedProgram('')}
+            className={`px-2.5 py-1 text-[11px] rounded-lg transition-colors border ${
+              !selectedProgram
+                ? 'bg-[var(--text-primary)] text-white border-transparent'
+                : 'bg-[var(--bg-primary)] text-[var(--text-tertiary)] border-[var(--border-primary)] hover:border-[var(--border-secondary)]'
+            }`}
+          >
+            全番組
+          </button>
+          {programsInGroup.map(p => (
+            <button
+              key={p.title}
+              type="button"
+              onClick={() => setSelectedProgram(selectedProgram === p.title ? '' : p.title)}
+              className={`px-2.5 py-1 text-[11px] rounded-lg transition-colors border truncate max-w-[200px] ${
+                selectedProgram === p.title
+                  ? 'bg-[var(--text-primary)] text-white border-transparent'
+                  : 'bg-[var(--bg-primary)] text-[var(--text-tertiary)] border-[var(--border-primary)] hover:border-[var(--border-secondary)]'
+              }`}
+              title={p.title}
+            >
+              {p.title}
+              <span className={`ml-1 text-[9px] ${selectedProgram === p.title ? 'opacity-70' : 'opacity-50'}`}>{p.count}</span>
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Filters row */}
       <div className="flex flex-col sm:flex-row gap-2">
@@ -276,7 +352,7 @@ export default function RecordingArchive() {
       <div className="space-y-2">
         {paged.map(rec => {
           const isActive = playingFile === rec.filename;
-          const group = detectGroup(rec.title);
+          const group = detectGroup(rec);
           const groupColor = GROUP_META[group].color;
           return (
             <div
@@ -298,8 +374,6 @@ export default function RecordingArchive() {
                     NO IMAGE
                   </div>
                 )}
-
-                {/* Play button */}
                 <button
                   onClick={() => togglePlay(rec)}
                   className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
@@ -309,8 +383,6 @@ export default function RecordingArchive() {
                 >
                   {isActive ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
                 </button>
-
-                {/* Info */}
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-[var(--text-primary)] truncate">
                     {rec.title}
@@ -338,10 +410,8 @@ export default function RecordingArchive() {
                     </p>
                   )}
                 </div>
-
-                {/* Download */}
                 <a
-                  href={`${apiBase}/api/recordings/play/${encodeURIComponent(rec.filename)}`}
+                  href={`${apiBase}/api/radio/recordings/play/${encodeURIComponent(rec.filename)}`}
                   download={rec.filename}
                   className="shrink-0 p-2 rounded-lg text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
                   title="ダウンロード"
@@ -349,8 +419,6 @@ export default function RecordingArchive() {
                   <Download size={14} />
                 </a>
               </div>
-
-              {/* Progress bar (visible when playing) */}
               {isActive && (
                 <div className="px-4 pb-3 space-y-1">
                   <div className="flex items-center gap-2">

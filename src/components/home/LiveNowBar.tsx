@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Radio } from 'lucide-react';
 
-const RADIO_API = 'https://radio.46log.com';
+const RADIO_API = 'https://api.46log.com';
 
 interface Program {
   title: string;
@@ -25,7 +25,7 @@ export default function LiveNowBar() {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch(`${RADIO_API}/api/schedule/sakamichi`, { signal: controller.signal })
+    fetch(`${RADIO_API}/api/radio/schedule/sakamichi`, { signal: controller.signal })
       .then(r => r.json())
       .then(data => {
         const now = new Date();

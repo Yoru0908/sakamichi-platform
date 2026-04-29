@@ -3,7 +3,7 @@ import Hls from 'hls.js';
 import { Play, Pause, Volume2, VolumeX, AlertCircle, Loader2, Radio } from 'lucide-react';
 
 // ─── Config ─────────────────────────────────────
-const API_BASE = 'https://radio.46log.com';
+const API_BASE = 'https://api.46log.com';
 const HEARTBEAT_INTERVAL = 60_000;
 const HLS_BUFFER_SEC = 18;
 
@@ -38,7 +38,7 @@ export default function RadikoPlayer() {
   // ─── Fetch station list ───────────────────────
   const fetchStations = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/live/stations`);
+      const res = await fetch(`${API_BASE}/api/radio/live/stations`);
       if (!res.ok) return;
       const data = await res.json();
       setStations(data.stations || []);
@@ -117,7 +117,7 @@ export default function RadikoPlayer() {
     setIsPlaying(false);
 
     try {
-      const res = await fetch(`${API_BASE}/api/live/tune/${station.id}`, { method: 'POST' });
+      const res = await fetch(`${API_BASE}/api/radio/live/tune/${station.id}`, { method: 'POST' });
       const data = await res.json();
       if (data.success && data.hls_url) {
         setSelectedStation({ ...station, streaming: true, hls_url: data.hls_url });
@@ -125,7 +125,7 @@ export default function RadikoPlayer() {
 
         if (heartbeatRef.current) clearInterval(heartbeatRef.current);
         heartbeatRef.current = setInterval(() => {
-          fetch(`${API_BASE}/api/live/heartbeat/${station.id}`, { method: 'POST' }).catch(() => {});
+          fetch(`${API_BASE}/api/radio/live/heartbeat/${station.id}`, { method: 'POST' }).catch(() => {});
         }, HEARTBEAT_INTERVAL);
       } else {
         setHlsError(data.error || 'チューニング失敗');

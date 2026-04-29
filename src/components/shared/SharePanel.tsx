@@ -14,6 +14,7 @@ interface Props {
   /** Button label, defaults to "分享" */
   label?: string;
   className?: string;
+  buttonClassName?: string;
 }
 
 interface Platform {
@@ -59,7 +60,7 @@ const PLATFORMS: Platform[] = [
   },
 ];
 
-export default function SharePanel({ config, label = '分享', className = '' }: Props) {
+export default function SharePanel({ config, label = '分享', className = '', buttonClassName = '' }: Props) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -85,7 +86,7 @@ export default function SharePanel({ config, label = '分享', className = '' }:
     <div ref={ref} className={`relative ${className}`}>
       <button
         onClick={() => setOpen(o => !o)}
-        className="flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg border border-[var(--border-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
+        className={`flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg border border-[var(--border-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors ${buttonClassName}`}
       >
         <Share2 size={14} />
         {label}

@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "miguri:sync": "node ./scripts/sync-miguri.mjs",
+    "miguri:sync:dry": "node ./scripts/sync-miguri.mjs --dry-run"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.7",

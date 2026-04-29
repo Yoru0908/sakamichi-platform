@@ -28,6 +28,24 @@ function nanoid(): string {
   return Array.from(bytes, b => chars[b % chars.length]).join('');
 }
 
+function buildCommunityAuthor(
+  row: { user_id: string | null; author_name?: string | null; author_avatar?: string | null; is_anonymous?: number | null },
+  options?: { showOwnerIdentity?: boolean },
+) {
+  const isAnonymous = row.is_anonymous === 1 || !row.user_id;
+  if (!options?.showOwnerIdentity && isAnonymous) {
+    return { id: null, displayName: '匿名', avatarUrl: null };
+  }
+  if (!row.user_id) {
+    return { id: null, displayName: '匿名', avatarUrl: null };
+  }
+  return {
+    id: row.user_id,
+    displayName: row.author_name || '匿名',
+    avatarUrl: row.author_avatar || null,
+  };
+ }
+
 /** Get Alist auth token (login with credentials, cached per-request) */
 let _alistTokenCache: { token: string; expiresAt: number } | null = null;
 
@@ -142,7 +160,7 @@ export async function handleListWorks(req: Request, env: Env): Promise<Response>
   const works = await env.DB.prepare(`
     SELECT w.id, w.image_key, w.thumbnail_key, w.member_name, w.romaji_name,
            w.group_style, w.theme, w.like_count, w.view_count, w.allow_download,
-           w.stamp_totoi, w.stamp_numa, w.stamp_ose, w.stamp_kami, w.stamp_yusho,
+           w.stamp_totoi, w.stamp_numa, w.stamp_ose, w.stamp_kami, w.stamp_yusho, w.is_anonymous,
            w.user_id, w.created_at,
            u.display_name as author_name, u.avatar_url as author_avatar
     FROM community_works w
@@ -202,11 +220,7 @@ export async function handleListWorks(req: Request, env: Env): Promise<Response>
         },
         myStamps: myStampsMap.get(w.id) || [],
         allowDownload: w.allow_download === 1,
-        author: w.user_id ? {
-          id: w.user_id,
-          displayName: w.author_name || '匿名',
-          avatarUrl: w.author_avatar,
-        } : { id: null, displayName: '匿名', avatarUrl: null },
+        author: buildCommunityAuthor(w),
         createdAt: w.created_at,
       })),
       total,
@@ -278,12 +292,92 @@ export async function handleGetWork(req: Request, env: Env, workId: string): Pro
       },
       myStamps,
       allowDownload: work.allow_download === 1,
-      author: work.user_id ? {
-        id: work.user_id,
-        displayName: work.author_name || '匿名',
-        avatarUrl: work.author_avatar,
-      } : { id: null, displayName: '匿名', avatarUrl: null },
+      author: buildCommunityAuthor(work),
       createdAt: work.created_at,
+    },
+  });
+}
+
+export async function handleUserWorks(req: Request, env: Env, userId: string): Promise<Response> {
+  const auth = await getAuthUser(req, env);
+  const url = new URL(req.url);
+  const page = Math.max(1, parseInt(url.searchParams.get('page') || '1'));
+  const limit = Math.min(50, Math.max(1, parseInt(url.searchParams.get('limit') || '20')));
+  const offset = (page - 1) * limit;
+
+  const countResult = await env.DB.prepare(
+    "SELECT COUNT(*) as total FROM community_works WHERE user_id = ? AND status = 'published' AND is_anonymous = 0",
+  ).bind(userId).first<{ total: number }>();
+  const total = countResult?.total || 0;
+
+  const works = await env.DB.prepare(`
+    SELECT w.id, w.image_key, w.thumbnail_key, w.member_name, w.romaji_name,
+           w.group_style, w.theme, w.like_count, w.view_count, w.allow_download,
+           w.stamp_totoi, w.stamp_numa, w.stamp_ose, w.stamp_kami, w.stamp_yusho, w.is_anonymous,
+           w.user_id, w.created_at,
+           u.display_name as author_name, u.avatar_url as author_avatar
+    FROM community_works w
+    LEFT JOIN users u ON w.user_id = u.id
+    WHERE w.user_id = ? AND w.status = 'published' AND w.is_anonymous = 0
+    ORDER BY w.created_at DESC
+    LIMIT ? OFFSET ?
+  `).bind(userId, limit, offset).all();
+
+  const workIds = (works.results || []).map((w: any) => w.id);
+  let likedSet = new Set<string>();
+  let bookmarkedSet = new Set<string>();
+  const myStampsMap = new Map<string, string[]>();
+  if (auth && workIds.length > 0) {
+    const placeholders = workIds.map(() => '?').join(',');
+    const [likes, bookmarks, stamps] = await Promise.all([
+      env.DB.prepare(
+        `SELECT work_id FROM community_likes WHERE user_id = ? AND work_id IN (${placeholders})`,
+      ).bind(auth.userId, ...workIds).all(),
+      env.DB.prepare(
+        `SELECT work_id FROM community_bookmarks WHERE user_id = ? AND work_id IN (${placeholders})`,
+      ).bind(auth.userId, ...workIds).all(),
+      env.DB.prepare(
+        `SELECT work_id, stamp_type FROM community_stamps WHERE user_id = ? AND work_id IN (${placeholders})`,
+      ).bind(auth.userId, ...workIds).all(),
+    ]);
+    likedSet = new Set((likes.results || []).map((l: any) => l.work_id));
+    bookmarkedSet = new Set((bookmarks.results || []).map((b: any) => b.work_id));
+    for (const s of (stamps.results || []) as any[]) {
+      if (!myStampsMap.has(s.work_id)) myStampsMap.set(s.work_id, []);
+      myStampsMap.get(s.work_id)!.push(s.stamp_type);
+    }
+  }
+
+  const galleryBase = 'https://gallery.46log.com/d/community';
+
+  return success({
+    data: {
+      works: (works.results || []).map((w: any) => ({
+        id: w.id,
+        imageUrl: `${galleryBase}/${w.thumbnail_key || w.image_key}`,
+        fullImageUrl: `${galleryBase}/${w.image_key}`,
+        memberName: w.member_name,
+        romajiName: w.romaji_name,
+        groupStyle: w.group_style,
+        theme: w.theme,
+        likeCount: w.like_count,
+        liked: likedSet.has(w.id),
+        bookmarked: bookmarkedSet.has(w.id),
+        stamps: {
+          totoi: w.stamp_totoi || 0,
+          numa:  w.stamp_numa  || 0,
+          ose:   w.stamp_ose   || 0,
+          kami:  w.stamp_kami  || 0,
+          yusho: w.stamp_yusho || 0,
+        },
+        myStamps: myStampsMap.get(w.id) || [],
+        allowDownload: w.allow_download === 1,
+        author: buildCommunityAuthor(w),
+        createdAt: w.created_at,
+      })),
+      total,
+      page,
+      hasMore: offset + limit < total,
     },
   });
 }
@@ -308,7 +402,8 @@ export async function handleCreateWork(req: Request, env: Env): Promise<Response
   const theme = formData.get('theme') as string | null;
   const allowDownload = formData.get('allowDownload') !== '0' ? 1 : 0;
   const isAnonymous = formData.get('anonymous') === '1';
-  const authorId = isAnonymous ? null : (auth?.userId ?? null);
+  const authorId = auth?.userId ?? null;
+  const anonymousFlag = isAnonymous || !auth ? 1 : 0;
 
   if (!image) return error('缺少图片文件', 400);
   if (!memberName) return error('缺少成员名', 400);
@@ -337,8 +432,8 @@ export async function handleCreateWork(req: Request, env: Env): Promise<Response
 
   // Insert into D1
   await env.DB.prepare(`
-    INSERT INTO community_works (id, user_id, image_key, thumbnail_key, member_name, romaji_name, group_style, theme, allow_download)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO community_works (id, user_id, image_key, thumbnail_key, member_name, romaji_name, group_style, theme, allow_download, is_anonymous)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).bind(
     id,
     authorId,
@@ -349,6 +444,7 @@ export async function handleCreateWork(req: Request, env: Env): Promise<Response
     groupStyle,
     theme || null,
     allowDownload,
+    anonymousFlag,
   ).run();
 
   const galleryBase = 'https://gallery.46log.com/d/community';
@@ -484,7 +580,7 @@ export async function handleMyBookmarks(req: Request, env: Env): Promise<Respons
   const works = await env.DB.prepare(`
     SELECT w.id, w.image_key, w.thumbnail_key, w.member_name, w.romaji_name,
            w.group_style, w.theme, w.like_count, w.view_count, w.allow_download,
-           w.user_id, w.created_at, w.stamp_totoi, w.stamp_numa, w.stamp_ose, w.stamp_kami, w.stamp_yusho,
+           w.user_id, w.created_at, w.stamp_totoi, w.stamp_numa, w.stamp_ose, w.stamp_kami, w.stamp_yusho, w.is_anonymous,
            u.display_name as author_name, u.avatar_url as author_avatar
     FROM community_bookmarks b
     JOIN community_works w ON b.work_id = w.id
@@ -527,11 +623,7 @@ export async function handleMyBookmarks(req: Request, env: Env): Promise<Respons
           yusho: w.stamp_yusho || 0,
         },
         allowDownload: w.allow_download === 1,
-        author: w.user_id ? {
-          id: w.user_id,
-          displayName: w.author_name || '匿名',
-          avatarUrl: w.author_avatar,
-        } : { id: null, displayName: '匿名', avatarUrl: null },
+        author: buildCommunityAuthor(w),
         createdAt: w.created_at,
       })),
       total,
@@ -611,11 +703,11 @@ export async function handleMyWorks(req: Request, env: Env): Promise<Response> {
   const total = countResult?.total || 0;
 
   const works = await env.DB.prepare(`
-    SELECT id, image_key, thumbnail_key, member_name, romaji_name,
-           group_style, theme, like_count, view_count, allow_download, status, created_at
-    FROM community_works
-    WHERE user_id = ? AND status != 'deleted'
-    ORDER BY created_at DESC
+    SELECT w.id, w.image_key, w.thumbnail_key, w.member_name, w.romaji_name,
+           w.group_style, w.theme, w.like_count, w.view_count, w.allow_download, w.status, w.is_anonymous, w.created_at
+    FROM community_works w
+    WHERE w.user_id = ? AND w.status != 'deleted'
+    ORDER BY w.created_at DESC
     LIMIT ? OFFSET ?
   `).bind(auth.userId, limit, offset).all();
 
@@ -647,8 +739,14 @@ export async function handleMyWorks(req: Request, env: Env): Promise<Response> {
         viewCount: w.view_count,
         allowDownload: w.allow_download === 1,
         status: w.status,
+        anonymous: w.is_anonymous === 1,
         createdAt: w.created_at,
-        author,
+        author: buildCommunityAuthor({
+          user_id: auth.userId,
+          author_name: author.displayName,
+          author_avatar: author.avatarUrl,
+          is_anonymous: 0,
+        }, { showOwnerIdentity: true }),
       })),
       total,
       page,

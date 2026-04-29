@@ -1,4 +1,4 @@
-import type { Env } from '../types';
+import type { Env } from '../types.ts';
 
 export function json(data: unknown, status = 200, headers: Record<string, string> = {}): Response {
   return new Response(JSON.stringify(data), {

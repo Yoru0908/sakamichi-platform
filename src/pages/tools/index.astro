@@ -1,12 +1,18 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { MessageSquare, Film, FileText, Clock, Sparkles, Wrench, ArrowRight } from 'lucide-astro';
+import { MessageSquare, Film, FileText, Clock, Sparkles, Wrench, ArrowRight, Ticket } from 'lucide-astro';
 
 const categories = [
   {
     label: 'MSG工具',
     tools: [
       { title: 'MSG样式生成器', desc: '坂道MSG聊天气泡截图生成，支持全成员头像', href: '/tools/msg-generator', color: 'var(--color-brand-hinata)', iconIdx: 0 },
+    ],
+  },
+  {
+    label: '票务工具',
+    tools: [
+      { title: '门票填写工具', desc: '坂道チケット一键填写插件，跳转到 Chrome Web Store 安装页', href: 'https://chromewebstore.google.com/detail/%E5%9D%82%E9%81%93%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E4%B8%80%E9%94%AE%E5%A1%AB%E5%86%99/ghhhepiljinhplblcgalalafpagddhmp?authuser=0&hl=ja', color: 'var(--color-brand-saku)', iconIdx: 5, external: true },
     ],
   },
   {
@@ -19,6 +25,7 @@ const categories = [
     ],
   },
 ];
+
 ---
 
 <BaseLayout title="工具箱 - Sakamichi Tools">
@@ -39,6 +46,8 @@ const categories = [
           {cat.tools.map((tool) => (
             <a
               href={tool.href}
+              target={tool.external ? '_blank' : undefined}
+              rel={tool.external ? 'noopener noreferrer' : undefined}
               class="group relative flex flex-col p-5 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--border-secondary)] transition-all duration-200"
             >
               <div class="flex items-start justify-between mb-3">
@@ -51,6 +60,7 @@ const categories = [
                   {tool.iconIdx === 2 && <FileText size={18} />}
                   {tool.iconIdx === 3 && <Clock size={18} />}
                   {tool.iconIdx === 4 && <Sparkles size={18} />}
+                  {tool.iconIdx === 5 && <Ticket size={18} />}
                 </div>
                 <ArrowRight size={14} class="text-[var(--text-tertiary)] opacity-0 group-hover:opacity-100 transition-opacity mt-1" />
               </div>

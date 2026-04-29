@@ -3,8 +3,8 @@ import { useStore } from '@nanostores/react';
 import { PenLine, Users, Download, Send, Palette, Save, Plus, LogIn, FolderOpen, Trash2, X, ChevronDown, ChevronRight, MessageSquare, TrendingUp, Sparkles, Heart, Star, Folder } from 'lucide-react';
 import type { Message, RepoData, TemplateId, AtmosphereTag, Member, GroupId } from '@/types/repo';
 import { TEMPLATES, ATMOSPHERE_TAGS, GROUP_META } from '@/types/repo';
-import { getMemberById, MOCK_REPOS } from '@/utils/repo-mock-data';
-import { createRepoWork } from '@/utils/auth-api';
+import { getMemberById } from '@/utils/repo-mock-data';
+import { createRepoWork, deleteRepoWork, getMyRepoWorks, getRepoStats, updateRepoWork, type CreateRepoPayload, type RepoStatsResponse, type RepoWorkItem } from '@/utils/auth-api';
 import { $auth } from '@/stores/auth';
 import { $favorites } from '@/stores/favorites';
 import MemberSelector from './MemberSelector';
@@ -13,6 +13,7 @@ import RepoCommunity from './RepoCommunity';
 import MeguriTemplate from './templates/MeguriTemplate';
 import LineTemplate from './templates/LineTemplate';
 import OshiColorTemplate from './templates/OshiColorTemplate';
+import { getInitialRepoTab, getRepoIdFromSearch } from './repo-url-state';
 
 type Tab = 'generator' | 'community';
 
@@ -22,6 +23,7 @@ interface SavedRepo {
   memberName: string;
   groupId: GroupId;
   memberImageUrl: string;
+  customMemberAvatar?: string;
   label: string;         // e.g. "2026/3/8 第1部"
   savedAt: string;
   data: {
@@ -66,6 +68,74 @@ function persistSavedRepos(repos: SavedRepo[]) {
   try { localStorage.setItem(REPO_LS_KEY, JSON.stringify(repos)); } catch { /* quota */ }
 }
 
+function createInitialMessages(): Message[] {
+  return [
+    { id: 'init_1', speaker: 'me', text: '' },
+    { id: 'init_2', speaker: 'member', text: '' },
+  ];
+}
+
+function buildRepoLabel(eventDate: string, slotNumber: number) {
+  return `${eventDate} 第${slotNumber}部`;
+}
+
+function mergeSavedRepo(list: SavedRepo[], saved: SavedRepo) {
+  const idx = list.findIndex((repo) => repo.id === saved.id);
+  if (idx >= 0) {
+    const next = [...list];
+    next[idx] = saved;
+    return next;
+  }
+  return [saved, ...list];
+}
+
+function repoWorkToSavedRepo(work: RepoWorkItem): SavedRepo {
+  const member = getMemberById(work.memberId);
+  return {
+    id: work.id,
+    memberId: work.memberId,
+    memberName: work.memberName,
+    groupId: work.groupId as GroupId,
+    memberImageUrl: work.customMemberAvatar || member?.imageUrl || '',
+    customMemberAvatar: work.customMemberAvatar,
+    label: buildRepoLabel(work.eventDate, work.slotNumber),
+    savedAt: work.updatedAt || work.createdAt,
+    data: {
+      eventDate: work.eventDate,
+      eventType: work.eventType,
+      slotNumber: work.slotNumber,
+      ticketCount: work.ticketCount,
+      nickname: work.nickname,
+      messages: work.messages.map((message, index) => ({
+        id: message.id || `${work.id}_${index}`,
+        speaker: message.speaker,
+        text: message.text,
+        imageUrl: message.imageUrl,
+      })),
+      tags: work.tags as AtmosphereTag[],
+      template: (work.template || 'meguri') as TemplateId,
+    },
+  };
+}
+
+function savedRepoToDraftPayload(repo: SavedRepo): CreateRepoPayload {
+  return {
+    memberId: repo.memberId,
+    memberName: repo.memberName,
+    groupId: repo.groupId,
+    customMemberAvatar: repo.customMemberAvatar,
+    eventDate: repo.data.eventDate,
+    eventType: repo.data.eventType,
+    slotNumber: repo.data.slotNumber,
+    ticketCount: repo.data.ticketCount,
+    nickname: repo.data.nickname,
+    messages: repo.data.messages.map(({ speaker, text, imageUrl }) => ({ speaker, text, imageUrl })),
+    tags: repo.data.tags,
+    template: repo.data.template,
+    isPublic: false,
+  };
+}
+
 const PLACEHOLDER_DATA: RepoData = {
   memberId: '',
   memberName: 'メンバー名',
@@ -84,9 +154,19 @@ const PLACEHOLDER_DATA: RepoData = {
   tags: [],
 };
 
-export default function RepoPage() {
-  const [activeTab, setActiveTab] = useState<Tab>('community');
+interface RepoPageProps {
+  initialMode?: string;
+}
+
+export default function RepoPage({ initialMode }: RepoPageProps) {
+  const [activeTab, setActiveTab] = useState<Tab>(() => getInitialRepoTab(initialMode));
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [repoStats, setRepoStats] = useState<RepoStatsResponse | null>(null);
+  const [requestedRepoId, setRequestedRepoId] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null;
+    return getRepoIdFromSearch(window.location.search);
+  });
+  const [draftsHydrated, setDraftsHydrated] = useState(false);
 
   // Auth & favorites from stores
   const auth = useStore($auth);
@@ -98,9 +178,71 @@ export default function RepoPage() {
   const [expandedMemberId, setExpandedMemberId] = useState<string | null>(null);
   const [expandedCategory, setExpandedCategory] = useState<FolderCategory | null>('oshi');
   const [repoSidebarOpen, setRepoSidebarOpen] = useState(true);
+  const [draftSaving, setDraftSaving] = useState(false);
+  const [draftSyncing, setDraftSyncing] = useState(false);
+  const [draftError, setDraftError] = useState<string | null>(null);
+  const [usingAccountDrafts, setUsingAccountDrafts] = useState(false);
 
   // Persist savedRepos whenever they change
-  useEffect(() => { persistSavedRepos(savedRepos); }, [savedRepos]);
+  useEffect(() => {
+    if (!auth.isLoggedIn && !usingAccountDrafts) persistSavedRepos(savedRepos);
+  }, [auth.isLoggedIn, savedRepos, usingAccountDrafts]);
+
+  useEffect(() => {
+    let cancelled = false;
+    getRepoStats().then((res) => {
+      if (!cancelled && res.success && res.data) setRepoStats(res.data);
+    }).catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
+  const syncAccountDrafts = useCallback(async () => {
+    if (!auth.isLoggedIn) return;
+    setDraftSyncing(true);
+    setDraftsHydrated(false);
+    setDraftError(null);
+    setUsingAccountDrafts(true);
+    try {
+      const legacyRepos = loadSavedRepos();
+      let migrationFailed = false;
+      for (const repo of legacyRepos) {
+        const res = await updateRepoWork(repo.id, savedRepoToDraftPayload(repo));
+        if (!res.success) {
+          migrationFailed = true;
+          setDraftError(res.message || '本地草稿同步失败');
+          break;
+        }
+      }
+      if (!migrationFailed && legacyRepos.length > 0) {
+        try { localStorage.removeItem(REPO_LS_KEY); } catch {}
+      }
+      const res = await getMyRepoWorks({ status: 'draft', limit: 100 });
+      if (res.success && res.data) {
+        setSavedRepos(res.data.repos.map(repoWorkToSavedRepo));
+      } else {
+        setSavedRepos([]);
+        setDraftError(res.message || '加载账号草稿失败');
+      }
+    } catch {
+      setSavedRepos([]);
+      setDraftError('加载账号草稿失败');
+    } finally {
+      setDraftSyncing(false);
+      setDraftsHydrated(true);
+    }
+  }, [auth.isLoggedIn]);
+
+  useEffect(() => {
+    if (auth.isLoggedIn) {
+      void syncAccountDrafts();
+      return;
+    }
+    setDraftSyncing(false);
+    setDraftsHydrated(true);
+    setDraftError(null);
+    setUsingAccountDrafts(false);
+    setSavedRepos(loadSavedRepos());
+  }, [auth.isLoggedIn, syncAccountDrafts]);
 
   // Generator state
   const [selectedMemberId, setSelectedMemberId] = useState<string | null>(null);
@@ -175,6 +317,42 @@ export default function RepoPage() {
 
   const hasContent = selectedMember && messages.some(m => m.text.trim() || m.imageUrl);
 
+  function buildCurrentPayload(isPublic: boolean): CreateRepoPayload | null {
+    if (!selectedMember) return null;
+    const filteredMessages = (isPublic ? messages.filter(m => m.text.trim() || m.imageUrl) : messages)
+      .map(({ speaker, text, imageUrl }) => ({ speaker, text, imageUrl }));
+    return {
+      memberId: selectedMember.id,
+      memberName: selectedMember.name,
+      groupId: selectedMember.group,
+      customMemberAvatar,
+      eventDate,
+      eventType,
+      slotNumber,
+      ticketCount,
+      nickname,
+      messages: filteredMessages,
+      tags,
+      template,
+      isPublic,
+    };
+  }
+
+  function buildSavedRepo(id: string): SavedRepo | null {
+    if (!selectedMember) return null;
+    return {
+      id,
+      memberId: selectedMember.id,
+      memberName: selectedMember.name,
+      groupId: selectedMember.group,
+      memberImageUrl: customMemberAvatar || selectedMember.imageUrl,
+      customMemberAvatar,
+      label: buildRepoLabel(eventDate, slotNumber),
+      savedAt: new Date().toISOString(),
+      data: { eventDate, eventType, slotNumber, ticketCount, nickname, messages, tags, template },
+    };
+  }
+
   // Derive member category from auth oshi + favorites store
   const favoriteNames = new Set(favorites.map(f => f.name));
   const getMemberCategory = useCallback((memberName: string): FolderCategory => {
@@ -206,28 +384,39 @@ export default function RepoPage() {
 
   // Save current repo
   function handleSave() {
-    if (!selectedMember) {
-      alert('先にメンバーを選択してください');
-      return;
-    }
-    const id = activeRepoId || `repo_${Date.now()}`;
-    const saved: SavedRepo = {
-      id,
-      memberId: selectedMember.id,
-      memberName: selectedMember.name,
-      groupId: selectedMember.group,
-      memberImageUrl: selectedMember.imageUrl,
-      label: `${eventDate} 第${slotNumber}部`,
-      savedAt: new Date().toISOString(),
-      data: { eventDate, eventType, slotNumber, ticketCount, nickname, messages, tags, template },
-    };
-    setSavedRepos(prev => {
-      const idx = prev.findIndex(r => r.id === id);
-      if (idx >= 0) { const next = [...prev]; next[idx] = saved; return next; }
-      return [saved, ...prev];
-    });
-    setActiveRepoId(id);
-    setExpandedMemberId(selectedMember.id);
+    void (async () => {
+      if (!selectedMember) {
+        alert('先にメンバーを選択してください');
+        return;
+      }
+      const id = activeRepoId || `repo_${Date.now()}`;
+      const saved = buildSavedRepo(id);
+      const payload = buildCurrentPayload(false);
+      if (!saved || !payload) return;
+
+      setDraftError(null);
+
+      if (auth.isLoggedIn) {
+        setDraftSaving(true);
+        try {
+          const res = await updateRepoWork(id, payload);
+          if (!res.success) {
+            setDraftError(res.message || '保存草稿失败');
+            return;
+          }
+          setUsingAccountDrafts(true);
+        } catch {
+          setDraftError('保存草稿失败');
+          return;
+        } finally {
+          setDraftSaving(false);
+        }
+      }
+
+      setSavedRepos(prev => mergeSavedRepo(prev, saved));
+      setActiveRepoId(id);
+      setExpandedMemberId(selectedMember.id);
+    })();
   }
 
   // Load a saved repo
@@ -242,8 +431,18 @@ export default function RepoPage() {
     setMessages(repo.data.messages);
     setTags(repo.data.tags);
     setTemplate(repo.data.template);
+    setCustomMemberAvatar(repo.customMemberAvatar);
     setExpandedMemberId(repo.memberId);
   }
+
+  useEffect(() => {
+    if (activeTab !== 'generator' || !requestedRepoId || !draftsHydrated) return;
+    const requestedRepo = savedRepos.find((repo) => repo.id === requestedRepoId);
+    if (requestedRepo) {
+      loadRepo(requestedRepo);
+    }
+    setRequestedRepoId(null);
+  }, [activeTab, requestedRepoId, draftsHydrated, savedRepos]);
 
   // New blank repo under a specific member
   function newRepoForMember(memberId: string) {
@@ -251,8 +450,9 @@ export default function RepoPage() {
     setActiveRepoId(null);
     setSelectedMemberId(memberId);
     setNickname('');
-    setMessages([{ id: 'init_1', speaker: 'me', text: '' }, { id: 'init_2', speaker: 'member', text: '' }]);
+    setMessages(createInitialMessages());
     setTags([]);
+    setCustomMemberAvatar(undefined);
     setExpandedMemberId(memberId);
   }
 
@@ -261,13 +461,29 @@ export default function RepoPage() {
     setActiveRepoId(null);
     setSelectedMemberId(null);
     setNickname('');
-    setMessages([{ id: 'init_1', speaker: 'me', text: '' }, { id: 'init_2', speaker: 'member', text: '' }]);
+    setMessages(createInitialMessages());
     setTags([]);
+    setCustomMemberAvatar(undefined);
   }
 
   function deleteRepo(id: string) {
-    setSavedRepos(prev => prev.filter(r => r.id !== id));
-    if (activeRepoId === id) newRepo();
+    void (async () => {
+      setDraftError(null);
+      if (auth.isLoggedIn) {
+        try {
+          const res = await deleteRepoWork(id);
+          if (!res.success) {
+            setDraftError(res.message || '删除草稿失败');
+            return;
+          }
+        } catch {
+          setDraftError('删除草稿失败');
+          return;
+        }
+      }
+      setSavedRepos(prev => prev.filter(r => r.id !== id));
+      if (activeRepoId === id) newRepo();
+    })();
   }
 
   const handleDownload = useCallback(async () => {
@@ -298,22 +514,18 @@ export default function RepoPage() {
     }
     setPublishing(true);
     setPublishError(null);
+    setDraftError(null);
     try {
-      const res = await createRepoWork({
-        memberId: selectedMember.id,
-        memberName: selectedMember.name,
-        groupId: selectedMember.group,
-        eventDate,
-        eventType,
-        slotNumber,
-        ticketCount,
-        nickname,
-        messages: messages.filter(m => m.text.trim() || m.imageUrl).map(({ speaker, text, imageUrl }) => ({ speaker, text, imageUrl })),
-        tags,
-        template,
-        isPublic: true,
-      });
+      const payload = buildCurrentPayload(true);
+      if (!payload) return;
+      const res = activeRepoId
+        ? await updateRepoWork(activeRepoId, payload)
+        : await createRepoWork(payload);
       if (res.success) {
+        if (activeRepoId) {
+          setSavedRepos(prev => prev.filter(repo => repo.id !== activeRepoId));
+          setActiveRepoId(null);
+        }
         setActiveTab('community');
       } else {
         setPublishError(res.message || '发布失败，请稍后重试');
@@ -323,7 +535,7 @@ export default function RepoPage() {
     } finally {
       setPublishing(false);
     }
-  }, [auth.isLoggedIn, selectedMember, hasContent, eventDate, eventType, slotNumber, ticketCount, nickname, messages, tags, template]);
+  }, [auth.isLoggedIn, selectedMember, hasContent, activeRepoId, eventDate, eventType, slotNumber, ticketCount, nickname, messages, tags, template]);
 
   function renderPreview() {
     switch (template) {
@@ -363,7 +575,7 @@ export default function RepoPage() {
                 <MessageSquare size={16} />
               </div>
               <div>
-                <p className="text-lg font-bold text-[var(--text-primary)]">{MOCK_REPOS.length.toLocaleString()}</p>
+                <p className="text-lg font-bold text-[var(--text-primary)]">{(repoStats?.total ?? 0).toLocaleString()}</p>
                 <p className="text-[10px] text-[var(--text-tertiary)]">总作品数</p>
               </div>
             </div>
@@ -372,7 +584,7 @@ export default function RepoPage() {
                 <Users size={16} />
               </div>
               <div>
-                <p className="text-lg font-bold text-[var(--text-primary)]">{new Set(MOCK_REPOS.map(r => r.userId)).size}</p>
+                <p className="text-lg font-bold text-[var(--text-primary)]">{(repoStats?.creators ?? 0).toLocaleString()}</p>
                 <p className="text-[10px] text-[var(--text-tertiary)]">创作者</p>
               </div>
             </div>
@@ -381,7 +593,7 @@ export default function RepoPage() {
                 <TrendingUp size={16} />
               </div>
               <div>
-                <p className="text-lg font-bold text-[var(--text-primary)]">+{MOCK_REPOS.filter(r => { const d = new Date(r.createdAt); const now = new Date(); return d.toDateString() === now.toDateString(); }).length}</p>
+                <p className="text-lg font-bold text-[var(--text-primary)]">+{(repoStats?.today ?? 0).toLocaleString()}</p>
                 <p className="text-[10px] text-[var(--text-tertiary)]">今日新增</p>
               </div>
             </div>
@@ -438,9 +650,16 @@ export default function RepoPage() {
                   </button>
                   <FolderOpen size={14} className="text-[var(--text-tertiary)]" />
                   <h3 className="text-xs font-semibold text-[var(--text-secondary)]">我的Repo</h3>
+                  <span className="text-[10px] text-[var(--text-tertiary)]">{auth.isLoggedIn ? (draftSyncing ? '同步中...' : '账号草稿') : '本地草稿'}</span>
                   <div className="flex-1" />
                   <button type="button" onClick={newRepo} className="text-[10px] text-[var(--color-brand-nogi)] hover:underline">+ 新建</button>
                 </div>
+                {draftError && <div className="mb-2 text-[10px] text-red-500">{draftError}</div>}
+                {!draftError && (
+                  <div className="mb-2 text-[10px] text-[var(--text-tertiary)]">
+                    {auth.isLoggedIn ? '草稿会同步到当前账号' : '未登录时仅本地保存'}
+                  </div>
+                )}
                 {repoSidebarOpen && (
                   <div className="space-y-1">
                     {(['oshi', 'favorite', 'custom'] as FolderCategory[]).map(cat => {
@@ -626,9 +845,9 @@ export default function RepoPage() {
                     className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-[var(--text-primary)] text-white text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
                     <Download size={14} /> 下载图片
                   </button>
-                  <button type="button" onClick={handleSave}
-                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg border border-[var(--border-primary)] text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors">
-                    <Save size={14} /> {activeRepoId ? '覆盖保存' : '保存'}
+                  <button type="button" onClick={handleSave} disabled={draftSaving || draftSyncing}
+                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg border border-[var(--border-primary)] text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                    <Save size={14} /> {draftSaving ? '保存中...' : activeRepoId ? '覆盖保存' : auth.isLoggedIn ? '保存草稿' : '本地保存'}
                   </button>
                   <button type="button" onClick={handlePublish} disabled={!hasContent || publishing}
                     className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-white"

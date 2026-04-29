@@ -1,12 +1,15 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import MeguriPrototype from '@/components/meguri/MeguriPrototype';
-import { fetchFortuneEvents } from '@/utils/fortune-music';
-
-const events = await fetchFortuneEvents();
-const eventsJson = JSON.stringify(events);
+const targetPath = '/miguri';
 ---
 
-<BaseLayout title="咪咕力活动管理原型 - Sakamichi Tools" description="Fortune Music 咪咕力活动管理功能的隐藏前端原型预览页">
-  <MeguriPrototype client:load events={eventsJson} />
-</BaseLayout>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${targetPath}`} />
+    <title>Miguri 页面已迁移</title>
+    <link rel="canonical" href={targetPath} />
+  </head>
+  <body>
+    <p><a href={targetPath}>页面已迁移到 {targetPath}</a></p>
+  </body>
+</html>

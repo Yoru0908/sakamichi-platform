@@ -9,7 +9,8 @@ export const ja: Record<TranslationKey, string> = {
   'nav.instagram': 'INSアーカイブ',
   'nav.gallery': 'ギャラリー',
   'nav.photocard': '生写真カード',
-  'nav.repo': '握手Repo',
+  'nav.miguri': 'ミーグリ管理',
+  'nav.repo': 'ミーグリRepo',
   'nav.tools': 'ツールボックス',
   'nav.tools.photocard': '生写真ジェネレーター',
   'nav.tools.msg_generator': 'MSGスタイルジェネレーター',
@@ -17,6 +18,7 @@ export const ja: Record<TranslationKey, string> = {
   'nav.tools.subtitle_merge': '字幕マージ',
   'nav.tools.srt_fixer': 'SRTタイムライン修正',
   'nav.tools.fad_effect': 'FADエフェクト',
+  'nav.tools.ticket_form': 'チケット記入ツール',
   'nav.login': 'ログイン',
   'nav.register': '新規登録',
 

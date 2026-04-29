@@ -3,7 +3,8 @@ import { REACTION_TYPES, ATMOSPHERE_TAGS, GROUP_META } from '@/types/repo';
 import type { ReactionType } from '@/types/repo';
 import { reactToRepo } from '@/utils/auth-api';
 import type { RepoWorkItem, RepoReaction } from '@/utils/auth-api';
-import { getR2AvatarUrl } from '@/components/messages/msg-styles';
+import RepoMemberImage from './RepoMemberImage';
+import { getRepoCommunityPreferredMemberImageUrl } from './repo-community-avatar';
 
 interface Props {
   repo: RepoWorkItem;
@@ -11,20 +12,24 @@ interface Props {
   onCardClick?: (repo: RepoWorkItem) => void;
 }
 
-function CardAvatar({ name, groupId }: { name: string; groupId: string }) {
-  const [failed, setFailed] = useState(false);
+function CardAvatar({ memberId, name, groupId, customMemberAvatar }: { memberId: string; name: string; groupId: string; customMemberAvatar?: string }) {
   const group = (GROUP_META as Record<string, any>)[groupId];
   const color = group?.color || '#888';
-  const src = getR2AvatarUrl(name);
+  const preferredSrc = getRepoCommunityPreferredMemberImageUrl({ customMemberAvatar, memberId, memberName: name });
 
-  if (failed) {
-    return (
-      <div className="w-10 h-10 rounded-full shrink-0 flex items-center justify-center text-white font-bold text-sm" style={{ backgroundColor: color }}>
-        {name.charAt(0)}
-      </div>
-    );
-  }
-  return <img src={src} alt={name} className="w-10 h-10 rounded-full object-cover object-top bg-gray-100" onError={() => setFailed(true)} />;
+  return (
+    <RepoMemberImage
+      memberName={name}
+      preferredSrc={preferredSrc}
+      alt={name}
+      className="w-10 h-10 rounded-full object-cover object-top bg-gray-100"
+      fallback={(
+        <div className="w-10 h-10 rounded-full shrink-0 flex items-center justify-center text-white font-bold text-sm" style={{ backgroundColor: color }}>
+          {name.charAt(0)}
+        </div>
+      )}
+    />
+  );
 }
 
 export default function RepoCard({ repo, onReactionUpdate, onCardClick }: Props) {
@@ -86,7 +91,7 @@ export default function RepoCard({ repo, onReactionUpdate, onCardClick }: Props)
     >
       {/* Header */}
       <div className="flex items-center gap-3 p-3 pb-2">
-        <CardAvatar name={repo.memberName} groupId={repo.groupId} />
+        <CardAvatar memberId={repo.memberId} name={repo.memberName} groupId={repo.groupId} customMemberAvatar={repo.customMemberAvatar} />
         <div className="flex-1 min-w-0">
           <div className="text-sm font-semibold truncate">{repo.memberName}</div>
           <div className="text-[11px] text-gray-400">

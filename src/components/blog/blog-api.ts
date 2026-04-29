@@ -207,6 +207,37 @@ export async function fetchGroupMembers(group: string): Promise<GroupMembersData
   }
 }
 
+export async function fetchGroupBlogsForLatestDates(group: string, limit = 500): Promise<BlogItem[]> {
+  const cacheKey = `member_latest_dates_${group}_${limit}`;
+  const cached = getCached(cacheKey);
+  if (cached && cached.length > 0) {
+    return cached;
+  }
+
+  const apiBase = getApiBaseUrl();
+  const params = new URLSearchParams({
+    group: getGroupApiName(group),
+    limit: String(limit),
+  });
+  const response = await fetchWithRetry(`${apiBase}/api/blogs?${params}`);
+  const data: BlogsResponse = await response.json();
+
+  if (!data.success || !data.blogs) {
+    throw new Error(data.error || '加载成员更新时间兜底数据失败');
+  }
+
+  let blogs = data.blogs.map(processBlog);
+  blogs = removeDuplicates(blogs);
+  blogs.sort((a, b) => {
+    const da = new Date(a.publish_date || 0).getTime();
+    const db = new Date(b.publish_date || 0).getTime();
+    return db - da;
+  });
+
+  setCache(cacheKey, blogs);
+  return blogs;
+}
+
 export async function fetchMemberBlogs(member: string, group: string): Promise<BlogItem[]> {
   const apiBase = getApiBaseUrl();
   const groupApiName = getGroupApiName(group);

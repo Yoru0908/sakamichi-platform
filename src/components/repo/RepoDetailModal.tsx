@@ -1,31 +1,38 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { X, Download, Share2, Calendar, Ticket, Flag } from 'lucide-react';
+import { X, Download, Share2, Calendar, Ticket, Flag, Trash2 } from 'lucide-react';
 import ReportDialog from '@/components/shared/ReportDialog';
 import { useStore } from '@nanostores/react';
 import { $auth } from '@/stores/auth';
 import type { RepoWorkItem, RepoReaction } from '@/utils/auth-api';
-import { reactToRepo } from '@/utils/auth-api';
+import { deleteRepoWork, reactToRepo } from '@/utils/auth-api';
 import type { RepoData, TemplateId, AtmosphereTag, GroupId } from '@/types/repo';
 import { REACTION_TYPES, GROUP_META, ATMOSPHERE_TAGS } from '@/types/repo';
 import MeguriTemplate from './templates/MeguriTemplate';
 import LineTemplate from './templates/LineTemplate';
 import OshiColorTemplate from './templates/OshiColorTemplate';
-import { getR2AvatarUrl } from '@/components/messages/msg-styles';
+import RepoMemberImage from './RepoMemberImage';
+import { getRepoCommunityPreferredMemberImageUrl } from './repo-community-avatar';
 
 interface Props {
   repo: RepoWorkItem;
   onClose: () => void;
   onReactionUpdate?: (workId: string, reactions: RepoReaction, myReactions: string[]) => void;
+  onDelete?: (workId: string) => void;
 }
 
 function buildRepoData(repo: RepoWorkItem): RepoData {
   const groupMeta = (GROUP_META as Record<string, any>)[repo.groupId];
+  const memberImageUrl = getRepoCommunityPreferredMemberImageUrl({
+    customMemberAvatar: repo.customMemberAvatar,
+    memberId: repo.memberId,
+    memberName: repo.memberName,
+  });
   return {
     memberId: repo.memberId,
     memberName: repo.memberName,
     groupId: repo.groupId as GroupId,
     groupName: groupMeta?.name || repo.groupId,
-    memberImageUrl: getR2AvatarUrl(repo.memberName),
+    memberImageUrl,
     eventDate: repo.eventDate,
     eventType: repo.eventType,
     slotNumber: repo.slotNumber,
@@ -45,7 +52,27 @@ function renderTemplate(template: string, data: RepoData) {
   }
 }
 
-export default function RepoDetailModal({ repo, onClose, onReactionUpdate }: Props) {
+function MemberCircleAvatar({ memberName, memberImageUrl, color, size }: { memberName: string; memberImageUrl?: string; color: string; size: number }) {
+  return (
+    <RepoMemberImage
+      memberName={memberName}
+      preferredSrc={memberImageUrl}
+      alt={memberName}
+      className="rounded-full shrink-0 object-cover object-top"
+      style={{ width: size, height: size, backgroundColor: '#f3f4f6' }}
+      fallback={(
+        <div
+          className="rounded-full shrink-0 flex items-center justify-center text-white font-bold"
+          style={{ width: size, height: size, backgroundColor: color, fontSize: size * 0.35 }}
+        >
+          {memberName.charAt(0)}
+        </div>
+      )}
+    />
+  );
+}
+
+export default function RepoDetailModal({ repo, onClose, onReactionUpdate, onDelete }: Props) {
   const auth = useStore($auth);
   const templateRef = useRef<HTMLDivElement>(null);
 
@@ -55,11 +82,15 @@ export default function RepoDetailModal({ repo, onClose, onReactionUpdate }: Pro
   const [downloading, setDownloading] = useState(false);
   const [showReport, setShowReport] = useState(false);
   const [shareMsg, setShareMsg] = useState<string | null>(null);
+  const [deleting, setDeleting] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   const repoData = buildRepoData(repo);
   const group = (GROUP_META as Record<string, any>)[repo.groupId];
   const groupColor: string = group?.color || '#888';
   const tags = ATMOSPHERE_TAGS.filter(t => repo.tags.includes(t.id));
+  const isOwner = auth.isLoggedIn && auth.userId === repo.userId;
+  const canDelete = isOwner || auth.role === 'admin';
 
   // Esc to close
   useEffect(() => {
@@ -141,6 +172,25 @@ export default function RepoDetailModal({ repo, onClose, onReactionUpdate }: Pro
     }
   }, [repo.id]);
 
+  const handleDelete = useCallback(async () => {
+    if (deleting) return;
+    if (!confirmDelete) {
+      setConfirmDelete(true);
+      return;
+    }
+    setDeleting(true);
+    try {
+      const res = await deleteRepoWork(repo.id);
+      if (res.success) {
+        onDelete?.(repo.id);
+        onClose();
+      }
+    } finally {
+      setDeleting(false);
+      setConfirmDelete(false);
+    }
+  }, [confirmDelete, deleting, onClose, onDelete, repo.id]);
+
   const totalReactions = Object.values(reactions).reduce((a, b) => a + b, 0);
 
   return (
@@ -165,12 +215,12 @@ export default function RepoDetailModal({ repo, onClose, onReactionUpdate }: Pro
 
         {/* Header */}
         <div className="flex items-center gap-3 px-5 pt-5 pb-3">
-          <div
-            className="w-10 h-10 rounded-full shrink-0 flex items-center justify-center text-white font-bold text-sm"
-            style={{ backgroundColor: groupColor }}
-          >
-            {repo.memberName.charAt(0)}
-          </div>
+          <MemberCircleAvatar
+            memberName={repo.memberName}
+            memberImageUrl={repoData.memberImageUrl}
+            color={groupColor}
+            size={40}
+          />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="font-bold text-[var(--text-primary)]">{repo.memberName}</span>
@@ -217,12 +267,23 @@ export default function RepoDetailModal({ repo, onClose, onReactionUpdate }: Pro
                 className={`flex items-start gap-2 ${msg.speaker === 'me' ? 'flex-row-reverse' : ''}`}
               >
                 {msg.speaker !== 'narration' && (
-                  <div
-                    className="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-[9px] font-bold text-white mt-0.5"
-                    style={{ backgroundColor: msg.speaker === 'me' ? '#9ca3af' : groupColor }}
-                  >
-                    {msg.speaker === 'me' ? 'You' : repo.memberName.charAt(0)}
-                  </div>
+                  msg.speaker === 'me' ? (
+                    <div
+                      className="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-[9px] font-bold text-white mt-0.5"
+                      style={{ backgroundColor: '#9ca3af' }}
+                    >
+                      You
+                    </div>
+                  ) : (
+                    <div className="mt-0.5">
+                      <MemberCircleAvatar
+                        memberName={repo.memberName}
+                        memberImageUrl={repoData.memberImageUrl}
+                        color={groupColor}
+                        size={24}
+                      />
+                    </div>
+                  )
                 )}
                 <div
                   className={`px-2.5 py-1.5 rounded-xl text-xs leading-relaxed max-w-[76%] ${
@@ -287,6 +348,21 @@ export default function RepoDetailModal({ repo, onClose, onReactionUpdate }: Pro
             {new Date(repo.createdAt).toLocaleDateString('ja-JP')}
           </div>
           <div className="flex items-center gap-2">
+            {canDelete && (
+              <button
+                type="button"
+                onClick={handleDelete}
+                disabled={deleting}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs transition-colors ${
+                  confirmDelete
+                    ? 'bg-red-500 text-white'
+                    : 'border border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20'
+                }`}
+              >
+                <Trash2 size={12} />
+                {confirmDelete ? '确认删除' : deleting ? '删除中...' : '删除'}
+              </button>
+            )}
             {auth.isLoggedIn && (
               <button
                 type="button"

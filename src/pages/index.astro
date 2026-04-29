@@ -46,6 +46,12 @@ try {
 ---
 
 <BaseLayout>
+  {/* App identity — required by Google OAuth branding verification */}
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
+    <h1 class="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">Sakamichi Tools</h1>
+    <p class="mt-1 text-sm text-[var(--text-tertiary)]">A fan platform for Sakamichi Series — blog translations, MSG archive, radio streaming, event management, and creative tools. <a href="/privacy" class="underline hover:text-[var(--text-secondary)]">Privacy Policy</a></p>
+  </section>
+
   {/* SSG Hero: static HTML with preloaded LCP image — no JS needed */}
   {heroBlog && (
     <link rel="preload" as="image" href={heroBlog.heroImage} slot="head" />

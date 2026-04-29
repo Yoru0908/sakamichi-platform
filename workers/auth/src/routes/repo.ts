@@ -42,6 +42,7 @@ function formatWork(w: any, myReactions: Set<string>, authorName: string | null)
     memberId: w.member_id,
     memberName: w.member_name,
     groupId: w.group_id,
+    customMemberAvatar: w.custom_member_avatar || '',
     eventDate: w.event_date,
     eventType: w.event_type,
     slotNumber: w.slot_number,
@@ -59,6 +60,8 @@ function formatWork(w: any, myReactions: Set<string>, authorName: string | null)
     myReactions: VALID_REACTIONS.filter(r => myReactions.has(r)),
     isPublic: w.status === 'published',
     createdAt: w.created_at,
+    updatedAt: w.updated_at || w.created_at,
+    status: w.status,
   };
 }
 
@@ -70,6 +73,7 @@ export async function handleListRepoWorks(req: Request, env: Env): Promise<Respo
   const group    = url.searchParams.get('group') || '';
   const memberId = url.searchParams.get('memberId') || '';
   const tag      = url.searchParams.get('tag') || '';
+  const query    = url.searchParams.get('q') || '';
   const sort     = url.searchParams.get('sort') || 'latest';
   const page     = Math.max(1, parseInt(url.searchParams.get('page') || '1'));
   const limit    = Math.min(50, Math.max(1, parseInt(url.searchParams.get('limit') || '20')));
@@ -83,6 +87,10 @@ export async function handleListRepoWorks(req: Request, env: Env): Promise<Respo
   if (group) { where += ' AND r.group_id = ?'; params.push(group); }
   if (memberId) { where += ' AND r.member_id = ?'; params.push(memberId); }
   if (tag) { where += ' AND r.tags LIKE ?'; params.push(`%"${tag}"%`); }
+  if (query) {
+    where += ' AND (r.member_name LIKE ? OR r.nickname LIKE ? OR r.messages LIKE ? OR r.tags LIKE ?)';
+    params.push(`%${query}%`, `%${query}%`, `%${query}%`, `%${query}%`);
+  }
 
   const orderBy = sort === 'popular'
     ? '(r.react_lemon + r.react_sweet + r.react_funny + r.react_pray) DESC, r.created_at DESC'
@@ -94,7 +102,7 @@ export async function handleListRepoWorks(req: Request, env: Env): Promise<Respo
   const total = countResult?.total || 0;
 
   const works = await env.DB.prepare(`
-    SELECT r.id, r.user_id, r.member_id, r.member_name, r.group_id,
+    SELECT r.id, r.user_id, r.member_id, r.member_name, r.group_id, r.custom_member_avatar,
            r.event_date, r.event_type, r.slot_number, r.ticket_count, r.nickname,
            r.messages, r.tags, r.template,
            r.react_lemon, r.react_sweet, r.react_funny, r.react_pray,
@@ -146,7 +154,7 @@ export async function handleCreateRepoWork(req: Request, env: Env): Promise<Resp
   let body: any;
   try { body = await req.json(); } catch { return error('无效的 JSON', 400); }
 
-  const { memberId, memberName, groupId, eventDate, eventType, slotNumber, ticketCount,
+  const { memberId, memberName, groupId, customMemberAvatar, eventDate, eventType, slotNumber, ticketCount,
           nickname, messages, tags, template, isPublic } = body;
 
   if (!memberId || !memberName || !groupId || !eventDate) {
@@ -158,13 +166,15 @@ export async function handleCreateRepoWork(req: Request, env: Env): Promise<Resp
   const userId = auth?.userId ?? null;
   const status = isPublic === false ? 'draft' : 'published';
 
+  if (status === 'draft' && !auth) return error('需要登录后保存草稿', 401);
+
   await env.DB.prepare(`
     INSERT INTO repo_works
-      (id, user_id, member_id, member_name, group_id, event_date, event_type,
+      (id, user_id, member_id, member_name, group_id, custom_member_avatar, event_date, event_type,
        slot_number, ticket_count, nickname, messages, tags, template, status)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).bind(
-    id, userId, memberId, memberName, groupId, eventDate,
+    id, userId, memberId, memberName, groupId, customMemberAvatar || null, eventDate,
     eventType || 'ミーグリ',
     slotNumber || 1,
     ticketCount || 1,
@@ -176,6 +186,82 @@ export async function handleCreateRepoWork(req: Request, env: Env): Promise<Resp
   ).run();
 
   return success({ data: { id } }, 201);
+}
+
+/** PUT /api/repo/works/:id */
+export async function handleUpdateRepoWork(req: Request, env: Env, workId: string): Promise<Response> {
+  const auth = await getAuthUser(req, env);
+  if (!auth) return error('需要登录', 401);
+
+  let body: any;
+  try { body = await req.json(); } catch { return error('无效的 JSON', 400); }
+
+  const { memberId, memberName, groupId, customMemberAvatar, eventDate, eventType, slotNumber, ticketCount,
+          nickname, messages, tags, template, isPublic } = body;
+
+  if (!memberId || !memberName || !groupId || !eventDate) {
+    return error('缺少必要字段 (memberId, memberName, groupId, eventDate)', 400);
+  }
+  if (!Array.isArray(messages)) return error('messages 必须是数组', 400);
+
+  const existing = await env.DB.prepare(
+    'SELECT id, user_id FROM repo_works WHERE id = ? AND status != \'deleted\''
+  ).bind(workId).first<{ id: string; user_id: string | null }>();
+
+  const status = isPublic === false ? 'draft' : 'published';
+
+  if (existing) {
+    if (existing.user_id !== auth.userId && auth.role !== 'admin') return error('无权修改', 403);
+    await env.DB.prepare(`
+      UPDATE repo_works
+      SET member_id = ?, member_name = ?, group_id = ?, custom_member_avatar = ?, event_date = ?, event_type = ?,
+           slot_number = ?, ticket_count = ?, nickname = ?, messages = ?, tags = ?, template = ?,
+           status = ?, updated_at = datetime('now')
+     WHERE id = ?
+   `).bind(
+     memberId,
+     memberName,
+     groupId,
+     customMemberAvatar || null,
+     eventDate,
+     eventType || 'ミーグリ',
+     slotNumber || 1,
+     ticketCount || 1,
+      nickname || '',
+      JSON.stringify(messages),
+      JSON.stringify(tags || []),
+      template || 'meguri',
+      status,
+      workId,
+    ).run();
+
+    return success({ data: { id: workId, created: false, status } });
+  }
+
+  await env.DB.prepare(`
+    INSERT INTO repo_works
+      (id, user_id, member_id, member_name, group_id, custom_member_avatar, event_date, event_type,
+       slot_number, ticket_count, nickname, messages, tags, template, status)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+   `).bind(
+     workId,
+     auth.userId,
+     memberId,
+     memberName,
+     groupId,
+     customMemberAvatar || null,
+     eventDate,
+     eventType || 'ミーグリ',
+     slotNumber || 1,
+     ticketCount || 1,
+    nickname || '',
+    JSON.stringify(messages),
+    JSON.stringify(tags || []),
+    template || 'meguri',
+    status,
+  ).run();
+
+  return success({ data: { id: workId, created: true, status } }, 201);
 }
 
 /** DELETE /api/repo/works/:id */
@@ -253,18 +339,21 @@ export async function handleGetRepoWork(req: Request, env: Env, workId: string):
   const auth = await getAuthUser(req, env);
 
   const work = await env.DB.prepare(`
-    SELECT r.id, r.user_id, r.member_id, r.member_name, r.group_id,
-           r.event_date, r.event_type, r.slot_number, r.ticket_count, r.nickname,
-           r.messages, r.tags, r.template,
-           r.react_lemon, r.react_sweet, r.react_funny, r.react_pray,
-           r.created_at,
-           u.display_name as author_name
+    SELECT r.id, r.user_id, r.member_id, r.member_name, r.group_id, r.custom_member_avatar,
+            r.event_date, r.event_type, r.slot_number, r.ticket_count, r.nickname,
+            r.messages, r.tags, r.template,
+            r.react_lemon, r.react_sweet, r.react_funny, r.react_pray,
+            r.created_at, r.updated_at, r.status,
+            u.display_name as author_name
     FROM repo_works r
     LEFT JOIN users u ON r.user_id = u.id
-    WHERE r.id = ? AND r.status = 'published'
+    WHERE r.id = ?
   `).bind(workId).first<any>();
 
   if (!work) return error('Repo不存在', 404);
+  if (work.status !== 'published' && (!auth || (work.user_id !== auth.userId && auth.role !== 'admin'))) {
+    return error('Repo不存在', 404);
+  }
 
   let myReactions = new Set<string>();
   if (auth) {
@@ -279,19 +368,63 @@ export async function handleGetRepoWork(req: Request, env: Env, workId: string):
   return success({ data: formatWork(work, myReactions, work.author_name) });
 }
 
+export async function handleGetRepoStats(_req: Request, env: Env): Promise<Response> {
+  const [totalRow, creatorRow, todayRow] = await Promise.all([
+    env.DB.prepare(
+      "SELECT COUNT(*) as total FROM repo_works WHERE status = 'published'",
+    ).first<{ total: number }>(),
+    env.DB.prepare(
+      "SELECT COUNT(DISTINCT user_id) as creators FROM repo_works WHERE status = 'published' AND user_id IS NOT NULL",
+    ).first<{ creators: number }>(),
+    env.DB.prepare(
+      "SELECT COUNT(*) as today FROM repo_works WHERE status = 'published' AND date(created_at) = date('now')",
+    ).first<{ today: number }>(),
+  ]);
+
+  return success({
+    data: {
+      total: totalRow?.total || 0,
+      creators: creatorRow?.creators || 0,
+      today: todayRow?.today || 0,
+    },
+  });
+}
+
 /** GET /api/repo/my-works */
 export async function handleMyRepoWorks(req: Request, env: Env): Promise<Response> {
   const auth = await getAuthUser(req, env);
   if (!auth) return error('需要登录', 401);
 
   const url = new URL(req.url);
+  const group  = url.searchParams.get('group') || '';
+  const memberId = url.searchParams.get('memberId') || '';
+  const tag = url.searchParams.get('tag') || '';
+  const query = url.searchParams.get('q') || '';
+  const status = url.searchParams.get('status') || '';
+  const sort = url.searchParams.get('sort') || 'latest';
   const page  = Math.max(1, parseInt(url.searchParams.get('page') || '1'));
   const limit = Math.min(50, Math.max(1, parseInt(url.searchParams.get('limit') || '20')));
   const offset = (page - 1) * limit;
 
+  let where = "user_id = ? AND status != 'deleted'";
+  const params: unknown[] = [auth.userId];
+
+  if (group) { where += ' AND group_id = ?'; params.push(group); }
+  if (memberId) { where += ' AND member_id = ?'; params.push(memberId); }
+  if (tag) { where += ' AND tags LIKE ?'; params.push(`%"${tag}"%`); }
+  if (status && status !== 'all') { where += ' AND status = ?'; params.push(status); }
+  if (query) {
+    where += ' AND (member_name LIKE ? OR nickname LIKE ? OR messages LIKE ? OR tags LIKE ?)';
+    params.push(`%${query}%`, `%${query}%`, `%${query}%`, `%${query}%`);
+  }
+
+  const orderBy = sort === 'popular'
+    ? '(react_lemon + react_sweet + react_funny + react_pray) DESC, created_at DESC'
+    : 'created_at DESC';
+
   const countResult = await env.DB.prepare(
-    "SELECT COUNT(*) as total FROM repo_works WHERE user_id = ? AND status != 'deleted'",
-  ).bind(auth.userId).first<{ total: number }>();
+    `SELECT COUNT(*) as total FROM repo_works WHERE ${where}`,
+  ).bind(...params).first<{ total: number }>();
   const total = countResult?.total || 0;
 
   const userRow = await env.DB.prepare(
@@ -299,16 +432,16 @@ export async function handleMyRepoWorks(req: Request, env: Env): Promise<Respons
   ).bind(auth.userId).first<{ display_name: string | null }>();
 
   const works = await env.DB.prepare(`
-    SELECT id, user_id, member_id, member_name, group_id,
-           event_date, event_type, slot_number, ticket_count, nickname,
-           messages, tags, template,
-           react_lemon, react_sweet, react_funny, react_pray,
-           status, created_at
+    SELECT id, user_id, member_id, member_name, group_id, custom_member_avatar,
+            event_date, event_type, slot_number, ticket_count, nickname,
+            messages, tags, template,
+            react_lemon, react_sweet, react_funny, react_pray,
+            status, created_at, updated_at
     FROM repo_works
-    WHERE user_id = ? AND status != 'deleted'
-    ORDER BY created_at DESC
+    WHERE ${where}
+    ORDER BY ${orderBy}
     LIMIT ? OFFSET ?
-  `).bind(auth.userId, limit, offset).all();
+  `).bind(...params, limit, offset).all();
 
   const workIds = (works.results || []).map((w: any) => w.id);
   let myReactionMap = new Map<string, Set<string>>();

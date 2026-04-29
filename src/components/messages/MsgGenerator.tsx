@@ -7,6 +7,7 @@ import {
   type MemberInfo,
 } from './msg-styles';
 import { $favorites, toggleFavorite, isFavorite, enrichFavorites } from '@/stores/favorites';
+import { pickItemsInFavoriteOrder } from '@/utils/favorite-order';
 
 // ── Types ──
 interface ChatBox {
@@ -91,9 +92,10 @@ function MemberSidebar({
   const favorites = useStore($favorites);
   const groups = ['乃木坂46', '櫻坂46', '日向坂46'];
   const isFavTab = activeGroup === '__favorites__';
+  const favoriteNames = favorites.map((favorite) => favorite.name);
 
   const filtered = isFavTab
-    ? members.filter((m) => favorites.some((f) => f.name === m.name))
+    ? pickItemsInFavoriteOrder(members, favoriteNames, (member) => member.name)
     : members.filter((m) => {
         if (activeGroup === '櫻坂46') return m.group === '櫻坂46' || m.group === '樱坂46';
         return m.group === activeGroup;

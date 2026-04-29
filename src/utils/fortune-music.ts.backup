@@ -1,0 +1,206 @@
+/**
+ * Fortune Music event list scraper & parser
+ * Fetches https://fortunemusic.jp/event_list/ and extracts sakamichi events
+ */
+
+export type GroupId = 'nogizaka' | 'hinatazaka' | 'sakurazaka';
+
+export type ReceptionWindow = {
+  label: string;
+  start: string;
+  end: string;
+};
+
+export type FortuneEvent = {
+  slug: string;
+  group: GroupId;
+  title: string;
+  sourceUrl: string;
+  saleType: string; // 抽選販売 / 先着販売 / mixed
+  windows: ReceptionWindow[];
+};
+
+const SAKAMICHI_PATTERNS: { group: GroupId; pattern: RegExp }[] = [
+  { group: 'nogizaka', pattern: /乃木坂46/ },
+  { group: 'hinatazaka', pattern: /日向坂46/ },
+  { group: 'sakurazaka', pattern: /櫻坂46/ },
+];
+
+// Slug prefix → group mapping (primary detection)
+const SLUG_GROUP_MAP: Record<string, GroupId> = {
+  nogizaka: 'nogizaka',
+  hinatazaka: 'hinatazaka',
+  sakurazaka: 'sakurazaka',
+};
+
+// Known non-sakamichi slug prefixes to skip (sub-units, other artists)
+const SKIP_SLUG_PREFIXES = ['rosy', 'joy', 'yuri', 'asuka', 'sayuringo', 'guttsu'];
+
+function extractSlug(href: string): string | null {
+  // href like /hinatazaka_202605/ or https://fortunemusic.jp/nogizaka_202604/
+  const match = href.match(/\/([a-z]+_\d{6}[^/]*?)\/?(?:\?|$)/);
+  return match ? match[1] : null;
+}
+
+function parseWindows(text: string): ReceptionWindow[] {
+  const windows: ReceptionWindow[] = [];
+  // Match patterns like: 第1次受付 / 第2次受付 / 【抽選/第1次受付】 etc.
+  const lines = text.split('\n');
+  let currentLabel = '';
+
+  for (const line of lines) {
+    const labelMatch = line.match(/(第\d+次受付|【[^】]*第?\d*次?受付[^】*】])/);
+    if (labelMatch) {
+      currentLabel = labelMatch[1].replace(/[【】]/g, '').trim();
+    }
+
+    // Match date ranges like: 2026年4月8日（水）14:00 ～ 2026年4月9日（木）14:00
+    const dateMatch = line.match(/(\d{4}年\d{1,2}月\d{1,2}日[（(][^)）]+[)）]\d{1,2}:\d{2})\s*[～~～]\s*(\d{4}年\d{1,2}月\d{1,2}日[（(][^)）]+[)）]\d{1,2}:\d{2})/);
+    if (dateMatch && currentLabel) {
+      windows.push({
+        label: currentLabel,
+        start: dateMatch[1],
+        end: dateMatch[2],
+      });
+      currentLabel = '';
+    }
+
+    // Also match shorter format: 4月22日（水）15：00～4月24日（金）12：00
+    const shortMatch = line.match(/(\d{1,2}月\d{1,2}日[（(][^)）]+[)）]\d{1,2}[：:]\d{2})\s*[～~～\-]\s*(\d{1,2}月\d{1,2}日[（(][^)）]+[)）]\d{1,2}[：:]\d{2})/);
+    if (shortMatch && currentLabel && windows.length === 0) {
+      windows.push({
+        label: currentLabel,
+        start: shortMatch[1],
+        end: shortMatch[2],
+      });
+      currentLabel = '';
+    }
+  }
+
+  return windows;
+}
+
+function detectSaleType(text: string): string {
+  const hasLottery = text.includes('抽選');
+  const hasFirstCome = text.includes('先着');
+  if (hasLottery && hasFirstCome) return '抽選/先着';
+  if (hasLottery) return '抽選販売';
+  if (hasFirstCome) return '先着販売';
+  return '';
+}
+
+export async function fetchFortuneEvents(): Promise<FortuneEvent[]> {
+  try {
+    const res = await fetch('https://fortunemusic.jp/event_list/', {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+      },
+      signal: AbortSignal.timeout(15000),
+    });
+
+    if (!res.ok) {
+      console.error(`[fortune-music] fetch failed: ${res.status}`);
+      return [];
+    }
+
+    const html = await res.text();
+    return parseEventListHtml(html);
+  } catch (err) {
+    console.error('[fortune-music] fetch error:', err);
+    return [];
+  }
+}
+
+export function parseEventListHtml(html: string): FortuneEvent[] {
+  const events: FortuneEvent[] = [];
+  const seen = new Set<string>();
+
+  // Extract all links with event slugs
+  const linkRegex = /href="(\/[a-z]+_\d{6}[^"]*?\/?)"/g;
+  let match: RegExpExecArray | null;
+
+  while ((match = linkRegex.exec(html)) !== null) {
+    const href = match[1];
+    const slug = extractSlug(href);
+    if (!slug || seen.has(slug)) continue;
+    // Skip known non-sakamichi slugs (sub-units, other artists)
+    const slugPrefix = slug.split('_')[0];
+    if (SKIP_SLUG_PREFIXES.includes(slugPrefix)) continue;
+    seen.add(slug);
+
+    // Find surrounding text for this link to get title & group
+    const linkStart = match.index;
+    // Get a chunk of text around the link
+    const chunkStart = Math.max(0, linkStart - 200);
+    const chunkEnd = Math.min(html.length, linkStart + 800);
+    const chunk = html
+      .slice(chunkStart, chunkEnd)
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&amp;/g, '&')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    // Detect group: prefer slug prefix, fall back to text pattern
+    let group: GroupId | null = null;
+    const groupFromSlug = slug.split('_')[0];
+    if (groupFromSlug in SLUG_GROUP_MAP) {
+      group = SLUG_GROUP_MAP[groupFromSlug];
+    } else {
+      for (const { group: g, pattern } of SAKAMICHI_PATTERNS) {
+        if (pattern.test(chunk)) {
+          group = g;
+          break;
+        }
+      }
+    }
+    if (!group) continue; // Only keep sakamichi events
+
+    // Extract title - find the group name in chunk, then grab text after it
+    const groupPattern = SAKAMICHI_PATTERNS.find(p => p.group === group)!.pattern;
+    const groupMatch = chunk.match(groupPattern);
+    let title = '';
+    if (groupMatch) {
+      const afterGroup = chunk.slice(groupMatch.index! + groupMatch[0].length).trim();
+      // Title ends at: sale type keywords, reception windows, or next event link
+      const titleEnd = afterGroup.search(/(【抽選|【先着|抽選応募|抽選販売|先着販売|第\d+次受付|第\d+次先着|\n)/);
+      title = (titleEnd > 0 ? afterGroup.slice(0, titleEnd) : afterGroup.slice(0, 100)).trim();
+      // Clean up leading/trailing punctuation
+      title = title.replace(/^[\s\-–—\s]+/, '').replace(/[\s\-–—\s]+$/, '');
+    }
+
+    if (!title) {
+      // Fallback: use slug as title
+      title = slug;
+    }
+
+    // Extract windows from the chunk
+    const windows = parseWindows(chunk);
+
+    // Detect sale type
+    const saleType = detectSaleType(chunk);
+
+    const sourceUrl = href.startsWith('http') ? href : `https://fortunemusic.jp${href}`;
+
+    events.push({
+      slug,
+      group,
+      title: title || slug,
+      sourceUrl,
+      saleType,
+      windows,
+    });
+  }
+
+  // Deduplicate by slug (keep first occurrence which usually has more detail)
+  const uniqueEvents: FortuneEvent[] = [];
+  const seenSlugs = new Set<string>();
+  for (const event of events) {
+    if (!seenSlugs.has(event.slug)) {
+      seenSlugs.add(event.slug);
+      uniqueEvents.push(event);
+    }
+  }
+
+  return uniqueEvents;
+}

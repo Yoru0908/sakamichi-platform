@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { useStore } from '@nanostores/react';
 import { Star, Search, ChevronRight, Sparkles } from 'lucide-react';
 import { $auth, setAuth } from '@/stores/auth';
-import { addFavorite } from '@/stores/favorites';
-import { updatePreferences } from '@/utils/auth-api';
+import { replaceFavorites } from '@/stores/favorites';
+import { syncFavorites, updatePreferences } from '@/utils/auth-api';
 import {
   getGroupColor, getOptimizedAvatarUrl, GROUP_CONFIG, sortedGenEntries,
   type MemberInfo,
@@ -146,8 +146,8 @@ function FollowStep({
 
   return (
     <div>
-      <h3 className="text-lg font-bold text-[var(--text-primary)] mb-1">気になるメンバー</h3>
-      <p className="text-xs text-[var(--text-tertiary)] mb-4">选择你关注的成员（可多选，可跳过）</p>
+      <h3 className="text-lg font-bold text-[var(--text-primary)] mb-1">お気に入りメンバー</h3>
+      <p className="text-xs text-[var(--text-tertiary)] mb-4">选择你收藏的成员（可多选，可跳过）</p>
 
       {/* Group tabs */}
       <div className="flex gap-1 mb-3 border-b border-[var(--border-primary)]">
@@ -274,20 +274,34 @@ export default function OnboardingWizard() {
 
   const handleComplete = useCallback(async () => {
     setSaving(true);
+    const selectedFavorites = Array.from(followed)
+      .map((name) => members.find((member) => member.name === name))
+      .filter((member): member is MemberInfo => Boolean(member))
+      .map((member) => ({
+        name: member.name,
+        group: member.group,
+        imageUrl: member.imageUrl,
+      }));
+    const oshiFavorite = oshi
+      ? members.find((member) => member.name === oshi) || null
+      : null;
+    const mergedFavorites = [
+      ...(oshiFavorite ? [{ name: oshiFavorite.name, group: oshiFavorite.group, imageUrl: oshiFavorite.imageUrl }] : []),
+      ...selectedFavorites.filter((member) => member.name !== oshiFavorite?.name),
+    ];
 
     // Save preferences to server
     await updatePreferences({
       oshiMember: oshi,
       followedMembers: Array.from(followed),
     });
+    await syncFavorites(mergedFavorites.map((member) => ({
+      name: member.name,
+      group: member.group,
+    })));
 
-    // Sync to local favorites store immediately
-    const allSelected = new Set(followed);
-    if (oshi) allSelected.add(oshi);
-    for (const name of allSelected) {
-      const m = members.find((mm) => mm.name === name);
-      if (m) addFavorite({ name: m.name, group: m.group, imageUrl: m.imageUrl });
-    }
+    // Sync favorites immediately with oshi member pinned first
+    replaceFavorites(mergedFavorites);
 
     // Update auth store locally (zero-delay)
     setAuth({
@@ -301,7 +315,9 @@ export default function OnboardingWizard() {
 
   const handleSkip = useCallback(async () => {
     setAuth({ isFirstLogin: false });
+    replaceFavorites([]);
     await updatePreferences({ oshiMember: null, followedMembers: [] });
+    await syncFavorites([]);
     window.location.href = '/';
   }, []);
 
@@ -400,7 +416,7 @@ export default function OnboardingWizard() {
 
         {/* Hint */}
         <p className="text-[10px] text-[var(--text-tertiary)] text-center mt-3">
-          推しメン和気になるメンバー会自动加入你的收藏夹
+          推しメン会置顶加入收藏夹，お気に入りメンバー随后保存
         </p>
       </div>
     </div>

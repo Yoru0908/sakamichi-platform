@@ -1,6 +1,8 @@
 export interface Env {
   DB: D1Database;
+  MIGURI_DB: D1Database;
   JWT_SECRET: string;
+  MIGURI_SYNC_SECRET: string;
   CORS_ORIGIN: string;
   EMAIL_FROM: string;
   DISCORD_CLIENT_ID: string;

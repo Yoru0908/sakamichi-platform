@@ -3,7 +3,7 @@ import Hls from 'hls.js';
 import { Play, Pause, Volume2, VolumeX, Clock, Calendar, AlertCircle, Loader2, Radio } from 'lucide-react';
 
 // ─── Config ─────────────────────────────────────
-const API_BASE = 'https://radio.46log.com';
+const API_BASE = 'https://api.46log.com';
 const POLL_INTERVAL = 15_000;
 const HLS_BUFFER_SEC = 18;
 const HLS_MAX_RETRIES = 3;
@@ -204,7 +204,7 @@ export default function LiveRadioPlayer() {
   // ─── Poll now-playing status ──────────────────
   const fetchStatus = useCallback(async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/now-playing`);
+      const res = await fetch(`${API_BASE}/api/radio/now-playing`);
       if (!res.ok) return;
       const data = await res.json();
       const streams: ActiveStream[] = data.status?.streams ?? [];
@@ -300,7 +300,7 @@ export default function LiveRadioPlayer() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`${API_BASE}/api/schedule/sakamichi`);
+        const res = await fetch(`${API_BASE}/api/radio/schedule/sakamichi`);
         if (!res.ok) return;
         const data = await res.json();
         const now = new Date();

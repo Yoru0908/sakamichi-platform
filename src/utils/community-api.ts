@@ -163,6 +163,15 @@ export async function listMyWorks(page = 1, limit = 20): Promise<WorkListRespons
   return json.data;
 }
 
+export async function listUserWorks(userId: string, page = 1, limit = 20): Promise<WorkListResponse> {
+  const res = await fetch(`${BASE}/api/community/users/${encodeURIComponent(userId)}/works?page=${page}&limit=${limit}`, {
+    credentials: 'include',
+  });
+  const json = await res.json() as any;
+  if (!json.success) throw new Error(json.message || 'Failed to list user works');
+  return json.data;
+}
+
 /** POST /api/community/works/:id/stamp — toggle stamp */
 export async function toggleStamp(
   id: string,

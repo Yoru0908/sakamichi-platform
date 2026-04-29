@@ -8,7 +8,8 @@ export const zh = {
   'nav.instagram': 'INS',
   'nav.gallery': '画廊',
   'nav.photocard': '生写生成',
-  'nav.repo': '握手Repo',
+  'nav.miguri': '咪咕力管理',
+  'nav.repo': '咪咕力Repo',
   'nav.tools': '更多工具',
   'nav.tools.photocard': '生写生成器',
   'nav.tools.msg_generator': 'MSG样式生成器',
@@ -16,6 +17,7 @@ export const zh = {
   'nav.tools.subtitle_merge': '字幕导出',
   'nav.tools.srt_fixer': 'SRT时间轴修复',
   'nav.tools.fad_effect': 'FAD特效',
+  'nav.tools.ticket_form': '门票填写工具',
   'nav.login': '登录',
   'nav.register': '注册',
 

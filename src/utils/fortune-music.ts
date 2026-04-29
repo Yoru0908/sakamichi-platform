@@ -16,7 +16,7 @@ export type FortuneEvent = {
   group: GroupId;
   title: string;
   sourceUrl: string;
-  saleType: string; // 抽選販売 / 先着販売 / mixed
+  saleType: string;
   windows: ReceptionWindow[];
 };
 
@@ -34,24 +34,37 @@ export type FortuneEventDetail = {
   members: string[];
 };
 
+export type EnrichedFortuneEvent = FortuneEvent & FortuneEventDetail;
+
+export type MiguriSyncPayload = {
+  events: Array<{
+    slug: string;
+    group: GroupId;
+    title: string;
+    sourceUrl: string;
+    saleType: string;
+    windows: ReceptionWindow[];
+    dates: string[];
+    slots: FortuneEventSlot[];
+    members: string[];
+  }>;
+};
+
 const SAKAMICHI_PATTERNS: { group: GroupId; pattern: RegExp }[] = [
   { group: 'nogizaka', pattern: /乃木坂46/ },
   { group: 'hinatazaka', pattern: /日向坂46/ },
   { group: 'sakurazaka', pattern: /櫻坂46/ },
 ];
 
-// Slug prefix → group mapping (primary detection)
 const SLUG_GROUP_MAP: Record<string, GroupId> = {
   nogizaka: 'nogizaka',
   hinatazaka: 'hinatazaka',
   sakurazaka: 'sakurazaka',
 };
 
-// Known non-sakamichi slug prefixes to skip (sub-units, other artists)
 const SKIP_SLUG_PREFIXES = ['rosy', 'joy', 'yuri', 'asuka', 'sayuringo', 'guttsu'];
 
 function extractSlug(href: string): string | null {
-  // href like /hinatazaka_202605/ or https://fortunemusic.jp/nogizaka_202604/
   const match = href.match(/\/([a-z]+_\d{6}[^/]*?)\/?(?:\?|$)/);
   return match ? match[1] : null;
 }
@@ -80,12 +93,21 @@ function normalizeJapaneseText(text: string): string {
     .replace(/([一-龥ぁ-んァ-ヶー0-9０-９])\s+([一-龥ぁ-んァ-ヶー])/g, '$1$2')
     .replace(/([（『「【])\s+/g, '$1')
     .replace(/\s+([）』」】])/g, '$1')
-    .replace(/([『「【])\s+/g, '$1')
-    .replace(/\s+([』」】])/g, '$1')
     .replace(/\s+([、。・：；])/g, '$1')
     .replace(/([『「（【])\s*([^『「」』（）【】]+?)\s*([」』）】])/g, '$1$2$3')
     .replace(/\s{2,}/g, ' ')
     .trim();
+}
+
+function normalizeEventDate(value: string): string | null {
+  const match = value.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
+  if (!match) return null;
+  const [, year, month, day] = match;
+  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+}
+
+function normalizeDigits(value: string): string {
+  return value.replace(/[０-９]/g, (char) => String('０１２３４５６７８９'.indexOf(char)));
 }
 
 function extractTitleFromCard(text: string, group: GroupId): string {
@@ -105,12 +127,9 @@ function extractTitleFromCard(text: string, group: GroupId): string {
 
 function parseWindows(text: string): ReceptionWindow[] {
   const windows: ReceptionWindow[] = [];
-
-  // 使用全局扫描模式，不再依赖换行符，确保能抓到同一行内的多个轮次
-  // 匹配模式：[轮次标签] + [日期范围]
   const pairRegex = /(?:(第[0-9１-９]+次(?:[～~－-][^受]+)?受付|【[^受]*第?[0-9１-９]+次?[^】]*受付[^】]*】|先着販売\/第[0-9１-９]+次|第[0-9１-９]+次|【抽選販売】|【先着販売】))\s*(\d{4}年\d{1,2}月\d{1,2}日[（(][^)）]+[)）]\d{1,2}[：:]\d{2})\s*[～~～]\s*(\d{4}年\d{1,2}月\d{1,2}日[（(][^)）]+[)）]\d{1,2}[：:]\d{2})/g;
 
-  let match;
+  let match: RegExpExecArray | null;
   while ((match = pairRegex.exec(text)) !== null) {
     windows.push({
       label: normalizeJapaneseText(match[1].replace(/[【】]/g, '').trim()),
@@ -119,7 +138,6 @@ function parseWindows(text: string): ReceptionWindow[] {
     });
   }
 
-  // 兜底匹配短格式
   if (windows.length === 0) {
     const shortPairRegex = /(?:(第[0-9１-９]+次受付|第[0-9１-９]+次))\s*(\d{1,2}月\d{1,2}日[（(][^)）]+[)）]\d{1,2}[：:]\d{2})\s*[～~～\-]\s*(\d{1,2}月\d{1,2}日[（(][^)）]+[)）]\d{1,2}[：:]\d{2})/g;
     while ((match = shortPairRegex.exec(text)) !== null) {
@@ -143,19 +161,20 @@ function detectSaleType(text: string): string {
   return '';
 }
 
-function normalizeEventDate(value: string): string | null {
-  const match = value.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日/);
-  if (!match) return null;
-  const [, year, month, day] = match;
-  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-}
-
 function extractSection(text: string, label: string): string {
   const start = text.indexOf(label);
   if (start === -1) return '';
   const rest = text.slice(start + label.length);
-  const next = rest.search(/【[^】]+】/);
-  return normalizeJapaneseText((next === -1 ? rest : rest.slice(0, next)).trim());
+  const nextLabel = rest.search(/(?:【[^】]+】|受付スケジュール|イベント概要|参加方法|注意事項|対象商品)/);
+  return normalizeJapaneseText((nextLabel === -1 ? rest : rest.slice(0, nextLabel)).trim());
+}
+
+function extractSectionRaw(text: string, label: string): string {
+  const start = text.indexOf(label);
+  if (start === -1) return '';
+  const rest = text.slice(start + label.length);
+  const nextLabel = rest.search(/(?:【[^】]+】|受付スケジュール|イベント概要|参加方法|注意事項|対象商品)/);
+  return (nextLabel === -1 ? rest : rest.slice(0, nextLabel)).trim();
 }
 
 function parseDates(text: string): string[] {
@@ -165,34 +184,62 @@ function parseDates(text: string): string[] {
 }
 
 function parseSlots(text: string): FortuneEventSlot[] {
-  const section = extractSection(text, '【時間】');
+  const section = text;
   const slots: FortuneEventSlot[] = [];
-  const slotRegex = /第\s*([0-9１-９]+)部\s*受付\s*([0-9]{1,2}:[0-9]{2})\s*\/\s*開始\s*([0-9]{1,2}:[0-9]{2})\s*\/\s*受付締切\s*([0-9]{1,2}:[0-9]{2})\s*\/\s*終了予定\s*([0-9]{1,2}:[0-9]{2})/g;
+  const legacyRegex = /第\s*([0-9０-９]+)部\s*受付\s*([0-9０-９]{1,2}[：:][0-9０-９]{2})\s*\/\s*開始\s*([0-9０-９]{1,2}[：:][0-9０-９]{2})\s*\/\s*受付締切\s*([0-9０-９]{1,2}[：:][0-9０-９]{2})\s*\/\s*終了予定\s*([0-9０-９]{1,2}[：:][0-9０-９]{2})/g;
+  const currentRegex = /[＜<]\s*第\s*([0-9０-９]+)部\s*[＞>]\s*受付開始\s*([0-9０-９]{1,2}[：:][0-9０-９]{2})\s*\/\s*イベント開始\s*([0-9０-９]{1,2}[：:][0-9０-９]{2})\s*\/\s*受付終了\s*([0-9０-９]{1,2}[：:][0-9０-９]{2})\s*[（(]\s*(?:([0-9０-９]{1,2})時([0-9０-９]{2})分|([0-9０-９]{1,2}[：:][0-9０-９]{2}))\s*終了予定\s*[）)]/g;
+
+  const normalizeTime = (value: string) => {
+    const normalized = normalizeDigits(value).replace(/：/g, ':').trim();
+    const match = normalized.match(/^(\d{1,2}):(\d{2})$/);
+    if (!match) return normalized;
+    return `${match[1].padStart(2, '0')}:${match[2]}`;
+  };
 
   let match: RegExpExecArray | null;
-  while ((match = slotRegex.exec(section)) !== null) {
-    const slotNumber = Number(match[1].replace(/[１-９]/g, (char) => String('０１２３４５６７８９'.indexOf(char))));
+  while ((match = legacyRegex.exec(section)) !== null) {
     slots.push({
-      slotNumber,
-      receptionStart: match[2],
-      startTime: match[3],
-      receptionEnd: match[4],
-      endTime: match[5],
+      slotNumber: Number(normalizeDigits(match[1])),
+      receptionStart: normalizeTime(match[2]),
+      startTime: normalizeTime(match[3]),
+      receptionEnd: normalizeTime(match[4]),
+      endTime: normalizeTime(match[5]),
     });
   }
 
-  return slots;
+  while ((match = currentRegex.exec(section)) !== null) {
+    slots.push({
+      slotNumber: Number(normalizeDigits(match[1])),
+      receptionStart: normalizeTime(match[2]),
+      startTime: normalizeTime(match[3]),
+      receptionEnd: normalizeTime(match[4]),
+      endTime: match[7] ? normalizeTime(match[7]) : normalizeTime(`${match[5]}:${match[6]}`),
+    });
+  }
+
+  return Array.from(new Map(slots.map((slot) => [`${slot.slotNumber}:${slot.receptionStart}:${slot.startTime}:${slot.receptionEnd}:${slot.endTime}`, slot])).values())
+    .sort((left, right) => left.slotNumber - right.slotNumber);
 }
 
 function parseMembers(text: string): string[] {
-  const section = extractSection(text, '【参加メンバー】');
+  const section = extractSectionRaw(text, '【参加メンバー】');
   if (!section) return [];
+
   return Array.from(new Set(
     section
-      .split(/[、,\n]/)
+      .split(/\n+/)
+      .flatMap((line) => line.split(/[、,\/]/))
       .map((member) => normalizeJapaneseText(member))
       .map((member) => member.replace(/\s+/g, ' ').trim())
-      .filter((member) => member && !member.includes('※') && !member.includes('詳しくは')),
+      .map((member) => member.replace(/\s+/g, ''))
+      .filter((member) => member
+        && !member.startsWith('※')
+        && !member.includes('詳しくは')
+        && !member.includes('参加メンバーは都合')
+        && !member.includes('スケジュールの都合')
+        && !member.includes('不参加とさせていただきます')
+        && !member.includes('休業のため')
+        && !member.includes('変更となる場合')),
   ));
 }
 
@@ -203,310 +250,6 @@ export function parseEventDetailHtml(html: string): FortuneEventDetail {
     slots: parseSlots(text),
     members: parseMembers(text),
   };
-}
-
-export async function fetchFortuneEventDetail(url: string): Promise<FortuneEventDetail> {
-  try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-      },
-      signal: AbortSignal.timeout(15000),
-    });
-
-    if (!res.ok) {
-      console.error(`[fortune-music] detail fetch failed: ${res.status}`);
-      return { dates: [], slots: [], members: [] };
-    }
-
-    const html = await res.text();
-    return parseEventDetailHtml(html);
-  } catch (err) {
-    console.error('[fortune-music] detail fetch error:', err);
-    return { dates: [], slots: [], members: [] };
-  }
-}
-
-export async function fetchFortuneEventsWithDetails(): Promise<(FortuneEvent & FortuneEventDetail)[]> {
-  const events = await fetchFortuneEvents();
-  return Promise.all(events.map(async (event) => ({
-    ...event,
-    ...(await fetchFortuneEventDetail(event.sourceUrl)),
-  })));
-}
-
-export function buildMiguriSyncPayload(events: (FortuneEvent & FortuneEventDetail)[]) {
-  return {
-    events: events.map((event) => ({
-      slug: event.slug,
-      group: event.group,
-      title: event.title,
-      sourceUrl: event.sourceUrl,
-      saleType: event.saleType,
-      windows: event.windows,
-      dates: event.dates,
-      slots: event.slots,
-      members: event.members,
-    })),
-  };
-}
-
-export type MiguriSyncPayload = ReturnType<typeof buildMiguriSyncPayload>;
-
-export function buildEventDateSlots(detail: FortuneEventDetail) {
-  const pairs: Array<{ date: string; slot: FortuneEventSlot }> = [];
-  for (const date of detail.dates) {
-    for (const slot of detail.slots) {
-      pairs.push({ date, slot });
-    }
-  }
-  return pairs;
-}
-
-export function buildEntryDateTime(date: string, time: string): string {
-  return `${date}T${time}:00+09:00`;
-}
-
-export function buildEntryDescription(member: string, slotNumber: number, tickets: number, eventTitle: string): string {
-  return `${eventTitle}\n第${slotNumber}部 ${member} ${tickets}枚`;
-}
-
-export function buildEntryTitle(member: string, groupLabel: string): string {
-  return `${groupLabel} ミーグリ - ${member}`;
-}
-
-export function buildEntryLocation(): string {
-  return 'Fortune Music Online';
-}
-
-export function buildEventTitleFromSlug(slug: string): string {
-  return slug.replace(/_/g, ' ');
-}
-
-export function buildEventSourceUrl(slug: string): string {
-  return `https://fortunemusic.jp/${slug}/`;
-}
-
-export function toGroupLabel(group: GroupId): string {
-  if (group === 'nogizaka') return '乃木坂46';
-  if (group === 'hinatazaka') return '日向坂46';
-  return '櫻坂46';
-}
-
-export function normalizeMemberName(name: string): string {
-  return normalizeJapaneseText(name);
-}
-
-export function sortEventDates(dates: string[]): string[] {
-  return [...dates].sort((a, b) => a.localeCompare(b));
-}
-
-export function sortEventSlots(slots: FortuneEventSlot[]): FortuneEventSlot[] {
-  return [...slots].sort((a, b) => a.slotNumber - b.slotNumber);
-}
-
-export function dedupeMembers(members: string[]): string[] {
-  return Array.from(new Set(members.map(normalizeMemberName).filter(Boolean)));
-}
-
-export function enrichFortuneEvent(event: FortuneEvent, detail: FortuneEventDetail) {
-  return {
-    ...event,
-    dates: sortEventDates(detail.dates),
-    slots: sortEventSlots(detail.slots),
-    members: dedupeMembers(detail.members),
-  };
-}
-
-export type EnrichedFortuneEvent = ReturnType<typeof enrichFortuneEvent>;
-
-export function isMiguriDetailComplete(detail: FortuneEventDetail): boolean {
-  return detail.dates.length > 0 && detail.slots.length > 0 && detail.members.length > 0;
-}
-
-export function parseFortuneEventWithDetail(listHtml: string, detailHtmlBySlug: Record<string, string>) {
-  return parseEventListHtml(listHtml).map((event) => enrichFortuneEvent(event, parseEventDetailHtml(detailHtmlBySlug[event.slug] || '')));
-}
-
-export function emptyFortuneEventDetail(): FortuneEventDetail {
-  return { dates: [], slots: [], members: [] };
-}
-
-export function mergeFortuneEventDetail(base: FortuneEventDetail, next: Partial<FortuneEventDetail>): FortuneEventDetail {
-  return {
-    dates: next.dates ? sortEventDates(next.dates) : base.dates,
-    slots: next.slots ? sortEventSlots(next.slots) : base.slots,
-    members: next.members ? dedupeMembers(next.members) : base.members,
-  };
-}
-
-export function parseFortuneDetailSection(text: string, label: string): string {
-  return extractSection(text, label);
-}
-
-export function parseFortuneMemberList(text: string): string[] {
-  return parseMembers(text);
-}
-
-export function parseFortuneSlotList(text: string): FortuneEventSlot[] {
-  return parseSlots(text);
-}
-
-export function parseFortuneDateList(text: string): string[] {
-  return parseDates(text);
-}
-
-export function toFortuneDetailText(html: string): string {
-  return htmlToText(html);
-}
-
-export function normalizeFortuneDetailText(text: string): string {
-  return normalizeJapaneseText(text);
-}
-
-export function parseFortuneDetailFromText(text: string): FortuneEventDetail {
-  return {
-    dates: parseDates(text),
-    slots: parseSlots(text),
-    members: parseMembers(text),
-  };
-}
-
-export function joinFortuneMembers(members: string[]): string {
-  return dedupeMembers(members).join('、');
-}
-
-export function hasFortuneDates(detail: FortuneEventDetail): boolean {
-  return detail.dates.length > 0;
-}
-
-export function hasFortuneSlots(detail: FortuneEventDetail): boolean {
-  return detail.slots.length > 0;
-}
-
-export function hasFortuneMembers(detail: FortuneEventDetail): boolean {
-  return detail.members.length > 0;
-}
-
-export function buildFortuneDetailSummary(detail: FortuneEventDetail) {
-  return {
-    dateCount: detail.dates.length,
-    slotCount: detail.slots.length,
-    memberCount: detail.members.length,
-  };
-}
-
-export function buildFortuneDetailPayload(event: FortuneEvent, detail: FortuneEventDetail) {
-  return {
-    ...event,
-    ...enrichFortuneEvent(event, detail),
-  };
-}
-
-export function normalizeFortuneUrl(url: string): string {
-  return url.startsWith('http') ? url : `https://fortunemusic.jp${url.startsWith('/') ? url : `/${url}`}`;
-}
-
-export function parseFortuneDateValue(value: string): string | null {
-  return normalizeEventDate(value);
-}
-
-export function parseFortuneSlotNumber(value: string): number {
-  return Number(value.replace(/[０-９]/g, (char) => String('０１２３４５６７８９'.indexOf(char))));
-}
-
-export function normalizeFortuneMembers(members: string[]): string[] {
-  return dedupeMembers(members);
-}
-
-export function normalizeFortuneSlots(slots: FortuneEventSlot[]): FortuneEventSlot[] {
-  return sortEventSlots(slots);
-}
-
-export function normalizeFortuneDates(dates: string[]): string[] {
-  return sortEventDates(dates);
-}
-
-export function parseFortuneDetail(html: string): FortuneEventDetail {
-  return parseEventDetailHtml(html);
-}
-
-export function buildFortuneSyncEvent(event: FortuneEvent & FortuneEventDetail) {
-  return {
-    slug: event.slug,
-    group: event.group,
-    title: event.title,
-    sourceUrl: event.sourceUrl,
-    saleType: event.saleType,
-    windows: event.windows,
-    dates: event.dates,
-    slots: event.slots,
-    members: event.members,
-  };
-}
-
-export function buildFortuneSyncEvents(events: (FortuneEvent & FortuneEventDetail)[]) {
-  return events.map(buildFortuneSyncEvent);
-}
-
-export function buildFortuneSyncBody(events: (FortuneEvent & FortuneEventDetail)[]) {
-  return { events: buildFortuneSyncEvents(events) };
-}
-
-export function isFortuneEventDetailEmpty(detail: FortuneEventDetail): boolean {
-  return detail.dates.length === 0 && detail.slots.length === 0 && detail.members.length === 0;
-}
-
-export function parseFortuneDateSection(text: string): string[] {
-  return parseDates(text);
-}
-
-export function parseFortuneTimeSection(text: string): FortuneEventSlot[] {
-  return parseSlots(text);
-}
-
-export function parseFortuneMembersSection(text: string): string[] {
-  return parseMembers(text);
-}
-
-export function getFortuneSection(text: string, label: string): string {
-  return extractSection(text, label);
-}
-
-export function cleanFortuneText(html: string): string {
-  return htmlToText(html);
-}
-
-export function normalizeFortuneText(text: string): string {
-  return normalizeJapaneseText(text);
-}
-
-export function parseFortuneDatesFromHtml(html: string): string[] {
-  return parseDates(htmlToText(html));
-}
-
-export function parseFortuneSlotsFromHtml(html: string): FortuneEventSlot[] {
-  return parseSlots(htmlToText(html));
-}
-
-export function parseFortuneMembersFromHtml(html: string): string[] {
-  return parseMembers(htmlToText(html));
-}
-
-export function enrichFortuneEvents(events: FortuneEvent[], detailMap: Record<string, FortuneEventDetail>) {
-  return events.map((event) => enrichFortuneEvent(event, detailMap[event.slug] || emptyFortuneEventDetail()));
-}
-
-export function buildFortuneDetailMap(detailEntries: Array<{ slug: string; detail: FortuneEventDetail }>) {
-  return Object.fromEntries(detailEntries.map((entry) => [entry.slug, entry.detail]));
-}
-
-export function parseFortuneEventDetailSafe(html: string): FortuneEventDetail {
-  try {
-    return parseEventDetailHtml(html);
-  } catch {
-    return emptyFortuneEventDetail();
-  }
 }
 
 export async function fetchFortuneEvents(): Promise<FortuneEvent[]> {
@@ -531,10 +274,53 @@ export async function fetchFortuneEvents(): Promise<FortuneEvent[]> {
   }
 }
 
+export async function fetchFortuneEventDetail(url: string): Promise<FortuneEventDetail> {
+  try {
+    const res = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+      },
+      signal: AbortSignal.timeout(15000),
+    });
+
+    if (!res.ok) {
+      console.error(`[fortune-music] detail fetch failed: ${res.status}`);
+      return { dates: [], slots: [], members: [] };
+    }
+
+    return parseEventDetailHtml(await res.text());
+  } catch (err) {
+    console.error('[fortune-music] detail fetch error:', err);
+    return { dates: [], slots: [], members: [] };
+  }
+}
+
+export async function fetchFortuneEventsWithDetails(): Promise<EnrichedFortuneEvent[]> {
+  const events = await fetchFortuneEvents();
+  return Promise.all(events.map(async (event) => ({
+    ...event,
+    ...(await fetchFortuneEventDetail(event.sourceUrl)),
+  })));
+}
+
+export function buildMiguriSyncPayload(events: EnrichedFortuneEvent[]): MiguriSyncPayload {
+  return {
+    events: events.map((event) => ({
+      slug: event.slug,
+      group: event.group,
+      title: event.title,
+      sourceUrl: event.sourceUrl,
+      saleType: event.saleType,
+      windows: event.windows,
+      dates: [...event.dates].sort(),
+      slots: [...event.slots].sort((a, b) => a.slotNumber - b.slotNumber),
+      members: Array.from(new Set(event.members)).sort((a, b) => a.localeCompare(b, 'ja')),
+    })),
+  };
+}
+
 export function parseEventListHtml(html: string): FortuneEvent[] {
   const events: FortuneEvent[] = [];
-
-  // Parse each event card anchor directly to avoid mixing neighboring cards.
   const cardRegex = /<a\b[^>]*href="(\/[a-z]+_\d{6}[^"]*?\/?)"[^>]*>([\s\S]*?)<\/a>/gi;
   let match: RegExpExecArray | null;
 
@@ -543,24 +329,20 @@ export function parseEventListHtml(html: string): FortuneEvent[] {
     const cardHtml = match[2];
     const slug = extractSlug(href);
     if (!slug) continue;
-    // Skip known non-sakamichi slugs (sub-units, other artists)
+
     const slugPrefix = slug.split('_')[0];
     if (SKIP_SLUG_PREFIXES.includes(slugPrefix)) continue;
 
     const chunk = htmlToText(cardHtml);
-
-    // 排除广告条目
     if (chunk.includes('マイアーティスト')) continue;
 
-    // Detect group: prefer slug prefix, fall back to text pattern
     let group: GroupId | null = null;
-    const groupFromSlug = slug.split('_')[0];
-    if (groupFromSlug in SLUG_GROUP_MAP) {
-      group = SLUG_GROUP_MAP[groupFromSlug];
+    if (slugPrefix in SLUG_GROUP_MAP) {
+      group = SLUG_GROUP_MAP[slugPrefix];
     } else {
-      for (const { group: g, pattern } of SAKAMICHI_PATTERNS) {
+      for (const { group: candidate, pattern } of SAKAMICHI_PATTERNS) {
         if (pattern.test(chunk)) {
-          group = g;
+          group = candidate;
           break;
         }
       }
@@ -568,40 +350,16 @@ export function parseEventListHtml(html: string): FortuneEvent[] {
     if (!group) continue;
 
     const title = extractTitleFromCard(chunk, group);
-
-    if (!title) {
-      // Fallback: use slug as title
-      events.push({
-        slug,
-        group,
-        title: slug,
-        sourceUrl: href.startsWith('http') ? href : `https://fortunemusic.jp${href}`,
-        saleType: detectSaleType(chunk),
-        windows: parseWindows(chunk),
-      });
-      continue;
-    }
-
-    // Extract windows from the chunk
-    const windows = parseWindows(chunk);
-
-    // Detect sale type
-    const saleType = detectSaleType(chunk);
-
-    const sourceUrl = href.startsWith('http') ? href : `https://fortunemusic.jp${href}`;
-
     events.push({
       slug,
       group,
       title: title || slug,
-      sourceUrl,
-      saleType,
-      windows,
+      sourceUrl: href.startsWith('http') ? href : `https://fortunemusic.jp${href}`,
+      saleType: detectSaleType(chunk),
+      windows: parseWindows(chunk),
     });
   }
 
-  // Deduplicate by slug, keeping the richest parsed candidate.
-  const uniqueEvents: FortuneEvent[] = [];
   const bestBySlug = new Map<string, FortuneEvent>();
   for (const event of events) {
     const existing = bestBySlug.get(event.slug);
@@ -617,7 +375,5 @@ export function parseEventListHtml(html: string): FortuneEvent[] {
     }
   }
 
-  uniqueEvents.push(...bestBySlug.values());
-
-  return uniqueEvents;
+  return Array.from(bestBySlug.values());
 }

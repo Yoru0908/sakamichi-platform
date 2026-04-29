@@ -72,6 +72,8 @@ export default function ToolsDropdown({ item, currentPath, pillState = 'idle' }:
               <a
                 key={child.href}
                 href={child.href}
+                target={child.external ? '_blank' : undefined}
+                rel={child.external ? 'noopener noreferrer' : undefined}
                 className={`block px-4 py-2.5 text-sm transition-colors ${
                   currentPath === child.href
                     ? 'text-[var(--color-brand-nogi)] bg-[var(--bg-secondary)]'

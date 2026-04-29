@@ -42,6 +42,7 @@ export const API_CONFIG = {
     shop: '/api/shop',
     auth: '/api/auth',
     media: '/api/media',
+    miguri: '/api/miguri',
   },
 } as const;
 

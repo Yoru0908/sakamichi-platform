@@ -1,0 +1,5 @@
+/photocard/create /photocard/create 200
+/photocard/work /photocard/work 200
+/photocard/user /photocard/user 200
+/photocard/user/:userId /photocard/user?userId=:userId 200
+/photocard/:id /photocard/work?id=:id 200

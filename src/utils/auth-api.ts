@@ -44,6 +44,189 @@ export interface RegisterResponse {
 const AUTH_BASE = `${API_CONFIG.baseUrl}${API_CONFIG.endpoints.auth}`;
 const USER_BASE = `${API_CONFIG.baseUrl}/api/user`;
 const ADMIN_BASE = `${API_CONFIG.baseUrl}/api/manage`;
+const MIGURI_BASE = `${API_CONFIG.baseUrl}${API_CONFIG.endpoints.miguri}`;
+
+export type MiguriGroupId = 'nogizaka' | 'hinatazaka' | 'sakurazaka';
+export type MiguriEntryStatus = 'planned' | 'won' | 'paid';
+
+export interface MiguriWindow {
+  label: string;
+  start: string;
+  end: string;
+}
+
+export interface MiguriSlot {
+  date: string;
+  slotNumber: number;
+  receptionStart: string;
+  startTime: string;
+  receptionEnd: string;
+  endTime: string;
+  members: string[];
+}
+
+export interface MiguriEvent {
+  slug: string;
+  group: MiguriGroupId;
+  title: string;
+  sourceUrl: string;
+  saleType: string;
+  windows: MiguriWindow[];
+  dates: string[];
+  members: string[];
+  slots: MiguriSlot[];
+  syncedAt: string;
+}
+
+export interface MiguriEntry {
+  id: string;
+  eventSlug: string;
+  eventTitle: string | null;
+  group: MiguriGroupId | null;
+  member: string;
+  date: string;
+  slot: number;
+  tickets: number;
+  status: MiguriEntryStatus;
+  startTime: string | null;
+  endTime: string | null;
+}
+
+export interface MiguriGoogleCalendarStatus {
+  connected: boolean;
+  email: string | null;
+  calendarId: string | null;
+  syncEnabled: boolean;
+}
+
+export interface MiguriEventsPayload {
+  events: MiguriEvent[];
+  favorites: string[];
+  entries: MiguriEntry[];
+  googleCalendar: MiguriGoogleCalendarStatus;
+}
+
+export interface CreateMiguriEntriesRequest {
+  eventSlug: string;
+  date: string;
+  slots: number[];
+  members: string[];
+  tickets: number;
+  status: MiguriEntryStatus;
+}
+
+export interface UpdateMiguriEntryRequest {
+  member: string;
+  date: string;
+  slot: number;
+  tickets: number;
+  status: MiguriEntryStatus;
+}
+
+export interface MiguriGoogleCalendarUrlPayload {
+  url: string;
+}
+
+export interface MiguriEntriesPayload {
+  entries: MiguriEntry[];
+}
+
+export interface MiguriEntryPayload {
+  entry: MiguriEntry;
+}
+
+function miguriFetch<T>(path: string, options?: RequestInit): Promise<ApiResponse<T>> {
+  return apiFetch<T>(`${MIGURI_BASE}${path}`, options);
+}
+
+function miguriUrl(path: string): string {
+  return `${MIGURI_BASE}${path}`;
+}
+
+export function getMiguriCalendarIcsUrl(): string {
+  return miguriUrl('/calendar.ics');
+}
+
+export function getGoogleCalendarConnectUrl(returnTo = '/prototypes/miguri'): string {
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  return `${AUTH_BASE}/google/calendar?origin=${encodeURIComponent(origin)}&returnTo=${encodeURIComponent(returnTo)}`;
+}
+
+export function getMiguriGoogleCalendarUrl(entryId: string): Promise<ApiResponse<MiguriGoogleCalendarUrlPayload>> {
+  return miguriFetch<MiguriGoogleCalendarUrlPayload>(`/calendar/google-url?entryId=${encodeURIComponent(entryId)}`);
+}
+
+export function getMiguriEvents(): Promise<ApiResponse<MiguriEventsPayload>> {
+  return miguriFetch<MiguriEventsPayload>('/events');
+}
+
+export function createMiguriEntries(payload: CreateMiguriEntriesRequest): Promise<ApiResponse<MiguriEntriesPayload>> {
+  return miguriFetch<MiguriEntriesPayload>('/entries', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}
+
+export function updateMiguriEntry(entryId: string, payload: UpdateMiguriEntryRequest): Promise<ApiResponse<MiguriEntryPayload>> {
+  return miguriFetch<MiguriEntryPayload>(`/entries/${encodeURIComponent(entryId)}`, {
+    method: 'PUT',
+    body: JSON.stringify(payload),
+  });
+}
+
+export function deleteMiguriEntry(entryId: string): Promise<ApiResponse> {
+  return miguriFetch(`/entries/${encodeURIComponent(entryId)}`, {
+    method: 'DELETE',
+  });
+}
+
+export async function downloadMiguriCalendarIcs(): Promise<{ success: boolean; error?: string; blob?: Blob }> {
+  try {
+    const res = await fetch(getMiguriCalendarIcsUrl(), {
+      credentials: 'include',
+    });
+
+    if (res.status === 401) {
+      const refreshed = await refreshToken();
+      if (refreshed) {
+        const retry = await fetch(getMiguriCalendarIcsUrl(), { credentials: 'include' });
+        if (!retry.ok) return { success: false, error: 'calendar_export_failed' };
+        return { success: true, blob: await retry.blob() };
+      }
+    }
+
+    if (!res.ok) return { success: false, error: 'calendar_export_failed' };
+    return { success: true, blob: await res.blob() };
+  } catch {
+    return { success: false, error: 'network_error' };
+  }
+}
+
+export async function openMiguriCalendarIcs(): Promise<boolean> {
+  const result = await downloadMiguriCalendarIcs();
+  if (!result.success || !result.blob) return false;
+
+  const url = URL.createObjectURL(result.blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'miguri.ics';
+  link.click();
+  URL.revokeObjectURL(url);
+  return true;
+}
+
+export async function openMiguriGoogleCalendar(entryId: string): Promise<boolean> {
+  const res = await getMiguriGoogleCalendarUrl(entryId);
+  const url = res.data?.url;
+  if (!res.success || !url) return false;
+  window.open(url, '_blank', 'noopener,noreferrer');
+  return true;
+}
+
+export function canUseBrowserCalendarActions(): boolean {
+  return typeof window !== 'undefined' && typeof document !== 'undefined';
+}
+
 
 async function apiFetch<T>(
   url: string,
@@ -207,6 +390,10 @@ export interface UserPreferences {
   followedMembers: string[];
 }
 
+export interface UserFavoritesPayload {
+  favorites: { name: string; group: string; addedAt: string }[];
+}
+
 export async function getPreferences(): Promise<ApiResponse<UserPreferences>> {
   return authFetch<UserPreferences>('/preferences');
 }
@@ -218,6 +405,10 @@ export async function updatePreferences(
     method: 'PUT',
     body: JSON.stringify(prefs),
   });
+}
+
+export async function getFavorites(): Promise<ApiResponse<UserFavoritesPayload>> {
+  return userFetch<UserFavoritesPayload>('/favorites');
 }
 
 export async function syncFavorites(
@@ -425,6 +616,8 @@ export interface RepoReaction {
   pray: number;
 }
 
+export type RepoWorkStatus = 'draft' | 'published';
+
 export interface RepoWorkItem {
   id: string;
   userId: string | null;
@@ -432,6 +625,7 @@ export interface RepoWorkItem {
   memberId: string;
   memberName: string;
   groupId: string;
+  customMemberAvatar?: string;
   eventDate: string;
   eventType: string;
   slotNumber: number;
@@ -444,12 +638,16 @@ export interface RepoWorkItem {
   myReactions: string[];
   isPublic: boolean;
   createdAt: string;
+  updatedAt?: string;
+  status?: RepoWorkStatus;
 }
 
 export interface ListRepoParams {
   group?: string;
   memberId?: string;
   tag?: string;
+  query?: string;
+  status?: RepoWorkStatus | 'all';
   sort?: 'latest' | 'popular';
   page?: number;
   limit?: number;
@@ -460,10 +658,17 @@ export interface ListRepoResponse {
   pagination: { page: number; limit: number; total: number; totalPages: number };
 }
 
+export interface RepoStatsResponse {
+  total: number;
+  creators: number;
+  today: number;
+}
+
 export interface CreateRepoPayload {
   memberId: string;
   memberName: string;
   groupId: string;
+  customMemberAvatar?: string;
   eventDate: string;
   eventType: string;
   slotNumber: number;
@@ -480,6 +685,8 @@ export async function listRepoWorks(params: ListRepoParams = {}): Promise<ApiRes
   if (params.group) q.set('group', params.group);
   if (params.memberId) q.set('memberId', params.memberId);
   if (params.tag) q.set('tag', params.tag);
+  if (params.query) q.set('q', params.query);
+  if (params.status) q.set('status', params.status);
   if (params.sort) q.set('sort', params.sort);
   if (params.page) q.set('page', String(params.page));
   if (params.limit) q.set('limit', String(params.limit));
@@ -490,6 +697,13 @@ export async function listRepoWorks(params: ListRepoParams = {}): Promise<ApiRes
 export async function createRepoWork(payload: CreateRepoPayload): Promise<ApiResponse<{ id: string }>> {
   return repoFetch<{ id: string }>('/works', {
     method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function updateRepoWork(id: string, payload: CreateRepoPayload): Promise<ApiResponse<{ id: string; created: boolean; status: RepoWorkStatus }>> {
+  return repoFetch<{ id: string; created: boolean; status: RepoWorkStatus }>(`/works/${id}`, {
+    method: 'PUT',
     body: JSON.stringify(payload),
   });
 }
@@ -505,10 +719,24 @@ export async function reactToRepo(workId: string, type: 'lemon' | 'sweet' | 'fun
   });
 }
 
-export async function getMyRepoWorks(page = 1): Promise<ApiResponse<ListRepoResponse>> {
-  return repoFetch<ListRepoResponse>(`/my-works?page=${page}`);
+export async function getMyRepoWorks(params: ListRepoParams = {}): Promise<ApiResponse<ListRepoResponse>> {
+  const q = new URLSearchParams();
+  if (params.group) q.set('group', params.group);
+  if (params.memberId) q.set('memberId', params.memberId);
+  if (params.tag) q.set('tag', params.tag);
+  if (params.query) q.set('q', params.query);
+  if (params.status) q.set('status', params.status);
+  if (params.sort) q.set('sort', params.sort);
+  if (params.page) q.set('page', String(params.page));
+  if (params.limit) q.set('limit', String(params.limit));
+  const qs = q.toString();
+  return repoFetch<ListRepoResponse>(`/my-works${qs ? `?${qs}` : ''}`);
 }
 
 export async function getRepoWork(id: string): Promise<ApiResponse<RepoWorkItem>> {
   return repoFetch<RepoWorkItem>(`/works/${id}`);
+}
+
+export async function getRepoStats(): Promise<ApiResponse<RepoStatsResponse>> {
+  return repoFetch<RepoStatsResponse>('/stats');
 }

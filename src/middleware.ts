@@ -1,7 +1,7 @@
 import { defineMiddleware } from 'astro:middleware';
 
 // Public paths that don't require geo_pass for JP visitors
-const PUBLIC_PREFIXES = ['/_astro/', '/auth/', '/images/', '/favicon'];
+const PUBLIC_PREFIXES = ['/_astro/', '/auth/', '/images/', '/favicon', '/prototypes/'];
 const PUBLIC_EXACT = ['/', '/about', '/privacy', '/terms', '/contact', '/links'];
 
 function isPublicPath(pathname: string): boolean {

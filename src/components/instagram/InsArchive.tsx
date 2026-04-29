@@ -10,6 +10,7 @@ import {
   GROUP_LABELS, GROUP_HEX,
   getAccountsByGroup, getDisplayName, INS_CONFIG,
 } from '@/utils/ins-data';
+import { pickItemsInFavoriteOrder } from '@/utils/favorite-order';
 import { $favorites } from '@/stores/favorites';
 
 // ---------- Types ----------
@@ -134,7 +135,10 @@ export default function InsArchive() {
   const favoriteNames = favorites.map((f) => f.name);
 
   // Filtered accounts
-  const accounts = getAccountsByGroup(group).filter((a) =>
+  const baseAccounts = group === 'favorites'
+    ? pickItemsInFavoriteOrder(getAccountsByGroup('all'), favoriteNames, (account) => account.displayName)
+    : getAccountsByGroup(group);
+  const accounts = baseAccounts.filter((a) =>
     !searchQuery || a.displayName.includes(searchQuery) || a.username.includes(searchQuery)
   );
 
