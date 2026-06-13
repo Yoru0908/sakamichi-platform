@@ -306,7 +306,7 @@ export default function HomeBlogSection() {
                     </span>
                     <span className="text-xs text-white/60">{blog.formatted_date}</span>
                   </div>
-                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold leading-snug mb-2">
+                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold leading-snug mb-2" lang="ja">
                     {blog.member_name}「{blog.title}」
                   </h2>
                   <p className="text-sm text-white/70 leading-relaxed line-clamp-2 max-w-lg mb-4">

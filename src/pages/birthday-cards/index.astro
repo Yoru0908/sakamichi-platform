@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Cake } from 'lucide-astro';
+import BirthdayCardsContainer from '@/components/birthday-cards/BirthdayCardsContainer';
+---
+
+<BaseLayout title="生日贺卡 - Sakamichi Tools" description="坂道系列成员生日贺卡合集">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    {/* 页面标题 */}
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-4">
+        <Cake class="w-8 h-8" style="color: var(--color-brand-sakura)" />
+        <h1 class="text-2xl sm:text-3xl font-bold">生日贺卡</h1>
+      </div>
+      <p class="text-[var(--text-secondary)] text-sm">
+        坂道系列成员生日贺卡合集 | 数据动态同步樱坂46官方网站，生日当天/当月成员将优先推荐。
+      </p>
+    </div>
+
+    {/* 动态加载 React 容器 */}
+    <BirthdayCardsContainer client:load />
+  </div>
+</BaseLayout>

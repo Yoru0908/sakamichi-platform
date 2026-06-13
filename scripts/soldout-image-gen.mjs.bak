@@ -1,0 +1,328 @@
+#!/usr/bin/env node
+/**
+ * 完売マトリクス画像生成 (2 versions: 期別顺 & 完売顺)
+ * API → satori (SVG) → @resvg/resvg-js (PNG)
+ */
+
+import satori from 'satori';
+import { Resvg } from '@resvg/resvg-js';
+import { readFileSync, existsSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const API_BASE = 'https://api.46log.com';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Load font
+const FONT_PATHS = [
+  join(__dirname, 'NotoSansJP-Regular.ttf'),
+  '/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc',
+];
+let fontData = null;
+for (const fp of FONT_PATHS) {
+  if (existsSync(fp)) { fontData = readFileSync(fp); break; }
+}
+if (!fontData) throw new Error('No Japanese font found');
+
+const COLORS = {
+  sakurazaka: { primary: '#E8527C', soldOut: '#FBDCE5', header: '#F9EDF1', genBg: '#FDF0F4' },
+  hinatazaka: { primary: '#5BBEE5', soldOut: '#D6EEF8', header: '#EBF5FB', genBg: '#F0F8FD' },
+  nogizaka: { primary: '#7B2D8B', soldOut: '#E8D5ED', header: '#F3EAF5', genBg: '#F8F2FA' },
+};
+
+const GEN_ORDER = { '1期生': 1, '一期生': 1, '2期生': 2, '二期生': 2, '3期生': 3, '三期生': 3, '4期生': 4, '四期生': 4, '5期生': 5, '五期生': 5, '6期生': 6, '六期生': 6 };
+
+// Generation data from member-images.json (built at module load or fetched)
+let GENERATION_MAP = null;
+function loadGenerationMap() {
+  if (GENERATION_MAP) return GENERATION_MAP;
+  // Try local member-images.json (in repo)
+  const localPaths = [
+    join(__dirname, '..', 'public', 'data', 'member-images.json'),
+    join(__dirname, 'member-images.json'),
+  ];
+  let raw = null;
+  for (const p of localPaths) {
+    if (existsSync(p)) { raw = JSON.parse(readFileSync(p, 'utf-8')); break; }
+  }
+  GENERATION_MAP = { sakurazaka: {}, hinatazaka: {}, nogizaka: {} };
+  if (!raw?.images) return GENERATION_MAP;
+  const SLUG = { '樱坂46': 'sakurazaka', '櫻坂46': 'sakurazaka', '日向坂46': 'hinatazaka', '乃木坂46': 'nogizaka' };
+  for (const [name, info] of Object.entries(raw.images)) {
+    const slug = SLUG[info.group];
+    if (!slug) continue;
+    const clean = name.replace(/[\s\u3000]+/g, '');
+    if (!GENERATION_MAP[slug][clean]) GENERATION_MAP[slug][clean] = info.generation;
+  }
+  return GENERATION_MAP;
+}
+
+async function fetchSoldOutData(eventSlug) {
+  const res = await fetch(`${API_BASE}/api/miguri/soldout?event=${eventSlug}`);
+  if (!res.ok) throw new Error(`API failed: ${res.status}`);
+  const json = await res.json();
+  if (!json.success) throw new Error(`API error: ${json.error}`);
+  return json.data;
+}
+
+function decodeHtml(s) {
+  return s
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
+    .replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&apos;/g, "'");
+}
+
+function computeAnalysis(data, group) {
+  const gridSize = data.dates.length * data.slotNumbers.length;
+  const memberMap = new Map();
+  const memberTotals = data.memberTotals || {};
+  const genMap = loadGenerationMap();
+  const groupGens = genMap[group] || {};
+
+  for (const name of (data.members || [])) {
+    memberMap.set(name, { name, cells: new Map(), soldOutCount: 0, fullSoldOutRound: null, totalCount: memberTotals[name] || gridSize, generation: groupGens[name] || '不明' });
+  }
+
+  for (const cell of data.cells) {
+    if (!memberMap.has(cell.member)) {
+      memberMap.set(cell.member, { name: cell.member, cells: new Map(), soldOutCount: 0, fullSoldOutRound: null, totalCount: memberTotals[cell.member] || gridSize, generation: groupGens[cell.member] || '不明' });
+    }
+    const m = memberMap.get(cell.member);
+    const key = `${cell.date}::${cell.slot}`;
+    const existing = m.cells.get(key);
+    if (!existing || cell.round > existing) m.cells.set(key, cell.round);
+  }
+
+  for (const member of memberMap.values()) {
+    member.soldOutCount = member.cells.size;
+    if (member.soldOutCount > 0 && member.soldOutCount >= gridSize) {
+      member.fullSoldOutRound = Math.max(...member.cells.values());
+    }
+  }
+
+  const members = [...memberMap.values()];
+  const totalSlots = members.reduce((s, m) => s + m.totalCount, 0);
+  return { members, dates: data.dates, slotNumbers: data.slotNumbers, gridSize, totalSlots };
+}
+
+function sortBySoldOut(members) {
+  return [...members].sort((a, b) => {
+    const rA = a.fullSoldOutRound ?? Infinity;
+    const rB = b.fullSoldOutRound ?? Infinity;
+    if (rA !== rB) return rA - rB;
+    if (b.soldOutCount !== a.soldOutCount) return b.soldOutCount - a.soldOutCount;
+    return a.name.localeCompare(b.name, 'ja');
+  });
+}
+
+function sortByGeneration(members) {
+  return [...members].sort((a, b) => {
+    const gA = GEN_ORDER[a.generation] || 99;
+    const gB = GEN_ORDER[b.generation] || 99;
+    if (gA !== gB) return gA - gB;
+    const rA = a.fullSoldOutRound ?? Infinity;
+    const rB = b.fullSoldOutRound ?? Infinity;
+    if (rA !== rB) return rA - rB;
+    return a.name.localeCompare(b.name, 'ja');
+  });
+}
+
+function buildGenGroups(sortedMembers) {
+  const groups = [];
+  const seen = new Set();
+  const genOrder = [...new Set(sortedMembers.map(m => m.generation))].sort((a, b) => (GEN_ORDER[a] || 99) - (GEN_ORDER[b] || 99));
+  for (const gen of genOrder) {
+    const ms = sortedMembers.filter(m => m.generation === gen);
+    if (ms.length === 0) continue;
+    groups.push({
+      generation: gen,
+      members: ms,
+      soldOutCount: ms.reduce((s, m) => s + m.soldOutCount, 0),
+      totalCount: ms.reduce((s, m) => s + m.totalCount, 0),
+    });
+  }
+  return groups;
+}
+
+// ── Satori virtual DOM helpers ──
+
+function h(type, props, ...children) {
+  return { type, props: { ...props, children: children.flat().filter(Boolean) } };
+}
+
+const CW = 18;
+const CH = 20;
+const NAME_W = 160;
+const STAT_W = 60;
+
+function buildCellDivs(member, dates, slotNumbers, colors) {
+  const divs = [];
+  for (const date of dates) {
+    for (const slot of slotNumbers) {
+      const round = member.cells.get(`${date}::${slot}`);
+      divs.push(h('div', {
+        style: {
+          width: `${CW}px`, height: `${CH}px`, display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: '8px', fontWeight: 700,
+          backgroundColor: round ? colors.soldOut : 'transparent',
+          color: round ? colors.primary : 'transparent',
+          borderRight: '1px solid #eee', borderBottom: '1px solid #eee',
+        },
+      }, round ? String(round) : ''));
+    }
+  }
+  return divs;
+}
+
+function memberRow(member, idx, dates, slotNumbers, colors, { showRank = false, rank = 0 } = {}) {
+  const isSoldOut = !!member.fullSoldOutRound;
+  let nameText = member.name;
+  if (showRank) nameText = `${rank}. ${nameText}`;
+  if (isSoldOut) nameText = `(${member.fullSoldOutRound}次完売) ${member.name}`;
+
+  return h('div', {
+    style: { display: 'flex', alignItems: 'center', height: `${CH}px`, backgroundColor: idx % 2 === 0 ? '#fafafa' : '#fff' },
+  },
+    h('div', {
+      style: { width: `${NAME_W}px`, paddingLeft: '6px', fontSize: '10px', overflow: 'hidden', color: isSoldOut ? colors.primary : '#333', fontWeight: isSoldOut ? 700 : 400, display: 'flex', flexShrink: 0 },
+    }, nameText),
+    ...buildCellDivs(member, dates, slotNumbers, colors),
+    h('div', {
+      style: { width: `${STAT_W}px`, fontSize: '9px', color: '#666', paddingRight: '6px', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', flexShrink: 0 },
+    }, `${member.soldOutCount}/${member.totalCount}`),
+  );
+}
+
+function genSeparatorRow(genGroup, totalCols, colors) {
+  return h('div', {
+    style: { display: 'flex', alignItems: 'center', height: '22px', backgroundColor: colors.genBg, borderBottom: '1px solid #ddd' },
+  },
+    h('div', { style: { display: 'flex', flex: 1, paddingLeft: '6px', fontSize: '10px', fontWeight: 700, color: colors.primary } }, genGroup.generation),
+    h('div', { style: { display: 'flex', paddingRight: '6px', fontSize: '9px', color: '#666' } }, `${genGroup.soldOutCount}/${genGroup.totalCount}`),
+  );
+}
+
+function buildHeaders(dates, slotNumbers, colors) {
+  const dateHeaders = dates.map(date =>
+    h('div', { style: { width: `${slotNumbers.length * CW}px`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', fontWeight: 700, color: '#333' } }, date.slice(5))
+  );
+  const slotHeaders = [];
+  for (let d = 0; d < dates.length; d++) {
+    for (const slot of slotNumbers) {
+      slotHeaders.push(h('div', { style: { width: `${CW}px`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '7px', color: '#999' } }, String(slot)));
+    }
+  }
+  return { dateHeaders, slotHeaders };
+}
+
+async function renderImage(tree, width, height) {
+  const svg = await satori(tree, {
+    width, height,
+    fonts: [
+      { name: 'NotoSansJP', data: fontData, weight: 400, style: 'normal' },
+      { name: 'NotoSansJP', data: fontData, weight: 700, style: 'normal' },
+    ],
+  });
+  return new Resvg(svg, { fitTo: { mode: 'width', value: width } }).render().asPng();
+}
+
+/**
+ * Generate sold-out image
+ * @param {string} eventSlug
+ * @param {string} group
+ * @param {'soldout'|'generation'} sortMode
+ */
+export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sortMode = 'soldout') {
+  const data = await fetchSoldOutData(eventSlug);
+  const analysis = computeAnalysis(data, group);
+  const colors = COLORS[group] || COLORS.sakurazaka;
+  const { members, dates, slotNumbers } = analysis;
+  const totalCols = dates.length * slotNumbers.length;
+  const totalSold = members.reduce((s, m) => s + m.soldOutCount, 0);
+  const { totalSlots } = analysis;
+  const pct = totalSlots > 0 ? Math.round(totalSold / totalSlots * 100) : 0;
+  const rawTitle = decodeHtml(data.event.title.replace(/【.*?】/, '')).slice(0, 60);
+  const WIDTH = NAME_W + totalCols * CW + STAT_W + 20;
+  const { dateHeaders, slotHeaders } = buildHeaders(dates, slotNumbers, colors);
+  const modeLabel = sortMode === 'generation' ? '期別顺' : '完売顺';
+
+  // Build rows
+  const bodyRows = [];
+  let rowCount = 0;
+
+  if (sortMode === 'generation') {
+    const sorted = sortByGeneration(members);
+    const groups = buildGenGroups(sorted);
+    for (const genGroup of groups) {
+      bodyRows.push(genSeparatorRow(genGroup, totalCols, colors));
+      rowCount++;
+      for (let i = 0; i < genGroup.members.length; i++) {
+        bodyRows.push(memberRow(genGroup.members[i], i, dates, slotNumbers, colors));
+        rowCount++;
+      }
+    }
+  } else {
+    const sorted = sortBySoldOut(members);
+    for (let i = 0; i < sorted.length; i++) {
+      bodyRows.push(memberRow(sorted[i], i, dates, slotNumbers, colors, { showRank: true, rank: i + 1 }));
+      rowCount++;
+    }
+  }
+
+  const tree = h('div', {
+    style: { display: 'flex', flexDirection: 'column', padding: '12px', backgroundColor: '#fff', fontFamily: 'NotoSansJP', width: `${WIDTH}px` },
+  },
+    h('div', { style: { display: 'flex', fontSize: '13px', fontWeight: 700, color: '#333', marginBottom: '2px' } }, rawTitle),
+    h('div', { style: { display: 'flex', fontSize: '10px', color: '#888', marginBottom: '8px' } }, `${totalSold}/${totalSlots}枠 完売 (${pct}%)  [${modeLabel}]`),
+    // Date header
+    h('div', { style: { display: 'flex', alignItems: 'center', height: '22px', backgroundColor: colors.header, borderBottom: '1px solid #ddd' } },
+      h('div', { style: { display: 'flex', width: `${NAME_W}px`, flexShrink: 0 } }),
+      ...dateHeaders,
+      h('div', { style: { display: 'flex', width: `${STAT_W}px`, flexShrink: 0 } }),
+    ),
+    // Slot header
+    h('div', { style: { display: 'flex', alignItems: 'center', height: '16px', borderBottom: '1px solid #ddd' } },
+      h('div', { style: { display: 'flex', width: `${NAME_W}px`, fontSize: '9px', color: '#666', paddingLeft: '6px', flexShrink: 0 } }, '成員'),
+      ...slotHeaders,
+      h('div', { style: { display: 'flex', width: `${STAT_W}px`, flexShrink: 0 } }),
+    ),
+    ...bodyRows,
+  );
+
+  const HEIGHT = 12 + 14 + 12 + 8 + 22 + 16 + rowCount * CH + 12;
+  return renderImage(tree, WIDTH, HEIGHT);
+}
+
+/**
+ * Generate both versions, returns { soldout: Buffer, generation: Buffer }
+ */
+export async function generateBothImages(eventSlug, group = 'sakurazaka') {
+  const [soldout, generation] = await Promise.all([
+    generateSoldOutImage(eventSlug, group, 'soldout'),
+    generateSoldOutImage(eventSlug, group, 'generation'),
+  ]);
+  return { soldout, generation };
+}
+
+// CLI mode
+if (process.argv[1] && process.argv[1].includes('soldout-image-gen')) {
+  const eventSlug = process.argv[2] || 'sakurazaka_202606';
+  const group = process.argv[3] || eventSlug.split('_')[0];
+  const mode = process.argv[4] || 'both'; // soldout | generation | both
+
+  const { writeFileSync } = await import('fs');
+
+  if (mode === 'both') {
+    console.log(`Generating both images for ${eventSlug} (${group})...`);
+    const imgs = await generateBothImages(eventSlug, group);
+    writeFileSync(`/tmp/soldout-${eventSlug}-soldout.png`, imgs.soldout);
+    writeFileSync(`/tmp/soldout-${eventSlug}-generation.png`, imgs.generation);
+    console.log(`✅ soldout: ${Math.round(imgs.soldout.length / 1024)}KB, generation: ${Math.round(imgs.generation.length / 1024)}KB`);
+  } else {
+    const outPath = `/tmp/soldout-${eventSlug}-${mode}.png`;
+    console.log(`Generating ${mode} image for ${eventSlug} (${group})...`);
+    const buf = await generateSoldOutImage(eventSlug, group, mode);
+    writeFileSync(outPath, buf);
+    console.log(`✅ Saved to ${outPath} (${Math.round(buf.length / 1024)}KB)`);
+  }
+}

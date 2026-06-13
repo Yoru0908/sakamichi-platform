@@ -1,15 +1,19 @@
 ---
-import { Pen, MessageCircle, Radio, Camera, Image, MessageSquare, Wrench } from 'lucide-astro';
+import { Pen, MessageCircle, Radio, Camera, Image, Calendar, Mic, Wrench, Cake } from 'lucide-astro';
 
 const items = [
-  { label: '博客翻译', href: '/blog', icon: 'pen', color: 'var(--color-brand-nogi)' },
-  { label: 'MSG归档', href: '/messages', icon: 'msg', color: 'var(--color-brand-hinata)' },
+  { label: '博客', href: '/blog', icon: 'pen', color: 'var(--color-brand-nogi)' },
+  { label: 'MSG', href: '/messages', icon: 'msg', color: 'var(--color-brand-hinata)' },
   { label: '广播', href: '/radio', icon: 'radio', color: 'var(--color-brand-sakura)' },
-  { label: 'INS归档', href: '/instagram', icon: 'camera', color: 'var(--color-brand-nogi)' },
-  { label: '生写生成器', href: '/tools/photocard', icon: 'image', color: 'var(--color-brand-sakura)' },
-  { label: 'MSG生成器', href: '/tools/msg-generator', icon: 'msgsq', color: 'var(--color-brand-hinata)' },
+  { label: 'INS', href: '/instagram', icon: 'camera', color: 'var(--color-brand-nogi)' },
+  { label: '生写生成', href: '/photocard', icon: 'image', color: 'var(--color-brand-sakura)' },
+  { label: '生日贺卡', href: '/birthday-cards', icon: 'cake', color: 'var(--color-brand-sakura)' },
+  { label: '咪咕力管理', href: '/miguri', icon: 'calendar', color: 'var(--color-brand-hinata)' },
+  { label: '咪咕力Repo', href: '/repo', icon: 'mic', color: 'var(--color-brand-sakura)' },
   { label: '更多工具', href: '/tools', icon: 'wrench', color: 'var(--text-tertiary)' },
 ];
+
+const reloadHrefs = new Set(['/blog', '/repo']);
 ---
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
@@ -17,7 +21,7 @@ const items = [
     {items.map((item) => (
       <a
         href={item.href}
-        {...(item.href.startsWith('/blog') ? { 'data-astro-reload': true } : {})}
+        {...(reloadHrefs.has(item.href) ? { 'data-astro-reload': true } : {})}
         class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-[var(--text-secondary)] bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors duration-200"
       >
         <span style={`color: ${item.color};`}>
@@ -26,7 +30,9 @@ const items = [
           {item.icon === 'radio' && <Radio size={13} />}
           {item.icon === 'camera' && <Camera size={13} />}
           {item.icon === 'image' && <Image size={13} />}
-          {item.icon === 'msgsq' && <MessageSquare size={13} />}
+          {item.icon === 'cake' && <Cake size={13} />}
+          {item.icon === 'calendar' && <Calendar size={13} />}
+          {item.icon === 'mic' && <Mic size={13} />}
           {item.icon === 'wrench' && <Wrench size={13} />}
         </span>
         {item.label}

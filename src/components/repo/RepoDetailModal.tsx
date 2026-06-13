@@ -12,6 +12,8 @@ import LineTemplate from './templates/LineTemplate';
 import OshiColorTemplate from './templates/OshiColorTemplate';
 import RepoMemberImage from './RepoMemberImage';
 import { getRepoCommunityPreferredMemberImageUrl } from './repo-community-avatar';
+import { proxyImageUrl } from '@/utils/proxy-image';
+import { createOklchPatchOnClone, waitForHtml2CanvasImages } from '@/utils/html2canvas-patch';
 
 interface Props {
   repo: RepoWorkItem;
@@ -22,11 +24,12 @@ interface Props {
 
 function buildRepoData(repo: RepoWorkItem): RepoData {
   const groupMeta = (GROUP_META as Record<string, any>)[repo.groupId];
-  const memberImageUrl = getRepoCommunityPreferredMemberImageUrl({
+  const rawMemberImageUrl = getRepoCommunityPreferredMemberImageUrl({
     customMemberAvatar: repo.customMemberAvatar,
     memberId: repo.memberId,
     memberName: repo.memberName,
   });
+  const memberImageUrl = proxyImageUrl(rawMemberImageUrl) || rawMemberImageUrl;
   return {
     memberId: repo.memberId,
     memberName: repo.memberName,
@@ -144,11 +147,14 @@ export default function RepoDetailModal({ repo, onClose, onReactionUpdate, onDel
     setDownloading(true);
     try {
       const html2canvas = (await import('html2canvas')).default;
+      await waitForHtml2CanvasImages(templateRef.current);
       const canvas = await html2canvas(templateRef.current, {
         scale: 2,
         useCORS: true,
-        allowTaint: true,
+        allowTaint: false,
+        imageTimeout: 15000,
         backgroundColor: '#ffffff',
+        onclone: createOklchPatchOnClone(),
       });
       const link = document.createElement('a');
       link.download = `repo_${repo.memberName}_${repo.eventDate.replace(/\//g, '-')}.png`;

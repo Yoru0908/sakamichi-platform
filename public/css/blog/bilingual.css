@@ -118,6 +118,7 @@
   color: var(--text-primary);
   letter-spacing: 0.02em;
   max-width: none;
+  font-family: var(--font-sans-zh);
 }
 
 /* br标签样式 - 关键：继承行高 */
@@ -149,6 +150,7 @@
 .blog-content-official p[lang="ja"] {
   color: var(--text-secondary);
   font-size: 14px;
+  font-family: var(--font-blog);
   font-style: italic;
   margin-bottom: 0;
   /* 移除底部间距，让原文和译文紧贴 */
@@ -158,6 +160,7 @@
 .blog-content-official p[lang="zh"] {
   color: var(--text-primary);
   font-size: 14px;
+  font-family: var(--font-sans-zh);
   font-weight: 450;
   margin-bottom: 0;
   /* 段落间距由<br>标签控制 */

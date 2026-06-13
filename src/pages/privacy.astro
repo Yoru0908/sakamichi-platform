@@ -2,19 +2,104 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="隐私政策 - Sakamichi Tools">
+<BaseLayout title="Privacy Policy - Sakamichi Tools">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <h1 class="text-2xl font-bold text-[var(--text-primary)] mb-8">隐私政策</h1>
+    <h1 class="text-2xl font-bold text-[var(--text-primary)] mb-8">Privacy Policy / 隐私政策</h1>
     <div class="prose prose-sm max-w-none text-[var(--text-secondary)] space-y-4">
-      <p>最后更新日期: 2026年4月</p>
-      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">信息收集</h2>
-      <p>本站仅收集用户注册或使用账号功能时提供的基本信息（如用户名、邮箱、Discord 账号等）。不会收集任何不必要的个人信息。</p>
-      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">Cookie 使用</h2>
-      <p>本站使用 Cookie 保存用户登录状态、主题偏好和语言设置。不使用第三方追踪 Cookie。</p>
-      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">数据存储</h2>
-      <p>数据存储在 Cloudflare 的安全基础设施上。不会向第三方出售或分享用户数据。</p>
-      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">联系方式</h2>
-      <p>如有隐私相关问题，请通过 <a href="https://discord.gg/n8F7Eq4vyD" target="_blank" rel="noopener noreferrer" class="text-[var(--color-brand-nogi)] hover:underline">Discord 服务器</a> 与我们联系。</p>
+      <p>Last updated: May 2026 / 最后更新日期: 2026年5月</p>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">1. Introduction / 简介</h2>
+      <p>Sakamichi Tools ("we", "us", "our") operates the website https://46log.com (the "Service"). This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our Service.</p>
+      <p>Sakamichi Tools（"我们"）运营 https://46log.com（"本服务"）。本隐私政策说明我们在您使用本服务时如何收集、使用、存储和保护您的个人信息。</p>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">2. Information We Collect / 信息收集</h2>
+      <p><strong>Account Information:</strong> When you register, we collect your username, email address, and optionally your Discord account for communication purposes.</p>
+      <p><strong>账号信息：</strong>注册时，我们收集您的用户名、邮箱，以及可选的 Discord 账号用于沟通。</p>
+      <p><strong>Google Account Data:</strong> If you choose to connect your Google Calendar, we access the following data through Google OAuth 2.0:</p>
+      <ul class="list-disc list-inside space-y-1 ml-4">
+        <li>Your Google email address (for identifying the connection)</li>
+        <li>Google Calendar events (read and write access to manage event entries you create within our Service)</li>
+      </ul>
+      <p><strong>Google 账号数据：</strong>如果您选择连接 Google Calendar，我们通过 Google OAuth 2.0 访问以下数据：</p>
+      <ul class="list-disc list-inside space-y-1 ml-4">
+        <li>您的 Google 邮箱地址（用于识别连接）</li>
+        <li>Google Calendar 事件（读写权限，用于管理您在本服务中创建的活动日程）</li>
+      </ul>
+      <p><strong>Usage Data:</strong> We do not collect analytics, tracking data, or browsing behavior.</p>
+      <p><strong>使用数据：</strong>我们不收集分析数据、追踪数据或浏览行为。</p>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">3. How We Use Your Information / 信息使用</h2>
+      <p>We use the collected information solely for the following purposes:</p>
+      <ul class="list-disc list-inside space-y-1 ml-4">
+        <li><strong>Account management:</strong> To authenticate and provide personalized features.</li>
+        <li><strong>Google Calendar sync:</strong> To create, update, and delete calendar events on your behalf based on activity entries you manage within our Service (e.g., fan meet-and-greet schedules). We only write events that you explicitly add through our interface.</li>
+        <li><strong>Notifications:</strong> To send service-related notifications you have opted into.</li>
+      </ul>
+      <p>我们仅将收集的信息用于以下目的：</p>
+      <ul class="list-disc list-inside space-y-1 ml-4">
+        <li><strong>账号管理：</strong>用于身份验证和提供个性化功能。</li>
+        <li><strong>Google Calendar 同步：</strong>根据您在本服务中管理的活动日程（如粉丝握手会时间表），代您创建、更新和删除日历事件。我们仅写入您通过界面明确添加的事件。</li>
+        <li><strong>通知：</strong>发送您已选择接收的服务相关通知。</li>
+      </ul>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">4. Google API Services User Data Policy / Google API 用户数据政策</h2>
+      <p>Our use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" class="text-[var(--color-brand-nogi)] hover:underline">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+      <p>Specifically:</p>
+      <ul class="list-disc list-inside space-y-1 ml-4">
+        <li>We only request access to the Google Calendar scope necessary for the features you use.</li>
+        <li>We do not use Google user data for advertising or sell it to third parties.</li>
+        <li>We do not use Google user data to train machine learning or AI models.</li>
+        <li>We store Google OAuth tokens securely and only use them to perform calendar operations you initiate.</li>
+      </ul>
+      <p>我们对从 Google API 获取的信息的使用和传输遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" class="text-[var(--color-brand-nogi)] hover:underline">Google API 服务用户数据政策</a>，包括有限使用要求。</p>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">5. Data Storage and Security / 数据存储与安全</h2>
+      <p>All data is stored on Cloudflare's secure infrastructure (Cloudflare D1 database and Workers). Data is encrypted in transit using TLS. Google OAuth refresh tokens are stored as encrypted secrets and are never exposed to the client-side.</p>
+      <p>所有数据存储在 Cloudflare 的安全基础设施上（Cloudflare D1 数据库和 Workers）。传输过程使用 TLS 加密。Google OAuth 刷新令牌作为加密密钥存储，从不暴露给客户端。</p>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">6. Data Sharing / 数据共享</h2>
+      <p>We do not sell, trade, or transfer your personal information to third parties. We do not share your Google account data with any external services beyond the Google Calendar API itself for the purposes described above.</p>
+      <p>我们不会向第三方出售、交易或转让您的个人信息。除上述目的通过 Google Calendar API 本身外，我们不会与任何外部服务共享您的 Google 账号数据。</p>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">7. Data Retention and Deletion / 数据保留与删除</h2>
+      <p>You may disconnect your Google Calendar connection at any time through the Service interface. Upon disconnection:</p>
+      <ul class="list-disc list-inside space-y-1 ml-4">
+        <li>Your Google OAuth tokens are immediately deleted from our database.</li>
+        <li>Calendar event mappings are removed.</li>
+        <li>Events previously created in your Google Calendar remain unless you manually delete them.</li>
+      </ul>
+      <p>You may also delete your entire account, which will remove all associated data including entries, preferences, and any connected service tokens.</p>
+      <p>您可以随时通过服务界面断开 Google Calendar 连接。断开后：</p>
+      <ul class="list-disc list-inside space-y-1 ml-4">
+        <li>您的 Google OAuth 令牌将立即从我们的数据库中删除。</li>
+        <li>日历事件映射将被移除。</li>
+        <li>之前在您 Google Calendar 中创建的事件将保留，除非您手动删除。</li>
+      </ul>
+      <p>您也可以删除整个账号，这将移除所有关联数据，包括记录、偏好设置和所有已连接服务的令牌。</p>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">8. Cookies / Cookie 使用</h2>
+      <p>We use strictly necessary cookies for authentication (login session) and user preferences (theme, language). We do not use third-party tracking cookies or analytics cookies.</p>
+      <p>我们仅使用必要的 Cookie 用于身份验证（登录会话）和用户偏好（主题、语言）。不使用第三方追踪 Cookie 或分析 Cookie。</p>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">9. Children's Privacy / 儿童隐私</h2>
+      <p>Our Service is not directed to children under 13. We do not knowingly collect personal information from children under 13.</p>
+      <p>本服务不面向 13 岁以下儿童。我们不会故意收集 13 岁以下儿童的个人信息。</p>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">10. Changes to This Policy / 政策变更</h2>
+      <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date.</p>
+      <p>我们可能会不时更新本隐私政策。变更将在本页面发布并更新修订日期。</p>
+
+      <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">11. Contact Us / 联系方式</h2>
+      <p>If you have any questions about this Privacy Policy or wish to exercise your data rights, please contact us through:</p>
+      <ul class="list-disc list-inside space-y-1 ml-4">
+        <li>Email: <a href="mailto:srzwyuu@gmail.com" class="text-[var(--color-brand-nogi)] hover:underline">srzwyuu@gmail.com</a></li>
+        <li>Discord: <a href="https://discord.gg/n8F7Eq4vyD" target="_blank" rel="noopener noreferrer" class="text-[var(--color-brand-nogi)] hover:underline">Discord Server</a></li>
+      </ul>
+      <p>如有隐私相关问题或希望行使数据权利，请通过以下方式联系我们：</p>
+      <ul class="list-disc list-inside space-y-1 ml-4">
+        <li>邮箱：<a href="mailto:srzwyuu@gmail.com" class="text-[var(--color-brand-nogi)] hover:underline">srzwyuu@gmail.com</a></li>
+        <li>Discord：<a href="https://discord.gg/n8F7Eq4vyD" target="_blank" rel="noopener noreferrer" class="text-[var(--color-brand-nogi)] hover:underline">Discord 服务器</a></li>
+      </ul>
     </div>
   </div>
 </BaseLayout>

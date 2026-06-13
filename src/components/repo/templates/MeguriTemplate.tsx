@@ -1,5 +1,6 @@
 import type { RepoData } from '@/types/repo';
 import { GROUP_META } from '@/types/repo';
+import { proxyImageUrl } from '@/utils/proxy-image';
 import RepoMemberImage from '../RepoMemberImage';
 
 interface Props {
@@ -81,7 +82,7 @@ export default function MeguriTemplate({ data }: Props) {
             return (
               <div key={msg.id} className="text-center space-y-1.5">
                 {msg.imageUrl && (
-                  <img src={msg.imageUrl} alt="" className="max-h-28 rounded-lg object-contain mx-auto" />
+                  <img src={proxyImageUrl(msg.imageUrl) ?? msg.imageUrl} alt="" className="max-h-28 rounded-lg object-contain mx-auto" />
                 )}
                 {msg.text && (
                   <div className="text-[11px] italic text-gray-400 px-4">（{msg.text}）</div>

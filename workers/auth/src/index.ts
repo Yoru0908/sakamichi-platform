@@ -60,8 +60,10 @@ import {
   handleDeleteMiguriEntry,
   handleGetMiguriCalendarIcs,
   handleGetMiguriGoogleCalendarUrl,
+  handleGetMiguriSoldOut,
 } from './routes/miguri';
-import { handleMiguriSync, syncMiguriFromSource } from './routes/manage-miguri';
+import { handleMiguriSync, handleMiguriSoldOutImport, syncMiguriFromSource } from './routes/manage-miguri';
+import { handleDisconnectGoogleCalendar } from './routes/google-calendar';
 
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
@@ -172,6 +174,8 @@ export default {
         res = await handleResolveVerification(req, env);
       } else if (path === '/api/manage/miguri/sync' && method === 'POST') {
         res = await handleMiguriSync(req, env);
+      } else if (path === '/api/miguri/soldout-import' && method === 'POST') {
+        res = await handleMiguriSoldOutImport(req, env);
 
       // ── User verification request ──
       } else if (path === '/api/user/request-verification' && method === 'POST') {
@@ -190,6 +194,10 @@ export default {
         res = await handleGetMiguriCalendarIcs(req, env);
       } else if (path === '/api/miguri/calendar/google-url' && method === 'GET') {
         res = await handleGetMiguriGoogleCalendarUrl(req, env);
+      } else if (path === '/api/miguri/soldout' && method === 'GET') {
+        res = await handleGetMiguriSoldOut(req, env);
+      } else if (path === '/api/miguri/calendar/google-disconnect' && method === 'POST') {
+        res = await handleDisconnectGoogleCalendar(req, env);
       }
 
       // ── Community routes ──

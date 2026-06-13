@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
+  BarChart3,
   CalendarDays,
   Clock3,
   ExternalLink,
@@ -11,14 +12,15 @@ import {
   Search,
   Sparkles,
   Ticket,
+  ClipboardList,
   Trash2,
   Users,
   X,
 } from 'lucide-react';
+import SoldOutMatrix from './SoldOutMatrix';
 import {
   createMiguriEntries,
   deleteMiguriEntry,
-  getGoogleCalendarConnectUrl,
   getMiguriEvents,
   openMiguriCalendarIcs,
   updateMiguriEntry,
@@ -34,6 +36,7 @@ import {
   groupEntriesByDateAndSlot,
   hasEventDatePassed,
   inferEventState,
+  parseFortuneImportText,
   sortEventsForDisplay,
   summarizeEntries,
   type PendingMeguriDraft,
@@ -136,6 +139,10 @@ export default function MeguriPrototype() {
   const [isSaving, setIsSaving] = useState(false);
   const [notice, setNotice] = useState('');
   const [error, setError] = useState('');
+  const [showImportModal, setShowImportModal] = useState(false);
+  const [showGCalNotice, setShowGCalNotice] = useState(false);
+  const [importText, setImportText] = useState('');
+  const [activeTab, setActiveTab] = useState<'manage' | 'soldout'>('manage');
   const [addForm, setAddForm] = useState<AddForm>({
     date: '',
     slots: [],
@@ -485,10 +492,6 @@ export default function MeguriPrototype() {
     setNotice('ICS 已开始下载');
   }
 
-  function connectGoogleCalendar() {
-    window.location.href = getGoogleCalendarConnectUrl('/prototypes/miguri');
-  }
-
   if (isLoading) {
     return <div className="mx-auto max-w-[1600px] px-4 py-16 text-center text-sm text-[var(--text-tertiary)]">Miguri 数据加载中…</div>;
   }
@@ -694,21 +697,18 @@ export default function MeguriPrototype() {
                       Fortune Music 原页 <ExternalLink size={12} className="sm:h-[14px] sm:w-[14px]" />
                     </a>
                     <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
-                    {googleCalendar.connected && googleCalendar.syncEnabled ? (
-                      <div className="flex items-center gap-1 text-[11px] font-medium text-emerald-600 sm:gap-1.5 sm:text-xs">
-                        <CalendarDays size={12} className="sm:h-[14px] sm:w-[14px]" />
-                        <span className="sm:hidden">GCal 已连接</span>
-                        <span className="hidden sm:inline">已连接 Google Calendar 自动同步</span>
-                        {googleCalendar.email ? <span className="hidden text-[var(--text-tertiary)] sm:inline">({googleCalendar.email})</span> : null}
-                      </div>
-                    ) : (
-                      <button onClick={connectGoogleCalendar} className="flex items-center gap-1 text-[11px] font-medium text-sky-600 hover:text-sky-700 sm:gap-1.5 sm:text-xs">
-                        <CalendarDays size={12} className="sm:h-[14px] sm:w-[14px]" /> 连接 GCal
-                      </button>
-                    )}
-                    <span className="hidden text-[11px] text-[var(--text-tertiary)] sm:inline">
-                      同步内容：持有部数 + 受付时间，均写入同一 Google Calendar 主日历
-                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setShowGCalNotice(true)}
+                      className="flex items-center gap-1 text-[11px] font-medium text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] sm:gap-1.5 sm:text-xs"
+                      title="Google 日历联动暂时停用"
+                    >
+                      <CalendarDays size={12} className="sm:h-[14px] sm:w-[14px]" /> GCal 联动（暂停）
+                    </button>
+                    <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
+                    <button onClick={() => setShowImportModal(true)} className="flex items-center gap-1 text-[11px] font-medium text-sky-600 hover:text-sky-700 sm:gap-1.5 sm:text-xs">
+                      <ClipboardList size={12} className="sm:h-[14px] sm:w-[14px]" /> 批量导入
+                    </button>
                     <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
                     <button onClick={exportCalendar} className="hidden items-center gap-1.5 text-xs font-medium text-emerald-600 hover:text-emerald-700 sm:flex">
                       <CalendarDays size={14} /> 导出 .ics
@@ -718,28 +718,61 @@ export default function MeguriPrototype() {
               </div>
             </div>
 
-            <div className="mt-4 grid grid-cols-4 gap-2 sm:mt-6 sm:grid-cols-2 sm:gap-3 xl:grid-cols-4">
-              {[
-                { label: '部数', fullLabel: '我有多少部', value: summary.totalSlots, icon: Layers3, color: '#7c3aed' },
-                { label: '张数', fullLabel: '总张数', value: summary.totalTickets, icon: Ticket, color: '#f59e0b' },
-                { label: '成员', fullLabel: '都有谁', value: summary.uniqueMembers, icon: Users, color: '#2563eb' },
-                { label: '天数', fullLabel: '日历占几天', value: summary.uniqueDates, icon: CalendarDays, color: '#10b981' },
-              ].map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.fullLabel} className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-2 sm:p-4">
-                    <div className="flex items-center gap-1 text-[10px] text-[var(--text-tertiary)] sm:gap-2 sm:text-[11px]">
-                      <Icon size={12} className="sm:h-[13px] sm:w-[13px]" style={{ color: item.color }} />
-                      <span className="sm:hidden">{item.label}</span>
-                      <span className="hidden sm:inline">{item.fullLabel}</span>
-                    </div>
-                    <div className="mt-1 text-lg font-bold text-[var(--text-primary)] sm:mt-2 sm:text-2xl">{item.value}</div>
-                  </div>
-                );
-              })}
+            {/* Tab switcher */}
+            <div className="mt-4 flex items-center gap-1 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-1 w-fit">
+              <button
+                type="button"
+                onClick={() => setActiveTab('manage')}
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                  activeTab === 'manage'
+                    ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
+                    : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+                }`}
+              >
+                <ClipboardList size={13} /> 管理
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('soldout')}
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                  activeTab === 'soldout'
+                    ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
+                    : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+                }`}
+              >
+                <BarChart3 size={13} /> 完售分析
+              </button>
             </div>
+
+            {activeTab === 'soldout' ? (
+              <div className="mt-4">
+                <SoldOutMatrix eventSlug={selectedEvent.slug} />
+              </div>
+            ) : (
+              <div className="mt-4 grid grid-cols-4 gap-2 sm:mt-6 sm:grid-cols-2 sm:gap-3 xl:grid-cols-4">
+                {[
+                  { label: '部数', fullLabel: '我有多少部', value: summary.totalSlots, icon: Layers3, color: '#7c3aed' },
+                  { label: '张数', fullLabel: '总张数', value: summary.totalTickets, icon: Ticket, color: '#f59e0b' },
+                  { label: '成员', fullLabel: '都有谁', value: summary.uniqueMembers, icon: Users, color: '#2563eb' },
+                  { label: '天数', fullLabel: '日历占几天', value: summary.uniqueDates, icon: CalendarDays, color: '#10b981' },
+                ].map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.fullLabel} className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-2 sm:p-4">
+                      <div className="flex items-center gap-1 text-[10px] text-[var(--text-tertiary)] sm:gap-2 sm:text-[11px]">
+                        <Icon size={12} className="sm:h-[13px] sm:w-[13px]" style={{ color: item.color }} />
+                        <span className="sm:hidden">{item.label}</span>
+                        <span className="hidden sm:inline">{item.fullLabel}</span>
+                      </div>
+                      <div className="mt-1 text-lg font-bold text-[var(--text-primary)] sm:mt-2 sm:text-2xl">{item.value}</div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
+          {activeTab === 'manage' && (
           <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
             <div className="space-y-6">
               <div className="space-y-4 lg:hidden">
@@ -969,6 +1002,7 @@ export default function MeguriPrototype() {
               </div>
             </div>
           </div>
+          )}
         </div>
       </section>
 
@@ -1178,6 +1212,163 @@ export default function MeguriPrototype() {
           </aside>
         </div>
       )}
+      <ImportModal
+        show={showImportModal}
+        text={importText}
+        setText={setImportText}
+        parsed={parseFortuneImportText(importText)}
+        isSaving={isSaving}
+        onConfirm={() => void handleImportConfirm()}
+        onClose={() => { setShowImportModal(false); setImportText(''); }}
+      />
+      {showGCalNotice && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+          onClick={() => setShowGCalNotice(false)}
+        >
+          <div
+            className="w-full max-w-md rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5 shadow-xl sm:p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-2 text-[var(--text-primary)]">
+              <CalendarDays size={18} className="text-amber-500" />
+              <h3 className="text-base font-bold">Google 日历联动暂时停用</h3>
+            </div>
+            <div className="mt-3 space-y-2 text-sm leading-6 text-[var(--text-secondary)]">
+              <p>由于 Google OAuth 审核未完全通过，自动同步存在授权失效问题（新增轮次日期可能无法自动写入日历），现已<strong>暂时停用</strong>该功能。</p>
+              <p>这段时间请使用 <strong>导出 .ics</strong> 手动导入日历，活动日程仍可正常管理与统计，不影响录入部数和券数。</p>
+            </div>
+            <div className="mt-5 flex justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => { setShowGCalNotice(false); void exportCalendar(); }}
+                className="rounded-xl border border-[var(--border-primary)] px-4 py-2 text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]"
+              >
+                导出 .ics
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowGCalNotice(false)}
+                className="rounded-xl bg-[var(--text-primary)] px-4 py-2 text-sm font-medium text-white"
+              >
+                知道了
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+  async function handleImportConfirm() {
+    if (!selectedEvent) return;
+    const parsed = parseFortuneImportText(importText);
+    if (parsed.length === 0) return;
+
+    setIsSaving(true);
+    let created = 0;
+    let skipped = 0;
+    const errors: string[] = [];
+    for (const item of parsed) {
+      if (item.count <= 0) {
+        skipped += 1;
+        continue;
+      }
+      const dateStr = selectedEvent.dates.find(d => {
+        const dt = new Date(d);
+        return dt.getMonth() + 1 === Number(item.date.split('/')[0]) && dt.getDate() === Number(item.date.split('/')[1]);
+      }) || '';
+      if (!dateStr) { errors.push(`日期 ${item.date} 不匹配`); continue; }
+
+      const res = await createMiguriEntries({
+        eventSlug: selectedEvent.slug,
+        date: dateStr,
+        slots: [item.slot],
+        members: [item.member],
+        tickets: item.count,
+        status: 'won',
+      });
+      if (res.success && res.data?.entries) {
+        setEntries(prev => {
+          const updated = [...prev];
+          for (const entry of res.data!.entries) {
+            const idx = updated.findIndex(e => e.id === entry.id);
+            if (idx >= 0) updated[idx] = entry;
+            else updated.push(entry);
+          }
+          return sortEntries(updated);
+        });
+        created += res.data.entries.length;
+      } else {
+        errors.push(`${item.member} ${item.date} 第${item.slot}部: ${res.error || '未知错误'}`);
+      }
+    }
+    setIsSaving(false);
+    setShowImportModal(false);
+    setImportText('');
+    const baseMsg = errors.length > 0 ? `已导入 ${created} 条，${errors.length} 条失败: ${errors.slice(0, 3).join('; ')}` : `已导入 ${created} 条记录（含累计）`;
+    const msg = skipped > 0 ? `${baseMsg}；已跳过 ${skipped} 条 0 张记录` : baseMsg;
+    setNotice(msg);
+  }
+}
+
+function ImportModal({
+  show, text, setText, parsed, isSaving, onConfirm, onClose,
+}: {
+  show: boolean;
+  text: string;
+  setText: (v: string) => void;
+  parsed: { member: string; date: string; slot: number; count: number }[];
+  isSaving: boolean;
+  onConfirm: () => void;
+  onClose: () => void;
+}) {
+  if (!show) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onClick={onClose}>
+      <div
+        className="mx-4 w-full max-w-lg rounded-2xl bg-[var(--bg-primary)] p-5 shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h3 className="mb-1 text-base font-bold text-[var(--text-primary)]">批量导入 Fortune Music 记录</h3>
+        <p className="mb-3 text-xs text-[var(--text-tertiary)]">
+          支持 Fortune Music「お申込み内容」和付款信息页面表格，选中后复制并粘贴到下方输入框
+        </p>
+        <textarea
+          className="h-40 w-full rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-secondary)] p-3 text-xs text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:border-sky-400 focus:outline-none"
+          placeholder={`粘贴 Fortune Music 表格内容...\n\n例1（当選結果）:\n山川 宇衣【6/27 第2部】櫻坂46...\t1,200円\t3個\t3個\t3,600円\n\n例2（付款信息）:\n山川 宇衣【6/14 第5部】櫻坂46...\t1,200円\t4個\t4,800円`}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          autoFocus
+        />
+        {parsed.length > 0 && (
+          <div className="mt-3 max-h-40 overflow-y-auto rounded-xl bg-[var(--bg-secondary)] p-3">
+            <p className="mb-2 text-xs font-semibold text-emerald-600">解析到 {parsed.length} 条:</p>
+            <div className="space-y-1">
+              {parsed.map((p, i) => (
+                <div key={i} className="text-xs text-[var(--text-secondary)]">
+                  {p.member} {p.date} 第{p.slot}部 ×{p.count}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        <div className="mt-4 flex justify-end gap-2">
+          <button
+            onClick={onClose}
+            className="rounded-lg px-4 py-2 text-sm text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]"
+          >
+            取消
+          </button>
+          <button
+            onClick={onConfirm}
+            disabled={parsed.length === 0 || isSaving}
+            className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:opacity-40"
+          >
+            {isSaving ? '导入中…' : `确认导入 (${parsed.length} 条)`}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

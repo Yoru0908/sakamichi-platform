@@ -351,7 +351,7 @@ export default function InsArchive() {
         <aside className="hidden lg:block w-56 shrink-0 sticky top-[3.75rem] self-start max-h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hide">
           {/* Group tabs */}
           <div className="flex flex-wrap gap-1 mb-3">
-            {(['all', 'nogizaka', 'sakurazaka', 'hinatazaka', 'favorites'] as GroupFilter[]).map((g) => (
+            {(['all', 'nogizaka', 'sakurazaka', 'hinatazaka', 'other', 'favorites'] as GroupFilter[]).map((g) => (
               <button
                 key={g}
                 onClick={() => { setGroup(g); setSelectedAccount(null); setContentFilter('all'); loadGroupContent(g); }}
@@ -667,6 +667,7 @@ export default function InsArchive() {
           { key: 'nogizaka' as GroupFilter, label: '乃木坂', color: GROUP_HEX.nogizaka },
           { key: 'sakurazaka' as GroupFilter, label: '櫻坂', color: GROUP_HEX.sakurazaka },
           { key: 'hinatazaka' as GroupFilter, label: '日向坂', color: GROUP_HEX.hinatazaka },
+          { key: 'other' as GroupFilter, label: 'その他', color: GROUP_HEX.other },
           { key: 'favorites' as GroupFilter, label: '収藏', icon: 'star' },
         ]).map((tab) => (
           <button

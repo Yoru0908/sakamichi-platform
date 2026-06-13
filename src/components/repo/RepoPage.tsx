@@ -4,6 +4,8 @@ import { PenLine, Users, Download, Send, Palette, Save, Plus, LogIn, FolderOpen,
 import type { Message, RepoData, TemplateId, AtmosphereTag, Member, GroupId } from '@/types/repo';
 import { TEMPLATES, ATMOSPHERE_TAGS, GROUP_META } from '@/types/repo';
 import { getMemberById } from '@/utils/repo-mock-data';
+import { proxyImageUrl } from '@/utils/proxy-image';
+import { createOklchPatchOnClone, waitForHtml2CanvasImages } from '@/utils/html2canvas-patch';
 import { createRepoWork, deleteRepoWork, getMyRepoWorks, getRepoStats, updateRepoWork, type CreateRepoPayload, type RepoStatsResponse, type RepoWorkItem } from '@/utils/auth-api';
 import { $auth } from '@/stores/auth';
 import { $favorites } from '@/stores/favorites';
@@ -56,6 +58,7 @@ const CATEGORY_META: Record<FolderCategory, { label: string; icon: typeof Heart;
 };
 
 const REPO_LS_KEY = 'sakamichi_saved_repos';
+const REPO_BUILD_ID = '2026-06-02-full-reload';
 
 function loadSavedRepos(): SavedRepo[] {
   try {
@@ -302,7 +305,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
         memberName: selectedMember.name,
         groupId: selectedMember.group,
         groupName: selectedMember.groupName,
-        memberImageUrl: customMemberAvatar || selectedMember.imageUrl,
+        memberImageUrl: customMemberAvatar || proxyImageUrl(selectedMember.imageUrl) || selectedMember.imageUrl,
         eventDate,
         eventType,
         slotNumber,
@@ -345,7 +348,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
       memberId: selectedMember.id,
       memberName: selectedMember.name,
       groupId: selectedMember.group,
-      memberImageUrl: customMemberAvatar || selectedMember.imageUrl,
+      memberImageUrl: customMemberAvatar || proxyImageUrl(selectedMember.imageUrl) || selectedMember.imageUrl,
       customMemberAvatar,
       label: buildRepoLabel(eventDate, slotNumber),
       savedAt: new Date().toISOString(),
@@ -490,11 +493,14 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
     if (!previewRef.current) return;
     try {
       const html2canvas = (await import('html2canvas')).default;
+      await waitForHtml2CanvasImages(previewRef.current);
       const canvas = await html2canvas(previewRef.current, {
         scale: 2,
         useCORS: true,
-        allowTaint: true,
+        allowTaint: false,
+        imageTimeout: 15000,
         backgroundColor: '#ffffff',
+        onclone: createOklchPatchOnClone(),
       });
       const link = document.createElement('a');
       link.download = `repo_${selectedMember?.name || 'repo'}_${eventDate.replace(/\//g, '-')}.png`;
@@ -546,7 +552,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-repo-build={REPO_BUILD_ID}>
       {activeTab === 'community' ? (
         <>
           {/* Page header (matching photocard page layout) */}

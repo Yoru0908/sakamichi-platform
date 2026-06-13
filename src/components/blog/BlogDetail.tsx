@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Download } from 'lucide-react';
 import SharePanel from '@/components/shared/SharePanel';
+import { proxyImageUrl } from '@/utils/proxy-image';
 import { fetchBlogById, fetchMemberBlogs, fetchMemberImages, type BlogItem } from './blog-api';
 import {
   getGroupDisplayName, getGroupColor, getCloudinaryUrl,
@@ -30,6 +31,11 @@ function extractImageUrls(content: string): string[] {
   let m;
   while ((m = regex.exec(content)) !== null) urls.push(m[1]);
   return urls;
+}
+
+function getDownloadImageUrl(url: string): string {
+  const mediaProxyUrl = url.replace('https://media.46log.com/', 'https://api.46log.com/api/media/');
+  return proxyImageUrl(mediaProxyUrl) || mediaProxyUrl;
 }
 
 function renderContent(content: string): string {
@@ -196,7 +202,7 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
       let success = 0;
       for (let i = 0; i < urls.length; i++) {
         try {
-          const proxyUrl = urls[i].replace('https://media.46log.com/', 'https://api.46log.com/api/media/');
+          const proxyUrl = getDownloadImageUrl(urls[i]);
           const res = await fetch(proxyUrl);
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const blob = await res.blob();
@@ -295,10 +301,10 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
         {/* Article */}
         <article style={{ background: 'var(--bg-primary)', padding: 32, borderRadius: 8 }}>
           <header className="mb-8 pb-6" style={{ borderBottom: '1px solid var(--border-primary)' }}>
-            <h1 className="text-3xl font-bold mb-3 text-center md:text-left" style={{ color: 'var(--text-primary)' }}>{blog.title}</h1>
+            <h1 className="text-3xl font-bold mb-3 text-center md:text-left" lang="ja" style={{ color: 'var(--text-primary)' }}>{blog.title}</h1>
             {/* Meta row */}
             <div className="flex items-center justify-center md:justify-start gap-4 text-sm mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <span className="font-medium">{blog.member}</span>
+              <span className="font-medium" lang="ja">{blog.member}</span>
               <span>·</span>
               <span>{formattedDate}</span>
               <span>·</span>
@@ -354,6 +360,7 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
           <div
             ref={contentRef}
             className={`blog-content-official blog-detail-body${bilingualMode === 'chinese' ? ' mode-chinese' : bilingualMode === 'japanese' ? ' mode-japanese' : ''}`}
+            lang="zh-CN"
             style={{ fontSize: 14, lineHeight: 1.8, color: 'var(--text-primary)' }}
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
@@ -432,7 +439,7 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
                 </div>
               )}
             </div>
-            <h3 style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 4, color: 'var(--text-primary)' }}>{blog.member}</h3>
+            <h3 lang="ja" style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 4, color: 'var(--text-primary)' }}>{blog.member}</h3>
             <p style={{ fontSize: 12, color: 'var(--text-tertiary)' }}>{groupName}</p>
           </div>
 
@@ -493,7 +500,7 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
                   <div style={{
                     fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.4,
                     display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden',
-                  }}>
+                  }} lang="ja">
                     {b.title}
                   </div>
                 </li>
@@ -539,7 +546,7 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
           </div>
           <div style={{ padding: '4px 0' }}>
             {mobileGalleryUrls.map((url, i) => (
-              <img key={i} src={url} alt={`图片 ${i + 1}`} style={{ width: '100%', display: 'block', marginBottom: 4, touchAction: 'pan-y' }} loading="lazy" />
+              <img key={i} src={getDownloadImageUrl(url)} alt={`图片 ${i + 1}`} style={{ width: '100%', display: 'block', marginBottom: 4, touchAction: 'pan-y' }} loading="lazy" />
             ))}
           </div>
         </div>

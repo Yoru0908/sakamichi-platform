@@ -1,6 +1,6 @@
 // Instagram archive data — ported from instagram-archive-frontend/account-names.json + config.js
 
-export type GroupKey = 'nogizaka' | 'sakurazaka' | 'hinatazaka';
+export type GroupKey = 'nogizaka' | 'sakurazaka' | 'hinatazaka' | 'other';
 export type GroupFilter = GroupKey | 'all' | 'favorites';
 
 export interface InsAccount {
@@ -14,6 +14,7 @@ export const GROUP_LABELS: Record<GroupFilter, string> = {
   nogizaka: '乃木坂',
   sakurazaka: '櫻坂',
   hinatazaka: '日向坂',
+  other: 'その他',
   favorites: '收藏',
 };
 
@@ -21,12 +22,14 @@ export const GROUP_COLORS: Record<GroupKey, string> = {
   nogizaka: 'var(--color-brand-nogi)',
   sakurazaka: 'var(--color-brand-sakura)',
   hinatazaka: 'var(--color-brand-hinata)',
+  other: '#888888',
 };
 
 export const GROUP_HEX: Record<GroupKey, string> = {
   nogizaka: '#742581',
   sakurazaka: '#F19DB5',
   hinatazaka: '#7BC7E8',
+  other: '#888888',
 };
 
 // API config (matches existing frontend config.js)
@@ -168,12 +171,16 @@ const RAW_ACCOUNTS: Record<string, Record<string, string>> = {
     'ishizukatamaki_official': '石塚瑶季',
     'hinatazaka46': '日向坂46',
   },
+  'その他': {
+    'lemino_sakamichi': 'Lemino坂道',
+  },
 };
 
 const GROUP_KEY_MAP: Record<string, GroupKey> = {
   '乃木坂46': 'nogizaka',
   '櫻坂46': 'sakurazaka',
   '日向坂46': 'hinatazaka',
+  'その他': 'other',
 };
 
 // Flatten into InsAccount[]

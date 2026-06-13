@@ -318,7 +318,6 @@ body {
 
   /* 博客内容移动端字体优化 */
   .blog-content-official {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
     font-size: 15px;
     line-height: 1.8;
   }

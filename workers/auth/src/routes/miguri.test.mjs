@@ -439,12 +439,29 @@ test('handleMiguriSync archives missing events while keeping incoming events act
       return new FakeStatement(this, sql);
     }
 
-    async all(sql) {
+    async batch(statements) {
+      const results = [];
+      for (const stmt of statements) {
+        results.push(await stmt.run());
+      }
+      return results;
+    }
+
+    async all(sql, args) {
       if (sql.includes('SELECT slug') && sql.includes('FROM miguri_events')) {
         return {
           results: Array.from(this.events.values())
             .filter((row) => row.status !== 'archived')
             .map((row) => ({ slug: row.slug })),
+        };
+      }
+
+      if (sql.includes('SELECT event_slug, label FROM miguri_event_windows')) {
+        const slug = args[0];
+        return {
+          results: this.windows
+            .filter((w) => w.eventSlug === slug)
+            .map((w) => ({ event_slug: w.eventSlug, label: w.label })),
         };
       }
 
@@ -601,9 +618,26 @@ test('syncMiguriFromSource fetches fortune events and persists them without requ
       return new FakeStatement(this, sql);
     }
 
-    async all(sql) {
+    async batch(statements) {
+      const results = [];
+      for (const stmt of statements) {
+        results.push(await stmt.run());
+      }
+      return results;
+    }
+
+    async all(sql, args) {
       if (sql.includes('SELECT slug') && sql.includes('FROM miguri_events')) {
         return { results: [] };
+      }
+
+      if (sql.includes('SELECT event_slug, label FROM miguri_event_windows')) {
+        const slug = args[0];
+        return {
+          results: this.windows
+            .filter((w) => w.eventSlug === slug)
+            .map((w) => ({ event_slug: w.eventSlug, label: w.label })),
+        };
       }
 
       throw new Error(`Unexpected all() SQL: ${sql}`);
@@ -701,3 +735,306 @@ test('syncMiguriFromSource fetches fortune events and persists them without requ
   assert.equal(db.slots.length, 1);
   assert.equal(db.slotMembers.length, 1);
 });
+
+ test('syncMiguriFromSource blocks anomalous member drops before overwriting D1 and sends Napcat alert', async () => {
+   class FakeStatement {
+     constructor(db, sql) {
+       this.db = db;
+       this.sql = sql;
+       this.args = [];
+     }
+
+     bind(...args) {
+       this.args = args;
+       return this;
+     }
+
+     async all() {
+       return this.db.all(this.sql, this.args);
+     }
+
+     async run() {
+       return this.db.run(this.sql, this.args);
+     }
+   }
+
+   class FakeMiguriDb {
+     constructor() {
+       this.events = new Map([
+         ['hinatazaka_202605', {
+           slug: 'hinatazaka_202605',
+           status: 'active',
+           rawPayload: JSON.stringify({
+             slug: 'hinatazaka_202605',
+             group: 'hinatazaka',
+             title: '日向坂46 17th ミーグリ',
+             sourceUrl: 'https://fortunemusic.jp/hinatazaka_202605/',
+             saleType: '抽選販売',
+             windows: [],
+             dates: ['2026-05-31'],
+             slots: [{
+               slotNumber: 1,
+               receptionStart: '10:45',
+               startTime: '11:00',
+               receptionEnd: '11:45',
+               endTime: '12:00',
+             }],
+             members: ['小坂菜緒', '正源司陽子', '藤嶌果歩', '金村美玖', '松尾桜', '宮地すみれ'],
+           }),
+         }],
+       ]);
+       this.windows = [{ eventSlug: 'hinatazaka_202605' }];
+       this.slots = [{ eventSlug: 'hinatazaka_202605', eventDate: '2026-05-31', slotNumber: 1 }];
+       this.slotMembers = [{ eventSlug: 'hinatazaka_202605', eventDate: '2026-05-31', slotNumber: 1, memberName: '小坂菜緒' }];
+       this.runCalls = [];
+     }
+
+     prepare(sql) {
+       return new FakeStatement(this, sql);
+     }
+
+     async all(sql) {
+       if (sql.includes('SELECT slug, raw_payload') && sql.includes('FROM miguri_events')) {
+         return {
+           results: Array.from(this.events.values()).map((event) => ({ slug: event.slug, raw_payload: event.rawPayload })),
+         };
+       }
+
+       if (sql.includes('SELECT slug') && sql.includes('FROM miguri_events')) {
+         return {
+           results: Array.from(this.events.values()).map((event) => ({ slug: event.slug })),
+         };
+       }
+
+       throw new Error(`Unexpected all() SQL: ${sql}`);
+     }
+
+     async run(sql, args) {
+       this.runCalls.push({ sql, args });
+       throw new Error(`Unexpected run() SQL: ${sql}`);
+     }
+   }
+
+   const db = new FakeMiguriDb();
+   const fetchCalls = [];
+   const originalFetch = globalThis.fetch;
+   globalThis.fetch = async (url, init) => {
+     fetchCalls.push({ url, init });
+     return new Response(JSON.stringify({ status: 'ok' }), { status: 200, headers: { 'content-type': 'application/json' } });
+   };
+
+   await assert.rejects(
+     manageMiguriRoutes.syncMiguriFromSource(
+       {
+         MIGURI_DB: db,
+         NAPCAT_NOTIFY_URL: 'http://napcat.local',
+         NAPCAT_NOTIFY_GROUPS: '123456',
+       },
+       async () => ([
+         {
+           slug: 'hinatazaka_202605',
+           group: 'hinatazaka',
+           title: '日向坂46 17th ミーグリ',
+           sourceUrl: 'https://fortunemusic.jp/hinatazaka_202605/',
+           saleType: '抽選販売',
+           windows: [],
+           dates: ['2026-05-31'],
+           slots: [{
+             slotNumber: 1,
+             receptionStart: '10:45',
+             startTime: '11:00',
+             receptionEnd: '11:45',
+             endTime: '12:00',
+           }],
+           members: ['小坂菜緒', '正源司陽子'],
+         },
+       ]),
+     ),
+     /保护|保護|anomal/i,
+   );
+
+   globalThis.fetch = originalFetch;
+
+   assert.equal(db.runCalls.length, 0);
+   assert.equal(fetchCalls.length, 1);
+   assert.equal(fetchCalls[0].url, 'http://napcat.local/send_group_msg');
+   assert.match(JSON.parse(fetchCalls[0].init.body).message[0].data.text, /hinatazaka_202605/);
+ });
+
+ test('syncMiguriFromSource sends Napcat alert when source loading throws', async () => {
+   const fetchCalls = [];
+   const originalFetch = globalThis.fetch;
+   globalThis.fetch = async (url, init) => {
+     fetchCalls.push({ url, init });
+     return new Response(JSON.stringify({ status: 'ok' }), { status: 200, headers: { 'content-type': 'application/json' } });
+   };
+
+   await assert.rejects(
+     manageMiguriRoutes.syncMiguriFromSource(
+       {
+         MIGURI_DB: { prepare() { throw new Error('db should not be touched'); } },
+         NAPCAT_NOTIFY_URL: 'http://napcat.local',
+         NAPCAT_NOTIFY_GROUPS: '123456',
+       },
+       async () => {
+         throw new Error('fortune source down');
+       },
+     ),
+     /fortune source down/,
+   );
+
+   globalThis.fetch = originalFetch;
+
+   assert.equal(fetchCalls.length, 1);
+   assert.equal(fetchCalls[0].url, 'http://napcat.local/send_group_msg');
+   assert.match(JSON.parse(fetchCalls[0].init.body).message[0].data.text, /fortune source down/);
+ });
+
+ test('syncMiguriFromSource sends alerts through Homeserver webhook relay when configured', async () => {
+   const fetchCalls = [];
+   const originalFetch = globalThis.fetch;
+   globalThis.fetch = async (url, init) => {
+     fetchCalls.push({ url, init });
+     return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'content-type': 'application/json' } });
+   };
+
+   await assert.rejects(
+     manageMiguriRoutes.syncMiguriFromSource(
+       {
+         MIGURI_DB: { prepare() { throw new Error('db should not be touched'); } },
+         MIGURI_ALERT_WEBHOOK_URL: 'https://blog-push.46log.com/webhook/miguri-alert',
+         MIGURI_ALERT_WEBHOOK_SECRET: 'relay-secret',
+         NAPCAT_NOTIFY_GROUPS: '213658334,1059030628',
+       },
+       async () => {
+         throw new Error('fortune source down');
+       },
+     ),
+     /fortune source down/,
+   );
+
+   globalThis.fetch = originalFetch;
+
+   assert.equal(fetchCalls.length, 1);
+   assert.equal(fetchCalls[0].url, 'https://blog-push.46log.com/webhook/miguri-alert');
+   assert.equal(fetchCalls[0].init.headers['x-webhook-secret'], 'relay-secret');
+   assert.deepEqual(JSON.parse(fetchCalls[0].init.body).groupIds, ['213658334', '1059030628']);
+   assert.match(JSON.parse(fetchCalls[0].init.body).message, /fortune source down/);
+ });
+
+ test('handleMiguriSync returns conflict for anomalous payload and leaves D1 untouched', async () => {
+   class FakeStatement {
+     constructor(db, sql) {
+       this.db = db;
+       this.sql = sql;
+       this.args = [];
+     }
+
+     bind(...args) {
+       this.args = args;
+       return this;
+     }
+
+     async all() {
+       return this.db.all(this.sql, this.args);
+     }
+
+     async run() {
+       return this.db.run(this.sql, this.args);
+     }
+   }
+
+   class FakeMiguriDb {
+     constructor() {
+       this.events = new Map([
+         ['hinatazaka_202605', {
+           slug: 'hinatazaka_202605',
+           status: 'active',
+           rawPayload: JSON.stringify({
+             slug: 'hinatazaka_202605',
+             group: 'hinatazaka',
+             title: '日向坂46 17th ミーグリ',
+             sourceUrl: 'https://fortunemusic.jp/hinatazaka_202605/',
+             saleType: '抽選販売',
+             windows: [],
+             dates: ['2026-05-31'],
+             slots: [{
+               slotNumber: 1,
+               receptionStart: '10:45',
+               startTime: '11:00',
+               receptionEnd: '11:45',
+               endTime: '12:00',
+             }],
+             members: ['小坂菜緒', '正源司陽子', '藤嶌果歩', '金村美玖', '松尾桜', '宮地すみれ'],
+           }),
+         }],
+       ]);
+       this.runCalls = [];
+     }
+
+     prepare(sql) {
+       return new FakeStatement(this, sql);
+     }
+
+     async all(sql) {
+       if (sql.includes('SELECT slug, raw_payload') && sql.includes('FROM miguri_events')) {
+         return {
+           results: Array.from(this.events.values()).map((event) => ({ slug: event.slug, raw_payload: event.rawPayload })),
+         };
+       }
+
+       if (sql.includes('SELECT slug') && sql.includes('FROM miguri_events')) {
+         return {
+           results: Array.from(this.events.values()).map((event) => ({ slug: event.slug })),
+         };
+       }
+
+       throw new Error(`Unexpected all() SQL: ${sql}`);
+     }
+
+     async run(sql, args) {
+       this.runCalls.push({ sql, args });
+       throw new Error(`Unexpected run() SQL: ${sql}`);
+     }
+   }
+
+   const db = new FakeMiguriDb();
+   const req = new Request('https://api.46log.com/api/manage/miguri/sync', {
+     method: 'POST',
+     headers: {
+       'content-type': 'application/json',
+       'x-miguri-sync-secret': 'test-secret',
+     },
+     body: JSON.stringify({
+       events: [
+         {
+           slug: 'hinatazaka_202605',
+           group: 'hinatazaka',
+           title: '日向坂46 17th ミーグリ',
+           sourceUrl: 'https://fortunemusic.jp/hinatazaka_202605/',
+           saleType: '抽選販売',
+           windows: [],
+           dates: ['2026-05-31'],
+           slots: [{
+             slotNumber: 1,
+             receptionStart: '10:45',
+             startTime: '11:00',
+             receptionEnd: '11:45',
+             endTime: '12:00',
+           }],
+           members: ['小坂菜緒', '正源司陽子'],
+         },
+       ],
+     }),
+   });
+
+   const res = await handleMiguriSync(req, {
+     MIGURI_DB: db,
+     MIGURI_SYNC_SECRET: 'test-secret',
+   });
+   const json = await res.json();
+
+   assert.equal(res.status, 409);
+   assert.match(json.error, /保护|保護|anomal/i);
+   assert.equal(db.runCalls.length, 0);
+ });

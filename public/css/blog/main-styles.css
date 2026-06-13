@@ -548,8 +548,7 @@ header h1 {
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  /* 优先使用日文字体以正确显示颜文字和组合字符 */
-  font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "MS PGothic", "ＭＳ Ｐゴシック", "MS Gothic", "ＭＳ ゴシック", Osaka, "メイリオ", Meiryo, "Yu Gothic", YuGothic, Monaco, Menlo, Consolas, "Courier New", monospace, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-sans-zh);
   /* 确保组合字符正确渲染 */
   text-rendering: optimizeLegibility;
   font-variant-ligatures: normal;
@@ -572,6 +571,18 @@ header h1 {
   /* 关键：移除p的margin */
   padding: 0;
   line-height: 1.75;
+}
+
+.blog-content-official :lang(ja),
+.blog-content-official [lang|="ja"] {
+  font-family: var(--font-blog);
+}
+
+.blog-content-official :lang(zh),
+.blog-content-official :lang(zh-CN),
+.blog-content-official :lang(zh-Hans),
+.blog-content-official [lang|="zh"] {
+  font-family: var(--font-sans-zh);
 }
 
 .blog-content-official img {
@@ -734,7 +745,7 @@ header h1 {
 }
 
 .lang-toggle-btn .lang-text {
-  font-family: "Noto Sans SC", sans-serif;
+  font-family: var(--font-sans-zh);
 }
 
 /* 移动端简繁切换 */
@@ -772,7 +783,7 @@ header h1 {
 }
 
 .lang-toggle-btn-mobile .lang-text {
-  font-family: "Noto Sans SC", sans-serif;
+  font-family: var(--font-sans-zh);
   font-weight: 500;
 }
 

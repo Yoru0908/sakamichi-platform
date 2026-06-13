@@ -156,6 +156,10 @@ export function getMiguriGoogleCalendarUrl(entryId: string): Promise<ApiResponse
   return miguriFetch<MiguriGoogleCalendarUrlPayload>(`/calendar/google-url?entryId=${encodeURIComponent(entryId)}`);
 }
 
+export function disconnectGoogleCalendar(): Promise<ApiResponse<{ disconnected: boolean }>> {
+  return miguriFetch<{ disconnected: boolean }>('/calendar/google-disconnect', { method: 'POST' });
+}
+
 export function getMiguriEvents(): Promise<ApiResponse<MiguriEventsPayload>> {
   return miguriFetch<MiguriEventsPayload>('/events');
 }
@@ -225,6 +229,42 @@ export async function openMiguriGoogleCalendar(entryId: string): Promise<boolean
 
 export function canUseBrowserCalendarActions(): boolean {
   return typeof window !== 'undefined' && typeof document !== 'undefined';
+}
+
+// ── Sold-out analysis ──
+
+export interface MiguriSoldOutRound {
+  round: number;
+  windowLabel: string;
+  capturedAt: string;
+  memberCount: number;
+  cellCount: number;
+}
+
+export interface MiguriSoldOutCell {
+  round: number;
+  date: string;
+  slot: number;
+  member: string;
+}
+
+export interface MiguriSoldOutPayload {
+  event: {
+    slug: string;
+    group: string;
+    title: string;
+    sourceUrl: string;
+  };
+  dates: string[];
+  slotNumbers: number[];
+  members: string[];
+  rounds: MiguriSoldOutRound[];
+  cells: MiguriSoldOutCell[];
+  memberTotals: Record<string, number>;
+}
+
+export function getMiguriSoldOut(eventSlug: string): Promise<ApiResponse<MiguriSoldOutPayload>> {
+  return miguriFetch<MiguriSoldOutPayload>(`/soldout?event=${encodeURIComponent(eventSlug)}`);
 }
 
 

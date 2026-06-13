@@ -1,4 +1,6 @@
 import type { Env } from '../types.ts';
+import { getAuthUserId } from './preferences.ts';
+import { error, success } from '../utils/response.ts';
 
 export type GoogleAuthAction = 'login' | 'calendar_connect';
 
@@ -819,4 +821,22 @@ export async function saveGoogleCalendarConnection(env: Env, userId: string, pay
     payload.accessTokenExpiresAt,
     payload.scope,
   ).run();
+}
+
+export async function handleDisconnectGoogleCalendar(req: Request, env: Env): Promise<Response> {
+  const userId = await getAuthUserId(req, env);
+  if (!userId) return error('需要登录', 401);
+
+  const connection = await loadGoogleCalendarConnection(env, userId);
+  if (!connection) return success({ disconnected: true });
+
+  await env.DB.prepare(
+    'DELETE FROM miguri_google_calendar_events WHERE user_id = ?',
+  ).bind(userId).run();
+
+  await env.DB.prepare(
+    'DELETE FROM user_google_calendar_connections WHERE user_id = ?',
+  ).bind(userId).run();
+
+  return success({ disconnected: true });
 }

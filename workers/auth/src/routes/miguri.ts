@@ -79,7 +79,7 @@ function escapeIcsText(value: string): string {
 }
 
 function normalizeMemberName(name: string): string {
-  return name.replace(/\s+/g, ' ').trim();
+  return name.replace(/[\s\u3000]+/g, '').trim();
 }
 
 function unique<T>(values: T[]): T[] {
@@ -454,21 +454,32 @@ export async function handleCreateMiguriEntries(req: Request, env: Env): Promise
     }
   }
 
-  const createdIds: string[] = [];
+  const affectedIds: string[] = [];
 
   for (const slotNumber of normalizedSlots) {
     for (const memberName of normalizedMembers) {
-      const id = nanoid();
-      createdIds.push(id);
-      await env.MIGURI_DB.prepare(`
-        INSERT INTO miguri_user_entries (id, user_id, event_slug, member_name, event_date, slot_number, tickets, status)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-      `).bind(id, userId, body.eventSlug, memberName, body.date, slotNumber, tickets, status).run();
+      const existing = await env.MIGURI_DB.prepare(
+        'SELECT id, tickets FROM miguri_user_entries WHERE user_id = ? AND event_slug = ? AND event_date = ? AND slot_number = ? AND member_name = ?',
+      ).bind(userId, body.eventSlug, body.date, slotNumber, memberName).first<{ id: string; tickets: number }>();
+
+      if (existing) {
+        await env.MIGURI_DB.prepare(
+          'UPDATE miguri_user_entries SET tickets = ?, status = ?, updated_at = datetime(\'now\') WHERE id = ?',
+        ).bind(existing.tickets + tickets, status, existing.id).run();
+        affectedIds.push(existing.id);
+      } else {
+        const id = nanoid();
+        affectedIds.push(id);
+        await env.MIGURI_DB.prepare(`
+          INSERT INTO miguri_user_entries (id, user_id, event_slug, member_name, event_date, slot_number, tickets, status)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        `).bind(id, userId, body.eventSlug, memberName, body.date, slotNumber, tickets, status).run();
+      }
     }
   }
 
-  const placeholders = createdIds.map(() => '?').join(', ');
-  const rows = createdIds.length === 0
+  const placeholders = affectedIds.map(() => '?').join(', ');
+  const rows = affectedIds.length === 0
     ? { results: [] }
     : await env.MIGURI_DB.prepare(`
         SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.status,
@@ -480,10 +491,10 @@ export async function handleCreateMiguriEntries(req: Request, env: Env): Promise
           ON s.event_slug = e.event_slug AND s.event_date = e.event_date AND s.slot_number = e.slot_number
         WHERE e.id IN (${placeholders})
         ORDER BY e.event_date, e.slot_number, e.member_name
-      `).bind(...createdIds).all<any>();
+      `).bind(...affectedIds).all<any>();
 
   try {
-    await syncMiguriEntriesToGoogleCalendar(env, userId, createdIds);
+    await syncMiguriEntriesToGoogleCalendar(env, userId, affectedIds);
   } catch (err) {
     console.error('[Miguri] Google Calendar sync failed after create:', err);
   }
@@ -661,6 +672,101 @@ export async function handleGetMiguriGoogleCalendarUrl(req: Request, env: Env): 
   return success({
     data: {
       url: buildGoogleCalendarUrl(event),
+    },
+  });
+}
+
+// ── Sold-out analysis endpoint ──
+
+export async function handleGetMiguriSoldOut(req: Request, env: Env): Promise<Response> {
+  const url = new URL(req.url);
+  const eventSlug = url.searchParams.get('event');
+  if (!eventSlug) return error('缺少 event 参数', 400);
+
+  // Load event metadata
+  const eventRow = await env.MIGURI_DB.prepare(
+    'SELECT slug, group_id, title, source_url FROM miguri_events WHERE slug = ?',
+  ).bind(eventSlug).first<{ slug: string; group_id: string; title: string; source_url: string }>();
+  if (!eventRow) return error('活动不存在', 404);
+
+  // Load snapshots (rounds)
+  const snapshotRows = await env.MIGURI_DB.prepare(
+    'SELECT round_number, window_label, captured_at, member_count, cell_count FROM miguri_soldout_snapshots WHERE event_slug = ? ORDER BY round_number',
+  ).bind(eventSlug).all<{ round_number: number; window_label: string; captured_at: string; member_count: number; cell_count: number }>();
+
+  // Load all sold-out cells
+  const cellRows = await env.MIGURI_DB.prepare(
+    'SELECT round_number, event_date, slot_number, member_name FROM miguri_soldout_cells WHERE event_slug = ? ORDER BY round_number, event_date, slot_number, member_name',
+  ).bind(eventSlug).all<{ round_number: number; event_date: string; slot_number: number; member_name: string }>();
+
+  // Load current slot structure (dates, slots, members)
+  const slotRows = await env.MIGURI_DB.prepare(
+    'SELECT DISTINCT event_date, slot_number FROM miguri_event_slots WHERE event_slug = ? ORDER BY event_date, slot_number',
+  ).bind(eventSlug).all<{ event_date: string; slot_number: number }>();
+
+  const memberRows = await env.MIGURI_DB.prepare(
+    'SELECT DISTINCT member_name FROM miguri_slot_members WHERE event_slug = ? UNION SELECT DISTINCT member_name FROM miguri_soldout_cells WHERE event_slug = ?',
+  ).bind(eventSlug, eventSlug).all<{ member_name: string }>();
+
+  // Build dates and slot numbers
+  const dates = Array.from(new Set((slotRows.results || []).map((r) => r.event_date))).sort();
+  const slotNumbers = Array.from(new Set((slotRows.results || []).map((r) => r.slot_number))).sort((a, b) => a - b);
+  const allMembers = (memberRows.results || []).map((r) => r.member_name).sort((a, b) => a.localeCompare(b, 'ja'));
+
+  // Load current available cells to compute totalCount per member
+  const availableRows = await env.MIGURI_DB.prepare(
+    'SELECT event_date, slot_number, member_name FROM miguri_slot_members WHERE event_slug = ?',
+  ).bind(eventSlug).all<{ event_date: string; slot_number: number; member_name: string }>();
+
+  // Build per-member available cells set (current + already sold out = total)
+  const memberTotalCells = new Map<string, number>();
+  const memberAvailableCells = new Map<string, Set<string>>();
+  for (const row of (availableRows.results || [])) {
+    const key = `${row.event_date}::${row.slot_number}`;
+    if (!memberAvailableCells.has(row.member_name)) memberAvailableCells.set(row.member_name, new Set());
+    memberAvailableCells.get(row.member_name)!.add(key);
+  }
+
+  // Count sold-out cells per member
+  const memberSoldOutCells = new Map<string, Map<string, number>>(); // memberName -> cellKey -> roundNumber
+  for (const cell of (cellRows.results || [])) {
+    if (!memberSoldOutCells.has(cell.member_name)) memberSoldOutCells.set(cell.member_name, new Map());
+    const key = `${cell.event_date}::${cell.slot_number}`;
+    memberSoldOutCells.get(cell.member_name)!.set(key, cell.round_number);
+  }
+
+  // Total = currently available + sold out
+  for (const member of allMembers) {
+    const available = memberAvailableCells.get(member)?.size || 0;
+    const soldOut = memberSoldOutCells.get(member)?.size || 0;
+    memberTotalCells.set(member, available + soldOut);
+  }
+
+  return success({
+    data: {
+      event: {
+        slug: eventRow.slug,
+        group: eventRow.group_id,
+        title: eventRow.title,
+        sourceUrl: eventRow.source_url,
+      },
+      dates,
+      slotNumbers,
+      members: allMembers,
+      rounds: (snapshotRows.results || []).map((r) => ({
+        round: r.round_number,
+        windowLabel: r.window_label,
+        capturedAt: r.captured_at,
+        memberCount: r.member_count,
+        cellCount: r.cell_count,
+      })),
+      cells: (cellRows.results || []).map((c) => ({
+        round: c.round_number,
+        date: c.event_date,
+        slot: c.slot_number,
+        member: c.member_name,
+      })),
+      memberTotals: Object.fromEntries(memberTotalCells),
     },
   });
 }

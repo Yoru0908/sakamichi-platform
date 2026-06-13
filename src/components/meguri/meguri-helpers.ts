@@ -2,6 +2,12 @@ import type { MiguriEntry, MiguriEntryStatus, MiguriEvent, MiguriWindow } from '
 
 export type EntryLike = Pick<MiguriEntry, 'id' | 'member' | 'date' | 'slot' | 'tickets' | 'status'>;
 export type EventState = 'active' | 'upcoming' | 'ended' | 'waiting';
+export type FortuneImportRow = {
+  member: string;
+  date: string;
+  slot: number;
+  count: number;
+};
 export type PendingMeguriDraft = {
   id: string;
   eventSlug: string;
@@ -14,6 +20,68 @@ export type PendingMeguriDraft = {
 
 function uniqueNumbers(values: number[]) {
   return Array.from(new Set(values));
+}
+
+function normalizeDigits(value: string) {
+  return value.replace(/[０-９]/g, (char) => String('０１２３４５６７８９'.indexOf(char)));
+}
+
+function parseCountCell(value: string): number | null {
+  const match = normalizeDigits(value).match(/-?\d+/);
+  if (!match) return null;
+  const count = Number(match[0]);
+  return Number.isFinite(count) ? count : null;
+}
+
+function normalizeHeaderCell(value: string) {
+  return normalizeDigits(value).replace(/[\s\u3000]+/g, '').trim();
+}
+
+function detectCountColumnIndex(headers: string[]) {
+  const normalized = headers.map(normalizeHeaderCell);
+  const preferred = ['当選数', '数量', '応募数'];
+  for (const key of preferred) {
+    const index = normalized.findIndex((header) => header === key || header.includes(key));
+    if (index >= 0) return index;
+  }
+  return -1;
+}
+
+export function parseFortuneImportText(text: string): FortuneImportRow[] {
+  const results: FortuneImportRow[] = [];
+  let countColumnIndex = -1;
+
+  for (const rawLine of text.split('\n')) {
+    const line = rawLine.trim();
+    if (!line) continue;
+
+    const cols = line.split('\t').map((col) => col.trim());
+    const headerIndex = detectCountColumnIndex(cols);
+    if (headerIndex >= 0 && cols.some((col) => normalizeHeaderCell(col).includes('商品名'))) {
+      countColumnIndex = headerIndex;
+      continue;
+    }
+
+    const m = line.match(/(.+?)[\s\u3000]*[\u3010\[]((\d+)\/(\d+))\s*第([0-9０-９]+)部[\u3011\]]/);
+    if (!m) continue;
+
+    const candidateIndexes = [countColumnIndex, 3, 2]
+      .filter((index, pos, arr) => index >= 0 && arr.indexOf(index) === pos && index < cols.length);
+    let count: number | null = null;
+    for (const index of candidateIndexes) {
+      count = parseCountCell(cols[index]);
+      if (count !== null) break;
+    }
+
+    results.push({
+      member: m[1].replace(/[\s\u3000]+/g, ' ').trim(),
+      date: m[2],
+      slot: Number(normalizeDigits(m[5])),
+      count: count ?? 1,
+    });
+  }
+
+  return results;
 }
 
 function parseWindowDate(value: string): Date | null {

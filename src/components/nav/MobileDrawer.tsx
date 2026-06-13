@@ -9,6 +9,7 @@ import { MOBILE_NAV_GROUPS } from '@/utils/navigation';
 import { X, Moon, Sun, Globe, User, LogIn, ChevronRight } from 'lucide-react';
 
 const LANGUAGES: Language[] = ['zh', 'en', 'ja'];
+const RELOAD_HREFS = new Set(['/blog', '/repo']);
 
 interface Props {
   currentPath: string;
@@ -58,7 +59,7 @@ export default function MobileDrawer({ currentPath }: Props) {
                   target={item.external ? '_blank' : undefined}
                   rel={item.external ? 'noopener noreferrer' : undefined}
                   onClick={closeDrawer}
-                  {...(item.href === '/blog' ? { 'data-astro-reload': true } : {})}
+                  {...(RELOAD_HREFS.has(item.href) ? { 'data-astro-reload': true } : {})}
                   className={`mx-2 flex items-center gap-3 rounded-2xl px-3 py-3 text-sm transition-colors ${
                     currentPath === item.href || currentPath.startsWith(item.href + '/')
                       ? 'text-[var(--color-brand-nogi)] bg-[var(--bg-secondary)] font-medium'

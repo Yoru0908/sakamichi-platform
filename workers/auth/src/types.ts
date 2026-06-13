@@ -14,9 +14,15 @@ export interface Env {
   RESEND_API_KEY: string;
   GEO_PASS_SECRET: string;
   KOFI_VERIFICATION_TOKEN: string;
+  MIGURI_ALERT_WEBHOOK_URL?: string;
+  MIGURI_ALERT_WEBHOOK_SECRET?: string;
   ALIST_USER: string;
   ALIST_PASS: string;
   ALIST_URL: string;
+  NAPCAT_NOTIFY_URL?: string;
+  NAPCAT_NOTIFY_TOKEN?: string;
+  NAPCAT_NOTIFY_GROUPS?: string;
+  MIGURI_NEW_WINDOW_NOTIFY_GROUPS?: string;
 }
 
 export interface UserRow {

@@ -8,13 +8,24 @@ export default {
     const pathname = url.pathname;
     const country = request.cf?.country || '';
 
-    // Non-JP → pass through
-    if (country !== 'JP') {
-      return fetch(request);
+    // AList download paths → always allow + CORS (must be before country check)
+    if (pathname.startsWith('/d/') || pathname.startsWith('/p/')) {
+      if (request.method === 'OPTIONS') {
+        return new Response(null, { status: 204, headers: corsHeaders(request) });
+      }
+      // Fetch from origin; bypass stale CF cache that lacks CORS headers
+      const resp = await fetch(request, { cf: { cacheEverything: false } });
+      const newResp = new Response(resp.body, resp);
+      for (const [k, v] of Object.entries(corsHeaders(request))) {
+        newResp.headers.set(k, v);
+      }
+      newResp.headers.set('Vary', 'Origin');
+      newResp.headers.set('Cache-Control', 'public, max-age=14400');
+      return newResp;
     }
 
-    // AList download paths → always allow (群友直链)
-    if (pathname.startsWith('/d/') || pathname.startsWith('/p/')) {
+    // Non-JP → pass through
+    if (country !== 'JP') {
       return fetch(request);
     }
 
@@ -55,6 +66,16 @@ function isPublicPath(pathname) {
   if (pathname.startsWith('/_astro/')) return true;
   if (pathname.startsWith('/images/')) return true;
   return false;
+}
+
+function corsHeaders(request) {
+  const origin = request.headers.get('Origin') || '*';
+  return {
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '86400',
+  };
 }
 
 function getCookie(request, name) {

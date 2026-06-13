@@ -272,14 +272,14 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
                     {gen.members
                       .filter(m => !groupData.graduated?.includes(m))
                       .map(m => (
-                        <option key={m} value={m}>{m}{memberLatestDate.has(normalizeMemberName(m)) ? `（${memberLatestDate.get(normalizeMemberName(m))}）` : ''}</option>
+                        <option key={m} value={m} lang="ja">{m}{memberLatestDate.has(normalizeMemberName(m)) ? `（${memberLatestDate.get(normalizeMemberName(m))}）` : ''}</option>
                       ))}
                   </optgroup>
                 ))}
                 {groupData?.graduated && groupData.graduated.length > 0 && (
                   <optgroup label="── 已毕業 ──">
                     {groupData.graduated.map(m => (
-                      <option key={m} value={m}>{m}（已毕业）</option>
+                      <option key={m} value={m} lang="ja">{m}（已毕业）</option>
                     ))}
                   </optgroup>
                 )}

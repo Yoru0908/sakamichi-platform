@@ -1198,7 +1198,7 @@ function PublicationsTab() {
           <div className="text-center py-10">
             <PenLine size={32} className="mx-auto text-[var(--text-tertiary)] mb-2" />
             <p className="text-sm text-[var(--text-tertiary)] mb-1">还没有创建过 Repo</p>
-            <a href="/repo" className="inline-block mt-3 text-xs px-4 py-2 rounded-lg font-medium text-white" style={{ backgroundColor: 'var(--color-brand-nogi)' }}>
+            <a href="/repo" data-astro-reload className="inline-block mt-3 text-xs px-4 py-2 rounded-lg font-medium text-white" style={{ backgroundColor: 'var(--color-brand-nogi)' }}>
               去创建
             </a>
           </div>
@@ -1218,7 +1218,7 @@ function PublicationsTab() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-semibold text-[var(--text-secondary)]">草稿箱</h4>
-                  <a href="/repo/create" className="text-[10px] text-[var(--color-brand-nogi)] hover:underline">去继续编辑</a>
+                  <a href="/repo/create" data-astro-reload className="text-[10px] text-[var(--color-brand-nogi)] hover:underline">去继续编辑</a>
                 </div>
                 {renderRepoGroups(draftRepos)}
               </div>
@@ -1227,7 +1227,7 @@ function PublicationsTab() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-semibold text-[var(--text-secondary)]">已发布作品</h4>
-                  <a href="/repo" className="text-[10px] text-[var(--color-brand-nogi)] hover:underline">查看社区</a>
+                  <a href="/repo" data-astro-reload className="text-[10px] text-[var(--color-brand-nogi)] hover:underline">查看社区</a>
                 </div>
                 {renderRepoGroups(publishedRepos)}
               </div>

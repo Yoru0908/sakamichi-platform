@@ -4,6 +4,7 @@ import { t } from '@/i18n';
 import ToolsDropdown from './ToolsDropdown';
 
 type PillState = 'active' | 'hovered' | 'idle';
+const RELOAD_HREFS = new Set(['/blog', '/repo']);
 
 interface Props {
   currentPath: string;
@@ -99,7 +100,7 @@ export default function NavPill({ currentPath }: Props) {
             key={item.href}
             ref={(el) => { itemRefs.current[idx] = el; }}
             href={item.href}
-            {...(item.href === '/blog' ? { 'data-astro-reload': true } : {})}
+            {...(RELOAD_HREFS.has(item.href) ? { 'data-astro-reload': true } : {})}
             className="relative z-10 px-3 py-1.5 text-xs font-medium rounded-full transition-colors"
             style={{
               color:

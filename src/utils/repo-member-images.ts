@@ -1,5 +1,6 @@
 import memberImagesJson from '../../public/data/member-images.json';
 import { getR2AvatarUrl } from '@/components/messages/msg-styles';
+import { proxyImageUrl } from '@/utils/proxy-image';
 
 type MemberImageEntry = {
   imageUrl?: string;
@@ -12,7 +13,8 @@ function compactMemberName(name: string): string {
 }
 
 export function getRepoMemberOfficialImageUrl(memberName: string): string | undefined {
-  return memberImages[memberName]?.imageUrl || memberImages[compactMemberName(memberName)]?.imageUrl;
+  const raw = memberImages[memberName]?.imageUrl || memberImages[compactMemberName(memberName)]?.imageUrl;
+  return proxyImageUrl(raw);
 }
 
 export function getRepoMemberImageCandidates(memberName: string, preferredSrc?: string): string[] {

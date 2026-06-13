@@ -1,4 +1,4 @@
-import memberImagesJson from '../../../public/data/member-images.json' with { type: 'json' };
+import memberImagesJson from '../../../public/data/member-images.json';
 
 type MemberImageEntry = {
   imageUrl?: string;

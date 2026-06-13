@@ -1,0 +1,263 @@
+{
+  "lastUpdate": "2026-06-13T16:18:26.332Z",
+  "source": "樱坂46官网生日贺卡",
+  "note": "正常抓取",
+  "cards": [
+    {
+      "member": "石森 璃花",
+      "memberId": "59",
+      "cardUrl": "https://sakurazaka46.com/images/14/359/3ff94a659d194d36e83a5b9593c25.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_59?ima=0000&m=59",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "遠藤 光莉",
+      "memberId": "53",
+      "cardUrl": "https://sakurazaka46.com/images/14/52c/d93de00bf9f53d1d7b3f9e5928786.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_53?ima=0000&m=53",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "遠藤 理子",
+      "memberId": "60",
+      "cardUrl": "https://sakurazaka46.com/images/14/3aa/e9363af412c57ac0e9a6cce28f30c.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_60?ima=0000&m=60",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "大園 玲",
+      "memberId": "54",
+      "cardUrl": "https://sakurazaka46.com/images/14/723/7488c65eafd28d2baf40f612d1ddb.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_54?ima=0000&m=54",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "大沼 晶保",
+      "memberId": "55",
+      "cardUrl": "https://sakurazaka46.com/images/14/078/3abd2e62d1c5400c80a9cfdd6cff7.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_55?ima=0000&m=55",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "小田倉 麗奈",
+      "memberId": "61",
+      "cardUrl": "https://sakurazaka46.com/images/14/c7c/7d3c77d8fc213d332b2123af08870.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_61?ima=0000&m=61",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "幸阪 茉里乃",
+      "memberId": "56",
+      "cardUrl": "https://sakurazaka46.com/images/14/279/6c292bcbaec50e0b58f15addbb0d1.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_56?ima=0000&m=56",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "小島 凪紗",
+      "memberId": "62",
+      "cardUrl": "https://sakurazaka46.com/images/14/669/b719b5bd4b7fb6f635ea67d87cf5f.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_62?ima=0000&m=62",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "武元 唯衣",
+      "memberId": "45",
+      "cardUrl": "https://sakurazaka46.com/images/14/54d/927cd16097206361dc09f672fb207.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_45?ima=0000&m=45",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "村山 美羽",
+      "memberId": "68",
+      "cardUrl": "https://sakurazaka46.com/images/14/e75/190792c0d7f5f10c6f6c7df0ec939.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_68?ima=0000&m=68",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "谷口 愛季",
+      "memberId": "63",
+      "cardUrl": "https://sakurazaka46.com/images/14/bd5/596468a3f988e005e6643a141160e.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_63?ima=0000&m=63",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "田村 保乃",
+      "memberId": "46",
+      "cardUrl": "https://sakurazaka46.com/images/14/dcf/5965fad97a9dcf7a8b0d3dfe4c626.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_46?ima=0000&m=46",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "中嶋 優月",
+      "memberId": "64",
+      "cardUrl": "https://sakurazaka46.com/images/14/786/f9d5b40b4bac426c363f14143aa6c.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_64?ima=0000&m=64",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "藤吉 夏鈴",
+      "memberId": "47",
+      "cardUrl": "https://sakurazaka46.com/images/14/6d8/b216860e556eeb0473e06b654a536.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_47?ima=0000&m=47",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "増本 綺良",
+      "memberId": "57",
+      "cardUrl": "https://sakurazaka46.com/images/14/8e5/6239b5a50474336282c970fafcc09.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_57?ima=0000&m=57",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "松田 里奈",
+      "memberId": "48",
+      "cardUrl": "https://sakurazaka46.com/images/14/0e9/591aae7c4b03ccc10c142cda4b12a.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_48?ima=0000&m=48",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "的野 美青",
+      "memberId": "65",
+      "cardUrl": "https://sakurazaka46.com/images/14/e8f/5618d3e357c6d60319324359a11b7.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_65?ima=0000&m=65",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "向井 純葉",
+      "memberId": "66",
+      "cardUrl": "https://sakurazaka46.com/images/14/cde/a9f340b98a8d59ae4611e187a267e.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_66?ima=0000&m=66",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "村井 優",
+      "memberId": "67",
+      "cardUrl": "https://sakurazaka46.com/images/14/1da/85131d54ce21f4700f6e36e73ed4c.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_67?ima=0000&m=67",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "森田 ひかる",
+      "memberId": "50",
+      "cardUrl": "https://sakurazaka46.com/images/14/1c7/d903a25f542424c73caaae26ce33b.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_50?ima=0000&m=50",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "守屋 麗奈",
+      "memberId": "58",
+      "cardUrl": "https://sakurazaka46.com/images/14/f9c/7a2fc8a2c4da2939bc5450947107e.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_58?ima=0000&m=58",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "山﨑 天",
+      "memberId": "51",
+      "cardUrl": "https://sakurazaka46.com/images/14/037/125ad2a5592ffe744d7ab3b318be1.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_51?ima=0000&m=51",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "山下 瞳月",
+      "memberId": "69",
+      "cardUrl": "https://sakurazaka46.com/images/14/2ed/bc9fd14fac9c463d430db6dda7753.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_69?ima=0000&m=69",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "浅井 恋乃未",
+      "memberId": "70",
+      "cardUrl": "https://sakurazaka46.com/images/14/add/a0273123be9a94e333e38e13afe21.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_70?ima=0000&m=70",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "稲熊 ひな",
+      "memberId": "71",
+      "cardUrl": "https://sakurazaka46.com/images/14/5b7/b77012f91f95ae5161b0acd733e6c.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_71?ima=0000&m=71",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "勝又 春",
+      "memberId": "72",
+      "cardUrl": "https://sakurazaka46.com/images/14/24c/247ccab3c162f55ee0f6023cc76c4.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_72?ima=0000&m=72",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "佐藤 愛桜",
+      "memberId": "73",
+      "cardUrl": "https://sakurazaka46.com/images/14/86d/23975c48fcd3bf2edddc52f28eb97.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_73?ima=0000&m=73",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "中川 智尋",
+      "memberId": "74",
+      "cardUrl": "https://sakurazaka46.com/images/14/69e/63de8038a3f9aa9d350af2e7cee77.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_74?ima=0000&m=74",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "松本 和子",
+      "memberId": "75",
+      "cardUrl": "https://sakurazaka46.com/images/14/b3c/e202ebde9dcc8c846c0bf6f019dd3.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_75?ima=0000&m=75",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "目黒 陽色",
+      "memberId": "76",
+      "cardUrl": "https://sakurazaka46.com/images/14/9fb/04666dbddeda084030d314e5a7983.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_76?ima=0000&m=76",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "山川 宇衣",
+      "memberId": "77",
+      "cardUrl": "https://sakurazaka46.com/images/14/1d1/6a5980e7245154e89838ffad95627.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_77?ima=0000&m=77",
+      "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "山田 桃実",
+      "memberId": "78",
+      "cardUrl": "https://sakurazaka46.com/images/14/e6a/9cbfc6feab58f1ffa62267caf5762.jpg",
+      "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_78?ima=0000&m=78",
+      "group": "樱坂46",
+      "month": "2026-06"
+    }
+  ]
+}

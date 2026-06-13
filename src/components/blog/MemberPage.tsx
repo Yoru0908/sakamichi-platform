@@ -98,7 +98,7 @@ export default function MemberPage({ member, group, onNavigate }: Props) {
         {/* Left: blog list */}
         <div>
           <h2 className="text-xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
-            {member} 的博客 <span className="text-sm font-normal" style={{ color: 'var(--text-tertiary)' }}>({blogs.length}篇)</span>
+            <span lang="ja">{member}</span> 的博客 <span className="text-sm font-normal" style={{ color: 'var(--text-tertiary)' }}>({blogs.length}篇)</span>
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -142,7 +142,7 @@ export default function MemberPage({ member, group, onNavigate }: Props) {
                 </div>
               )}
             </div>
-            <h3 style={{ fontSize: 18, fontWeight: 'bold', color: 'var(--text-primary)', marginBottom: 4 }}>{member}</h3>
+            <h3 lang="ja" style={{ fontSize: 18, fontWeight: 'bold', color: 'var(--text-primary)', marginBottom: 4 }}>{member}</h3>
             <p style={{ fontSize: 13, color: groupColor }}>{groupName}</p>
           </div>
 
@@ -202,7 +202,7 @@ export default function MemberPage({ member, group, onNavigate }: Props) {
                   <div style={{
                     fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.4,
                     display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden',
-                  }}>
+                  }} lang="ja">
                     {blog.title}
                   </div>
                 </li>
