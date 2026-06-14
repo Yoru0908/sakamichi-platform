@@ -206,7 +206,7 @@ function normalizeImageUrl(imageUrl) {
 function dedupeCards(cards) {
   const seen = new Set();
   return cards.filter((card) => {
-    const key = `${card.memberId || ''}|${card.member}|${card.cardUrl}|${card.month || ''}`;
+    const key = `${card.memberId || ''}|${card.month || ''}|${card.group || ''}`;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -214,13 +214,13 @@ function dedupeCards(cards) {
 }
 
 async function fetchBirthdayCards(targetMonth) {
-  console.log(`🎂 正在从官方 API 抓取生日贺卡 (归档月份: ${targetMonth})...`);
+  console.log(`🎂 正在从樱坂46官方 API 抓取生日贺卡 (归档月份: ${targetMonth})...`);
 
   const apiUrl = `${BASE_URL}/s/s46/api/list/birthday_card`;
   const response = await fetchWithCookies(apiUrl);
 
   if (!response.ok) {
-    throw new Error(`API 响应失败: ${response.status}`);
+    throw new Error(`樱坂 API 响应失败: ${response.status}`);
   }
 
   const json = await response.json();
@@ -238,6 +238,37 @@ async function fetchBirthdayCards(targetMonth) {
       cardUrl: normalizeImageUrl(originalUrl),
       pageUrl: `${BASE_URL}/s/s46/contents/B${urlMonth}_${item.id}?ima=0000&m=${item.id}`,
       group: '樱坂46',
+      month: targetMonth,
+    };
+  });
+
+  return dedupeCards(cards);
+}
+
+async function fetchHinatazakaBirthdayCards(targetMonth) {
+  console.log(`🎂 正在从日向坂46官方 API 抓取生日贺卡 (归档月份: ${targetMonth})...`);
+
+  const apiUrl = 'https://www.hinatazaka46.com/s/official/api/list/birthday_card';
+  const response = await fetch(apiUrl, {
+    headers: { 'User-Agent': USER_AGENT }
+  });
+
+  if (!response.ok) {
+    throw new Error(`日向坂 API 响应失败: ${response.status}`);
+  }
+
+  const json = await response.json();
+  const birthdayCards = json.birthday_card || [];
+  
+  const urlMonth = targetMonth.replace('-', '');
+
+  const cards = birthdayCards.map(item => {
+    return {
+      member: item.name,
+      memberId: item.id,
+      cardUrl: item.birthday_card_src,
+      pageUrl: `https://www.hinatazaka46.com/s/official/contents/B${urlMonth}_${item.id}?ima=0000`,
+      group: '日向坂46',
       month: targetMonth,
     };
   });
@@ -293,6 +324,9 @@ async function main() {
           const match = c.pageUrl?.match(/\/B(\d{4})(\d{2})_/);
           c.month = match ? `${match[1]}-${match[2]}` : '2025-11';
         }
+        if (!c.group) {
+          c.group = '樱坂46';
+        }
         return c;
       });
     } catch (e) {
@@ -301,12 +335,20 @@ async function main() {
   }
 
   // 3. 抓取新贺卡并合并
-  const newCards = await fetchBirthdayCards(targetMonth);
+  const newSakuraCards = await fetchBirthdayCards(targetMonth);
+  let newHinataCards = [];
+  try {
+    newHinataCards = await fetchHinatazakaBirthdayCards(targetMonth);
+  } catch (err) {
+    console.error('⚠️ 抓取日向坂46生日贺卡失败:', err.message);
+  }
+
+  const newCards = [...newSakuraCards, ...newHinataCards];
   
   const mergedCards = [...existingCards];
   for (const newCard of newCards) {
     const idx = mergedCards.findIndex(
-      c => c.memberId === newCard.memberId && c.month === newCard.month
+      c => c.memberId === newCard.memberId && c.month === newCard.month && c.group === newCard.group
     );
     if (idx !== -1) {
       mergedCards[idx] = newCard; // 覆盖更新
@@ -319,8 +361,8 @@ async function main() {
 
   const data = {
     lastUpdate: new Date().toISOString(),
-    source: '樱坂46官网生日贺卡',
-    note: '正常抓取',
+    source: '坂道官网生日贺卡',
+    note: '合并抓取樱坂46与日向坂46生日贺卡',
     cards: finalCards,
   };
 
@@ -329,8 +371,8 @@ async function main() {
 
   if (newCards.length > 0) {
     console.log('\n📋 本次抓取数据预览:');
-    newCards.slice(0, 3).forEach((card, i) => {
-      console.log(`  ${i + 1}. ${card.member} (${card.month}): ${card.cardUrl}`);
+    newCards.slice(0, 5).forEach((card, i) => {
+      console.log(`  ${i + 1}. [${card.group}] ${card.member} (${card.month}): ${card.cardUrl}`);
     });
   } else {
     console.log('⚠️ 未找到生日贺卡数据');

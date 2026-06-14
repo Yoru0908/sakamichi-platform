@@ -1,16 +1,17 @@
-# Sakurazaka46 Birthday Cards Scraper & UI Architecture
+# Sakurazaka46 & Hinatazaka46 Birthday Cards Scraper & UI Architecture
 
-This document describes the simple, single-script scraper architecture for extracting member birthday card image URLs from the Sakurazaka46 official site, and the deployment / frontend presentation strategy.
+This document describes the simple, single-script scraper architecture for extracting member birthday card image URLs from both Sakurazaka46 and Hinatazaka46 official sites, and the deployment / frontend presentation strategy.
 
 ## Logic Flow
 
 ```mermaid
 flowchart TD
-    Start([Start Scraper]) --> Login[Login to Sakurazaka46 Official Site]
-    Login --> Verify[Verify Session Cookies / B81 Cookie]
-    Verify --> FetchAPI[Fetch Birthday Cards API /s/s46/api/list/birthday_card]
-    FetchAPI --> ParseAPI[Parse JSON Response]
-    ParseAPI --> Save[Save Results to public/data/birthday-cards.json]
+    Start([Start Scraper]) --> LoginSakura[Login to Sakurazaka46 Official Site]
+    LoginSakura --> VerifySakura[Verify Session Cookies / B81 Cookie]
+    VerifySakura --> FetchSakuraAPI[Fetch Sakurazaka API /s/s46/api/list/birthday_card]
+    FetchSakuraAPI --> FetchHinataAPI[Fetch Hinatazaka API /s/official/api/list/birthday_card]
+    FetchHinataAPI --> ParseAndMerge[Parse & Merge JSON Responses]
+    ParseAndMerge --> Save[Save Results to public/data/birthday-cards.json]
     Save --> End([End Scraper])
 ```
 
@@ -37,21 +38,23 @@ sequenceDiagram
 
 ## Key Components
 
-1. **Authentication Loop**
+1. **Authentication Loop (Sakurazaka46)**
    - Retrieves `SAKURAZAKA_EMAIL` and `SAKURAZAKA_PASSWORD` from environment.
    - Bootstraps by hitting the login/artist pages to obtain `my_webckid`.
    - Submits credentials via a POST request to obtain session cookies (`B81AC560F83BFC8C`).
    - Verifies session validity against a radio diary endpoint.
 
 2. **API Data Extraction**
-   - Directly calls the official backend API endpoint `/s/s46/api/list/birthday_card` with authenticated cookies.
-   - Parses the JSON response which contains the list of all members, their name, profile photo, and birthday card image source.
+   - **Sakurazaka46**: Calls the official backend API endpoint `/s/s46/api/list/birthday_card` with authenticated cookies.
+   - **Hinatazaka46**: Directly calls the public API endpoint `/s/official/api/list/birthday_card` (currently does not require session authentication).
+   - Extracts member names, IDs, birthday card image URLs, and profile photos.
 
 3. **Data Serialization**
-   - Maps the API data to the required format.
-   - Writes the final payload directly to `public/data/birthday-cards.json`.
+   - Maps the API data to the unified format containing `member`, `memberId`, `cardUrl`, `pageUrl`, `group`, and `month`.
+   - Writes the merged and deduplicated payload directly to `public/data/birthday-cards.json`.
 
 4. **Frontend Presentation (UI)**
-   - Display a responsive, premium grid with interactive filters (generation, name search).
-   - Celebrate today's/this month's birthday members at the top.
+   - Display a responsive, premium grid with interactive filters (group selection: "全部" / "樱坂46" / "日向坂46", dynamic generation tabs, and name search).
+   - Use corrected, verified local database mapping for all active members' birthdays to ensure accuracy.
    - Implement a premium in-page Modal viewer for card preview, download, and original detail page links.
+

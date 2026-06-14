@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-06-13T16:18:26.332Z",
-  "source": "樱坂46官网生日贺卡",
-  "note": "正常抓取",
+  "lastUpdate": "2026-06-14T02:32:36.003Z",
+  "source": "坂道官网生日贺卡",
+  "note": "合并抓取樱坂46与日向坂46生日贺卡",
   "cards": [
     {
       "member": "石森 璃花",
@@ -257,6 +257,222 @@
       "cardUrl": "https://sakurazaka46.com/images/14/e6a/9cbfc6feab58f1ffa62267caf5762.jpg",
       "pageUrl": "https://sakurazaka46.com/s/s46/contents/B202606_78?ima=0000&m=78",
       "group": "樱坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "金村 美玖",
+      "memberId": "12",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/360/319febfffe7aacd4d9105dffb93cf.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_12?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "小坂 菜緒",
+      "memberId": "14",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/750/3801964227eebe4bc92374a5b37a5.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_14?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "上村 ひなの",
+      "memberId": "21",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/3d1/a197ed002a3da5bcbb6536d112704.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_21?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "髙橋未来虹",
+      "memberId": "22",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/bba/2c5cc129797fb6884286edcc334ba.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_22?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "森本 茉莉",
+      "memberId": "23",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/ed5/d30d8a30e32c30459e161ef8ba403.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_23?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "山口 陽世",
+      "memberId": "24",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/5c3/0818ad7482c6fc50ea8fb0339cafc.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_24?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "石塚 瑶季",
+      "memberId": "25",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/244/044f449779794f8d7b0d9a3179460.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_25?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "小西 夏菜実",
+      "memberId": "27",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/d41/43e978015814a8cb5e037bddf549d.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_27?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "清水 理央",
+      "memberId": "28",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/478/cf1593cb1eb9562f3b737ae171f90.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_28?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "正源司 陽子",
+      "memberId": "29",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/c08/1b7062a26dd7eaf1e48d90c5789a7.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_29?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "竹内 希来里",
+      "memberId": "30",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/9e2/41e70ae2e2ceacbfeb85115947c65.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_30?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "平尾 帆夏",
+      "memberId": "31",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/e19/3e605fa89ae933001ce6f4d297a78.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_31?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "平岡 海月",
+      "memberId": "32",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/aa6/bfb71b34590ed48417d4b79c03a49.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_32?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "藤嶌 果歩",
+      "memberId": "33",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/723/bb56f6d0e3865756bb1cfab399ff9.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_33?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "宮地 すみれ",
+      "memberId": "34",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/9bd/344d61ffa619d352709f6a56b6ecf.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_34?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "山下 葉留花",
+      "memberId": "35",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/fc4/b0e2462d7ff66acb01996073ad8b5.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_35?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "渡辺 莉奈",
+      "memberId": "36",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/5f6/cfe6a018c153e3c2029f26f5482b8.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_36?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "大田 美月",
+      "memberId": "37",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/5fc/c4253fe77b14af667bd80b8c716ab.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_37?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "大野 愛実",
+      "memberId": "38",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/309/6bcef19e1e0ee2f8e7b5a9453cea5.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_38?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "片山 紗希",
+      "memberId": "39",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/335/aeed31c348e7be8f7645d3fa796e3.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_39?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "蔵盛 妃那乃",
+      "memberId": "40",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/646/892c72e984f04bb515098b3f2d6a9.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_40?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "坂井 新奈",
+      "memberId": "41",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/caa/31f62761d52037ce7000cab2c8d50.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_41?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "佐藤 優羽",
+      "memberId": "42",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/d92/cfd05b472bb8ed3792c49e56c782c.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_42?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "下田 衣珠季",
+      "memberId": "43",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/668/b0baf4d518d0dec3886ecc49fc812.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_43?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "高井 俐香",
+      "memberId": "44",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/206/91066ffc27b734163f5a6abc4012b.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_44?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "鶴崎 仁香",
+      "memberId": "45",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/007/4373c6d88a88a6184e65549574317.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_45?ima=0000",
+      "group": "日向坂46",
+      "month": "2026-06"
+    },
+    {
+      "member": "松尾 桜",
+      "memberId": "46",
+      "cardUrl": "https://cdn.hinatazaka46.com/images/14/b8a/430dc6bf8f4dae75217dfa51b3d9a.jpg",
+      "pageUrl": "https://www.hinatazaka46.com/s/official/contents/B202606_46?ima=0000",
+      "group": "日向坂46",
       "month": "2026-06"
     }
   ]
