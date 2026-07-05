@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import HomeBlogSection from '@/components/home/HomeBlogSection';
 import LiveNowBar from '@/components/home/LiveNowBar';
 import TrendingMSG from '@/components/home/TrendingMSG';
-import PopularPhotocards from '@/components/home/PopularPhotocards.astro';
+import LatestMiguri from '@/components/home/LatestMiguri';
 import QuickAccess from '@/components/home/QuickAccess.astro';
 
 // ── SSG: pre-fetch hero blog at build time for LCP optimization ──
@@ -101,8 +101,8 @@ try {
   <!-- 4. Trending MSG (React Island — slow marquee scroll on desktop) -->
   <TrendingMSG client:load />
 
-  <!-- 5. Popular Photocards (Astro static — community showcase) -->
-  <PopularPhotocards />
+  <!-- 5. Latest Miguri (React Island — real 抽選受付 with countdown) -->
+  <LatestMiguri client:load />
 
   <!-- 6. Gallery Picks — Phase 9+ (feature-flagged off for now) -->
   <!-- <GalleryPicks /> -->

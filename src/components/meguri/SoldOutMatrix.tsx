@@ -33,7 +33,7 @@ const THEME = {
 };
 
 function getCellColor(round: number | null, maxRound: number, theme: typeof THEME.sakurazaka): string | undefined {
-  if (round === null) return undefined;
+  if (round === null) return 'var(--bg-primary)';
   if (maxRound <= 1) return theme.cellSolid;
   const t = 1 - (round - 1) / Math.max(1, maxRound - 1);
   const alpha = 0.4 + t * 0.6;
@@ -97,7 +97,6 @@ function StatCell({ member }: { member: MemberSoldOutInfo }) {
     >
       <span className="font-semibold text-[var(--text-primary)]">{member.soldOutCount}</span>
       <span className="text-[var(--text-tertiary)]">/{member.totalCount}</span>
-      <span className="ml-1 text-[10px] text-[var(--text-tertiary)]">(+{member.soldOutCount})</span>
     </td>
   );
 }
@@ -264,9 +263,9 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
               <th
                 className="sticky left-0 z-20 border-r border-b px-2 py-2 text-left text-[10px] font-bold"
                 style={{ backgroundColor: theme.headerBg, borderColor: 'rgba(0,0,0,0.08)', minWidth: 140 }}
-                rowSpan={sortMode === 'generation' ? 1 : 2}
+                rowSpan={2}
               >
-                {sortMode === 'soldout' ? '成员' : ''}
+                成员
               </th>
               {dates.map((date) => (
                 <th
@@ -281,7 +280,7 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
               <th
                 className="sticky right-0 z-20 border-l border-b px-2 py-2 text-right text-[10px] font-semibold tabular-nums"
                 style={{ backgroundColor: theme.headerBg, borderColor: 'rgba(0,0,0,0.08)' }}
-                rowSpan={sortMode === 'generation' ? 1 : 2}
+                rowSpan={2}
               >
                 {analysis.totalSoldOut}/{analysis.totalCells}
               </th>
@@ -289,10 +288,6 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
             {/* Slot number header row */}
             {sortMode === 'generation' && (
               <tr>
-                <th
-                  className="sticky left-0 z-20 border-r border-b px-2 py-0.5"
-                  style={{ backgroundColor: theme.accentBg, borderColor: 'rgba(0,0,0,0.06)', minWidth: 140 }}
-                />
                 {dates.map((date) =>
                   slotNumbers.map((slot) => (
                     <th
@@ -304,10 +299,6 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
                     </th>
                   )),
                 )}
-                <th
-                  className="sticky right-0 z-20 border-l border-b px-2 py-0.5"
-                  style={{ backgroundColor: theme.accentBg, borderColor: 'rgba(0,0,0,0.06)' }}
-                />
               </tr>
             )}
             {sortMode === 'soldout' && (
@@ -341,7 +332,6 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
                           <span>{gen.generation}</span>
                           <span className="tabular-nums font-semibold">
                             {gen.soldOutCount}/{gen.totalCount}
-                            <span className="ml-1 text-[10px] font-normal opacity-70">(+{gen.soldOutCount})</span>
                           </span>
                         </div>
                       </td>

@@ -9,7 +9,7 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { readFileSync, existsSync } from 'fs';
-import { join, dirname } from 'path';
+import { basename, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 import {
@@ -75,6 +75,22 @@ function decodeHtml(s) {
 function hexAlpha(hex, alpha) {
   const a = Math.max(0, Math.min(1, alpha));
   return hex + Math.round(a * 255).toString(16).padStart(2, '0');
+}
+
+export function formatEventTitleForImage(title) {
+  const normalized = decodeHtml(String(title || ''))
+    .replace(/【.*?】/g, '')
+    .replace(/発売記念オンラインミート＆グリート（個別トーク会）/g, '発売記念オンラインミーグリ')
+    .replace(/発売記念オンラインミート&グリート（個別トーク会）/g, '発売記念オンラインミーグリ')
+    .replace(/発売記念オンラインミート＆グリート/g, '発売記念オンラインミーグリ')
+    .replace(/発売記念オンラインミート&グリート/g, '発売記念オンラインミーグリ')
+    .replace(/発売記念リアルミート＆グリート（個別トーク会）/g, '発売記念リアルミーグリ')
+    .replace(/発売記念リアルミート&グリート（個別トーク会）/g, '発売記念リアルミーグリ')
+    .replace(/発売記念リアルミート＆グリート/g, '発売記念リアルミーグリ')
+    .replace(/発売記念リアルミート&グリート/g, '発売記念リアルミーグリ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return normalized.length > 66 ? `${normalized.slice(0, 65)}…` : normalized;
 }
 
 async function fetchSoldOutData(eventSlug) {
@@ -352,7 +368,7 @@ export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sort
   const { members, dates, slotNumbers, totalSoldOut, totalCells, maxRound } = analysis;
   const totalCols = dates.length * slotNumbers.length;
   const pct = totalCells > 0 ? Math.round((totalSoldOut / totalCells) * 100) : 0;
-  const rawTitle = decodeHtml(data.event.title.replace(/【.*?】/, '')).slice(0, 60);
+  const rawTitle = formatEventTitleForImage(data.event.title);
   const modeLabel = sortMode === 'generation' ? '期別順' : '完売順';
 
   // 行ベース構築
@@ -450,7 +466,7 @@ export async function generateBothImages(eventSlug, group = 'sakurazaka') {
 }
 
 // ── CLI ────────────────────────────────────────────────────────
-if (process.argv[1] && process.argv[1].includes('soldout-image-gen')) {
+if (process.argv[1] && basename(process.argv[1]) === 'soldout-image-gen.mjs') {
   const eventSlug = process.argv[2] || 'sakurazaka_202606';
   const group = process.argv[3] || eventSlug.split('_')[0];
   const mode = process.argv[4] || 'both';

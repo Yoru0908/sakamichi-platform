@@ -18,6 +18,7 @@ import {
   X,
 } from 'lucide-react';
 import SoldOutMatrix from './SoldOutMatrix';
+import LotteryAnalysisPanel from './LotteryAnalysisPanel';
 import {
   createMiguriEntries,
   deleteMiguriEntry,
@@ -142,7 +143,7 @@ export default function MeguriPrototype() {
   const [showImportModal, setShowImportModal] = useState(false);
   const [showGCalNotice, setShowGCalNotice] = useState(false);
   const [importText, setImportText] = useState('');
-  const [activeTab, setActiveTab] = useState<'manage' | 'soldout'>('manage');
+  const [activeTab, setActiveTab] = useState<'manage' | 'soldout' | 'lottery'>('manage');
   const [addForm, setAddForm] = useState<AddForm>({
     date: '',
     slots: [],
@@ -729,7 +730,7 @@ export default function MeguriPrototype() {
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                <ClipboardList size={13} /> 管理
+                <ClipboardList size={13} /> 个握管理
               </button>
               <button
                 type="button"
@@ -740,13 +741,28 @@ export default function MeguriPrototype() {
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                <BarChart3 size={13} /> 完售分析
+                <BarChart3 size={13} /> 个握完售
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('lottery')}
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                  activeTab === 'lottery'
+                    ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
+                    : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+                }`}
+              >
+                <Ticket size={13} /> 全握分析
               </button>
             </div>
 
             {activeTab === 'soldout' ? (
               <div className="mt-4">
                 <SoldOutMatrix eventSlug={selectedEvent.slug} />
+              </div>
+            ) : activeTab === 'lottery' ? (
+              <div className="mt-4">
+                <LotteryAnalysisPanel />
               </div>
             ) : (
               <div className="mt-4 grid grid-cols-4 gap-2 sm:mt-6 sm:grid-cols-2 sm:gap-3 xl:grid-cols-4">

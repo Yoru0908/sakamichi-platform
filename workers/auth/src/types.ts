@@ -23,6 +23,9 @@ export interface Env {
   NAPCAT_NOTIFY_TOKEN?: string;
   NAPCAT_NOTIFY_GROUPS?: string;
   MIGURI_NEW_WINDOW_NOTIFY_GROUPS?: string;
+  MIGURI_WEIBO_ENABLED?: string;
+  MIGURI_WEIBO_WEBHOOK_URL?: string;
+  MIGURI_WEIBO_WEBHOOK_SECRET?: string;
 }
 
 export interface UserRow {

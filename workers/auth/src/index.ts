@@ -61,6 +61,7 @@ import {
   handleGetMiguriCalendarIcs,
   handleGetMiguriGoogleCalendarUrl,
   handleGetMiguriSoldOut,
+  handleGetMiguriLottery,
 } from './routes/miguri';
 import { handleMiguriSync, handleMiguriSoldOutImport, syncMiguriFromSource } from './routes/manage-miguri';
 import { handleDisconnectGoogleCalendar } from './routes/google-calendar';
@@ -196,6 +197,8 @@ export default {
         res = await handleGetMiguriGoogleCalendarUrl(req, env);
       } else if (path === '/api/miguri/soldout' && method === 'GET') {
         res = await handleGetMiguriSoldOut(req, env);
+      } else if (path === '/api/miguri/lottery' && method === 'GET') {
+        res = await handleGetMiguriLottery(req);
       } else if (path === '/api/miguri/calendar/google-disconnect' && method === 'POST') {
         res = await handleDisconnectGoogleCalendar(req, env);
       }

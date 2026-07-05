@@ -465,6 +465,8 @@ export default function MsgArchive() {
             url: info.imageUrl || info.url,
             group: info.group,
             generation: info.generation,
+            status: info.status,
+            isActive: info.isActive,
             placeholder: info.placeholder,
           }));
         setMembers(list);

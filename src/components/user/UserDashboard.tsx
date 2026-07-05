@@ -15,6 +15,7 @@ import {
   type UserProfile, type OAuthLink, type SubscriptionInfo, type PaymentLinkInfo, type RepoWorkItem,
 } from '@/utils/auth-api';
 import { getGroupColor, getR2AvatarUrl, getOptimizedAvatarUrl, GROUP_CONFIG, sortedGenEntries, type MemberInfo } from '@/components/messages/msg-styles';
+import { memberImagesToList } from '@/utils/member-images';
 
 // ── Role badge ──
 const ROLE_LABELS: Record<string, { label: string; color: string }> = {
@@ -171,18 +172,7 @@ function ProfileTab({ profile }: { profile: UserProfile }) {
               fetch('/data/member-images.json')
                 .then(r => r.json())
                 .then(data => {
-                  const images = data.images || {};
-                  const allNames = new Set(Object.keys(images));
-                  const list: MemberInfo[] = Object.entries(images)
-                    .filter(([n]) => {
-                      if (!n.includes(' ')) {
-                        for (const other of allNames) {
-                          if (other !== n && other.includes(' ') && other.replace(/\s+/g, '') === n) return false;
-                        }
-                      }
-                      return true;
-                    })
-                    .map(([n, info]: [string, any]) => ({ name: n, imageUrl: info.imageUrl || info.url, group: info.group, generation: info.generation }));
+                  const list = memberImagesToList(data.images || {}, { activeOnly: true, requireImage: true }) as MemberInfo[];
                   setMembers(list);
                 })
                 .catch(console.error);
@@ -771,23 +761,7 @@ function FavoritesTab() {
     fetch('/data/member-images.json')
       .then((r) => r.json())
       .then((data) => {
-        const images = data.images || {};
-        const allNames = new Set(Object.keys(images));
-        const list: MemberInfo[] = Object.entries(images)
-          .filter(([name]) => {
-            if (!name.includes(' ')) {
-              for (const other of allNames) {
-                if (other !== name && other.includes(' ') && other.replace(/\s+/g, '') === name) return false;
-              }
-            }
-            return true;
-          })
-          .map(([name, info]: [string, any]) => ({
-            name,
-            imageUrl: info.imageUrl || info.url,
-            group: info.group,
-            generation: info.generation,
-          }));
+        const list = memberImagesToList(data.images || {}, { activeOnly: true, requireImage: true }) as MemberInfo[];
         setMembers(list);
       })
       .catch(console.error);

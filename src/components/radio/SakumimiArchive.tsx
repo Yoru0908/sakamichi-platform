@@ -3,6 +3,7 @@ import { useStore } from '@nanostores/react';
 import { Search, ChevronDown, ExternalLink, Play, Pause, X, SkipBack, SkipForward, Heart } from 'lucide-react';
 import { $auth } from '@/stores/auth';
 import { getBookmarks, addBookmark, removeBookmark } from '@/utils/auth-api';
+import { memberImagesToList } from '@/utils/member-images';
 
 // ─── Types ───────────────────────────────────────
 interface Episode {
@@ -82,9 +83,9 @@ export default function SakumimiArchive() {
 
         // Extract sakurazaka members (no-space names only), sort by generation then あいうえお
         const GEN_ORDER: Record<string, number> = { '二期生': 1, '三期生': 2, '四期生': 3 };
-        const members = Object.entries(membersData.images || {})
-          .filter(([name, v]: [string, any]) => v.group === '樱坂46' && !name.includes(' '))
-          .map(([name, v]: [string, any]) => ({ name, imageUrl: v.imageUrl, generation: v.generation || '' }))
+        const members = memberImagesToList(membersData.images || {}, { activeOnly: true, requireImage: true })
+          .filter((v) => v.group === '樱坂46')
+          .map((v) => ({ name: v.name.replace(/\s+/g, ''), imageUrl: v.imageUrl, generation: v.generation || '' }))
           .sort((a, b) => {
             const ga = GEN_ORDER[a.generation] ?? 99;
             const gb = GEN_ORDER[b.generation] ?? 99;

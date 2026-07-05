@@ -267,6 +267,62 @@ export function getMiguriSoldOut(eventSlug: string): Promise<ApiResponse<MiguriS
   return miguriFetch<MiguriSoldOutPayload>(`/soldout?event=${encodeURIComponent(eventSlug)}`);
 }
 
+export type FortuneMeetsMode = 'real' | 'online';
+
+export interface FortuneMeetsSlot {
+  id: string;
+  date: string;
+  dateLabel: string;
+  venue: string;
+  part: number;
+  partLabel: string;
+  members: string[];
+  closedMembers: string[];
+}
+
+export interface FortuneMeetsMemberSummary {
+  name: string;
+  closedCount: number;
+  totalCount: number;
+}
+
+export interface FortuneMeetsAwardAnalysis {
+  awardId: number;
+  mode: FortuneMeetsMode;
+  name: string;
+  title: string;
+  group: MiguriGroupId;
+  groupName: string;
+  sourceUrl: string;
+  sourceConfigUrl: string;
+  slots: FortuneMeetsSlot[];
+  members: string[];
+  memberTotals: Record<string, number>;
+  memberClosedTotals: Record<string, number>;
+  memberSummaries: FortuneMeetsMemberSummary[];
+  totalCells: number;
+  closedCells: number;
+  openCells: number;
+  closedRate: number;
+  updatedAt: string;
+}
+
+export interface FortuneMeetsLotteryPayload {
+  eventId: string;
+  eventName: string;
+  artistName: string;
+  group: MiguriGroupId;
+  groupName: string;
+  sourceUrl: string;
+  sourceConfigUrl: string;
+  awards: FortuneMeetsAwardAnalysis[];
+  updatedAt: string;
+}
+
+export function getMiguriLottery(artist = 'sakurazaka46', event = '15th'): Promise<ApiResponse<FortuneMeetsLotteryPayload>> {
+  return miguriFetch<FortuneMeetsLotteryPayload>(`/lottery?artist=${encodeURIComponent(artist)}&event=${encodeURIComponent(event)}`);
+}
+
 
 async function apiFetch<T>(
   url: string,
@@ -666,6 +722,7 @@ export interface RepoWorkItem {
   memberName: string;
   groupId: string;
   customMemberAvatar?: string;
+  userAvatar?: string;
   eventDate: string;
   eventType: string;
   slotNumber: number;
@@ -709,6 +766,7 @@ export interface CreateRepoPayload {
   memberName: string;
   groupId: string;
   customMemberAvatar?: string;
+  userAvatar?: string;
   eventDate: string;
   eventType: string;
   slotNumber: number;

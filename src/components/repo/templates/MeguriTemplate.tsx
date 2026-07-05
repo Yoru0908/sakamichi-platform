@@ -39,11 +39,11 @@ export default function MeguriTemplate({ data }: Props) {
           memberName={data.memberName}
           preferredSrc={data.memberImageUrl}
           alt={data.memberName}
-          className="w-20 h-24 rounded-sm object-cover object-top shadow-sm"
+          className="w-24 h-28 rounded-sm object-cover object-top"
           style={{ backgroundColor: group.bgColor }}
           fallback={(
             <div
-              className="w-20 h-24 rounded-sm flex items-center justify-center text-white text-2xl font-bold shadow-sm"
+              className="w-24 h-28 rounded-sm flex items-center justify-center text-white text-3xl font-bold"
               style={{ backgroundColor: group.color }}
             >
               {data.memberName.charAt(0)}
@@ -85,28 +85,30 @@ export default function MeguriTemplate({ data }: Props) {
                   <img src={proxyImageUrl(msg.imageUrl) ?? msg.imageUrl} alt="" className="max-h-28 rounded-lg object-contain mx-auto" />
                 )}
                 {msg.text && (
-                  <div className="text-[11px] italic text-gray-400 px-4">（{msg.text}）</div>
+                  <div className="text-[11px] text-gray-400 px-4">（{msg.text}）</div>
                 )}
               </div>
             );
           }
           return (
-            <div key={msg.id} className={`flex items-end gap-2 ${msg.speaker === 'me' ? 'flex-row-reverse' : ''}`}>
+            <div key={msg.id} className={`flex items-start gap-2.5 ${msg.speaker === 'me' ? 'flex-row-reverse' : ''}`}>
               <Avatar
                 src={msg.speaker === 'member' ? data.memberImageUrl : data.userAvatar}
                 memberName={msg.speaker === 'member' ? data.memberName : undefined}
                 fallbackChar={msg.speaker === 'member' ? data.memberName.charAt(0) : '自'}
                 color={msg.speaker === 'member' ? group.color : '#9ca3af'}
-                size={30}
+                size={40}
               />
               <div
-                className={`max-w-[70%] px-3 py-2 text-[13px] leading-[1.6] whitespace-pre-wrap break-words ${
+                data-repo-bubble
+                data-repo-bubble-min-height="42px"
+                className={`max-w-[75%] px-3.5 py-2.5 text-[15px] leading-[1.5] whitespace-pre-wrap break-words ${
                   msg.speaker === 'me'
-                    ? 'bg-gray-100 rounded-2xl rounded-br-sm text-gray-800'
-                    : 'bg-white border border-gray-200 rounded-2xl rounded-bl-sm text-gray-800'
+                    ? 'bg-gray-200 rounded-2xl rounded-br-sm text-gray-900'
+                    : 'bg-white border border-gray-200 rounded-2xl rounded-bl-sm text-gray-900'
                 }`}
               >
-                {msg.text}
+                <span data-repo-bubble-text data-repo-line-height="1.55">{msg.text}</span>
               </div>
             </div>
           );

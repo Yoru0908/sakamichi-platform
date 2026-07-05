@@ -188,18 +188,33 @@ const NAPCAT_URL = process.env.NAPCAT_URL || 'http://127.0.0.1:3002';
 const NAPCAT_TOKEN = process.env.NAPCAT_TOKEN || '';
 const PUSH_GROUP_ID = process.env.PUSH_GROUP_ID || '768670254';
 
+function groupHashtag(group) {
+  if (group === 'sakurazaka') return '#櫻坂46#';
+  if (group === 'hinatazaka') return '#日向坂46#';
+  if (group === 'nogizaka') return '#乃木坂46#';
+  return '#坂道#';
+}
+
 async function generateAndPush(eventSlug, group, resultRound, importResult) {
   const { generateSoldOutImage } = await import('./soldout-image-gen.mjs');
+  const { publishToWeibo, isWeiboEnabled } = await import('./weibo-publisher.mjs');
 
-  console.log(`[${ts()}]   Generating image...`);
-  const imgBuf = await generateSoldOutImage(eventSlug, group);
-  const base64 = imgBuf.toString('base64');
-  console.log(`[${ts()}]   Image generated (${Math.round(imgBuf.length / 1024)}KB)`);
+  console.log(`[${ts()}]   Generating images...`);
+  const [soldoutImg, generationImg] = await Promise.all([
+    generateSoldOutImage(eventSlug, group, 'soldout'),
+    generateSoldOutImage(eventSlug, group, 'generation'),
+  ]);
+  const soldoutBase64 = soldoutImg.toString('base64');
+  const generationBase64 = generationImg.toString('base64');
+  console.log(
+    `[${ts()}]   Images generated (soldout=${Math.round(soldoutImg.length / 1024)}KB, generation=${Math.round(generationImg.length / 1024)}KB)`,
+  );
 
   // Send to QQ group via NapCat
   const message = [
     { type: 'text', data: { text: `【${resultRound}次完売更新】\n${eventSlug}\n新增 ${importResult.newCells} 枠完売 (合計 ${importResult.totalCells})\n` } },
-    { type: 'image', data: { file: `base64://${base64}` } },
+    { type: 'image', data: { file: `base64://${soldoutBase64}` } },
+    { type: 'image', data: { file: `base64://${generationBase64}` } },
   ];
 
   const groups = PUSH_GROUP_ID.split(',');
@@ -217,6 +232,26 @@ async function generateAndPush(eventSlug, group, resultRound, importResult) {
     } else {
       console.error(`[${ts()}]   ❌ Push to ${groupId} failed: ${res.status}`);
     }
+  }
+
+  if (isWeiboEnabled()) {
+    const text = [
+      `【個別ミーグリ完売更新】`,
+      eventSlug,
+      `${resultRound}次結果：新增 ${importResult.newCells} 枠完売、合計 ${importResult.totalCells} 枠`,
+      '',
+      `${groupHashtag(group)} #ミーグリ#`,
+    ].join('\n');
+    await publishToWeibo({
+      text,
+      category: 'miguri_individual_soldout',
+      images: [
+        { filename: `${eventSlug}-soldout.png`, contentType: 'image/png', base64: soldoutBase64 },
+        { filename: `${eventSlug}-generation.png`, contentType: 'image/png', base64: generationBase64 },
+      ],
+      meta: { eventSlug, group, resultRound, importResult },
+    });
+    console.log(`[${ts()}]   ✅ Queued Weibo publish`);
   }
 }
 

@@ -8,6 +8,7 @@ import {
   getGroupColor, getOptimizedAvatarUrl, GROUP_CONFIG, sortedGenEntries,
   type MemberInfo,
 } from '@/components/messages/msg-styles';
+import { memberImagesToList } from '@/utils/member-images';
 
 // ── Step 1: Select Oshi ──
 function OshiStep({
@@ -237,23 +238,7 @@ export default function OnboardingWizard() {
     fetch('/data/member-images.json')
       .then((r) => r.json())
       .then((data) => {
-        const images = data.images || {};
-        const allNames = new Set(Object.keys(images));
-        const list: MemberInfo[] = Object.entries(images)
-          .filter(([name]) => {
-            if (!name.includes(' ')) {
-              for (const other of allNames) {
-                if (other !== name && other.includes(' ') && other.replace(/\s+/g, '') === name) return false;
-              }
-            }
-            return true;
-          })
-          .map(([name, info]: [string, any]) => ({
-            name,
-            imageUrl: info.imageUrl || info.url,
-            group: info.group,
-            generation: info.generation,
-          }));
+        const list = memberImagesToList(data.images || {}, { activeOnly: true, requireImage: true }) as MemberInfo[];
         setMembers(list);
       })
       .catch(console.error)

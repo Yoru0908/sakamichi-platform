@@ -13,7 +13,7 @@ import OshiColorTemplate from './templates/OshiColorTemplate';
 import RepoMemberImage from './RepoMemberImage';
 import { getRepoCommunityPreferredMemberImageUrl } from './repo-community-avatar';
 import { proxyImageUrl } from '@/utils/proxy-image';
-import { createOklchPatchOnClone, waitForHtml2CanvasImages } from '@/utils/html2canvas-patch';
+import { exportRepoElementAsPng } from '@/utils/repo-image-export';
 
 interface Props {
   repo: RepoWorkItem;
@@ -41,6 +41,7 @@ function buildRepoData(repo: RepoWorkItem): RepoData {
     slotNumber: repo.slotNumber,
     ticketCount: repo.ticketCount,
     nickname: repo.nickname,
+    userAvatar: repo.userAvatar,
     messages: repo.messages.map((m, i) => ({ ...m, id: `m${i}` })),
     tags: repo.tags as AtmosphereTag[],
   };
@@ -69,6 +70,25 @@ function MemberCircleAvatar({ memberName, memberImageUrl, color, size }: { membe
           style={{ width: size, height: size, backgroundColor: color, fontSize: size * 0.35 }}
         >
           {memberName.charAt(0)}
+        </div>
+      )}
+    />
+  );
+}
+
+function UserCircleAvatar({ src, size }: { src?: string; size: number }) {
+  return (
+    <RepoMemberImage
+      preferredSrc={src}
+      alt="You"
+      className="rounded-full shrink-0 object-cover object-top"
+      style={{ width: size, height: size, backgroundColor: '#9ca3af' }}
+      fallback={(
+        <div
+          className="rounded-full shrink-0 flex items-center justify-center text-white font-bold"
+          style={{ width: size, height: size, backgroundColor: '#9ca3af', fontSize: size * 0.36 }}
+        >
+          You
         </div>
       )}
     />
@@ -146,20 +166,10 @@ export default function RepoDetailModal({ repo, onClose, onReactionUpdate, onDel
     if (!templateRef.current || downloading) return;
     setDownloading(true);
     try {
-      const html2canvas = (await import('html2canvas')).default;
-      await waitForHtml2CanvasImages(templateRef.current);
-      const canvas = await html2canvas(templateRef.current, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: false,
-        imageTimeout: 15000,
-        backgroundColor: '#ffffff',
-        onclone: createOklchPatchOnClone(),
-      });
-      const link = document.createElement('a');
-      link.download = `repo_${repo.memberName}_${repo.eventDate.replace(/\//g, '-')}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
+      await exportRepoElementAsPng(
+        templateRef.current,
+        `repo_${repo.memberName}_${repo.eventDate.replace(/\//g, '-')}.png`,
+      );
     } catch {
       alert('画像の生成に失敗しました。');
     } finally {
@@ -251,6 +261,7 @@ export default function RepoDetailModal({ repo, onClose, onReactionUpdate, onDel
         <div className="px-5 pb-4 flex justify-center">
           <div
             ref={templateRef}
+            data-repo-export-root
             className="inline-block rounded-xl overflow-hidden shadow-sm"
             style={{ maxWidth: '100%' }}
           >
@@ -274,11 +285,8 @@ export default function RepoDetailModal({ repo, onClose, onReactionUpdate, onDel
               >
                 {msg.speaker !== 'narration' && (
                   msg.speaker === 'me' ? (
-                    <div
-                      className="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-[9px] font-bold text-white mt-0.5"
-                      style={{ backgroundColor: '#9ca3af' }}
-                    >
-                      You
+                    <div className="mt-0.5">
+                      <UserCircleAvatar src={repoData.userAvatar} size={24} />
                     </div>
                   ) : (
                     <div className="mt-0.5">

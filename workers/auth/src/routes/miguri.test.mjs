@@ -697,8 +697,22 @@ test('syncMiguriFromSource fetches fortune events and persists them without requ
   }
 
   const db = new FakeMiguriDb();
+  const fetchCalls = [];
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init) => {
+    fetchCalls.push({ url, init });
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'content-type': 'application/json' } });
+  };
+
   const result = await manageMiguriRoutes.syncMiguriFromSource(
-    { MIGURI_DB: db },
+    {
+      MIGURI_DB: db,
+      MIGURI_ALERT_WEBHOOK_URL: 'https://blog-push.46log.com/webhook/miguri-alert',
+      MIGURI_ALERT_WEBHOOK_SECRET: 'relay-secret',
+      MIGURI_NEW_WINDOW_NOTIFY_GROUPS: '768670254',
+      MIGURI_WEIBO_ENABLED: 'true',
+      MIGURI_WEIBO_WEBHOOK_URL: 'https://blog-push.46log.com/webhook/weibo-publish',
+    },
     async () => ([
       {
         slug: 'hinatazaka_202605',
@@ -727,6 +741,7 @@ test('syncMiguriFromSource fetches fortune events and persists them without requ
       },
     ]),
   );
+  globalThis.fetch = originalFetch;
 
   assert.equal(result.eventCount, 1);
   assert.equal(result.archivedEventCount, 0);
@@ -734,6 +749,16 @@ test('syncMiguriFromSource fetches fortune events and persists them without requ
   assert.equal(db.windows.length, 1);
   assert.equal(db.slots.length, 1);
   assert.equal(db.slotMembers.length, 1);
+  assert.equal(fetchCalls.length, 2);
+  assert.equal(fetchCalls[0].url, 'https://blog-push.46log.com/webhook/miguri-alert');
+  assert.deepEqual(JSON.parse(fetchCalls[0].init.body).groupIds, ['768670254']);
+  assert.equal(fetchCalls[1].url, 'https://blog-push.46log.com/webhook/weibo-publish');
+  assert.equal(fetchCalls[1].init.headers['x-webhook-secret'], 'relay-secret');
+  const weiboPayload = JSON.parse(fetchCalls[1].init.body);
+  assert.equal(weiboPayload.category, 'miguri_new_window');
+  assert.match(weiboPayload.text, /【ミーグリ新受付】/);
+  assert.match(weiboPayload.text, /日向坂46 hinatazaka_202605/);
+  assert.match(weiboPayload.text, /#日向坂46# #ミーグリ#/);
 });
 
  test('syncMiguriFromSource blocks anomalous member drops before overwriting D1 and sends Napcat alert', async () => {

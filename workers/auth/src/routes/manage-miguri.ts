@@ -33,6 +33,60 @@ function parseNotifyGroups(value?: string): string[] {
     .filter(Boolean);
 }
 
+function isMiguriWeiboEnabled(env: Env): boolean {
+  return env.MIGURI_WEIBO_ENABLED === 'true';
+}
+
+function groupHashtag(group: MiguriSyncEvent['group']): string {
+  if (group === 'nogizaka') return '#乃木坂46#';
+  if (group === 'hinatazaka') return '#日向坂46#';
+  if (group === 'sakurazaka') return '#櫻坂46#';
+  return '#坂道#';
+}
+
+function groupLabel(group: MiguriSyncEvent['group']): string {
+  if (group === 'nogizaka') return '乃木坂46';
+  if (group === 'hinatazaka') return '日向坂46';
+  if (group === 'sakurazaka') return '櫻坂46';
+  return '坂道';
+}
+
+async function publishMiguriWeibo(
+  env: Env,
+  payload: { text: string; category: string; meta?: Record<string, unknown> },
+): Promise<void> {
+  if (!isMiguriWeiboEnabled(env)) return;
+
+  const webhookUrl = env.MIGURI_WEIBO_WEBHOOK_URL?.trim();
+  const webhookSecret = env.MIGURI_WEIBO_WEBHOOK_SECRET?.trim()
+    || env.MIGURI_ALERT_WEBHOOK_SECRET?.trim();
+  if (!webhookUrl || !webhookSecret) {
+    console.error('[Miguri] Weibo webhook is enabled but URL/secret is missing');
+    return;
+  }
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-webhook-secret': webhookSecret,
+      },
+      body: JSON.stringify({
+        text: payload.text,
+        category: payload.category,
+        meta: payload.meta || {},
+      }),
+    });
+
+    if (!response.ok) {
+      console.error('[Miguri] Weibo publish webhook failed:', response.status, await response.text());
+    }
+  } catch (err) {
+    console.error('[Miguri] Weibo publish webhook request failed:', err);
+  }
+}
+
 async function notifyMiguriWebhook(env: Env, text: string, groups: string[]): Promise<boolean> {
   const webhookUrl = env.MIGURI_ALERT_WEBHOOK_URL?.trim();
   if (!webhookUrl) return false;
@@ -110,16 +164,19 @@ async function notifyNewWindows(
   payload: MiguriSyncPayload,
 ): Promise<void> {
   const groups = parseNotifyGroups(env.MIGURI_NEW_WINDOW_NOTIFY_GROUPS);
-  if (groups.length === 0) return;
 
-  const eventTitleMap = new Map<string, string>();
+  const eventMap = new Map<string, MiguriSyncEvent>();
   for (const event of payload.events) {
-    eventTitleMap.set(event.slug, event.title);
+    eventMap.set(event.slug, event);
   }
 
   const lines = newWindows.map((w) => {
-    const title = eventTitleMap.get(w.eventSlug) || w.eventSlug;
+    const title = eventMap.get(w.eventSlug)?.title || w.eventSlug;
     return `・${title}\n  ${w.label}`;
+  });
+  const shortLines = newWindows.map((w) => {
+    const event = eventMap.get(w.eventSlug);
+    return `・${event ? groupLabel(event.group) : '坂道'} ${w.eventSlug}\n  ${w.label}`;
   });
 
   const text = [
@@ -127,11 +184,42 @@ async function notifyNewWindows(
     ...lines,
   ].join('\n');
 
-  try {
-    await notifyMiguriWebhook(env, text, groups);
-  } catch (err) {
-    console.error('[Miguri] New window notification failed:', err);
+  if (groups.length > 0) {
+    try {
+      await notifyMiguriWebhook(env, text, groups);
+    } catch (err) {
+      console.error('[Miguri] New window notification failed:', err);
+    }
   }
+
+  const firstEvent = eventMap.get(newWindows[0]?.eventSlug || '');
+  const hashtags = Array.from(new Set(
+    newWindows
+      .map((window) => eventMap.get(window.eventSlug)?.group)
+      .filter((group): group is MiguriSyncEvent['group'] => Boolean(group))
+      .map(groupHashtag),
+  ));
+  const weiboText = [
+    '【ミーグリ新受付】',
+    ...shortLines,
+    '',
+    firstEvent?.sourceUrl || 'https://46log.com/miguri',
+    '',
+    `${hashtags.join(' ')} #ミーグリ#`,
+  ].join('\n');
+
+  await publishMiguriWeibo(env, {
+    text: weiboText,
+    category: 'miguri_new_window',
+    meta: { newWindows },
+  });
+}
+
+function getWindowUrl(titleMap: Map<string, MiguriSyncEvent>, title: string): string {
+  for (const event of titleMap.values()) {
+    if (event.title === title) return event.sourceUrl;
+  }
+  return 'https://46log.com/miguri';
 }
 
 function parseJapaneseDateString(value: string): { year: number; month: number; day: number } | null {
@@ -151,16 +239,15 @@ async function notifyTodayWindows(
   payload: MiguriSyncPayload,
 ): Promise<void> {
   const groups = parseNotifyGroups(env.MIGURI_NEW_WINDOW_NOTIFY_GROUPS);
-  if (groups.length === 0) return;
 
   const today = getTodayJST();
 
-  const eventTitleMap = new Map<string, string>();
+  const eventMap = new Map<string, MiguriSyncEvent>();
   for (const event of payload.events) {
-    eventTitleMap.set(event.slug, event.title);
+    eventMap.set(event.slug, event);
   }
 
-  const todayWindows: { title: string; label: string; time: string }[] = [];
+  const todayWindows: { title: string; label: string; time: string; group: MiguriSyncEvent['group']; sourceUrl: string }[] = [];
   for (const event of payload.events) {
     for (const window of event.windows || []) {
       const parsed = parseJapaneseDateString(window.start || '');
@@ -168,9 +255,11 @@ async function notifyTodayWindows(
       if (parsed.year === today.year && parsed.month === today.month && parsed.day === today.day) {
         const timeMatch = (window.start || '').match(/(\d{1,2}:\d{2})\s*$/);
         todayWindows.push({
-          title: eventTitleMap.get(event.slug) || event.slug,
+          title: eventMap.get(event.slug)?.title || event.slug,
           label: window.label,
           time: timeMatch ? timeMatch[1] : '',
+          group: event.group,
+          sourceUrl: event.sourceUrl,
         });
       }
     }
@@ -181,17 +270,39 @@ async function notifyTodayWindows(
   const lines = todayWindows.map((w) =>
     `・${w.title}\n  ${w.label}${w.time ? `（${w.time}〜）` : ''}`,
   );
+  const shortLines = todayWindows.map((w) =>
+    `・${groupLabel(w.group)}\n  ${w.label}${w.time ? `（${w.time}〜）` : ''}`,
+  );
 
   const text = [
     '📅 本日の受付開始',
     ...lines,
   ].join('\n');
 
-  try {
-    await notifyMiguriWebhook(env, text, groups);
-  } catch (err) {
-    console.error('[Miguri] Today window notification failed:', err);
+  if (groups.length > 0) {
+    try {
+      await notifyMiguriWebhook(env, text, groups);
+    } catch (err) {
+      console.error('[Miguri] Today window notification failed:', err);
+    }
   }
+
+  const hashtags = Array.from(new Set(todayWindows.map((window) => groupHashtag(window.group))));
+  const firstUrl = todayWindows[0]?.sourceUrl || getWindowUrl(eventMap, todayWindows[0]?.title || '');
+  const weiboText = [
+    '【本日ミーグリ受付開始】',
+    ...shortLines,
+    '',
+    firstUrl,
+    '',
+    `${hashtags.join(' ')} #ミーグリ#`,
+  ].join('\n');
+
+  await publishMiguriWeibo(env, {
+    text: weiboText,
+    category: 'miguri_today_window',
+    meta: { todayWindows },
+  });
 }
 
 async function loadExistingEventSnapshots(env: Env): Promise<Map<string, MiguriSyncEvent>> {

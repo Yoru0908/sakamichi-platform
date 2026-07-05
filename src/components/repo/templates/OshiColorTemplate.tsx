@@ -7,6 +7,26 @@ interface Props {
   data: RepoData;
 }
 
+function Avatar({ src, memberName, fallbackChar, color, size = 32 }: { src?: string; memberName?: string; fallbackChar: string; color: string; size?: number }) {
+  return (
+    <RepoMemberImage
+      memberName={memberName}
+      preferredSrc={src}
+      alt=""
+      className="rounded-sm object-cover object-top shrink-0"
+      style={{ width: size, height: size, backgroundColor: '#f0f0f0' }}
+      fallback={(
+        <div
+          className="rounded-sm shrink-0 flex items-center justify-center text-white font-bold"
+          style={{ width: size, height: size, backgroundColor: color, fontSize: size * 0.35 }}
+        >
+          {fallbackChar}
+        </div>
+      )}
+    />
+  );
+}
+
 export default function OshiColorTemplate({ data }: Props) {
   const group = GROUP_META[data.groupId];
 
@@ -23,9 +43,9 @@ export default function OshiColorTemplate({ data }: Props) {
             memberName={data.memberName}
             preferredSrc={data.memberImageUrl}
             alt={data.memberName}
-            className="w-16 h-16 rounded-sm object-cover object-top border-2 border-white/40"
+            className="w-20 h-20 rounded-sm object-cover object-top border-2 border-white/40"
             fallback={(
-              <div className="w-16 h-16 rounded-sm border-2 border-white/40 flex items-center justify-center bg-white/20 text-xl font-bold">
+              <div className="w-20 h-20 rounded-sm border-2 border-white/40 flex items-center justify-center bg-white/20 text-2xl font-bold">
                 {data.memberName.charAt(0)}
               </div>
             )}
@@ -55,21 +75,30 @@ export default function OshiColorTemplate({ data }: Props) {
             return (
               <div key={msg.id} className="text-center space-y-1.5">
                 {msg.imageUrl && <img src={proxyImageUrl(msg.imageUrl) ?? msg.imageUrl} alt="" className="max-h-28 rounded-lg object-contain mx-auto" />}
-                {msg.text && <div className="text-[11px] italic px-4" style={{ color: group.color, opacity: 0.6 }}>（{msg.text}）</div>}
+                {msg.text && <div className="text-[11px] px-4" style={{ color: group.color, opacity: 0.6 }}>（{msg.text}）</div>}
               </div>
             );
           }
           return (
-            <div key={msg.id} className={`flex ${msg.speaker === 'me' ? 'justify-end' : 'justify-start'}`}>
+            <div key={msg.id} className={`flex items-start gap-2.5 ${msg.speaker === 'me' ? 'flex-row-reverse' : ''}`}>
+              <Avatar
+                src={msg.speaker === 'member' ? data.memberImageUrl : data.userAvatar}
+                memberName={msg.speaker === 'member' ? data.memberName : undefined}
+                fallbackChar={msg.speaker === 'member' ? data.memberName.charAt(0) : '自'}
+                color={msg.speaker === 'member' ? group.color : '#9ca3af'}
+                size={40}
+              />
               <div
-                className={`max-w-[75%] px-3.5 py-2 text-[13px] leading-[1.6] whitespace-pre-wrap break-words ${
+                data-repo-bubble
+                data-repo-bubble-min-height="42px"
+                className={`max-w-[75%] px-3.5 py-2.5 text-[15px] leading-[1.5] whitespace-pre-wrap break-words ${
                   msg.speaker === 'me'
                     ? 'rounded-2xl rounded-br-sm text-white'
-                    : 'bg-white rounded-2xl rounded-bl-sm text-gray-800 shadow-sm'
+                    : 'bg-white rounded-2xl rounded-bl-sm text-gray-900 shadow-sm'
                 }`}
                 style={msg.speaker === 'me' ? { backgroundColor: group.color } : undefined}
               >
-                {msg.text}
+                <span data-repo-bubble-text data-repo-line-height="1.55">{msg.text}</span>
               </div>
             </div>
           );

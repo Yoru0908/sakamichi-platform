@@ -14,7 +14,6 @@ export const en: Record<TranslationKey, string> = {
   'nav.tools': 'Tools',
   'nav.tools.photocard': 'Photocard Generator',
   'nav.tools.msg_generator': 'MSG Style Generator',
-  'nav.tools.subtitle_bg': 'Subtitle Background',
   'nav.tools.subtitle_merge': 'Subtitle Merge',
   'nav.tools.srt_fixer': 'SRT Timeline Fixer',
   'nav.tools.fad_effect': 'FAD Effect',

@@ -5,7 +5,7 @@ import type { Message, RepoData, TemplateId, AtmosphereTag, Member, GroupId } fr
 import { TEMPLATES, ATMOSPHERE_TAGS, GROUP_META } from '@/types/repo';
 import { getMemberById } from '@/utils/repo-mock-data';
 import { proxyImageUrl } from '@/utils/proxy-image';
-import { createOklchPatchOnClone, waitForHtml2CanvasImages } from '@/utils/html2canvas-patch';
+import { exportRepoElementAsPng } from '@/utils/repo-image-export';
 import { createRepoWork, deleteRepoWork, getMyRepoWorks, getRepoStats, updateRepoWork, type CreateRepoPayload, type RepoStatsResponse, type RepoWorkItem } from '@/utils/auth-api';
 import { $auth } from '@/stores/auth';
 import { $favorites } from '@/stores/favorites';
@@ -26,6 +26,7 @@ interface SavedRepo {
   groupId: GroupId;
   memberImageUrl: string;
   customMemberAvatar?: string;
+  userAvatar?: string;
   label: string;         // e.g. "2026/3/8 第1部"
   savedAt: string;
   data: {
@@ -101,6 +102,7 @@ function repoWorkToSavedRepo(work: RepoWorkItem): SavedRepo {
     groupId: work.groupId as GroupId,
     memberImageUrl: work.customMemberAvatar || member?.imageUrl || '',
     customMemberAvatar: work.customMemberAvatar,
+    userAvatar: work.userAvatar,
     label: buildRepoLabel(work.eventDate, work.slotNumber),
     savedAt: work.updatedAt || work.createdAt,
     data: {
@@ -127,6 +129,7 @@ function savedRepoToDraftPayload(repo: SavedRepo): CreateRepoPayload {
     memberName: repo.memberName,
     groupId: repo.groupId,
     customMemberAvatar: repo.customMemberAvatar,
+    userAvatar: repo.userAvatar,
     eventDate: repo.data.eventDate,
     eventType: repo.data.eventType,
     slotNumber: repo.data.slotNumber,
@@ -267,6 +270,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
   const [userAvatar, setUserAvatar] = useState<string | undefined>();
 
   const [publishing, setPublishing] = useState(false);
+  const [downloading, setDownloading] = useState(false);
   const [publishError, setPublishError] = useState<string | null>(null);
 
   const previewRef = useRef<HTMLDivElement>(null);
@@ -329,6 +333,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
       memberName: selectedMember.name,
       groupId: selectedMember.group,
       customMemberAvatar,
+      userAvatar,
       eventDate,
       eventType,
       slotNumber,
@@ -350,6 +355,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
       groupId: selectedMember.group,
       memberImageUrl: customMemberAvatar || proxyImageUrl(selectedMember.imageUrl) || selectedMember.imageUrl,
       customMemberAvatar,
+      userAvatar,
       label: buildRepoLabel(eventDate, slotNumber),
       savedAt: new Date().toISOString(),
       data: { eventDate, eventType, slotNumber, ticketCount, nickname, messages, tags, template },
@@ -435,6 +441,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
     setTags(repo.data.tags);
     setTemplate(repo.data.template);
     setCustomMemberAvatar(repo.customMemberAvatar);
+    setUserAvatar(repo.userAvatar);
     setExpandedMemberId(repo.memberId);
   }
 
@@ -456,6 +463,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
     setMessages(createInitialMessages());
     setTags([]);
     setCustomMemberAvatar(undefined);
+    setUserAvatar(undefined);
     setExpandedMemberId(memberId);
   }
 
@@ -467,6 +475,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
     setMessages(createInitialMessages());
     setTags([]);
     setCustomMemberAvatar(undefined);
+    setUserAvatar(undefined);
   }
 
   function deleteRepo(id: string) {
@@ -490,27 +499,20 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
   }
 
   const handleDownload = useCallback(async () => {
-    if (!previewRef.current) return;
+    if (!previewRef.current || downloading) return;
+    setDownloading(true);
     try {
-      const html2canvas = (await import('html2canvas')).default;
-      await waitForHtml2CanvasImages(previewRef.current);
-      const canvas = await html2canvas(previewRef.current, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: false,
-        imageTimeout: 15000,
-        backgroundColor: '#ffffff',
-        onclone: createOklchPatchOnClone(),
-      });
-      const link = document.createElement('a');
-      link.download = `repo_${selectedMember?.name || 'repo'}_${eventDate.replace(/\//g, '-')}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
+      await exportRepoElementAsPng(
+        previewRef.current,
+        `repo_${selectedMember?.name || 'repo'}_${eventDate.replace(/\//g, '-')}.png`,
+      );
     } catch (err) {
       console.error('Download failed:', err);
       alert('画像の生成に失敗しました。');
+    } finally {
+      setDownloading(false);
     }
-  }, [selectedMember, eventDate]);
+  }, [selectedMember, eventDate, downloading]);
 
   const handlePublish = useCallback(async () => {
     if (!selectedMember || !hasContent) return;
@@ -541,7 +543,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
     } finally {
       setPublishing(false);
     }
-  }, [auth.isLoggedIn, selectedMember, hasContent, activeRepoId, eventDate, eventType, slotNumber, ticketCount, nickname, messages, tags, template]);
+  }, [auth.isLoggedIn, selectedMember, hasContent, activeRepoId, customMemberAvatar, userAvatar, eventDate, eventType, slotNumber, ticketCount, nickname, messages, tags, template]);
 
   function renderPreview() {
     switch (template) {
@@ -705,15 +707,21 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
                                     {isMemberExpanded && (
                                       <div className="ml-5 space-y-0.5 mt-0.5">
                                         {folder.repos.map(repo => (
-                                          <button key={repo.id} type="button" onClick={() => loadRepo(repo)}
-                                            className={`w-full flex items-center gap-1.5 px-2 py-1 rounded-md text-[10px] transition-colors ${
+                                          <div key={repo.id}
+                                            className={`group/repo-row w-full flex items-center gap-1.5 rounded-md text-[10px] transition-colors ${
                                               activeRepoId === repo.id ? 'bg-[var(--bg-tertiary)] font-semibold text-[var(--text-primary)]' : 'text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
                                             }`}>
-                                            <PenLine size={9} className="shrink-0" />
-                                            <span className="truncate">{repo.label}</span>
+                                            <button type="button" onClick={() => loadRepo(repo)}
+                                              className="flex min-w-0 flex-1 items-center gap-1.5 px-2 py-1 text-left">
+                                              <PenLine size={9} className="shrink-0" />
+                                              <span className="truncate">{repo.label}</span>
+                                            </button>
                                             <button type="button" onClick={e => { e.stopPropagation(); deleteRepo(repo.id); }}
-                                              className="ml-auto shrink-0 opacity-0 group-hover:opacity-100 hover:text-red-500"><Trash2 size={9} /></button>
-                                          </button>
+                                              className="mr-1 flex h-5 w-5 shrink-0 items-center justify-center rounded text-[var(--text-tertiary)] opacity-0 transition-opacity hover:bg-red-50 hover:text-red-500 group-hover/repo-row:opacity-100"
+                                              aria-label={`删除 ${repo.label}`}>
+                                              <Trash2 size={9} />
+                                            </button>
+                                          </div>
                                         ))}
                                         <button type="button" onClick={() => newRepoForMember(folder.memberId)}
                                           className="w-full flex items-center gap-1.5 px-2 py-1 rounded-md text-[10px] text-[var(--text-tertiary)] hover:text-[var(--color-brand-nogi)] hover:bg-[var(--bg-tertiary)] transition-colors">
@@ -844,12 +852,12 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
                   </div>
                 </div>
                 <div className={`bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-6 flex justify-center ${!hasContent ? 'opacity-50' : ''}`}>
-                  <div ref={previewRef}>{renderPreview()}</div>
+                  <div ref={previewRef} data-repo-export-root>{renderPreview()}</div>
                 </div>
                 <div className="flex gap-2">
-                  <button type="button" onClick={handleDownload} disabled={!hasContent}
+                  <button type="button" onClick={handleDownload} disabled={!hasContent || downloading}
                     className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-[var(--text-primary)] text-white text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
-                    <Download size={14} /> 下载图片
+                    <Download size={14} /> {downloading ? '生成中...' : '下载图片'}
                   </button>
                   <button type="button" onClick={handleSave} disabled={draftSaving || draftSyncing}
                     className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg border border-[var(--border-primary)] text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors disabled:opacity-40 disabled:cursor-not-allowed">

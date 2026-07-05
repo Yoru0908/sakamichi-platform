@@ -76,18 +76,34 @@ test('sortBySoldOut: 1次完売 > 2次 > 部分 > 未', () => {
   assert.deepEqual(sorted, ['森田ひかる', '山川宇衣', '田村保乃', '中嶋優月']);
 });
 
-test('sortByGeneration: 期生升序，期内按完売 round 升序，再按読み仮名', () => {
+test('sortByGeneration: 期生升序，期内按読み仮名，不按完売状态', () => {
   const a = computeAnalysis(buildData(), 'sakurazaka', GEN_MAP);
   const sorted = sortByGeneration(a.members).map((m) => m.name);
-  // 2期生（森田 round1, 田村 部分）→ 3期生（中嶋 未）→ 4期生（山川 round3）
-  assert.deepEqual(sorted, ['森田ひかる', '田村保乃', '中嶋優月', '山川宇衣']);
+  // 2期生按 50 音：田村(た) → 森田(も)，不受森田 1次完売影响
+  assert.deepEqual(sorted, ['田村保乃', '森田ひかる', '中嶋優月', '山川宇衣']);
+});
+
+test('computeAnalysis 保留 memberTotals 中有总枠但没有完売 cell 的成员', () => {
+  const data = buildData();
+  data.members.push('遠藤光莉');
+  data.memberTotals['遠藤光莉'] = 4;
+  const a = computeAnalysis(data, 'sakurazaka', {
+    sakurazaka: { ...GEN_MAP.sakurazaka, '遠藤光莉': '2期生' },
+    hinatazaka: {},
+    nogizaka: {},
+  });
+  const endo = a.members.find((m) => m.name === '遠藤光莉');
+  assert.ok(endo);
+  assert.equal(endo.soldOutCount, 0);
+  assert.equal(endo.totalCount, 4);
+  assert.equal(a.totalCells, 20);
 });
 
 test('buildGenGroups 正确分组并保留排序后的成员顺序', () => {
   const a = computeAnalysis(buildData(), 'sakurazaka', GEN_MAP);
   const groups = buildGenGroups(sortByGeneration(a.members));
   assert.deepEqual(groups.map((g) => g.generation), ['2期生', '3期生', '4期生']);
-  assert.deepEqual(groups[0].members.map((m) => m.name), ['森田ひかる', '田村保乃']);
+  assert.deepEqual(groups[0].members.map((m) => m.name), ['田村保乃', '森田ひかる']);
   assert.equal(groups[0].soldOutCount, 4 + 2);
   assert.equal(groups[0].totalCount, 4 + 4);
 });

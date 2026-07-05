@@ -28,3 +28,10 @@ pnpm-debug.log*
 
 # backup dirs
 _backup_*/
+
+# worker secrets (never commit)
+.dev.vars
+**/.dev.vars
+# backup dirs
+**/.bak-*/
+*.backup

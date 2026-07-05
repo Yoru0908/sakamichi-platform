@@ -1,5 +1,6 @@
 import type { Member, PublishedRepo, GroupId } from '@/types/repo';
 import memberImagesJson from '../../public/data/member-images.json';
+import { memberImagesToList, type MemberImageEntry } from '@/utils/member-images';
 
 /* ── Group name → GroupId/groupName mapping ── */
 const GROUP_MAP: Record<string, { group: 'nogizaka' | 'sakurazaka' | 'hinatazaka'; groupName: string }> = {
@@ -10,12 +11,11 @@ const GROUP_MAP: Record<string, { group: 'nogizaka' | 'sakurazaka' | 'hinatazaka
 
 /* ── Build member list from member-images.json (official website photos) ── */
 function buildMemberList(): Member[] {
-  const images = (memberImagesJson as any).images as Record<string, { group: string; imageUrl?: string }>;
+  const images = (memberImagesJson as any).images as Record<string, MemberImageEntry>;
   const seen = new Set<string>();
   const members: Member[] = [];
-  for (const [rawName, entry] of Object.entries(images)) {
-    if (!rawName.includes(' ')) continue; // skip de-spaced duplicates; use spaced version
-    const name = rawName.replace(/\s/g, '');
+  for (const entry of memberImagesToList(images, { activeOnly: true, requireImage: true })) {
+    const name = entry.name.replace(/\s/g, '');
     if (seen.has(name)) continue;
     seen.add(name);
     const g = GROUP_MAP[entry.group];

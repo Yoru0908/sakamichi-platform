@@ -39,7 +39,7 @@ export default function LineTemplate({ data }: Props) {
           memberName={data.memberName}
           fallbackChar={data.memberName.charAt(0)}
           color="#04a648"
-          size={36}
+          size={44}
         />
         <div className="flex-1 min-w-0">
           <div className="text-sm font-bold truncate">{data.memberName}</div>
@@ -73,26 +73,28 @@ export default function LineTemplate({ data }: Props) {
             return (
               <div key={msg.id} className="text-center space-y-1.5">
                 {msg.imageUrl && <img src={proxyImageUrl(msg.imageUrl) ?? msg.imageUrl} alt="" className="max-h-28 rounded-lg object-contain mx-auto" />}
-                {msg.text && <div className="text-[11px] italic text-white/60 px-4">（{msg.text}）</div>}
+                {msg.text && <div className="text-[11px] text-white/60 px-4">（{msg.text}）</div>}
               </div>
             );
           }
           return (
-            <div key={msg.id} className={`flex items-end gap-2 ${msg.speaker === 'me' ? 'flex-row-reverse' : ''}`}>
+            <div key={msg.id} className={`flex items-start gap-2.5 ${msg.speaker === 'me' ? 'flex-row-reverse' : ''}`}>
               {msg.speaker === 'member' && (
-                <div className="shrink-0 flex flex-col items-center gap-0.5">
-                  <Avatar src={data.memberImageUrl} memberName={data.memberName} fallbackChar={data.memberName.charAt(0)} color={group.color} size={28} />
-                  <span className="text-[9px] text-white/80 max-w-[32px] truncate">{data.memberName.slice(0, 3)}</span>
-                </div>
+                <Avatar src={data.memberImageUrl} memberName={data.memberName} fallbackChar={data.memberName.charAt(0)} color={group.color} size={40} />
+              )}
+              {msg.speaker === 'me' && (
+                <Avatar src={data.userAvatar} fallbackChar="自" color="#04a648" size={40} />
               )}
               <div
-                className={`max-w-[70%] px-3 py-2 text-[13px] leading-[1.6] whitespace-pre-wrap break-words shadow-sm ${
+                data-repo-bubble
+                data-repo-bubble-min-height="42px"
+                className={`max-w-[75%] px-3.5 py-2.5 text-[15px] leading-[1.5] whitespace-pre-wrap break-words shadow-sm ${
                   msg.speaker === 'me'
-                    ? 'bg-[#A8E063] rounded-2xl rounded-br-sm text-gray-800'
-                    : 'bg-white rounded-2xl rounded-bl-sm text-gray-800'
+                    ? 'bg-[#A8E063] rounded-2xl rounded-br-sm text-gray-900'
+                    : 'bg-white rounded-2xl rounded-bl-sm text-gray-900'
                 }`}
               >
-                {msg.text}
+                <span data-repo-bubble-text data-repo-line-height="1.55">{msg.text}</span>
               </div>
             </div>
           );

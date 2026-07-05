@@ -1,29 +1,14 @@
 import memberImagesJson from '../../../public/data/member-images.json';
+import {
+  getRepoCommunityMemberImageUrlFromImages,
+  getRepoCommunityPreferredMemberImageUrlFromImages,
+  type RepoCommunityMemberImages,
+} from './repo-community-avatar-core';
 
-type MemberImageEntry = {
-  imageUrl?: string;
-};
-
-const memberImages = ((memberImagesJson as { images?: Record<string, MemberImageEntry> }).images) || {};
-
-function compactMemberName(name: string): string {
-  return name.replace(/\s+/g, '');
-}
+const memberImages = ((memberImagesJson as { images?: RepoCommunityMemberImages }).images) || {};
 
 export function getRepoCommunityMemberImageUrl({ memberId, memberName }: { memberId?: string; memberName?: string }): string {
-  const keys = [
-    memberId || '',
-    compactMemberName(memberId || ''),
-    memberName || '',
-    compactMemberName(memberName || ''),
-  ].filter(Boolean);
-
-  for (const key of keys) {
-    const imageUrl = memberImages[key]?.imageUrl;
-    if (imageUrl) return imageUrl;
-  }
-
-  return '';
+  return getRepoCommunityMemberImageUrlFromImages(memberImages, { memberId, memberName });
 }
 
 export function getRepoCommunityPreferredMemberImageUrl({
@@ -35,6 +20,9 @@ export function getRepoCommunityPreferredMemberImageUrl({
   memberId?: string;
   memberName?: string;
 }): string {
-  if (customMemberAvatar) return customMemberAvatar;
-  return getRepoCommunityMemberImageUrl({ memberId, memberName });
+  return getRepoCommunityPreferredMemberImageUrlFromImages(memberImages, {
+    customMemberAvatar,
+    memberId,
+    memberName,
+  });
 }

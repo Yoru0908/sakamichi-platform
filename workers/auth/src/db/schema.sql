@@ -221,6 +221,7 @@ CREATE TABLE IF NOT EXISTS repo_works (
   member_name TEXT NOT NULL,
   group_id TEXT NOT NULL,
   custom_member_avatar TEXT,
+  user_avatar TEXT,
 
   event_date TEXT NOT NULL,
   event_type TEXT NOT NULL DEFAULT 'ミーグリ',

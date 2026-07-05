@@ -52,17 +52,16 @@ export default function RepoMemberImage({ memberName = '', preferredSrc, alt, cl
   if (!loadedSrc) return <>{fallback}</>;
 
   return (
-    <div
-      role={alt ? 'img' : undefined}
-      aria-label={alt || undefined}
+    <img
+      src={loadedSrc}
+      alt={alt}
       className={className}
       style={{
         ...style,
-        backgroundImage: `url("${loadedSrc}")`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center top',
-        backgroundRepeat: 'no-repeat',
+        objectFit: 'cover',
+        objectPosition: 'center top',
       }}
+      onError={() => setCandidateIndex((current) => current + 1)}
     />
   );
 }

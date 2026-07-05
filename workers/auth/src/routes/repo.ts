@@ -43,6 +43,7 @@ function formatWork(w: any, myReactions: Set<string>, authorName: string | null)
     memberName: w.member_name,
     groupId: w.group_id,
     customMemberAvatar: w.custom_member_avatar || '',
+    userAvatar: w.user_avatar || '',
     eventDate: w.event_date,
     eventType: w.event_type,
     slotNumber: w.slot_number,
@@ -102,7 +103,7 @@ export async function handleListRepoWorks(req: Request, env: Env): Promise<Respo
   const total = countResult?.total || 0;
 
   const works = await env.DB.prepare(`
-    SELECT r.id, r.user_id, r.member_id, r.member_name, r.group_id, r.custom_member_avatar,
+    SELECT r.id, r.user_id, r.member_id, r.member_name, r.group_id, r.custom_member_avatar, r.user_avatar,
            r.event_date, r.event_type, r.slot_number, r.ticket_count, r.nickname,
            r.messages, r.tags, r.template,
            r.react_lemon, r.react_sweet, r.react_funny, r.react_pray,
@@ -154,7 +155,7 @@ export async function handleCreateRepoWork(req: Request, env: Env): Promise<Resp
   let body: any;
   try { body = await req.json(); } catch { return error('无效的 JSON', 400); }
 
-  const { memberId, memberName, groupId, customMemberAvatar, eventDate, eventType, slotNumber, ticketCount,
+  const { memberId, memberName, groupId, customMemberAvatar, userAvatar, eventDate, eventType, slotNumber, ticketCount,
           nickname, messages, tags, template, isPublic } = body;
 
   if (!memberId || !memberName || !groupId || !eventDate) {
@@ -170,11 +171,11 @@ export async function handleCreateRepoWork(req: Request, env: Env): Promise<Resp
 
   await env.DB.prepare(`
     INSERT INTO repo_works
-      (id, user_id, member_id, member_name, group_id, custom_member_avatar, event_date, event_type,
+      (id, user_id, member_id, member_name, group_id, custom_member_avatar, user_avatar, event_date, event_type,
        slot_number, ticket_count, nickname, messages, tags, template, status)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).bind(
-    id, userId, memberId, memberName, groupId, customMemberAvatar || null, eventDate,
+    id, userId, memberId, memberName, groupId, customMemberAvatar || null, userAvatar || null, eventDate,
     eventType || 'ミーグリ',
     slotNumber || 1,
     ticketCount || 1,
@@ -196,7 +197,7 @@ export async function handleUpdateRepoWork(req: Request, env: Env, workId: strin
   let body: any;
   try { body = await req.json(); } catch { return error('无效的 JSON', 400); }
 
-  const { memberId, memberName, groupId, customMemberAvatar, eventDate, eventType, slotNumber, ticketCount,
+  const { memberId, memberName, groupId, customMemberAvatar, userAvatar, eventDate, eventType, slotNumber, ticketCount,
           nickname, messages, tags, template, isPublic } = body;
 
   if (!memberId || !memberName || !groupId || !eventDate) {
@@ -214,7 +215,7 @@ export async function handleUpdateRepoWork(req: Request, env: Env, workId: strin
     if (existing.user_id !== auth.userId && auth.role !== 'admin') return error('无权修改', 403);
     await env.DB.prepare(`
       UPDATE repo_works
-      SET member_id = ?, member_name = ?, group_id = ?, custom_member_avatar = ?, event_date = ?, event_type = ?,
+      SET member_id = ?, member_name = ?, group_id = ?, custom_member_avatar = ?, user_avatar = ?, event_date = ?, event_type = ?,
            slot_number = ?, ticket_count = ?, nickname = ?, messages = ?, tags = ?, template = ?,
            status = ?, updated_at = datetime('now')
      WHERE id = ?
@@ -223,6 +224,7 @@ export async function handleUpdateRepoWork(req: Request, env: Env, workId: strin
      memberName,
      groupId,
      customMemberAvatar || null,
+     userAvatar || null,
      eventDate,
      eventType || 'ミーグリ',
      slotNumber || 1,
@@ -240,9 +242,9 @@ export async function handleUpdateRepoWork(req: Request, env: Env, workId: strin
 
   await env.DB.prepare(`
     INSERT INTO repo_works
-      (id, user_id, member_id, member_name, group_id, custom_member_avatar, event_date, event_type,
+      (id, user_id, member_id, member_name, group_id, custom_member_avatar, user_avatar, event_date, event_type,
        slot_number, ticket_count, nickname, messages, tags, template, status)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
    `).bind(
      workId,
      auth.userId,
@@ -250,6 +252,7 @@ export async function handleUpdateRepoWork(req: Request, env: Env, workId: strin
      memberName,
      groupId,
      customMemberAvatar || null,
+     userAvatar || null,
      eventDate,
      eventType || 'ミーグリ',
      slotNumber || 1,
@@ -339,7 +342,7 @@ export async function handleGetRepoWork(req: Request, env: Env, workId: string):
   const auth = await getAuthUser(req, env);
 
   const work = await env.DB.prepare(`
-    SELECT r.id, r.user_id, r.member_id, r.member_name, r.group_id, r.custom_member_avatar,
+    SELECT r.id, r.user_id, r.member_id, r.member_name, r.group_id, r.custom_member_avatar, r.user_avatar,
             r.event_date, r.event_type, r.slot_number, r.ticket_count, r.nickname,
             r.messages, r.tags, r.template,
             r.react_lemon, r.react_sweet, r.react_funny, r.react_pray,
@@ -432,7 +435,7 @@ export async function handleMyRepoWorks(req: Request, env: Env): Promise<Respons
   ).bind(auth.userId).first<{ display_name: string | null }>();
 
   const works = await env.DB.prepare(`
-    SELECT id, user_id, member_id, member_name, group_id, custom_member_avatar,
+    SELECT id, user_id, member_id, member_name, group_id, custom_member_avatar, user_avatar,
             event_date, event_type, slot_number, ticket_count, nickname,
             messages, tags, template,
             react_lemon, react_sweet, react_funny, react_pray,

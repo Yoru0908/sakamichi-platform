@@ -71,6 +71,7 @@ export function loadGenerationMap(candidatePaths) {
   }
   if (!raw?.images) return map;
   for (const [name, info] of Object.entries(raw.images)) {
+    if (info.status === 'graduated' || info.status === 'excluded' || info.isActive === false) continue;
     const slug = GROUP_SLUG_MAP[info.group];
     if (!slug) continue;
     const clean = name.replace(/[\s\u3000]+/g, '');
@@ -165,15 +166,17 @@ export function sortBySoldOut(members) {
 }
 
 export function sortByGeneration(members) {
-  return [...members].sort((a, b) => {
-    const gA = GENERATION_ORDER[a.generation] || 99;
-    const gB = GENERATION_ORDER[b.generation] || 99;
-    if (gA !== gB) return gA - gB;
-    const rA = a.fullSoldOutRound ?? Infinity;
-    const rB = b.fullSoldOutRound ?? Infinity;
-    if (rA !== rB) return rA - rB;
-    return getMemberReading(a.name).localeCompare(getMemberReading(b.name), 'ja');
-  });
+  return members
+    .map((member, index) => ({ member, index }))
+    .sort((a, b) => {
+      const gA = GENERATION_ORDER[a.member.generation] || 99;
+      const gB = GENERATION_ORDER[b.member.generation] || 99;
+      if (gA !== gB) return gA - gB;
+      const reading = getMemberReading(a.member.name).localeCompare(getMemberReading(b.member.name), 'ja');
+      if (reading !== 0) return reading;
+      return a.index - b.index;
+    })
+    .map(({ member }) => member);
 }
 
 export function buildGenGroups(sortedMembers) {
@@ -213,8 +216,22 @@ export function cellAlpha(round, maxRound) {
 
 /** YYYY-MM-DD → M/D(曜) */
 export function formatDateShort(dateStr) {
-  const d = new Date(`${dateStr}T00:00:00+09:00`);
-  if (Number.isNaN(d.getTime())) return dateStr;
+  const match = String(dateStr).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return dateStr;
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const d = new Date(Date.UTC(year, month - 1, day));
+  if (
+    Number.isNaN(d.getTime())
+    || d.getUTCFullYear() !== year
+    || d.getUTCMonth() !== month - 1
+    || d.getUTCDate() !== day
+  ) {
+    return dateStr;
+  }
+
   const w = ['日', '月', '火', '水', '木', '金', '土'];
-  return `${d.getMonth() + 1}/${d.getDate()}(${w[d.getDay()]})`;
+  return `${month}/${day}(${w[d.getUTCDay()]})`;
 }

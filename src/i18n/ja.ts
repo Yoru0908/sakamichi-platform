@@ -14,7 +14,6 @@ export const ja: Record<TranslationKey, string> = {
   'nav.tools': 'ツールボックス',
   'nav.tools.photocard': '生写真ジェネレーター',
   'nav.tools.msg_generator': 'MSGスタイルジェネレーター',
-  'nav.tools.subtitle_bg': '字幕背景メーカー',
   'nav.tools.subtitle_merge': '字幕マージ',
   'nav.tools.srt_fixer': 'SRTタイムライン修正',
   'nav.tools.fad_effect': 'FADエフェクト',

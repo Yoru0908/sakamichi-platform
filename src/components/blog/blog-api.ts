@@ -250,7 +250,7 @@ export async function fetchMemberBlogs(member: string, group: string): Promise<B
   return [];
 }
 
-export async function fetchMemberImages(): Promise<Record<string, { imageUrl: string }>> {
+export async function fetchMemberImages(): Promise<Record<string, { imageUrl: string; status?: string; isActive?: boolean }>> {
   try {
     const response = await fetch('/data/member-images.json');
     if (!response.ok) return {};

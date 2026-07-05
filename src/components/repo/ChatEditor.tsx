@@ -19,15 +19,22 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
   function addMessage(speaker: 'me' | 'member' | 'narration') {
     const newMsg: Message = { id: nextId(), speaker, text: '' };
     onChange([...messages, newMsg]);
-    setTimeout(() => setEditingId(newMsg.id), 50);
+    setTimeout(() => setEditingId(newMsg.id), 0);
   }
 
+  const imageInputRef = useRef<HTMLInputElement>(null);
+
   function addImageMessage() {
-    const url = prompt('画像URLを入力してください（または後で貼り付け）');
-    if (url !== null) {
-      const newMsg: Message = { id: nextId(), speaker: 'narration', text: '', imageUrl: url || '' };
+    imageInputRef.current?.click();
+  }
+
+  function handleAddImageFile(file: File) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const newMsg: Message = { id: nextId(), speaker: 'narration', text: '', imageUrl: e.target?.result as string };
       onChange([...messages, newMsg]);
-    }
+    };
+    reader.readAsDataURL(file);
   }
 
   function updateMessage(id: string, updates: Partial<Message>) {
@@ -58,8 +65,12 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
 
   useEffect(() => {
     if (editingId) {
-      const el = document.getElementById(`msg-input-${editingId}`);
-      el?.focus();
+      // 用 requestAnimationFrame 确保 DOM 已渲染后再聚焦
+      const raf = requestAnimationFrame(() => {
+        const el = document.getElementById(`msg-input-${editingId}`) as HTMLTextAreaElement | null;
+        el?.focus({ preventScroll: true });
+      });
+      return () => cancelAnimationFrame(raf);
     }
   }, [editingId]);
 
@@ -152,11 +163,11 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
                       onBlur={() => setEditingId(null)}
                       onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); setEditingId(null); } }}
                       placeholder={getPlaceholder(msg.speaker)}
-                      className="w-full bg-transparent outline-none resize-none text-xs italic text-amber-700 leading-relaxed min-h-[1.2em] text-center"
+                      className="w-full bg-transparent outline-none resize-none text-xs text-amber-700 leading-relaxed min-h-[1.2em] text-center"
                       rows={1}
                     />
                   ) : (
-                    <div onClick={() => setEditingId(msg.id)} className="cursor-text min-h-[1.2em] text-xs italic text-amber-700 whitespace-pre-wrap">
+                    <div onClick={() => setEditingId(msg.id)} className="cursor-text min-h-[1.2em] text-xs text-amber-700 whitespace-pre-wrap">
                       {msg.text || <span className="text-amber-400">（ト書きを入力...）</span>}
                     </div>
                   )}
@@ -204,6 +215,13 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
       </div>
 
       {/* Add buttons - member left, narration center, me right (matching bubble positions) */}
+      <input
+        ref={imageInputRef}
+        type="file"
+        accept="image/*"
+        className="hidden"
+        onChange={e => { if (e.target.files?.[0]) handleAddImageFile(e.target.files[0]); e.target.value = ''; }}
+      />
       <div className="grid grid-cols-4 gap-1.5 pt-1">
         <button
           type="button"
@@ -211,7 +229,7 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
           className="flex items-center justify-center gap-1 px-2 py-2 rounded-xl border border-dashed text-[11px] hover:opacity-90 transition-opacity"
           style={{ borderColor: groupColor, backgroundColor: groupColor + '10', color: groupColor }}
         >
-          <Plus size={12} /> {memberName ? memberName.slice(0, 3) : 'M'}
+          <Plus size={12} /> {memberName || 'M'}
         </button>
         <button
           type="button"

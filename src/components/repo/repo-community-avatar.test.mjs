@@ -1,22 +1,29 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 
-import { getRepoCommunityMemberImageUrl, getRepoCommunityPreferredMemberImageUrl } from './repo-community-avatar.ts';
+import {
+  getRepoCommunityMemberImageUrlFromImages,
+  getRepoCommunityPreferredMemberImageUrlFromImages,
+} from './repo-community-avatar-core.ts';
+
+const memberImagesJson = JSON.parse(readFileSync(new URL('../../../public/data/member-images.json', import.meta.url), 'utf8'));
+const memberImages = memberImagesJson.images || {};
+const expectedInakumaImageUrl = memberImages['稲熊ひな']?.imageUrl;
+
+assert.ok(expectedInakumaImageUrl, 'expected 稲熊ひな imageUrl fixture to exist');
 
 test('getRepoCommunityMemberImageUrl prefers official member image by memberId', () => {
-  const imageUrl = getRepoCommunityMemberImageUrl({
+  const imageUrl = getRepoCommunityMemberImageUrlFromImages(memberImages, {
     memberId: '稲熊ひな',
     memberName: '稲熊ひな',
   });
 
-  assert.equal(
-    imageUrl,
-    'https://sakurazaka46.com/images/14/399/dd195ad9a0d52b851a86c1dedbf6c/400_640_102400.jpg',
-  );
+  assert.equal(imageUrl, expectedInakumaImageUrl);
 });
 
 test('getRepoCommunityPreferredMemberImageUrl prefers user uploaded avatar over official image', () => {
-  const imageUrl = getRepoCommunityPreferredMemberImageUrl({
+  const imageUrl = getRepoCommunityPreferredMemberImageUrlFromImages(memberImages, {
     customMemberAvatar: 'data:image/png;base64,custom-avatar',
     memberId: '稲熊ひな',
     memberName: '稲熊ひな',
@@ -26,25 +33,19 @@ test('getRepoCommunityPreferredMemberImageUrl prefers user uploaded avatar over 
 });
 
 test('getRepoCommunityPreferredMemberImageUrl falls back to official image when no custom avatar exists', () => {
-  const imageUrl = getRepoCommunityPreferredMemberImageUrl({
+  const imageUrl = getRepoCommunityPreferredMemberImageUrlFromImages(memberImages, {
     memberId: '稲熊ひな',
     memberName: '稲熊ひな',
   });
 
-  assert.equal(
-    imageUrl,
-    'https://sakurazaka46.com/images/14/399/dd195ad9a0d52b851a86c1dedbf6c/400_640_102400.jpg',
-  );
+  assert.equal(imageUrl, expectedInakumaImageUrl);
 });
 
 test('getRepoCommunityMemberImageUrl falls back to member name lookup when memberId is unknown', () => {
-  const imageUrl = getRepoCommunityMemberImageUrl({
+  const imageUrl = getRepoCommunityMemberImageUrlFromImages(memberImages, {
     memberId: 'unknown-member-id',
     memberName: '稲熊ひな',
   });
 
-  assert.equal(
-    imageUrl,
-    'https://sakurazaka46.com/images/14/399/dd195ad9a0d52b851a86c1dedbf6c/400_640_102400.jpg',
-  );
+  assert.equal(imageUrl, expectedInakumaImageUrl);
 });

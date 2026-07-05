@@ -7,6 +7,7 @@ import {
   syncMiguriEntriesToGoogleCalendar,
   syncMiguriEntryToGoogleCalendar,
 } from './google-calendar.ts';
+import { fetchFortuneMeetsAnalysis } from '../utils/fortunemeets.ts';
 
 export type MiguriWindow = {
   label: string;
@@ -735,11 +736,18 @@ export async function handleGetMiguriSoldOut(req: Request, env: Env): Promise<Re
     memberSoldOutCells.get(cell.member_name)!.set(key, cell.round_number);
   }
 
-  // Total = currently available + sold out
+  // Total = union of available and sold-out cell keys.
+  // miguri_slot_members is repopulated from Fortune's event-level member list on every sync
+  // (Fortune doesn't expose per-slot availability), so sold-out cells remain in both tables.
+  // Summing the two sets would double-count; use a union to get the correct distinct count.
   for (const member of allMembers) {
-    const available = memberAvailableCells.get(member)?.size || 0;
-    const soldOut = memberSoldOutCells.get(member)?.size || 0;
-    memberTotalCells.set(member, available + soldOut);
+    const available = memberAvailableCells.get(member) || new Set<string>();
+    const soldOut = memberSoldOutCells.get(member);
+    const allKeys = new Set(available);
+    if (soldOut) {
+      for (const key of soldOut.keys()) allKeys.add(key);
+    }
+    memberTotalCells.set(member, allKeys.size);
   }
 
   return success({
@@ -769,4 +777,22 @@ export async function handleGetMiguriSoldOut(req: Request, env: Env): Promise<Re
       memberTotals: Object.fromEntries(memberTotalCells),
     },
   });
+}
+
+export async function handleGetMiguriLottery(req: Request): Promise<Response> {
+  const url = new URL(req.url);
+  const artist = (url.searchParams.get('artist') || 'sakurazaka46').trim();
+  const event = (url.searchParams.get('event') || '15th').trim();
+
+  if (!/^[a-z0-9_-]+$/i.test(artist) || !/^[a-z0-9_-]+$/i.test(event)) {
+    return error('无效的 artist 或 event 参数', 400);
+  }
+
+  try {
+    const data = await fetchFortuneMeetsAnalysis({ artist, event });
+    return success({ data });
+  } catch (err) {
+    console.error('[Miguri] fortune meets fetch failed:', err);
+    return error(err instanceof Error ? err.message : 'Fortune Meets 数据读取失败', 502);
+  }
 }

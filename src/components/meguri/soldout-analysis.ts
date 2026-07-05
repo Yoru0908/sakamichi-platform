@@ -1,5 +1,6 @@
 import type { MiguriSoldOutCell, MiguriSoldOutPayload, MiguriSoldOutRound } from '@/utils/auth-api';
 import memberImagesData from '../../../public/data/member-images.json';
+import { isActiveMemberEntry, type MemberImageEntry } from '@/utils/member-images';
 
 // ── Generation metadata (auto-built from member-images.json) ──
 
@@ -23,8 +24,9 @@ const GROUP_GENERATION_MAP: Record<string, Record<string, string>> = {
 };
 
 // Build from member-images.json at module init
-const images = (memberImagesData as { images: Record<string, { group: string; generation: string }> }).images;
+const images = (memberImagesData as { images: Record<string, MemberImageEntry> }).images;
 for (const [rawName, info] of Object.entries(images)) {
+  if (!isActiveMemberEntry(info)) continue;
   const slug = GROUP_SLUG_MAP[info.group];
   if (!slug) continue;
   const clean = rawName.replace(/[\s\u3000]+/g, '');
@@ -183,16 +185,17 @@ export function computeSoldOutAnalysis(
 // ── Sorting ──
 
 export function sortByGeneration(members: MemberSoldOutInfo[]): MemberSoldOutInfo[] {
-  return [...members].sort((a, b) => {
-    const genA = GENERATION_ORDER[a.generation] || 99;
-    const genB = GENERATION_ORDER[b.generation] || 99;
-    if (genA !== genB) return genA - genB;
-    // Within same generation: sold-out members first, by round ascending (1次完売 > 2次 > 3次)
-    const rA = a.fullSoldOutRound ?? Infinity;
-    const rB = b.fullSoldOutRound ?? Infinity;
-    if (rA !== rB) return rA - rB;
-    return getMemberReading(a.name).localeCompare(getMemberReading(b.name), 'ja');
-  });
+  return members
+    .map((member, index) => ({ member, index }))
+    .sort((a, b) => {
+      const genA = GENERATION_ORDER[a.member.generation] || 99;
+      const genB = GENERATION_ORDER[b.member.generation] || 99;
+      if (genA !== genB) return genA - genB;
+      const reading = getMemberReading(a.member.name).localeCompare(getMemberReading(b.member.name), 'ja');
+      if (reading !== 0) return reading;
+      return a.index - b.index;
+    })
+    .map(({ member }) => member);
 }
 
 export function sortBySoldOut(members: MemberSoldOutInfo[]): MemberSoldOutInfo[] {

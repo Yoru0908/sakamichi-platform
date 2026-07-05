@@ -13,7 +13,6 @@ export const zh = {
   'nav.tools': '更多工具',
   'nav.tools.photocard': '生写生成器',
   'nav.tools.msg_generator': 'MSG样式生成器',
-  'nav.tools.subtitle_bg': '字幕底图制作',
   'nav.tools.subtitle_merge': '字幕导出',
   'nav.tools.srt_fixer': 'SRT时间轴修复',
   'nav.tools.fad_effect': 'FAD特效',
