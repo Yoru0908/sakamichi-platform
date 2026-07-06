@@ -1,0 +1,46 @@
+name = "sakamichi-miguri"
+main = "src/index.ts"
+compatibility_date = "2024-05-01"
+
+[vars]
+CORS_ORIGIN = "https://46log.com,https://sakamichi-tools.cn,https://test.sakamichi-tools.cn,https://sakamichi-platform-test.pages.dev"
+MIGURI_WEIBO_ENABLED = "true"
+MIGURI_WEIBO_WEBHOOK_URL = "https://blog-push.46log.com/webhook/weibo-publish"
+# Secrets (wrangler secret put): JWT_SECRET, MIGURI_SYNC_SECRET,
+# GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET,
+# MIGURI_ALERT_WEBHOOK_URL, MIGURI_ALERT_WEBHOOK_SECRET,
+# NAPCAT_NOTIFY_GROUPS, MIGURI_NEW_WINDOW_NOTIFY_GROUPS
+# (optional: NAPCAT_NOTIFY_URL, NAPCAT_NOTIFY_TOKEN, MIGURI_WEIBO_WEBHOOK_SECRET)
+
+# auth D1 (users / followed members / google calendar connections) — shared with sakamichi-auth
+[[d1_databases]]
+binding = "DB"
+database_name = "sakamichi-auth"
+database_id = "3fb05a7a-13bc-4f0c-8e30-31ac07eff235"
+
+# miguri D1 (events / windows / slots / entries / soldout)
+[[d1_databases]]
+binding = "MIGURI_DB"
+database_name = "miguri"
+database_id = "969491b9-4960-4e5a-ab2d-37fa8e457b67"
+
+# Routes: more-specific patterns win over sakamichi-auth's /api/manage/*
+[[routes]]
+pattern = "api.46log.com/api/miguri/*"
+zone_name = "46log.com"
+
+[[routes]]
+pattern = "api.46log.com/api/manage/miguri/*"
+zone_name = "46log.com"
+
+[[routes]]
+pattern = "api.sakamichi-tools.cn/api/miguri/*"
+zone_name = "sakamichi-tools.cn"
+
+[[routes]]
+pattern = "api.sakamichi-tools.cn/api/manage/miguri/*"
+zone_name = "sakamichi-tools.cn"
+
+# No [triggers] — auto-sync is fired by Homeserver cron (account cron limit reached):
+#   POST https://api.46log.com/api/manage/miguri/sync-from-source
+#   header: x-miguri-sync-secret: $MIGURI_SYNC_SECRET

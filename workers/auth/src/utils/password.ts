@@ -9,8 +9,8 @@ const ITERATIONS = 100_000;
 const KEY_LENGTH = 32; // 256 bits
 const SALT_LENGTH = 16; // 128 bits
 
-function toHex(buf: ArrayBuffer): string {
-  return Array.from(new Uint8Array(buf))
+function toHex(buf: ArrayBuffer | Uint8Array): string {
+  return Array.from(buf instanceof Uint8Array ? buf : new Uint8Array(buf))
     .map((b) => b.toString(16).padStart(2, '0'))
     .join('');
 }

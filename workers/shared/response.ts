@@ -1,4 +1,9 @@
-import type { Env } from '../types.ts';
+// Shared HTTP response / CORS utils for all sakamichi workers.
+// Env requirement: { CORS_ORIGIN: string } (comma-separated origins)
+
+interface CorsEnv {
+  CORS_ORIGIN: string;
+}
 
 export function json(data: unknown, status = 200, headers: Record<string, string> = {}): Response {
   return new Response(JSON.stringify(data), {
@@ -51,7 +56,7 @@ function isAllowedOrigin(origin: string, allowed: string[]): boolean {
 }
 
 /** Add CORS headers (supports multiple origins via CORS_ORIGIN comma-separated) */
-export function withCors(res: Response, env: Env, requestOrigin?: string | null): Response {
+export function withCors(res: Response, env: CorsEnv, requestOrigin?: string | null): Response {
   const allowed = env.CORS_ORIGIN.split(',').map((s: string) => s.trim());
   const origin = requestOrigin && isAllowedOrigin(requestOrigin, allowed) ? requestOrigin : allowed[0];
 
@@ -59,6 +64,6 @@ export function withCors(res: Response, env: Env, requestOrigin?: string | null)
   headers.set('Access-Control-Allow-Origin', origin);
   headers.set('Access-Control-Allow-Credentials', 'true');
   headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  headers.set('Access-Control-Allow-Headers', 'Content-Type');
+  headers.set('Access-Control-Allow-Headers', 'Content-Type, x-miguri-sync-secret');
   return new Response(res.body, { status: res.status, headers });
 }

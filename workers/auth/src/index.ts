@@ -1,3 +1,7 @@
+// sakamichi-auth Worker — 认证 + 用户 + 付费/邀请码/认证审核 + Ko-fi webhook
+// 2026-07-05 重构：miguri → sakamichi-miguri Worker, community/repo/report → sakamichi-community Worker
+// if/else 链 → 路由表
+
 import type { Env } from './types';
 import { withCors, error } from './utils/response';
 
@@ -30,41 +34,64 @@ import { handleCreateInviteCode, handleListInviteCodes, handleRedeemInviteCode }
 import { handleGetPaymentLinks, handleAddPaymentLink, handleRemovePaymentLink } from './routes/payment-links';
 import { handleListUnmatchedPayments, handleResolveUnmatchedPayment, handleListSubscriptions, handleAdminStats } from './routes/admin-payments';
 import { handleListVerifications, handleResolveVerification, handleRequestVerification } from './routes/admin-verification';
-import {
-  handleListWorks,
-  handleGetWork,
-  handleCreateWork,
-  handleDeleteWork,
-  handleToggleLike,
-  handleMyWorks,
-  handleUserWorks,
-  handleToggleBookmark,
-  handleMyBookmarks,
-  handleToggleStamp,
-} from './routes/community';
-import {
-  handleListRepoWorks,
-  handleCreateRepoWork,
-  handleUpdateRepoWork,
-  handleDeleteRepoWork,
-  handleRepoReact,
-  handleMyRepoWorks,
-  handleGetRepoWork,
-  handleGetRepoStats,
-} from './routes/repo';
-import { handleSubmitReport, handleListReports, handleUpdateReport } from './routes/report';
-import {
-  handleGetMiguriEvents,
-  handleCreateMiguriEntries,
-  handleUpdateMiguriEntry,
-  handleDeleteMiguriEntry,
-  handleGetMiguriCalendarIcs,
-  handleGetMiguriGoogleCalendarUrl,
-  handleGetMiguriSoldOut,
-  handleGetMiguriLottery,
-} from './routes/miguri';
-import { handleMiguriSync, handleMiguriSoldOutImport, syncMiguriFromSource } from './routes/manage-miguri';
-import { handleDisconnectGoogleCalendar } from './routes/google-calendar';
+
+type Handler = (req: Request, env: Env) => Promise<Response>;
+
+/** Exact-path routes: "METHOD /path" */
+const routes: Record<string, Handler> = {
+  // ── Auth ──
+  'POST /api/auth/register': handleRegister,
+  'POST /api/auth/login': handleLogin,
+  'POST /api/auth/logout': handleLogout,
+  'GET /api/auth/me': handleMe,
+  'POST /api/auth/refresh': handleRefresh,
+  'GET /api/auth/verify': handleVerify,
+  'POST /api/auth/redeem-invite': handleRedeemInviteCode,
+  'GET /api/auth/geo-check': async (req) => {
+    const country = (req as any).cf?.country || '';
+    return new Response(JSON.stringify({ country }), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  },
+
+  // ── OAuth ──
+  'GET /api/auth/discord': handleDiscordRedirect,
+  'GET /api/auth/callback/discord': handleDiscordCallback,
+  'GET /api/auth/google': handleGoogleRedirect,
+  'GET /api/auth/google/calendar': handleGoogleCalendarConnectRedirect,
+  'GET /api/auth/callback/google': handleGoogleCallback,
+
+  // ── User profile / preferences ──
+  'GET /api/user/profile': handleGetProfile,
+  'PUT /api/user/profile': handleUpdateProfile,
+  'GET /api/user/preferences': handleGetPreferences,
+  'PUT /api/user/preferences': handleUpdatePreferences,
+  'GET /api/user/favorites': handleGetFavorites,
+  'PUT /api/user/favorites': handleUpdateFavorites,
+  'PUT /api/user/password': handleChangePassword,
+  'GET /api/user/bookmarks': handleGetBookmarks,
+  'POST /api/user/bookmarks': handleAddBookmark,
+  'DELETE /api/user/bookmarks': handleRemoveBookmark,
+  'POST /api/user/request-verification': handleRequestVerification,
+
+  // ── Payment links ──
+  'GET /api/user/payment-links': handleGetPaymentLinks,
+  'POST /api/user/payment-links': handleAddPaymentLink,
+  'DELETE /api/user/payment-links': handleRemovePaymentLink,
+
+  // ── Webhook (token-verified) ──
+  'POST /api/webhook/kofi': handleKofiWebhook,
+
+  // ── Admin (/api/manage/ to avoid WAF blocking "admin" paths) ──
+  'POST /api/manage/invite-codes': handleCreateInviteCode,
+  'GET /api/manage/invite-codes': handleListInviteCodes,
+  'GET /api/manage/unmatched-payments': handleListUnmatchedPayments,
+  'POST /api/manage/unmatched-payments/resolve': handleResolveUnmatchedPayment,
+  'GET /api/manage/subscriptions': handleListSubscriptions,
+  'GET /api/manage/stats': handleAdminStats,
+  'GET /api/manage/verifications': handleListVerifications,
+  'POST /api/manage/verifications/resolve': handleResolveVerification,
+};
 
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
@@ -79,196 +106,9 @@ export default {
     }
 
     let res: Response;
-
     try {
-      // ── Auth routes ──
-      if (path === '/api/auth/register' && method === 'POST') {
-        res = await handleRegister(req, env);
-      } else if (path === '/api/auth/login' && method === 'POST') {
-        res = await handleLogin(req, env);
-      } else if (path === '/api/auth/logout' && method === 'POST') {
-        res = await handleLogout(req, env);
-      } else if (path === '/api/auth/me' && method === 'GET') {
-        res = await handleMe(req, env);
-      } else if (path === '/api/auth/refresh' && method === 'POST') {
-        res = await handleRefresh(req, env);
-      } else if (path === '/api/auth/verify' && method === 'GET') {
-        res = await handleVerify(req, env);
-
-      // ── Geo check (no auth, returns visitor country) ──
-      } else if (path === '/api/auth/geo-check' && method === 'GET') {
-        const country = (req as any).cf?.country || '';
-        res = new Response(JSON.stringify({ country }), {
-          headers: { 'Content-Type': 'application/json' },
-        });
-
-      // ── OAuth routes ──
-      } else if (path === '/api/auth/discord' && method === 'GET') {
-        res = await handleDiscordRedirect(req, env);
-      } else if (path === '/api/auth/callback/discord' && method === 'GET') {
-        res = await handleDiscordCallback(req, env);
-      } else if (path === '/api/auth/google' && method === 'GET') {
-        res = await handleGoogleRedirect(req, env);
-      } else if (path === '/api/auth/google/calendar' && method === 'GET') {
-        res = await handleGoogleCalendarConnectRedirect(req, env);
-      } else if (path === '/api/auth/callback/google' && method === 'GET') {
-        res = await handleGoogleCallback(req, env);
-
-      // ── User profile routes ──
-      } else if (path === '/api/user/profile' && method === 'GET') {
-        res = await handleGetProfile(req, env);
-      } else if (path === '/api/user/profile' && method === 'PUT') {
-        res = await handleUpdateProfile(req, env);
-
-      // ── User preference routes ──
-      } else if (path === '/api/user/preferences' && method === 'GET') {
-        res = await handleGetPreferences(req, env);
-      } else if (path === '/api/user/preferences' && method === 'PUT') {
-        res = await handleUpdatePreferences(req, env);
-      } else if (path === '/api/user/favorites' && method === 'GET') {
-        res = await handleGetFavorites(req, env);
-      } else if (path === '/api/user/favorites' && method === 'PUT') {
-        res = await handleUpdateFavorites(req, env);
-      } else if (path === '/api/user/password' && method === 'PUT') {
-        res = await handleChangePassword(req, env);
-
-      // ── Episode bookmark routes ──
-      } else if (path === '/api/user/bookmarks' && method === 'GET') {
-        res = await handleGetBookmarks(req, env);
-      } else if (path === '/api/user/bookmarks' && method === 'POST') {
-        res = await handleAddBookmark(req, env);
-      } else if (path === '/api/user/bookmarks' && method === 'DELETE') {
-        res = await handleRemoveBookmark(req, env);
-
-      // ── Webhook routes (no auth required, token-verified) ──
-      } else if (path === '/api/webhook/kofi' && method === 'POST') {
-        res = await handleKofiWebhook(req, env);
-
-      // ── Invite code routes ──
-      } else if (path === '/api/auth/redeem-invite' && method === 'POST') {
-        res = await handleRedeemInviteCode(req, env);
-
-      // ── User payment link routes ──
-      } else if (path === '/api/user/payment-links' && method === 'GET') {
-        res = await handleGetPaymentLinks(req, env);
-      } else if (path === '/api/user/payment-links' && method === 'POST') {
-        res = await handleAddPaymentLink(req, env);
-      } else if (path === '/api/user/payment-links' && method === 'DELETE') {
-        res = await handleRemovePaymentLink(req, env);
-
-      // ── Admin routes (use /api/manage/ to avoid WAF blocking "admin" paths) ──
-      } else if (path === '/api/manage/invite-codes' && method === 'POST') {
-        res = await handleCreateInviteCode(req, env);
-      } else if (path === '/api/manage/invite-codes' && method === 'GET') {
-        res = await handleListInviteCodes(req, env);
-      } else if (path === '/api/manage/unmatched-payments' && method === 'GET') {
-        res = await handleListUnmatchedPayments(req, env);
-      } else if (path === '/api/manage/unmatched-payments/resolve' && method === 'POST') {
-        res = await handleResolveUnmatchedPayment(req, env);
-      } else if (path === '/api/manage/subscriptions' && method === 'GET') {
-        res = await handleListSubscriptions(req, env);
-      } else if (path === '/api/manage/stats' && method === 'GET') {
-        res = await handleAdminStats(req, env);
-      } else if (path === '/api/manage/verifications' && method === 'GET') {
-        res = await handleListVerifications(req, env);
-      } else if (path === '/api/manage/verifications/resolve' && method === 'POST') {
-        res = await handleResolveVerification(req, env);
-      } else if (path === '/api/manage/miguri/sync' && method === 'POST') {
-        res = await handleMiguriSync(req, env);
-      } else if (path === '/api/miguri/soldout-import' && method === 'POST') {
-        res = await handleMiguriSoldOutImport(req, env);
-
-      // ── User verification request ──
-      } else if (path === '/api/user/request-verification' && method === 'POST') {
-        res = await handleRequestVerification(req, env);
-      } else if (path === '/api/miguri/events' && method === 'GET') {
-        res = await handleGetMiguriEvents(req, env);
-      } else if (path === '/api/miguri/entries' && method === 'POST') {
-        res = await handleCreateMiguriEntries(req, env);
-      } else if (path.startsWith('/api/miguri/entries/') && method === 'PUT') {
-        const entryId = path.slice('/api/miguri/entries/'.length);
-        res = await handleUpdateMiguriEntry(req, env, entryId);
-      } else if (path.startsWith('/api/miguri/entries/') && method === 'DELETE') {
-        const entryId = path.slice('/api/miguri/entries/'.length);
-        res = await handleDeleteMiguriEntry(req, env, entryId);
-      } else if (path === '/api/miguri/calendar.ics' && method === 'GET') {
-        res = await handleGetMiguriCalendarIcs(req, env);
-      } else if (path === '/api/miguri/calendar/google-url' && method === 'GET') {
-        res = await handleGetMiguriGoogleCalendarUrl(req, env);
-      } else if (path === '/api/miguri/soldout' && method === 'GET') {
-        res = await handleGetMiguriSoldOut(req, env);
-      } else if (path === '/api/miguri/lottery' && method === 'GET') {
-        res = await handleGetMiguriLottery(req);
-      } else if (path === '/api/miguri/calendar/google-disconnect' && method === 'POST') {
-        res = await handleDisconnectGoogleCalendar(req, env);
-      }
-
-      // ── Community routes ──
-      else if (path === '/api/community/works' && method === 'GET') {
-        res = await handleListWorks(req, env);
-
-      // ── Community routes ──
-      } else if (path === '/api/community/works' && method === 'GET') {
-        res = await handleListWorks(req, env);
-      } else if (path === '/api/community/works' && method === 'POST') {
-        res = await handleCreateWork(req, env);
-      } else if (path === '/api/community/my-works' && method === 'GET') {
-        res = await handleMyWorks(req, env);
-      } else if (path.startsWith('/api/community/users/') && path.endsWith('/works') && method === 'GET') {
-        const userId = path.slice('/api/community/users/'.length, -'/works'.length);
-        res = await handleUserWorks(req, env, userId);
-      } else if (path.startsWith('/api/community/works/') && path.endsWith('/like') && method === 'POST') {
-        const workId = path.slice('/api/community/works/'.length, -'/like'.length);
-        res = await handleToggleLike(req, env, workId);
-      } else if (path.startsWith('/api/community/works/') && path.endsWith('/bookmark') && method === 'POST') {
-        const workId = path.slice('/api/community/works/'.length, -'/bookmark'.length);
-        res = await handleToggleBookmark(req, env, workId);
-      } else if (path === '/api/community/my-bookmarks' && method === 'GET') {
-        res = await handleMyBookmarks(req, env);
-      } else if (path.startsWith('/api/community/works/') && method === 'GET') {
-        const workId = path.slice('/api/community/works/'.length);
-        res = await handleGetWork(req, env, workId);
-      } else if (path.startsWith('/api/community/works/') && method === 'DELETE') {
-        const workId = path.slice('/api/community/works/'.length);
-        res = await handleDeleteWork(req, env, workId);
-      } else if (path.startsWith('/api/community/works/') && path.endsWith('/stamp') && method === 'POST') {
-        const workId = path.slice('/api/community/works/'.length, -'/stamp'.length);
-        res = await handleToggleStamp(req, env, workId);
-
-      // ── Reports ──
-      } else if (path === '/api/report' && method === 'POST') {
-        res = await handleSubmitReport(req, env);
-      } else if (path === '/api/manage/reports' && method === 'GET') {
-        res = await handleListReports(req, env);
-      } else if (path.startsWith('/api/manage/reports/') && method === 'PATCH') {
-        const reportId = path.slice('/api/manage/reports/'.length);
-        res = await handleUpdateReport(req, env, reportId);
-
-      // ── Repo community routes ──
-      } else if (path === '/api/repo/works' && method === 'GET') {
-        res = await handleListRepoWorks(req, env);
-      } else if (path === '/api/repo/stats' && method === 'GET') {
-        res = await handleGetRepoStats(req, env);
-      } else if (path === '/api/repo/works' && method === 'POST') {
-        res = await handleCreateRepoWork(req, env);
-      } else if (path === '/api/repo/my-works' && method === 'GET') {
-        res = await handleMyRepoWorks(req, env);
-      } else if (path.startsWith('/api/repo/works/') && path.endsWith('/react') && method === 'POST') {
-        const workId = path.slice('/api/repo/works/'.length, -'/react'.length);
-        res = await handleRepoReact(req, env, workId);
-      } else if (path.startsWith('/api/repo/works/') && method === 'PUT') {
-        const workId = path.slice('/api/repo/works/'.length);
-        res = await handleUpdateRepoWork(req, env, workId);
-      } else if (path.startsWith('/api/repo/works/') && method === 'GET') {
-        const workId = path.slice('/api/repo/works/'.length);
-        res = await handleGetRepoWork(req, env, workId);
-      } else if (path.startsWith('/api/repo/works/') && method === 'DELETE') {
-        const workId = path.slice('/api/repo/works/'.length);
-        res = await handleDeleteRepoWork(req, env, workId);
-
-      } else {
-        res = error('Not found', 404);
-      }
+      const handler = routes[`${method} ${path}`];
+      res = handler ? await handler(req, env) : error('Not found', 404);
     } catch (e) {
       console.error('[Auth Worker] Error:', e);
       res = error('Internal server error', 500);
@@ -324,11 +164,7 @@ export default {
     `).run();
     console.log(`[Cron] Cleaned ${cleanSubs.meta.changes} old subscriptions`);
 
-    try {
-      const miguriResult = await syncMiguriFromSource(env);
-      console.log(`[Cron] Miguri synced ${miguriResult.eventCount} events (${miguriResult.slotCount} slots, ${miguriResult.slotMemberCount} slot members)`);
-    } catch (err) {
-      console.error('[Cron] Miguri sync failed:', err);
-    }
+    // Miguri auto-sync moved to sakamichi-miguri Worker,
+    // triggered by Homeserver cron via POST /api/manage/miguri/sync-from-source
   },
 };
