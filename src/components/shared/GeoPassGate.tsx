@@ -176,7 +176,7 @@ export default function GeoPassGate() {
                   </div>
                 </div>
                 <a
-                  href="https://discord.gg/n8F7Eq4vyD"
+                  href="https://discord.gg/Ddp8As4JA"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] hover:border-indigo-400 transition-colors"
@@ -188,7 +188,7 @@ export default function GeoPassGate() {
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium text-[var(--text-primary)]">Discord</p>
-                    <p className="text-[10px] text-[var(--text-tertiary)]">discord.gg/n8F7Eq4vyD</p>
+                    <p className="text-[10px] text-[var(--text-tertiary)]">discord.gg/Ddp8As4JA</p>
                   </div>
                 </a>
               </div>

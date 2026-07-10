@@ -5,9 +5,13 @@ compatibility_date = "2024-05-01"
 [vars]
 CORS_ORIGIN = "https://46log.com,https://sakamichi-tools.cn,https://test.sakamichi-tools.cn,https://sakamichi-platform-test.pages.dev"
 EMAIL_FROM = "noreply@sakamichi-tools.cn"
-ALIST_URL = "https://gallery.46log.com"
-# JWT_SECRET, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, etc.
-# are set via `wrangler secret put <KEY>`
+DISCORD_INVITE_URL = "https://discord.gg/Ddp8As4JA"
+# JWT_SECRET, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, DISCORD_BOT_TOKEN, etc.
+# are set via `wrangler secret put <KEY>`.
+# Discord role sync also requires:
+# DISCORD_GUILD_ID, DISCORD_ROLE_NOGIZAKA, DISCORD_ROLE_SAKURAZAKA,
+# DISCORD_ROLE_HINATAZAKA. These IDs are not sensitive, but keeping them in
+# Worker secrets avoids publishing server internals in git.
 
 [[d1_databases]]
 binding = "DB"
@@ -18,6 +22,8 @@ database_id = "3fb05a7a-13bc-4f0c-8e30-31ac07eff235"
 binding = "MIGURI_DB"
 database_name = "miguri"
 database_id = "969491b9-4960-4e5a-ab2d-37fa8e457b67"
+# TODO: remove this binding after Miguri Google Calendar OAuth is moved off
+# /api/auth/callback/google to a miguri-owned redirect URI.
 
 # Routes: auth Worker owns auth/user/manage(付费/邀请码/认证)/webhook 前缀。
 # 2026-07-05 拆分：/api/miguri/* + /api/manage/miguri/* → sakamichi-miguri,

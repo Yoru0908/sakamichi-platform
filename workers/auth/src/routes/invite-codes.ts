@@ -1,6 +1,7 @@
 import type { Env, UserRow } from '../types';
 import { verifyAccessToken } from '../utils/jwt';
 import { error, success } from '../utils/response';
+import { syncDiscordRolesForUser } from '../utils/discord-bot';
 
 function getCookie(req: Request, name: string): string | null {
   const h = req.headers.get('Cookie');
@@ -125,6 +126,12 @@ export async function handleRedeemInviteCode(req: Request, env: Env): Promise<Re
      updated_at = datetime('now')
      WHERE id = ?`
   ).bind(user.id).run();
+
+  try {
+    await syncDiscordRolesForUser(env, user.id);
+  } catch (err) {
+    console.error(`[Invite] Discord role sync failed for user ${user.id}:`, err);
+  }
 
   return success({ data: { message: 'Invite code redeemed', plan: invite.plan, expiresAt } });
 }

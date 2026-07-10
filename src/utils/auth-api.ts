@@ -417,9 +417,11 @@ export async function verifyEmail(token: string): Promise<ApiResponse> {
 
 // ── OAuth ──
 
-export function getOAuthUrl(provider: 'discord' | 'google' | 'twitter'): string {
+export function getOAuthUrl(provider: 'discord' | 'google' | 'twitter', options: { returnTo?: string } = {}): string {
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
-  return `${AUTH_BASE}/${provider}?origin=${encodeURIComponent(origin)}`;
+  const params = new URLSearchParams({ origin });
+  if (options.returnTo) params.set('returnTo', options.returnTo);
+  return `${AUTH_BASE}/${provider}?${params.toString()}`;
 }
 
 // ── User Profile ──
@@ -455,6 +457,19 @@ export interface UserProfile {
   lastLoginAt: string | null;
 }
 
+export interface DiscordMembershipStatus {
+  configured: boolean;
+  linked: boolean;
+  discordUserId: string | null;
+  inviteUrl: string;
+  activePlans: string[];
+  targetRoleIds: string[];
+  appliedRoleIds: string[];
+  removedRoleIds: string[];
+  errors: string[];
+  inGuild: boolean | null;
+}
+
 export async function getProfile(): Promise<ApiResponse<UserProfile>> {
   return userFetch<UserProfile>('/profile');
 }
@@ -466,6 +481,14 @@ export async function updateProfile(
     method: 'PUT',
     body: JSON.stringify(data),
   });
+}
+
+export async function getDiscordMembershipStatus(): Promise<ApiResponse<DiscordMembershipStatus>> {
+  return userFetch<DiscordMembershipStatus>('/discord/status');
+}
+
+export async function syncDiscordMembershipRoles(): Promise<ApiResponse<DiscordMembershipStatus>> {
+  return userFetch<DiscordMembershipStatus>('/discord/sync', { method: 'POST' });
 }
 
 // ── Password Change ──

@@ -1,6 +1,10 @@
 # 生写生成社区 — 详细设计规划
 
 > 最后更新: 2026-03-27
+> 历史方案说明: 本文记录 MVP 设计。当时建议把 `/api/community/*` 放进 `sakamichi-auth`。
+> 2026-07-06 Worker 拆分后，当前生产架构已改为 `sakamichi-community`
+> 接管 `/api/community/*`、`/api/repo/*`、`/api/report`、`/api/manage/reports*`，
+> 继续共用 D1 `sakamichi-auth` 的 community/repo/report 表。
 
 ---
 

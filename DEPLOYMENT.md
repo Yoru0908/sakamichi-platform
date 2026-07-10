@@ -48,6 +48,57 @@ wrangler login
 wrangler pages deploy dist
 ```
 
+## Cloudflare Workers
+
+平台 API 由三个 Worker 按路由分流：
+
+| Worker | 路由 |
+|--------|------|
+| `sakamichi-auth` | `/api/auth/*`, `/api/user/*`, `/api/manage/*`, `/api/webhook/*` |
+| `sakamichi-miguri` | `/api/miguri/*`, `/api/manage/miguri/*` |
+| `sakamichi-community` | `/api/community/*`, `/api/repo/*`, `/api/report`, `/api/manage/reports*` |
+
+部署前检查：
+
+```bash
+npm run workers:typecheck
+```
+
+部署：
+
+```bash
+(cd workers/auth && npx wrangler deploy)
+(cd workers/miguri && npx wrangler deploy)
+(cd workers/community && npx wrangler deploy)
+```
+
+部署后验证双域名分流：
+
+```bash
+npm run workers:smoke
+```
+
+### Auth Worker Discord 会员联动
+
+`sakamichi-auth` 负责 Discord OAuth 绑定和付费身份组同步：
+
+- `GET /api/user/discord/status`：读取当前用户 Discord 绑定/订阅/配置状态。
+- `POST /api/user/discord/sync`：按 D1 `user_subscriptions` 重算 Discord 付费 role。
+- Ko-fi webhook、邀请码兑换、管理员手动认领付款成功后会自动触发同步。
+- Auth Worker 每日维护 cron 过期订阅后，会对受影响用户重新同步 Discord role。
+
+需要在 `workers/auth` 配置以下 Worker secrets：
+
+```bash
+npx wrangler secret put DISCORD_BOT_TOKEN
+npx wrangler secret put DISCORD_GUILD_ID
+npx wrangler secret put DISCORD_ROLE_NOGIZAKA
+npx wrangler secret put DISCORD_ROLE_SAKURAZAKA
+npx wrangler secret put DISCORD_ROLE_HINATAZAKA
+```
+
+Bot 必须在 Discord 服务器内，并拥有 Manage Roles 权限；Bot 自身最高身份组必须高于三个付费身份组。
+
 ## 环境变量配置
 
 在 Cloudflare Pages 设置中添加环境变量：

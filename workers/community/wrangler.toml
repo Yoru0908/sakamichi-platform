@@ -35,5 +35,13 @@ pattern = "api.sakamichi-tools.cn/api/community/*"
 zone_name = "sakamichi-tools.cn"
 
 [[routes]]
+pattern = "api.sakamichi-tools.cn/api/repo/*"
+zone_name = "sakamichi-tools.cn"
+
+[[routes]]
+pattern = "api.sakamichi-tools.cn/api/report"
+zone_name = "sakamichi-tools.cn"
+
+[[routes]]
 pattern = "api.sakamichi-tools.cn/api/manage/reports*"
 zone_name = "sakamichi-tools.cn"

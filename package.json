@@ -10,6 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "workers:typecheck": "npm --prefix workers/auth run typecheck && npm --prefix workers/community run typecheck && npm --prefix workers/miguri run typecheck",
+    "workers:smoke": "node ./scripts/smoke-workers.mjs",
     "miguri:sync": "node ./scripts/sync-miguri.mjs",
     "miguri:sync:dry": "node ./scripts/sync-miguri.mjs --dry-run"
   },

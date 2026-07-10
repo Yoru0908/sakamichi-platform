@@ -13,9 +13,45 @@ function getSiteUrl(env: Env): string {
 
 // ── Discord OAuth ──
 
+type DiscordAuthState = {
+  origin: string;
+  action: 'login' | 'link';
+  returnTo: string;
+};
+
+function buildDiscordAuthState(state: DiscordAuthState): string {
+  return encodeURIComponent(JSON.stringify(state));
+}
+
+function parseDiscordAuthState(rawState: string | null): DiscordAuthState {
+  const decoded = decodeURIComponent(rawState || '');
+  if (!decoded) return { origin: '', action: 'login', returnTo: '/' };
+  if (/^https?:\/\//.test(decoded)) {
+    return { origin: decoded, action: 'login', returnTo: '/' };
+  }
+
+  try {
+    const parsed = JSON.parse(decoded) as Partial<DiscordAuthState>;
+    return {
+      origin: typeof parsed.origin === 'string' ? parsed.origin : '',
+      action: parsed.action === 'link' ? 'link' : 'login',
+      returnTo: typeof parsed.returnTo === 'string' && parsed.returnTo.startsWith('/') ? parsed.returnTo : '/',
+    };
+  } catch {
+    return { origin: decoded, action: 'login', returnTo: '/' };
+  }
+}
+
 export async function handleDiscordRedirect(req: Request, env: Env): Promise<Response> {
-  const origin = new URL(req.url).searchParams.get('origin') || getSiteUrl(env);
-  const state = encodeURIComponent(origin);
+  const url = new URL(req.url);
+  const origin = url.searchParams.get('origin') || getSiteUrl(env);
+  const returnTo = url.searchParams.get('returnTo') || '/user';
+  const auth = await getAuthUser(req, env);
+  const state = buildDiscordAuthState({
+    origin,
+    action: auth?.userId ? 'link' : 'login',
+    returnTo,
+  });
   const params = new URLSearchParams({
     client_id: env.DISCORD_CLIENT_ID,
     redirect_uri: env.DISCORD_REDIRECT_URI,
@@ -29,8 +65,8 @@ export async function handleDiscordRedirect(req: Request, env: Env): Promise<Res
 export async function handleDiscordCallback(req: Request, env: Env): Promise<Response> {
   const url = new URL(req.url);
   const code = url.searchParams.get('code');
-  const originFromState = decodeURIComponent(url.searchParams.get('state') || '');
-  const redirectBase = validateOrigin(originFromState, env) || getSiteUrl(env);
+  const authState = parseDiscordAuthState(url.searchParams.get('state'));
+  const redirectBase = validateOrigin(authState.origin, env) || getSiteUrl(env);
   if (!code) return Response.redirect(`${redirectBase}/auth/login?error=missing_code`, 302);
 
   // Exchange code for token
@@ -60,6 +96,39 @@ export async function handleDiscordCallback(req: Request, env: Env): Promise<Res
   const discordUser = await userRes.json() as {
     id: string; username: string; email?: string; avatar?: string;
   };
+
+  if (authState.action === 'link') {
+    const auth = await getAuthUser(req, env);
+    if (!auth?.userId) {
+      return Response.redirect(`${redirectBase}/auth/login?error=discord_link_login_required`, 302);
+    }
+
+    const existing = await env.DB.prepare(
+      "SELECT user_id FROM user_oauth WHERE provider = 'discord' AND provider_id = ?",
+    ).bind(discordUser.id).first<{ user_id: string }>();
+
+    if (existing && existing.user_id !== auth.userId) {
+      return Response.redirect(`${redirectBase}${authState.returnTo}?discord=already_linked`, 302);
+    }
+
+    await env.DB.prepare(
+      "DELETE FROM user_oauth WHERE provider = 'discord' AND user_id = ?",
+    ).bind(auth.userId).run();
+
+    await env.DB.prepare(
+      `INSERT INTO user_oauth (id, user_id, provider, provider_id, provider_email, provider_name, provider_avatar)
+       VALUES (?, ?, 'discord', ?, ?, ?, ?)`,
+    ).bind(
+      crypto.randomUUID(),
+      auth.userId,
+      discordUser.id,
+      discordUser.email || `${discordUser.id}@discord.user`,
+      discordUser.username,
+      discordUser.avatar ? `https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png` : null,
+    ).run();
+
+    return Response.redirect(`${redirectBase}${authState.returnTo}?discord=linked`, 302);
+  }
 
   return await handleOAuthUser(req, env, {
     provider: 'discord',

@@ -1,31 +1,25 @@
 export interface Env {
   DB: D1Database;
+  /** Kept while Google Calendar OAuth callback still syncs Miguri entries. */
   MIGURI_DB: D1Database;
   JWT_SECRET: string;
-  MIGURI_SYNC_SECRET: string;
   CORS_ORIGIN: string;
   EMAIL_FROM: string;
   DISCORD_CLIENT_ID: string;
   DISCORD_CLIENT_SECRET: string;
   DISCORD_REDIRECT_URI: string;
+  DISCORD_BOT_TOKEN?: string;
+  DISCORD_GUILD_ID?: string;
+  DISCORD_ROLE_NOGIZAKA?: string;
+  DISCORD_ROLE_SAKURAZAKA?: string;
+  DISCORD_ROLE_HINATAZAKA?: string;
+  DISCORD_INVITE_URL?: string;
   GOOGLE_CLIENT_ID: string;
   GOOGLE_CLIENT_SECRET: string;
   GOOGLE_REDIRECT_URI: string;
   RESEND_API_KEY: string;
   GEO_PASS_SECRET: string;
   KOFI_VERIFICATION_TOKEN: string;
-  MIGURI_ALERT_WEBHOOK_URL?: string;
-  MIGURI_ALERT_WEBHOOK_SECRET?: string;
-  ALIST_USER: string;
-  ALIST_PASS: string;
-  ALIST_URL: string;
-  NAPCAT_NOTIFY_URL?: string;
-  NAPCAT_NOTIFY_TOKEN?: string;
-  NAPCAT_NOTIFY_GROUPS?: string;
-  MIGURI_NEW_WINDOW_NOTIFY_GROUPS?: string;
-  MIGURI_WEIBO_ENABLED?: string;
-  MIGURI_WEIBO_WEBHOOK_URL?: string;
-  MIGURI_WEIBO_WEBHOOK_SECRET?: string;
 }
 
 export interface UserRow {

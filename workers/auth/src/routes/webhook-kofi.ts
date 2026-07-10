@@ -1,4 +1,5 @@
 import type { Env, UserRow } from '../types';
+import { syncDiscordRolesForUser } from '../utils/discord-bot';
 
 interface KofiWebhookPayload {
   verification_token: string;
@@ -110,6 +111,12 @@ export async function handleKofiWebhook(req: Request, env: Env): Promise<Respons
      updated_at = datetime('now')
      WHERE id = ?`
   ).bind(platformUser.id).run();
+
+  try {
+    await syncDiscordRolesForUser(env, platformUser.id);
+  } catch (err) {
+    console.error(`[Ko-fi] Discord role sync failed for user ${platformUser.id}:`, err);
+  }
 
   console.log(`[Ko-fi] Activated subscription for user ${platformUser.id}, plan=${plan}, tx=${body.kofi_transaction_id}`);
   return new Response('OK', { status: 200 });

@@ -28,6 +28,7 @@ pnpm-debug.log*
 
 # backup dirs
 _backup_*/
+_backup_*.tar.gz
 
 # worker secrets (never commit)
 .dev.vars

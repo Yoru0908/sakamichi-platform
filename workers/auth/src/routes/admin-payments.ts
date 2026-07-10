@@ -1,6 +1,7 @@
 import type { Env, UserRow } from '../types';
 import { verifyAccessToken } from '../utils/jwt';
 import { error, success } from '../utils/response';
+import { syncDiscordRolesForUser } from '../utils/discord-bot';
 
 function getCookie(req: Request, name: string): string | null {
   const h = req.headers.get('Cookie');
@@ -85,6 +86,12 @@ export async function handleResolveUnmatchedPayment(req: Request, env: Env): Pro
      updated_at = datetime('now')
      WHERE id = ?`
   ).bind(body.userId).run();
+
+  try {
+    await syncDiscordRolesForUser(env, body.userId);
+  } catch (err) {
+    console.error(`[Admin Payments] Discord role sync failed for user ${body.userId}:`, err);
+  }
 
   return success({ data: { message: 'Payment resolved and subscription created' } });
 }

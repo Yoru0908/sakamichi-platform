@@ -34,6 +34,8 @@ import { handleCreateInviteCode, handleListInviteCodes, handleRedeemInviteCode }
 import { handleGetPaymentLinks, handleAddPaymentLink, handleRemovePaymentLink } from './routes/payment-links';
 import { handleListUnmatchedPayments, handleResolveUnmatchedPayment, handleListSubscriptions, handleAdminStats } from './routes/admin-payments';
 import { handleListVerifications, handleResolveVerification, handleRequestVerification } from './routes/admin-verification';
+import { handleGetDiscordStatus, handleSyncDiscordRoles } from './routes/discord';
+import { syncDiscordRolesForUser } from './utils/discord-bot';
 
 type Handler = (req: Request, env: Env) => Promise<Response>;
 
@@ -73,6 +75,8 @@ const routes: Record<string, Handler> = {
   'POST /api/user/bookmarks': handleAddBookmark,
   'DELETE /api/user/bookmarks': handleRemoveBookmark,
   'POST /api/user/request-verification': handleRequestVerification,
+  'GET /api/user/discord/status': handleGetDiscordStatus,
+  'POST /api/user/discord/sync': handleSyncDiscordRoles,
 
   // ── Payment links ──
   'GET /api/user/payment-links': handleGetPaymentLinks,
@@ -120,12 +124,26 @@ export default {
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext) {
     console.log('[Cron] Running scheduled maintenance...');
 
+    const expiringUsers = await env.DB.prepare(`
+      SELECT DISTINCT user_id FROM user_subscriptions
+      WHERE status = 'active' AND expires_at IS NOT NULL AND expires_at < datetime('now')
+    `).all<{ user_id: string }>();
+
     // 1. Expire overdue subscriptions
     const expired = await env.DB.prepare(`
       UPDATE user_subscriptions SET status = 'expired', updated_at = datetime('now')
       WHERE status = 'active' AND expires_at IS NOT NULL AND expires_at < datetime('now')
     `).run();
     console.log(`[Cron] Expired ${expired.meta.changes} subscriptions`);
+
+    for (const row of expiringUsers.results || []) {
+      try {
+        await syncDiscordRolesForUser(env, row.user_id);
+      } catch (err) {
+        console.error(`[Cron] Discord role sync failed for expired user ${row.user_id}:`, err);
+      }
+    }
+    console.log(`[Cron] Discord role sync checked ${expiringUsers.results?.length || 0} expiring users`);
 
     // 2. Downgrade users with no active subscriptions
     const downgraded = await env.DB.prepare(`

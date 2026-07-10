@@ -4,6 +4,7 @@ import {
   User, Star, Heart, Trash2, Edit3, Check, X, Shield,
   Mail, Calendar, Clock, Link2, Search, PenLine, FileImage, Image,
   CreditCard, BadgeCheck, ExternalLink, Plus, AlertCircle, CheckCircle, Loader2,
+  RefreshCw,
 } from 'lucide-react';
 import { $auth, initAuth, setAuth } from '@/stores/auth';
 import {
@@ -12,7 +13,9 @@ import {
 import {
   getProfile, updateProfile, updatePreferences, changePassword,
   addPaymentLink, removePaymentLink, requestVerification, deleteRepoWork, getMyRepoWorks,
+  getDiscordMembershipStatus, getOAuthUrl, syncDiscordMembershipRoles,
   type UserProfile, type OAuthLink, type SubscriptionInfo, type PaymentLinkInfo, type RepoWorkItem,
+  type DiscordMembershipStatus,
 } from '@/utils/auth-api';
 import { getGroupColor, getR2AvatarUrl, getOptimizedAvatarUrl, GROUP_CONFIG, sortedGenEntries, type MemberInfo } from '@/components/messages/msg-styles';
 import { memberImagesToList } from '@/utils/member-images';
@@ -291,6 +294,12 @@ function ProfileTab({ profile }: { profile: UserProfile }) {
       {/* Payment links management */}
       <PaymentLinksSection initialLinks={profile.paymentLinks} />
 
+      {/* Discord membership roles */}
+      <DiscordMembershipSection
+        initialLinked={profile.oauthLinks.some((link) => link.provider === 'discord')}
+        isActive={profile.user.paymentStatus === 'active'}
+      />
+
       {/* OAuth links */}
       <div>
         <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-3">关联账号</h4>
@@ -511,7 +520,7 @@ function VerificationStatusCard({ verificationStatus }: { verificationStatus: st
               className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-medium rounded-lg bg-[#12B7F5]/10 text-[#12B7F5] hover:bg-[#12B7F5]/20 transition-colors cursor-pointer">
               QQ 群: 915448805（点击复制）
             </span>
-            <a href="https://discord.gg/n8F7Eq4vyD" target="_blank" rel="noopener noreferrer"
+            <a href="https://discord.gg/Ddp8As4JA" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] font-medium rounded-lg bg-[#5865F2]/10 text-[#5865F2] hover:bg-[#5865F2]/20 transition-colors">
               Discord
             </a>
@@ -673,6 +682,145 @@ function PaymentLinksSection({ initialLinks }: { initialLinks: PaymentLinkInfo[]
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function DiscordMembershipSection({ initialLinked, isActive }: { initialLinked: boolean; isActive: boolean }) {
+  const [status, setStatus] = useState<DiscordMembershipStatus | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [syncing, setSyncing] = useState(false);
+  const [msg, setMsg] = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    getDiscordMembershipStatus()
+      .then((res) => {
+        if (!cancelled && res.success && res.data) setStatus(res.data);
+      })
+      .catch(() => {
+        if (!cancelled) setMsg({ type: 'err', text: 'Discord 状态加载失败' });
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => { cancelled = true; };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const discordResult = new URLSearchParams(window.location.search).get('discord');
+    if (discordResult === 'linked') {
+      setMsg({ type: 'ok', text: 'Discord 已绑定，可以加入服务器并同步权限' });
+    } else if (discordResult === 'already_linked') {
+      setMsg({ type: 'err', text: '这个 Discord 已绑定到其他账号' });
+    }
+  }, []);
+
+  const linked = status?.linked ?? initialLinked;
+  const inviteUrl = status?.inviteUrl || 'https://discord.gg/Ddp8As4JA';
+  const configured = status?.configured ?? true;
+  const canSync = linked && isActive && configured;
+
+  const handleSync = async () => {
+    setSyncing(true);
+    setMsg(null);
+    const res = await syncDiscordMembershipRoles();
+    setSyncing(false);
+    if (res.success && res.data) {
+      setStatus(res.data);
+      if (!res.data.configured) {
+        setMsg({ type: 'err', text: 'Discord Bot 尚未配置完成' });
+      } else if (!res.data.linked) {
+        setMsg({ type: 'err', text: '请先绑定 Discord 账号' });
+      } else if (res.data.inGuild === false) {
+        setMsg({ type: 'err', text: '请先加入 Discord 服务器，然后再次同步' });
+      } else if (res.data.errors.length > 0) {
+        setMsg({ type: 'err', text: '同步未完全成功，请联系管理员' });
+      } else {
+        setMsg({ type: 'ok', text: res.data.appliedRoleIds.length > 0 ? 'Discord 权限已同步' : '当前没有需要添加的付费身份组' });
+      }
+    } else {
+      setMsg({ type: 'err', text: res.message || res.error || '同步失败' });
+    }
+  };
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <h4 className="text-sm font-semibold text-[var(--text-primary)]">Discord 会员身份组</h4>
+        {loading && <Loader2 size={14} className="animate-spin text-[var(--text-tertiary)]" />}
+      </div>
+
+      <div className="p-4 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] space-y-3">
+        <div className="flex flex-wrap gap-2">
+          <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-medium ${
+            linked ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/25 dark:text-emerald-300' : 'bg-amber-100 text-amber-700 dark:bg-amber-900/25 dark:text-amber-300'
+          }`}>
+            {linked ? <CheckCircle size={11} /> : <AlertCircle size={11} />}
+            {linked ? 'Discord 已绑定' : '未绑定 Discord'}
+          </span>
+          <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-medium ${
+            isActive ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/25 dark:text-emerald-300' : 'bg-[var(--bg-tertiary)] text-[var(--text-tertiary)]'
+          }`}>
+            <CreditCard size={11} />
+            {isActive ? '订阅有效' : '未订阅'}
+          </span>
+          <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-medium ${
+            configured ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/25 dark:text-emerald-300' : 'bg-[var(--bg-tertiary)] text-[var(--text-tertiary)]'
+          }`}>
+            <RefreshCw size={11} />
+            {configured ? '自动同步可用' : '自动同步待配置'}
+          </span>
+        </div>
+
+        <p className="text-[11px] leading-relaxed text-[var(--text-tertiary)]">
+          付费频道通过 Discord 身份组控制。加入服务器后，系统会按当前订阅添加对应的乃木坂、櫻坂、日向坂身份组；订阅过期后只移除付费身份组，不会踢出服务器。
+        </p>
+
+        {msg && (
+          <div className={`text-xs px-3 py-2 rounded-lg ${
+            msg.type === 'ok'
+              ? 'bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400'
+              : 'bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400'
+          }`}>
+            {msg.text}
+          </div>
+        )}
+
+        <div className="flex flex-wrap gap-2">
+          {!linked && (
+            <a
+              href={getOAuthUrl('discord', { returnTo: '/user' })}
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-white rounded-lg transition-colors"
+              style={{ backgroundColor: '#5865F2' }}
+            >
+              <ProviderIcon provider="discord" />
+              绑定 Discord
+            </a>
+          )}
+          <a
+            href={inviteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg border border-[var(--border-primary)] text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)] transition-colors"
+          >
+            <ExternalLink size={13} />
+            加入服务器
+          </a>
+          <button
+            type="button"
+            onClick={handleSync}
+            disabled={!canSync || syncing}
+            className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-white rounded-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ backgroundColor: 'var(--color-brand-nogi)' }}
+            title={!configured ? 'Discord Bot 尚未配置完成' : !canSync ? '需要先绑定 Discord 且拥有有效订阅' : '同步 Discord 权限'}
+          >
+            {syncing ? <Loader2 size={13} className="animate-spin" /> : <RefreshCw size={13} />}
+            同步权限
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
