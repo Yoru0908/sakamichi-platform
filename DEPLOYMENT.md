@@ -99,6 +99,42 @@ npx wrangler secret put DISCORD_ROLE_HINATAZAKA
 
 Bot 必须在 Discord 服务器内，并拥有 Manage Roles 权限；Bot 自身最高身份组必须高于三个付费身份组。
 
+### Discord 频道与推送 Webhook
+
+频道和 webhook 可由平台脚本幂等创建：
+
+```bash
+# 只打印计划，不访问 Discord
+npm run discord:setup:dry
+
+# 创建/复用频道和 webhook，并写出本地 private JSON
+npm run discord:setup -- --apply
+```
+
+`--apply` 需要本地环境中存在：
+
+```bash
+DISCORD_BOT_TOKEN
+DISCORD_GUILD_ID
+DISCORD_ROLE_NOGIZAKA
+DISCORD_ROLE_SAKURAZAKA
+DISCORD_ROLE_HINATAZAKA
+```
+
+脚本会写出两份不进 git 的配置：
+
+| 服务 | 配置文件 | 用途 |
+|------|----------|------|
+| `msg-pusher` | `../MSG推送/config/discord-routes.local.json` | paid 区三团 MSG timeline + 成员频道 webhook |
+| `blog-push` | `../博客自动翻译/自动翻译项目/sakamichi-blog-backend/blog-push-service/discord-webhooks.local.json` | free 区三团 blog + 公告类 content-push webhook |
+
+运行时可用环境变量覆盖路径：
+
+```bash
+MSG_DISCORD_ROUTES_FILE=/home/srzwyuu/msg-pusher/config/discord-routes.local.json
+BLOG_PUSH_DISCORD_CONFIG=/home/srzwyuu/blog-push-service/discord-webhooks.local.json
+```
+
 ## 环境变量配置
 
 在 Cloudflare Pages 设置中添加环境变量：

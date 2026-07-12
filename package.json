@@ -12,6 +12,8 @@
     "astro": "astro",
     "workers:typecheck": "npm --prefix workers/auth run typecheck && npm --prefix workers/community run typecheck && npm --prefix workers/miguri run typecheck",
     "workers:smoke": "node ./scripts/smoke-workers.mjs",
+    "discord:setup": "node ./scripts/setup-discord-channels.mjs",
+    "discord:setup:dry": "node ./scripts/setup-discord-channels.mjs",
     "miguri:sync": "node ./scripts/sync-miguri.mjs",
     "miguri:sync:dry": "node ./scripts/sync-miguri.mjs --dry-run"
   },
