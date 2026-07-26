@@ -117,6 +117,18 @@ npm run workers:smoke
 抓取失败或超过 8 秒时保留其余月份，全部失败才返回错误。公开官网/整团 ICS
 使用 Cloudflare Cache API 按完整订阅 URL 缓存 15 分钟，避免每位订阅者重复请求官网。
 
+### `/schedule` 日程页面
+
+公开页面 `/schedule` 不维护第二份日程数据库。浏览器通过 Pages Function
+`/api/schedule-feed/{nogizaka|sakurazaka|hinatazaka|lottery}` 同源读取上述
+official ICS 和三团 lottery ICS，再在前端解析、合并和分类；Pages Function 与
+浏览器会分别使用 15 分钟 CDN 缓存和 10 分钟 `sessionStorage` 缓存。
+
+页面的订阅按钮不指向 Pages 部署域名，而是直接使用
+`webcal://api.46log.com/api/miguri/calendar/...` 长期地址，因此重新部署前端不会
+使用户已经添加到系统日历的订阅失效。详情中的“订阅该团”默认打开整团订阅，
+总入口同时提供按需 official / lottery 与 complete 两种方案。
+
 ### Auth Worker Discord 会员联动
 
 `sakamichi-auth` 负责 Discord OAuth 绑定和付费身份组同步：

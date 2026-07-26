@@ -11,6 +11,16 @@ export default defineConfig({
     plugins: [tailwindcss()],
     server: {
       proxy: {
+        '/api/schedule-feed': {
+          target: 'https://api.46log.com',
+          changeOrigin: true,
+          rewrite: (path) => {
+            const group = path.split('/').filter(Boolean).pop();
+            return group === 'lottery'
+              ? '/api/miguri/calendar/lottery/all-groups.ics'
+              : `/api/miguri/calendar/official/${group}.ics`;
+          },
+        },
         '/alist-api': {
           target: 'http://192.168.3.11:5244',
           changeOrigin: true,

@@ -34,7 +34,7 @@ export default function MobileDrawer({ currentPath }: Props) {
       {/* Drawer */}
       <div
         className={`fixed bottom-2 right-2 top-14 z-50 w-[min(22rem,calc(100vw-1rem))] overflow-hidden rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] shadow-2xl transition-transform duration-300 ease-out md:hidden ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+          isOpen ? 'translate-x-0' : 'translate-x-[calc(100%+2rem)]'
         }`}
       >
         <button

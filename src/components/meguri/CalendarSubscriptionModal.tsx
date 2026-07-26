@@ -28,7 +28,10 @@ import {
 type Props = {
   show: boolean;
   onClose: () => void;
-  onDownload: () => void;
+  onDownload?: () => void;
+  focusGroup?: MiguriGroupId | null;
+  publicOnly?: boolean;
+  initialMode?: 'custom' | 'complete';
 };
 
 type LoadState = 'idle' | 'loading' | 'ready' | 'guest' | 'error';
@@ -108,7 +111,14 @@ function FeedActions({
   );
 }
 
-export default function CalendarSubscriptionModal({ show, onClose, onDownload }: Props) {
+export default function CalendarSubscriptionModal({
+  show,
+  onClose,
+  onDownload,
+  focusGroup = null,
+  publicOnly = false,
+  initialMode = 'custom',
+}: Props) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const copiedTimerRef = useRef<number | null>(null);
   const [loadState, setLoadState] = useState<LoadState>('idle');
@@ -117,28 +127,38 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
   const [confirmRegenerate, setConfirmRegenerate] = useState(false);
   const [copiedKey, setCopiedKey] = useState('');
   const [message, setMessage] = useState('');
-  const [subscriptionMode, setSubscriptionMode] = useState<'custom' | 'complete'>('custom');
+  const [subscriptionMode, setSubscriptionMode] = useState<'custom' | 'complete'>(initialMode);
+  const visibleGroups = focusGroup ? GROUPS.filter((group) => group.id === focusGroup) : GROUPS;
+  const visibleLotteryFeeds = focusGroup
+    ? LOTTERY_FEEDS.filter((feed) => feed.id === focusGroup)
+    : LOTTERY_FEEDS;
 
   useEffect(() => {
     if (!show) return;
     let mounted = true;
-    setLoadState('loading');
+    setSubscriptionMode(initialMode);
     setMessage('');
     setConfirmRegenerate(false);
 
-    void getMiguriCalendarSubscription().then((res) => {
-      if (!mounted) return;
-      if (res.success && res.data) {
-        setSubscription(res.data);
-        setLoadState('ready');
-      } else if ((res.error || res.message || '').includes('登录')) {
-        setSubscription(null);
-        setLoadState('guest');
-      } else {
-        setLoadState('error');
-        setMessage(res.message || res.error || '私人订阅状态读取失败');
-      }
-    });
+    if (publicOnly) {
+      setLoadState('idle');
+      setSubscription(null);
+    } else {
+      setLoadState('loading');
+      void getMiguriCalendarSubscription().then((res) => {
+        if (!mounted) return;
+        if (res.success && res.data) {
+          setSubscription(res.data);
+          setLoadState('ready');
+        } else if ((res.error || res.message || '').includes('登录')) {
+          setSubscription(null);
+          setLoadState('guest');
+        } else {
+          setLoadState('error');
+          setMessage(res.message || res.error || '私人订阅状态读取失败');
+        }
+      });
+    }
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -153,7 +173,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
       document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', onKeyDown);
     };
-  }, [onClose, show]);
+  }, [initialMode, onClose, publicOnly, show]);
 
   useEffect(() => () => {
     if (copiedTimerRef.current) window.clearTimeout(copiedTimerRef.current);
@@ -216,7 +236,9 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
               <CalendarDays size={20} />
             </span>
             <div>
-              <h2 id="calendar-subscription-title" className="text-base font-bold text-[var(--text-primary)] sm:text-lg">日历订阅</h2>
+              <h2 id="calendar-subscription-title" className="text-base font-bold text-[var(--text-primary)] sm:text-lg">
+                {focusGroup ? `${GROUPS.find((group) => group.id === focusGroup)?.label || ''} 日历订阅` : '日历订阅'}
+              </h2>
               <p className="mt-1 text-xs leading-5 text-[var(--text-tertiary)]">不经过 Google，系统日历会定期从 46log 自动更新。</p>
             </div>
           </div>
@@ -274,7 +296,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
             <p className="mt-2 text-xs leading-5 text-[var(--text-tertiary)]">电视、广播、演出、发行、生日等官网全部日程；和 Meet &amp; Greet 受付分开订阅。</p>
 
             <div className="mt-3 divide-y divide-[var(--border-secondary)] overflow-hidden rounded-2xl border border-[var(--border-primary)]">
-              {GROUPS.map((group) => {
+              {visibleGroups.map((group) => {
                 const urls = getOfficialScheduleCalendarUrls(group.id);
                 return (
                   <div key={group.id} className="flex items-center gap-3 bg-[var(--bg-primary)] px-3 py-3 sm:px-4">
@@ -296,7 +318,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
             </div>
           </section>
 
-          <section aria-labelledby="personal-calendar-title">
+          {!publicOnly && <section aria-labelledby="personal-calendar-title">
             <div className="flex items-center gap-2">
               <ShieldCheck size={17} className="text-emerald-600" />
               <h3 id="personal-calendar-title" className="text-sm font-bold text-[var(--text-primary)]">我的 Miguri</h3>
@@ -378,7 +400,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
                 </div>
               )}
             </div>
-          </section>
+          </section>}
 
           <section aria-labelledby="lottery-calendar-title">
             <div className="flex items-center gap-2">
@@ -389,7 +411,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
             <p className="mt-2 text-xs leading-5 text-[var(--text-tertiary)]">每轮受付开始与截止会自动更新，三团可以分开订阅。</p>
 
             <div className="mt-3 divide-y divide-[var(--border-secondary)] overflow-hidden rounded-2xl border border-[var(--border-primary)]">
-              {LOTTERY_FEEDS.map((feed) => {
+              {visibleLotteryFeeds.map((feed) => {
                 const urls = getMiguriLotteryCalendarUrls(feed.id);
                 return (
                   <div key={feed.id} className="flex items-center gap-3 bg-[var(--bg-primary)] px-3 py-3 sm:px-4">
@@ -411,7 +433,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
             </div>
           </section>
 
-          <section className="flex flex-col gap-3 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-4 sm:flex-row sm:items-center sm:justify-between">
+          {!publicOnly && <section className="flex flex-col gap-3 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-[var(--text-primary)]">只导入一次？</p>
               <p className="mt-1 text-xs leading-5 text-[var(--text-tertiary)]">下载当前私人行程的 .ics 文件；之后不会自动更新。</p>
@@ -424,7 +446,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
             >
               <Download size={15} /> {loadState === 'guest' ? '登录后下载' : '下载 .ics'}
             </button>
-          </section>
+          </section>}
             </>
           )}
 
@@ -438,7 +460,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
               <p className="mt-2 text-xs leading-5 text-[var(--text-tertiary)]">一个订阅同时接收该团官网完整日程和 Meet &amp; Greet 抽选受付，适合不想逐项选择的人。</p>
 
               <div className="mt-3 space-y-3">
-                {GROUPS.map((group) => {
+                {visibleGroups.map((group) => {
                   const urls = getCompleteGroupCalendarUrls(group.id);
                   return (
                     <article

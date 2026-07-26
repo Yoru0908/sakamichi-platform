@@ -1,0 +1,11 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SakamichiSchedule from '@/components/schedule/SakamichiSchedule';
+---
+
+<BaseLayout
+  title="三坂日程 - Sakamichi Tools"
+  description="乃木坂46、櫻坂46、日向坂46的官方日程与 Miguri 抽选节点，支持系统日历订阅。"
+>
+  <SakamichiSchedule client:load />
+</BaseLayout>

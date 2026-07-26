@@ -37,7 +37,7 @@ sakamichi-platform/
 │   ├── layouts/          # BaseLayout / AuthLayout / DashboardLayout
 │   ├── pages/            # 页面路由（见下方功能模块）
 │   ├── components/       # 按功能域组织的组件
-│   │   ├── blog/ messages/ instagram/ radio/ meguri/
+│   │   ├── blog/ messages/ instagram/ radio/ meguri/ schedule/
 │   │   ├── photocard/ repo/ birthday-cards/ video/
 │   │   ├── auth/ user/ admin/ nav/ footer/ home/ ui/ shared/
 │   └── utils/            # 工具函数（member-images 等）
@@ -48,7 +48,7 @@ sakamichi-platform/
 │   ├── geo-auth/         # geo-auth-worker（地理围栏）
 │   └── shared/           # Worker 间共享类型/工具
 ├── functions/            # Cloudflare Pages Functions
-│   └── api/proxy-image.ts
+│   └── api/              # proxy-image + schedule-feed 同源代理
 ├── r2-video-worker/      # R2 视频 Worker
 ├── scripts/              # 运维脚本（Discord 频道配置、Miguri 同步、Worker 冒烟测试）
 ├── public/data/          # 构建期静态数据（member-images.json、birthday-cards.json 等）
@@ -64,6 +64,7 @@ sakamichi-platform/
 | `/messages` | MSG 归档 | MSG 翻译归档（半公开：仅翻译不显示原文） |
 | `/instagram` | INS 归档 | Instagram 归档浏览（需登录） |
 | `/radio` | 广播 | 坂道广播 / 日本电台番组表、HLS 直播、录制回放、樱耳 Archive |
+| `/schedule` | 三坂日程 | 官网日程、Miguri 抽选节点、月历/期间视图与系统日历订阅 |
 | `/miguri` | 握手会（Miguri） | forTUNE meets 受付管理、完售同步、Fortune Meets 全握分析 |
 | `/repo` | Repo 生成器 | 咪咕力/握手会レポ作成与社区共有，图片经 proxy-image 同源导出 |
 | `/photocard` | 生写社区 | 生写作品浏览/创作/用户页，支持点赞与 Alist 图片上传 |
