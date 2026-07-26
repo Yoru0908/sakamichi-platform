@@ -7,6 +7,7 @@ import {
   handleGetOfficialScheduleCalendar,
 } from './calendar-feeds.ts';
 import {
+  fetchOfficialScheduleMonth,
   officialScheduleMonths,
   parseHinatazakaSchedule,
   parseNogizakaSchedule,
@@ -90,6 +91,17 @@ test('month window is calculated in JST and crosses year boundaries', () => {
   assert.deepEqual(
     officialScheduleMonths(new Date('2026-01-01T00:30:00Z'), -1, 3),
     ['202512', '202601', '202602'],
+  );
+});
+
+test('official month requests are aborted when an upstream stalls', async () => {
+  const stalledFetch = (_url, init) => new Promise((_resolve, reject) => {
+    init.signal.addEventListener('abort', () => reject(init.signal.reason), { once: true });
+  });
+
+  await assert.rejects(
+    fetchOfficialScheduleMonth('nogizaka', '202607', stalledFetch, 5),
+    (error) => error?.name === 'AbortError',
   );
 });
 

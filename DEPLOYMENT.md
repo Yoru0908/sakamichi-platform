@@ -114,7 +114,8 @@ npm run workers:smoke
 仍是公开抽选时间的唯一写入方。官网完整日程不写入 D1：Worker 在订阅刷新时读取
 乃木坂 JSONP 日程 API，以及櫻坂、日向坂官网结构化日程页，统一标准化为
 `CalendarEvent` 后输出滚动 7 个月（上月、当月及未来 5 个月）的 ICS；个别月份
-抓取失败时保留其余月份，全部失败才返回错误。
+抓取失败或超过 8 秒时保留其余月份，全部失败才返回错误。公开官网/整团 ICS
+使用 Cloudflare Cache API 按完整订阅 URL 缓存 15 分钟，避免每位订阅者重复请求官网。
 
 ### Auth Worker Discord 会员联动
 
