@@ -88,7 +88,19 @@ npm run workers:smoke
 | 乃木坂46 抽选受付 | `/api/miguri/calendar/lottery/nogizaka.ics` |
 | 櫻坂46 抽选受付 | `/api/miguri/calendar/lottery/sakurazaka.ics` |
 | 日向坂46 抽选受付 | `/api/miguri/calendar/lottery/hinatazaka.ics` |
+| 乃木坂46 官网完整日程 | `/api/miguri/calendar/official/nogizaka.ics` |
+| 櫻坂46 官网完整日程 | `/api/miguri/calendar/official/sakurazaka.ics` |
+| 日向坂46 官网完整日程 | `/api/miguri/calendar/official/hinatazaka.ics` |
+| 乃木坂46 整团全部日程 | `/api/miguri/calendar/complete/nogizaka.ics` |
+| 櫻坂46 整团全部日程 | `/api/miguri/calendar/complete/sakurazaka.ics` |
+| 日向坂46 整团全部日程 | `/api/miguri/calendar/complete/hinatazaka.ics` |
 | 私人 Miguri 行程 | `/api/miguri/calendar/personal/{signed-token}.ics` |
+
+`official/{group}.ics` 只包含对应团官网公布的电视、广播、演出、发行、生日等
+完整日程；`complete/{group}.ics` 在此基础上合并 D1 中对应团的 Meet & Greet
+抽选受付开始与截止。两类地址是“按需订阅”和“整团订阅”两种使用方式，同一团
+不应同时添加，否则系统日历可能显示重复的官方日程。私人成员、日期、部数和张数
+只进入 signed-token 私人订阅，不进入任何公开整团地址。
 
 私人订阅地址由登录态 API 生成，可重置、撤销；D1 只保存订阅 ID 和版本，
 可使用的 URL 由 `JWT_SECRET` 做 HMAC 签名。首次发布前先迁移 `miguri` D1：
@@ -99,7 +111,10 @@ npm run workers:smoke
 
 公开日历读取 `miguri_events` / `miguri_event_windows`，私人日历读取
 `miguri_user_entries` / `miguri_event_slots`；Homeserver 的既有 Miguri 同步任务
-仍是公开抽选时间的唯一写入方。
+仍是公开抽选时间的唯一写入方。官网完整日程不写入 D1：Worker 在订阅刷新时读取
+乃木坂 JSONP 日程 API，以及櫻坂、日向坂官网结构化日程页，统一标准化为
+`CalendarEvent` 后输出滚动 7 个月（上月、当月及未来 5 个月）的 ICS；个别月份
+抓取失败时保留其余月份，全部失败才返回错误。
 
 ### Auth Worker Discord 会员联动
 

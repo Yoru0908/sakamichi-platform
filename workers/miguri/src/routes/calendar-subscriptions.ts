@@ -9,7 +9,7 @@ import {
 } from '../utils/ics.ts';
 
 type MiguriGroup = 'nogizaka' | 'sakurazaka' | 'hinatazaka';
-type CalendarFeedGroup = MiguriGroup | 'all';
+export type CalendarFeedGroup = MiguriGroup | 'all';
 
 type SubscriptionRow = {
   user_id: string;
@@ -204,7 +204,7 @@ export async function handleRevokeCalendarSubscription(req: Request, env: Env): 
   return noStore(success({ data: { active: false } }));
 }
 
-function icsResponse(body: string, filename: string, isPrivate = false): Response {
+export function icsResponse(body: string, filename: string, isPrivate = false): Response {
   return new Response(body, {
     status: 200,
     headers: {
@@ -277,6 +277,20 @@ export async function handleGetLotteryCalendar(
   const feedGroup: CalendarFeedGroup = group === 'all-groups'
     ? 'all'
     : group as CalendarFeedGroup;
+  const events = await loadLotteryCalendarEvents(env, feedGroup);
+
+  const label = groupLabel(feedGroup);
+  return icsResponse(buildIcsCalendar(events, {
+    name: `${label} Miguri 抽选受付`,
+    description: `46log 自动更新的${label} Miguri 抽选受付时间`,
+    refreshInterval: 'PT6H',
+  }), `46log-miguri-lottery-${feedGroup}.ics`);
+}
+
+export async function loadLotteryCalendarEvents(
+  env: Env,
+  feedGroup: CalendarFeedGroup,
+): Promise<CalendarEvent[]> {
   const query = feedGroup === 'all'
     ? `
       SELECT e.slug, e.group_id, e.title, e.source_url, e.sale_type, e.updated_at,
@@ -329,11 +343,5 @@ export async function handleGetLotteryCalendar(
     new Date(left.startAt).getTime() - new Date(right.startAt).getTime()
     || left.uid.localeCompare(right.uid, 'ja')
   ));
-
-  const label = groupLabel(feedGroup);
-  return icsResponse(buildIcsCalendar(events, {
-    name: `${label} Miguri 抽选受付`,
-    description: `46log 自动更新的${label} Miguri 抽选受付时间`,
-    refreshInterval: 'PT6H',
-  }), `46log-miguri-lottery-${feedGroup}.ics`);
+  return events;
 }

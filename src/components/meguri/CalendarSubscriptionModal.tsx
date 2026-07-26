@@ -4,7 +4,9 @@ import {
   Check,
   Copy,
   Download,
+  Layers3,
   Link2,
+  ListChecks,
   Loader2,
   LogIn,
   RefreshCw,
@@ -13,11 +15,14 @@ import {
 } from 'lucide-react';
 import {
   createMiguriCalendarSubscription,
+  getCompleteGroupCalendarUrls,
   getMiguriCalendarSubscription,
   getMiguriLotteryCalendarUrls,
+  getOfficialScheduleCalendarUrls,
   regenerateMiguriCalendarSubscription,
   type MiguriCalendarFeedGroup,
   type MiguriCalendarSubscription,
+  type MiguriGroupId,
 } from '@/utils/auth-api';
 
 type Props = {
@@ -28,16 +33,27 @@ type Props = {
 
 type LoadState = 'idle' | 'loading' | 'ready' | 'guest' | 'error';
 
-const PUBLIC_FEEDS: Array<{
+const GROUPS: Array<{
+  id: MiguriGroupId;
+  label: string;
+  color: string;
+}> = [
+  { id: 'nogizaka', label: '乃木坂46', color: '#742581' },
+  { id: 'sakurazaka', label: '櫻坂46', color: '#db5f8d' },
+  { id: 'hinatazaka', label: '日向坂46', color: '#0284c7' },
+];
+
+const LOTTERY_FEEDS: Array<{
   id: MiguriCalendarFeedGroup;
   label: string;
   detail: string;
   color: string;
 }> = [
   { id: 'all', label: '全部三团', detail: '一个日历接收全部受付', color: '#475569' },
-  { id: 'nogizaka', label: '乃木坂46', detail: '仅乃木坂46 抽选受付', color: '#742581' },
-  { id: 'sakurazaka', label: '櫻坂46', detail: '仅櫻坂46 抽选受付', color: '#db5f8d' },
-  { id: 'hinatazaka', label: '日向坂46', detail: '仅日向坂46 抽选受付', color: '#0284c7' },
+  ...GROUPS.map((group) => ({
+    ...group,
+    detail: `仅${group.label} 抽选受付`,
+  })),
 ];
 
 async function copyText(value: string): Promise<boolean> {
@@ -101,6 +117,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
   const [confirmRegenerate, setConfirmRegenerate] = useState(false);
   const [copiedKey, setCopiedKey] = useState('');
   const [message, setMessage] = useState('');
+  const [subscriptionMode, setSubscriptionMode] = useState<'custom' | 'complete'>('custom');
 
   useEffect(() => {
     if (!show) return;
@@ -215,6 +232,70 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
         </header>
 
         <div className="space-y-7 px-5 py-6 sm:px-6">
+          <div
+            role="group"
+            aria-label="选择日历订阅方式"
+            className="grid grid-cols-2 gap-1 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-1"
+          >
+            <button
+              type="button"
+              aria-pressed={subscriptionMode === 'custom'}
+              onClick={() => setSubscriptionMode('custom')}
+              className={`flex min-h-12 items-center justify-center gap-2 rounded-xl px-3 text-xs font-bold transition-colors ${
+                subscriptionMode === 'custom'
+                  ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
+                  : 'text-[var(--text-tertiary)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <ListChecks size={16} /> 按需订阅
+            </button>
+            <button
+              type="button"
+              aria-pressed={subscriptionMode === 'complete'}
+              onClick={() => setSubscriptionMode('complete')}
+              className={`flex min-h-12 items-center justify-center gap-2 rounded-xl px-3 text-xs font-bold transition-colors ${
+                subscriptionMode === 'complete'
+                  ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
+                  : 'text-[var(--text-tertiary)] hover:text-[var(--text-primary)]'
+              }`}
+            >
+              <Layers3 size={16} /> 整团订阅
+            </button>
+          </div>
+
+          {subscriptionMode === 'custom' && (
+            <>
+          <section aria-labelledby="official-calendar-title">
+            <div className="flex items-center gap-2">
+              <CalendarDays size={17} className="text-sky-600" />
+              <h3 id="official-calendar-title" className="text-sm font-bold text-[var(--text-primary)]">完整官方日程</h3>
+              <span className="rounded-full bg-sky-500/10 px-2 py-0.5 text-[10px] font-bold text-sky-700">公开</span>
+            </div>
+            <p className="mt-2 text-xs leading-5 text-[var(--text-tertiary)]">电视、广播、演出、发行、生日等官网全部日程；和 Meet &amp; Greet 受付分开订阅。</p>
+
+            <div className="mt-3 divide-y divide-[var(--border-secondary)] overflow-hidden rounded-2xl border border-[var(--border-primary)]">
+              {GROUPS.map((group) => {
+                const urls = getOfficialScheduleCalendarUrls(group.id);
+                return (
+                  <div key={group.id} className="flex items-center gap-3 bg-[var(--bg-primary)] px-3 py-3 sm:px-4">
+                    <span className="h-9 w-1 shrink-0 rounded-full" style={{ backgroundColor: group.color }} />
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-semibold text-[var(--text-primary)]">{group.label}</p>
+                      <p className="mt-0.5 text-[10px] text-[var(--text-tertiary)]">仅官网完整日程</p>
+                    </div>
+                    <FeedActions
+                      id={`official-${group.id}`}
+                      httpsUrl={urls.httpsUrl}
+                      webcalUrl={urls.webcalUrl}
+                      copiedKey={copiedKey}
+                      onCopy={(key, value) => void handleCopy(key, value)}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
           <section aria-labelledby="personal-calendar-title">
             <div className="flex items-center gap-2">
               <ShieldCheck size={17} className="text-emerald-600" />
@@ -233,7 +314,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-semibold text-[var(--text-primary)]">登录后生成私人订阅</p>
-                    <p className="mt-1 text-xs leading-5 text-[var(--text-tertiary)]">公开的三团抽选受付订阅仍可直接使用。</p>
+                    <p className="mt-1 text-xs leading-5 text-[var(--text-tertiary)]">公开的完整日程、抽选受付和整团订阅仍可直接使用。</p>
                   </div>
                   <a href="/auth/login" className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--text-primary)] px-4 text-xs font-bold text-white">
                     <LogIn size={15} /> 登录 / 注册
@@ -308,7 +389,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
             <p className="mt-2 text-xs leading-5 text-[var(--text-tertiary)]">每轮受付开始与截止会自动更新，三团可以分开订阅。</p>
 
             <div className="mt-3 divide-y divide-[var(--border-secondary)] overflow-hidden rounded-2xl border border-[var(--border-primary)]">
-              {PUBLIC_FEEDS.map((feed) => {
+              {LOTTERY_FEEDS.map((feed) => {
                 const urls = getMiguriLotteryCalendarUrls(feed.id);
                 return (
                   <div key={feed.id} className="flex items-center gap-3 bg-[var(--bg-primary)] px-3 py-3 sm:px-4">
@@ -318,7 +399,7 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
                       <p className="mt-0.5 text-[10px] text-[var(--text-tertiary)]">{feed.detail}</p>
                     </div>
                     <FeedActions
-                      id={feed.id}
+                      id={`lottery-${feed.id}`}
                       httpsUrl={urls.httpsUrl}
                       webcalUrl={urls.webcalUrl}
                       copiedKey={copiedKey}
@@ -344,6 +425,53 @@ export default function CalendarSubscriptionModal({ show, onClose, onDownload }:
               <Download size={15} /> {loadState === 'guest' ? '登录后下载' : '下载 .ics'}
             </button>
           </section>
+            </>
+          )}
+
+          {subscriptionMode === 'complete' && (
+            <section aria-labelledby="complete-calendar-title">
+              <div className="flex items-center gap-2">
+                <Layers3 size={17} className="text-emerald-600" />
+                <h3 id="complete-calendar-title" className="text-sm font-bold text-[var(--text-primary)]">整团全部日程</h3>
+                <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold text-emerald-700">聚合</span>
+              </div>
+              <p className="mt-2 text-xs leading-5 text-[var(--text-tertiary)]">一个订阅同时接收该团官网完整日程和 Meet &amp; Greet 抽选受付，适合不想逐项选择的人。</p>
+
+              <div className="mt-3 space-y-3">
+                {GROUPS.map((group) => {
+                  const urls = getCompleteGroupCalendarUrls(group.id);
+                  return (
+                    <article
+                      key={group.id}
+                      className="overflow-hidden rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)]"
+                    >
+                      <div className="h-1" style={{ backgroundColor: group.color }} />
+                      <div className="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between">
+                        <div className="min-w-0">
+                          <h4 className="text-sm font-bold text-[var(--text-primary)]">{group.label} 全部日程</h4>
+                          <p className="mt-1 text-[11px] leading-5 text-[var(--text-tertiary)]">官网完整日程 + Miguri 抽选开始／截止</p>
+                        </div>
+                        <FeedActions
+                          id={`complete-${group.id}`}
+                          httpsUrl={urls.httpsUrl}
+                          webcalUrl={urls.webcalUrl}
+                          copiedKey={copiedKey}
+                          onCopy={(key, value) => void handleCopy(key, value)}
+                        />
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+
+              <div className="mt-4 flex items-start gap-2 rounded-2xl border border-amber-500/25 bg-amber-500/10 px-4 py-3 text-[11px] leading-5 text-amber-800">
+                <ShieldCheck size={15} className="mt-0.5 shrink-0" />
+                <p>
+                  同一团建议在“整团订阅”和“按需订阅”之间二选一，否则系统日历可能显示重复事件。私人 Miguri 的成员、部数和张数不会进入公开整团订阅。
+                </p>
+              </div>
+            </section>
+          )}
 
           <p aria-live="polite" className={`min-h-5 text-center text-xs ${message.includes('失败') || message.includes('不可用') ? 'text-red-600' : 'text-emerald-600'}`}>
             {message}

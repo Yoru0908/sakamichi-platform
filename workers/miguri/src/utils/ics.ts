@@ -5,6 +5,7 @@ export type CalendarEvent = {
   location: string;
   startAt: string;
   endAt: string;
+  allDay?: boolean;
   url?: string;
   updatedAt?: string;
   sequence?: number;
@@ -24,6 +25,14 @@ export function toUtcCalendarString(value: string): string {
     throw new Error(`Invalid calendar date: ${value}`);
   }
   return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+}
+
+function toCalendarDate(value: string): string {
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!match) {
+    throw new Error(`Invalid all-day calendar date: ${value}`);
+  }
+  return `${match[1]}${match[2]}${match[3]}`;
 }
 
 export function escapeIcsText(value: string): string {
@@ -104,7 +113,7 @@ export function buildIcsCalendar(
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//46log//Miguri Calendar//JA',
+    'PRODID:-//46log//Calendar Feeds//JA',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
   ];
@@ -124,12 +133,20 @@ export function buildIcsCalendar(
 
   const generatedAt = toUtcCalendarString(new Date().toISOString());
   for (const event of events) {
+    const dateLines = event.allDay
+      ? [
+          `DTSTART;VALUE=DATE:${toCalendarDate(event.startAt)}`,
+          `DTEND;VALUE=DATE:${toCalendarDate(event.endAt)}`,
+        ]
+      : [
+          `DTSTART:${toUtcCalendarString(event.startAt)}`,
+          `DTEND:${toUtcCalendarString(event.endAt)}`,
+        ];
     lines.push(
       'BEGIN:VEVENT',
       `UID:${escapeIcsText(event.uid)}`,
       `DTSTAMP:${generatedAt}`,
-      `DTSTART:${toUtcCalendarString(event.startAt)}`,
-      `DTEND:${toUtcCalendarString(event.endAt)}`,
+      ...dateLines,
       `SUMMARY:${escapeIcsText(decodeHtmlEntities(event.title))}`,
       `DESCRIPTION:${escapeIcsText(decodeHtmlEntities(event.description))}`,
       `LOCATION:${escapeIcsText(event.location)}`,

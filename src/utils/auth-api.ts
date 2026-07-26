@@ -169,6 +169,31 @@ export function getMiguriLotteryCalendarUrls(group: MiguriCalendarFeedGroup): {
   };
 }
 
+function getPublicCalendarUrls(path: string): {
+  httpsUrl: string;
+  webcalUrl: string;
+} {
+  const httpsUrl = miguriUrl(`/calendar/${path}`);
+  return {
+    httpsUrl,
+    webcalUrl: httpsUrl.replace(/^https:/, 'webcal:'),
+  };
+}
+
+export function getOfficialScheduleCalendarUrls(group: MiguriGroupId): {
+  httpsUrl: string;
+  webcalUrl: string;
+} {
+  return getPublicCalendarUrls(`official/${group}.ics`);
+}
+
+export function getCompleteGroupCalendarUrls(group: MiguriGroupId): {
+  httpsUrl: string;
+  webcalUrl: string;
+} {
+  return getPublicCalendarUrls(`complete/${group}.ics`);
+}
+
 export function getMiguriCalendarSubscription(): Promise<ApiResponse<MiguriCalendarSubscription>> {
   return miguriFetch<MiguriCalendarSubscription>('/calendar/subscription');
 }

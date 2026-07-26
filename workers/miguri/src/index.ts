@@ -26,6 +26,10 @@ import {
   handleRegenerateCalendarSubscription,
   handleRevokeCalendarSubscription,
 } from './routes/calendar-subscriptions.ts';
+import {
+  handleGetCompleteGroupCalendar,
+  handleGetOfficialScheduleCalendar,
+} from './routes/calendar-feeds.ts';
 
 /** Server-to-server auth for the Homeserver cron trigger */
 function isSyncSecretValid(req: Request, env: Env): boolean {
@@ -80,6 +84,12 @@ export default {
       } else if (path.startsWith('/api/miguri/calendar/lottery/') && path.endsWith('.ics') && method === 'GET') {
         const group = path.slice('/api/miguri/calendar/lottery/'.length, -'.ics'.length);
         res = await handleGetLotteryCalendar(req, env, group);
+      } else if (path.startsWith('/api/miguri/calendar/official/') && path.endsWith('.ics') && method === 'GET') {
+        const group = path.slice('/api/miguri/calendar/official/'.length, -'.ics'.length);
+        res = await handleGetOfficialScheduleCalendar(req, env, group);
+      } else if (path.startsWith('/api/miguri/calendar/complete/') && path.endsWith('.ics') && method === 'GET') {
+        const group = path.slice('/api/miguri/calendar/complete/'.length, -'.ics'.length);
+        res = await handleGetCompleteGroupCalendar(req, env, group);
       } else if (path.startsWith('/api/miguri/calendar/personal/') && path.endsWith('.ics') && method === 'GET') {
         const token = path.slice('/api/miguri/calendar/personal/'.length, -'.ics'.length);
         res = await handleGetPersonalCalendar(req, env, token);
