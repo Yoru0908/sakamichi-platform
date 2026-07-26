@@ -8,7 +8,8 @@
     "deploy": "wrangler deploy",
     "typecheck": "tsc --noEmit",
     "db:migrate": "wrangler d1 execute sakamichi-auth --file=./src/db/schema.sql",
-    "db:migrate:miguri": "wrangler d1 execute miguri --file=./src/db/migrations/005_miguri.sql"
+    "db:migrate:miguri": "wrangler d1 execute miguri --file=./src/db/migrations/005_miguri.sql",
+    "db:migrate:miguri-calendar": "wrangler d1 execute miguri --file=./src/db/migrations/009_miguri_calendar_subscriptions.sql"
   },
   "dependencies": {},
   "devDependencies": {

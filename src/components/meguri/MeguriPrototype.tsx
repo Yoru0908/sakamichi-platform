@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import SoldOutMatrix from './SoldOutMatrix';
 import LotteryAnalysisPanel from './LotteryAnalysisPanel';
+import CalendarSubscriptionModal from './CalendarSubscriptionModal';
 import {
   createMiguriEntries,
   deleteMiguriEntry,
@@ -29,7 +30,6 @@ import {
   type MiguriEntryStatus,
   type MiguriEvent,
   type MiguriGroupId,
-  type MiguriGoogleCalendarStatus,
 } from '@/utils/auth-api';
 import {
   buildPendingMeguriDraft,
@@ -126,12 +126,6 @@ export default function MeguriPrototype() {
   const [entries, setEntries] = useState<MiguriEntry[]>([]);
   const [pendingDrafts, setPendingDrafts] = useState<PendingMeguriDraft[]>([]);
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [googleCalendar, setGoogleCalendar] = useState<MiguriGoogleCalendarStatus>({
-    connected: false,
-    email: null,
-    calendarId: null,
-    syncEnabled: false,
-  });
   const [selectedSlug, setSelectedSlug] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(() => (typeof window === 'undefined' ? true : window.innerWidth >= 1024));
   const [isAddOpen, setIsAddOpen] = useState(false);
@@ -141,7 +135,7 @@ export default function MeguriPrototype() {
   const [notice, setNotice] = useState('');
   const [error, setError] = useState('');
   const [showImportModal, setShowImportModal] = useState(false);
-  const [showGCalNotice, setShowGCalNotice] = useState(false);
+  const [showCalendarSubscription, setShowCalendarSubscription] = useState(false);
   const [importText, setImportText] = useState('');
   const [activeTab, setActiveTab] = useState<'manage' | 'soldout' | 'lottery'>('manage');
   const [addForm, setAddForm] = useState<AddForm>({
@@ -167,7 +161,6 @@ export default function MeguriPrototype() {
         setEvents([]);
         setEntries([]);
         setFavorites([]);
-        setGoogleCalendar({ connected: false, email: null, calendarId: null, syncEnabled: false });
         setIsLoading(false);
         return;
       }
@@ -175,7 +168,6 @@ export default function MeguriPrototype() {
       setEvents(res.data.events || []);
       setEntries(res.data.entries || []);
       setFavorites(res.data.favorites || []);
-      setGoogleCalendar(res.data.googleCalendar || { connected: false, email: null, calendarId: null, syncEnabled: false });
       setSelectedSlug((current) => current || '');
       setIsLoading(false);
     }
@@ -700,19 +692,15 @@ export default function MeguriPrototype() {
                     <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
                     <button
                       type="button"
-                      onClick={() => setShowGCalNotice(true)}
+                      onClick={() => setShowCalendarSubscription(true)}
                       className="flex items-center gap-1 text-[11px] font-medium text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] sm:gap-1.5 sm:text-xs"
-                      title="Google 日历联动暂时停用"
+                      title="订阅 Miguri 日历"
                     >
-                      <CalendarDays size={12} className="sm:h-[14px] sm:w-[14px]" /> GCal 联动（暂停）
+                      <CalendarDays size={12} className="sm:h-[14px] sm:w-[14px]" /> 日历订阅
                     </button>
                     <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
                     <button onClick={() => setShowImportModal(true)} className="flex items-center gap-1 text-[11px] font-medium text-sky-600 hover:text-sky-700 sm:gap-1.5 sm:text-xs">
                       <ClipboardList size={12} className="sm:h-[14px] sm:w-[14px]" /> 批量导入
-                    </button>
-                    <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
-                    <button onClick={exportCalendar} className="hidden items-center gap-1.5 text-xs font-medium text-emerald-600 hover:text-emerald-700 sm:flex">
-                      <CalendarDays size={14} /> 导出 .ics
                     </button>
                   </div>
                 </div>
@@ -1237,42 +1225,14 @@ export default function MeguriPrototype() {
         onConfirm={() => void handleImportConfirm()}
         onClose={() => { setShowImportModal(false); setImportText(''); }}
       />
-      {showGCalNotice && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
-          onClick={() => setShowGCalNotice(false)}
-        >
-          <div
-            className="w-full max-w-md rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5 shadow-xl sm:p-6"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center gap-2 text-[var(--text-primary)]">
-              <CalendarDays size={18} className="text-amber-500" />
-              <h3 className="text-base font-bold">Google 日历联动暂时停用</h3>
-            </div>
-            <div className="mt-3 space-y-2 text-sm leading-6 text-[var(--text-secondary)]">
-              <p>由于 Google OAuth 审核未完全通过，自动同步存在授权失效问题（新增轮次日期可能无法自动写入日历），现已<strong>暂时停用</strong>该功能。</p>
-              <p>这段时间请使用 <strong>导出 .ics</strong> 手动导入日历，活动日程仍可正常管理与统计，不影响录入部数和券数。</p>
-            </div>
-            <div className="mt-5 flex justify-end gap-2">
-              <button
-                type="button"
-                onClick={() => { setShowGCalNotice(false); void exportCalendar(); }}
-                className="rounded-xl border border-[var(--border-primary)] px-4 py-2 text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]"
-              >
-                导出 .ics
-              </button>
-              <button
-                type="button"
-                onClick={() => setShowGCalNotice(false)}
-                className="rounded-xl bg-[var(--text-primary)] px-4 py-2 text-sm font-medium text-white"
-              >
-                知道了
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <CalendarSubscriptionModal
+        show={showCalendarSubscription}
+        onClose={() => setShowCalendarSubscription(false)}
+        onDownload={() => {
+          setShowCalendarSubscription(false);
+          void exportCalendar();
+        }}
+      />
     </div>
   );
 

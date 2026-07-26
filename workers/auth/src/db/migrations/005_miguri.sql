@@ -54,9 +54,19 @@ CREATE TABLE IF NOT EXISTS miguri_user_entries (
   updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+CREATE TABLE IF NOT EXISTS miguri_calendar_subscriptions (
+  user_id TEXT PRIMARY KEY,
+  subscription_id TEXT NOT NULL UNIQUE,
+  token_version INTEGER NOT NULL DEFAULT 1,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+  revoked_at TEXT
+);
+
 CREATE INDEX IF NOT EXISTS idx_miguri_events_group ON miguri_events(group_id);
 CREATE INDEX IF NOT EXISTS idx_miguri_events_status ON miguri_events(status);
 CREATE INDEX IF NOT EXISTS idx_miguri_slots_event ON miguri_event_slots(event_slug, event_date);
 CREATE INDEX IF NOT EXISTS idx_miguri_members_event ON miguri_slot_members(event_slug, event_date, slot_number);
 CREATE INDEX IF NOT EXISTS idx_miguri_entries_user ON miguri_user_entries(user_id, event_date);
 CREATE INDEX IF NOT EXISTS idx_miguri_entries_event ON miguri_user_entries(event_slug, event_date, slot_number);
+CREATE INDEX IF NOT EXISTS idx_miguri_calendar_subscription_id ON miguri_calendar_subscriptions(subscription_id);

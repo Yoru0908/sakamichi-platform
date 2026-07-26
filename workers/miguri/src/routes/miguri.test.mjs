@@ -2,10 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-import { signAccessToken } from '../utils/jwt.ts';
+import { signAccessToken } from '../../../shared/jwt.ts';
 import * as miguriRoutes from './miguri.ts';
 import * as manageMiguriRoutes from './manage-miguri.ts';
 import { buildGoogleCalendarUrl, buildIcsCalendar, normalizeMiguriPayload } from './miguri.ts';
+import { decodeHtmlEntities, normalizeCalendarDate } from '../utils/ics.ts';
 import { diffArchivedEventSlugs, handleMiguriSync } from './manage-miguri.ts';
 
 test('normalizeMiguriPayload expands dates slots and members into syncable records', () => {
@@ -75,7 +76,19 @@ test('buildIcsCalendar renders valid VCALENDAR content', () => {
   assert.ok(ics.includes('BEGIN:VCALENDAR'));
   assert.ok(ics.includes('BEGIN:VEVENT'));
   assert.ok(ics.includes('SUMMARY:日向坂46 ミーグリ'));
+  assert.ok(ics.includes('STATUS:CONFIRMED'));
   assert.ok(ics.includes('END:VCALENDAR'));
+  for (const line of ics.split('\r\n')) {
+    assert.ok(Buffer.byteLength(line, 'utf8') <= 75, `ICS line exceeds 75 octets: ${line}`);
+  }
+});
+
+test('calendar helpers normalize Fortune Music dates and HTML entities', () => {
+  assert.equal(
+    normalizeCalendarDate('2026年7月22日（水）14:00'),
+    '2026-07-22T14:00:00+09:00',
+  );
+  assert.equal(decodeHtmlEntities('What&#039;s &amp; More'), "What's & More");
 });
 
 test('handleGetMiguriEvents prepends oshi member ahead of account favorites', async () => {
@@ -363,7 +376,7 @@ test('handleCreateMiguriEntries rejects invalid member-slot combinations in mult
   assert.equal(db.inserted.length, 0);
 });
 
-test('auth worker index wires miguri routes', () => {
+test('miguri worker index wires calendar and entry routes', () => {
   const indexSource = readFileSync(new URL('../index.ts', import.meta.url), 'utf8');
 
   assert.match(indexSource, /handleGetMiguriEvents/);
@@ -374,22 +387,26 @@ test('auth worker index wires miguri routes', () => {
   assert.match(indexSource, /handleMiguriSync/);
   assert.match(indexSource, /syncMiguriFromSource/);
   assert.match(indexSource, /await syncMiguriFromSource\(/);
-  assert.match(indexSource, /path === '\/api\/miguri\/events' && method === 'GET'/);
-  assert.match(indexSource, /path === '\/api\/miguri\/entries' && method === 'POST'/);
+  assert.match(indexSource, /'GET \/api\/miguri\/events': handleGetMiguriEvents/);
+  assert.match(indexSource, /'POST \/api\/miguri\/entries': handleCreateMiguriEntries/);
   assert.match(indexSource, /path\.startsWith\('\/api\/miguri\/entries\/'\) && method === 'DELETE'/);
-  assert.match(indexSource, /path === '\/api\/miguri\/calendar\.ics' && method === 'GET'/);
-  assert.match(indexSource, /path === '\/api\/miguri\/calendar\/google-url' && method === 'GET'/);
-  assert.match(indexSource, /path === '\/api\/manage\/miguri\/sync' && method === 'POST'/);
+  assert.match(indexSource, /'GET \/api\/miguri\/calendar\.ics': handleGetMiguriCalendarIcs/);
+  assert.match(indexSource, /'GET \/api\/miguri\/calendar\/subscription': handleGetCalendarSubscription/);
+  assert.match(indexSource, /handleGetLotteryCalendar/);
+  assert.match(indexSource, /handleGetPersonalCalendar/);
+  assert.match(indexSource, /'GET \/api\/miguri\/calendar\/google-url': handleGetMiguriGoogleCalendarUrl/);
+  assert.match(indexSource, /'POST \/api\/manage\/miguri\/sync': handleMiguriSync/);
 });
 
 test('worker config exposes miguri routes and migration entry points', () => {
   const wranglerSource = readFileSync(new URL('../../wrangler.toml', import.meta.url), 'utf8');
-  const packageJson = JSON.parse(readFileSync(new URL('../../package.json', import.meta.url), 'utf8'));
+  const authPackageJson = JSON.parse(readFileSync(new URL('../../../auth/package.json', import.meta.url), 'utf8'));
 
   assert.match(wranglerSource, /pattern = "api\.46log\.com\/api\/miguri\/\*"/);
   assert.match(wranglerSource, /pattern = "api\.sakamichi-tools\.cn\/api\/miguri\/\*"/);
-  assert.equal(packageJson.type, 'module');
-  assert.equal(packageJson.scripts['db:migrate:miguri'], 'wrangler d1 execute miguri --file=./src/db/migrations/005_miguri.sql');
+  assert.equal(authPackageJson.type, 'module');
+  assert.equal(authPackageJson.scripts['db:migrate:miguri'], 'wrangler d1 execute miguri --file=./src/db/migrations/005_miguri.sql');
+  assert.equal(authPackageJson.scripts['db:migrate:miguri-calendar'], 'wrangler d1 execute miguri --file=./src/db/migrations/009_miguri_calendar_subscriptions.sql');
 });
 
 test('diffArchivedEventSlugs returns active slugs missing from the latest sync payload', () => {

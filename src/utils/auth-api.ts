@@ -127,6 +127,16 @@ export interface MiguriGoogleCalendarUrlPayload {
   url: string;
 }
 
+export type MiguriCalendarFeedGroup = MiguriGroupId | 'all';
+
+export interface MiguriCalendarSubscription {
+  active: boolean;
+  httpsUrl?: string;
+  webcalUrl?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
 export interface MiguriEntriesPayload {
   entries: MiguriEntry[];
 }
@@ -145,6 +155,34 @@ function miguriUrl(path: string): string {
 
 export function getMiguriCalendarIcsUrl(): string {
   return miguriUrl('/calendar.ics');
+}
+
+export function getMiguriLotteryCalendarUrls(group: MiguriCalendarFeedGroup): {
+  httpsUrl: string;
+  webcalUrl: string;
+} {
+  const feedPath = group === 'all' ? 'all-groups' : group;
+  const httpsUrl = miguriUrl(`/calendar/lottery/${feedPath}.ics`);
+  return {
+    httpsUrl,
+    webcalUrl: httpsUrl.replace(/^https:/, 'webcal:'),
+  };
+}
+
+export function getMiguriCalendarSubscription(): Promise<ApiResponse<MiguriCalendarSubscription>> {
+  return miguriFetch<MiguriCalendarSubscription>('/calendar/subscription');
+}
+
+export function createMiguriCalendarSubscription(): Promise<ApiResponse<MiguriCalendarSubscription>> {
+  return miguriFetch<MiguriCalendarSubscription>('/calendar/subscription', { method: 'POST' });
+}
+
+export function regenerateMiguriCalendarSubscription(): Promise<ApiResponse<MiguriCalendarSubscription>> {
+  return miguriFetch<MiguriCalendarSubscription>('/calendar/subscription/regenerate', { method: 'POST' });
+}
+
+export function revokeMiguriCalendarSubscription(): Promise<ApiResponse<MiguriCalendarSubscription>> {
+  return miguriFetch<MiguriCalendarSubscription>('/calendar/subscription', { method: 'DELETE' });
 }
 
 export function getGoogleCalendarConnectUrl(returnTo = '/prototypes/miguri'): string {

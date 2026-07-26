@@ -18,6 +18,14 @@ import {
 } from './routes/miguri.ts';
 import { handleMiguriSync, handleMiguriSoldOutImport, syncMiguriFromSource } from './routes/manage-miguri.ts';
 import { handleDisconnectGoogleCalendar } from './routes/google-calendar.ts';
+import {
+  handleCreateCalendarSubscription,
+  handleGetCalendarSubscription,
+  handleGetLotteryCalendar,
+  handleGetPersonalCalendar,
+  handleRegenerateCalendarSubscription,
+  handleRevokeCalendarSubscription,
+} from './routes/calendar-subscriptions.ts';
 
 /** Server-to-server auth for the Homeserver cron trigger */
 function isSyncSecretValid(req: Request, env: Env): boolean {
@@ -32,6 +40,10 @@ const routes: Record<string, Handler> = {
   'GET /api/miguri/events': handleGetMiguriEvents,
   'POST /api/miguri/entries': handleCreateMiguriEntries,
   'GET /api/miguri/calendar.ics': handleGetMiguriCalendarIcs,
+  'GET /api/miguri/calendar/subscription': handleGetCalendarSubscription,
+  'POST /api/miguri/calendar/subscription': handleCreateCalendarSubscription,
+  'POST /api/miguri/calendar/subscription/regenerate': handleRegenerateCalendarSubscription,
+  'DELETE /api/miguri/calendar/subscription': handleRevokeCalendarSubscription,
   'GET /api/miguri/calendar/google-url': handleGetMiguriGoogleCalendarUrl,
   'POST /api/miguri/calendar/google-disconnect': handleDisconnectGoogleCalendar,
   'GET /api/miguri/soldout': handleGetMiguriSoldOut,
@@ -65,6 +77,12 @@ export default {
         res = await handleUpdateMiguriEntry(req, env, path.slice('/api/miguri/entries/'.length));
       } else if (path.startsWith('/api/miguri/entries/') && method === 'DELETE') {
         res = await handleDeleteMiguriEntry(req, env, path.slice('/api/miguri/entries/'.length));
+      } else if (path.startsWith('/api/miguri/calendar/lottery/') && path.endsWith('.ics') && method === 'GET') {
+        const group = path.slice('/api/miguri/calendar/lottery/'.length, -'.ics'.length);
+        res = await handleGetLotteryCalendar(req, env, group);
+      } else if (path.startsWith('/api/miguri/calendar/personal/') && path.endsWith('.ics') && method === 'GET') {
+        const token = path.slice('/api/miguri/calendar/personal/'.length, -'.ics'.length);
+        res = await handleGetPersonalCalendar(req, env, token);
       } else {
         res = error('not found', 404);
       }

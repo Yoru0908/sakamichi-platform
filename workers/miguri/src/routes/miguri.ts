@@ -8,6 +8,14 @@ import {
   syncMiguriEntryToGoogleCalendar,
 } from './google-calendar.ts';
 import { fetchFortuneMeetsAnalysis } from '../utils/fortunemeets.ts';
+import {
+  buildIcsCalendar,
+  decodeHtmlEntities,
+  toUtcCalendarString,
+  type CalendarEvent,
+} from '../utils/ics.ts';
+
+export { buildIcsCalendar } from '../utils/ics.ts';
 
 export type MiguriWindow = {
   label: string;
@@ -58,27 +66,6 @@ type NormalizedSlotMember = {
 
 type MiguriEntryStatus = 'planned' | 'won' | 'paid';
 
-type CalendarEvent = {
-  uid: string;
-  title: string;
-  description: string;
-  location: string;
-  startAt: string;
-  endAt: string;
-};
-
-function toUtcCalendarString(value: string): string {
-  return new Date(value).toISOString().replace(/[-:]/g, '').replace('.000', '');
-}
-
-function escapeIcsText(value: string): string {
-  return value
-    .replace(/\\/g, '\\\\')
-    .replace(/\n/g, '\\n')
-    .replace(/,/g, '\\,')
-    .replace(/;/g, '\\;');
-}
-
 function normalizeMemberName(name: string): string {
   return name.replace(/[\s\u3000]+/g, '').trim();
 }
@@ -111,14 +98,18 @@ function buildCalendarEvent(entry: {
   groupId: MiguriSyncEvent['group'];
   startTime: string;
   endTime: string;
+  sourceUrl?: string;
+  updatedAt?: string;
 }): CalendarEvent {
   return {
-    uid: entry.id,
-    title: `${toGroupLabel(entry.groupId)} ミーグリ - ${entry.memberName}`,
-    description: `${entry.eventTitle}\n第${entry.slotNumber}部 ${entry.memberName} ${entry.tickets}枚`,
+    uid: `miguri-entry:${entry.id}@46log.com`,
+    title: `${toGroupLabel(entry.groupId)} ミーグリ｜${entry.memberName}｜第${entry.slotNumber}部（${entry.tickets}枚）`,
+    description: `${decodeHtmlEntities(entry.eventTitle)}\n第${entry.slotNumber}部\n${entry.memberName} ${entry.tickets}枚`,
     location: 'Fortune Music Online',
     startAt: `${entry.eventDate}T${entry.startTime}:00+09:00`,
     endAt: `${entry.eventDate}T${entry.endTime}:00+09:00`,
+    url: entry.sourceUrl,
+    updatedAt: entry.updatedAt,
   };
 }
 
@@ -132,33 +123,6 @@ export function buildGoogleCalendarUrl(event: Omit<CalendarEvent, 'uid'>): strin
   });
 
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
-}
-
-export function buildIcsCalendar(events: CalendarEvent[]): string {
-  const lines = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//46log//Miguri//JA',
-    'CALSCALE:GREGORIAN',
-    'METHOD:PUBLISH',
-  ];
-
-  for (const event of events) {
-    lines.push(
-      'BEGIN:VEVENT',
-      `UID:${escapeIcsText(event.uid)}`,
-      `DTSTAMP:${toUtcCalendarString(new Date().toISOString()).replace(/\.\d+Z$/, 'Z')}`,
-      `DTSTART:${toUtcCalendarString(event.startAt).replace(/\.\d+Z$/, 'Z')}`,
-      `DTEND:${toUtcCalendarString(event.endAt).replace(/\.\d+Z$/, 'Z')}`,
-      `SUMMARY:${escapeIcsText(event.title)}`,
-      `DESCRIPTION:${escapeIcsText(event.description)}`,
-      `LOCATION:${escapeIcsText(event.location)}`,
-      'END:VEVENT',
-    );
-  }
-
-  lines.push('END:VCALENDAR');
-  return `${lines.join('\r\n')}\r\n`;
 }
 
 export function normalizeMiguriPayload(payload: MiguriSyncPayload): {
@@ -618,8 +582,8 @@ async function loadCalendarEvents(req: Request, env: Env, entryId?: string | nul
   if (!userId) return null;
 
   const sql = `
-    SELECT e.id, e.member_name, e.event_date, e.slot_number, e.tickets,
-           m.title AS event_title, m.group_id,
+    SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.updated_at,
+           m.title AS event_title, m.group_id, m.source_url,
            s.start_time, s.end_time
     FROM miguri_user_entries e
     LEFT JOIN miguri_events m ON m.slug = e.event_slug
@@ -645,6 +609,8 @@ async function loadCalendarEvents(req: Request, env: Env, entryId?: string | nul
       groupId: row.group_id,
       startTime: row.start_time,
       endTime: row.end_time,
+      sourceUrl: row.source_url || undefined,
+      updatedAt: row.updated_at || undefined,
     }));
 }
 
@@ -652,7 +618,10 @@ export async function handleGetMiguriCalendarIcs(req: Request, env: Env): Promis
   const events = await loadCalendarEvents(req, env);
   if (events === null) return error('需要登录', 401);
 
-  return new Response(buildIcsCalendar(events), {
+  return new Response(buildIcsCalendar(events, {
+    name: '我的 Miguri',
+    description: '在 46log Miguri 中保存的个人行程',
+  }), {
     status: 200,
     headers: {
       'Content-Type': 'text/calendar; charset=utf-8',

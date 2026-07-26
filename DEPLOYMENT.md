@@ -78,6 +78,29 @@ npm run workers:typecheck
 npm run workers:smoke
 ```
 
+### Miguri 日历订阅
+
+`sakamichi-miguri` 直接输出标准 ICS，不依赖 Google OAuth：
+
+| 类型 | 地址 |
+|------|------|
+| 三团全部抽选受付 | `/api/miguri/calendar/lottery/all-groups.ics` |
+| 乃木坂46 抽选受付 | `/api/miguri/calendar/lottery/nogizaka.ics` |
+| 櫻坂46 抽选受付 | `/api/miguri/calendar/lottery/sakurazaka.ics` |
+| 日向坂46 抽选受付 | `/api/miguri/calendar/lottery/hinatazaka.ics` |
+| 私人 Miguri 行程 | `/api/miguri/calendar/personal/{signed-token}.ics` |
+
+私人订阅地址由登录态 API 生成，可重置、撤销；D1 只保存订阅 ID 和版本，
+可使用的 URL 由 `JWT_SECRET` 做 HMAC 签名。首次发布前先迁移 `miguri` D1：
+
+```bash
+(cd workers/auth && npm run db:migrate:miguri-calendar -- --remote)
+```
+
+公开日历读取 `miguri_events` / `miguri_event_windows`，私人日历读取
+`miguri_user_entries` / `miguri_event_slots`；Homeserver 的既有 Miguri 同步任务
+仍是公开抽选时间的唯一写入方。
+
 ### Auth Worker Discord 会员联动
 
 `sakamichi-auth` 负责 Discord OAuth 绑定和付费身份组同步：
