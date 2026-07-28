@@ -224,11 +224,17 @@ function mapEntryRow(row: any) {
     appliedTickets: row.applied_tickets ?? 0,
     wonTickets: row.won_tickets ?? 0,
     paidTickets: row.paid_tickets ?? 0,
+    unitPriceYen: row.unit_price_yen ?? 0,
+    spendYen: row.spend_yen ?? 0,
+    signLots: row.sign_lots ?? 0,
+    applicationRound: row.application_round || null,
+    sourceSyncedAt: row.source_synced_at || null,
   };
 }
 
 const ENTRY_SELECT_COLUMNS = `e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.status,
            e.source, e.source_key, e.category, e.venue, e.applied_tickets, e.won_tickets, e.paid_tickets,
+           e.unit_price_yen, e.spend_yen, e.sign_lots, e.application_round, e.source_synced_at,
            COALESCE(m.title, e.import_title) AS event_title,
            COALESCE(m.group_id, e.import_group) AS group_id,
            s.start_time, s.end_time`;

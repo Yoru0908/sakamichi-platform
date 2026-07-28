@@ -9,12 +9,25 @@ import type {
 export type EntryLike = Pick<MiguriEntry, 'id' | 'member' | 'date' | 'slot' | 'tickets' | 'status'>;
 export type DashboardEntryLike = EntryLike & Partial<Pick<
   MiguriEntry,
-  'category' | 'venue' | 'eventTitle' | 'group' | 'source'
+  | 'category'
+  | 'venue'
+  | 'eventTitle'
+  | 'group'
+  | 'source'
+  | 'appliedTickets'
+  | 'wonTickets'
+  | 'paidTickets'
+  | 'unitPriceYen'
+  | 'spendYen'
+  | 'signLots'
+  | 'applicationRound'
+  | 'sourceSyncedAt'
 >>;
 export type EventState = 'active' | 'upcoming' | 'ended' | 'waiting';
 export type MiguriDashboardBreakdown = {
   label: string;
   tickets: number;
+  spendYen: number;
   percentage: number;
 };
 export type MiguriDashboardRow = {
@@ -210,43 +223,75 @@ function dashboardCategory(entry: DashboardEntryLike): NonNullable<MiguriEntry['
 }
 
 const DASHBOARD_CATEGORY_ORDER: Array<NonNullable<MiguriEntry['category']>> = [
+  '個別ミーグリ',
+  '全国ミーグリ',
   'リアミ',
   'サイン会',
-  '個別ミーグリ',
   'その他',
 ];
 
-function buildBreakdown(values: Map<string, number>): MiguriDashboardBreakdown[] {
-  const total = Array.from(values.values()).reduce((sum, value) => sum + value, 0);
-  return Array.from(values.entries())
-    .map(([label, tickets]) => ({
-      label,
-      tickets,
-      percentage: total > 0 ? tickets / total : 0,
-    }))
-    .sort((left, right) => right.tickets - left.tickets || left.label.localeCompare(right.label, 'ja'));
+function buildBreakdown(
+  ticketValues: Map<string, number>,
+  spendValues: Map<string, number>,
+): MiguriDashboardBreakdown[] {
+  const totalTickets = Array.from(ticketValues.values()).reduce((sum, value) => sum + value, 0);
+  const totalSpend = Array.from(spendValues.values()).reduce((sum, value) => sum + value, 0);
+  const labels = new Set([...ticketValues.keys(), ...spendValues.keys()]);
+  return Array.from(labels)
+    .map((label) => {
+      const tickets = ticketValues.get(label) || 0;
+      const spendYen = spendValues.get(label) || 0;
+      return {
+        label,
+        tickets,
+        spendYen,
+        percentage: totalSpend > 0
+          ? spendYen / totalSpend
+          : totalTickets > 0
+            ? tickets / totalTickets
+            : 0,
+      };
+    })
+    .sort((left, right) => (
+      right.spendYen - left.spendYen
+      || right.tickets - left.tickets
+      || left.label.localeCompare(right.label, 'ja')
+    ));
 }
 
 export function aggregateMiguriDashboard(
   entries: DashboardEntryLike[],
   today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }),
 ) {
-  const visibleEntries = entries.filter((entry) => (
+  const scheduleEntries = entries.filter((entry) => (
     entry.tickets > 0
     && /^\d{4}-\d{2}-\d{2}$/.test(entry.date)
     && entry.status !== 'lost'
     && (entry.status !== 'planned' || !entry.source || entry.source === 'manual')
   ));
-  const categoryTotals = new Map<string, number>();
-  const memberTotals = new Map<string, number>();
+  const categoryTickets = new Map<string, number>();
+  const categorySpend = new Map<string, number>();
+  const memberTickets = new Map<string, number>();
+  const memberSpend = new Map<string, number>();
+  const roundSpend = new Map<string, number>();
+  const scheduledEntryIds = new Set(scheduleEntries.map((entry) => entry.id));
 
-  for (const entry of visibleEntries) {
+  for (const entry of entries) {
     const category = dashboardCategory(entry);
-    categoryTotals.set(category, (categoryTotals.get(category) || 0) + entry.tickets);
-    memberTotals.set(entry.member, (memberTotals.get(entry.member) || 0) + entry.tickets);
+    const spendYen = Math.max(0, entry.spendYen || (
+      (entry.paidTickets || entry.wonTickets || 0) * (entry.unitPriceYen || 0)
+    ));
+    const scheduledTickets = scheduledEntryIds.has(entry.id) ? Math.max(0, entry.tickets) : 0;
+    categoryTickets.set(category, (categoryTickets.get(category) || 0) + scheduledTickets);
+    categorySpend.set(category, (categorySpend.get(category) || 0) + spendYen);
+    memberTickets.set(entry.member, (memberTickets.get(entry.member) || 0) + scheduledTickets);
+    memberSpend.set(entry.member, (memberSpend.get(entry.member) || 0) + spendYen);
+    if (spendYen > 0 && entry.applicationRound) {
+      roundSpend.set(entry.applicationRound, (roundSpend.get(entry.applicationRound) || 0) + spendYen);
+    }
   }
 
-  const upcomingEntries = visibleEntries.filter((entry) => entry.date >= today);
+  const upcomingEntries = scheduleEntries.filter((entry) => entry.date >= today);
   const stops = new Map<string, {
     venues: Set<string>;
     tickets: number;
@@ -296,12 +341,71 @@ export function aggregateMiguriDashboard(
         )),
     }));
 
+  const eligibleResults = entries.filter((entry) => {
+    const category = dashboardCategory(entry);
+    return category !== 'サイン会'
+      && category !== 'その他'
+      && entry.status !== 'planned'
+      && (entry.appliedTickets || entry.wonTickets || entry.source === 'manual');
+  });
+  const totalApplied = eligibleResults.reduce((sum, entry) => (
+    sum + Math.max(0, entry.appliedTickets || entry.tickets)
+  ), 0);
+  const totalWon = eligibleResults.reduce((sum, entry) => (
+    sum + Math.max(
+      0,
+      entry.wonTickets || (entry.status === 'won' || entry.status === 'paid' ? entry.tickets : 0),
+    )
+  ), 0);
+  const totalSpendYen = Array.from(categorySpend.values()).reduce((sum, value) => sum + value, 0);
+  const memberBreakdown = buildBreakdown(memberTickets, memberSpend);
+  const categoryBreakdown = buildBreakdown(categoryTickets, categorySpend);
+  const topMember = memberBreakdown[0] || null;
+  const spendShares = memberBreakdown
+    .filter((item) => item.spendYen > 0)
+    .map((item) => item.spendYen / Math.max(1, totalSpendYen));
+  const concentration = spendShares.reduce((sum, share) => sum + share * share, 0);
+  const oshiType = concentration >= 0.5
+    ? '单推'
+    : concentration >= 0.22
+      ? '主推明确'
+      : concentration >= 0.08
+        ? '箱推'
+        : 'DD';
+  const sourceFreshness = Array.from(new Set(entries
+    .filter((entry) => entry.source && entry.source !== 'manual')
+    .map((entry) => `${entry.source}:${entry.group || 'all'}:${entry.sourceSyncedAt || ''}`)))
+    .map((value) => {
+      const [source, group, ...syncedParts] = value.split(':');
+      return { source, group, syncedAt: syncedParts.join(':') || null };
+    })
+    .sort((left, right) => (right.syncedAt || '').localeCompare(left.syncedAt || ''));
+
   return {
-    totalTickets: visibleEntries.reduce((sum, entry) => sum + entry.tickets, 0),
+    totalTickets: scheduleEntries.reduce((sum, entry) => sum + entry.tickets, 0),
+    totalSpendYen,
+    totalApplied,
+    totalWon,
+    winRate: totalApplied > 0 ? totalWon / totalApplied : 0,
+    costPerWinYen: totalWon > 0 ? totalSpendYen / totalWon : 0,
+    topMember: topMember
+      ? {
+          name: topMember.label,
+          share: totalSpendYen > 0 ? topMember.spendYen / totalSpendYen : topMember.percentage,
+          spendYen: topMember.spendYen,
+        }
+      : null,
+    oshiType,
+    concentration,
     upcomingDates: nextStops.length,
     nextStops,
-    categoryBreakdown: buildBreakdown(categoryTotals),
-    memberBreakdown: buildBreakdown(memberTotals),
+    categoryBreakdown,
+    memberBreakdown,
+    spendTimeline: Array.from(roundSpend.entries())
+      .map(([label, spendYen]) => ({ label, spendYen }))
+      .sort((left, right) => left.label.localeCompare(right.label, 'ja'))
+      .slice(-8),
+    sourceFreshness,
   };
 }
 

@@ -157,6 +157,72 @@ test('aggregateMiguriDashboard builds next stop, category totals, and per-slot t
   );
 });
 
+test('aggregateMiguriDashboard calculates spend, win rate, member share, and sign-event cost', () => {
+  const dashboard = aggregateMiguriDashboard([
+    {
+      id: 'music-won',
+      member: '山川宇衣',
+      date: '2026-09-12',
+      slot: 1,
+      tickets: 6,
+      status: 'won',
+      source: 'fortunemusic',
+      category: '個別ミーグリ',
+      appliedTickets: 10,
+      wonTickets: 6,
+      unitPriceYen: 2000,
+      spendYen: 12000,
+      applicationRound: '第1次',
+      sourceSyncedAt: '2026-07-29T00:00:00.000Z',
+    },
+    {
+      id: 'sign-lost',
+      member: '山川宇衣',
+      date: '2026-08-02',
+      slot: 0,
+      tickets: 3,
+      status: 'lost',
+      source: 'fortunemeets',
+      category: 'サイン会',
+      appliedTickets: 12,
+      wonTickets: 0,
+      signLots: 3,
+      unitPriceYen: 2000,
+      spendYen: 24000,
+      applicationRound: 'sakurazaka46-16th',
+      sourceSyncedAt: '2026-07-29T00:00:00.000Z',
+    },
+    {
+      id: 'real-won',
+      member: '小田倉麗奈',
+      date: '2026-08-02',
+      slot: 0,
+      tickets: 4,
+      status: 'won',
+      source: 'fortunemeets',
+      category: 'リアミ',
+      appliedTickets: 4,
+      wonTickets: 4,
+      unitPriceYen: 2000,
+      spendYen: 8000,
+      applicationRound: 'sakurazaka46-16th',
+      sourceSyncedAt: '2026-07-29T00:00:00.000Z',
+    },
+  ], '2026-07-29');
+
+  assert.equal(dashboard.totalSpendYen, 44000);
+  assert.equal(dashboard.totalApplied, 14);
+  assert.equal(dashboard.totalWon, 10);
+  assert.equal(dashboard.winRate, 10 / 14);
+  assert.equal(dashboard.topMember.name, '山川宇衣');
+  assert.equal(dashboard.topMember.spendYen, 36000);
+  assert.equal(
+    dashboard.categoryBreakdown.find((item) => item.label === 'サイン会').spendYen,
+    24000,
+  );
+  assert.equal(dashboard.nextStops[0].rows.some((row) => row.category === 'サイン会'), false);
+});
+
 test('sortEventsForDisplay places events with later event dates first', () => {
   const sorted = sortEventsForDisplay([
     {

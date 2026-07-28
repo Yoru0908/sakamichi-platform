@@ -1,23 +1,33 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowRight,
   BarChart3,
   CalendarDays,
   CheckCircle2,
-  ExternalLink,
+  CircleDollarSign,
+  Download,
   LoaderCircle,
-  LockKeyhole,
+  Puzzle,
   RefreshCw,
   Ticket,
+  TrendingUp,
   UserRound,
-} from 'lucide-react';
-import type { MiguriEntry } from '@/utils/auth-api';
-import { aggregateMiguriDashboard } from './meguri-helpers';
+} from "lucide-react";
+import type {
+  MiguriEntry,
+  MiguriEntryCategory,
+  MiguriGroupId,
+} from "@/utils/auth-api";
+import { aggregateMiguriDashboard } from "./meguri-helpers";
+import {
+  startMiguriExtensionSync,
+  subscribeMiguriExtension,
+} from "./miguri-extension";
 
 export type MiguriAutoImportState = {
-  status: 'idle' | 'saving' | 'success' | 'error';
+  status: "idle" | "saving" | "success" | "error";
   message: string;
-  next: 'music' | 'meets' | 'done' | null;
+  next: "music" | "meets" | "done" | null;
 };
 
 type Props = {
@@ -26,60 +36,110 @@ type Props = {
   onOpenManualImport: () => void;
 };
 
-const MUSIC_URL = 'https://fortunemusic.jp/mypage/apply_list/';
-const MEETS_URL = 'https://ticket.fortunemeets.app/hinatazaka46/';
+type RankMetric = "spend" | "won" | "rate" | "cost";
+
+const CATEGORY_ORDER: MiguriEntryCategory[] = [
+  "個別ミーグリ",
+  "全国ミーグリ",
+  "リアミ",
+  "サイン会",
+  "その他",
+];
+const CATEGORY_COLORS: Record<MiguriEntryCategory, string> = {
+  個別ミーグリ: "#5146e5",
+  全国ミーグリ: "#65a99c",
+  リアミ: "#5195ca",
+  サイン会: "#c64d82",
+  その他: "#a1a1aa",
+};
+const GROUP_LABELS: Record<MiguriGroupId, string> = {
+  nogizaka: "乃木坂46",
+  sakurazaka: "櫻坂46",
+  hinatazaka: "日向坂46",
+};
 
 function displayDate(date: string) {
-  const weekday = new Intl.DateTimeFormat('ja-JP', {
-    weekday: 'short',
-    timeZone: 'Asia/Tokyo',
+  const weekday = new Intl.DateTimeFormat("ja-JP", {
+    weekday: "short",
+    timeZone: "Asia/Tokyo",
   }).format(new Date(`${date}T00:00:00+09:00`));
   return `${date}（${weekday}）`;
 }
 
-function categoryUnit(category: string) {
-  return category === 'サイン会' ? '口' : '张';
+function formatYen(value: number) {
+  return `¥${Math.round(value).toLocaleString("ja-JP")}`;
 }
 
-function ImportStatus({ state }: { state: MiguriAutoImportState }) {
-  if (state.status === 'idle') return null;
-  const isSaving = state.status === 'saving';
-  const isSuccess = state.status === 'success';
+function formatPercent(value: number) {
+  return `${Math.round(value * 100)}%`;
+}
+
+function categoryUnit(category: string) {
+  return category === "サイン会" ? "口" : "张";
+}
+
+function relativeSyncTime(value: string | null) {
+  if (!value) return "未同步";
+  const diff = Date.now() - Date.parse(value);
+  if (!Number.isFinite(diff) || diff < 0) return "刚刚";
+  const minutes = Math.floor(diff / 60_000);
+  if (minutes < 1) return "刚刚";
+  if (minutes < 60) return `${minutes} 分钟前`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours} 小时前`;
+  return `${Math.floor(hours / 24)} 天前`;
+}
+
+function ImportStatus({
+  state,
+  onSyncMeets,
+}: {
+  state: MiguriAutoImportState;
+  onSyncMeets: () => void;
+}) {
+  if (state.status === "idle") return null;
+  const isSaving = state.status === "saving";
+  const isSuccess = state.status === "success";
   const Icon = isSaving ? LoaderCircle : isSuccess ? CheckCircle2 : RefreshCw;
 
   return (
     <div
       className={`mt-4 flex flex-col gap-3 rounded-2xl border px-4 py-3 sm:flex-row sm:items-center sm:justify-between ${
         isSuccess
-          ? 'border-emerald-500/25 bg-emerald-500/10'
-          : state.status === 'error'
-            ? 'border-rose-500/25 bg-rose-500/10'
-            : 'border-sky-500/25 bg-sky-500/10'
+          ? "border-emerald-500/25 bg-emerald-500/10"
+          : state.status === "error"
+            ? "border-rose-500/25 bg-rose-500/10"
+            : "border-sky-500/25 bg-sky-500/10"
       }`}
-      role={state.status === 'error' ? 'alert' : 'status'}
+      role={state.status === "error" ? "alert" : "status"}
       aria-live="polite"
     >
       <div className="flex min-w-0 items-start gap-3">
         <Icon
           size={18}
-          className={`mt-0.5 shrink-0 ${isSaving ? 'animate-spin text-sky-500' : isSuccess ? 'text-emerald-500' : 'text-rose-500'}`}
+          className={`mt-0.5 shrink-0 ${isSaving ? "animate-spin text-sky-500" : isSuccess ? "text-emerald-500" : "text-rose-500"}`}
         />
         <div>
           <div className="text-sm font-semibold text-[var(--text-primary)]">
-            {isSaving ? '正在自动保存' : isSuccess ? '自动导入完成' : '自动导入失败'}
+            {isSaving
+              ? "正在保存履历"
+              : isSuccess
+                ? "Dashboard 已刷新"
+                : "同步未完成"}
           </div>
-          <p className="mt-0.5 text-xs leading-5 text-[var(--text-secondary)]">{state.message}</p>
+          <p className="mt-0.5 text-xs leading-5 text-[var(--text-secondary)]">
+            {state.message}
+          </p>
         </div>
       </div>
-      {state.next === 'meets' && state.status === 'success' ? (
-        <a
-          href={MEETS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+      {state.next === "meets" && state.status === "success" ? (
+        <button
+          type="button"
+          onClick={onSyncMeets}
           className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--text-primary)] px-4 text-sm font-semibold text-[var(--bg-primary)] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
         >
-          继续登录 Meets <ArrowRight size={15} />
-        </a>
+          继续同步 Meets <ArrowRight size={15} />
+        </button>
       ) : null}
     </div>
   );
@@ -92,264 +152,842 @@ function ImportSetup({
   state: MiguriAutoImportState;
   onOpenManualImport: () => void;
 }) {
-  const [bookmarkletHref, setBookmarkletHref] = useState('#');
+  const [extensionVersion, setExtensionVersion] = useState("");
+  const [extensionMessage, setExtensionMessage] = useState("");
+  const [bookmarkletHref, setBookmarkletHref] = useState("#");
+
+  useEffect(
+    () =>
+      subscribeMiguriExtension((event) => {
+        if (event.type === "PONG") setExtensionVersion(event.version);
+        if (event.type === "STARTED") {
+          setExtensionMessage(
+            `已启动 ${event.syncSource === "fortunemusic" ? "Music" : "Meets"} 同步`,
+          );
+        }
+        if (event.type === "PROGRESS")
+          setExtensionMessage(
+            [event.title, event.detail].filter(Boolean).join(" · "),
+          );
+        if (event.type === "ERROR") setExtensionMessage(event.message);
+      }),
+    [],
+  );
 
   useEffect(() => {
     let mounted = true;
-    fetch('/miguri-importer.js')
+    fetch("/miguri-importer.js")
       .then((response) => response.text())
       .then((source) => {
         if (!mounted) return;
-        const configured = source.replaceAll('__MIGURI_RETURN_ORIGIN__', window.location.origin);
+        const configured = source.replaceAll(
+          "__MIGURI_RETURN_ORIGIN__",
+          window.location.origin,
+        );
         setBookmarkletHref(`javascript:${encodeURIComponent(configured)}`);
       })
       .catch(() => {
-        if (mounted) setBookmarkletHref('#');
+        if (mounted) setBookmarkletHref("#");
       });
     return () => {
       mounted = false;
     };
   }, []);
 
+  const startSync = (source: "fortunemusic" | "fortunemeets") => {
+    if (!extensionVersion) {
+      setExtensionMessage("请先安装扩展并重新加载页面。");
+      return;
+    }
+    setExtensionMessage("正在打开官方页面…");
+    startMiguriExtensionSync(source);
+  };
+
   return (
     <section className="rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-4 sm:p-6">
-      <div className="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
-        <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-sky-600">
-            <RefreshCw size={14} /> forTUNE 自动同步
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-indigo-600">
+            <RefreshCw size={14} /> 应募履历同步
           </div>
           <h2 className="mt-2 text-xl font-bold tracking-tight text-[var(--text-primary)] sm:text-2xl">
-            登录官方账号，然后一键带回应募履历
+            一键更新 Music 与 Meets
           </h2>
-          <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--text-secondary)]">
-            46log 不接收 forTUNE 的账号、密码或 Cookie。书签只在你已登录的官方页面读取自己的履历，
-            返回后直接保存到当前 46log 账号的私人 D1 数据中。
-          </p>
         </div>
-        <div className="flex items-center gap-2 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-3 py-2 text-xs leading-5 text-[var(--text-secondary)]">
-          <LockKeyhole size={17} className="shrink-0 text-emerald-500" />
-          不保存 forTUNE 登录凭据
-        </div>
-      </div>
-
-      <div className="mt-5 grid gap-3 lg:grid-cols-3">
-        <div className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
-          <div className="text-xs font-bold text-sky-600">01 · 安装一次</div>
-          <p className="mt-2 min-h-10 text-sm leading-5 text-[var(--text-secondary)]">
-            把按钮拖到浏览器书签栏；直接点击也会带你去 Music。
-          </p>
-          <a
-            href={bookmarkletHref}
-            draggable
-            onClick={(event) => {
-              if (bookmarkletHref === '#') event.preventDefault();
-            }}
-            className={`mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-4 text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${
-              bookmarkletHref === '#'
-                ? 'cursor-wait bg-[var(--bg-secondary)] text-[var(--text-tertiary)]'
-                : 'cursor-grab bg-sky-600 text-white hover:bg-sky-700 active:cursor-grabbing'
-            }`}
-          >
-            <RefreshCw size={16} /> 咪咕力自动导入
-          </a>
-        </div>
-
-        <div className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
-          <div className="text-xs font-bold text-violet-600">02 · 登录 Music</div>
-          <p className="mt-2 min-h-10 text-sm leading-5 text-[var(--text-secondary)]">
-            打开申请履历页并完成官方登录，再点击刚安装的书签。
-          </p>
-          <a
-            href={MUSIC_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-4 text-sm font-semibold text-[var(--text-primary)] hover:border-violet-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
-          >
-            登录 forTUNE music <ExternalLink size={15} />
-          </a>
-        </div>
-
-        <div className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
-          <div className="text-xs font-bold text-pink-600">03 · 登录 Meets</div>
-          <p className="mt-2 min-h-10 text-sm leading-5 text-[var(--text-secondary)]">
-            打开官方 Meets；若未登录，书签会带到实际活动登录页。
-          </p>
-          <a
-            href={MEETS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-4 text-sm font-semibold text-[var(--text-primary)] hover:border-pink-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
-          >
-            登录 forTUNE meets <ExternalLink size={15} />
-          </a>
-        </div>
-      </div>
-
-      <ImportStatus state={state} />
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
-        <span>Chrome / Edge 桌面版体验最佳；读取期间请保持官方页面在前台。</span>
-        <button
-          type="button"
-          onClick={onOpenManualImport}
-          className="min-h-11 rounded-xl px-3 font-medium text-sky-600 hover:bg-sky-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+        <div
+          className={`inline-flex min-h-11 items-center gap-2 rounded-xl border px-3 text-xs font-semibold ${
+            extensionVersion
+              ? "border-emerald-500/25 bg-emerald-500/10 text-emerald-700"
+              : "border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-secondary)]"
+          }`}
         >
-          无法自动读取？使用粘贴导入
-        </button>
+          {extensionVersion ? <CheckCircle2 size={16} /> : <Puzzle size={16} />}
+          {extensionVersion
+            ? `扩展已连接 · v${extensionVersion}`
+            : "等待安装同步扩展"}
+        </div>
       </div>
+
+      {extensionVersion ? (
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          <button
+            type="button"
+            onClick={() => startSync("fortunemusic")}
+            className="flex min-h-14 items-center justify-between rounded-2xl bg-indigo-600 px-5 text-left text-sm font-bold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+          >
+            同步 forTUNE music <ArrowRight size={18} />
+          </button>
+          <button
+            type="button"
+            onClick={() => startSync("fortunemeets")}
+            className="flex min-h-14 items-center justify-between rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-5 text-left text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-pink-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
+          >
+            同步 forTUNE meets <ArrowRight size={18} />
+          </button>
+        </div>
+      ) : (
+        <div className="mt-5 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="text-sm font-bold text-[var(--text-primary)]">
+                安装一次，之后直接在这里同步
+              </div>
+              <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
+                下载并解压，在 Chrome / Edge
+                扩展管理页开启开发者模式后选择“加载已解压的扩展”。
+              </p>
+            </div>
+            <a
+              href="/downloads/46log-miguri-sync.zip"
+              download
+              className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            >
+              <Download size={16} /> 下载同步扩展
+            </a>
+          </div>
+        </div>
+      )}
+
+      {extensionMessage ? (
+        <p
+          className="mt-3 text-xs font-medium text-[var(--text-secondary)]"
+          role="status"
+          aria-live="polite"
+        >
+          {extensionMessage}
+        </p>
+      ) : null}
+      <ImportStatus
+        state={state}
+        onSyncMeets={() => startSync("fortunemeets")}
+      />
+
+      <details className="mt-4 border-t border-[var(--border-primary)] pt-3 text-xs text-[var(--text-secondary)]">
+        <summary className="min-h-11 cursor-pointer select-none py-3 font-semibold text-[var(--text-primary)]">
+          兼容导入
+        </summary>
+        <div className="flex flex-col gap-3 pb-1 sm:flex-row sm:items-center sm:justify-between">
+          <span>
+            旧版书签需拖到书签栏后在官方页面运行；也可以继续使用粘贴导入。
+          </span>
+          <div className="flex flex-wrap gap-2">
+            <a
+              href={bookmarkletHref}
+              draggable
+              className="inline-flex min-h-11 cursor-grab items-center rounded-xl border border-[var(--border-primary)] px-3 font-semibold text-[var(--text-primary)]"
+            >
+              拖动安装旧版书签
+            </a>
+            <button
+              type="button"
+              onClick={onOpenManualImport}
+              className="min-h-11 rounded-xl px-3 font-semibold text-indigo-600 hover:bg-indigo-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            >
+              使用粘贴导入
+            </button>
+          </div>
+        </div>
+      </details>
     </section>
   );
 }
 
-function Breakdown({
-  title,
-  items,
+function SpendSparkline({
+  points,
 }: {
-  title: string;
-  items: ReturnType<typeof aggregateMiguriDashboard>['categoryBreakdown'];
+  points: Array<{ label: string; spendYen: number }>;
 }) {
+  if (points.length < 2) return null;
+  const values = points.map((point) => point.spendYen);
+  const max = Math.max(...values, 1);
+  const width = 320;
+  const height = 54;
+  const coordinates = values
+    .map((value, index) => {
+      const x = points.length === 1 ? 0 : (index / (points.length - 1)) * width;
+      const y = height - (value / max) * (height - 6) - 3;
+      return `${x},${y}`;
+    })
+    .join(" ");
+
+  return (
+    <svg
+      viewBox={`0 0 ${width} ${height}`}
+      className="mt-4 h-12 w-full max-w-xs overflow-visible"
+      role="img"
+      aria-label={`最近 ${points.length} 次抽选的支出走势`}
+    >
+      <polyline
+        points={coordinates}
+        fill="none"
+        stroke="#6366f1"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function Donut({
+  items,
+  total,
+}: {
+  items: ReturnType<typeof aggregateMiguriDashboard>["categoryBreakdown"];
+  total: number;
+}) {
+  let cursor = 0;
+  const gradient = items
+    .filter((item) => item.percentage > 0)
+    .map((item) => {
+      const start = cursor;
+      cursor += item.percentage * 100;
+      const color =
+        CATEGORY_COLORS[item.label as MiguriEntryCategory] ||
+        CATEGORY_COLORS["その他"];
+      return `${color} ${start}% ${cursor}%`;
+    })
+    .join(", ");
+
   return (
     <section className="rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 sm:p-5">
       <div className="flex items-center gap-2">
-        <BarChart3 size={16} className="text-sky-500" />
-        <h3 className="text-sm font-bold text-[var(--text-primary)]">{title}</h3>
+        <CircleDollarSign size={16} className="text-indigo-500" />
+        <h3 className="text-sm font-bold text-[var(--text-primary)]">按类型</h3>
       </div>
       {items.length > 0 ? (
-        <div className="mt-4 space-y-4">
-          {items.slice(0, 6).map((item) => (
-            <div key={item.label}>
-              <div className="mb-1.5 flex items-center justify-between gap-3 text-xs">
-                <span className="truncate font-medium text-[var(--text-secondary)]">{item.label}</span>
-                <span className="shrink-0 tabular-nums text-[var(--text-primary)]">
-                  {item.tickets} · {Math.round(item.percentage * 100)}%
+        <div className="mt-5 flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+          <div
+            className="relative grid h-36 w-36 shrink-0 place-items-center rounded-full"
+            style={{
+              background: gradient
+                ? `conic-gradient(${gradient})`
+                : "var(--bg-secondary)",
+            }}
+            role="img"
+            aria-label={items
+              .map((item) => `${item.label} ${formatPercent(item.percentage)}`)
+              .join("，")}
+          >
+            <div className="grid h-[92px] w-[92px] place-items-center rounded-full bg-[var(--bg-primary)] text-center">
+              <span className="text-sm font-bold tabular-nums text-[var(--text-primary)]">
+                {formatYen(total)}
+              </span>
+            </div>
+          </div>
+          <div className="w-full space-y-3">
+            {items.map((item) => (
+              <div
+                key={item.label}
+                className="grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-3 text-xs"
+              >
+                <span className="flex min-w-0 items-center gap-2 font-medium text-[var(--text-secondary)]">
+                  <span
+                    className="h-2.5 w-2.5 shrink-0 rounded-[3px]"
+                    style={{
+                      background:
+                        CATEGORY_COLORS[item.label as MiguriEntryCategory] ||
+                        CATEGORY_COLORS["その他"],
+                    }}
+                  />
+                  <span className="truncate">{item.label}</span>
+                </span>
+                <span className="font-semibold tabular-nums text-[var(--text-primary)]">
+                  {item.spendYen > 0
+                    ? formatYen(item.spendYen)
+                    : `${item.tickets}${categoryUnit(item.label)}`}
+                </span>
+                <span className="w-9 text-right tabular-nums text-[var(--text-tertiary)]">
+                  {formatPercent(item.percentage)}
                 </span>
               </div>
-              <div className="h-2 overflow-hidden rounded-full bg-[var(--bg-secondary)]">
-                <div
-                  className="h-full rounded-full bg-sky-500"
-                  style={{ width: `${Math.max(3, item.percentage * 100)}%` }}
-                  role="img"
-                  aria-label={`${item.label} ${item.tickets}，占 ${Math.round(item.percentage * 100)}%`}
-                />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       ) : (
-        <p className="mt-4 text-sm text-[var(--text-tertiary)]">导入履历后会显示分布。</p>
+        <p className="mt-4 text-sm text-[var(--text-tertiary)]">
+          同步后会显示类型分布。
+        </p>
       )}
     </section>
   );
 }
 
-export default function MiguriDashboard({ entries, importState, onOpenManualImport }: Props) {
-  const dashboard = useMemo(() => aggregateMiguriDashboard(entries), [entries]);
+export default function MiguriDashboard({
+  entries,
+  importState,
+  onOpenManualImport,
+}: Props) {
+  const groups = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          entries
+            .map((entry) => entry.group)
+            .filter((group): group is MiguriGroupId => Boolean(group)),
+        ),
+      ),
+    [entries],
+  );
+  const categories = useMemo(
+    () =>
+      CATEGORY_ORDER.filter((category) =>
+        entries.some(
+          (entry) => (entry.category || "個別ミーグリ") === category,
+        ),
+      ),
+    [entries],
+  );
+  const [selectedGroup, setSelectedGroup] = useState<MiguriGroupId | "all">(
+    "all",
+  );
+  const [selectedCategory, setSelectedCategory] = useState<
+    MiguriEntryCategory | "all"
+  >("all");
+  const [rankMetric, setRankMetric] = useState<RankMetric>("spend");
+
+  const filteredEntries = useMemo(
+    () =>
+      entries.filter(
+        (entry) =>
+          (selectedGroup === "all" || entry.group === selectedGroup) &&
+          (selectedCategory === "all" ||
+            (entry.category || "個別ミーグリ") === selectedCategory),
+      ),
+    [entries, selectedCategory, selectedGroup],
+  );
+  const dashboard = useMemo(
+    () => aggregateMiguriDashboard(filteredEntries),
+    [filteredEntries],
+  );
   const nextStop = dashboard.nextStops[0];
 
-  const metrics = [
-    { label: '总口数 / 张数', value: dashboard.totalTickets, icon: Ticket, color: 'text-amber-500' },
-    { label: '未来日期', value: dashboard.upcomingDates, icon: CalendarDays, color: 'text-emerald-500' },
-    { label: '活动类型', value: dashboard.categoryBreakdown.length, icon: BarChart3, color: 'text-violet-500' },
-    { label: '成员', value: dashboard.memberBreakdown.length, icon: UserRound, color: 'text-sky-500' },
-  ];
+  const memberRanking = useMemo(() => {
+    const ranking = new Map<
+      string,
+      {
+        member: string;
+        applied: number;
+        won: number;
+        spend: number;
+      }
+    >();
+    filteredEntries.forEach((entry) => {
+      const current = ranking.get(entry.member) || {
+        member: entry.member,
+        applied: 0,
+        won: 0,
+        spend: 0,
+      };
+      const isSign = entry.category === "サイン会";
+      const applied =
+        isSign && entry.signLots > 0
+          ? entry.signLots
+          : entry.appliedTickets || entry.tickets;
+      const won =
+        isSign && entry.signLots > 0
+          ? entry.status === "won" || entry.status === "paid"
+            ? entry.signLots
+            : 0
+          : entry.wonTickets ||
+            (entry.status === "won" || entry.status === "paid"
+              ? entry.tickets
+              : 0);
+      current.applied += applied;
+      current.won += won;
+      current.spend +=
+        entry.spendYen ||
+        (entry.paidTickets || entry.wonTickets) * entry.unitPriceYen;
+      ranking.set(entry.member, current);
+    });
+    return Array.from(ranking.values()).sort((left, right) => {
+      const leftValue =
+        rankMetric === "spend"
+          ? left.spend
+          : rankMetric === "won"
+            ? left.won
+            : rankMetric === "rate"
+              ? left.applied > 0
+                ? left.won / left.applied
+                : 0
+              : left.won > 0
+                ? left.spend / left.won
+                : 0;
+      const rightValue =
+        rankMetric === "spend"
+          ? right.spend
+          : rankMetric === "won"
+            ? right.won
+            : rankMetric === "rate"
+              ? right.applied > 0
+                ? right.won / right.applied
+                : 0
+              : right.won > 0
+                ? right.spend / right.won
+                : 0;
+      return (
+        rightValue - leftValue || left.member.localeCompare(right.member, "ja")
+      );
+    });
+  }, [filteredEntries, rankMetric]);
+  const maxRankValue = Math.max(
+    1,
+    ...memberRanking.map((item) =>
+      rankMetric === "spend"
+        ? item.spend
+        : rankMetric === "won"
+          ? item.won
+          : rankMetric === "rate"
+            ? item.applied > 0
+              ? item.won / item.applied
+              : 0
+            : item.won > 0
+              ? item.spend / item.won
+              : 0,
+    ),
+  );
+
+  const memberGradient =
+    dashboard.memberBreakdown.length > 0
+      ? dashboard.memberBreakdown
+          .slice(0, 6)
+          .map((item, index) => {
+            const start =
+              dashboard.memberBreakdown
+                .slice(0, index)
+                .reduce((sum, row) => sum + row.percentage, 0) * 100;
+            const end = start + item.percentage * 100;
+            const colors = [
+              "#5146e5",
+              "#5195ca",
+              "#65a99c",
+              "#c64d82",
+              "#f59e0b",
+              "#94a3b8",
+            ];
+            return `${colors[index]} ${start}% ${end}%`;
+          })
+          .join(", ")
+      : "";
 
   return (
     <div className="space-y-5 sm:space-y-6">
-      <ImportSetup state={importState} onOpenManualImport={onOpenManualImport} />
+      <ImportSetup
+        state={importState}
+        onOpenManualImport={onOpenManualImport}
+      />
+
+      <section aria-label="Dashboard 筛选" className="space-y-3">
+        {groups.length > 1 ? (
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              aria-pressed={selectedGroup === "all"}
+              onClick={() => setSelectedGroup("all")}
+              className={`min-h-11 rounded-full border px-4 text-xs font-semibold ${
+                selectedGroup === "all"
+                  ? "border-indigo-500/30 bg-indigo-500/10 text-indigo-700"
+                  : "border-[var(--border-primary)] text-[var(--text-secondary)]"
+              }`}
+            >
+              全部组合
+            </button>
+            {groups.map((group) => (
+              <button
+                key={group}
+                type="button"
+                aria-pressed={selectedGroup === group}
+                onClick={() => setSelectedGroup(group)}
+                className={`min-h-11 rounded-full border px-4 text-xs font-semibold ${
+                  selectedGroup === group
+                    ? "border-indigo-500/30 bg-indigo-500/10 text-indigo-700"
+                    : "border-[var(--border-primary)] text-[var(--text-secondary)]"
+                }`}
+              >
+                {GROUP_LABELS[group]}
+              </button>
+            ))}
+          </div>
+        ) : null}
+        {categories.length > 1 ? (
+          <div className="flex gap-2 overflow-x-auto pb-1">
+            <button
+              type="button"
+              aria-pressed={selectedCategory === "all"}
+              onClick={() => setSelectedCategory("all")}
+              className={`min-h-11 shrink-0 rounded-full border px-4 text-xs font-semibold ${
+                selectedCategory === "all"
+                  ? "border-[var(--text-primary)] bg-[var(--text-primary)] text-[var(--bg-primary)]"
+                  : "border-[var(--border-primary)] text-[var(--text-secondary)]"
+              }`}
+            >
+              全部类型
+            </button>
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                aria-pressed={selectedCategory === category}
+                onClick={() => setSelectedCategory(category)}
+                className={`min-h-11 shrink-0 rounded-full border px-4 text-xs font-semibold ${
+                  selectedCategory === category
+                    ? "border-[var(--text-primary)] bg-[var(--text-primary)] text-[var(--bg-primary)]"
+                    : "border-[var(--border-primary)] text-[var(--text-secondary)]"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        ) : null}
+      </section>
+
+      {dashboard.sourceFreshness.length > 0 ? (
+        <div className="flex flex-wrap gap-2" aria-label="同步状态">
+          {dashboard.sourceFreshness.slice(0, 6).map((item) => (
+            <span
+              key={`${item.source}-${item.group}`}
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--border-primary)] px-3 py-1.5 text-[11px] text-[var(--text-secondary)]"
+            >
+              <span className="h-2 w-2 rounded-full bg-emerald-600" />
+              {item.source === "fortunemusic"
+                ? "forTUNE music"
+                : GROUP_LABELS[item.group as MiguriGroupId] || "Meets"}
+              · {relativeSyncTime(item.syncedAt)}
+            </span>
+          ))}
+        </div>
+      ) : null}
+
+      <section className="overflow-hidden rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-5 sm:p-7">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,.9fr)] lg:items-end">
+          <div>
+            <div className="text-sm font-semibold text-[var(--text-secondary)]">
+              总金额
+            </div>
+            <div className="mt-2 text-5xl font-black tracking-[-0.055em] text-[var(--text-primary)] sm:text-7xl">
+              <span className="mr-1 text-2xl font-semibold text-[var(--text-tertiary)] sm:text-4xl">
+                ¥
+              </span>
+              {Math.round(dashboard.totalSpendYen).toLocaleString("ja-JP")}
+            </div>
+            <SpendSparkline points={dashboard.spendTimeline} />
+            {dashboard.topMember ? (
+              <p className="mt-3 text-sm text-[var(--text-secondary)]">
+                本命{" "}
+                <strong className="text-[var(--text-primary)]">
+                  {dashboard.topMember.name}
+                </strong>
+                {" · "}
+                {formatPercent(dashboard.topMember.share)} 的支出份额
+              </p>
+            ) : (
+              <p className="mt-3 text-sm text-[var(--text-tertiary)]">
+                同步带有单价的履历后显示实际支出。
+              </p>
+            )}
+          </div>
+          <div className="grid grid-cols-3 gap-3">
+            <div>
+              <div className="text-xs leading-5 text-[var(--text-tertiary)]">
+                中签率
+                <br />
+                不含サイン会・其他
+              </div>
+              <div className="mt-2 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
+                {formatPercent(dashboard.winRate)}
+              </div>
+            </div>
+            <div>
+              <div className="text-xs leading-5 text-[var(--text-tertiary)]">
+                应募张数
+              </div>
+              <div className="mt-7 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
+                {dashboard.totalApplied}
+              </div>
+            </div>
+            <div>
+              <div className="text-xs leading-5 text-[var(--text-tertiary)]">
+                中签张数
+              </div>
+              <div className="mt-7 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
+                {dashboard.totalWon}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-7">
+          <span className="inline-flex rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-bold text-indigo-600">
+            {dashboard.oshiType}
+          </span>
+          <div
+            className="mt-3 h-3 overflow-hidden rounded-full bg-[var(--bg-secondary)]"
+            style={{
+              background: memberGradient
+                ? `linear-gradient(90deg, ${memberGradient})`
+                : undefined,
+            }}
+            role="img"
+            aria-label={dashboard.memberBreakdown
+              .map((item) => `${item.label} ${formatPercent(item.percentage)}`)
+              .join("，")}
+          />
+          {dashboard.topMember ? (
+            <p className="mt-2 text-xs text-[var(--text-secondary)]">
+              支出最集中：{formatPercent(dashboard.topMember.share)} 给了{" "}
+              {dashboard.topMember.name}。
+            </p>
+          ) : null}
+        </div>
+      </section>
 
       <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
-        {metrics.map((metric) => {
+        {[
+          {
+            label: "实际支出",
+            value: formatYen(dashboard.totalSpendYen),
+            icon: CircleDollarSign,
+            color: "text-indigo-500",
+          },
+          {
+            label: "单张成本",
+            value: formatYen(dashboard.costPerWinYen),
+            icon: TrendingUp,
+            color: "text-pink-500",
+          },
+          {
+            label: "未来日期",
+            value: `${dashboard.upcomingDates}`,
+            icon: CalendarDays,
+            color: "text-emerald-500",
+          },
+          {
+            label: "成员",
+            value: `${dashboard.memberBreakdown.length}`,
+            icon: UserRound,
+            color: "text-sky-500",
+          },
+        ].map((metric) => {
           const Icon = metric.icon;
           return (
-            <div key={metric.label} className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
+            <div
+              key={metric.label}
+              className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4"
+            >
               <div className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
                 <Icon size={15} className={metric.color} />
                 {metric.label}
               </div>
-              <div className="mt-2 text-2xl font-bold tabular-nums text-[var(--text-primary)]">{metric.value}</div>
+              <div className="mt-2 text-xl font-bold tabular-nums text-[var(--text-primary)] sm:text-2xl">
+                {metric.value}
+              </div>
             </div>
           );
         })}
       </div>
 
-      <div className="grid gap-5 xl:grid-cols-[minmax(0,1.25fr)_minmax(320px,.75fr)]">
-        <section className="overflow-hidden rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)]">
-          <div className="border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] px-4 py-4 sm:px-6">
-            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-sky-600">下一站</div>
-            {nextStop ? (
-              <>
-                <h2 className="mt-1 text-xl font-bold tracking-tight text-[var(--text-primary)] sm:text-2xl">
-                  {displayDate(nextStop.date)}
-                </h2>
-                <p className="mt-1 text-sm text-[var(--text-secondary)]">
-                  {nextStop.venues.length > 0 ? nextStop.venues.join(' · ') : '会场信息待官方履历补充'}
-                </p>
-              </>
-            ) : (
-              <h2 className="mt-1 text-xl font-bold text-[var(--text-primary)]">暂时没有未来行程</h2>
-            )}
-          </div>
-
-          {nextStop ? (
-            <div className="divide-y divide-[var(--border-primary)]">
-              {nextStop.rows.map((row) => (
-                <div key={`${row.member}-${row.category}`} className="px-4 py-4 sm:px-6">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <div>
-                      <div className="text-sm font-bold text-[var(--text-primary)]">{row.member}</div>
-                      <div className="mt-1 text-xs text-[var(--text-secondary)]">
-                        {row.category} · <span className="font-semibold tabular-nums">{row.tickets}</span>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap justify-end gap-1.5">
-                      {row.slots.map((slot) => (
-                        <span
-                          key={slot.slot}
-                          className="rounded-full border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-2.5 py-1 text-[11px] font-medium text-[var(--text-secondary)]"
-                        >
-                          {slot.slot > 0 ? `第${slot.slot}部` : '部数未取得'} · {slot.tickets}{categoryUnit(row.category)}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="px-4 py-10 text-center text-sm leading-6 text-[var(--text-tertiary)] sm:px-6">
-              登录 Music / Meets 并点击导入书签后，下一站会自动出现。
-            </div>
-          )}
-        </section>
-
-        <section className="rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 sm:p-5">
+      <section className="overflow-hidden rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)]">
+        <div className="border-b border-[var(--border-primary)] px-4 py-4 sm:px-6">
           <div className="flex items-center gap-2">
             <CalendarDays size={16} className="text-emerald-500" />
-            <h3 className="text-sm font-bold text-[var(--text-primary)]">之后的日程</h3>
+            <h3 className="text-sm font-bold text-[var(--text-primary)]">
+              下一站
+            </h3>
           </div>
-          {dashboard.nextStops.length > 1 ? (
-            <div className="mt-3 divide-y divide-[var(--border-primary)]">
-              {dashboard.nextStops.slice(1, 6).map((stop) => (
-                <div key={stop.date} className="py-3">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <span className="text-sm font-semibold text-[var(--text-primary)]">{displayDate(stop.date)}</span>
-                    <span className="text-xs tabular-nums text-[var(--text-tertiary)]">{stop.tickets}</span>
+        </div>
+        {nextStop ? (
+          <div className="divide-y divide-[var(--border-primary)]">
+            <div className="px-4 py-5 sm:px-6">
+              <h2 className="text-xl font-bold tracking-tight text-[var(--text-primary)] sm:text-2xl">
+                {displayDate(nextStop.date)}
+              </h2>
+              <p className="mt-1 text-sm text-[var(--text-secondary)]">
+                {nextStop.venues.length > 0
+                  ? nextStop.venues.join(" · ")
+                  : "会场信息待同步"}
+              </p>
+            </div>
+            {nextStop.rows.map((row) => (
+              <div
+                key={`${row.member}-${row.category}`}
+                className="px-4 py-4 sm:px-6"
+              >
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <div className="text-sm font-bold text-[var(--text-primary)]">
+                      {row.member}
+                    </div>
+                    <div className="mt-1 text-xs text-[var(--text-secondary)]">
+                      {row.category} ·{" "}
+                      <span className="font-semibold tabular-nums">
+                        {row.tickets}
+                        {categoryUnit(row.category)}
+                      </span>
+                    </div>
                   </div>
-                  <p className="mt-1 truncate text-xs text-[var(--text-secondary)]">
-                    {stop.rows.map((row) => `${row.member} ${row.category}·${row.tickets}`).join(' / ')}
-                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {row.slots.map((slot) => (
+                      <span
+                        key={slot.slot}
+                        className="rounded-full border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-2.5 py-1 text-[11px] font-medium text-[var(--text-secondary)]"
+                      >
+                        {slot.slot > 0 ? `第${slot.slot}部` : "无部数"} ·{" "}
+                        {slot.tickets}
+                        {categoryUnit(row.category)}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+              </div>
+            ))}
+            {dashboard.nextStops.length > 1 ? (
+              <div className="px-4 py-4 sm:px-6">
+                <div className="space-y-3">
+                  {dashboard.nextStops.slice(1, 6).map((stop) => (
+                    <div
+                      key={stop.date}
+                      className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between"
+                    >
+                      <span className="text-sm font-semibold text-[var(--text-primary)]">
+                        {displayDate(stop.date)}
+                      </span>
+                      <span className="text-xs text-[var(--text-secondary)]">
+                        {stop.rows
+                          .map(
+                            (row) =>
+                              `${row.member} ${row.category}·${row.tickets}`,
+                          )
+                          .join(" / ")}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </div>
+        ) : (
+          <div className="px-4 py-10 text-center text-sm text-[var(--text-tertiary)] sm:px-6">
+            同步中签履历后，リアミ、サイン会与每一部张数会自动显示。
+          </div>
+        )}
+      </section>
+
+      <div className="grid gap-5 xl:grid-cols-[minmax(0,1.1fr)_minmax(360px,.9fr)]">
+        <section className="rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 sm:p-5">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-2">
+              <BarChart3 size={16} className="text-sky-500" />
+              <h3 className="text-sm font-bold text-[var(--text-primary)]">
+                成员排行
+              </h3>
+            </div>
+            <div className="flex overflow-x-auto rounded-xl border border-[var(--border-primary)] p-1">
+              {(
+                [
+                  ["spend", "支付金额"],
+                  ["won", "中签张数"],
+                  ["rate", "中签率"],
+                  ["cost", "单张成本"],
+                ] as Array<[RankMetric, string]>
+              ).map(([metric, label]) => (
+                <button
+                  key={metric}
+                  type="button"
+                  aria-pressed={rankMetric === metric}
+                  onClick={() => setRankMetric(metric)}
+                  className={`min-h-9 shrink-0 rounded-lg px-3 text-[11px] font-semibold ${
+                    rankMetric === metric
+                      ? "bg-indigo-500/10 text-indigo-700"
+                      : "text-[var(--text-secondary)]"
+                  }`}
+                >
+                  {label}
+                </button>
               ))}
             </div>
-          ) : (
-            <p className="mt-4 text-sm leading-6 text-[var(--text-tertiary)]">后续日期会在这里按时间顺序排列。</p>
-          )}
+          </div>
+          <div className="mt-5 space-y-4">
+            {memberRanking.slice(0, 8).map((item) => {
+              const value =
+                rankMetric === "spend"
+                  ? item.spend
+                  : rankMetric === "won"
+                    ? item.won
+                    : rankMetric === "rate"
+                      ? item.applied > 0
+                        ? item.won / item.applied
+                        : 0
+                      : item.won > 0
+                        ? item.spend / item.won
+                        : 0;
+              const label =
+                rankMetric === "spend" || rankMetric === "cost"
+                  ? formatYen(value)
+                  : rankMetric === "rate"
+                    ? formatPercent(value)
+                    : `${Math.round(value)}`;
+              return (
+                <div
+                  key={item.member}
+                  className="grid grid-cols-[minmax(92px,auto)_minmax(80px,1fr)_auto] items-center gap-3"
+                >
+                  <span className="truncate text-sm font-semibold text-[var(--text-primary)]">
+                    {item.member}
+                  </span>
+                  <div className="h-2 overflow-hidden rounded-full bg-[var(--bg-secondary)]">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-pink-500"
+                      style={{
+                        width: `${Math.max(2, (value / maxRankValue) * 100)}%`,
+                      }}
+                    />
+                  </div>
+                  <span className="min-w-16 text-right text-sm font-bold tabular-nums text-[var(--text-primary)]">
+                    {label}
+                  </span>
+                </div>
+              );
+            })}
+            {memberRanking.length === 0 ? (
+              <p className="text-sm text-[var(--text-tertiary)]">
+                同步后会显示成员排行。
+              </p>
+            ) : null}
+          </div>
         </section>
+
+        <Donut
+          items={dashboard.categoryBreakdown}
+          total={dashboard.totalSpendYen}
+        />
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-2">
-        <Breakdown title="类型分布" items={dashboard.categoryBreakdown} />
-        <Breakdown title="成员分布" items={dashboard.memberBreakdown} />
-      </div>
+      <p className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
+        <Ticket size={13} />
+        Music 按实际中签数与单价计算；Meets 按已登记序列分配，官方页无价格时仅对
+        2024 年后的单曲按 ¥2,000 估算。
+      </p>
     </div>
   );
 }

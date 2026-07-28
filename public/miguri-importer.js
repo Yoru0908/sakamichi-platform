@@ -20,6 +20,10 @@
     const match = digits(value).replace(/,/g, '').match(new RegExp(`(\\d+)\\s*${unit}`));
     return match ? Number(match[1]) : 0;
   };
+  const yen = (value) => {
+    const match = digits(value).replace(/,/g, '').match(/(\d+)\s*円/);
+    return match ? Number(match[1]) : 0;
+  };
   const groupFromText = (value) => {
     if (/乃木坂46/.test(value)) return 'nogizaka';
     if (/櫻坂46/.test(value)) return 'sakurazaka';
@@ -30,6 +34,7 @@
     const normalized = compact(value).replace(/\s/g, '');
     if (/サイン会[」』）)】]*$/.test(normalized)) return 'サイン会';
     if (/リアルミート/.test(normalized)) return 'リアミ';
+    if (/オンラインミート/.test(normalized)) return '全国ミーグリ';
     return 'その他';
   };
   const isoDateFromText = (value) => {
@@ -61,6 +66,8 @@
     return `${(first >>> 0).toString(36)}${(second >>> 0).toString(36)}`;
   };
   const sourceKey = (...parts) => hash(parts.map(compact).join('|'));
+  const sourceSyncedAt = new Date().toISOString();
+  const applicationRound = (value) => compact(value).match(/第[0-9０-９]+次/)?.[0] || '';
 
   let overlay;
   const show = (title, detail = '') => {
@@ -141,6 +148,7 @@
       const slot = Number(digits(parsed[3]));
       const appliedTickets = count(quantities[0]?.textContent, '個');
       const wonTickets = invalid ? 0 : count(quantities[1]?.textContent, '個');
+      const unitPriceYen = invalid ? 0 : yen(cells[1]?.textContent);
       if (!member || !date || appliedTickets <= 0) return;
 
       records.push({
@@ -153,6 +161,11 @@
         appliedTickets,
         wonTickets,
         paidTickets: 0,
+        unitPriceYen,
+        spendYen: wonTickets * unitPriceYen,
+        signLots: 0,
+        applicationRound: applicationRound(application.title),
+        sourceSyncedAt,
         eventSlug: '',
         title: application.title || item,
         venue: '',
@@ -255,6 +268,23 @@
     let category = 'その他';
     let heading = '';
     const title = compact(documentNode.title);
+    const bodyText = compact(documentNode.body?.textContent);
+    const explicitPrice = Array.from(bodyText.matchAll(/(?:販売価格|商品価格|税込)[^\d]{0,18}(\d{1,3}(?:,\d{3})+)\s*円|(\d{1,3}(?:,\d{3})+)\s*円(?:\s*税込)/g))
+      .map((match) => Number((match[1] || match[2] || '').replace(/,/g, '')))
+      .find((value) => value >= 1_000 && value <= 30_000);
+    const latestYear = Math.max(
+      0,
+      ...Array.from(bodyText.matchAll(/(20\d{2})年/g)).map((match) => Number(match[1])),
+    );
+    const unitPriceYen = explicitPrice || (/album/i.test(campaignSlug) || latestYear < 2024 ? 0 : 2_000);
+    const registeredSerials = new Set();
+    documentNode.querySelectorAll('p.date').forEach((node) => {
+      if (!/登録：/.test(node.textContent || '')) return;
+      const serial = compact(node.parentElement?.querySelector('p.heading.bold')?.textContent)
+        .split('#')[0]
+        .trim();
+      if (/^[0-9A-Za-z]{8,}$/.test(serial)) registeredSerials.add(serial);
+    });
 
     documentNode.querySelectorAll('h5.awardItemHeading, .resultWrap').forEach((node) => {
       if (node.matches('h5.awardItemHeading')) {
@@ -274,7 +304,7 @@
       const quantityText = node.querySelector('.flex-shrink-0')?.textContent || '';
       const quantity = count(quantityText, '枚');
       const lots = count(quantityText, '口');
-      const appliedTickets = category === 'サイン会' ? (lots || quantity) : (quantity || lots);
+      const appliedTickets = quantity || lots;
       const won = /当選/.test(statusText) && !/落選/.test(statusText);
       const lost = /落選/.test(statusText);
       const venue = compact(dateLine.includes('＠') ? dateLine.split('＠').slice(1).join('＠') : '');
@@ -292,6 +322,11 @@
         appliedTickets: 0,
         wonTickets: 0,
         paidTickets: 0,
+        unitPriceYen,
+        spendYen: 0,
+        signLots: 0,
+        applicationRound: campaignSlug,
+        sourceSyncedAt,
         eventSlug: '',
         title: [title, heading].filter(Boolean).join('｜'),
         venue,
@@ -299,6 +334,7 @@
         resultStatus: won ? 'won' : lost ? 'lost' : 'pending',
       };
       record.appliedTickets += appliedTickets;
+      record.signLots += lots;
       if (won) {
         record.wonTickets += appliedTickets;
         record.resultStatus = 'won';
@@ -307,7 +343,35 @@
       }
       records.set(naturalKey, record);
     });
-    return Array.from(records.values());
+    const values = Array.from(records.values());
+    const countedSerials = registeredSerials.size
+      || values.reduce((sum, record) => sum + record.appliedTickets, 0);
+    const nonMiguriApplied = values
+      .filter((record) => record.category !== 'リアミ' && record.category !== '全国ミーグリ')
+      .reduce((sum, record) => sum + record.appliedTickets, 0);
+    const nonMiguriScale = nonMiguriApplied > countedSerials && nonMiguriApplied > 0
+      ? countedSerials / nonMiguriApplied
+      : 1;
+    const remainingSerials = Math.max(0, countedSerials - nonMiguriApplied);
+    const miguriRecords = values.filter((record) => (
+      record.category === 'リアミ' || record.category === '全国ミーグリ'
+    ));
+    const hasMiguriWinner = miguriRecords.some((record) => record.wonTickets > 0);
+    const miguriWeight = miguriRecords.reduce((sum, record) => (
+      sum + (hasMiguriWinner ? record.wonTickets : record.appliedTickets)
+    ), 0);
+
+    values.forEach((record) => {
+      if (record.category === 'リアミ' || record.category === '全国ミーグリ') {
+        const weight = hasMiguriWinner ? record.wonTickets : record.appliedTickets;
+        record.spendYen = miguriWeight > 0
+          ? Math.round((weight / miguriWeight) * remainingSerials * unitPriceYen)
+          : 0;
+      } else {
+        record.spendYen = Math.round(record.appliedTickets * unitPriceYen * nonMiguriScale);
+      }
+    });
+    return values;
   };
   const loadCampaignHistory = async (groupSlug, group, campaignSlug) => {
     await sleep(450);

@@ -49,7 +49,7 @@ const MIGURI_BASE = `${API_CONFIG.baseUrl}${API_CONFIG.endpoints.miguri}`;
 export type MiguriGroupId = 'nogizaka' | 'hinatazaka' | 'sakurazaka';
 export type MiguriEntryStatus = 'planned' | 'won' | 'lost' | 'paid';
 export type MiguriEntrySource = 'manual' | 'fortunemusic' | 'fortunemeets';
-export type MiguriEntryCategory = '個別ミーグリ' | 'リアミ' | 'サイン会' | 'その他';
+export type MiguriEntryCategory = '個別ミーグリ' | '全国ミーグリ' | 'リアミ' | 'サイン会' | 'その他';
 
 export interface MiguriWindow {
   label: string;
@@ -99,6 +99,11 @@ export interface MiguriEntry {
   appliedTickets: number;
   wonTickets: number;
   paidTickets: number;
+  unitPriceYen: number;
+  spendYen: number;
+  signLots: number;
+  applicationRound: string | null;
+  sourceSyncedAt: string | null;
 }
 
 export interface MiguriGoogleCalendarStatus {
@@ -164,6 +169,11 @@ export interface MiguriImportRecord {
   appliedTickets: number;
   wonTickets: number;
   paidTickets: number;
+  unitPriceYen: number;
+  spendYen: number;
+  signLots: number;
+  applicationRound: string;
+  sourceSyncedAt: string;
   eventSlug: string;
   title: string;
   venue: string;

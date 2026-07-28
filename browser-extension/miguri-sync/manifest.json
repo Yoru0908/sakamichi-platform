@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "46log 咪咕力同步",
+  "version": "1.0.0",
+  "description": "把 forTUNE music / meets 的个人应募履历同步到 46log 咪咕力面板。",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "https://46log.com/*",
+    "https://fortunemusic.jp/*",
+    "https://fortunemeets.app/*",
+    "https://*.fortunemeets.app/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://46log.com/miguri*"],
+      "js": ["bridge.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://fortunemusic.jp/*",
+        "https://fortunemeets.app/*",
+        "https://*.fortunemeets.app/*"
+      ],
+      "js": ["official.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "46log 咪咕力同步"
+  }
+}

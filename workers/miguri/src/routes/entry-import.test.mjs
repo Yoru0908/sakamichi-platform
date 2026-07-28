@@ -19,6 +19,11 @@ function importRecord(overrides = {}) {
     appliedTickets: 3,
     wonTickets: 3,
     paidTickets: 0,
+    unitPriceYen: 2000,
+    spendYen: 6000,
+    signLots: 3,
+    applicationRound: 'sakurazaka46-16th',
+    sourceSyncedAt: '2026-07-29T00:00:00.000Z',
     eventSlug: '',
     title: '櫻坂46 リアルサイン会',
     venue: '京都パルスプラザ',
@@ -29,9 +34,15 @@ function importRecord(overrides = {}) {
 
 test('normalizeImportRecord preserves counts and chooses paid, won, then applied for display', () => {
   assert.equal(normalizeImportRecord(importRecord()).tickets, 3);
+  assert.equal(normalizeImportRecord(importRecord()).spendYen, 6000);
+  assert.equal(normalizeImportRecord(importRecord()).signLots, 3);
   assert.equal(normalizeImportRecord(importRecord({ wonTickets: 0 })).status, 'planned');
   assert.equal(
-    normalizeImportRecord(importRecord({ paidTickets: 2 })).tickets,
+    normalizeImportRecord(importRecord({
+      category: '個別ミーグリ',
+      paidTickets: 2,
+      signLots: 0,
+    })).tickets,
     2,
   );
   assert.equal(
@@ -53,9 +64,11 @@ test('normalizeImportRecords rejects malformed counts, dates, and source keys', 
     importRecord({ sourceKey: 'contains spaces' }),
     importRecord({ date: '2026-02-30' }),
     importRecord({ appliedTickets: -1 }),
+    importRecord({ spendYen: 100_000_001 }),
+    importRecord({ sourceSyncedAt: 'not-a-date' }),
   ]);
   assert.equal(normalized.records.length, 1);
-  assert.deepEqual(normalized.invalidIndexes, [1, 2, 3]);
+  assert.deepEqual(normalized.invalidIndexes, [1, 2, 3, 4, 5]);
 });
 
 class FakeStatement {
@@ -134,6 +147,11 @@ class FakeMiguriDb {
       appliedTickets,
       wonTickets,
       paidTickets,
+      unitPriceYen,
+      spendYen,
+      signLots,
+      applicationRound,
+      sourceSyncedAt,
     ] = args;
     const mapKey = `${userId}:${sourceKey}`;
     const existing = this.entries.get(mapKey);
@@ -157,6 +175,11 @@ class FakeMiguriDb {
       applied_tickets: appliedTickets,
       won_tickets: wonTickets,
       paid_tickets: paidTickets,
+      unit_price_yen: unitPriceYen,
+      spend_yen: spendYen,
+      sign_lots: signLots,
+      application_round: applicationRound,
+      source_synced_at: sourceSyncedAt,
       start_time: null,
       end_time: null,
     });
@@ -202,6 +225,8 @@ test('handleImportMiguriEntries updates the same source key instead of accumulat
     await importRequest(token, [importRecord({
       appliedTickets: 4,
       wonTickets: 4,
+      signLots: 4,
+      spendYen: 8000,
     })]),
     env,
   );
@@ -210,6 +235,7 @@ test('handleImportMiguriEntries updates the same source key instead of accumulat
   assert.equal(second.data.created, 0);
   assert.equal(second.data.updated, 1);
   assert.equal(second.data.entries[0].tickets, 4);
+  assert.equal(second.data.entries[0].spendYen, 8000);
   assert.equal(db.entries.size, 1);
 });
 
