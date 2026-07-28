@@ -357,8 +357,8 @@ test('syncMiguriEntryToGoogleCalendar creates a Google Calendar event and stores
  });
 
 test('auth worker index wires Google Calendar connect route', () => {
-  const indexSource = readFileSync(new URL('../index.ts', import.meta.url), 'utf8');
+  const indexSource = readFileSync(new URL('../../../auth/src/index.ts', import.meta.url), 'utf8');
 
   assert.match(indexSource, /handleGoogleCalendarConnectRedirect/);
-  assert.match(indexSource, /path === '\/api\/auth\/google\/calendar' && method === 'GET'/);
+  assert.ok(indexSource.includes("'GET /api/auth/google/calendar': handleGoogleCalendarConnectRedirect"));
 });

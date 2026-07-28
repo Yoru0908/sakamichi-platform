@@ -44,10 +44,13 @@ type MiguriCalendarEntryRow = {
   slot_number: number;
   tickets: number;
   status: string;
+  source: string;
   event_title: string | null;
   group_id: 'nogizaka' | 'hinatazaka' | 'sakurazaka' | null;
   start_time: string | null;
   end_time: string | null;
+  category: string | null;
+  venue: string | null;
 };
 
 type MiguriCalendarWindowRow = {
@@ -221,8 +224,10 @@ async function loadSyncableMiguriEntry(env: Env, userId: string, entryId: string
   if (!env.MIGURI_DB) return null;
 
   return await env.MIGURI_DB.prepare(`
-    SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.status,
-           m.title AS event_title, m.group_id,
+    SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.status, e.source,
+           e.category, e.venue,
+           COALESCE(m.title, e.import_title) AS event_title,
+           COALESCE(m.group_id, e.import_group) AS group_id,
            s.start_time, s.end_time
     FROM miguri_user_entries e
     LEFT JOIN miguri_events m ON m.slug = e.event_slug
@@ -242,9 +247,8 @@ async function loadSyncableMiguriEntryIds(env: Env, userId: string): Promise<str
     LEFT JOIN miguri_event_slots s
       ON s.event_slug = e.event_slug AND s.event_date = e.event_date AND s.slot_number = e.slot_number
     WHERE e.user_id = ?
-      AND m.group_id IS NOT NULL
-      AND s.start_time IS NOT NULL
-      AND s.end_time IS NOT NULL
+      AND COALESCE(m.group_id, e.import_group) IS NOT NULL
+      AND (e.status IN ('won', 'paid') OR COALESCE(e.source, 'manual') = 'manual')
     ORDER BY e.event_date, e.slot_number, e.member_name
   `).bind(userId).all<{ id: string }>();
 
@@ -306,18 +310,29 @@ function parseMiguriWindowSyncId(syncItemId: string): { eventSlug: string; label
 }
 
 function buildGoogleCalendarEntryEventBody(entry: MiguriCalendarEntryRow) {
+  const category = entry.category || 'ミーグリ';
+  const unit = category === 'サイン会' ? '口' : '枚';
+  const slotLabel = entry.slot_number > 0 ? `第${entry.slot_number}部` : '部数未指定';
+  const hasTime = Boolean(entry.start_time && entry.end_time);
+  const [year, month, day] = entry.event_date.split('-').map(Number);
+  const nextDate = new Date(Date.UTC(year, month - 1, day + 1)).toISOString().slice(0, 10);
+
   return {
-    summary: `${toGroupLabel(entry.group_id)} ミーグリ - ${entry.member_name}`,
-    description: `${entry.event_title || entry.event_slug || 'Miguri'}\n第${entry.slot_number}部 ${entry.member_name} ${entry.tickets}枚`,
-    location: 'Fortune Music Online',
-    start: {
-      dateTime: `${entry.event_date}T${entry.start_time}:00+09:00`,
-      timeZone: 'Asia/Tokyo',
-    },
-    end: {
-      dateTime: `${entry.event_date}T${entry.end_time}:00+09:00`,
-      timeZone: 'Asia/Tokyo',
-    },
+    summary: `${toGroupLabel(entry.group_id)} ${category} - ${entry.member_name}`,
+    description: `${entry.event_title || entry.event_slug || 'Miguri'}\n${slotLabel} ${entry.member_name} ${entry.tickets}${unit}`,
+    location: entry.venue || 'Fortune Music Online',
+    start: hasTime
+      ? {
+          dateTime: `${entry.event_date}T${entry.start_time}:00+09:00`,
+          timeZone: 'Asia/Tokyo',
+        }
+      : { date: entry.event_date },
+    end: hasTime
+      ? {
+          dateTime: `${entry.event_date}T${entry.end_time}:00+09:00`,
+          timeZone: 'Asia/Tokyo',
+        }
+      : { date: nextDate },
     extendedProperties: {
       private: {
         miguriEntryId: entry.id,
@@ -544,7 +559,11 @@ export async function syncMiguriEntryToGoogleCalendar(
   }
 
   const entry = await loadSyncableMiguriEntry(env, userId, entryId);
-  if (!entry || !entry.start_time || !entry.end_time || !entry.group_id) {
+  if (
+    !entry
+    || !entry.group_id
+    || (entry.source !== 'manual' && entry.status !== 'won' && entry.status !== 'paid')
+  ) {
     return {
       connected: true,
       synced: false,

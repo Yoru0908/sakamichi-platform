@@ -94,32 +94,55 @@ function buildCalendarEvent(entry: {
   eventDate: string;
   slotNumber: number;
   tickets: number;
-  eventTitle: string;
+  eventTitle: string | null;
   groupId: MiguriSyncEvent['group'];
-  startTime: string;
-  endTime: string;
+  startTime: string | null;
+  endTime: string | null;
   sourceUrl?: string;
   updatedAt?: string;
+  category?: string | null;
+  venue?: string | null;
 }): CalendarEvent {
-  return {
+  const category = entry.category || 'ミーグリ';
+  const unit = category === 'サイン会' ? '口' : '枚';
+  const slotLabel = entry.slotNumber > 0 ? `第${entry.slotNumber}部` : '部数未指定';
+  const base = {
     uid: `miguri-entry:${entry.id}@46log.com`,
-    title: `${toGroupLabel(entry.groupId)} ミーグリ｜${entry.memberName}｜第${entry.slotNumber}部（${entry.tickets}枚）`,
-    description: `${decodeHtmlEntities(entry.eventTitle)}\n第${entry.slotNumber}部\n${entry.memberName} ${entry.tickets}枚`,
-    location: 'Fortune Music Online',
-    startAt: `${entry.eventDate}T${entry.startTime}:00+09:00`,
-    endAt: `${entry.eventDate}T${entry.endTime}:00+09:00`,
+    title: `${toGroupLabel(entry.groupId)} ${category}｜${entry.memberName}｜${entry.tickets}${unit}`,
+    description: `${decodeHtmlEntities(entry.eventTitle || 'Miguri')}\n${slotLabel}\n${entry.memberName} ${entry.tickets}${unit}`,
+    location: entry.venue || 'Fortune Music Online',
     url: entry.sourceUrl,
     updatedAt: entry.updatedAt,
+  };
+
+  if (!entry.startTime || !entry.endTime) {
+    const [year, month, day] = entry.eventDate.split('-').map(Number);
+    const nextDay = new Date(Date.UTC(year, month - 1, day + 1)).toISOString().slice(0, 10);
+    return {
+      ...base,
+      startAt: entry.eventDate,
+      endAt: nextDay,
+      allDay: true,
+    };
+  }
+
+  return {
+    ...base,
+    startAt: `${entry.eventDate}T${entry.startTime}:00+09:00`,
+    endAt: `${entry.eventDate}T${entry.endTime}:00+09:00`,
   };
 }
 
 export function buildGoogleCalendarUrl(event: Omit<CalendarEvent, 'uid'>): string {
+  const dates = event.allDay
+    ? `${event.startAt.replaceAll('-', '')}/${event.endAt.replaceAll('-', '')}`
+    : `${toUtcCalendarString(event.startAt).replace(/\.\d+Z$/, 'Z')}/${toUtcCalendarString(event.endAt).replace(/\.\d+Z$/, 'Z')}`;
   const params = new URLSearchParams({
     action: 'TEMPLATE',
     text: event.title,
     details: event.description,
     location: event.location,
-    dates: `${toUtcCalendarString(event.startAt).replace(/\.\d+Z$/, 'Z')}/${toUtcCalendarString(event.endAt).replace(/\.\d+Z$/, 'Z')}`,
+    dates,
   });
 
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
@@ -194,8 +217,21 @@ function mapEntryRow(row: any) {
     status: row.status,
     startTime: row.start_time,
     endTime: row.end_time,
+    source: row.source || 'manual',
+    sourceKey: row.source_key || null,
+    category: row.category || null,
+    venue: row.venue || null,
+    appliedTickets: row.applied_tickets ?? 0,
+    wonTickets: row.won_tickets ?? 0,
+    paidTickets: row.paid_tickets ?? 0,
   };
 }
+
+const ENTRY_SELECT_COLUMNS = `e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.status,
+           e.source, e.source_key, e.category, e.venue, e.applied_tickets, e.won_tickets, e.paid_tickets,
+           COALESCE(m.title, e.import_title) AS event_title,
+           COALESCE(m.group_id, e.import_group) AS group_id,
+           s.start_time, s.end_time`;
 
 type EventResponseShape = {
   slug: string;
@@ -221,9 +257,7 @@ type EventResponseShape = {
 async function loadEntries(env: Env, userId: string | null) {
   if (!userId) return [];
   const rows = await env.MIGURI_DB.prepare(`
-    SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.status,
-           m.title AS event_title, m.group_id,
-           s.start_time, s.end_time
+    SELECT ${ENTRY_SELECT_COLUMNS}
     FROM miguri_user_entries e
     LEFT JOIN miguri_events m ON m.slug = e.event_slug
     LEFT JOIN miguri_event_slots s
@@ -237,9 +271,7 @@ async function loadEntries(env: Env, userId: string | null) {
 
 async function loadEntryById(env: Env, userId: string, entryId: string) {
   const rows = await env.MIGURI_DB.prepare(`
-    SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.status,
-           m.title AS event_title, m.group_id,
-           s.start_time, s.end_time
+    SELECT ${ENTRY_SELECT_COLUMNS}
     FROM miguri_user_entries e
     LEFT JOIN miguri_events m ON m.slug = e.event_slug
     LEFT JOIN miguri_event_slots s
@@ -447,9 +479,7 @@ export async function handleCreateMiguriEntries(req: Request, env: Env): Promise
   const rows = affectedIds.length === 0
     ? { results: [] }
     : await env.MIGURI_DB.prepare(`
-        SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.status,
-               m.title AS event_title, m.group_id,
-               s.start_time, s.end_time
+        SELECT ${ENTRY_SELECT_COLUMNS}
         FROM miguri_user_entries e
         LEFT JOIN miguri_events m ON m.slug = e.event_slug
         LEFT JOIN miguri_event_slots s
@@ -466,19 +496,7 @@ export async function handleCreateMiguriEntries(req: Request, env: Env): Promise
 
   return success({
     data: {
-      entries: (rows.results || []).map((row) => ({
-        id: row.id,
-        eventSlug: row.event_slug,
-        eventTitle: row.event_title,
-        group: row.group_id,
-        member: row.member_name,
-        date: row.event_date,
-        slot: row.slot_number,
-        tickets: row.tickets,
-        status: row.status,
-        startTime: row.start_time,
-        endTime: row.end_time,
-      })),
+      entries: (rows.results || []).map(mapEntryRow),
     },
   }, 201);
 }
@@ -583,13 +601,18 @@ async function loadCalendarEvents(req: Request, env: Env, entryId?: string | nul
 
   const sql = `
     SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.updated_at,
-           m.title AS event_title, m.group_id, m.source_url,
+           e.category, e.venue,
+           COALESCE(m.title, e.import_title) AS event_title,
+           COALESCE(m.group_id, e.import_group) AS group_id,
+           m.source_url,
            s.start_time, s.end_time
     FROM miguri_user_entries e
     LEFT JOIN miguri_events m ON m.slug = e.event_slug
     LEFT JOIN miguri_event_slots s
       ON s.event_slug = e.event_slug AND s.event_date = e.event_date AND s.slot_number = e.slot_number
-    WHERE e.user_id = ? ${entryId ? 'AND e.id = ?' : ''}
+    WHERE e.user_id = ?
+      AND (e.status IN ('won', 'paid') OR COALESCE(e.source, 'manual') = 'manual')
+      ${entryId ? 'AND e.id = ?' : ''}
     ORDER BY e.event_date, e.slot_number, e.member_name
   `;
 
@@ -598,7 +621,7 @@ async function loadCalendarEvents(req: Request, env: Env, entryId?: string | nul
     : await env.MIGURI_DB.prepare(sql).bind(userId).all<any>();
 
   return (rows.results || [])
-    .filter((row) => row.start_time && row.end_time && row.group_id)
+    .filter((row) => row.group_id)
     .map((row) => buildCalendarEvent({
       id: row.id,
       memberName: row.member_name,
@@ -611,6 +634,8 @@ async function loadCalendarEvents(req: Request, env: Env, entryId?: string | nul
       endTime: row.end_time,
       sourceUrl: row.source_url || undefined,
       updatedAt: row.updated_at || undefined,
+      category: row.category,
+      venue: row.venue,
     }));
 }
 

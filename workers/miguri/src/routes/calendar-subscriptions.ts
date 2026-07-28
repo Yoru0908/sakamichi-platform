@@ -219,28 +219,49 @@ export function icsResponse(body: string, filename: string, isPrivate = false): 
 async function loadPersonalCalendarEvents(env: Env, userId: string): Promise<CalendarEvent[]> {
   const rows = await env.MIGURI_DB.prepare(`
     SELECT e.id, e.member_name, e.event_date, e.slot_number, e.tickets, e.updated_at,
-           m.title AS event_title, m.group_id, m.source_url,
+           e.category, e.venue,
+           COALESCE(m.title, e.import_title) AS event_title,
+           COALESCE(m.group_id, e.import_group) AS group_id,
+           m.source_url,
            s.start_time, s.end_time
     FROM miguri_user_entries e
     LEFT JOIN miguri_events m ON m.slug = e.event_slug
     LEFT JOIN miguri_event_slots s
       ON s.event_slug = e.event_slug AND s.event_date = e.event_date AND s.slot_number = e.slot_number
     WHERE e.user_id = ?
+      AND (e.status IN ('won', 'paid') OR COALESCE(e.source, 'manual') = 'manual')
     ORDER BY e.event_date, e.slot_number, e.member_name
   `).bind(userId).all<any>();
 
   return (rows.results || [])
-    .filter((row) => row.start_time && row.end_time && row.group_id)
-    .map((row) => ({
-      uid: `miguri-entry:${row.id}@46log.com`,
-      title: `${groupLabel(row.group_id)} ミーグリ｜${row.member_name}｜第${row.slot_number}部（${row.tickets}枚）`,
-      description: `${decodeHtmlEntities(row.event_title || 'Miguri')}\n第${row.slot_number}部\n${row.member_name} ${row.tickets}枚`,
-      location: 'Fortune Music Online',
-      startAt: `${row.event_date}T${row.start_time}:00+09:00`,
-      endAt: `${row.event_date}T${row.end_time}:00+09:00`,
-      url: row.source_url || undefined,
-      updatedAt: row.updated_at || undefined,
-    }));
+    .filter((row) => row.group_id)
+    .map((row) => {
+      const category = row.category || 'ミーグリ';
+      const unit = category === 'サイン会' ? '口' : '枚';
+      const slotLabel = row.slot_number > 0 ? `第${row.slot_number}部` : '部数未指定';
+      const base = {
+        uid: `miguri-entry:${row.id}@46log.com`,
+        title: `${groupLabel(row.group_id)} ${category}｜${row.member_name}｜${row.tickets}${unit}`,
+        description: `${decodeHtmlEntities(row.event_title || 'Miguri')}\n${slotLabel}\n${row.member_name} ${row.tickets}${unit}`,
+        location: row.venue || 'Fortune Music Online',
+        url: row.source_url || undefined,
+        updatedAt: row.updated_at || undefined,
+      };
+      if (row.start_time && row.end_time) {
+        return {
+          ...base,
+          startAt: `${row.event_date}T${row.start_time}:00+09:00`,
+          endAt: `${row.event_date}T${row.end_time}:00+09:00`,
+        };
+      }
+      const [year, month, day] = row.event_date.split('-').map(Number);
+      return {
+        ...base,
+        startAt: row.event_date,
+        endAt: new Date(Date.UTC(year, month - 1, day + 1)).toISOString().slice(0, 10),
+        allDay: true,
+      };
+    });
 }
 
 export async function handleGetPersonalCalendar(

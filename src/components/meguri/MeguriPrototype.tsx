@@ -5,6 +5,7 @@ import {
   Clock3,
   ExternalLink,
   Layers3,
+  LayoutDashboard,
   PanelLeft,
   PanelLeftClose,
   Pencil,
@@ -20,10 +21,12 @@ import {
 import SoldOutMatrix from './SoldOutMatrix';
 import LotteryAnalysisPanel from './LotteryAnalysisPanel';
 import CalendarSubscriptionModal from './CalendarSubscriptionModal';
+import MiguriDashboard, { type MiguriAutoImportState } from './MiguriDashboard';
 import {
   createMiguriEntries,
   deleteMiguriEntry,
   getMiguriEvents,
+  importMiguriEntries,
   openMiguriCalendarIcs,
   updateMiguriEntry,
   type MiguriEntry,
@@ -42,6 +45,11 @@ import {
   summarizeEntries,
   type PendingMeguriDraft,
 } from './meguri-helpers';
+import {
+  MIGURI_HANDOFF_PREFIX,
+  parseMiguriImportHandoff,
+  splitMiguriImportRecords,
+} from './miguri-auto-import';
 
 type AddForm = {
   date: string;
@@ -81,6 +89,12 @@ function sortEntries(entries: MiguriEntry[]) {
   ));
 }
 
+function mergeEntries(current: MiguriEntry[], incoming: MiguriEntry[]) {
+  const entriesById = new Map(current.map((entry) => [entry.id, entry]));
+  for (const entry of incoming) entriesById.set(entry.id, entry);
+  return sortEntries(Array.from(entriesById.values()));
+}
+
 function uniqueMembers(values: string[]) {
   return Array.from(new Set(values));
 }
@@ -98,12 +112,14 @@ function weekdayLabel(dateString: string) {
 function entryStatusLabel(status: MiguriEntryStatus) {
   if (status === 'paid') return '已付款';
   if (status === 'won') return '已中签';
+  if (status === 'lost') return '未中签';
   return '待抽选';
 }
 
 function entryStatusTone(status: MiguriEntryStatus) {
   if (status === 'paid') return { backgroundColor: 'rgba(16, 185, 129, 0.14)', color: '#059669' };
   if (status === 'won') return { backgroundColor: 'rgba(59, 130, 246, 0.14)', color: '#2563eb' };
+  if (status === 'lost') return { backgroundColor: 'rgba(244, 63, 94, 0.12)', color: '#e11d48' };
   return { backgroundColor: 'rgba(148, 163, 184, 0.14)', color: '#64748b' };
 }
 
@@ -137,7 +153,12 @@ export default function MeguriPrototype() {
   const [showImportModal, setShowImportModal] = useState(false);
   const [showCalendarSubscription, setShowCalendarSubscription] = useState(false);
   const [importText, setImportText] = useState('');
-  const [activeTab, setActiveTab] = useState<'manage' | 'soldout' | 'lottery'>('manage');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'manage' | 'soldout' | 'lottery'>('dashboard');
+  const [autoImportState, setAutoImportState] = useState<MiguriAutoImportState>({
+    status: 'idle',
+    message: '',
+    next: null,
+  });
   const [addForm, setAddForm] = useState<AddForm>({
     date: '',
     slots: [],
@@ -149,6 +170,20 @@ export default function MeguriPrototype() {
 
   useEffect(() => {
     let mounted = true;
+    const rawWindowName = window.name;
+    const hasHandoff = rawWindowName.startsWith(MIGURI_HANDOFF_PREFIX);
+    if (hasHandoff) window.name = '';
+    const handoff = hasHandoff
+      ? parseMiguriImportHandoff(rawWindowName, document.referrer)
+      : null;
+
+    if (hasHandoff && !handoff) {
+      setAutoImportState({
+        status: 'error',
+        message: '临时导入数据校验失败，未向 D1 写入任何内容。请从官方页面重新运行导入书签。',
+        next: null,
+      });
+    }
 
     async function load() {
       setIsLoading(true);
@@ -165,14 +200,59 @@ export default function MeguriPrototype() {
         return;
       }
 
+      let loadedEntries = res.data.entries || [];
       setEvents(res.data.events || []);
-      setEntries(res.data.entries || []);
       setFavorites(res.data.favorites || []);
       setSelectedSlug((current) => current || '');
+
+      if (handoff) {
+        setActiveTab('dashboard');
+        setAutoImportState({
+          status: 'saving',
+          message: `已从 ${handoff.source === 'fortunemusic' ? 'forTUNE music' : 'forTUNE meets'} 带回 ${handoff.records.length} 条履历，正在自动保存…`,
+          next: handoff.next,
+        });
+
+        let imported = 0;
+        let created = 0;
+        let updated = 0;
+        try {
+          for (const records of splitMiguriImportRecords(handoff.records)) {
+            const importResult = await importMiguriEntries(records);
+            if (!importResult.success || !importResult.data) {
+              throw new Error(importResult.message || importResult.error || '自动保存失败');
+            }
+            imported += importResult.data.imported;
+            created += importResult.data.created;
+            updated += importResult.data.updated;
+            loadedEntries = mergeEntries(loadedEntries, importResult.data.entries);
+          }
+          if (mounted) {
+            setAutoImportState({
+              status: 'success',
+              message: `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），重复同步不会累加。`,
+              next: handoff.next,
+            });
+          }
+        } catch (importError) {
+          if (mounted) {
+            setAutoImportState({
+              status: 'error',
+              message: importError instanceof Error ? importError.message : '自动保存失败，请重新运行导入书签。',
+              next: null,
+            });
+          }
+        }
+      }
+
+      setEntries(loadedEntries);
       setIsLoading(false);
     }
 
     void load();
+    if (hasHandoff && window.location.search.includes('import=')) {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
     return () => {
       mounted = false;
     };
@@ -491,9 +571,17 @@ export default function MeguriPrototype() {
 
   if (!selectedEvent) {
     return (
-      <div className="mx-auto max-w-[1600px] px-4 py-16 text-center">
-        <h1 className="text-xl font-bold text-[var(--text-primary)]">暂无 Miguri 同步数据</h1>
-        <p className="mt-2 text-sm text-[var(--text-tertiary)]">先让 Homeserver 跑一次同步，再回来就有东西看了。</p>
+      <div className="mx-auto max-w-[1600px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-2">
+          <Sparkles size={16} className="text-[var(--text-tertiary)]" />
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">咪咕力管理</h1>
+        </div>
+        {error ? <p className="text-sm text-rose-600">{error}</p> : null}
+        <MiguriDashboard
+          entries={entries}
+          importState={autoImportState}
+          onOpenManualImport={() => setError('粘贴导入需要先同步到一条可匹配的 Miguri 活动。')}
+        />
       </div>
     );
   }
@@ -508,10 +596,10 @@ export default function MeguriPrototype() {
       {error ? <p className="text-sm text-rose-600">{error}</p> : null}
 
       {/* Mobile FAB overlay */}
-      {isSidebarOpen ? <button type="button" aria-label="关闭活动总览" className="fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-[1px] lg:hidden" onClick={() => setIsSidebarOpen(false)} /> : null}
+      {activeTab !== 'dashboard' && isSidebarOpen ? <button type="button" aria-label="关闭活动总览" className="fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-[1px] lg:hidden" onClick={() => setIsSidebarOpen(false)} /> : null}
 
       <aside
-        className={`fixed bottom-5 left-5 z-50 w-[min(24rem,calc(100vw-1.5rem))] rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 shadow-2xl transition-all duration-200 lg:hidden ${
+        className={`${activeTab === 'dashboard' ? 'hidden' : 'fixed'} bottom-5 left-5 z-50 w-[min(24rem,calc(100vw-1.5rem))] rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 shadow-2xl transition-all duration-200 lg:hidden ${
           isSidebarOpen ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
         }`}
       >
@@ -581,7 +669,7 @@ export default function MeguriPrototype() {
         </div>
       </aside>
 
-      {!isSidebarOpen ? (
+      {activeTab !== 'dashboard' && !isSidebarOpen ? (
         <button
           type="button"
           onClick={() => setIsSidebarOpen(true)}
@@ -594,7 +682,7 @@ export default function MeguriPrototype() {
 
       <section className="flex flex-col items-start gap-6 lg:flex-row lg:gap-8">
         {/* Desktop collapsible sidebar */}
-        <div className={`hidden w-full transition-all duration-300 lg:block ${isSidebarOpen ? 'shrink-0 lg:w-[340px] xl:w-[380px]' : 'lg:hidden'}`}>
+        <div className={`hidden w-full transition-all duration-300 ${activeTab !== 'dashboard' && isSidebarOpen ? 'shrink-0 lg:block lg:w-[340px] xl:w-[380px]' : 'lg:hidden'}`}>
           <div className="sticky top-8 space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-semibold text-[var(--text-primary)]">活动总览</h2>
@@ -663,43 +751,57 @@ export default function MeguriPrototype() {
           <div className="rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 sm:p-6">
             <div className="flex flex-col gap-4 border-b border-[var(--border-secondary)] pb-8 md:flex-row md:items-start md:justify-between">
               <div className="flex min-w-0 flex-1 items-start gap-4">
-                <button
-                  onClick={() => setIsSidebarOpen((current) => !current)}
-                  className="mt-1 hidden h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] lg:flex"
-                  title={isSidebarOpen ? '折叠活动列表' : '展开活动列表'}
-                >
-                  {isSidebarOpen ? <PanelLeftClose size={20} /> : <PanelLeft size={20} />}
-                </button>
+                {activeTab !== 'dashboard' ? (
+                  <button
+                    onClick={() => setIsSidebarOpen((current) => !current)}
+                    className="mt-1 hidden h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] lg:flex"
+                    title={isSidebarOpen ? '折叠活动列表' : '展开活动列表'}
+                  >
+                    {isSidebarOpen ? <PanelLeftClose size={20} /> : <PanelLeft size={20} />}
+                  </button>
+                ) : null}
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                    <h2 className="break-words whitespace-pre-wrap text-base font-black leading-snug text-[var(--text-primary)] sm:text-2xl lg:text-3xl">{selectedEvent.title}</h2>
-                    <span
-                      className="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold sm:px-3 sm:py-1 sm:text-xs"
-                      style={{ backgroundColor: GROUP_META[selectedGroup].soft, color: GROUP_META[selectedGroup].color }}
-                    >
-                      {GROUP_META[selectedGroup].label}
-                    </span>
+                    <h2 className="break-words whitespace-pre-wrap text-base font-black leading-snug text-[var(--text-primary)] sm:text-2xl lg:text-3xl">
+                      {activeTab === 'dashboard' ? '我的 Miguri Dashboard' : selectedEvent.title}
+                    </h2>
+                    {activeTab !== 'dashboard' ? (
+                      <span
+                        className="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold sm:px-3 sm:py-1 sm:text-xs"
+                        style={{ backgroundColor: GROUP_META[selectedGroup].soft, color: GROUP_META[selectedGroup].color }}
+                      >
+                        {GROUP_META[selectedGroup].label}
+                      </span>
+                    ) : null}
                   </div>
                   <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 sm:mt-3 sm:gap-x-4 sm:gap-y-2">
-                    <a
-                      href={selectedEvent.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-[11px] font-medium text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] sm:text-xs"
-                    >
-                      Fortune Music 原页 <ExternalLink size={12} className="sm:h-[14px] sm:w-[14px]" />
-                    </a>
-                    <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
+                    {activeTab !== 'dashboard' ? (
+                      <>
+                        <a
+                          href={selectedEvent.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex min-h-11 items-center gap-1 text-[11px] font-medium text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] sm:text-xs"
+                        >
+                          Fortune Music 原页 <ExternalLink size={12} className="sm:h-[14px] sm:w-[14px]" />
+                        </a>
+                        <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
+                      </>
+                    ) : (
+                      <span className="text-xs leading-5 text-[var(--text-tertiary)]">
+                        自动汇总 Music / Meets 履历、下一站与每一部口数
+                      </span>
+                    )}
                     <button
                       type="button"
                       onClick={() => setShowCalendarSubscription(true)}
-                      className="flex items-center gap-1 text-[11px] font-medium text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] sm:gap-1.5 sm:text-xs"
+                      className="flex min-h-11 items-center gap-1 text-[11px] font-medium text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] sm:gap-1.5 sm:text-xs"
                       title="订阅 Miguri 日历"
                     >
                       <CalendarDays size={12} className="sm:h-[14px] sm:w-[14px]" /> 日历订阅
                     </button>
                     <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
-                    <button onClick={() => setShowImportModal(true)} className="flex items-center gap-1 text-[11px] font-medium text-sky-600 hover:text-sky-700 sm:gap-1.5 sm:text-xs">
+                    <button onClick={() => setShowImportModal(true)} className="flex min-h-11 items-center gap-1 text-[11px] font-medium text-sky-600 hover:text-sky-700 sm:gap-1.5 sm:text-xs">
                       <ClipboardList size={12} className="sm:h-[14px] sm:w-[14px]" /> 批量导入
                     </button>
                   </div>
@@ -708,11 +810,22 @@ export default function MeguriPrototype() {
             </div>
 
             {/* Tab switcher */}
-            <div className="mt-4 flex items-center gap-1 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-1 w-fit">
+            <div className="mt-4 flex w-full items-center gap-1 overflow-x-auto rounded-xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-1 sm:w-fit">
+              <button
+                type="button"
+                onClick={() => setActiveTab('dashboard')}
+                className={`flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg px-3 text-xs font-medium transition-colors ${
+                  activeTab === 'dashboard'
+                    ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
+                    : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+                }`}
+              >
+                <LayoutDashboard size={13} /> Dashboard
+              </button>
               <button
                 type="button"
                 onClick={() => setActiveTab('manage')}
-                className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg px-3 text-xs font-medium transition-colors ${
                   activeTab === 'manage'
                     ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
@@ -723,7 +836,7 @@ export default function MeguriPrototype() {
               <button
                 type="button"
                 onClick={() => setActiveTab('soldout')}
-                className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg px-3 text-xs font-medium transition-colors ${
                   activeTab === 'soldout'
                     ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
@@ -734,7 +847,7 @@ export default function MeguriPrototype() {
               <button
                 type="button"
                 onClick={() => setActiveTab('lottery')}
-                className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`flex min-h-11 shrink-0 items-center gap-1.5 rounded-lg px-3 text-xs font-medium transition-colors ${
                   activeTab === 'lottery'
                     ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
@@ -750,9 +863,9 @@ export default function MeguriPrototype() {
               </div>
             ) : activeTab === 'lottery' ? (
               <div className="mt-4">
-                <LotteryAnalysisPanel />
+                <LotteryAnalysisPanel group={selectedGroup} eventTitle={selectedEvent.title} />
               </div>
-            ) : (
+            ) : activeTab === 'manage' ? (
               <div className="mt-4 grid grid-cols-4 gap-2 sm:mt-6 sm:grid-cols-2 sm:gap-3 xl:grid-cols-4">
                 {[
                   { label: '部数', fullLabel: '我有多少部', value: summary.totalSlots, icon: Layers3, color: '#7c3aed' },
@@ -773,8 +886,16 @@ export default function MeguriPrototype() {
                   );
                 })}
               </div>
-            )}
+            ) : null}
           </div>
+
+          {activeTab === 'dashboard' ? (
+            <MiguriDashboard
+              entries={entries}
+              importState={autoImportState}
+              onOpenManualImport={() => setShowImportModal(true)}
+            />
+          ) : null}
 
           {activeTab === 'manage' && (
           <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">

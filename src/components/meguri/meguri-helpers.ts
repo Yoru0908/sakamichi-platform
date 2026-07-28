@@ -1,7 +1,34 @@
-import type { MiguriEntry, MiguriEntryStatus, MiguriEvent, MiguriWindow } from '@/utils/auth-api';
+import type {
+  MiguriEntry,
+  MiguriEntryStatus,
+  MiguriEvent,
+  MiguriGroupId,
+  MiguriWindow,
+} from '@/utils/auth-api';
 
 export type EntryLike = Pick<MiguriEntry, 'id' | 'member' | 'date' | 'slot' | 'tickets' | 'status'>;
+export type DashboardEntryLike = EntryLike & Partial<Pick<
+  MiguriEntry,
+  'category' | 'venue' | 'eventTitle' | 'group' | 'source'
+>>;
 export type EventState = 'active' | 'upcoming' | 'ended' | 'waiting';
+export type MiguriDashboardBreakdown = {
+  label: string;
+  tickets: number;
+  percentage: number;
+};
+export type MiguriDashboardRow = {
+  member: string;
+  category: NonNullable<MiguriEntry['category']>;
+  tickets: number;
+  slots: Array<{ slot: number; tickets: number }>;
+};
+export type MiguriDashboardStop = {
+  date: string;
+  venues: string[];
+  tickets: number;
+  rows: MiguriDashboardRow[];
+};
 export type FortuneImportRow = {
   member: string;
   date: string;
@@ -17,6 +44,16 @@ export type PendingMeguriDraft = {
   tickets: number;
   status: MiguriEntryStatus;
 };
+export type FortuneMeetsSource = {
+  artist: `${string}46`;
+  event: string;
+};
+
+const FORTUNE_MEETS_ARTIST_BY_GROUP: Record<MiguriGroupId, FortuneMeetsSource['artist']> = {
+  nogizaka: 'nogizaka46',
+  sakurazaka: 'sakurazaka46',
+  hinatazaka: 'hinatazaka46',
+};
 
 function uniqueNumbers(values: number[]) {
   return Array.from(new Set(values));
@@ -24,6 +61,19 @@ function uniqueNumbers(values: number[]) {
 
 function normalizeDigits(value: string) {
   return value.replace(/[０-９]/g, (char) => String('０１２３４５６７８９'.indexOf(char)));
+}
+
+export function resolveFortuneMeetsSource(
+  group: MiguriGroupId,
+  eventTitle: string,
+): FortuneMeetsSource | null {
+  const normalizedTitle = normalizeDigits(eventTitle);
+  const ordinal = normalizedTitle.match(/(\d{1,3})(st|nd|rd|th)/i);
+  if (!ordinal) return null;
+  return {
+    artist: FORTUNE_MEETS_ARTIST_BY_GROUP[group],
+    event: `${ordinal[1]}${ordinal[2].toLowerCase()}`,
+  };
 }
 
 function parseCountCell(value: string): number | null {
@@ -152,6 +202,106 @@ export function summarizeEntries<T extends EntryLike>(entries: T[]) {
     totalSlots: entries.length,
     uniqueMembers: new Set(entries.map((entry) => entry.member)).size,
     uniqueDates: new Set(entries.map((entry) => entry.date)).size,
+  };
+}
+
+function dashboardCategory(entry: DashboardEntryLike): NonNullable<MiguriEntry['category']> {
+  return entry.category || '個別ミーグリ';
+}
+
+const DASHBOARD_CATEGORY_ORDER: Array<NonNullable<MiguriEntry['category']>> = [
+  'リアミ',
+  'サイン会',
+  '個別ミーグリ',
+  'その他',
+];
+
+function buildBreakdown(values: Map<string, number>): MiguriDashboardBreakdown[] {
+  const total = Array.from(values.values()).reduce((sum, value) => sum + value, 0);
+  return Array.from(values.entries())
+    .map(([label, tickets]) => ({
+      label,
+      tickets,
+      percentage: total > 0 ? tickets / total : 0,
+    }))
+    .sort((left, right) => right.tickets - left.tickets || left.label.localeCompare(right.label, 'ja'));
+}
+
+export function aggregateMiguriDashboard(
+  entries: DashboardEntryLike[],
+  today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }),
+) {
+  const visibleEntries = entries.filter((entry) => (
+    entry.tickets > 0
+    && /^\d{4}-\d{2}-\d{2}$/.test(entry.date)
+    && entry.status !== 'lost'
+    && (entry.status !== 'planned' || !entry.source || entry.source === 'manual')
+  ));
+  const categoryTotals = new Map<string, number>();
+  const memberTotals = new Map<string, number>();
+
+  for (const entry of visibleEntries) {
+    const category = dashboardCategory(entry);
+    categoryTotals.set(category, (categoryTotals.get(category) || 0) + entry.tickets);
+    memberTotals.set(entry.member, (memberTotals.get(entry.member) || 0) + entry.tickets);
+  }
+
+  const upcomingEntries = visibleEntries.filter((entry) => entry.date >= today);
+  const stops = new Map<string, {
+    venues: Set<string>;
+    tickets: number;
+    rows: Map<string, MiguriDashboardRow & { slotMap: Map<number, number> }>;
+  }>();
+
+  for (const entry of upcomingEntries) {
+    const stop = stops.get(entry.date) || {
+      venues: new Set<string>(),
+      tickets: 0,
+      rows: new Map<string, MiguriDashboardRow & { slotMap: Map<number, number> }>(),
+    };
+    if (entry.venue) stop.venues.add(entry.venue);
+    stop.tickets += entry.tickets;
+
+    const category = dashboardCategory(entry);
+    const rowKey = `${entry.member}::${category}`;
+    const row = stop.rows.get(rowKey) || {
+      member: entry.member,
+      category,
+      tickets: 0,
+      slots: [],
+      slotMap: new Map<number, number>(),
+    };
+    row.tickets += entry.tickets;
+    row.slotMap.set(entry.slot, (row.slotMap.get(entry.slot) || 0) + entry.tickets);
+    stop.rows.set(rowKey, row);
+    stops.set(entry.date, stop);
+  }
+
+  const nextStops: MiguriDashboardStop[] = Array.from(stops.entries())
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([date, stop]) => ({
+      date,
+      venues: Array.from(stop.venues).sort((left, right) => left.localeCompare(right, 'ja')),
+      tickets: stop.tickets,
+      rows: Array.from(stop.rows.values())
+        .map(({ slotMap, ...row }) => ({
+          ...row,
+          slots: Array.from(slotMap.entries())
+            .map(([slot, tickets]) => ({ slot, tickets }))
+            .sort((left, right) => left.slot - right.slot),
+        }))
+        .sort((left, right) => (
+          left.member.localeCompare(right.member, 'ja')
+          || DASHBOARD_CATEGORY_ORDER.indexOf(left.category) - DASHBOARD_CATEGORY_ORDER.indexOf(right.category)
+        )),
+    }));
+
+  return {
+    totalTickets: visibleEntries.reduce((sum, entry) => sum + entry.tickets, 0),
+    upcomingDates: nextStops.length,
+    nextStops,
+    categoryBreakdown: buildBreakdown(categoryTotals),
+    memberBreakdown: buildBreakdown(memberTotals),
   };
 }
 

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
 import * as miguriRoutes from './miguri.ts';
-import { signAccessToken } from '../utils/jwt.ts';
+import { signAccessToken } from '../../../shared/jwt.ts';
 
 test('auth worker index wires miguri update route', () => {
   const indexSource = readFileSync(new URL('../index.ts', import.meta.url), 'utf8');

@@ -2,13 +2,31 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
+  aggregateMiguriDashboard,
   buildPendingMeguriDraft,
   countPendingDraftRecords,
   groupEntriesByDateAndSlot,
   inferEventState,
+  resolveFortuneMeetsSource,
   sortEventsForDisplay,
   summarizeEntries,
 } from './meguri-helpers.ts';
+
+test('resolveFortuneMeetsSource keeps lottery analysis on the selected group and single', () => {
+  assert.deepEqual(
+    resolveFortuneMeetsSource('nogizaka', '乃木坂46 42ndシングル『是非に及ばず』発売記念'),
+    { artist: 'nogizaka46', event: '42nd' },
+  );
+  assert.deepEqual(
+    resolveFortuneMeetsSource('sakurazaka', '櫻坂46 １５th Single'),
+    { artist: 'sakurazaka46', event: '15th' },
+  );
+  assert.deepEqual(
+    resolveFortuneMeetsSource('hinatazaka', '日向坂46 16thシングル'),
+    { artist: 'hinatazaka46', event: '16th' },
+  );
+  assert.equal(resolveFortuneMeetsSource('nogizaka', '乃木坂46 イベント'), null);
+});
 
 test('inferEventState returns active when a window is currently open', () => {
   const now = new Date('2026-04-26T12:30:00');
@@ -60,6 +78,83 @@ test('groupEntriesByDateAndSlot groups entries into nested date and slot buckets
 
   assert.equal(grouped['2026-05-31'][2].length, 2);
   assert.equal(grouped['2026-06-07'][1][0].member, '藤嶌果歩');
+});
+
+test('aggregateMiguriDashboard builds next stop, category totals, and per-slot ticket counts', () => {
+  const dashboard = aggregateMiguriDashboard([
+    {
+      id: '1',
+      member: '山川宇衣',
+      date: '2026-08-02',
+      slot: 1,
+      tickets: 10,
+      status: 'won',
+      category: 'リアミ',
+      venue: '京都パルスプラザ',
+    },
+    {
+      id: '2',
+      member: '山川宇衣',
+      date: '2026-08-02',
+      slot: 2,
+      tickets: 18,
+      status: 'won',
+      category: 'リアミ',
+      venue: '京都パルスプラザ',
+    },
+    {
+      id: '3',
+      member: '山川宇衣',
+      date: '2026-08-02',
+      slot: 0,
+      tickets: 3,
+      status: 'won',
+      category: 'サイン会',
+      venue: '京都パルスプラザ',
+    },
+    {
+      id: '4',
+      member: '山川宇衣',
+      date: '2026-09-12',
+      slot: 4,
+      tickets: 6,
+      status: 'paid',
+      category: '個別ミーグリ',
+      venue: null,
+    },
+    {
+      id: '5',
+      member: '山川宇衣',
+      date: '2026-09-12',
+      slot: 5,
+      tickets: 20,
+      status: 'lost',
+      source: 'fortunemusic',
+      category: '個別ミーグリ',
+      venue: null,
+    },
+  ], '2026-07-29');
+
+  assert.equal(dashboard.totalTickets, 37);
+  assert.equal(dashboard.upcomingDates, 2);
+  assert.equal(dashboard.nextStops[0].date, '2026-08-02');
+  assert.deepEqual(dashboard.nextStops[0].venues, ['京都パルスプラザ']);
+  assert.equal(dashboard.nextStops[0].rows[0].tickets, 28);
+  assert.deepEqual(dashboard.nextStops[0].rows[0].slots, [
+    { slot: 1, tickets: 10 },
+    { slot: 2, tickets: 18 },
+  ]);
+  assert.deepEqual(dashboard.nextStops[0].rows[1].slots, [
+    { slot: 0, tickets: 3 },
+  ]);
+  assert.deepEqual(
+    dashboard.categoryBreakdown.map(({ label, tickets }) => ({ label, tickets })),
+    [
+      { label: 'リアミ', tickets: 28 },
+      { label: '個別ミーグリ', tickets: 6 },
+      { label: 'サイン会', tickets: 3 },
+    ],
+  );
 });
 
 test('sortEventsForDisplay places events with later event dates first', () => {

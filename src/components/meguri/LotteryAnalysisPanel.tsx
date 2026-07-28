@@ -14,6 +14,7 @@ import {
   type FortuneMeetsMode,
   type MiguriGroupId,
 } from '@/utils/auth-api';
+import { resolveFortuneMeetsSource } from './meguri-helpers';
 
 type TicketLedger = {
   owned: number;
@@ -263,16 +264,31 @@ function TicketLedgerPanel({ eventId, theme }: { eventId: string; theme: Theme }
   );
 }
 
-export default function LotteryAnalysisPanel() {
+type Props = {
+  group: MiguriGroupId;
+  eventTitle: string;
+};
+
+export default function LotteryAnalysisPanel({ group, eventTitle }: Props) {
   const [data, setData] = useState<FortuneMeetsLotteryPayload | null>(null);
   const [mode, setMode] = useState<FortuneMeetsMode>('real');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const source = useMemo(
+    () => resolveFortuneMeetsSource(group, eventTitle),
+    [eventTitle, group],
+  );
 
   async function load() {
     setLoading(true);
     setError('');
-    const res = await getMiguriLottery('sakurazaka46', '15th');
+    if (!source) {
+      setError('当前活动标题无法匹配对应的 forTUNE meets 全握数据');
+      setData(null);
+      setLoading(false);
+      return;
+    }
+    const res = await getMiguriLottery(source.artist, source.event);
     if (!res.success || !res.data) {
       setError(res.message || res.error || '全握数据加载失败');
       setData(null);
@@ -287,7 +303,7 @@ export default function LotteryAnalysisPanel() {
 
   useEffect(() => {
     void load();
-  }, []);
+  }, [source?.artist, source?.event]);
 
   const award = useMemo(() => data?.awards.find((item) => item.mode === mode) || data?.awards[0] || null, [data, mode]);
   const theme = getTheme(award?.group || data?.group);

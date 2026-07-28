@@ -47,7 +47,9 @@ const ADMIN_BASE = `${API_CONFIG.baseUrl}/api/manage`;
 const MIGURI_BASE = `${API_CONFIG.baseUrl}${API_CONFIG.endpoints.miguri}`;
 
 export type MiguriGroupId = 'nogizaka' | 'hinatazaka' | 'sakurazaka';
-export type MiguriEntryStatus = 'planned' | 'won' | 'paid';
+export type MiguriEntryStatus = 'planned' | 'won' | 'lost' | 'paid';
+export type MiguriEntrySource = 'manual' | 'fortunemusic' | 'fortunemeets';
+export type MiguriEntryCategory = '個別ミーグリ' | 'リアミ' | 'サイン会' | 'その他';
 
 export interface MiguriWindow {
   label: string;
@@ -90,6 +92,13 @@ export interface MiguriEntry {
   status: MiguriEntryStatus;
   startTime: string | null;
   endTime: string | null;
+  source: MiguriEntrySource;
+  sourceKey: string | null;
+  category: MiguriEntryCategory | null;
+  venue: string | null;
+  appliedTickets: number;
+  wonTickets: number;
+  paidTickets: number;
 }
 
 export interface MiguriGoogleCalendarStatus {
@@ -143,6 +152,31 @@ export interface MiguriEntriesPayload {
 
 export interface MiguriEntryPayload {
   entry: MiguriEntry;
+}
+
+export interface MiguriImportRecord {
+  source: Exclude<MiguriEntrySource, 'manual'>;
+  sourceKey: string;
+  category: MiguriEntryCategory;
+  member: string;
+  date: string;
+  slot: number;
+  appliedTickets: number;
+  wonTickets: number;
+  paidTickets: number;
+  eventSlug: string;
+  title: string;
+  venue: string;
+  group: MiguriGroupId | null;
+  resultStatus?: 'pending' | 'won' | 'lost' | 'paid';
+}
+
+export interface MiguriImportPayload {
+  entries: MiguriEntry[];
+  imported: number;
+  created: number;
+  updated: number;
+  duplicates: number;
 }
 
 function miguriFetch<T>(path: string, options?: RequestInit): Promise<ApiResponse<T>> {
@@ -231,6 +265,13 @@ export function createMiguriEntries(payload: CreateMiguriEntriesRequest): Promis
   return miguriFetch<MiguriEntriesPayload>('/entries', {
     method: 'POST',
     body: JSON.stringify(payload),
+  });
+}
+
+export function importMiguriEntries(records: MiguriImportRecord[]): Promise<ApiResponse<MiguriImportPayload>> {
+  return miguriFetch<MiguriImportPayload>('/entries/import', {
+    method: 'POST',
+    body: JSON.stringify({ records }),
   });
 }
 
