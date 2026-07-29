@@ -1,0 +1,66 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="46log 咪咕力同步｜支持">
+  <main class="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
+    <div class="rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-6 sm:p-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.16em] text-indigo-600">
+        46log Miguri Sync
+      </p>
+      <h1 class="mt-3 text-3xl font-black tracking-tight text-[var(--text-primary)]">
+        咪咕力同步扩展支持
+      </h1>
+      <p class="mt-4 leading-7 text-[var(--text-secondary)]">
+        扩展用于把您自己的 forTUNE music / meets 应募履历同步到 46log
+        私人咪咕力面板，并在浏览器运行期间定时检查更新。
+      </p>
+
+      <section class="mt-10">
+        <h2 class="text-lg font-bold text-[var(--text-primary)]">使用方式</h2>
+        <ol class="mt-4 list-decimal space-y-3 pl-5 leading-7 text-[var(--text-secondary)]">
+          <li>登录 46log 并打开咪咕力面板。</li>
+          <li>安装扩展后重新加载页面，确认显示“扩展已连接”。</li>
+          <li>首次分别同步 Music 与 Meets，并在打开的官方页面完成登录。</li>
+          <li>首次同步成功后可开启每 30 分钟自动检查。</li>
+        </ol>
+      </section>
+
+      <section class="mt-10">
+        <h2 class="text-lg font-bold text-[var(--text-primary)]">常见情况</h2>
+        <div class="mt-4 space-y-5 text-sm leading-7 text-[var(--text-secondary)]">
+          <div>
+            <h3 class="font-bold text-[var(--text-primary)]">点击同步后停在登录页</h3>
+            <p>完成官方登录即可继续。扩展不会读取或保存登录表单、密码或 Cookie。</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-[var(--text-primary)]">自动同步没有立即更新</h3>
+            <p>自动同步是浏览器端定时检查。Chrome 关闭、设备休眠、离线或官方登录失效时会暂停。</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-[var(--text-primary)]">金额显示为估算</h3>
+            <p>旧记录没有订单单价时会按已知发行价估算；重新运行官方履历同步后会优先采用来源页面的实际单价。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-10 border-t border-[var(--border-primary)] pt-8">
+        <h2 class="text-lg font-bold text-[var(--text-primary)]">联系与隐私</h2>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a
+            href="mailto:srzwyuu@gmail.com"
+            class="inline-flex min-h-11 items-center rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white hover:bg-indigo-700"
+          >
+            发送邮件
+          </a>
+          <a
+            href="/privacy"
+            class="inline-flex min-h-11 items-center rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)]"
+          >
+            查看隐私政策
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

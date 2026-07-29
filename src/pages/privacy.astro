@@ -6,7 +6,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <h1 class="text-2xl font-bold text-[var(--text-primary)] mb-8">Privacy Policy / 隐私政策</h1>
     <div class="prose prose-sm max-w-none text-[var(--text-secondary)] space-y-4">
-      <p>Last updated: May 2026 / 最后更新日期: 2026年5月</p>
+      <p>Last updated: July 29, 2026 / 最后更新日期: 2026年7月29日</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">1. Introduction / 简介</h2>
       <p>Sakamichi Tools ("we", "us", "our") operates the website https://46log.com (the "Service"). This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our Service.</p>
@@ -27,6 +27,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       </ul>
       <p><strong>Usage Data:</strong> We do not collect analytics, tracking data, or browsing behavior.</p>
       <p><strong>使用数据：</strong>我们不收集分析数据、追踪数据或浏览行为。</p>
+      <p><strong>46log Miguri Sync extension data:</strong> If you install the optional Chrome extension and start synchronization, it reads your own application-history pages on forTUNE music and forTUNE meets. It transfers only the normalized fields needed for the private Miguri dashboard: group, campaign or release title, member, category, event date, venue, slot, application/win/payment counts, price/spend information shown by the source, source record identifier, and synchronization time.</p>
+      <p><strong>46log 咪咕力同步扩展数据：</strong>如果您安装可选的 Chrome 扩展并启动同步，扩展会读取您自己的 forTUNE music 与 forTUNE meets 应募履历页，仅向私人咪咕力面板传输所需的规范化字段：组合、活动或作品标题、成员、类型、活动日期、会场、部数、应募/中签/付款数量、来源页面提供的价格/金额、来源记录标识和同步时间。</p>
+      <p>The extension does not request, read, transmit, or store your forTUNE password, login form value, cookie, or session token. It uses the official sites' existing first-party login state inside your browser.</p>
+      <p>扩展不会请求、读取、传输或保存您的 forTUNE 密码、登录表单内容、Cookie 或会话令牌；它只使用浏览器中官方站点已有的第一方登录状态。</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">3. How We Use Your Information / 信息使用</h2>
       <p>We use the collected information solely for the following purposes:</p>
@@ -34,12 +38,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <li><strong>Account management:</strong> To authenticate and provide personalized features.</li>
         <li><strong>Google Calendar sync:</strong> To create, update, and delete calendar events on your behalf based on activity entries you manage within our Service (e.g., fan meet-and-greet schedules). We only write events that you explicitly add through our interface.</li>
         <li><strong>Notifications:</strong> To send service-related notifications you have opted into.</li>
+        <li><strong>Miguri dashboard synchronization:</strong> To save and update the synchronized application records in your private 46log account, calculate statistics, and generate your upcoming schedule.</li>
       </ul>
       <p>我们仅将收集的信息用于以下目的：</p>
       <ul class="list-disc list-inside space-y-1 ml-4">
         <li><strong>账号管理：</strong>用于身份验证和提供个性化功能。</li>
         <li><strong>Google Calendar 同步：</strong>根据您在本服务中管理的活动日程（如粉丝握手会时间表），代您创建、更新和删除日历事件。我们仅写入您通过界面明确添加的事件。</li>
         <li><strong>通知：</strong>发送您已选择接收的服务相关通知。</li>
+        <li><strong>咪咕力面板同步：</strong>将同步的应募记录保存并更新到您的私人 46log 账号，用于计算统计数据和生成后续日程。</li>
       </ul>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">4. Google API Services User Data Policy / Google API 用户数据政策</h2>
@@ -56,6 +62,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">5. Data Storage and Security / 数据存储与安全</h2>
       <p>All data is stored on Cloudflare's secure infrastructure (Cloudflare D1 database and Workers). Data is encrypted in transit using TLS. Google OAuth refresh tokens are stored as encrypted secrets and are never exposed to the client-side.</p>
       <p>所有数据存储在 Cloudflare 的安全基础设施上（Cloudflare D1 数据库和 Workers）。传输过程使用 TLS 加密。Google OAuth 刷新令牌作为加密密钥存储，从不暴露给客户端。</p>
+      <p>The extension stores only its enabled/disabled setting, synchronization status, and last synchronization time in Chrome local storage. Temporary synchronization jobs and results use Chrome session storage and are removed after delivery. A periodic Chrome alarm checks for updates while the browser is running; it does not run while Chrome or the device is offline.</p>
+      <p>扩展仅在 Chrome 本地存储中保存自动同步开关、同步状态和上次同步时间。临时同步任务及结果使用 Chrome 会话存储，并在传递完成后删除。浏览器运行时由 Chrome 定时任务检查更新；Chrome 关闭、设备休眠或离线时不会运行。</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">6. Data Sharing / 数据共享</h2>
       <p>We do not sell, trade, or transfer your personal information to third parties. We do not share your Google account data with any external services beyond the Google Calendar API itself for the purposes described above.</p>
@@ -76,6 +84,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <li>之前在您 Google Calendar 中创建的事件将保留，除非您手动删除。</li>
       </ul>
       <p>您也可以删除整个账号，这将移除所有关联数据，包括记录、偏好设置和所有已连接服务的令牌。</p>
+      <p>You can stop automatic Miguri synchronization from the dashboard or by uninstalling the extension. You can delete synchronized Miguri entries from the Service; deleting your 46log account removes all associated Miguri records.</p>
+      <p>您可以在咪咕力面板关闭自动同步，或卸载扩展以停止同步；也可以在本服务中删除已同步记录。删除 46log 账号会一并删除关联的咪咕力记录。</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">8. Cookies / Cookie 使用</h2>
       <p>We use strictly necessary cookies for authentication (login session) and user preferences (theme, language). We do not use third-party tracking cookies or analytics cookies.</p>

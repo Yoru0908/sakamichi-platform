@@ -218,8 +218,79 @@ export function summarizeEntries<T extends EntryLike>(entries: T[]) {
   };
 }
 
-function dashboardCategory(entry: DashboardEntryLike): NonNullable<MiguriEntry['category']> {
+function dashboardCategory(
+  entry: DashboardEntryLike,
+): NonNullable<MiguriEntry['category']> {
   return entry.category || '個別ミーグリ';
+}
+
+const CURRENT_RELEASE_PRICE_HINTS: Array<{ pattern: RegExp; priceYen: number }> = [
+  {
+    pattern: /Lonesome\s*rabbit|What(?:'|’|&#0*39;|&apos;)?s\s*[“"]?KAZOKU/i,
+    priceYen: 2000,
+  },
+  { pattern: /Kind\s+of\s+love/i, priceYen: 2000 },
+  { pattern: /最後に階段を駆け上がったのはいつだ/, priceYen: 2000 },
+  { pattern: /Same\s+numbers/i, priceYen: 2000 },
+  { pattern: /Love\s+yourself/i, priceYen: 2000 },
+  { pattern: /UDAGAWA\s+GENERATION/i, priceYen: 2000 },
+  { pattern: /卒業写真だけが知ってる/, priceYen: 2000 },
+  { pattern: /Monopoly/i, priceYen: 2000 },
+];
+
+function inferredReleasePriceYen(entry: DashboardEntryLike) {
+  if ((entry.unitPriceYen || 0) > 0) {
+    return { priceYen: entry.unitPriceYen || 0, estimated: false };
+  }
+  const title = entry.eventTitle || '';
+  const known = CURRENT_RELEASE_PRICE_HINTS.find(({ pattern }) => (
+    pattern.test(title)
+  ));
+  if (known) return { priceYen: known.priceYen, estimated: true };
+  if (
+    !/(?:シングル|single)/i.test(title)
+    || /(?:アルバム|album)/i.test(title)
+  ) {
+    return { priceYen: 0, estimated: false };
+  }
+  const year = Number(entry.date.slice(0, 4));
+  if (year >= 2024) return { priceYen: 2000, estimated: true };
+  if (year >= 2020) return { priceYen: 1900, estimated: true };
+  if (year >= 2018) return { priceYen: 1884, estimated: true };
+  if (year >= 2014) return { priceYen: 1681, estimated: true };
+  return { priceYen: 1676, estimated: true };
+}
+
+export function resolveMiguriEntrySpend(entry: DashboardEntryLike) {
+  if ((entry.spendYen || 0) > 0) {
+    return {
+      spendYen: entry.spendYen || 0,
+      unitPriceYen: entry.unitPriceYen || 0,
+      estimated: false,
+      countedTickets: entry.paidTickets || entry.wonTickets || entry.tickets,
+      unpricedTickets: 0,
+    };
+  }
+  const countedTickets = Math.max(
+    0,
+    entry.paidTickets
+      || entry.wonTickets
+      || (
+        entry.status === 'won' || entry.status === 'paid'
+          ? entry.tickets
+          : 0
+      ),
+  );
+  const price = inferredReleasePriceYen(entry);
+  return {
+    spendYen: countedTickets * price.priceYen,
+    unitPriceYen: price.priceYen,
+    estimated: price.estimated && countedTickets > 0,
+    countedTickets,
+    unpricedTickets: countedTickets > 0 && price.priceYen === 0
+      ? countedTickets
+      : 0,
+  };
 }
 
 const DASHBOARD_CATEGORY_ORDER: Array<NonNullable<MiguriEntry['category']>> = [
@@ -275,12 +346,19 @@ export function aggregateMiguriDashboard(
   const memberSpend = new Map<string, number>();
   const roundSpend = new Map<string, number>();
   const scheduledEntryIds = new Set(scheduleEntries.map((entry) => entry.id));
+  let estimatedSpendYen = 0;
+  let estimatedSpendEntries = 0;
+  let unpricedWonTickets = 0;
 
   for (const entry of entries) {
     const category = dashboardCategory(entry);
-    const spendYen = Math.max(0, entry.spendYen || (
-      (entry.paidTickets || entry.wonTickets || 0) * (entry.unitPriceYen || 0)
-    ));
+    const resolvedSpend = resolveMiguriEntrySpend(entry);
+    const spendYen = resolvedSpend.spendYen;
+    if (resolvedSpend.estimated) {
+      estimatedSpendYen += spendYen;
+      estimatedSpendEntries += 1;
+    }
+    unpricedWonTickets += resolvedSpend.unpricedTickets;
     const scheduledTickets = scheduledEntryIds.has(entry.id) ? Math.max(0, entry.tickets) : 0;
     categoryTickets.set(category, (categoryTickets.get(category) || 0) + scheduledTickets);
     categorySpend.set(category, (categorySpend.get(category) || 0) + spendYen);
@@ -384,6 +462,9 @@ export function aggregateMiguriDashboard(
   return {
     totalTickets: scheduleEntries.reduce((sum, entry) => sum + entry.tickets, 0),
     totalSpendYen,
+    estimatedSpendYen,
+    estimatedSpendEntries,
+    unpricedWonTickets,
     totalApplied,
     totalWon,
     winRate: totalApplied > 0 ? totalWon / totalApplied : 0,

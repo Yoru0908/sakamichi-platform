@@ -634,7 +634,6 @@ export default function MeguriPrototype() {
         <MiguriDashboard
           entries={entries}
           importState={autoImportState}
-          onOpenManualImport={() => setError('粘贴导入需要先同步到一条可匹配的 Miguri 活动。')}
         />
       </div>
     );
@@ -947,7 +946,6 @@ export default function MeguriPrototype() {
             <MiguriDashboard
               entries={entries}
               importState={autoImportState}
-              onOpenManualImport={() => setShowImportModal(true)}
             />
           ) : null}
 

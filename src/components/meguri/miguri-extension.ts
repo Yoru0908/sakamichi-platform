@@ -3,11 +3,29 @@ import type { MiguriImportHandoff } from "./miguri-auto-import";
 const PAGE_SOURCE = "46log-miguri-page";
 const EXTENSION_SOURCE = "46log-miguri-extension";
 
+export type MiguriExtensionAutoState = {
+  enabled: boolean;
+  intervalMinutes: number;
+  status:
+    | "idle"
+    | "disabled"
+    | "syncing"
+    | "success"
+    | "needs-login"
+    | "error";
+  lastAttemptAt: string | null;
+  lastSuccessAt: string | null;
+  lastError: string;
+  needsLogin: string;
+  imported: number;
+};
+
 export type MiguriExtensionEvent =
   | { type: "PONG"; version: string }
   | { type: "STARTED"; syncSource: "fortunemusic" | "fortunemeets" }
   | { type: "PROGRESS"; title: string; detail: string }
   | { type: "RESULT"; payload: MiguriImportHandoff }
+  | { type: "AUTO_STATE"; state: MiguriExtensionAutoState }
   | { type: "ERROR"; message: string };
 
 function post(type: string, payload: Record<string, unknown> = {}) {
@@ -25,6 +43,14 @@ export function startMiguriExtensionSync(
   syncSource: "fortunemusic" | "fortunemeets",
 ) {
   post("START", { syncSource });
+}
+
+export function setMiguriExtensionAutoSync(enabled: boolean) {
+  post("SET_AUTO_ENABLED", { enabled });
+}
+
+export function runMiguriExtensionAutoSync() {
+  post("RUN_AUTO");
 }
 
 export function subscribeMiguriExtension(
@@ -63,6 +89,15 @@ export function subscribeMiguriExtension(
       listener({
         type: "RESULT",
         payload: message.payload as MiguriImportHandoff,
+      });
+    } else if (
+      message.type === "AUTO_STATE" &&
+      message.autoState &&
+      typeof message.autoState === "object"
+    ) {
+      listener({
+        type: "AUTO_STATE",
+        state: message.autoState as MiguriExtensionAutoState,
       });
     } else if (message.type === "ERROR") {
       listener({

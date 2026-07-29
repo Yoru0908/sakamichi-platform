@@ -5,7 +5,7 @@ import {
   CalendarDays,
   CheckCircle2,
   CircleDollarSign,
-  Download,
+  ExternalLink,
   LoaderCircle,
   Puzzle,
   RefreshCw,
@@ -18,10 +18,16 @@ import type {
   MiguriEntryCategory,
   MiguriGroupId,
 } from "@/utils/auth-api";
-import { aggregateMiguriDashboard } from "./meguri-helpers";
 import {
+  aggregateMiguriDashboard,
+  resolveMiguriEntrySpend,
+} from "./meguri-helpers";
+import {
+  runMiguriExtensionAutoSync,
+  setMiguriExtensionAutoSync,
   startMiguriExtensionSync,
   subscribeMiguriExtension,
+  type MiguriExtensionAutoState,
 } from "./miguri-extension";
 
 export type MiguriAutoImportState = {
@@ -33,7 +39,6 @@ export type MiguriAutoImportState = {
 type Props = {
   entries: MiguriEntry[];
   importState: MiguriAutoImportState;
-  onOpenManualImport: () => void;
 };
 
 type RankMetric = "spend" | "won" | "rate" | "cost";
@@ -57,6 +62,8 @@ const GROUP_LABELS: Record<MiguriGroupId, string> = {
   sakurazaka: "櫻坂46",
   hinatazaka: "日向坂46",
 };
+const MIGURI_EXTENSION_STORE_URL =
+  "https://chromewebstore.google.com/detail/kdfpdlijajcjianjpffgnmodnmigckdh";
 
 function displayDate(date: string) {
   const weekday = new Intl.DateTimeFormat("ja-JP", {
@@ -145,16 +152,11 @@ function ImportStatus({
   );
 }
 
-function ImportSetup({
-  state,
-  onOpenManualImport,
-}: {
-  state: MiguriAutoImportState;
-  onOpenManualImport: () => void;
-}) {
+function ImportSetup({ state }: { state: MiguriAutoImportState }) {
   const [extensionVersion, setExtensionVersion] = useState("");
   const [extensionMessage, setExtensionMessage] = useState("");
-  const [bookmarkletHref, setBookmarkletHref] = useState("#");
+  const [autoState, setAutoState] =
+    useState<MiguriExtensionAutoState | null>(null);
 
   useEffect(
     () =>
@@ -169,30 +171,22 @@ function ImportSetup({
           setExtensionMessage(
             [event.title, event.detail].filter(Boolean).join(" · "),
           );
+        if (event.type === "AUTO_STATE") {
+          setAutoState(event.state);
+          if (event.state.status === "needs-login") {
+            setExtensionMessage(
+              `自动同步暂停：请重新登录 ${event.state.needsLogin}`,
+            );
+          } else if (event.state.status === "error") {
+            setExtensionMessage(
+              `自动同步暂停：${event.state.lastError || "请稍后重试"}`,
+            );
+          }
+        }
         if (event.type === "ERROR") setExtensionMessage(event.message);
       }),
     [],
   );
-
-  useEffect(() => {
-    let mounted = true;
-    fetch("/miguri-importer.js")
-      .then((response) => response.text())
-      .then((source) => {
-        if (!mounted) return;
-        const configured = source.replaceAll(
-          "__MIGURI_RETURN_ORIGIN__",
-          window.location.origin,
-        );
-        setBookmarkletHref(`javascript:${encodeURIComponent(configured)}`);
-      })
-      .catch(() => {
-        if (mounted) setBookmarkletHref("#");
-      });
-    return () => {
-      mounted = false;
-    };
-  }, []);
 
   const startSync = (source: "fortunemusic" | "fortunemeets") => {
     if (!extensionVersion) {
@@ -229,21 +223,69 @@ function ImportSetup({
       </div>
 
       {extensionVersion ? (
-        <div className="mt-5 grid gap-3 sm:grid-cols-2">
-          <button
-            type="button"
-            onClick={() => startSync("fortunemusic")}
-            className="flex min-h-14 items-center justify-between rounded-2xl bg-indigo-600 px-5 text-left text-sm font-bold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-          >
-            同步 forTUNE music <ArrowRight size={18} />
-          </button>
-          <button
-            type="button"
-            onClick={() => startSync("fortunemeets")}
-            className="flex min-h-14 items-center justify-between rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-5 text-left text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-pink-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
-          >
-            同步 forTUNE meets <ArrowRight size={18} />
-          </button>
+        <div className="mt-5 space-y-3">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <button
+              type="button"
+              onClick={() => startSync("fortunemusic")}
+              className="flex min-h-14 items-center justify-between rounded-2xl bg-indigo-600 px-5 text-left text-sm font-bold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+            >
+              同步 forTUNE music <ArrowRight size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={() => startSync("fortunemeets")}
+              className="flex min-h-14 items-center justify-between rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-5 text-left text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-pink-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
+            >
+              同步 forTUNE meets <ArrowRight size={18} />
+            </button>
+          </div>
+          <div className="flex flex-col gap-3 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="flex items-center gap-2 text-sm font-bold text-[var(--text-primary)]">
+                <RefreshCw
+                  size={15}
+                  className={
+                    autoState?.status === "syncing" ? "animate-spin" : ""
+                  }
+                />
+                浏览器运行时自动同步
+              </div>
+              <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
+                每 {autoState?.intervalMinutes || 30}{" "}
+                分钟检查一次；登录失效时暂停并提示。
+                {autoState?.lastSuccessAt
+                  ? ` 上次成功：${relativeSyncTime(autoState.lastSuccessAt)}。`
+                  : ""}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {autoState?.enabled ? (
+                <button
+                  type="button"
+                  onClick={runMiguriExtensionAutoSync}
+                  disabled={autoState.status === "syncing"}
+                  className="min-h-11 rounded-xl border border-[var(--border-primary)] px-3 text-xs font-semibold text-[var(--text-primary)] disabled:cursor-wait disabled:opacity-50"
+                >
+                  {autoState.status === "syncing" ? "检查中…" : "立即检查"}
+                </button>
+              ) : null}
+              <button
+                type="button"
+                aria-pressed={autoState?.enabled === true}
+                onClick={() =>
+                  setMiguriExtensionAutoSync(!autoState?.enabled)
+                }
+                className={`min-h-11 rounded-xl px-4 text-xs font-bold ${
+                  autoState?.enabled
+                    ? "bg-emerald-600 text-white"
+                    : "bg-[var(--bg-secondary)] text-[var(--text-secondary)]"
+                }`}
+              >
+                自动同步 {autoState?.enabled ? "已开启" : "已关闭"}
+              </button>
+            </div>
+          </div>
         </div>
       ) : (
         <div className="mt-5 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
@@ -253,16 +295,16 @@ function ImportSetup({
                 安装一次，之后直接在这里同步
               </div>
               <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                下载并解压，在 Chrome / Edge
-                扩展管理页开启开发者模式后选择“加载已解压的扩展”。
+                从 Chrome Web Store 安装，完成后回到此页刷新一次。
               </p>
             </div>
             <a
-              href="/downloads/46log-miguri-sync.zip"
-              download
+              href={MIGURI_EXTENSION_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
-              <Download size={16} /> 下载同步扩展
+              <ExternalLink size={16} /> Chrome 商店安装
             </a>
           </div>
         </div>
@@ -281,33 +323,6 @@ function ImportSetup({
         state={state}
         onSyncMeets={() => startSync("fortunemeets")}
       />
-
-      <details className="mt-4 border-t border-[var(--border-primary)] pt-3 text-xs text-[var(--text-secondary)]">
-        <summary className="min-h-11 cursor-pointer select-none py-3 font-semibold text-[var(--text-primary)]">
-          兼容导入
-        </summary>
-        <div className="flex flex-col gap-3 pb-1 sm:flex-row sm:items-center sm:justify-between">
-          <span>
-            旧版书签需拖到书签栏后在官方页面运行；也可以继续使用粘贴导入。
-          </span>
-          <div className="flex flex-wrap gap-2">
-            <a
-              href={bookmarkletHref}
-              draggable
-              className="inline-flex min-h-11 cursor-grab items-center rounded-xl border border-[var(--border-primary)] px-3 font-semibold text-[var(--text-primary)]"
-            >
-              拖动安装旧版书签
-            </a>
-            <button
-              type="button"
-              onClick={onOpenManualImport}
-              className="min-h-11 rounded-xl px-3 font-semibold text-indigo-600 hover:bg-indigo-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            >
-              使用粘贴导入
-            </button>
-          </div>
-        </div>
-      </details>
     </section>
   );
 }
@@ -436,7 +451,6 @@ function Donut({
 export default function MiguriDashboard({
   entries,
   importState,
-  onOpenManualImport,
 }: Props) {
   const groups = useMemo(
     () =>
@@ -515,9 +529,7 @@ export default function MiguriDashboard({
               : 0);
       current.applied += applied;
       current.won += won;
-      current.spend +=
-        entry.spendYen ||
-        (entry.paidTickets || entry.wonTickets) * entry.unitPriceYen;
+      current.spend += resolveMiguriEntrySpend(entry).spendYen;
       ranking.set(entry.member, current);
     });
     return Array.from(ranking.values()).sort((left, right) => {
@@ -592,10 +604,7 @@ export default function MiguriDashboard({
 
   return (
     <div className="space-y-5 sm:space-y-6">
-      <ImportSetup
-        state={importState}
-        onOpenManualImport={onOpenManualImport}
-      />
+      <ImportSetup state={importState} />
 
       <section aria-label="Dashboard 筛选" className="space-y-3">
         {groups.length > 1 ? (
@@ -706,6 +715,17 @@ export default function MiguriDashboard({
                 同步带有单价的履历后显示实际支出。
               </p>
             )}
+            {dashboard.estimatedSpendYen > 0 ? (
+              <p className="mt-2 text-xs leading-5 text-amber-700">
+                含旧记录估算 {formatYen(dashboard.estimatedSpendYen)}
+                ；重新同步后会优先采用官方订单单价。
+              </p>
+            ) : null}
+            {dashboard.unpricedWonTickets > 0 ? (
+              <p className="mt-1 text-xs leading-5 text-[var(--text-tertiary)]">
+                另有 {dashboard.unpricedWonTickets} 张价格未知，暂未计入。
+              </p>
+            ) : null}
           </div>
           <div className="grid grid-cols-3 gap-3">
             <div>
@@ -765,7 +785,10 @@ export default function MiguriDashboard({
       <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
         {[
           {
-            label: "实际支出",
+            label:
+              dashboard.estimatedSpendYen > 0
+                ? "支出合计（含估算）"
+                : "实际支出",
             value: formatYen(dashboard.totalSpendYen),
             icon: CircleDollarSign,
             color: "text-indigo-500",
@@ -985,8 +1008,8 @@ export default function MiguriDashboard({
 
       <p className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
         <Ticket size={13} />
-        Music 按实际中签数与单价计算；Meets 按已登记序列分配，官方页无价格时仅对
-        2024 年后的单曲按 ¥2,000 估算。
+        Music 按中签数与订单单价计算；Meets 按已登记序列分配。旧记录缺少单价时，
+        已知单曲按对应发行价估算并在上方标注。
       </p>
     </div>
   );

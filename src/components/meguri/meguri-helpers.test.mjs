@@ -223,6 +223,77 @@ test('aggregateMiguriDashboard calculates spend, win rate, member share, and sig
   assert.equal(dashboard.nextStops[0].rows.some((row) => row.category === 'サイン会'), false);
 });
 
+test('aggregateMiguriDashboard estimates current single spend for legacy won entries', () => {
+  const dashboard = aggregateMiguriDashboard([
+    {
+      id: 'legacy-won',
+      member: '山川宇衣',
+      date: '2026-09-12',
+      slot: 1,
+      tickets: 116,
+      status: 'won',
+      source: 'manual',
+      category: '個別ミーグリ',
+      eventTitle: '櫻坂46 Lonesome rabbit / What’s “KAZOKU”? 発売記念',
+    },
+    {
+      id: 'legacy-planned',
+      member: '金村美玖',
+      date: '2026-08-09',
+      slot: 2,
+      tickets: 66,
+      status: 'planned',
+      source: 'manual',
+      category: '個別ミーグリ',
+      eventTitle: '日向坂46 Kind of love 発売記念',
+    },
+  ], '2026-07-29');
+
+  assert.equal(dashboard.totalTickets, 182);
+  assert.equal(dashboard.totalApplied, 116);
+  assert.equal(dashboard.totalWon, 116);
+  assert.equal(dashboard.totalSpendYen, 232000);
+  assert.equal(dashboard.estimatedSpendYen, 232000);
+  assert.equal(dashboard.estimatedSpendEntries, 1);
+  assert.equal(dashboard.unpricedWonTickets, 0);
+  assert.equal(dashboard.costPerWinYen, 2000);
+  assert.equal(dashboard.topMember.name, '山川宇衣');
+  assert.equal(dashboard.topMember.share, 1);
+});
+
+test('aggregateMiguriDashboard keeps exact imported spend and reports unknown legacy prices', () => {
+  const dashboard = aggregateMiguriDashboard([
+    {
+      id: 'exact',
+      member: '山川宇衣',
+      date: '2026-09-12',
+      slot: 1,
+      tickets: 3,
+      status: 'paid',
+      source: 'fortunemusic',
+      category: '個別ミーグリ',
+      paidTickets: 3,
+      unitPriceYen: 2100,
+      spendYen: 6300,
+      eventTitle: 'future release',
+    },
+    {
+      id: 'unknown-album',
+      member: '金村美玖',
+      date: '2026-09-13',
+      slot: 2,
+      tickets: 2,
+      status: 'won',
+      category: '個別ミーグリ',
+      eventTitle: '特別アルバム 発売記念',
+    },
+  ], '2026-07-29');
+
+  assert.equal(dashboard.totalSpendYen, 6300);
+  assert.equal(dashboard.estimatedSpendYen, 0);
+  assert.equal(dashboard.unpricedWonTickets, 2);
+});
+
 test('sortEventsForDisplay places events with later event dates first', () => {
   const sorted = sortEventsForDisplay([
     {

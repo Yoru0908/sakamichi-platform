@@ -110,8 +110,25 @@
       .sendMessage({ type: "MIGURI46LOG_PROGRESS", title, detail })
       .catch(() => {});
   };
+  const requireLogin = async () => {
+    show("等待官方登录", "登录完成后，扩展会自动继续同步。");
+    await chrome.runtime
+      .sendMessage({
+        type: "MIGURI46LOG_LOGIN_REQUIRED",
+        jobId: job.id,
+      })
+      .catch(() => {});
+  };
   const finish = async (records) => {
     if (records.length === 0) {
+      if (job.auto) {
+        await chrome.runtime.sendMessage({
+          type: "MIGURI46LOG_RESULT",
+          jobId: job.id,
+          records: [],
+        });
+        return;
+      }
       show("没有找到履历", "确认当前账号已有应募记录后，可回到 46log 重试。");
       return;
     }
@@ -215,7 +232,7 @@
   };
   const importMusic = async () => {
     if (document.querySelector('input[type="password"]')) {
-      show("等待官方登录", "登录完成后，扩展会自动继续同步。");
+      await requireLogin();
       return;
     }
     if (!location.pathname.startsWith("/mypage/apply_list")) {
@@ -228,7 +245,7 @@
       /type=["']password["']/i.test(html) ||
       (/ログイン/.test(html) && !/apply_detail/.test(html))
     ) {
-      show("等待官方登录", "登录完成后，扩展会自动继续同步。");
+      await requireLogin();
       return;
     }
     const applications = new Map();
@@ -504,7 +521,7 @@
       );
     }
     if (campaigns.length === 0) {
-      show("等待官方登录", "登录完成后，扩展会自动继续同步。");
+      await requireLogin();
       return;
     }
     const records = [];
@@ -517,7 +534,7 @@
         campaign.campaignSlug,
       );
       if (result.loginRequired) {
-        show("等待官方登录", "登录完成后，扩展会自动继续同步。");
+        await requireLogin();
         return;
       }
       records.push(...result.records);
@@ -529,6 +546,15 @@
     if (onMusic) await importMusic();
     else if (location.hostname === MEETS_HOST) await importMeets();
   } catch (error) {
+    if (job.auto) {
+      await chrome.runtime
+        .sendMessage({
+          type: "MIGURI46LOG_JOB_ERROR",
+          jobId: job.id,
+          error: error instanceof Error ? error.message : "请稍后重试。",
+        })
+        .catch(() => {});
+    }
     show(
       "同步暂时停止",
       error instanceof Error ? error.message : "请稍后重试。",

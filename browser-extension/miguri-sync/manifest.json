@@ -1,15 +1,21 @@
 {
   "manifest_version": 3,
   "name": "46log 咪咕力同步",
-  "version": "1.0.0",
-  "description": "把 forTUNE music / meets 的个人应募履历同步到 46log 咪咕力面板。",
-  "permissions": ["storage", "tabs"],
+  "version": "1.1.0",
+  "description": "定时同步 forTUNE music / meets 的个人应募履历，并更新 46log 咪咕力面板。",
+  "permissions": ["storage", "tabs", "alarms"],
   "host_permissions": [
     "https://46log.com/*",
+    "https://api.46log.com/*",
     "https://fortunemusic.jp/*",
-    "https://fortunemeets.app/*",
-    "https://*.fortunemeets.app/*"
+    "https://ticket.fortunemeets.app/*"
   ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
   "background": {
     "service_worker": "background.js"
   },
@@ -22,14 +28,19 @@
     {
       "matches": [
         "https://fortunemusic.jp/*",
-        "https://fortunemeets.app/*",
-        "https://*.fortunemeets.app/*"
+        "https://ticket.fortunemeets.app/*"
       ],
       "js": ["official.js"],
       "run_at": "document_idle"
     }
   ],
   "action": {
-    "default_title": "46log 咪咕力同步"
+    "default_title": "46log 咪咕力同步",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
   }
 }

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>46log 咪咕力同步商店素材</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: #090a13;
+        font-family:
+          Inter, "Noto Sans SC", "PingFang SC", "Hiragino Sans", system-ui,
+          sans-serif;
+      }
+
+      .asset {
+        position: relative;
+        overflow: hidden;
+        color: #f8fafc;
+        background:
+          radial-gradient(circle at 82% 18%, rgba(81, 70, 229, 0.28), transparent 32%),
+          #10111f;
+      }
+
+      .asset::after {
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        content: "";
+        pointer-events: none;
+      }
+
+      .small {
+        width: 440px;
+        height: 280px;
+        padding: 26px 28px;
+      }
+
+      .small .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .small .icon {
+        width: 62px;
+        height: 62px;
+      }
+
+      .small .eyebrow,
+      .marquee .eyebrow {
+        color: #8b83ff;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .small h1 {
+        margin: 4px 0 0;
+        font-size: 28px;
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+      }
+
+      .small .message {
+        width: 310px;
+        margin: 24px 0 0;
+        color: #cbd5e1;
+        font-size: 16px;
+        font-weight: 650;
+        line-height: 1.55;
+      }
+
+      .small .sync {
+        position: absolute;
+        right: 26px;
+        bottom: 27px;
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
+        height: 52px;
+      }
+
+      .small .sync span {
+        width: 10px;
+        border-radius: 5px;
+      }
+
+      .small .sync span:nth-child(1) {
+        height: 25px;
+        background: #65a99c;
+      }
+
+      .small .sync span:nth-child(2) {
+        height: 42px;
+        background: #5146e5;
+      }
+
+      .small .sync span:nth-child(3) {
+        height: 34px;
+        background: #c64d82;
+      }
+
+      .small .sync span:nth-child(4) {
+        height: 52px;
+        background: #5195ca;
+      }
+
+      .marquee {
+        display: grid;
+        width: 1400px;
+        height: 560px;
+        grid-template-columns: 520px 1fr;
+        align-items: center;
+        padding: 54px 0 54px 68px;
+      }
+
+      .marquee .copy {
+        position: relative;
+        z-index: 2;
+      }
+
+      .marquee .brand {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .marquee .icon {
+        width: 82px;
+        height: 82px;
+      }
+
+      .marquee h1 {
+        margin: 5px 0 0;
+        font-size: 43px;
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+      }
+
+      .marquee h2 {
+        margin: 40px 0 0;
+        font-size: 27px;
+        line-height: 1.35;
+        letter-spacing: -0.025em;
+      }
+
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 25px 0 0;
+      }
+
+      .features span {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 9px 13px;
+        color: #cbd5e1;
+        background: rgba(255, 255, 255, 0.045);
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .marquee .note {
+        margin: 22px 0 0;
+        color: #8f9bad;
+        font-size: 13px;
+      }
+
+      .screen {
+        position: relative;
+        align-self: stretch;
+        margin-left: 36px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-right: 0;
+        border-radius: 28px 0 0 28px;
+        padding: 14px 0 14px 14px;
+        background: rgba(255, 255, 255, 0.07);
+        box-shadow: -24px 28px 70px rgba(0, 0, 0, 0.38);
+      }
+
+      .screen::before {
+        display: block;
+        height: 18px;
+        border-radius: 14px 0 0;
+        background:
+          radial-gradient(circle at 14px 9px, #c64d82 0 4px, transparent 4.5px),
+          radial-gradient(circle at 32px 9px, #f0b85e 0 4px, transparent 4.5px),
+          radial-gradient(circle at 50px 9px, #65a99c 0 4px, transparent 4.5px);
+        content: "";
+      }
+
+      .screen img {
+        display: block;
+        width: 900px;
+        margin-top: 7px;
+        border-radius: 16px 0 0 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="small" class="asset small">
+      <div class="brand">
+        <img class="icon" src="icon-master.png" alt="" />
+        <div>
+          <div class="eyebrow">46log Chrome Extension</div>
+          <h1>咪咕力同步</h1>
+        </div>
+      </div>
+      <p class="message">应募履历自动同步<br />日程、每部张数与支出一目了然</p>
+      <div class="sync" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <section id="marquee" class="asset marquee">
+      <div class="copy">
+        <div class="brand">
+          <img class="icon" src="icon-master.png" alt="" />
+          <div>
+            <div class="eyebrow">46log Chrome Extension</div>
+            <h1>咪咕力同步</h1>
+          </div>
+        </div>
+        <h2>Music × Meets 应募履历<br />自动变成你的私人 Dashboard</h2>
+        <div class="features">
+          <span>下一站</span>
+          <span>每部张数</span>
+          <span>当选率</span>
+          <span>成员与费用比例</span>
+        </div>
+        <p class="note">Chrome 运行期间每 30 分钟自动检查</p>
+      </div>
+      <div class="screen">
+        <img src="../upload/screenshot-03-analytics.png" alt="" />
+      </div>
+    </section>
+  </body>
+</html>
