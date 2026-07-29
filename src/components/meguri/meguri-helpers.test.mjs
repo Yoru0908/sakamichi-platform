@@ -259,6 +259,8 @@ test('resolveMiguriEntrySpend includes lost Meets applications only when request
     eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
     appliedTickets: 12,
     wonTickets: 0,
+    paidTickets: 12,
+    spendYen: 24000,
   };
   assert.equal(resolveMiguriEntrySpend(entry).spendYen, 0);
   assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 24000);
@@ -279,6 +281,8 @@ test('resolveMiguriEntrySpend charges a 33口 × 3-CD sign event as 99 CDs', () 
     eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
     appliedTickets: 99,
     wonTickets: 99,
+    paidTickets: 99,
+    spendYen: 198000,
     signLots: 33,
   };
   assert.equal(resolveMiguriEntrySpend(entry).spendYen, 198000);
@@ -346,6 +350,8 @@ test('aggregateMiguriDashboard prices Meets winners from the reference catalog',
       category: 'リアミ',
       group: 'sakurazaka',
       wonTickets: 2,
+      paidTickets: 2,
+      spendYen: 4000,
       eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
     },
     {
@@ -415,6 +421,34 @@ test('aggregateMiguriDashboard applies the limited-edition discount only to Meet
     3600,
   );
   assert.equal(dashboard.costPerWinYen, 1600);
+});
+
+test('aggregateMiguriDashboard keeps free priority-ticket wins in counts but not costs', () => {
+  const dashboard = aggregateMiguriDashboard([
+    {
+      id: 'priority-win',
+      member: '山川宇衣',
+      date: '2026-08-02',
+      slot: 1,
+      tickets: 72,
+      status: 'won',
+      source: 'fortunemeets',
+      category: '全国ミーグリ',
+      group: 'sakurazaka',
+      eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
+      appliedTickets: 72,
+      wonTickets: 72,
+      paidTickets: 0,
+      spendYen: 0,
+    },
+  ], '2026-07-29', 20);
+
+  assert.equal(dashboard.totalApplied, 72);
+  assert.equal(dashboard.totalWon, 72);
+  assert.equal(dashboard.winRate, 1);
+  assert.equal(dashboard.totalSpendYen, 0);
+  assert.equal(dashboard.lostSpendYen, 0);
+  assert.equal(dashboard.totalPaidSpendYen, 0);
 });
 
 test('aggregateMiguriDashboard fixes Music CDs at ¥1,200 and reports unknown legacy prices', () => {

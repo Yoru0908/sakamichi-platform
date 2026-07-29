@@ -32,18 +32,40 @@ function importRecord(overrides = {}) {
   };
 }
 
-test('normalizeImportRecord preserves counts and chooses paid, won, then applied for display', () => {
+test('normalizeImportRecord preserves counts and keeps Meets display tickets on wins', () => {
   assert.equal(normalizeImportRecord(importRecord()).tickets, 3);
   assert.equal(normalizeImportRecord(importRecord()).spendYen, 6000);
   assert.equal(normalizeImportRecord(importRecord()).signLots, 3);
   assert.equal(normalizeImportRecord(importRecord({ wonTickets: 0 })).status, 'planned');
   assert.equal(
     normalizeImportRecord(importRecord({
+      source: 'fortunemusic',
       category: '個別ミーグリ',
       paidTickets: 2,
       signLots: 0,
     })).tickets,
     2,
+  );
+  assert.equal(
+    normalizeImportRecord(importRecord({
+      category: '全国ミーグリ',
+      appliedTickets: 72,
+      wonTickets: 72,
+      paidTickets: 0,
+      signLots: 0,
+      spendYen: 0,
+    })).tickets,
+    72,
+  );
+  assert.equal(
+    normalizeImportRecord(importRecord({
+      category: 'リアミ',
+      appliedTickets: 126,
+      wonTickets: 72,
+      paidTickets: 126,
+      signLots: 0,
+    })).tickets,
+    72,
   );
   assert.equal(
     normalizeImportRecord(importRecord({ category: 'unknown' })).category,

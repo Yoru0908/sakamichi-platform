@@ -281,16 +281,18 @@ export function resolveMiguriEntrySpend(
   meetsDiscountPct = 0,
   includeLostMeetsCost = false,
 ) {
-  const countedTickets = Math.max(
+  const wonTickets = Math.max(
     0,
-    entry.paidTickets
-      || entry.wonTickets
+    entry.wonTickets
       || (
         entry.status === 'won' || entry.status === 'paid'
           ? entry.tickets
           : 0
       ),
   );
+  const countedTickets = entry.source === 'fortunemeets'
+    ? wonTickets
+    : Math.max(0, entry.paidTickets || wonTickets);
   if (entry.source === 'fortunemusic') {
     return {
       spendYen: countedTickets * 1200,
@@ -302,11 +304,22 @@ export function resolveMiguriEntrySpend(
   }
   if (entry.source === 'fortunemeets') {
     const priceYen = resolveMiguriCdPriceYen(entry.group, entry.eventTitle);
+    const appliedTickets = Math.max(wonTickets, entry.appliedTickets || 0);
+    const hasPaidAllocation =
+      (entry.paidTickets || 0) > 0 || (entry.spendYen || 0) === 0;
+    const paidAppliedTickets = entry.status === 'planned'
+      ? 0
+      : hasPaidAllocation
+        ? Math.min(appliedTickets, entry.paidTickets || 0)
+        : appliedTickets;
+    const freePriorityTickets = Math.max(
+      0,
+      appliedTickets - paidAppliedTickets,
+    );
+    const paidWonTickets = Math.max(0, wonTickets - freePriorityTickets);
     const meetsTickets = includeLostMeetsCost
-      ? entry.status === 'planned'
-        ? countedTickets
-        : Math.max(countedTickets, entry.appliedTickets || 0)
-      : countedTickets;
+      ? paidAppliedTickets
+      : paidWonTickets;
     const discountMultiplier = meetsDiscountMultiplier(meetsDiscountPct);
     return {
       spendYen: Math.round(meetsTickets * priceYen * discountMultiplier),

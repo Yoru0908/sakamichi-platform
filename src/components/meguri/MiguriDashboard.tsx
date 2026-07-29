@@ -865,7 +865,7 @@ export default function MiguriDashboard({
                 </span>
                 <span className="mt-3 block border-t border-[var(--border-primary)] pt-3 text-[11px] leading-5 text-[var(--text-tertiary)]">
                   サイン会无论当选或落选，均按口数 × 每口所需 CD
-                  枚数换算实际消耗，例如 33口 × 3 = 99 张。
+                  枚数换算实际消耗，例如 33口 × 3 = 99 张。全国ミーグリ的優先応募券保留中签数，但金额按 ¥0 计算。
                 </span>
               </label>
             ) : null}

@@ -141,7 +141,9 @@ export function normalizeImportRecord(input: unknown): NormalizedImportRecord | 
     : 'その他';
   const tickets = category === 'サイン会' && signLots > 0
     ? signLots
-    : paidTickets || wonTickets || appliedTickets;
+    : source === 'fortunemeets'
+      ? wonTickets || appliedTickets
+      : paidTickets || wonTickets || appliedTickets;
   if (tickets <= 0) return null;
 
   const inferredResultStatus = paidTickets > 0

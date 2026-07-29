@@ -101,6 +101,8 @@ test("manual Meets sync runs through the extension worker instead of campaign if
   assert.doesNotMatch(meetsApiSource, /createElement\("iframe"\)/);
   assert.match(meetsApiSource, /controller\.abort\(\)/);
   assert.match(meetsApiSource, /randomDelay\(500, 350\)/);
+  assert.match(meetsApiSource, /assignPaidTickets/);
+  assert.match(meetsApiSource, /serialRowCount\(history\?\.used\)/);
   assert.match(backgroundSource, /JOB_TIMEOUT_MS = 10 \* 60 \* 1000/);
 });
 
@@ -160,6 +162,7 @@ test("Meets API results normalize winning and losing counts without rendering th
   assert.equal(records[0].category, "全国ミーグリ");
   assert.equal(records[0].appliedTickets, 3);
   assert.equal(records[0].wonTickets, 2);
+  assert.equal(records[0].paidTickets, 3);
   assert.equal(records[0].signLots, 3);
   assert.equal(records[0].spendYen, 6_000);
   assert.equal(records[0].resultStatus, "won");
@@ -224,6 +227,7 @@ test("Meets API keeps actual CD counts for won and lost sign-event lots", () => 
   assert.equal(mixed.category, "サイン会");
   assert.equal(mixed.appliedTickets, 105);
   assert.equal(mixed.wonTickets, 99);
+  assert.equal(mixed.paidTickets, 105);
   assert.equal(mixed.signLots, 35);
 
   const lost = normalize({
@@ -240,7 +244,89 @@ test("Meets API keeps actual CD counts for won and lost sign-event lots", () => 
   });
   assert.equal(lost.appliedTickets, 99);
   assert.equal(lost.wonTickets, 0);
+  assert.equal(lost.paidTickets, 99);
   assert.equal(lost.signLots, 33);
+});
+
+test("Meets API marks guaranteed priority-ticket wins as free", () => {
+  const context = {
+    AbortController,
+    clearTimeout,
+    console,
+    setTimeout,
+  };
+  context.globalThis = context;
+  vm.runInNewContext(meetsApiSource, context);
+  const records = context.MiguriMeetsApi.normalizeCampaign({
+    config: {
+      eventId: "sakurazaka46_15th",
+      eventName:
+        "櫻坂46 15th Single Lonesome rabbit / What's KAZOKU 発売記念",
+      applications: [
+        {
+          awards: [
+            {
+              entryHtml: { title: "オンラインミート＆グリート" },
+              serialCount: 1,
+              applyTable: [
+                {
+                  id: "online_1",
+                  date: "2026年8月2日(日)",
+                  part: "第1部",
+                },
+              ],
+            },
+            {
+              entryHtml: { title: "リアルミート＆グリート" },
+              serialCount: 1,
+              applyTable: [
+                {
+                  id: "real_1",
+                  date: "2026年8月3日(月)＠京都パルスプラザ",
+                  part: "第1部",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    history: {
+      results: [
+        {
+          prizeId: "online_1",
+          result: "当選",
+          resultInfo: { win: "72", lose: "0" },
+          prizeInfo: { members: ["山川 宇衣"] },
+        },
+        {
+          prizeId: "real_1",
+          result: "当選",
+          resultInfo: { win: "72", lose: "54" },
+          prizeInfo: { members: ["山川 宇衣"] },
+        },
+      ],
+      used: Array.from({ length: 126 }, (_, index) => ({
+        serialId: `paid-${index}`,
+      })),
+      unused: [],
+    },
+    campaignSlug: "15th",
+    groupSlug: "sakurazaka46",
+    group: "sakurazaka",
+    sourceSyncedAt: "2026-07-29T00:00:00.000Z",
+  });
+  const priority = records.find(
+    (record) => record.category === "全国ミーグリ",
+  );
+  const paid = records.find((record) => record.category === "リアミ");
+  assert.equal(priority.appliedTickets, 72);
+  assert.equal(priority.wonTickets, 72);
+  assert.equal(priority.paidTickets, 0);
+  assert.equal(priority.spendYen, 0);
+  assert.equal(paid.appliedTickets, 126);
+  assert.equal(paid.wonTickets, 72);
+  assert.equal(paid.paidTickets, 126);
 });
 
 test("Meets API discovery reads campaign anchors only", async () => {
@@ -346,6 +432,7 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /落选金额/);
   assert.match(dashboardSource, /支付金额合计/);
   assert.match(dashboardSource, /33口 × 3 = 99 张/);
+  assert.match(dashboardSource, /優先応募券保留中签数/);
   assert.match(dashboardSource, /落选成本仅进入成员排行/);
   assert.match(dashboardSource, /支付金额/);
   assert.match(dashboardSource, /中签张数/);
