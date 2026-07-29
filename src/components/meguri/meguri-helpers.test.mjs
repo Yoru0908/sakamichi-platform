@@ -252,13 +252,49 @@ test('aggregateMiguriDashboard estimates current single spend for legacy won ent
   assert.equal(dashboard.totalTickets, 182);
   assert.equal(dashboard.totalApplied, 116);
   assert.equal(dashboard.totalWon, 116);
-  assert.equal(dashboard.totalSpendYen, 232000);
-  assert.equal(dashboard.estimatedSpendYen, 232000);
+  assert.equal(dashboard.totalSpendYen, 139200);
+  assert.equal(dashboard.estimatedSpendYen, 139200);
   assert.equal(dashboard.estimatedSpendEntries, 1);
   assert.equal(dashboard.unpricedWonTickets, 0);
-  assert.equal(dashboard.costPerWinYen, 2000);
+  assert.equal(dashboard.costPerWinYen, 1200);
   assert.equal(dashboard.topMember.name, '山川宇衣');
   assert.equal(dashboard.topMember.share, 1);
+});
+
+test('aggregateMiguriDashboard estimates Meets discs at retail while preserving source discounts', () => {
+  const dashboard = aggregateMiguriDashboard([
+    {
+      id: 'meets-retail-estimate',
+      member: '山川宇衣',
+      date: '2026-08-02',
+      slot: 0,
+      tickets: 2,
+      status: 'won',
+      source: 'fortunemeets',
+      category: 'リアミ',
+      wonTickets: 2,
+      eventTitle: '購入者応募抽選企画',
+    },
+    {
+      id: 'meets-hmv-exact',
+      member: '小田倉麗奈',
+      date: '2026-08-02',
+      slot: 0,
+      tickets: 3,
+      status: 'paid',
+      source: 'fortunemeets',
+      category: 'サイン会',
+      paidTickets: 3,
+      unitPriceYen: 1800,
+      spendYen: 5400,
+      eventTitle: 'HMV online 購入者応募抽選企画',
+    },
+  ], '2026-07-29');
+
+  assert.equal(dashboard.totalSpendYen, 9400);
+  assert.equal(dashboard.estimatedSpendYen, 4000);
+  assert.equal(dashboard.categoryBreakdown.find((item) => item.label === 'リアミ').spendYen, 4000);
+  assert.equal(dashboard.categoryBreakdown.find((item) => item.label === 'サイン会').spendYen, 5400);
 });
 
 test('aggregateMiguriDashboard keeps exact imported spend and reports unknown legacy prices', () => {
@@ -284,7 +320,7 @@ test('aggregateMiguriDashboard keeps exact imported spend and reports unknown le
       slot: 2,
       tickets: 2,
       status: 'won',
-      category: '個別ミーグリ',
+      category: 'その他',
       eventTitle: '特別アルバム 発売記念',
     },
   ], '2026-07-29');

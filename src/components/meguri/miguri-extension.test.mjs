@@ -56,6 +56,7 @@ test("Miguri extension keeps the official login job separate from normalized res
   assert.match(officialSource, /sourceKey/);
   assert.match(officialSource, /unitPriceYen/);
   assert.match(officialSource, /spendYen/);
+  assert.match(officialSource, /Math\.min\(\.\.\.explicitPrices\)/);
   assert.doesNotMatch(
     officialSource,
     /input\[type=["']password["']\][\s\S]{0,80}\.value/,
@@ -64,8 +65,11 @@ test("Miguri extension keeps the official login job separate from normalized res
 });
 
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {
-  assert.match(dashboardSource, /Chrome 商店安装/);
-  assert.match(dashboardSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
+  assert.match(dashboardSource, /Chrome Web Store · 审核中/);
+  assert.match(dashboardSource, /下载 ZIP 临时安装/);
+  assert.match(dashboardSource, /downloads\/46log-miguri-sync\.zip/);
+  assert.match(dashboardSource, /加载已解压扩展/);
+  assert.doesNotMatch(dashboardSource, /Chrome 商店安装/);
   assert.match(dashboardSource, /同步 forTUNE music/);
   assert.match(dashboardSource, /同步 forTUNE meets/);
   assert.match(dashboardSource, /浏览器运行时自动同步/);

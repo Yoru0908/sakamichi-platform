@@ -181,6 +181,7 @@ test('handleGetMiguriEvents prepends oshi member ahead of account favorites', as
   const json = await res.json();
 
   assert.equal(res.status, 200);
+  assert.equal(json.data.authenticated, true);
   assert.deepEqual(json.data.favorites, ['小坂菜緒', '正源司陽子', '藤嶌果歩']);
 });
 

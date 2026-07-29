@@ -25,6 +25,7 @@ import MiguriDashboard, { type MiguriAutoImportState } from './MiguriDashboard';
 import {
   createMiguriEntries,
   deleteMiguriEntry,
+  fetchMe,
   getMiguriEvents,
   importMiguriEntries,
   openMiguriCalendarIcs,
@@ -189,6 +190,7 @@ export default function MeguriPrototype() {
     async function load() {
       setIsLoading(true);
       setError('');
+      const authResult = await fetchMe();
       const res = await getMiguriEvents();
       if (!mounted) return;
 
@@ -199,6 +201,10 @@ export default function MeguriPrototype() {
         setFavorites([]);
         setIsLoading(false);
         return;
+      }
+
+      if (!authResult.success || !authResult.data?.user) {
+        setError('登录状态已失效。请先重新登录 46log，再同步履历；未登录时私人 D1 内容不会显示。');
       }
 
       let loadedEntries = res.data.entries || [];

@@ -16,11 +16,35 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         私人咪咕力面板，并在浏览器运行期间定时检查更新。
       </p>
 
+      <section class="mt-8 rounded-2xl border border-amber-500/25 bg-amber-500/10 p-5">
+        <p class="text-xs font-bold uppercase tracking-[0.14em] text-amber-700">
+          Chrome Web Store · 审核中
+        </p>
+        <h2 class="mt-2 text-lg font-bold text-[var(--text-primary)]">
+          审核期间使用 ZIP 临时安装
+        </h2>
+        <p class="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
+          商店版本审核通过后，咪咕力面板会切换为普通的 Chrome Web Store
+          安装入口；现在可以先使用相同功能的 ZIP 版本。
+        </p>
+        <a
+          href="/downloads/46log-miguri-sync.zip"
+          download
+          class="mt-4 inline-flex min-h-11 items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+        >
+          下载 46log 咪咕力同步 ZIP
+        </a>
+      </section>
+
       <section class="mt-10">
         <h2 class="text-lg font-bold text-[var(--text-primary)]">使用方式</h2>
         <ol class="mt-4 list-decimal space-y-3 pl-5 leading-7 text-[var(--text-secondary)]">
-          <li>登录 46log 并打开咪咕力面板。</li>
-          <li>安装扩展后重新加载页面，确认显示“扩展已连接”。</li>
+          <li>下载 ZIP，将它解压到一个不会随手删除的文件夹。</li>
+          <li>
+            在 Chrome 地址栏输入 <code class="rounded bg-black/5 px-1.5 py-0.5 text-sm dark:bg-white/10">chrome://extensions</code>。
+          </li>
+          <li>开启右上角“开发者模式”，点击“加载已解压的扩展程序”，选择刚才解压的文件夹。</li>
+          <li>登录 46log 并打开咪咕力面板，重新加载后确认显示“扩展已连接”。</li>
           <li>首次分别同步 Music 与 Meets，并在打开的官方页面完成登录。</li>
           <li>首次同步成功后可开启每 30 分钟自动检查。</li>
         </ol>

@@ -393,6 +393,7 @@ export async function handleGetMiguriEvents(req: Request, env: Env): Promise<Res
 
   return success({
     data: {
+      authenticated: Boolean(userId),
       events,
       favorites,
       entries,

@@ -348,13 +348,15 @@
     let heading = "";
     const title = compact(documentNode.title);
     const bodyText = compact(documentNode.body?.textContent);
-    const explicitPrice = Array.from(
+    const explicitPrices = Array.from(
       bodyText.matchAll(
         /(?:販売価格|商品価格|税込)[^\d]{0,18}(\d{1,3}(?:,\d{3})+)\s*円|(\d{1,3}(?:,\d{3})+)\s*円(?:\s*税込)/g,
       ),
     )
       .map((match) => Number((match[1] || match[2] || "").replace(/,/g, "")))
-      .find((value) => value >= 1_000 && value <= 30_000);
+      .filter((value) => value >= 1_000 && value <= 30_000);
+    const explicitPrice =
+      explicitPrices.length > 0 ? Math.min(...explicitPrices) : 0;
     const latestYear = Math.max(
       0,
       ...Array.from(bodyText.matchAll(/(20\d{2})年/g)).map((match) =>

@@ -5,7 +5,8 @@ import {
   CalendarDays,
   CheckCircle2,
   CircleDollarSign,
-  ExternalLink,
+  Clock3,
+  Download,
   LoaderCircle,
   Puzzle,
   RefreshCw,
@@ -62,8 +63,6 @@ const GROUP_LABELS: Record<MiguriGroupId, string> = {
   sakurazaka: "櫻坂46",
   hinatazaka: "日向坂46",
 };
-const MIGURI_EXTENSION_STORE_URL =
-  "https://chromewebstore.google.com/detail/kdfpdlijajcjianjpffgnmodnmigckdh";
 
 function displayDate(date: string) {
   const weekday = new Intl.DateTimeFormat("ja-JP", {
@@ -289,23 +288,54 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
         </div>
       ) : (
         <div className="mt-5 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <div className="text-sm font-bold text-[var(--text-primary)]">
-                安装一次，之后直接在这里同步
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-amber-500/25 bg-amber-500/10 px-3 text-xs font-bold text-amber-700">
+                <Clock3 size={14} /> Chrome Web Store · 审核中
               </div>
-              <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                从 Chrome Web Store 安装，完成后回到此页刷新一次。
+              <div className="mt-3 text-sm font-bold text-[var(--text-primary)]">
+                审核期间可先安装 ZIP 版本
+              </div>
+              <ol className="mt-2 grid gap-1 text-xs leading-5 text-[var(--text-secondary)] sm:grid-cols-3 sm:gap-3">
+                <li>
+                  <span className="font-bold text-[var(--text-primary)]">
+                    01
+                  </span>{" "}
+                  下载并解压 ZIP
+                </li>
+                <li>
+                  <span className="font-bold text-[var(--text-primary)]">
+                    02
+                  </span>{" "}
+                  打开 chrome://extensions
+                </li>
+                <li>
+                  <span className="font-bold text-[var(--text-primary)]">
+                    03
+                  </span>{" "}
+                  开启开发者模式并加载已解压扩展
+                </li>
+              </ol>
+              <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
+                商店审核通过后，这里会切换为 Chrome Web Store
+                的普通安装入口。
               </p>
             </div>
-            <a
-              href={MIGURI_EXTENSION_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            >
-              <ExternalLink size={16} /> Chrome 商店安装
-            </a>
+            <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+              <a
+                href="/miguri-support"
+                className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-indigo-500/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              >
+                查看安装说明
+              </a>
+              <a
+                href="/downloads/46log-miguri-sync.zip"
+                download
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+              >
+                <Download size={16} /> 下载 ZIP 临时安装
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -1008,8 +1038,8 @@ export default function MiguriDashboard({
 
       <p className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
         <Ticket size={13} />
-        Music 按中签数与订单单价计算；Meets 按已登记序列分配。旧记录缺少单价时，
-        已知单曲按对应发行价估算并在上方标注。
+        来源单价优先：在线個別ミーグリ缺价时按 ¥1,200
+        估算；Meets 缺价时按每张碟 ¥2,000 估算，HMV online 等折扣实付价会保留。
       </p>
     </div>
   );

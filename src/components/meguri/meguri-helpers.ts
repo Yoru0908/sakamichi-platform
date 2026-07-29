@@ -242,6 +242,15 @@ function inferredReleasePriceYen(entry: DashboardEntryLike) {
   if ((entry.unitPriceYen || 0) > 0) {
     return { priceYen: entry.unitPriceYen || 0, estimated: false };
   }
+  if (dashboardCategory(entry) === '個別ミーグリ') {
+    return { priceYen: 1200, estimated: true };
+  }
+  if (
+    entry.source === 'fortunemeets'
+    || ['全国ミーグリ', 'リアミ', 'サイン会'].includes(dashboardCategory(entry))
+  ) {
+    return { priceYen: 2000, estimated: true };
+  }
   const title = entry.eventTitle || '';
   const known = CURRENT_RELEASE_PRICE_HINTS.find(({ pattern }) => (
     pattern.test(title)

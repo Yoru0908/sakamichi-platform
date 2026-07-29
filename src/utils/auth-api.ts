@@ -114,6 +114,7 @@ export interface MiguriGoogleCalendarStatus {
 }
 
 export interface MiguriEventsPayload {
+  authenticated: boolean;
   events: MiguriEvent[];
   favorites: string[];
   entries: MiguriEntry[];
