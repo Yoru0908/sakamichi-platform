@@ -9,6 +9,7 @@ import {
   groupEntriesByDateAndSlot,
   inferEventState,
   resolveFortuneMeetsSource,
+  resolveMiguriEntryLostSpend,
   resolveMiguriEntrySpend,
   sortEventsForDisplay,
   summarizeEntries,
@@ -282,6 +283,16 @@ test('resolveMiguriEntrySpend charges a 33口 × 3-CD sign event as 99 CDs', () 
   };
   assert.equal(resolveMiguriEntrySpend(entry).spendYen, 198000);
   assert.equal(resolveMiguriEntrySpend(entry, 20).spendYen, 158400);
+
+  const lostEntry = {
+    ...entry,
+    id: 'sign-lost',
+    status: 'lost',
+    wonTickets: 0,
+  };
+  assert.equal(resolveMiguriEntrySpend(lostEntry).spendYen, 0);
+  assert.equal(resolveMiguriEntryLostSpend(lostEntry), 198000);
+  assert.equal(resolveMiguriEntryLostSpend(lostEntry, 20), 158400);
 });
 
 test('aggregateMiguriDashboard estimates current single spend for legacy won entries', () => {

@@ -165,6 +165,84 @@ test("Meets API results normalize winning and losing counts without rendering th
   assert.equal(records[0].resultStatus, "won");
 });
 
+test("Meets API keeps actual CD counts for won and lost sign-event lots", () => {
+  const context = {
+    AbortController,
+    clearTimeout,
+    console,
+    setTimeout,
+  };
+  context.globalThis = context;
+  vm.runInNewContext(meetsApiSource, context);
+  const config = {
+    eventId: "sakurazaka46_15th",
+    eventName:
+      "櫻坂46 15th Single Lonesome rabbit / What's KAZOKU 発売記念",
+    applications: [
+      {
+        awards: [
+          {
+            name: "リアルサイン会",
+            entryHtml: { title: "リアルサイン会" },
+            serialCount: 3,
+            applyTable: [
+              {
+                id: "sign_1",
+                date: "2026年8月2日(日)",
+                part: "",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  };
+  const normalize = (history) =>
+    context.MiguriMeetsApi.normalizeCampaign({
+      config,
+      history,
+      campaignSlug: "15th",
+      groupSlug: "sakurazaka46",
+      group: "sakurazaka",
+      sourceSyncedAt: "2026-07-29T00:00:00.000Z",
+    })[0];
+  const serials = (count) =>
+    Array.from({ length: count }, (_, index) => ({ serialId: `s-${index}` }));
+
+  const mixed = normalize({
+    results: [
+      {
+        prizeId: "sign_1",
+        result: "当選",
+        resultInfo: { win: "99", lose: "6" },
+        prizeInfo: { members: ["村山 美羽"] },
+      },
+    ],
+    used: serials(105),
+    unused: [],
+  });
+  assert.equal(mixed.category, "サイン会");
+  assert.equal(mixed.appliedTickets, 105);
+  assert.equal(mixed.wonTickets, 99);
+  assert.equal(mixed.signLots, 35);
+
+  const lost = normalize({
+    results: [
+      {
+        prizeId: "sign_1",
+        result: "落選",
+        count: "99",
+        prizeInfo: { members: ["村山 美羽"] },
+      },
+    ],
+    used: serials(99),
+    unused: [],
+  });
+  assert.equal(lost.appliedTickets, 99);
+  assert.equal(lost.wonTickets, 0);
+  assert.equal(lost.signLots, 33);
+});
+
 test("Meets API discovery reads campaign anchors only", async () => {
   const calls = [];
   const fetch = async (url) => {
@@ -267,6 +345,7 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /实际当选金额（不含落选）/);
   assert.match(dashboardSource, /落选金额/);
   assert.match(dashboardSource, /支付金额合计/);
+  assert.match(dashboardSource, /33口 × 3 = 99 张/);
   assert.match(dashboardSource, /落选成本仅进入成员排行/);
   assert.match(dashboardSource, /支付金额/);
   assert.match(dashboardSource, /中签张数/);

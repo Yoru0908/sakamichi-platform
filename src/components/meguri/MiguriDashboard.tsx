@@ -863,6 +863,10 @@ export default function MiguriDashboard({
                     {formatYen(meetsSpend.miguriWon)}
                   </strong>
                 </span>
+                <span className="mt-3 block border-t border-[var(--border-primary)] pt-3 text-[11px] leading-5 text-[var(--text-tertiary)]">
+                  サイン会无论当选或落选，均按口数 × 每口所需 CD
+                  枚数换算实际消耗，例如 33口 × 3 = 99 张。
+                </span>
               </label>
             ) : null}
             <div className="grid grid-cols-3 gap-3">
