@@ -348,13 +348,21 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           || job.id !== message.jobId
           || (job.tabId && job.tabId !== sender.tab?.id)
         ) return;
+        const error = message.error || "官方履历读取失败";
         if (job.auto) {
           await failAutoJob(
             job,
             sender,
-            message.error || "官方履历读取失败",
+            error,
           );
+          return;
         }
+        await chrome.storage.session.remove(JOB_KEY);
+        await relayToDashboard(job, {
+          type: "MIGURI46LOG_EXTENSION_PROGRESS",
+          title: "同步暂时停止",
+          detail: error,
+        });
       })
       .finally(() => sendResponse({ ok: true }));
     return true;

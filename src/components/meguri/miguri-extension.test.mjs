@@ -82,6 +82,22 @@ test("Miguri extension keeps the official login job separate from normalized res
   assert.doesNotMatch(officialSource, /document\.cookie/);
 });
 
+test("manual Meets sync continues while its official tab is in the background", () => {
+  assert.doesNotMatch(officialSource, /document\.hidden/);
+  assert.match(
+    officialSource,
+    /Date\.now\(\) - startedAt >= timeoutMs/,
+  );
+  assert.match(
+    officialSource,
+    /Date\.now\(\) - startedAt < 18_000/,
+  );
+  assert.match(
+    backgroundSource,
+    /await chrome\.storage\.session\.remove\(JOB_KEY\)/,
+  );
+});
+
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {
   assert.match(dashboardSource, /Chrome Web Store · 审核中/);
   assert.match(dashboardSource, /下载 ZIP 临时安装/);

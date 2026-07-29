@@ -285,19 +285,17 @@
     await finish(records);
   };
 
-  const loadFrame = (url, ready, timeoutTicks = 35) =>
+  const loadFrame = (url, ready, timeoutMs = 14_000) =>
     new Promise((resolve) => {
       const frame = document.createElement("iframe");
       frame.style.cssText =
         "position:fixed;left:-10000px;top:0;width:1200px;height:7000px";
       frame.src = url;
       document.body.appendChild(frame);
-      let tick = 0;
+      const startedAt = Date.now();
       let stableTicks = 0;
       let previousLength = -1;
       const timer = setInterval(() => {
-        if (document.hidden && !job.auto) return;
-        tick += 1;
         let documentNode = null;
         let bodyText = "";
         try {
@@ -311,7 +309,7 @@
         previousLength = bodyText.length;
         if (
           (stableTicks >= 2 && documentNode && ready(bodyText, documentNode)) ||
-          tick >= timeoutTicks
+          Date.now() - startedAt >= timeoutMs
         ) {
           clearInterval(timer);
           resolve({ frame, documentNode, bodyText });
@@ -359,9 +357,14 @@
     };
   };
   const expandHistory = async (frame) => {
+    const startedAt = Date.now();
     let stable = 0;
     let previousCount = -1;
-    for (let tick = 0; tick < 40; tick += 1) {
+    for (
+      let tick = 0;
+      tick < 40 && Date.now() - startedAt < 18_000;
+      tick += 1
+    ) {
       const documentNode = frame.contentDocument;
       const buttons = Array.from(
         documentNode?.querySelectorAll("a,button") || [],
@@ -624,15 +627,13 @@
     else if (location.hostname === MEETS_HOST) await importMeets();
   } catch (error) {
     restoreMeetsUrl();
-    if (job.auto) {
-      await chrome.runtime
-        .sendMessage({
-          type: "MIGURI46LOG_JOB_ERROR",
-          jobId: job.id,
-          error: error instanceof Error ? error.message : "请稍后重试。",
-        })
-        .catch(() => {});
-    }
+    await chrome.runtime
+      .sendMessage({
+        type: "MIGURI46LOG_JOB_ERROR",
+        jobId: job.id,
+        error: error instanceof Error ? error.message : "请稍后重试。",
+      })
+      .catch(() => {});
     show(
       "同步暂时停止",
       error instanceof Error ? error.message : "请稍后重试。",
