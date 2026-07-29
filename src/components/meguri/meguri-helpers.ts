@@ -305,21 +305,15 @@ export function resolveMiguriEntrySpend(
   if (entry.source === 'fortunemeets') {
     const priceYen = resolveMiguriCdPriceYen(entry.group, entry.eventTitle);
     const appliedTickets = Math.max(wonTickets, entry.appliedTickets || 0);
-    const hasPaidAllocation =
+    const hasSerialAllocation =
       (entry.paidTickets || 0) > 0 || (entry.spendYen || 0) === 0;
-    const paidAppliedTickets = entry.status === 'planned'
-      ? 0
-      : hasPaidAllocation
-        ? Math.min(appliedTickets, entry.paidTickets || 0)
-        : appliedTickets;
-    const freePriorityTickets = Math.max(
-      0,
-      appliedTickets - paidAppliedTickets,
-    );
-    const paidWonTickets = Math.max(0, wonTickets - freePriorityTickets);
+    const allocatedSerials = hasSerialAllocation
+      ? Math.max(0, entry.paidTickets || 0)
+      : appliedTickets;
+    const allocatedWonSerials = Math.min(wonTickets, allocatedSerials);
     const meetsTickets = includeLostMeetsCost
-      ? paidAppliedTickets
-      : paidWonTickets;
+      ? allocatedSerials
+      : allocatedWonSerials;
     const discountMultiplier = meetsDiscountMultiplier(meetsDiscountPct);
     return {
       spendYen: Math.round(meetsTickets * priceYen * discountMultiplier),

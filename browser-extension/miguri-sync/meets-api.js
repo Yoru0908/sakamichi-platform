@@ -186,39 +186,86 @@
     return ids.size || values.length;
   };
 
+  const paidUsedSerialCount = (history) =>
+    serialRowCount(
+      (Array.isArray(history?.used) ? history.used : []).filter(
+        (row) => !compact(row?.type).includes("優先"),
+      ),
+    );
+
+  const distributeTickets = (records, total, weightFor) => {
+    const target = Math.max(0, Math.floor(total));
+    const weighted = records.map((record, index) => ({
+      record,
+      index,
+      weight: Math.max(0, weightFor(record)),
+    }));
+    const totalWeight = weighted.reduce((sum, item) => sum + item.weight, 0);
+    if (target === 0 || totalWeight === 0) return 0;
+    let assigned = 0;
+    weighted.forEach((item) => {
+      const exact = (target * item.weight) / totalWeight;
+      item.tickets = Math.floor(exact);
+      item.remainder = exact - item.tickets;
+      assigned += item.tickets;
+    });
+    weighted
+      .sort(
+        (left, right) =>
+          right.remainder - left.remainder || left.index - right.index,
+      )
+      .slice(0, target - assigned)
+      .forEach((item) => {
+        item.tickets += 1;
+      });
+    weighted.forEach((item) => {
+      item.record.paidTickets += item.tickets;
+    });
+    return target;
+  };
+
   const assignPaidTickets = (values, history, unitPriceYen) => {
-    const totalApplied = values.reduce(
+    const serials = paidUsedSerialCount(history);
+    values.forEach((record) => {
+      record.paidTickets = 0;
+    });
+    const miguriRecords = values.filter(
+      (record) =>
+        record.category === "リアミ" ||
+        record.category === "全国ミーグリ",
+    );
+    const otherRecords = values.filter(
+      (record) =>
+        record.category !== "リアミ" &&
+        record.category !== "全国ミーグリ",
+    );
+    const otherApplied = otherRecords.reduce(
       (sum, record) => sum + record.appliedTickets,
       0,
     );
-    const paidSerials = Math.min(
-      totalApplied,
-      serialRowCount(history?.used),
+    const otherSerials = Math.min(serials, otherApplied);
+    distributeTickets(
+      otherRecords,
+      otherSerials,
+      (record) => record.appliedTickets,
     );
-    let freePriorityTickets = Math.max(0, totalApplied - paidSerials);
-    values.forEach((record) => {
-      record.paidTickets = record.appliedTickets;
-    });
-    const waive = (record, maximum) => {
-      const count = Math.min(
-        freePriorityTickets,
-        record.paidTickets,
-        Math.max(0, maximum),
+    const remainingSerials = Math.max(0, serials - otherSerials);
+    const hasMiguriWinner = miguriRecords.some(
+      (record) => record.wonTickets > 0,
+    );
+    const assignedMiguri = distributeTickets(
+      miguriRecords,
+      remainingSerials,
+      (record) =>
+        hasMiguriWinner ? record.wonTickets : record.appliedTickets,
+    );
+    if (assignedMiguri === 0 && remainingSerials > 0) {
+      distributeTickets(
+        otherRecords,
+        remainingSerials,
+        (record) => record.appliedTickets,
       );
-      record.paidTickets -= count;
-      freePriorityTickets -= count;
-    };
-    ["全国ミーグリ", "リアミ"].forEach((category) => {
-      values
-        .filter((record) => record.category === category)
-        .forEach((record) => waive(record, record.wonTickets));
-    });
-    ["全国ミーグリ", "リアミ"].forEach((category) => {
-      values
-        .filter((record) => record.category === category)
-        .forEach((record) => waive(record, record.paidTickets));
-    });
-    values.forEach((record) => waive(record, record.paidTickets));
+    }
     values.forEach((record) => {
       record.spendYen = record.paidTickets * unitPriceYen;
     });

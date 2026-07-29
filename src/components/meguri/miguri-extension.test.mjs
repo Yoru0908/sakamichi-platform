@@ -102,7 +102,8 @@ test("manual Meets sync runs through the extension worker instead of campaign if
   assert.match(meetsApiSource, /controller\.abort\(\)/);
   assert.match(meetsApiSource, /randomDelay\(500, 350\)/);
   assert.match(meetsApiSource, /assignPaidTickets/);
-  assert.match(meetsApiSource, /serialRowCount\(history\?\.used\)/);
+  assert.match(meetsApiSource, /paidUsedSerialCount\(history\)/);
+  assert.match(meetsApiSource, /row\?\.type\)\.includes\("優先"\)/);
   assert.match(backgroundSource, /JOB_TIMEOUT_MS = 10 \* 60 \* 1000/);
 });
 
@@ -248,7 +249,7 @@ test("Meets API keeps actual CD counts for won and lost sign-event lots", () => 
   assert.equal(lost.signLots, 33);
 });
 
-test("Meets API marks guaranteed priority-ticket wins as free", () => {
+test("Meets API excludes used priority tickets from the paid serial pool", () => {
   const context = {
     AbortController,
     clearTimeout,
@@ -287,6 +288,17 @@ test("Meets API marks guaranteed priority-ticket wins as free", () => {
                 },
               ],
             },
+            {
+              entryHtml: { title: "リアルサイン会" },
+              serialCount: 3,
+              applyTable: [
+                {
+                  id: "sign_1",
+                  date: "2026年8月4日(火)",
+                  part: "",
+                },
+              ],
+            },
           ],
         },
       ],
@@ -305,28 +317,49 @@ test("Meets API marks guaranteed priority-ticket wins as free", () => {
           resultInfo: { win: "72", lose: "54" },
           prizeInfo: { members: ["山川 宇衣"] },
         },
+        {
+          prizeId: "sign_1",
+          result: "当選",
+          resultInfo: { win: "3", lose: "96" },
+          prizeInfo: { members: ["山川 宇衣"] },
+        },
       ],
-      used: Array.from({ length: 126 }, (_, index) => ({
-        serialId: `paid-${index}`,
+      used: [
+        ...Array.from({ length: 225 }, (_, index) => ({
+          serialId: `paid-${index}`,
+          type: "通常応募券",
+        })),
+        ...Array.from({ length: 72 }, (_, index) => ({
+          serialId: `priority-${index}`,
+          type: "優先応募券",
+        })),
+      ],
+      unused: Array.from({ length: 26 }, (_, index) => ({
+        serialId: `unused-${index}`,
       })),
-      unused: [],
     },
     campaignSlug: "15th",
     groupSlug: "sakurazaka46",
     group: "sakurazaka",
     sourceSyncedAt: "2026-07-29T00:00:00.000Z",
   });
-  const priority = records.find(
+  const nationwide = records.find(
     (record) => record.category === "全国ミーグリ",
   );
-  const paid = records.find((record) => record.category === "リアミ");
-  assert.equal(priority.appliedTickets, 72);
-  assert.equal(priority.wonTickets, 72);
-  assert.equal(priority.paidTickets, 0);
-  assert.equal(priority.spendYen, 0);
-  assert.equal(paid.appliedTickets, 126);
-  assert.equal(paid.wonTickets, 72);
-  assert.equal(paid.paidTickets, 126);
+  const real = records.find((record) => record.category === "リアミ");
+  assert.equal(nationwide.appliedTickets, 72);
+  assert.equal(nationwide.wonTickets, 72);
+  assert.equal(nationwide.paidTickets, 63);
+  assert.equal(real.appliedTickets, 126);
+  assert.equal(real.wonTickets, 72);
+  assert.equal(real.paidTickets, 63);
+  const sign = records.find((record) => record.category === "サイン会");
+  assert.equal(sign.appliedTickets, 99);
+  assert.equal(sign.paidTickets, 99);
+  assert.equal(
+    records.reduce((sum, record) => sum + record.paidTickets, 0),
+    225,
+  );
 });
 
 test("Meets API discovery reads campaign anchors only", async () => {
@@ -425,15 +458,17 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /type="range"/);
   assert.match(dashboardSource, /max="30"/);
   assert.match(dashboardSource, /MEETS_DISCOUNT_STORAGE_KEY/);
-  assert.match(dashboardSource, /Meets 实际当选金额（全类型）/);
-  assert.match(dashboardSource, /Meets 落选金额（全类型）/);
-  assert.match(dashboardSource, /其中リアミ＋全国当选金额/);
-  assert.match(dashboardSource, /实际当选金额（不含落选）/);
-  assert.match(dashboardSource, /落选金额/);
-  assert.match(dashboardSource, /支付金额合计/);
-  assert.match(dashboardSource, /33口 × 3 = 99 张/);
-  assert.match(dashboardSource, /優先応募券保留中签数/);
-  assert.match(dashboardSource, /落选成本仅进入成员排行/);
+  assert.match(dashboardSource, /Meets 支付合计（普通used序列号）/);
+  assert.match(dashboardSource, /サイン会支付/);
+  assert.match(dashboardSource, /リアミ＋全国共同支付/);
+  assert.match(dashboardSource, /参考：当选／未中分摊/);
+  assert.match(dashboardSource, /当选分摊金额（不含未中分摊）/);
+  assert.match(dashboardSource, /未中分摊金额/);
+  assert.match(dashboardSource, /支付合计（按序列号）/);
+  assert.match(dashboardSource, /used 中 type 不含「優先」/);
+  assert.match(dashboardSource, /保障券保留在应募、中签和中签率中/);
+  assert.match(dashboardSource, /两者之和不会超过支付合计/);
+  assert.match(dashboardSource, /未中分摊计入支付合计及成员排行/);
   assert.match(dashboardSource, /支付金额/);
   assert.match(dashboardSource, /中签张数/);
   assert.match(dashboardSource, /中签率/);

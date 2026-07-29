@@ -21,7 +21,6 @@ import type {
 } from "@/utils/auth-api";
 import {
   aggregateMiguriDashboard,
-  resolveMiguriEntryLostSpend,
   resolveMiguriEntrySpend,
 } from "./meguri-helpers";
 import {
@@ -561,20 +560,26 @@ export default function MiguriDashboard({
               entry,
               meetsDiscountPct,
             ).spendYen;
-            totals.won += wonSpend;
-            totals.lost += resolveMiguriEntryLostSpend(
+            const paidSpend = resolveMiguriEntrySpend(
               entry,
               meetsDiscountPct,
-            );
+              true,
+            ).spendYen;
+            totals.won += wonSpend;
+            totals.lost += Math.max(0, paidSpend - wonSpend);
+            totals.paid += paidSpend;
+            if (entry.category === "サイン会") {
+              totals.signPaid += paidSpend;
+            }
             if (
               entry.category === "リアミ" ||
               entry.category === "全国ミーグリ"
             ) {
-              totals.miguriWon += wonSpend;
+              totals.miguriPaid += paidSpend;
             }
             return totals;
           },
-          { won: 0, lost: 0, miguriWon: 0 },
+          { won: 0, lost: 0, paid: 0, signPaid: 0, miguriPaid: 0 },
         ),
     [filteredEntries, meetsDiscountPct],
   );
@@ -789,7 +794,7 @@ export default function MiguriDashboard({
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,.9fr)] lg:items-end">
           <div>
             <div className="text-sm font-semibold text-[var(--text-secondary)]">
-              实际当选金额（不含落选）
+              当选分摊金额（不含未中分摊）
             </div>
             <div className="mt-2 text-5xl font-black tracking-[-0.055em] text-[var(--text-primary)] sm:text-7xl">
               <span className="mr-1 text-2xl font-semibold text-[var(--text-tertiary)] sm:text-4xl">
@@ -846,26 +851,31 @@ export default function MiguriDashboard({
                   className="mt-3 h-2 w-full cursor-pointer accent-indigo-600"
                 />
                 <span className="mt-3 flex items-center justify-between gap-3 text-xs text-[var(--text-secondary)]">
-                  <span>Meets 实际当选金额（全类型）</span>
+                  <span>Meets 支付合计（普通used序列号）</span>
                   <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
-                    {formatYen(meetsSpend.won)}
-                  </strong>
-                </span>
-                <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-secondary)]">
-                  <span>Meets 落选金额（全类型）</span>
-                  <strong className="shrink-0 tabular-nums text-rose-600">
-                    {formatYen(meetsSpend.lost)}
+                    {formatYen(meetsSpend.paid)}
                   </strong>
                 </span>
                 <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
-                  <span>其中リアミ＋全国当选金额</span>
+                  <span>サイン会支付</span>
                   <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
-                    {formatYen(meetsSpend.miguriWon)}
+                    {formatYen(meetsSpend.signPaid)}
                   </strong>
                 </span>
-                <span className="mt-3 block border-t border-[var(--border-primary)] pt-3 text-[11px] leading-5 text-[var(--text-tertiary)]">
-                  サイン会无论当选或落选，均按口数 × 每口所需 CD
-                  枚数换算实际消耗，例如 33口 × 3 = 99 张。全国ミーグリ的優先応募券保留中签数，但金额按 ¥0 计算。
+                <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
+                  <span>リアミ＋全国共同支付</span>
+                  <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
+                    {formatYen(meetsSpend.miguriPaid)}
+                  </strong>
+                </span>
+                <span className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--border-primary)] pt-3 text-xs text-[var(--text-secondary)]">
+                  <span>参考：当选／未中分摊</span>
+                  <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
+                    {formatYen(meetsSpend.won)} / {formatYen(meetsSpend.lost)}
+                  </strong>
+                </span>
+                <span className="mt-3 block text-[11px] leading-5 text-[var(--text-tertiary)]">
+                  支付合计只统计官方 used 中 type 不含「優先」的普通序列号；保障券保留在应募、中签和中签率中，但金额为 ¥0。サイン会按实际 CD 枚数扣除，剩余金额作为リアミ＋全国共同池；当选／未中金额仅做守恒分摊，两者之和不会超过支付合计。
                 </span>
               </label>
             ) : null}
@@ -930,20 +940,20 @@ export default function MiguriDashboard({
           {
             label:
               dashboard.estimatedSpendYen > 0
-                ? "实际当选金额（含估算）"
-                : "实际当选金额",
+                ? "当选分摊金额（含估算）"
+                : "当选分摊金额",
             value: formatYen(dashboard.totalSpendYen),
             icon: CircleDollarSign,
             color: "text-indigo-500",
           },
           {
-            label: "落选金额",
+            label: "未中分摊金额",
             value: formatYen(dashboard.lostSpendYen),
             icon: TrendingUp,
             color: "text-rose-500",
           },
           {
-            label: "支付金额合计",
+            label: "支付合计（按序列号）",
             value: formatYen(dashboard.totalPaidSpendYen),
             icon: CircleDollarSign,
             color: "text-pink-500",
@@ -1150,7 +1160,7 @@ export default function MiguriDashboard({
           {memberRanking.length > 0 ? (
             <p className="mt-5 text-xs leading-5 text-[var(--text-tertiary)]">
               成员排行的“支付金额”和“单张成本”包含该成员落选申请对应的 CD
-              费用；上方总览与分类金额不包含落选成本。
+              费用；上方当选与分类分摊金额不包含未中分摊。
             </p>
           ) : null}
         </section>
@@ -1164,7 +1174,7 @@ export default function MiguriDashboard({
       <p className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
         <Ticket size={13} />
         forTUNE music 的中签 CD 统一按每张 ¥1,200 计算；Meets
-        按参考站发行价格表计算，可用“限定盘折扣”调整渠道实付；价格未知的活动不计入。落选成本仅进入成员排行。
+        按参考站发行价格表计算，可用“限定盘折扣”调整渠道实付；价格未知的活动不计入。未中分摊计入支付合计及成员排行。
       </p>
     </div>
   );

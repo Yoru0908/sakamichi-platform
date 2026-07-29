@@ -267,6 +267,29 @@ test('resolveMiguriEntrySpend includes lost Meets applications only when request
   assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 19200);
 });
 
+test('resolveMiguriEntrySpend keeps total Meets payment on allocated serials', () => {
+  const entry = {
+    id: 'serial-pool',
+    member: '山川宇衣',
+    date: '2026-08-02',
+    slot: 1,
+    tickets: 72,
+    status: 'won',
+    source: 'fortunemeets',
+    group: 'sakurazaka',
+    category: 'リアミ',
+    eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
+    appliedTickets: 126,
+    wonTickets: 72,
+    paidTickets: 93,
+    spendYen: 186000,
+  };
+  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 144000);
+  assert.equal(resolveMiguriEntryLostSpend(entry), 42000);
+  assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 186000);
+  assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 148800);
+});
+
 test('resolveMiguriEntrySpend charges a 33口 × 3-CD sign event as 99 CDs', () => {
   const entry = {
     id: 'sign-won',
@@ -423,10 +446,10 @@ test('aggregateMiguriDashboard applies the limited-edition discount only to Meet
   assert.equal(dashboard.costPerWinYen, 1600);
 });
 
-test('aggregateMiguriDashboard keeps free priority-ticket wins in counts but not costs', () => {
+test('aggregateMiguriDashboard keeps zero-allocated Meets wins in counts but not costs', () => {
   const dashboard = aggregateMiguriDashboard([
     {
-      id: 'priority-win',
+      id: 'zero-allocated-win',
       member: '山川宇衣',
       date: '2026-08-02',
       slot: 1,
