@@ -1,3 +1,4 @@
+import { resolveMiguriCdPriceYen } from './miguri-cd-prices.ts';
 import type {
   MiguriEntry,
   MiguriEntryStatus,
@@ -278,6 +279,7 @@ function meetsDiscountMultiplier(value: number) {
 export function resolveMiguriEntrySpend(
   entry: DashboardEntryLike,
   meetsDiscountPct = 0,
+  includeLostMeetsCost = false,
 ) {
   const countedTickets = Math.max(
     0,
@@ -298,13 +300,24 @@ export function resolveMiguriEntrySpend(
       unpricedTickets: 0,
     };
   }
-  const discountMultiplier = entry.source === 'fortunemeets'
-    ? meetsDiscountMultiplier(meetsDiscountPct)
-    : 1;
+  if (entry.source === 'fortunemeets') {
+    const priceYen = resolveMiguriCdPriceYen(entry.group, entry.eventTitle);
+    const meetsTickets = includeLostMeetsCost
+      ? Math.max(countedTickets, entry.appliedTickets || 0)
+      : countedTickets;
+    const discountMultiplier = meetsDiscountMultiplier(meetsDiscountPct);
+    return {
+      spendYen: Math.round(meetsTickets * priceYen * discountMultiplier),
+      unitPriceYen: Math.round(priceYen * discountMultiplier),
+      estimated: priceYen > 0 && meetsTickets > 0,
+      countedTickets: meetsTickets,
+      unpricedTickets: meetsTickets > 0 && priceYen === 0 ? meetsTickets : 0,
+    };
+  }
   if ((entry.spendYen || 0) > 0) {
     return {
-      spendYen: Math.round((entry.spendYen || 0) * discountMultiplier),
-      unitPriceYen: Math.round((entry.unitPriceYen || 0) * discountMultiplier),
+      spendYen: entry.spendYen || 0,
+      unitPriceYen: entry.unitPriceYen || 0,
       estimated: false,
       countedTickets,
       unpricedTickets: 0,
@@ -312,8 +325,8 @@ export function resolveMiguriEntrySpend(
   }
   const price = inferredReleasePriceYen(entry);
   return {
-    spendYen: Math.round(countedTickets * price.priceYen * discountMultiplier),
-    unitPriceYen: Math.round(price.priceYen * discountMultiplier),
+    spendYen: countedTickets * price.priceYen,
+    unitPriceYen: price.priceYen,
     estimated: price.estimated && countedTickets > 0,
     countedTickets,
     unpricedTickets: countedTickets > 0 && price.priceYen === 0

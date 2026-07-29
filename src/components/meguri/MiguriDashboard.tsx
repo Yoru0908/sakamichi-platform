@@ -613,6 +613,7 @@ export default function MiguriDashboard({
       current.spend += resolveMiguriEntrySpend(
         entry,
         meetsDiscountPct,
+        true,
       ).spendYen;
       ranking.set(entry.member, current);
     });
@@ -776,7 +777,7 @@ export default function MiguriDashboard({
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,.9fr)] lg:items-end">
           <div>
             <div className="text-sm font-semibold text-[var(--text-secondary)]">
-              总金额
+              中签费用（不含落选）
             </div>
             <div className="mt-2 text-5xl font-black tracking-[-0.055em] text-[var(--text-primary)] sm:text-7xl">
               <span className="mr-1 text-2xl font-semibold text-[var(--text-tertiary)] sm:text-4xl">
@@ -801,8 +802,8 @@ export default function MiguriDashboard({
             )}
             {dashboard.estimatedSpendYen > 0 ? (
               <p className="mt-2 text-xs leading-5 text-amber-700">
-                含旧记录估算 {formatYen(dashboard.estimatedSpendYen)}
-                ；重新同步后会优先采用官方订单单价。
+                含发行价格表或旧记录估算 {formatYen(dashboard.estimatedSpendYen)}
+                ；限定盘折扣仅保存在当前浏览器。
               </p>
             ) : null}
             {dashboard.unpricedWonTickets > 0 ? (
@@ -901,8 +902,8 @@ export default function MiguriDashboard({
           {
             label:
               dashboard.estimatedSpendYen > 0
-                ? "支出合计（含估算）"
-                : "实际支出",
+                ? "中签费用（含估算）"
+                : "中签费用",
             value: formatYen(dashboard.totalSpendYen),
             icon: CircleDollarSign,
             color: "text-indigo-500",
@@ -1112,6 +1113,12 @@ export default function MiguriDashboard({
               </p>
             ) : null}
           </div>
+          {memberRanking.length > 0 ? (
+            <p className="mt-5 text-xs leading-5 text-[var(--text-tertiary)]">
+              成员排行的“支付金额”和“单张成本”包含该成员落选申请对应的 CD
+              费用；上方总览与分类金额不包含落选成本。
+            </p>
+          ) : null}
         </section>
 
         <Donut
@@ -1123,7 +1130,7 @@ export default function MiguriDashboard({
       <p className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
         <Ticket size={13} />
         forTUNE music 的中签 CD 统一按每张 ¥1,200 计算；Meets
-        以来源价格为基准，可用“限定盘折扣”调整渠道实付，缺价时按每张碟 ¥2,000 估算。
+        按参考站发行价格表计算，可用“限定盘折扣”调整渠道实付；价格未知的活动不计入。落选成本仅进入成员排行。
       </p>
     </div>
   );

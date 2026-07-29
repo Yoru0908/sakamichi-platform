@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
+import { resolveMiguriCdPriceYen } from './miguri-cd-prices.ts';
 import {
   aggregateMiguriDashboard,
   buildPendingMeguriDraft,
@@ -8,6 +9,7 @@ import {
   groupEntriesByDateAndSlot,
   inferEventState,
   resolveFortuneMeetsSource,
+  resolveMiguriEntrySpend,
   sortEventsForDisplay,
   summarizeEntries,
 } from './meguri-helpers.ts';
@@ -26,6 +28,19 @@ test('resolveFortuneMeetsSource keeps lottery analysis on the selected group and
     { artist: 'hinatazaka46', event: '16th' },
   );
   assert.equal(resolveFortuneMeetsSource('nogizaka', '乃木坂46 イベント'), null);
+});
+
+test('resolveMiguriCdPriceYen follows the reference release-price catalog', () => {
+  assert.equal(
+    resolveMiguriCdPriceYen(
+      'sakurazaka',
+      '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
+    ),
+    2000,
+  );
+  assert.equal(resolveMiguriCdPriceYen('nogizaka', '33rd「おひとりさま天国」'), 1900);
+  assert.equal(resolveMiguriCdPriceYen('nogizaka', '5thアルバム「My respect」'), 22000);
+  assert.equal(resolveMiguriCdPriceYen('hinatazaka', '価格未登録の映像作品'), 0);
 });
 
 test('inferEventState returns active when a window is currently open', () => {
@@ -157,7 +172,7 @@ test('aggregateMiguriDashboard builds next stop, category totals, and per-slot t
   );
 });
 
-test('aggregateMiguriDashboard calculates spend, win rate, member share, and sign-event cost', () => {
+test('aggregateMiguriDashboard excludes lost Meets cost from overview totals', () => {
   const dashboard = aggregateMiguriDashboard([
     {
       id: 'music-won',
@@ -184,6 +199,8 @@ test('aggregateMiguriDashboard calculates spend, win rate, member share, and sig
       status: 'lost',
       source: 'fortunemeets',
       category: 'サイン会',
+      group: 'sakurazaka',
+      eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
       appliedTickets: 12,
       wonTickets: 0,
       signLots: 3,
@@ -201,6 +218,8 @@ test('aggregateMiguriDashboard calculates spend, win rate, member share, and sig
       status: 'won',
       source: 'fortunemeets',
       category: 'リアミ',
+      group: 'sakurazaka',
+      eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
       appliedTickets: 4,
       wonTickets: 4,
       unitPriceYen: 2000,
@@ -210,17 +229,37 @@ test('aggregateMiguriDashboard calculates spend, win rate, member share, and sig
     },
   ], '2026-07-29');
 
-  assert.equal(dashboard.totalSpendYen, 39200);
+  assert.equal(dashboard.totalSpendYen, 15200);
   assert.equal(dashboard.totalApplied, 14);
   assert.equal(dashboard.totalWon, 10);
   assert.equal(dashboard.winRate, 10 / 14);
-  assert.equal(dashboard.topMember.name, '山川宇衣');
-  assert.equal(dashboard.topMember.spendYen, 31200);
+  assert.equal(dashboard.topMember.name, '小田倉麗奈');
+  assert.equal(dashboard.topMember.spendYen, 8000);
   assert.equal(
     dashboard.categoryBreakdown.find((item) => item.label === 'サイン会').spendYen,
-    24000,
+    0,
   );
   assert.equal(dashboard.nextStops[0].rows.some((row) => row.category === 'サイン会'), false);
+});
+
+test('resolveMiguriEntrySpend includes lost Meets applications only when requested', () => {
+  const entry = {
+    id: 'lost-meets',
+    member: '山川宇衣',
+    date: '2026-08-02',
+    slot: 0,
+    tickets: 12,
+    status: 'lost',
+    source: 'fortunemeets',
+    group: 'sakurazaka',
+    category: 'サイン会',
+    eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
+    appliedTickets: 12,
+    wonTickets: 0,
+  };
+  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 0);
+  assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 24000);
+  assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 19200);
 });
 
 test('aggregateMiguriDashboard estimates current single spend for legacy won entries', () => {
@@ -261,7 +300,7 @@ test('aggregateMiguriDashboard estimates current single spend for legacy won ent
   assert.equal(dashboard.topMember.share, 1);
 });
 
-test('aggregateMiguriDashboard estimates Meets discs at retail while preserving source discounts', () => {
+test('aggregateMiguriDashboard prices Meets winners from the reference catalog', () => {
   const dashboard = aggregateMiguriDashboard([
     {
       id: 'meets-retail-estimate',
@@ -272,8 +311,9 @@ test('aggregateMiguriDashboard estimates Meets discs at retail while preserving 
       status: 'won',
       source: 'fortunemeets',
       category: 'リアミ',
+      group: 'sakurazaka',
       wonTickets: 2,
-      eventTitle: '購入者応募抽選企画',
+      eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
     },
     {
       id: 'meets-hmv-exact',
@@ -284,17 +324,18 @@ test('aggregateMiguriDashboard estimates Meets discs at retail while preserving 
       status: 'paid',
       source: 'fortunemeets',
       category: 'サイン会',
+      group: 'sakurazaka',
       paidTickets: 3,
       unitPriceYen: 1800,
       spendYen: 5400,
-      eventTitle: 'HMV online 購入者応募抽選企画',
+      eventTitle: 'HMV online 櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」購入者応募抽選企画',
     },
   ], '2026-07-29');
 
-  assert.equal(dashboard.totalSpendYen, 9400);
-  assert.equal(dashboard.estimatedSpendYen, 4000);
+  assert.equal(dashboard.totalSpendYen, 10000);
+  assert.equal(dashboard.estimatedSpendYen, 10000);
   assert.equal(dashboard.categoryBreakdown.find((item) => item.label === 'リアミ').spendYen, 4000);
-  assert.equal(dashboard.categoryBreakdown.find((item) => item.label === 'サイン会').spendYen, 5400);
+  assert.equal(dashboard.categoryBreakdown.find((item) => item.label === 'サイン会').spendYen, 6000);
 });
 
 test('aggregateMiguriDashboard applies the limited-edition discount only to Meets', () => {
@@ -321,6 +362,8 @@ test('aggregateMiguriDashboard applies the limited-edition discount only to Meet
       status: 'won',
       source: 'fortunemeets',
       category: 'リアミ',
+      group: 'sakurazaka',
+      eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
       wonTickets: 2,
       unitPriceYen: 2000,
       spendYen: 4000,
