@@ -51,6 +51,24 @@ test("Miguri extension keeps the official login job separate from normalized res
   assert.match(backgroundSource, /chrome\.storage\.local/);
   assert.match(backgroundSource, /chrome\.alarms/);
   assert.match(backgroundSource, /AUTO_INTERVAL_MINUTES = 30/);
+  assert.match(
+    backgroundSource,
+    /ticket\.fortunemeets\.app\/nogizaka46/,
+  );
+  assert.match(
+    backgroundSource,
+    /ticket\.fortunemeets\.app\/sakurazaka46/,
+  );
+  assert.match(
+    backgroundSource,
+    /ticket\.fortunemeets\.app\/hinatazaka46/,
+  );
+  assert.match(officialSource, /history\.replaceState/);
+  assert.match(
+    officialSource,
+    /for \(let groupIndex = 0; groupIndex < GROUPS\.length; groupIndex \+= 1\)/,
+  );
+  assert.match(officialSource, /temporaryLanding/);
   assert.match(backgroundSource, /MIGURI46LOG_RESULT/);
   assert.match(backgroundSource, /api\/miguri\/entries\/import/);
   assert.match(officialSource, /sourceKey/);
@@ -79,7 +97,7 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.doesNotMatch(dashboardSource, /46log 不接收 forTUNE/);
 });
 
-test("automatic sync persists its alarm and imports Music then Meets in inactive tabs", async () => {
+test("automatic sync imports Music then launches one inactive three-group Meets scan", async () => {
   const local = {};
   const session = {};
   const alarms = new Map();
@@ -101,14 +119,16 @@ test("automatic sync persists its alarm and imports Music then Meets in inactive
   const event = () => ({ addListener() {} });
   const context = {
     crypto,
-    fetch: async (url) => {
+    fetch: async (url, options = {}) => {
       if (`${url}`.includes("/entries/import")) {
         importedRequests += 1;
+        const imported = JSON.parse(options.body || '{"records":[]}').records
+          .length;
         return {
           ok: true,
           status: 200,
           async json() {
-            return { success: true, data: { imported: 1 } };
+            return { success: true, data: { imported } };
           },
         };
       }
@@ -153,7 +173,9 @@ test("automatic sync persists its alarm and imports Music then Meets in inactive
         async remove(id) {
           removedTabs.push(id);
         },
-        async update() {},
+        async update(id, options) {
+          return { id, ...options };
+        },
       },
       windows: {
         async update() {},
@@ -201,18 +223,24 @@ test("automatic sync persists its alarm and imports Music then Meets in inactive
   assert.equal(importedRequests, 1);
   assert.equal(session.miguriSyncJob.source, "fortunemeets");
   assert.equal(createdTabs[1].active, false);
+  assert.match(createdTabs[1].url, /fortunemeets\.app\/nogizaka46/);
 
   const meetsJob = session.miguriSyncJob;
   const meetsResult = await send(
     {
       type: "MIGURI46LOG_RESULT",
       jobId: meetsJob.id,
-      records: [],
+      records: [
+        { source: "fortunemeets", sourceKey: "nogi-1" },
+        { source: "fortunemeets", sourceKey: "sakura-1" },
+        { source: "fortunemeets", sourceKey: "hinata-1" },
+      ],
     },
     { tab: { id: meetsJob.tabId } },
   );
   assert.equal(meetsResult.ok, true);
   assert.deepEqual(removedTabs, [musicJob.tabId, meetsJob.tabId]);
+  assert.equal(importedRequests, 2);
   assert.equal(local.miguriAutoSyncState.status, "success");
-  assert.equal(local.miguriAutoSyncState.imported, 1);
+  assert.equal(local.miguriAutoSyncState.imported, 4);
 });

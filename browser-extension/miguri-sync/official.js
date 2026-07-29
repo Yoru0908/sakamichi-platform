@@ -2,9 +2,9 @@
   const MUSIC_HOST = "fortunemusic.jp";
   const MEETS_HOST = "ticket.fortunemeets.app";
   const GROUPS = [
-    ["nogizaka46", "nogizaka"],
-    ["sakurazaka46", "sakurazaka"],
-    ["hinatazaka46", "hinatazaka"],
+    ["nogizaka46", "nogizaka", "乃木坂46"],
+    ["sakurazaka46", "sakurazaka", "櫻坂46"],
+    ["hinatazaka46", "hinatazaka", "日向坂46"],
   ];
   const EXCLUDED_SLUGS = new Set([
     "contact",
@@ -121,7 +121,13 @@
   };
   const finish = async (records) => {
     if (records.length === 0) {
-      if (job.auto) {
+      if (job.auto || job.source === "fortunemeets") {
+        show(
+          job.source === "fortunemeets" ? "三坂没有找到履历" : "没有找到履历",
+          job.source === "fortunemeets"
+            ? "已检查乃木坂、櫻坂与日向坂，请确认 Meets 登录状态。"
+            : "本次没有发现新的应募记录。",
+        );
         await chrome.runtime.sendMessage({
           type: "MIGURI46LOG_RESULT",
           jobId: job.id,
@@ -132,7 +138,10 @@
       show("没有找到履历", "确认当前账号已有应募记录后，可回到 46log 重试。");
       return;
     }
-    show("同步完成", `正在把 ${records.length} 条履历带回 46log…`);
+    show(
+      job.source === "fortunemeets" ? "三坂读取完成" : "同步完成",
+      `正在把 ${records.length} 条履历带回 46log…`,
+    );
     await chrome.runtime.sendMessage({
       type: "MIGURI46LOG_RESULT",
       jobId: job.id,
@@ -284,7 +293,10 @@
       frame.src = url;
       document.body.appendChild(frame);
       let tick = 0;
+      let stableTicks = 0;
+      let previousLength = -1;
       const timer = setInterval(() => {
+        if (document.hidden && !job.auto) return;
         tick += 1;
         let documentNode = null;
         let bodyText = "";
@@ -292,8 +304,13 @@
           documentNode = frame.contentDocument;
           bodyText = documentNode?.body?.innerText || "";
         } catch {}
+        stableTicks =
+          bodyText.length > 0 && bodyText.length === previousLength
+            ? stableTicks + 1
+            : 0;
+        previousLength = bodyText.length;
         if (
-          (documentNode && ready(bodyText, documentNode)) ||
+          (stableTicks >= 2 && documentNode && ready(bodyText, documentNode)) ||
           tick >= timeoutTicks
         ) {
           clearInterval(timer);
@@ -301,11 +318,24 @@
         }
       }, 400);
     });
+  const originalMeetsUrl = location.href;
+  const setMeetsGroupPath = (groupSlug) => {
+    try {
+      history.replaceState(null, "", `/${groupSlug}/`);
+    } catch {}
+  };
+  const restoreMeetsUrl = () => {
+    try {
+      history.replaceState(null, "", originalMeetsUrl);
+    } catch {}
+  };
   const campaignSlugs = async (group) => {
+    setMeetsGroupPath(group);
     const loaded = await loadFrame(
       `https://${MEETS_HOST}/${group}/`,
-      (_text, documentNode) =>
-        documentNode.querySelectorAll(`a[href*="/${group}/"]`).length > 0,
+      (text, documentNode) =>
+        documentNode.querySelectorAll(`a[href*="/${group}/"]`).length > 0 ||
+        /遷移したいページを選択してください/.test(text),
     );
     const slugs = loaded.documentNode
       ? Array.from(
@@ -319,8 +349,14 @@
           )
           .filter((slug) => slug && !EXCLUDED_SLUGS.has(slug))
       : [];
+    const temporaryLanding =
+      /遷移したいページを選択してください/.test(loaded.bodyText) &&
+      slugs.length === 0;
     loaded.frame.remove();
-    return Array.from(new Set(slugs));
+    return {
+      slugs: Array.from(new Set(slugs)),
+      temporaryLanding,
+    };
   };
   const expandHistory = async (frame) => {
     let stable = 0;
@@ -513,33 +549,72 @@
     loaded.frame.remove();
     return { loginRequired: false, records };
   };
+  const mapWithConcurrency = async (items, limit, mapper) => {
+    const results = new Array(items.length);
+    let cursor = 0;
+    await Promise.all(
+      Array.from({ length: Math.min(limit, items.length) }, async () => {
+        while (cursor < items.length) {
+          const index = cursor;
+          cursor += 1;
+          results[index] = await mapper(items[index], index);
+        }
+      }),
+    );
+    return results;
+  };
   const importMeets = async () => {
-    show("正在连接 Meets", "确认官方账号与活动履历…");
-    const campaigns = [];
-    for (const [groupSlug, group] of GROUPS) {
-      const slugs = await campaignSlugs(groupSlug);
-      slugs.forEach((campaignSlug) =>
-        campaigns.push({ groupSlug, group, campaignSlug }),
+    show("正在连接 Meets", "准备检查乃木坂、櫻坂与日向坂…");
+    const records = [];
+    const temporarilyUnavailable = [];
+    let discoveredCampaigns = 0;
+    for (let groupIndex = 0; groupIndex < GROUPS.length; groupIndex += 1) {
+      const [groupSlug, group, groupLabel] = GROUPS[groupIndex];
+      show(
+        `正在检查 ${groupLabel}`,
+        `Meets 三坂巡检 ${groupIndex + 1} / ${GROUPS.length}`,
       );
+      const discovered = await campaignSlugs(groupSlug);
+      if (discovered.temporaryLanding) temporarilyUnavailable.push(groupLabel);
+      discoveredCampaigns += discovered.slugs.length;
+      let completedCampaigns = 0;
+      const results = await mapWithConcurrency(
+        discovered.slugs,
+        2,
+        async (campaignSlug) => {
+          const result = await loadCampaignHistory(
+            groupSlug,
+            group,
+            campaignSlug,
+          );
+          completedCampaigns += 1;
+          show(
+            `正在读取 ${groupLabel}`,
+            `活动履历 ${completedCampaigns} / ${discovered.slugs.length}`,
+          );
+          return result;
+        },
+      );
+      for (const result of results) {
+        if (result.loginRequired) {
+          restoreMeetsUrl();
+          await requireLogin();
+          return;
+        }
+        records.push(...result.records);
+      }
     }
-    if (campaigns.length === 0) {
-      await requireLogin();
+    restoreMeetsUrl();
+    if (discoveredCampaigns === 0) {
+      show("活动列表暂时不可用", "官方 Meets 正在切换活动入口，请稍后重试。");
       return;
     }
-    const records = [];
-    for (let index = 0; index < campaigns.length; index += 1) {
-      const campaign = campaigns[index];
-      show("正在读取 Meets", `活动履历 ${index + 1} / ${campaigns.length}`);
-      const result = await loadCampaignHistory(
-        campaign.groupSlug,
-        campaign.group,
-        campaign.campaignSlug,
+    if (temporarilyUnavailable.length > 0) {
+      show(
+        "部分团体入口临时切换",
+        `${temporarilyUnavailable.join("、")} 当前由官方显示活动跳转页；其他团体已完成。`,
       );
-      if (result.loginRequired) {
-        await requireLogin();
-        return;
-      }
-      records.push(...result.records);
+      await sleep(1800);
     }
     await finish(records);
   };
@@ -548,6 +623,7 @@
     if (onMusic) await importMusic();
     else if (location.hostname === MEETS_HOST) await importMeets();
   } catch (error) {
+    restoreMeetsUrl();
     if (job.auto) {
       await chrome.runtime
         .sendMessage({

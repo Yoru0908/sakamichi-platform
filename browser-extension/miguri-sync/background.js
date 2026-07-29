@@ -4,7 +4,23 @@ const AUTO_STATE_KEY = "miguriAutoSyncState";
 const AUTO_ALARM = "miguriAutoSync";
 const AUTO_INTERVAL_MINUTES = 30;
 const MUSIC_URL = "https://fortunemusic.jp/mypage/apply_list/";
-const MEETS_URL = "https://ticket.fortunemeets.app/hinatazaka46/";
+const MEETS_GROUPS = [
+  {
+    slug: "nogizaka46",
+    label: "乃木坂46",
+    url: "https://ticket.fortunemeets.app/nogizaka46/",
+  },
+  {
+    slug: "sakurazaka46",
+    label: "櫻坂46",
+    url: "https://ticket.fortunemeets.app/sakurazaka46/",
+  },
+  {
+    slug: "hinatazaka46",
+    label: "日向坂46",
+    url: "https://ticket.fortunemeets.app/hinatazaka46/",
+  },
+];
 const DASHBOARD_URL = "https://46log.com/miguri";
 const IMPORT_URL = "https://api.46log.com/api/miguri/entries/import";
 const REFRESH_URL = "https://api.46log.com/api/auth/refresh";
@@ -102,7 +118,10 @@ async function startJob(source, returnTabId, options = {}) {
   await chrome.storage.session.set({ [JOB_KEY]: job });
   try {
     const tab = await chrome.tabs.create({
-      url: source === "fortunemusic" ? MUSIC_URL : MEETS_URL,
+      url:
+        source === "fortunemusic"
+          ? MUSIC_URL
+          : MEETS_GROUPS[0].url,
       active: !job.auto,
     });
     const storedJob = { ...job, tabId: tab.id || null };

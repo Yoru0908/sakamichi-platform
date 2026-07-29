@@ -236,7 +236,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
               onClick={() => startSync("fortunemeets")}
               className="flex min-h-14 items-center justify-between rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-5 text-left text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-pink-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
             >
-              同步 forTUNE meets <ArrowRight size={18} />
+              同步 forTUNE meets（三坂） <ArrowRight size={18} />
             </button>
           </div>
           <div className="flex flex-col gap-3 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 sm:flex-row sm:items-center sm:justify-between">
