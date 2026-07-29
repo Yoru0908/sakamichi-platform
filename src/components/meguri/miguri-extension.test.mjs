@@ -257,6 +257,15 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /同步 forTUNE music/);
   assert.match(dashboardSource, /同步 forTUNE meets/);
   assert.match(dashboardSource, /浏览器运行时自动同步/);
+  assert.match(dashboardSource, /限定盘折扣/);
+  assert.match(dashboardSource, /type="range"/);
+  assert.match(dashboardSource, /max="30"/);
+  assert.match(dashboardSource, /MEETS_DISCOUNT_STORAGE_KEY/);
+  assert.match(dashboardSource, /リアミ＋全国 CD 费用（合计）/);
+  assert.match(dashboardSource, /支付金额/);
+  assert.match(dashboardSource, /中签张数/);
+  assert.match(dashboardSource, /中签率/);
+  assert.match(dashboardSource, /单张成本/);
   assert.doesNotMatch(dashboardSource, /兼容导入/);
   assert.doesNotMatch(dashboardSource, /拖动安装旧版书签/);
   assert.doesNotMatch(dashboardSource, /使用粘贴导入/);

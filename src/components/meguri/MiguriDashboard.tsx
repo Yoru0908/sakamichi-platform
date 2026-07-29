@@ -63,6 +63,12 @@ const GROUP_LABELS: Record<MiguriGroupId, string> = {
   sakurazaka: "櫻坂46",
   hinatazaka: "日向坂46",
 };
+const MEETS_DISCOUNT_STORAGE_KEY =
+  "46log:miguri:limited-edition-discount-pct";
+
+function clampMeetsDiscount(value: number) {
+  return Math.max(0, Math.min(30, Number.isFinite(value) ? value : 0));
+}
 
 function displayDate(date: string) {
   const weekday = new Intl.DateTimeFormat("ja-JP", {
@@ -509,6 +515,17 @@ export default function MiguriDashboard({
     MiguriEntryCategory | "all"
   >("all");
   const [rankMetric, setRankMetric] = useState<RankMetric>("spend");
+  const [meetsDiscountPct, setMeetsDiscountPct] = useState(0);
+
+  useEffect(() => {
+    try {
+      setMeetsDiscountPct(
+        clampMeetsDiscount(
+          Number(window.localStorage.getItem(MEETS_DISCOUNT_STORAGE_KEY)),
+        ),
+      );
+    } catch {}
+  }, []);
 
   const filteredEntries = useMemo(
     () =>
@@ -521,10 +538,44 @@ export default function MiguriDashboard({
     [entries, selectedCategory, selectedGroup],
   );
   const dashboard = useMemo(
-    () => aggregateMiguriDashboard(filteredEntries),
-    [filteredEntries],
+    () =>
+      aggregateMiguriDashboard(
+        filteredEntries,
+        undefined,
+        meetsDiscountPct,
+      ),
+    [filteredEntries, meetsDiscountPct],
   );
   const nextStop = dashboard.nextStops[0];
+  const hasMeetsEntries = filteredEntries.some(
+    (entry) => entry.source === "fortunemeets",
+  );
+  const meetsCombinedSpendYen = useMemo(
+    () =>
+      filteredEntries
+        .filter(
+          (entry) =>
+            entry.source === "fortunemeets" &&
+            (entry.category === "リアミ" ||
+              entry.category === "全国ミーグリ"),
+        )
+        .reduce(
+          (sum, entry) =>
+            sum + resolveMiguriEntrySpend(entry, meetsDiscountPct).spendYen,
+          0,
+        ),
+    [filteredEntries, meetsDiscountPct],
+  );
+  const updateMeetsDiscount = (value: number) => {
+    const nextValue = clampMeetsDiscount(value);
+    setMeetsDiscountPct(nextValue);
+    try {
+      window.localStorage.setItem(
+        MEETS_DISCOUNT_STORAGE_KEY,
+        String(nextValue),
+      );
+    } catch {}
+  };
 
   const memberRanking = useMemo(() => {
     const ranking = new Map<
@@ -559,7 +610,10 @@ export default function MiguriDashboard({
               : 0);
       current.applied += applied;
       current.won += won;
-      current.spend += resolveMiguriEntrySpend(entry).spendYen;
+      current.spend += resolveMiguriEntrySpend(
+        entry,
+        meetsDiscountPct,
+      ).spendYen;
       ranking.set(entry.member, current);
     });
     return Array.from(ranking.values()).sort((left, right) => {
@@ -591,7 +645,7 @@ export default function MiguriDashboard({
         rightValue - leftValue || left.member.localeCompare(right.member, "ja")
       );
     });
-  }, [filteredEntries, rankMetric]);
+  }, [filteredEntries, meetsDiscountPct, rankMetric]);
   const maxRankValue = Math.max(
     1,
     ...memberRanking.map((item) =>
@@ -757,31 +811,61 @@ export default function MiguriDashboard({
               </p>
             ) : null}
           </div>
-          <div className="grid grid-cols-3 gap-3">
-            <div>
-              <div className="text-xs leading-5 text-[var(--text-tertiary)]">
-                中签率
-                <br />
-                不含サイン会・其他
+          <div className="space-y-5">
+            {hasMeetsEntries ? (
+              <label className="block rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-4">
+                <span className="flex items-center justify-between gap-4 text-sm font-bold text-[var(--text-primary)]">
+                  <span>限定盘折扣</span>
+                  <output className="tabular-nums text-indigo-600">
+                    {meetsDiscountPct}%
+                  </output>
+                </span>
+                <input
+                  type="range"
+                  min="0"
+                  max="30"
+                  step="1"
+                  value={meetsDiscountPct}
+                  onChange={(event) =>
+                    updateMeetsDiscount(Number(event.currentTarget.value))
+                  }
+                  aria-label="限定盘折扣"
+                  className="mt-3 h-2 w-full cursor-pointer accent-indigo-600"
+                />
+                <span className="mt-3 flex items-center justify-between gap-3 text-xs text-[var(--text-secondary)]">
+                  <span>リアミ＋全国 CD 费用（合计）</span>
+                  <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
+                    {formatYen(meetsCombinedSpendYen)}
+                  </strong>
+                </span>
+              </label>
+            ) : null}
+            <div className="grid grid-cols-3 gap-3">
+              <div>
+                <div className="text-xs leading-5 text-[var(--text-tertiary)]">
+                  中签率
+                  <br />
+                  不含サイン会・其他
+                </div>
+                <div className="mt-2 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
+                  {formatPercent(dashboard.winRate)}
+                </div>
               </div>
-              <div className="mt-2 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
-                {formatPercent(dashboard.winRate)}
+              <div>
+                <div className="text-xs leading-5 text-[var(--text-tertiary)]">
+                  应募张数
+                </div>
+                <div className="mt-7 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
+                  {dashboard.totalApplied}
+                </div>
               </div>
-            </div>
-            <div>
-              <div className="text-xs leading-5 text-[var(--text-tertiary)]">
-                应募张数
-              </div>
-              <div className="mt-7 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
-                {dashboard.totalApplied}
-              </div>
-            </div>
-            <div>
-              <div className="text-xs leading-5 text-[var(--text-tertiary)]">
-                中签张数
-              </div>
-              <div className="mt-7 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
-                {dashboard.totalWon}
+              <div>
+                <div className="text-xs leading-5 text-[var(--text-tertiary)]">
+                  中签张数
+                </div>
+                <div className="mt-7 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
+                  {dashboard.totalWon}
+                </div>
               </div>
             </div>
           </div>
@@ -1039,7 +1123,7 @@ export default function MiguriDashboard({
       <p className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
         <Ticket size={13} />
         forTUNE music 的中签 CD 统一按每张 ¥1,200 计算；Meets
-        保留各购买渠道的来源价格，缺价时才按每张碟 ¥2,000 估算。
+        以来源价格为基准，可用“限定盘折扣”调整渠道实付，缺价时按每张碟 ¥2,000 估算。
       </p>
     </div>
   );

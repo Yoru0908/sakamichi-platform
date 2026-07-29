@@ -270,7 +270,15 @@ function inferredReleasePriceYen(entry: DashboardEntryLike) {
   return { priceYen: 1676, estimated: true };
 }
 
-export function resolveMiguriEntrySpend(entry: DashboardEntryLike) {
+function meetsDiscountMultiplier(value: number) {
+  const discountPct = Math.max(0, Math.min(30, Number.isFinite(value) ? value : 0));
+  return 1 - discountPct / 100;
+}
+
+export function resolveMiguriEntrySpend(
+  entry: DashboardEntryLike,
+  meetsDiscountPct = 0,
+) {
   const countedTickets = Math.max(
     0,
     entry.paidTickets
@@ -290,10 +298,13 @@ export function resolveMiguriEntrySpend(entry: DashboardEntryLike) {
       unpricedTickets: 0,
     };
   }
+  const discountMultiplier = entry.source === 'fortunemeets'
+    ? meetsDiscountMultiplier(meetsDiscountPct)
+    : 1;
   if ((entry.spendYen || 0) > 0) {
     return {
-      spendYen: entry.spendYen || 0,
-      unitPriceYen: entry.unitPriceYen || 0,
+      spendYen: Math.round((entry.spendYen || 0) * discountMultiplier),
+      unitPriceYen: Math.round((entry.unitPriceYen || 0) * discountMultiplier),
       estimated: false,
       countedTickets,
       unpricedTickets: 0,
@@ -301,8 +312,8 @@ export function resolveMiguriEntrySpend(entry: DashboardEntryLike) {
   }
   const price = inferredReleasePriceYen(entry);
   return {
-    spendYen: countedTickets * price.priceYen,
-    unitPriceYen: price.priceYen,
+    spendYen: Math.round(countedTickets * price.priceYen * discountMultiplier),
+    unitPriceYen: Math.round(price.priceYen * discountMultiplier),
     estimated: price.estimated && countedTickets > 0,
     countedTickets,
     unpricedTickets: countedTickets > 0 && price.priceYen === 0
@@ -351,6 +362,7 @@ function buildBreakdown(
 export function aggregateMiguriDashboard(
   entries: DashboardEntryLike[],
   today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }),
+  meetsDiscountPct = 0,
 ) {
   const scheduleEntries = entries.filter((entry) => (
     entry.tickets > 0
@@ -370,7 +382,7 @@ export function aggregateMiguriDashboard(
 
   for (const entry of entries) {
     const category = dashboardCategory(entry);
-    const resolvedSpend = resolveMiguriEntrySpend(entry);
+    const resolvedSpend = resolveMiguriEntrySpend(entry, meetsDiscountPct);
     const spendYen = resolvedSpend.spendYen;
     if (resolvedSpend.estimated) {
       estimatedSpendYen += spendYen;

@@ -297,6 +297,48 @@ test('aggregateMiguriDashboard estimates Meets discs at retail while preserving 
   assert.equal(dashboard.categoryBreakdown.find((item) => item.label === 'サイン会').spendYen, 5400);
 });
 
+test('aggregateMiguriDashboard applies the limited-edition discount only to Meets', () => {
+  const dashboard = aggregateMiguriDashboard([
+    {
+      id: 'music-fixed',
+      member: '山川宇衣',
+      date: '2026-09-12',
+      slot: 1,
+      tickets: 1,
+      status: 'won',
+      source: 'fortunemusic',
+      category: '個別ミーグリ',
+      wonTickets: 1,
+      unitPriceYen: 2100,
+      spendYen: 2100,
+    },
+    {
+      id: 'meets-discounted',
+      member: '小田倉麗奈',
+      date: '2026-08-02',
+      slot: 0,
+      tickets: 2,
+      status: 'won',
+      source: 'fortunemeets',
+      category: 'リアミ',
+      wonTickets: 2,
+      unitPriceYen: 2000,
+      spendYen: 4000,
+    },
+  ], '2026-07-29', 10);
+
+  assert.equal(dashboard.totalSpendYen, 4800);
+  assert.equal(
+    dashboard.categoryBreakdown.find((item) => item.label === '個別ミーグリ').spendYen,
+    1200,
+  );
+  assert.equal(
+    dashboard.categoryBreakdown.find((item) => item.label === 'リアミ').spendYen,
+    3600,
+  );
+  assert.equal(dashboard.costPerWinYen, 1600);
+});
+
 test('aggregateMiguriDashboard fixes Music CDs at ¥1,200 and reports unknown legacy prices', () => {
   const dashboard = aggregateMiguriDashboard([
     {
