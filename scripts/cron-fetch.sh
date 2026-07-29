@@ -52,9 +52,14 @@ if git status --porcelain | grep -q "public/data/birthday-cards.json"; then
   # 先 push production 分支触发 Cloudflare 重建
   git push origin "$PRODUCTION_BRANCH"
   echo "✅ 已推送 $PRODUCTION_BRANCH，Cloudflare Pages 自动触发重构。"
-  # 同步到 master 分支保持一致
-  git checkout "$DEV_BRANCH" 2>/dev/null && git merge --ff-only "$PRODUCTION_BRANCH" 2>/dev/null && git push origin "$DEV_BRANCH" && git checkout "$PRODUCTION_BRANCH"
-  echo "✅ 已同步 $DEV_BRANCH 分支。"
+  # 同步到 master 分支保持一致（fetch + ff-merge，避免 checkout 污染工作区）
+  git fetch origin "$DEV_BRANCH" 2>/dev/null
+  if git merge-base --is-ancestor "origin/$DEV_BRANCH" HEAD; then
+    # master 是 production 的祖先，可以 fast-forward
+    git push origin "$PRODUCTION_BRANCH:refs/heads/$DEV_BRANCH" 2>/dev/null && echo "✅ 已同步 $DEV_BRANCH 分支。" || echo "⚠️ $DEV_BRANCH 同步失败，但不影响 Cloudflare 部署。"
+  else
+    echo "⚠️ $DEV_BRANCH 有独立 commit，未自动同步（需手动处理），但不影响 Cloudflare 部署。"
+  fi
 else
   echo "🎂 生日贺卡数据无变化，无需更新。"
 fi
