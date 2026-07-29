@@ -1,6 +1,15 @@
 (async () => {
   const MUSIC_HOST = "fortunemusic.jp";
   const MEETS_HOST = "ticket.fortunemeets.app";
+  const MEETS_GROUPS = ["nogizaka46", "sakurazaka46", "hinatazaka46"];
+  const EXCLUDED_MEETS_SLUGS = new Set([
+    "contact",
+    "m",
+    "page",
+    "default",
+    "faq",
+    "guide",
+  ]);
   const compact = (value) =>
     `${value || ""}`.replace(/[\s\u3000]+/g, " ").trim();
   const digits = (value) =>
@@ -307,11 +316,82 @@
     }
     return "";
   };
-  const requestMeetsApiSync = (userId) =>
+  const discoverMeetsCampaigns = async () => {
+    const originalUrl = location.href;
+    const campaignsByGroup = {};
+    try {
+      for (let index = 0; index < MEETS_GROUPS.length; index += 1) {
+        const groupSlug = MEETS_GROUPS[index];
+        show("正在确认三坂活动入口", `${index + 1} / ${MEETS_GROUPS.length}`);
+        history.replaceState(null, "", `/${groupSlug}/`);
+        let html = "";
+        let lastError;
+        for (let attempt = 1; attempt <= 2; attempt += 1) {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 10_000);
+          try {
+            const response = await fetch(
+              `https://${MEETS_HOST}/${groupSlug}/`,
+              {
+                credentials: "include",
+                cache: "no-store",
+                signal: controller.signal,
+              },
+            );
+            if (!response.ok) {
+              throw new Error(`活动入口读取失败（${response.status}）`);
+            }
+            html = await response.text();
+            lastError = null;
+            break;
+          } catch (error) {
+            lastError = error;
+            if (attempt < 2) await sleep(700);
+          } finally {
+            clearTimeout(timer);
+          }
+        }
+        if (lastError) throw lastError;
+        const documentNode = parseHtml(html);
+        const slugs = Array.from(
+          documentNode.querySelectorAll(`a[href*="/${groupSlug}/"]`),
+        )
+          .map((link) => {
+            try {
+              const url = new URL(
+                link.getAttribute("href") || "",
+                location.href,
+              );
+              const parts = url.pathname.split("/").filter(Boolean);
+              return url.hostname === MEETS_HOST &&
+                parts[0] === groupSlug &&
+                parts.length >= 2
+                ? parts[1]
+                : "";
+            } catch {
+              return "";
+            }
+          })
+          .filter((slug) => slug && !EXCLUDED_MEETS_SLUGS.has(slug));
+        campaignsByGroup[groupSlug] = Array.from(new Set(slugs));
+        if (
+          campaignsByGroup[groupSlug].length === 0 &&
+          /遷移したいページを選択してください/.test(html)
+        ) {
+          throw new Error(`${groupSlug} 活动入口暂时无法读取，请稍后重试`);
+        }
+      }
+    } finally {
+      history.replaceState(null, "", originalUrl);
+    }
+    return campaignsByGroup;
+  };
+  const requestMeetsApiSync = (userId, campaignsByGroup) =>
     chrome.runtime.sendMessage({
       type: "MIGURI46LOG_MEETS_API_SYNC",
       jobId: job.id,
       userId,
+      campaignsByGroup,
     });
   const importMeets = async () => {
     show("正在连接 Meets", "后台准备检查乃木坂、櫻坂与日向坂…");
@@ -320,11 +400,12 @@
       userId = await waitForMeetsLogin();
       if (!userId) return;
     }
-    let response = await requestMeetsApiSync(userId);
+    const campaignsByGroup = await discoverMeetsCampaigns();
+    let response = await requestMeetsApiSync(userId, campaignsByGroup);
     if (response?.code === "LOGIN_REQUIRED") {
       userId = await waitForMeetsLogin(userId);
       if (!userId) return;
-      response = await requestMeetsApiSync(userId);
+      response = await requestMeetsApiSync(userId, campaignsByGroup);
     }
     if (!response?.ok) {
       throw new Error(response?.error || "官方履历读取失败");

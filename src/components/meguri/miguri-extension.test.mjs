@@ -73,6 +73,9 @@ test("Miguri extension keeps the official login job separate from normalized res
   assert.match(backgroundSource, /importScripts\("meets-api\.js"\)/);
   assert.match(backgroundSource, /MIGURI46LOG_MEETS_API_SYNC/);
   assert.match(officialSource, /requestMeetsApiSync/);
+  assert.match(officialSource, /history\.replaceState/);
+  assert.match(officialSource, /campaignsByGroup/);
+  assert.match(backgroundSource, /campaignsByGroup: message\.campaignsByGroup/);
   assert.match(meetsApiSource, /ticket-api\.fortunemeets\.app\/user\/history2/);
   assert.match(meetsApiSource, /temporaryLanding/);
   assert.match(backgroundSource, /MIGURI46LOG_RESULT/);
@@ -202,6 +205,45 @@ test("Meets API discovery reads campaign anchors only", async () => {
     1,
   );
   assert.equal(calls.some((url) => url.includes("logo.png/config.json")), false);
+});
+
+test("Meets API accepts three-group campaign discovery from the official tab", async () => {
+  const calls = [];
+  const fetch = async (url) => {
+    calls.push(`${url}`);
+    if (`${url}`.includes("/data/")) {
+      return Response.json({ applications: [{ awards: [] }] });
+    }
+    throw new Error(`unexpected landing request: ${url}`);
+  };
+  const context = {
+    AbortController,
+    clearTimeout,
+    console,
+    fetch,
+    setTimeout,
+  };
+  context.globalThis = context;
+  vm.runInNewContext(meetsApiSource, context);
+  const result = await context.MiguriMeetsApi.sync({
+    userId: "session-key",
+    campaignsByGroup: {
+      nogizaka46: ["42nd"],
+      sakurazaka46: ["15th"],
+      hinatazaka46: ["17th"],
+    },
+  });
+  assert.equal(result.discoveredCampaigns, 3);
+  assert.equal(calls.length, 3);
+  assert.ok(calls.some((url) => url.includes("/data/nogizaka46/42nd/")));
+  assert.ok(calls.some((url) => url.includes("/data/sakurazaka46/15th/")));
+  assert.ok(calls.some((url) => url.includes("/data/hinatazaka46/17th/")));
+  assert.equal(
+    calls.some((url) =>
+      /fortunemeets\.app\/(?:nogi|sakura|hinata)zaka46\/$/.test(url),
+    ),
+    false,
+  );
 });
 
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {

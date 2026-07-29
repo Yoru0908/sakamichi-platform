@@ -400,7 +400,27 @@
     return results;
   };
 
-  const sync = async ({ userId, onProgress = async () => {} }) => {
+  const suppliedCampaigns = (campaignsByGroup, groupSlug) => {
+    const values = campaignsByGroup?.[groupSlug];
+    if (!Array.isArray(values)) return null;
+    return Array.from(
+      new Set(
+        values
+          .map(compact)
+          .filter(
+            (slug) =>
+              /^[A-Za-z0-9._~-]+$/.test(slug) &&
+              !EXCLUDED_SLUGS.has(slug),
+          ),
+      ),
+    ).slice(0, 100);
+  };
+
+  const sync = async ({
+    userId,
+    campaignsByGroup,
+    onProgress = async () => {},
+  }) => {
     if (!compact(userId)) {
       throw errorWithCode("请重新登录 forTUNE meets", "LOGIN_REQUIRED");
     }
@@ -415,7 +435,11 @@
         `正在检查 ${groupLabel}`,
         `Meets 三坂巡检 ${groupIndex + 1} / ${GROUPS.length}`,
       );
-      const discovered = await discoverGroup(groupSlug);
+      const supplied = suppliedCampaigns(campaignsByGroup, groupSlug);
+      const discovered =
+        supplied === null
+          ? await discoverGroup(groupSlug)
+          : { slugs: supplied, temporaryLanding: false };
       if (discovered.temporaryLanding) temporarilyUnavailable.push(groupLabel);
       discoveredCampaigns += discovered.slugs.length;
       let completedCampaigns = 0;

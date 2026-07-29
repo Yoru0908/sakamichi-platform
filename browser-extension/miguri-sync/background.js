@@ -353,6 +353,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         try {
           const result = await globalThis.MiguriMeetsApi.sync({
             userId: message.userId,
+            campaignsByGroup: message.campaignsByGroup,
             onProgress: (title, detail) =>
               reportOfficialProgress(job, title, detail),
           });
