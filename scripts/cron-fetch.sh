@@ -3,8 +3,9 @@
 # 生日贺卡自动抓取与推送脚本
 # -----------------------------------------------------------------------------
 
-# 设定项目工作目录 (必须为绝对路径)
-PROJECT_DIR="/Users/yoru/Documents/SA/项目/sakamichi-tools项目统合/sakamichi-platform"
+# 设定项目工作目录 (基于脚本自身位置，兼容本地 Mac 与 Homeserver 部署)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$PROJECT_DIR" || exit 1
 
 # 获取最新代码
@@ -22,8 +23,17 @@ if [ -z "$SAKURAZAKA_EMAIL" ] || [ -z "$SAKURAZAKA_PASSWORD" ]; then
   exit 1
 fi
 
-# 检查 Node.js 路径，Cron 环境下可能找不到 PATH，使用 absolute 路径或从 system 寻找
-NODE_BIN=$(which node || echo "/usr/local/bin/node")
+# 检查 Node.js 路径，Cron 环境下可能找不到 PATH，依次尝试常见位置
+NODE_BIN="$(which node 2>/dev/null || echo "")"
+if [ -z "$NODE_BIN" ]; then
+  for candidate in /vol1/@appcenter/nodejs_v22/bin/node /usr/local/bin/node /opt/homebrew/bin/node; do
+    [ -x "$candidate" ] && NODE_BIN="$candidate" && break
+  done
+fi
+if [ -z "$NODE_BIN" ]; then
+  echo "❌ 错误: 未找到 node 可执行文件"
+  exit 1
+fi
 
 # 运行抓取脚本
 $NODE_BIN scripts/fetch-birthday-cards.js
