@@ -21,6 +21,7 @@ import type {
 } from "@/utils/auth-api";
 import {
   aggregateMiguriDashboard,
+  resolveMiguriEntryLostSpend,
   resolveMiguriEntrySpend,
 } from "./meguri-helpers";
 import {
@@ -550,19 +551,30 @@ export default function MiguriDashboard({
   const hasMeetsEntries = filteredEntries.some(
     (entry) => entry.source === "fortunemeets",
   );
-  const meetsCombinedSpendYen = useMemo(
+  const meetsSpend = useMemo(
     () =>
       filteredEntries
-        .filter(
-          (entry) =>
-            entry.source === "fortunemeets" &&
-            (entry.category === "リアミ" ||
-              entry.category === "全国ミーグリ"),
-        )
+        .filter((entry) => entry.source === "fortunemeets")
         .reduce(
-          (sum, entry) =>
-            sum + resolveMiguriEntrySpend(entry, meetsDiscountPct).spendYen,
-          0,
+          (totals, entry) => {
+            const wonSpend = resolveMiguriEntrySpend(
+              entry,
+              meetsDiscountPct,
+            ).spendYen;
+            totals.won += wonSpend;
+            totals.lost += resolveMiguriEntryLostSpend(
+              entry,
+              meetsDiscountPct,
+            );
+            if (
+              entry.category === "リアミ" ||
+              entry.category === "全国ミーグリ"
+            ) {
+              totals.miguriWon += wonSpend;
+            }
+            return totals;
+          },
+          { won: 0, lost: 0, miguriWon: 0 },
         ),
     [filteredEntries, meetsDiscountPct],
   );
@@ -777,7 +789,7 @@ export default function MiguriDashboard({
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,.9fr)] lg:items-end">
           <div>
             <div className="text-sm font-semibold text-[var(--text-secondary)]">
-              中签费用（不含落选）
+              实际当选金额（不含落选）
             </div>
             <div className="mt-2 text-5xl font-black tracking-[-0.055em] text-[var(--text-primary)] sm:text-7xl">
               <span className="mr-1 text-2xl font-semibold text-[var(--text-tertiary)] sm:text-4xl">
@@ -834,9 +846,21 @@ export default function MiguriDashboard({
                   className="mt-3 h-2 w-full cursor-pointer accent-indigo-600"
                 />
                 <span className="mt-3 flex items-center justify-between gap-3 text-xs text-[var(--text-secondary)]">
-                  <span>リアミ＋全国 CD 费用（合计）</span>
+                  <span>Meets 实际当选金额（全类型）</span>
                   <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
-                    {formatYen(meetsCombinedSpendYen)}
+                    {formatYen(meetsSpend.won)}
+                  </strong>
+                </span>
+                <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-secondary)]">
+                  <span>Meets 落选金额（全类型）</span>
+                  <strong className="shrink-0 tabular-nums text-rose-600">
+                    {formatYen(meetsSpend.lost)}
+                  </strong>
+                </span>
+                <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
+                  <span>其中リアミ＋全国当选金额</span>
+                  <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
+                    {formatYen(meetsSpend.miguriWon)}
                   </strong>
                 </span>
               </label>
@@ -897,21 +921,27 @@ export default function MiguriDashboard({
         </div>
       </section>
 
-      <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-5">
         {[
           {
             label:
               dashboard.estimatedSpendYen > 0
-                ? "中签费用（含估算）"
-                : "中签费用",
+                ? "实际当选金额（含估算）"
+                : "实际当选金额",
             value: formatYen(dashboard.totalSpendYen),
             icon: CircleDollarSign,
             color: "text-indigo-500",
           },
           {
-            label: "单张成本",
-            value: formatYen(dashboard.costPerWinYen),
+            label: "落选金额",
+            value: formatYen(dashboard.lostSpendYen),
             icon: TrendingUp,
+            color: "text-rose-500",
+          },
+          {
+            label: "支付金额合计",
+            value: formatYen(dashboard.totalPaidSpendYen),
+            icon: CircleDollarSign,
             color: "text-pink-500",
           },
           {

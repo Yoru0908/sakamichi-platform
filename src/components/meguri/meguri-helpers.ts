@@ -303,7 +303,9 @@ export function resolveMiguriEntrySpend(
   if (entry.source === 'fortunemeets') {
     const priceYen = resolveMiguriCdPriceYen(entry.group, entry.eventTitle);
     const meetsTickets = includeLostMeetsCost
-      ? Math.max(countedTickets, entry.appliedTickets || 0)
+      ? entry.status === 'planned'
+        ? countedTickets
+        : Math.max(countedTickets, entry.appliedTickets || 0)
       : countedTickets;
     const discountMultiplier = meetsDiscountMultiplier(meetsDiscountPct);
     return {
@@ -333,6 +335,20 @@ export function resolveMiguriEntrySpend(
       ? countedTickets
       : 0,
   };
+}
+
+export function resolveMiguriEntryLostSpend(
+  entry: DashboardEntryLike,
+  meetsDiscountPct = 0,
+) {
+  if (entry.source !== 'fortunemeets' || entry.status === 'planned') return 0;
+  const wonSpend = resolveMiguriEntrySpend(entry, meetsDiscountPct).spendYen;
+  const paidSpend = resolveMiguriEntrySpend(
+    entry,
+    meetsDiscountPct,
+    true,
+  ).spendYen;
+  return Math.max(0, paidSpend - wonSpend);
 }
 
 const DASHBOARD_CATEGORY_ORDER: Array<NonNullable<MiguriEntry['category']>> = [
@@ -391,12 +407,14 @@ export function aggregateMiguriDashboard(
   const scheduledEntryIds = new Set(scheduleEntries.map((entry) => entry.id));
   let estimatedSpendYen = 0;
   let estimatedSpendEntries = 0;
+  let lostSpendYen = 0;
   let unpricedWonTickets = 0;
 
   for (const entry of entries) {
     const category = dashboardCategory(entry);
     const resolvedSpend = resolveMiguriEntrySpend(entry, meetsDiscountPct);
     const spendYen = resolvedSpend.spendYen;
+    lostSpendYen += resolveMiguriEntryLostSpend(entry, meetsDiscountPct);
     if (resolvedSpend.estimated) {
       estimatedSpendYen += spendYen;
       estimatedSpendEntries += 1;
@@ -505,6 +523,8 @@ export function aggregateMiguriDashboard(
   return {
     totalTickets: scheduleEntries.reduce((sum, entry) => sum + entry.tickets, 0),
     totalSpendYen,
+    lostSpendYen,
+    totalPaidSpendYen: totalSpendYen + lostSpendYen,
     estimatedSpendYen,
     estimatedSpendEntries,
     unpricedWonTickets,

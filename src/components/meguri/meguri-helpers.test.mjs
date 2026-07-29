@@ -230,6 +230,8 @@ test('aggregateMiguriDashboard excludes lost Meets cost from overview totals', (
   ], '2026-07-29');
 
   assert.equal(dashboard.totalSpendYen, 15200);
+  assert.equal(dashboard.lostSpendYen, 24000);
+  assert.equal(dashboard.totalPaidSpendYen, 39200);
   assert.equal(dashboard.totalApplied, 14);
   assert.equal(dashboard.totalWon, 10);
   assert.equal(dashboard.winRate, 10 / 14);
@@ -260,6 +262,26 @@ test('resolveMiguriEntrySpend includes lost Meets applications only when request
   assert.equal(resolveMiguriEntrySpend(entry).spendYen, 0);
   assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 24000);
   assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 19200);
+});
+
+test('resolveMiguriEntrySpend charges a 33口 × 3-CD sign event as 99 CDs', () => {
+  const entry = {
+    id: 'sign-won',
+    member: '山川宇衣',
+    date: '2026-08-02',
+    slot: 0,
+    tickets: 99,
+    status: 'won',
+    source: 'fortunemeets',
+    group: 'sakurazaka',
+    category: 'サイン会',
+    eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
+    appliedTickets: 99,
+    wonTickets: 99,
+    signLots: 33,
+  };
+  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 198000);
+  assert.equal(resolveMiguriEntrySpend(entry, 20).spendYen, 158400);
 });
 
 test('aggregateMiguriDashboard estimates current single spend for legacy won entries', () => {
@@ -371,6 +393,8 @@ test('aggregateMiguriDashboard applies the limited-edition discount only to Meet
   ], '2026-07-29', 10);
 
   assert.equal(dashboard.totalSpendYen, 4800);
+  assert.equal(dashboard.lostSpendYen, 0);
+  assert.equal(dashboard.totalPaidSpendYen, 4800);
   assert.equal(
     dashboard.categoryBreakdown.find((item) => item.label === '個別ミーグリ').spendYen,
     1200,

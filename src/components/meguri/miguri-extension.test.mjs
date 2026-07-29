@@ -261,8 +261,12 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /type="range"/);
   assert.match(dashboardSource, /max="30"/);
   assert.match(dashboardSource, /MEETS_DISCOUNT_STORAGE_KEY/);
-  assert.match(dashboardSource, /リアミ＋全国 CD 费用（合计）/);
-  assert.match(dashboardSource, /中签费用（不含落选）/);
+  assert.match(dashboardSource, /Meets 实际当选金额（全类型）/);
+  assert.match(dashboardSource, /Meets 落选金额（全类型）/);
+  assert.match(dashboardSource, /其中リアミ＋全国当选金额/);
+  assert.match(dashboardSource, /实际当选金额（不含落选）/);
+  assert.match(dashboardSource, /落选金额/);
+  assert.match(dashboardSource, /支付金额合计/);
   assert.match(dashboardSource, /落选成本仅进入成员排行/);
   assert.match(dashboardSource, /支付金额/);
   assert.match(dashboardSource, /中签张数/);
