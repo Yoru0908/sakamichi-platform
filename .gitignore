@@ -36,3 +36,4 @@ _backup_*.tar.gz
 # backup dirs
 **/.bak-*/
 *.backup
+scripts/*debug*.html
