@@ -8,8 +8,14 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$PROJECT_DIR" || exit 1
 
-# 获取最新代码
-git pull origin master
+# Cloudflare Pages production 分支（46log.com 监听此分支自动重建）
+PRODUCTION_BRANCH="sakamichi-platform"
+# 开发分支（与 production 保持同步）
+DEV_BRANCH="master"
+
+# cron 在 production 分支上工作，确保 push 后 Cloudflare 自动重建
+git checkout "$PRODUCTION_BRANCH" 2>/dev/null
+git pull origin "$PRODUCTION_BRANCH"
 
 # 加载本地环境变量 (.env 文件，切勿提交至公网 Git)
 if [ -f .env ]; then
@@ -43,8 +49,12 @@ if git status --porcelain | grep -q "public/data/birthday-cards.json"; then
   echo "🎂 发现生日贺卡数据更新！正在提交并推送..."
   git add public/data/birthday-cards.json
   git commit -m "chore(data): auto-update birthday cards [skip ci]"
-  git push origin master
-  echo "✅ 推送完成，Cloudflare Pages 将自动触发重构。"
+  # 先 push production 分支触发 Cloudflare 重建
+  git push origin "$PRODUCTION_BRANCH"
+  echo "✅ 已推送 $PRODUCTION_BRANCH，Cloudflare Pages 自动触发重构。"
+  # 同步到 master 分支保持一致
+  git checkout "$DEV_BRANCH" 2>/dev/null && git merge --ff-only "$PRODUCTION_BRANCH" 2>/dev/null && git push origin "$DEV_BRANCH" && git checkout "$PRODUCTION_BRANCH"
+  echo "✅ 已同步 $DEV_BRANCH 分支。"
 else
   echo "🎂 生日贺卡数据无变化，无需更新。"
 fi
