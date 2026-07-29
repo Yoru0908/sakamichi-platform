@@ -284,8 +284,8 @@ test('resolveMiguriEntrySpend keeps total Meets payment on allocated serials', (
     paidTickets: 93,
     spendYen: 186000,
   };
-  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 144000);
-  assert.equal(resolveMiguriEntryLostSpend(entry), 42000);
+  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 78000);
+  assert.equal(resolveMiguriEntryLostSpend(entry), 108000);
   assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 186000);
   assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 148800);
 });

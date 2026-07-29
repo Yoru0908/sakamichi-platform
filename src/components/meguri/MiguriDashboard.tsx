@@ -875,7 +875,7 @@ export default function MiguriDashboard({
                   </strong>
                 </span>
                 <span className="mt-3 block text-[11px] leading-5 text-[var(--text-tertiary)]">
-                  支付合计只统计官方 used 中 type 不含「優先」的普通序列号；保障券保留在应募、中签和中签率中，但金额为 ¥0。サイン会按实际 CD 枚数扣除，剩余金额作为リアミ＋全国共同池；当选／未中金额仅做守恒分摊，两者之和不会超过支付合计。
+                  扩展会结合官方 used 的 type／serialInfo、应募时间与活动保障期 serialName 识别保障券：保障券保留在应募、中签和中签率中，但金额为 ¥0。普通序列号按 serialInfo 逐张归属；旧活动缺少归属信息时才进入リアミ＋全国共同池。当选／未中金额始终守恒，不会超过支付合计。
                 </span>
               </label>
             ) : null}

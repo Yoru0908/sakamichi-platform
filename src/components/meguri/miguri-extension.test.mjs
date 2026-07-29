@@ -102,8 +102,11 @@ test("manual Meets sync runs through the extension worker instead of campaign if
   assert.match(meetsApiSource, /controller\.abort\(\)/);
   assert.match(meetsApiSource, /randomDelay\(500, 350\)/);
   assert.match(meetsApiSource, /assignPaidTickets/);
-  assert.match(meetsApiSource, /paidUsedSerialCount\(history\)/);
-  assert.match(meetsApiSource, /row\?\.type\)\.includes\("優先"\)/);
+  assert.match(meetsApiSource, /paidUsedSerialRows\(history, config\)/);
+  assert.match(meetsApiSource, /rescueSerialNames\(config\)/);
+  assert.match(meetsApiSource, /JSON\.stringify\(row\)/);
+  assert.match(meetsApiSource, /recordForSerialInfo/);
+  assert.match(meetsApiSource, /usedDuringRescuePeriod/);
   assert.match(backgroundSource, /JOB_TIMEOUT_MS = 10 \* 60 \* 1000/);
 });
 
@@ -249,7 +252,7 @@ test("Meets API keeps actual CD counts for won and lost sign-event lots", () => 
   assert.equal(lost.signLots, 33);
 });
 
-test("Meets API excludes used priority tickets from the paid serial pool", () => {
+test("Meets API maps paid serialInfo and excludes rescue-period serials", () => {
   const context = {
     AbortController,
     clearTimeout,
@@ -269,6 +272,14 @@ test("Meets API excludes used priority tickets from the paid serial pool", () =>
             {
               entryHtml: { title: "オンラインミート＆グリート" },
               serialCount: 1,
+              period: [
+                {
+                  start: "2026-06-17 10:00",
+                  end: "2026-06-18 23:59",
+                  isRescue: true,
+                  serialName: "１次応募者優先応募シリアル",
+                },
+              ],
               applyTable: [
                 {
                   id: "online_1",
@@ -325,13 +336,31 @@ test("Meets API excludes used priority tickets from the paid serial pool", () =>
         },
       ],
       used: [
-        ...Array.from({ length: 225 }, (_, index) => ({
-          serialId: `paid-${index}`,
-          type: "通常応募券",
+        ...Array.from({ length: 99 }, (_, index) => ({
+          serialId: `sign-paid-${index}`,
+          type: "応募シリアル",
+          appliedAt: "2026-06-17T12:00:00+09:00",
+          serialInfo: ["山川 宇衣［8/4（火）］ リアルサイン会"],
         })),
-        ...Array.from({ length: 72 }, (_, index) => ({
-          serialId: `priority-${index}`,
-          type: "優先応募券",
+        ...Array.from({ length: 90 }, (_, index) => ({
+          serialId: `real-paid-${index}`,
+          type: "応募シリアル",
+          serialInfo: [
+            "山川 宇衣［8/3（月） 第1部］ リアルミート＆グリート",
+          ],
+        })),
+        ...Array.from({ length: 3 }, (_, index) => ({
+          serialId: `online-paid-${index}`,
+          type: "応募シリアル",
+          serialInfo: [
+            "山川 宇衣［8/2（日） 第1部］ オンラインミート＆グリート",
+          ],
+        })),
+        ...Array.from({ length: 33 }, (_, index) => ({
+          serialId: `rescue-${index}`,
+          type: "応募シリアル",
+          appliedAt: "2026-06-17T12:00:00+09:00",
+          serialInfo: ["山川 宇衣［8/2（日） 第1部］"],
         })),
       ],
       unused: Array.from({ length: 26 }, (_, index) => ({
@@ -349,16 +378,16 @@ test("Meets API excludes used priority tickets from the paid serial pool", () =>
   const real = records.find((record) => record.category === "リアミ");
   assert.equal(nationwide.appliedTickets, 72);
   assert.equal(nationwide.wonTickets, 72);
-  assert.equal(nationwide.paidTickets, 63);
+  assert.equal(nationwide.paidTickets, 3);
   assert.equal(real.appliedTickets, 126);
   assert.equal(real.wonTickets, 72);
-  assert.equal(real.paidTickets, 63);
+  assert.equal(real.paidTickets, 90);
   const sign = records.find((record) => record.category === "サイン会");
   assert.equal(sign.appliedTickets, 99);
   assert.equal(sign.paidTickets, 99);
   assert.equal(
     records.reduce((sum, record) => sum + record.paidTickets, 0),
-    225,
+    192,
   );
 });
 
@@ -465,9 +494,10 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /当选分摊金额（不含未中分摊）/);
   assert.match(dashboardSource, /未中分摊金额/);
   assert.match(dashboardSource, /支付合计（按序列号）/);
-  assert.match(dashboardSource, /used 中 type 不含「優先」/);
+  assert.match(dashboardSource, /type／serialInfo、应募时间与活动保障期 serialName/);
   assert.match(dashboardSource, /保障券保留在应募、中签和中签率中/);
-  assert.match(dashboardSource, /两者之和不会超过支付合计/);
+  assert.match(dashboardSource, /普通序列号按 serialInfo 逐张归属/);
+  assert.match(dashboardSource, /始终守恒，不会超过支付合计/);
   assert.match(dashboardSource, /未中分摊计入支付合计及成员排行/);
   assert.match(dashboardSource, /支付金额/);
   assert.match(dashboardSource, /中签张数/);

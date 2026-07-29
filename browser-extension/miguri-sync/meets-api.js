@@ -178,20 +178,143 @@
     );
   };
 
-  const serialRowCount = (rows) => {
-    const values = Array.isArray(rows) ? rows : [];
-    const ids = new Set(
-      values.map((row) => compact(row?.serialId)).filter(Boolean),
-    );
-    return ids.size || values.length;
+  const uniqueSerialRows = (rows) => {
+    const seen = new Set();
+    return (Array.isArray(rows) ? rows : []).filter((row) => {
+      const id = compact(row?.serialId);
+      if (!id) return true;
+      if (seen.has(id)) return false;
+      seen.add(id);
+      return true;
+    });
   };
 
-  const paidUsedSerialCount = (history) =>
-    serialRowCount(
-      (Array.isArray(history?.used) ? history.used : []).filter(
-        (row) => !compact(row?.type).includes("優先"),
+  const allAwards = (config) =>
+    (Array.isArray(config?.applications) ? config.applications : []).flatMap(
+      (application) =>
+        Array.isArray(application?.awards) ? application.awards : [],
+    );
+
+  const rescueSerialNames = (config) =>
+    Array.from(
+      new Set(
+        allAwards(config)
+          .flatMap((award) =>
+            Array.isArray(award?.period) ? award.period : [],
+          )
+          .filter((period) => period?.isRescue)
+          .map((period) => compact(period?.serialName))
+          .filter(Boolean),
       ),
     );
+
+  const serialInfoText = (row) =>
+    digits(
+      compact(
+        typeof row?.serialInfo === "string"
+          ? row.serialInfo
+          : JSON.stringify(row?.serialInfo || []),
+      ),
+    ).replace(/\s/g, "");
+
+  const officialTime = (value) => {
+    const normalized = digits(compact(value)).replace(/\//g, "-");
+    if (!normalized) return 0;
+    const iso = normalized.replace(" ", "T");
+    const parsed = Date.parse(
+      /(?:Z|[+-]\d{2}:?\d{2})$/i.test(iso) ? iso : `${iso}+09:00`,
+    );
+    return Number.isFinite(parsed) ? parsed : 0;
+  };
+
+  const infoMatchesApplyTable = (info, applyTable) =>
+    (Array.isArray(applyTable) ? applyTable : []).some((target) => {
+      const date = digits(compact(target?.date));
+      const dateMatch = date.match(/(\d{1,2})月(\d{1,2})日/);
+      if (!dateMatch) return false;
+      const month = `${Number(dateMatch[1])}`;
+      const day = `${Number(dateMatch[2])}`;
+      if (
+        !info.includes(`${month}/${day}`) &&
+        !info.includes(`${month}月${day}日`)
+      ) {
+        return false;
+      }
+      const slot = slotFromText(target?.part);
+      return slot === 0 || info.includes(`第${slot}部`);
+    });
+
+  const usedDuringRescuePeriod = (row, config) => {
+    const appliedAt = officialTime(row?.appliedAt);
+    const info = serialInfoText(row);
+    if (!appliedAt || !info) return false;
+    return allAwards(config).some((award) => {
+      if (!infoMatchesApplyTable(info, award?.applyTable)) return false;
+      return (Array.isArray(award?.period) ? award.period : []).some(
+        (period) =>
+          period?.isRescue &&
+          officialTime(period?.start) <= appliedAt &&
+          appliedAt <= officialTime(period?.end),
+      );
+    });
+  };
+
+  const isRescueSerial = (row, rescueNames, config) => {
+    let text = "";
+    try {
+      text = compact(JSON.stringify(row));
+    } catch {
+      text = compact(
+        [row?.type, row?.serialType, row?.serialName, row?.name].join(" "),
+      );
+    }
+    return (
+      /優先|保障/.test(text) ||
+      rescueNames.some((name) => text.includes(name)) ||
+      usedDuringRescuePeriod(row, config)
+    );
+  };
+
+  const paidUsedSerialRows = (history, config) => {
+    const rescueNames = rescueSerialNames(config);
+    return uniqueSerialRows(history?.used).filter(
+      (row) => !isRescueSerial(row, rescueNames, config),
+    );
+  };
+
+  const recordForSerialInfo = (row, records) => {
+    const info = serialInfoText(row);
+    if (!info) return null;
+    const slotMatch = info.match(/第(\d+)部/);
+    const hintedCategory = /サイン/.test(info)
+      ? "サイン会"
+      : /リアルミート/.test(info)
+        ? "リアミ"
+        : /オンラインミート/.test(info)
+          ? "全国ミーグリ"
+          : "";
+    const candidates = records.filter((record) => {
+      const member = compact(record.member).replace(/\s/g, "");
+      if (member && !info.includes(member)) return false;
+      const [, monthValue, dayValue] = record.date.match(
+        /^\d{4}-(\d{2})-(\d{2})$/,
+      ) || ["", "", ""];
+      const month = `${Number(monthValue)}`;
+      const day = `${Number(dayValue)}`;
+      if (
+        !month ||
+        !day ||
+        (!info.includes(`${month}/${day}`) &&
+          !info.includes(`${month}月${day}日`))
+      ) {
+        return false;
+      }
+      if (slotMatch && Number(slotMatch[1]) !== record.slot) return false;
+      if (hintedCategory && hintedCategory !== record.category) return false;
+      return record.paidTickets < record.appliedTickets;
+    });
+    return candidates.length === 1 ? candidates[0] : null;
+  };
 
   const distributeTickets = (records, total, weightFor) => {
     const target = Math.max(0, Math.floor(total));
@@ -224,11 +347,19 @@
     return target;
   };
 
-  const assignPaidTickets = (values, history, unitPriceYen) => {
-    const serials = paidUsedSerialCount(history);
+  const assignPaidTickets = (values, history, unitPriceYen, config) => {
+    const paidRows = paidUsedSerialRows(history, config);
     values.forEach((record) => {
       record.paidTickets = 0;
     });
+    let matchedSerials = 0;
+    paidRows.forEach((row) => {
+      const record = recordForSerialInfo(row, values);
+      if (!record) return;
+      record.paidTickets += 1;
+      matchedSerials += 1;
+    });
+    let remainingSerials = Math.max(0, paidRows.length - matchedSerials);
     const miguriRecords = values.filter(
       (record) =>
         record.category === "リアミ" ||
@@ -239,17 +370,18 @@
         record.category !== "リアミ" &&
         record.category !== "全国ミーグリ",
     );
-    const otherApplied = otherRecords.reduce(
-      (sum, record) => sum + record.appliedTickets,
+    const otherCapacity = otherRecords.reduce(
+      (sum, record) =>
+        sum + Math.max(0, record.appliedTickets - record.paidTickets),
       0,
     );
-    const otherSerials = Math.min(serials, otherApplied);
+    const otherSerials = Math.min(remainingSerials, otherCapacity);
     distributeTickets(
       otherRecords,
       otherSerials,
-      (record) => record.appliedTickets,
+      (record) => Math.max(0, record.appliedTickets - record.paidTickets),
     );
-    const remainingSerials = Math.max(0, serials - otherSerials);
+    remainingSerials -= otherSerials;
     const hasMiguriWinner = miguriRecords.some(
       (record) => record.wonTickets > 0,
     );
@@ -257,13 +389,15 @@
       miguriRecords,
       remainingSerials,
       (record) =>
-        hasMiguriWinner ? record.wonTickets : record.appliedTickets,
+        hasMiguriWinner
+          ? Math.max(0, record.wonTickets - record.paidTickets)
+          : Math.max(0, record.appliedTickets - record.paidTickets),
     );
     if (assignedMiguri === 0 && remainingSerials > 0) {
       distributeTickets(
-        otherRecords,
+        values,
         remainingSerials,
-        (record) => record.appliedTickets,
+        (record) => Math.max(1, record.appliedTickets),
       );
     }
     values.forEach((record) => {
@@ -388,6 +522,7 @@
       Array.from(records.values()),
       history,
       unitPriceYen,
+      config,
     );
   };
 
