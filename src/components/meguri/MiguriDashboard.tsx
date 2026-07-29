@@ -1038,8 +1038,8 @@ export default function MiguriDashboard({
 
       <p className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
         <Ticket size={13} />
-        来源单价优先：在线個別ミーグリ缺价时按 ¥1,200
-        估算；Meets 缺价时按每张碟 ¥2,000 估算，HMV online 等折扣实付价会保留。
+        forTUNE music 的中签 CD 统一按每张 ¥1,200 计算；Meets
+        保留各购买渠道的来源价格，缺价时才按每张碟 ¥2,000 估算。
       </p>
     </div>
   );

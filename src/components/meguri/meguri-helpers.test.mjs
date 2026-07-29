@@ -210,12 +210,12 @@ test('aggregateMiguriDashboard calculates spend, win rate, member share, and sig
     },
   ], '2026-07-29');
 
-  assert.equal(dashboard.totalSpendYen, 44000);
+  assert.equal(dashboard.totalSpendYen, 39200);
   assert.equal(dashboard.totalApplied, 14);
   assert.equal(dashboard.totalWon, 10);
   assert.equal(dashboard.winRate, 10 / 14);
   assert.equal(dashboard.topMember.name, '山川宇衣');
-  assert.equal(dashboard.topMember.spendYen, 36000);
+  assert.equal(dashboard.topMember.spendYen, 31200);
   assert.equal(
     dashboard.categoryBreakdown.find((item) => item.label === 'サイン会').spendYen,
     24000,
@@ -297,7 +297,7 @@ test('aggregateMiguriDashboard estimates Meets discs at retail while preserving 
   assert.equal(dashboard.categoryBreakdown.find((item) => item.label === 'サイン会').spendYen, 5400);
 });
 
-test('aggregateMiguriDashboard keeps exact imported spend and reports unknown legacy prices', () => {
+test('aggregateMiguriDashboard fixes Music CDs at ¥1,200 and reports unknown legacy prices', () => {
   const dashboard = aggregateMiguriDashboard([
     {
       id: 'exact',
@@ -325,7 +325,7 @@ test('aggregateMiguriDashboard keeps exact imported spend and reports unknown le
     },
   ], '2026-07-29');
 
-  assert.equal(dashboard.totalSpendYen, 6300);
+  assert.equal(dashboard.totalSpendYen, 3600);
   assert.equal(dashboard.estimatedSpendYen, 0);
   assert.equal(dashboard.unpricedWonTickets, 2);
 });

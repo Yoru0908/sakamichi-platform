@@ -271,15 +271,6 @@ function inferredReleasePriceYen(entry: DashboardEntryLike) {
 }
 
 export function resolveMiguriEntrySpend(entry: DashboardEntryLike) {
-  if ((entry.spendYen || 0) > 0) {
-    return {
-      spendYen: entry.spendYen || 0,
-      unitPriceYen: entry.unitPriceYen || 0,
-      estimated: false,
-      countedTickets: entry.paidTickets || entry.wonTickets || entry.tickets,
-      unpricedTickets: 0,
-    };
-  }
   const countedTickets = Math.max(
     0,
     entry.paidTickets
@@ -290,6 +281,24 @@ export function resolveMiguriEntrySpend(entry: DashboardEntryLike) {
           : 0
       ),
   );
+  if (entry.source === 'fortunemusic') {
+    return {
+      spendYen: countedTickets * 1200,
+      unitPriceYen: 1200,
+      estimated: false,
+      countedTickets,
+      unpricedTickets: 0,
+    };
+  }
+  if ((entry.spendYen || 0) > 0) {
+    return {
+      spendYen: entry.spendYen || 0,
+      unitPriceYen: entry.unitPriceYen || 0,
+      estimated: false,
+      countedTickets,
+      unpricedTickets: 0,
+    };
+  }
   const price = inferredReleasePriceYen(entry);
   return {
     spendYen: countedTickets * price.priceYen,

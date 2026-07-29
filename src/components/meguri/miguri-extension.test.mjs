@@ -83,6 +83,8 @@ test("Miguri extension keeps the official login job separate from normalized res
   assert.match(officialSource, /sourceKey/);
   assert.match(officialSource, /unitPriceYen/);
   assert.match(officialSource, /spendYen/);
+  assert.match(officialSource, /MUSIC_UNIT_PRICE_YEN = 1_200/);
+  assert.doesNotMatch(officialSource, /yen\(cells\[1\]/);
   assert.match(meetsApiSource, /Math\.min\(\.\.\.prices\)/);
   assert.doesNotMatch(
     officialSource,

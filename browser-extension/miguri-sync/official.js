@@ -1,5 +1,6 @@
 (async () => {
   const MUSIC_HOST = "fortunemusic.jp";
+  const MUSIC_UNIT_PRICE_YEN = 1_200;
   const MEETS_HOST = "ticket.fortunemeets.app";
   const MEETS_GROUPS = ["nogizaka46", "sakurazaka46", "hinatazaka46"];
   const EXCLUDED_MEETS_SLUGS = new Set([
@@ -25,12 +26,6 @@
     const match = digits(value)
       .replace(/,/g, "")
       .match(new RegExp(`(\\d+)\\s*${unit}`));
-    return match ? Number(match[1]) : 0;
-  };
-  const yen = (value) => {
-    const match = digits(value)
-      .replace(/,/g, "")
-      .match(/(\d+)\s*円/);
     return match ? Number(match[1]) : 0;
   };
   const hash = (value) => {
@@ -197,7 +192,7 @@
       const slot = Number(digits(parsed[3]));
       const appliedTickets = count(quantities[0]?.textContent, "個");
       const wonTickets = invalid ? 0 : count(quantities[1]?.textContent, "個");
-      const unitPriceYen = invalid ? 0 : yen(cells[1]?.textContent);
+      const unitPriceYen = MUSIC_UNIT_PRICE_YEN;
       if (!member || !date || appliedTickets <= 0) return;
       records.push({
         source: "fortunemusic",
