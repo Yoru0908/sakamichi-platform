@@ -1,14 +1,15 @@
 {
   "manifest_version": 3,
   "name": "46log 咪咕力同步",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "定时同步 forTUNE music 与 Meets 三坂个人应募履历，并更新 46log 咪咕力面板。",
   "permissions": ["storage", "tabs", "alarms"],
   "host_permissions": [
     "https://46log.com/*",
     "https://api.46log.com/*",
     "https://fortunemusic.jp/*",
-    "https://ticket.fortunemeets.app/*"
+    "https://ticket.fortunemeets.app/*",
+    "https://ticket-api.fortunemeets.app/*"
   ],
   "icons": {
     "16": "icons/icon-16.png",

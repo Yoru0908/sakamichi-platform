@@ -1,8 +1,11 @@
+importScripts("meets-api.js");
+
 const JOB_KEY = "miguriSyncJob";
 const RESULT_KEY = "miguriSyncResult";
 const AUTO_STATE_KEY = "miguriAutoSyncState";
 const AUTO_ALARM = "miguriAutoSync";
 const AUTO_INTERVAL_MINUTES = 30;
+const JOB_TIMEOUT_MS = 10 * 60 * 1000;
 const MUSIC_URL = "https://fortunemusic.jp/mypage/apply_list/";
 const MEETS_GROUPS = [
   {
@@ -106,7 +109,16 @@ async function setAutoEnabled(enabled) {
 
 async function startJob(source, returnTabId, options = {}) {
   const activeJob = await loadJob();
-  if (activeJob) throw new Error("已有同步任务正在运行");
+  if (activeJob) {
+    const startedAt = Date.parse(activeJob.startedAt || "");
+    const stale =
+      !Number.isFinite(startedAt) || Date.now() - startedAt >= JOB_TIMEOUT_MS;
+    if (!stale) throw new Error("已有同步任务正在运行");
+    await chrome.storage.session.remove(JOB_KEY);
+    if (activeJob.tabId) {
+      await chrome.tabs.remove(activeJob.tabId).catch(() => {});
+    }
+  }
   const job = {
     id: crypto.randomUUID(),
     source,
@@ -138,6 +150,24 @@ async function relayToDashboard(job, payload) {
   try {
     await chrome.tabs.sendMessage(job.returnTabId, payload);
   } catch {}
+}
+
+async function reportOfficialProgress(job, title, detail) {
+  const dashboardPayload = {
+    type: "MIGURI46LOG_EXTENSION_PROGRESS",
+    title,
+    detail,
+  };
+  await relayToDashboard(job, dashboardPayload);
+  if (job?.tabId) {
+    await chrome.tabs
+      .sendMessage(job.tabId, {
+        type: "MIGURI46LOG_OFFICIAL_PROGRESS",
+        title,
+        detail,
+      })
+      .catch(() => {});
+  }
 }
 
 async function refresh46logSession() {
@@ -239,6 +269,7 @@ async function startAutoCycle() {
 }
 
 chrome.runtime.onInstalled.addListener(async () => {
+  await chrome.storage.session.remove(JOB_KEY);
   await loadAutoState().then((state) =>
     chrome.storage.local.set({ [AUTO_STATE_KEY]: state }),
   );
@@ -304,6 +335,43 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     startAutoCycle()
       .then(() => sendResponse({ ok: true }))
       .catch((error) => sendResponse({ ok: false, error: error.message }));
+    return true;
+  }
+
+  if (message?.type === "MIGURI46LOG_MEETS_API_SYNC") {
+    loadJob()
+      .then(async (job) => {
+        if (
+          !job
+          || job.source !== "fortunemeets"
+          || job.id !== message.jobId
+          || (job.tabId && job.tabId !== sender.tab?.id)
+        ) {
+          sendResponse({ ok: false, error: "同步任务已过期" });
+          return;
+        }
+        try {
+          const result = await globalThis.MiguriMeetsApi.sync({
+            userId: message.userId,
+            onProgress: (title, detail) =>
+              reportOfficialProgress(job, title, detail),
+          });
+          sendResponse({ ok: true, ...result });
+        } catch (error) {
+          sendResponse({
+            ok: false,
+            error: error?.message || "官方履历读取失败",
+            code: error?.code || "",
+          });
+        }
+      })
+      .catch((error) =>
+        sendResponse({
+          ok: false,
+          error: error?.message || "官方履历读取失败",
+          code: error?.code || "",
+        }),
+      );
     return true;
   }
 

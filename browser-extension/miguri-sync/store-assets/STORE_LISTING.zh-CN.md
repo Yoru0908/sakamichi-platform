@@ -28,10 +28,10 @@
 
 数据与权限：
 
-- 扩展仅在 fortunemusic.jp、ticket.fortunemeets.app、46log.com 与 api.46log.com 上运行
+- 扩展仅在 fortunemusic.jp、ticket.fortunemeets.app、ticket-api.fortunemeets.app、46log.com 与 api.46log.com 上运行
 - 读取并传输履历所需的规范化字段，包括组合、活动、成员、类型、日期、会场、部数、应募/中签/付款数量、来源页面提供的价格与金额、来源记录标识及同步时间
 - 同步记录保存到当前登录的 46log 账号，仅用于私人 Dashboard、日程与统计
-- 不请求、不读取、不传输、不保存 forTUNE 密码、登录表单内容、Cookie 或会话令牌
+- 不读取或保存 forTUNE 密码、登录表单内容或 Cookie；Meets 会话密钥仅在内存中临时读取并发回 forTUNE Meets 官方 API，不保存且不发送给 46log
 - 不出售数据，不用于广告，不加载远程执行代码
 
 详细隐私政策：
@@ -79,7 +79,11 @@ https://46log.com/miguri-support
 
 ### https://ticket.fortunemeets.app/*
 
-在用户自己的官方登录会话中读取 forTUNE meets 各组合活动的应募履历。
+读取 forTUNE meets 活动配置，并在官方标签页中确认当前第一方登录状态。
+
+### https://ticket-api.fortunemeets.app/*
+
+使用官方站点当前会话密钥直接读取用户自己的应募履历，避免为每个活动重复加载完整官方 SPA。密钥仅作为官方 API 必需请求头在内存中使用，不保存且不发送给 46log。
 
 ## 数据使用披露
 
@@ -88,7 +92,7 @@ https://46log.com/miguri-support
 - 网站内容：是。读取官方履历页中的应募记录。
 - 财务和付款信息：是。仅限来源页面展示的商品单价、已付款/中签数量与对应金额，不读取银行卡或支付凭据。
 - 用户活动：是。仅限用户自己的应募、中签和活动日程记录。
-- 身份验证信息：否。不读取密码、Cookie、会话令牌或登录表单值。
+- 身份验证信息：是。仅临时读取 Meets 官方站点生成的会话密钥并发回 Meets 官方 API；不读取密码、Cookie 或登录表单值，不保存密钥，也不发送给 46log。
 - 网络记录：否。不收集与功能无关的浏览历史。
 - 位置信息、健康信息、私人通信：否。
 
@@ -103,7 +107,7 @@ https://46log.com/miguri-support
 
 1. 安装扩展并固定到工具栏。
 2. 打开 `https://46log.com/miguri`。扩展内容脚本会与页面建立连接，页面显示“扩展已连接”。
-3. 点击“同步 forTUNE music”或“同步 forTUNE meets（三坂）”。Meets 会在一个官方标签页中依次读取乃木坂、櫻坂与日向坂的活动履历。
+3. 点击“同步 forTUNE music”或“同步 forTUNE meets（三坂）”。Meets 会在一个官方标签页中确认登录状态，再由扩展后台通过 Meets 官方 API 读取乃木坂、櫻坂与日向坂的活动履历。
 4. 未登录官方站点时，页面会停留在官方登录流程并显示 46log 同步状态提示；扩展不会读取登录表单值。
 5. 使用拥有履历的测试账号登录官方站点后，扩展读取履历并返回 46log。规范化记录通过 `https://api.46log.com/api/miguri/entries/import` 写入当前 46log 测试账号。
 6. 首次成功同步后，Dashboard 可开启自动同步。点击“立即检查”可直接验证 Music → Meets 的顺序同步；定时任务周期为 30 分钟。
@@ -126,7 +130,7 @@ forTUNE music / meets の応募履歴を定期同期し、46log で日程・部�
 
 初回は 46log のミーグリ画面から Music と Meets の同期を開始し、公式サイトでログインしてください。同期後は Chrome 起動中に30分ごとの自動確認を有効にできます。Chrome が終了中、端末がスリープ中、オフライン時、または公式ログインが切れた場合は一時停止します。
 
-本拡張機能は forTUNE のパスワード、ログインフォーム、Cookie、セッショントークンを取得・送信・保存しません。同期対象は応募履歴の正規化データのみで、ログイン中の 46log アカウントの非公開データとして保存されます。
+本拡張機能は forTUNE のパスワード、ログインフォーム、Cookie を取得・保存しません。Meets のセッションキーはメモリ上で一時的に読み取り、公式 Meets API にのみ送信します。拡張機能には保存せず、46log にも送信しません。同期対象の正規化データのみが、ログイン中の 46log アカウントの非公開データとして保存されます。
 
 プライバシーポリシー：https://46log.com/privacy
 サポート：https://46log.com/miguri-support

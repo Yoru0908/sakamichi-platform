@@ -1,19 +1,6 @@
 (async () => {
   const MUSIC_HOST = "fortunemusic.jp";
   const MEETS_HOST = "ticket.fortunemeets.app";
-  const GROUPS = [
-    ["nogizaka46", "nogizaka", "乃木坂46"],
-    ["sakurazaka46", "sakurazaka", "櫻坂46"],
-    ["hinatazaka46", "hinatazaka", "日向坂46"],
-  ];
-  const EXCLUDED_SLUGS = new Set([
-    "contact",
-    "m",
-    "page",
-    "default",
-    "faq",
-    "guide",
-  ]);
   const compact = (value) =>
     `${value || ""}`.replace(/[\s\u3000]+/g, " ").trim();
   const digits = (value) =>
@@ -53,19 +40,6 @@
     if (/櫻坂46/.test(value)) return "sakurazaka";
     if (/日向坂46/.test(value)) return "hinatazaka";
     return null;
-  };
-  const categoryFromHeading = (value) => {
-    const normalized = compact(value).replace(/\s/g, "");
-    if (/サイン会[」』）)】]*$/.test(normalized)) return "サイン会";
-    if (/リアルミート/.test(normalized)) return "リアミ";
-    if (/オンラインミート/.test(normalized)) return "全国ミーグリ";
-    return "その他";
-  };
-  const isoDateFromText = (value) => {
-    const match = digits(value).match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
-    return match
-      ? `${match[1]}-${match[2].padStart(2, "0")}-${match[3].padStart(2, "0")}`
-      : "";
   };
   const inferMusicDate = (monthDay, appliedAt) => {
     const dateMatch = digits(monthDay).match(/(\d{1,2})\/(\d{1,2})/);
@@ -110,6 +84,11 @@
       .sendMessage({ type: "MIGURI46LOG_PROGRESS", title, detail })
       .catch(() => {});
   };
+  chrome.runtime.onMessage.addListener((message) => {
+    if (message?.type !== "MIGURI46LOG_OFFICIAL_PROGRESS") return;
+    show(message.title || "同步中", message.detail || "");
+  });
+
   const requireLogin = async () => {
     show("等待官方登录", "登录完成后，扩展会自动继续同步。");
     await chrome.runtime
@@ -285,348 +264,92 @@
     await finish(records);
   };
 
-  const loadFrame = (url, ready, timeoutMs = 14_000) =>
-    new Promise((resolve) => {
-      const frame = document.createElement("iframe");
-      frame.style.cssText =
-        "position:fixed;left:-10000px;top:0;width:1200px;height:7000px";
-      frame.src = url;
-      document.body.appendChild(frame);
-      const startedAt = Date.now();
-      let stableTicks = 0;
-      let previousLength = -1;
-      const timer = setInterval(() => {
-        let documentNode = null;
-        let bodyText = "";
-        try {
-          documentNode = frame.contentDocument;
-          bodyText = documentNode?.body?.innerText || "";
-        } catch {}
-        stableTicks =
-          bodyText.length > 0 && bodyText.length === previousLength
-            ? stableTicks + 1
-            : 0;
-        previousLength = bodyText.length;
-        if (
-          (stableTicks >= 2 && documentNode && ready(bodyText, documentNode)) ||
-          Date.now() - startedAt >= timeoutMs
-        ) {
-          clearInterval(timer);
-          resolve({ frame, documentNode, bodyText });
-        }
-      }, 400);
-    });
-  const originalMeetsUrl = location.href;
-  const setMeetsGroupPath = (groupSlug) => {
+  const readMeetsUserId = () => {
+    const raw = localStorage.getItem("lscache-id");
+    if (!raw) return "";
     try {
-      history.replaceState(null, "", `/${groupSlug}/`);
-    } catch {}
-  };
-  const restoreMeetsUrl = () => {
-    try {
-      history.replaceState(null, "", originalMeetsUrl);
-    } catch {}
-  };
-  const campaignSlugs = async (group) => {
-    setMeetsGroupPath(group);
-    const loaded = await loadFrame(
-      `https://${MEETS_HOST}/${group}/`,
-      (text, documentNode) =>
-        documentNode.querySelectorAll(`a[href*="/${group}/"]`).length > 0 ||
-        /遷移したいページを選択してください/.test(text),
-    );
-    const slugs = loaded.documentNode
-      ? Array.from(
-          loaded.documentNode.querySelectorAll(`a[href*="/${group}/"]`),
-        )
-          .map(
-            (link) =>
-              (link.getAttribute("href") || "").match(
-                new RegExp(`/${group}/([^/?#]+)`),
-              )?.[1],
-          )
-          .filter((slug) => slug && !EXCLUDED_SLUGS.has(slug))
-      : [];
-    const temporaryLanding =
-      /遷移したいページを選択してください/.test(loaded.bodyText) &&
-      slugs.length === 0;
-    loaded.frame.remove();
-    return {
-      slugs: Array.from(new Set(slugs)),
-      temporaryLanding,
-    };
-  };
-  const expandHistory = async (frame) => {
-    const startedAt = Date.now();
-    let stable = 0;
-    let previousCount = -1;
-    for (
-      let tick = 0;
-      tick < 40 && Date.now() - startedAt < 18_000;
-      tick += 1
-    ) {
-      const documentNode = frame.contentDocument;
-      const buttons = Array.from(
-        documentNode?.querySelectorAll("a,button") || [],
-      ).filter((button) =>
-        /全て表示|もっと見る/.test(button.textContent || ""),
-      );
-      buttons.forEach((button) => button.click());
-      const currentCount =
-        documentNode?.querySelectorAll(".resultWrap").length || 0;
-      stable =
-        buttons.length === 0 && currentCount === previousCount ? stable + 1 : 0;
-      if (stable >= 3) return;
-      previousCount = currentCount;
-      await sleep(400);
+      return compact(JSON.parse(raw));
+    } catch {
+      return compact(raw);
     }
   };
-  const parseMeetsHistory = (documentNode, groupSlug, group, campaignSlug) => {
-    const records = new Map();
-    let category = "その他";
-    let heading = "";
-    const title = compact(documentNode.title);
-    const bodyText = compact(documentNode.body?.textContent);
-    const explicitPrices = Array.from(
-      bodyText.matchAll(
-        /(?:販売価格|商品価格|税込)[^\d]{0,18}(\d{1,3}(?:,\d{3})+)\s*円|(\d{1,3}(?:,\d{3})+)\s*円(?:\s*税込)/g,
-      ),
-    )
-      .map((match) => Number((match[1] || match[2] || "").replace(/,/g, "")))
-      .filter((value) => value >= 1_000 && value <= 30_000);
-    const explicitPrice =
-      explicitPrices.length > 0 ? Math.min(...explicitPrices) : 0;
-    const latestYear = Math.max(
-      0,
-      ...Array.from(bodyText.matchAll(/(20\d{2})年/g)).map((match) =>
-        Number(match[1]),
-      ),
-    );
-    const unitPriceYen =
-      explicitPrice ||
-      (/album/i.test(campaignSlug) || latestYear < 2024 ? 0 : 2_000);
-    const registeredSerials = new Set();
-    documentNode.querySelectorAll("p.date").forEach((node) => {
-      if (!/登録：/.test(node.textContent || "")) return;
-      const serial = compact(
-        node.parentElement?.querySelector("p.heading.bold")?.textContent,
-      )
-        .split("#")[0]
-        .trim();
-      if (/^[0-9A-Za-z]{8,}$/.test(serial)) registeredSerials.add(serial);
-    });
-    documentNode
-      .querySelectorAll("h5.awardItemHeading, .resultWrap")
-      .forEach((node) => {
-        if (node.matches("h5.awardItemHeading")) {
-          heading = compact(node.textContent);
-          category = categoryFromHeading(heading);
-          return;
-        }
-        const statusText = compact(node.querySelector(".tag")?.textContent);
-        const lines = Array.from(node.querySelectorAll(".result-body p")).map(
-          (item) => compact(item.textContent),
+  const onMeetsGroupLanding = () =>
+    location.pathname.split("/").filter(Boolean).length <= 1;
+  const firstMeetsCampaignUrl = () => {
+    const link = Array.from(
+      document.querySelectorAll('a[href*="/nogizaka46/"]'),
+    ).find((candidate) => {
+      try {
+        const url = new URL(candidate.href, location.href);
+        return (
+          url.hostname === MEETS_HOST &&
+          url.pathname.split("/").filter(Boolean).length >= 2
         );
-        const dateLine = lines.find((line) => /\d{4}年/.test(line)) || "";
-        const slotLine =
-          lines.find((line) => /第[0-9０-９]+部/.test(line)) || "";
-        const member = compact(
-          lines.find((line) => line !== dateLine && line !== slotLine) || "",
-        ).replace(/[\s\u3000]+/g, "");
-        const date = isoDateFromText(dateLine);
-        const slot = Number(digits(slotLine).match(/第(\d+)部/)?.[1] || 0);
-        const quantityText =
-          node.querySelector(".flex-shrink-0")?.textContent || "";
-        const quantity = count(quantityText, "枚");
-        const lots = count(quantityText, "口");
-        const appliedTickets = quantity || lots;
-        const won = /当選/.test(statusText) && !/落選/.test(statusText);
-        const lost = /落選/.test(statusText);
-        const venue = compact(
-          dateLine.includes("＠")
-            ? dateLine.split("＠").slice(1).join("＠")
-            : "",
-        );
-        if (!member || !date || appliedTickets <= 0) return;
-        const naturalKey = [campaignSlug, heading, member, date, slot]
-          .map(compact)
-          .join("|");
-        const record = records.get(naturalKey) || {
-          source: "fortunemeets",
-          sourceKey: sourceKey(groupSlug, naturalKey),
-          category,
-          member,
-          date,
-          slot,
-          appliedTickets: 0,
-          wonTickets: 0,
-          paidTickets: 0,
-          unitPriceYen,
-          spendYen: 0,
-          signLots: 0,
-          applicationRound: campaignSlug,
-          sourceSyncedAt,
-          eventSlug: "",
-          title: [title, heading].filter(Boolean).join("｜"),
-          venue,
-          group,
-          resultStatus: won ? "won" : lost ? "lost" : "pending",
-        };
-        record.appliedTickets += appliedTickets;
-        record.signLots += lots;
-        if (won) {
-          record.wonTickets += appliedTickets;
-          record.resultStatus = "won";
-        } else if (!lost && record.resultStatus !== "won") {
-          record.resultStatus = "pending";
-        }
-        records.set(naturalKey, record);
-      });
-    const values = Array.from(records.values());
-    const countedSerials =
-      registeredSerials.size ||
-      values.reduce((sum, record) => sum + record.appliedTickets, 0);
-    const nonMiguriApplied = values
-      .filter(
-        (record) =>
-          record.category !== "リアミ" && record.category !== "全国ミーグリ",
-      )
-      .reduce((sum, record) => sum + record.appliedTickets, 0);
-    const nonMiguriScale =
-      nonMiguriApplied > countedSerials && nonMiguriApplied > 0
-        ? countedSerials / nonMiguriApplied
-        : 1;
-    const remainingSerials = Math.max(0, countedSerials - nonMiguriApplied);
-    const miguriRecords = values.filter(
-      (record) =>
-        record.category === "リアミ" || record.category === "全国ミーグリ",
-    );
-    const hasMiguriWinner = miguriRecords.some(
-      (record) => record.wonTickets > 0,
-    );
-    const miguriWeight = miguriRecords.reduce(
-      (sum, record) =>
-        sum + (hasMiguriWinner ? record.wonTickets : record.appliedTickets),
-      0,
-    );
-    values.forEach((record) => {
-      if (record.category === "リアミ" || record.category === "全国ミーグリ") {
-        const weight = hasMiguriWinner
-          ? record.wonTickets
-          : record.appliedTickets;
-        record.spendYen =
-          miguriWeight > 0
-            ? Math.round(
-                (weight / miguriWeight) * remainingSerials * unitPriceYen,
-              )
-            : 0;
-      } else {
-        record.spendYen = Math.round(
-          record.appliedTickets * unitPriceYen * nonMiguriScale,
-        );
+      } catch {
+        return false;
       }
     });
-    return values;
+    return link?.href || "";
   };
-  const loadCampaignHistory = async (groupSlug, group, campaignSlug) => {
-    await sleep(450);
-    const url = `https://${MEETS_HOST}/${groupSlug}/${campaignSlug}#/history`;
-    const loaded = await loadFrame(
-      url,
-      (text, documentNode) =>
-        documentNode.querySelectorAll(".resultWrap").length > 0 ||
-        /応募履歴はありません|登録履歴はありません/.test(text) ||
-        /アカウントをお持ちでない方はこちら|再度ログイン/.test(text),
-    );
-    const loginRequired =
-      /アカウントをお持ちでない方はこちら|再度ログイン/.test(loaded.bodyText) &&
-      !loaded.documentNode?.querySelector(".resultWrap");
-    if (loginRequired) {
-      loaded.frame.remove();
-      return { loginRequired: true, records: [] };
+  const waitForMeetsLogin = async (previousUserId = "") => {
+    if (onMeetsGroupLanding()) {
+      const campaignUrl = firstMeetsCampaignUrl();
+      if (campaignUrl) location.assign(campaignUrl);
+      else await requireLogin();
+      return "";
     }
-    await expandHistory(loaded.frame);
-    const records = loaded.documentNode
-      ? parseMeetsHistory(loaded.documentNode, groupSlug, group, campaignSlug)
-      : [];
-    loaded.frame.remove();
-    return { loginRequired: false, records };
+    await requireLogin();
+    if (job.auto) return "";
+    for (let attempt = 0; attempt < 600; attempt += 1) {
+      await sleep(1_000);
+      const userId = readMeetsUserId();
+      if (userId && userId !== previousUserId) return userId;
+    }
+    return "";
   };
-  const mapWithConcurrency = async (items, limit, mapper) => {
-    const results = new Array(items.length);
-    let cursor = 0;
-    await Promise.all(
-      Array.from({ length: Math.min(limit, items.length) }, async () => {
-        while (cursor < items.length) {
-          const index = cursor;
-          cursor += 1;
-          results[index] = await mapper(items[index], index);
-        }
-      }),
-    );
-    return results;
-  };
+  const requestMeetsApiSync = (userId) =>
+    chrome.runtime.sendMessage({
+      type: "MIGURI46LOG_MEETS_API_SYNC",
+      jobId: job.id,
+      userId,
+    });
   const importMeets = async () => {
-    show("正在连接 Meets", "准备检查乃木坂、櫻坂与日向坂…");
-    const records = [];
-    const temporarilyUnavailable = [];
-    let discoveredCampaigns = 0;
-    for (let groupIndex = 0; groupIndex < GROUPS.length; groupIndex += 1) {
-      const [groupSlug, group, groupLabel] = GROUPS[groupIndex];
-      show(
-        `正在检查 ${groupLabel}`,
-        `Meets 三坂巡检 ${groupIndex + 1} / ${GROUPS.length}`,
-      );
-      const discovered = await campaignSlugs(groupSlug);
-      if (discovered.temporaryLanding) temporarilyUnavailable.push(groupLabel);
-      discoveredCampaigns += discovered.slugs.length;
-      let completedCampaigns = 0;
-      const results = await mapWithConcurrency(
-        discovered.slugs,
-        2,
-        async (campaignSlug) => {
-          const result = await loadCampaignHistory(
-            groupSlug,
-            group,
-            campaignSlug,
-          );
-          completedCampaigns += 1;
-          show(
-            `正在读取 ${groupLabel}`,
-            `活动履历 ${completedCampaigns} / ${discovered.slugs.length}`,
-          );
-          return result;
-        },
-      );
-      for (const result of results) {
-        if (result.loginRequired) {
-          restoreMeetsUrl();
-          await requireLogin();
-          return;
-        }
-        records.push(...result.records);
-      }
+    show("正在连接 Meets", "后台准备检查乃木坂、櫻坂与日向坂…");
+    let userId = readMeetsUserId();
+    if (!userId) {
+      userId = await waitForMeetsLogin();
+      if (!userId) return;
     }
-    restoreMeetsUrl();
-    if (discoveredCampaigns === 0) {
-      show("活动列表暂时不可用", "官方 Meets 正在切换活动入口，请稍后重试。");
-      return;
+    let response = await requestMeetsApiSync(userId);
+    if (response?.code === "LOGIN_REQUIRED") {
+      userId = await waitForMeetsLogin(userId);
+      if (!userId) return;
+      response = await requestMeetsApiSync(userId);
     }
-    if (temporarilyUnavailable.length > 0) {
+    if (!response?.ok) {
+      throw new Error(response?.error || "官方履历读取失败");
+    }
+    if (response.temporarilyUnavailable?.length > 0) {
       show(
         "部分团体入口临时切换",
-        `${temporarilyUnavailable.join("、")} 当前由官方显示活动跳转页；其他团体已完成。`,
+        `${response.temporarilyUnavailable.join("、")} 当前由官方显示活动跳转页；其他团体已完成。`,
       );
-      await sleep(1800);
+      await sleep(1_800);
     }
-    await finish(records);
+    if (response.warnings?.length > 0) {
+      show(
+        "部分活动已跳过",
+        `${response.warnings.length} 个活动读取超时或异常，其余履历已完成。`,
+      );
+      await sleep(1_800);
+    }
+    await finish(Array.isArray(response.records) ? response.records : []);
   };
 
   try {
     if (onMusic) await importMusic();
     else if (location.hostname === MEETS_HOST) await importMeets();
   } catch (error) {
-    restoreMeetsUrl();
     await chrome.runtime
       .sendMessage({
         type: "MIGURI46LOG_JOB_ERROR",

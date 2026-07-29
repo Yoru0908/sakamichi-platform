@@ -29,8 +29,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <p><strong>使用数据：</strong>我们不收集分析数据、追踪数据或浏览行为。</p>
       <p><strong>46log Miguri Sync extension data:</strong> If you install the optional Chrome extension and start synchronization, it reads your own application-history pages on forTUNE music and forTUNE meets. It transfers only the normalized fields needed for the private Miguri dashboard: group, campaign or release title, member, category, event date, venue, slot, application/win/payment counts, price/spend information shown by the source, source record identifier, and synchronization time.</p>
       <p><strong>46log 咪咕力同步扩展数据：</strong>如果您安装可选的 Chrome 扩展并启动同步，扩展会读取您自己的 forTUNE music 与 forTUNE meets 应募履历页，仅向私人咪咕力面板传输所需的规范化字段：组合、活动或作品标题、成员、类型、活动日期、会场、部数、应募/中签/付款数量、来源页面提供的价格/金额、来源记录标识和同步时间。</p>
-      <p>The extension does not request, read, transmit, or store your forTUNE password, login form value, cookie, or session token. It uses the official sites' existing first-party login state inside your browser.</p>
-      <p>扩展不会请求、读取、传输或保存您的 forTUNE 密码、登录表单内容、Cookie 或会话令牌；它只使用浏览器中官方站点已有的第一方登录状态。</p>
+      <p>The extension never reads or stores your forTUNE password, login form value, or cookie. For Meets synchronization, it temporarily reads the official site's existing session key in memory and sends it only to the official forTUNE Meets API as its required request header. The key is never stored by the extension or sent to 46log.</p>
+      <p>扩展不会读取或保存您的 forTUNE 密码、登录表单内容或 Cookie。同步 Meets 时，扩展仅在内存中临时读取官方站点已有的会话密钥，并仅将其作为必要请求头发回 forTUNE Meets 官方 API；扩展不会保存该密钥，也不会将其发送给 46log。</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">3. How We Use Your Information / 信息使用</h2>
       <p>We use the collected information solely for the following purposes:</p>

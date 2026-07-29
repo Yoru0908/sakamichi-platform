@@ -26,6 +26,13 @@ const officialSource = readFileSync(
   ),
   "utf8",
 );
+const meetsApiSource = readFileSync(
+  new URL(
+    "../../../browser-extension/miguri-sync/meets-api.js",
+    import.meta.url,
+  ),
+  "utf8",
+);
 const dashboardSource = readFileSync(
   new URL("./MiguriDashboard.tsx", import.meta.url),
   "utf8",
@@ -63,18 +70,17 @@ test("Miguri extension keeps the official login job separate from normalized res
     backgroundSource,
     /ticket\.fortunemeets\.app\/hinatazaka46/,
   );
-  assert.match(officialSource, /history\.replaceState/);
-  assert.match(
-    officialSource,
-    /for \(let groupIndex = 0; groupIndex < GROUPS\.length; groupIndex \+= 1\)/,
-  );
-  assert.match(officialSource, /temporaryLanding/);
+  assert.match(backgroundSource, /importScripts\("meets-api\.js"\)/);
+  assert.match(backgroundSource, /MIGURI46LOG_MEETS_API_SYNC/);
+  assert.match(officialSource, /requestMeetsApiSync/);
+  assert.match(meetsApiSource, /ticket-api\.fortunemeets\.app\/user\/history2/);
+  assert.match(meetsApiSource, /temporaryLanding/);
   assert.match(backgroundSource, /MIGURI46LOG_RESULT/);
   assert.match(backgroundSource, /api\/miguri\/entries\/import/);
   assert.match(officialSource, /sourceKey/);
   assert.match(officialSource, /unitPriceYen/);
   assert.match(officialSource, /spendYen/);
-  assert.match(officialSource, /Math\.min\(\.\.\.explicitPrices\)/);
+  assert.match(meetsApiSource, /Math\.min\(\.\.\.prices\)/);
   assert.doesNotMatch(
     officialSource,
     /input\[type=["']password["']\][\s\S]{0,80}\.value/,
@@ -82,20 +88,120 @@ test("Miguri extension keeps the official login job separate from normalized res
   assert.doesNotMatch(officialSource, /document\.cookie/);
 });
 
-test("manual Meets sync continues while its official tab is in the background", () => {
+test("manual Meets sync runs through the extension worker instead of campaign iframes", () => {
   assert.doesNotMatch(officialSource, /document\.hidden/);
-  assert.match(
-    officialSource,
-    /Date\.now\(\) - startedAt >= timeoutMs/,
+  assert.match(officialSource, /MIGURI46LOG_MEETS_API_SYNC/);
+  assert.doesNotMatch(officialSource, /createElement\("iframe"\)/);
+  assert.doesNotMatch(officialSource, /campaignSlugs|loadCampaignHistory/);
+  assert.doesNotMatch(meetsApiSource, /createElement\("iframe"\)/);
+  assert.match(meetsApiSource, /controller\.abort\(\)/);
+  assert.match(meetsApiSource, /randomDelay\(500, 350\)/);
+  assert.match(backgroundSource, /JOB_TIMEOUT_MS = 10 \* 60 \* 1000/);
+});
+
+test("Meets API results normalize winning and losing counts without rendering the SPA", () => {
+  const context = {
+    AbortController,
+    clearTimeout,
+    console,
+    setTimeout,
+  };
+  context.globalThis = context;
+  vm.runInNewContext(meetsApiSource, context);
+  const records = context.MiguriMeetsApi.normalizeCampaign({
+    config: {
+      eventId: "nogizaka46_test",
+      eventName: "乃木坂46 テスト",
+      applications: [
+        {
+          awards: [
+            {
+              name: "オンラインミート＆グリート",
+              entryHtml: { title: "オンラインミート＆グリート" },
+              serialCount: 1,
+              applyTable: [
+                {
+                  id: "meetgreet_2",
+                  date: "2026年9月6日(日)",
+                  part: "第２部",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    history: {
+      results: [
+        {
+          prizeId: "meetgreet_2",
+          result: "当選",
+          resultInfo: { win: "2", lose: "1" },
+          prizeInfo: { members: ["井上 和"] },
+        },
+      ],
+      used: [{ serialId: "a" }, { serialId: "b" }, { serialId: "c" }],
+      unused: [],
+    },
+    campaignSlug: "test",
+    groupSlug: "nogizaka46",
+    group: "nogizaka",
+    sourceSyncedAt: "2026-07-29T00:00:00.000Z",
+  });
+  assert.equal(records.length, 1);
+  assert.equal(records[0].member, "井上和");
+  assert.equal(records[0].date, "2026-09-06");
+  assert.equal(records[0].slot, 2);
+  assert.equal(records[0].category, "全国ミーグリ");
+  assert.equal(records[0].appliedTickets, 3);
+  assert.equal(records[0].wonTickets, 2);
+  assert.equal(records[0].signLots, 3);
+  assert.equal(records[0].spendYen, 6_000);
+  assert.equal(records[0].resultStatus, "won");
+});
+
+test("Meets API discovery reads campaign anchors only", async () => {
+  const calls = [];
+  const fetch = async (url) => {
+    calls.push(`${url}`);
+    if (`${url}`.endsWith("/nogizaka46/")) {
+      return new Response(
+        '<img src="/nogizaka46/logo.png"><a href="/nogizaka46/42nd">42nd</a>',
+      );
+    }
+    if (
+      `${url}`.endsWith("/sakurazaka46/") ||
+      `${url}`.endsWith("/hinatazaka46/")
+    ) {
+      return new Response("遷移したいページを選択してください");
+    }
+    if (`${url}`.includes("/data/nogizaka46/42nd/config.json")) {
+      return Response.json({
+        eventId: "nogizaka46_42nd",
+        applications: [{ awards: [] }],
+      });
+    }
+    if (`${url}`.includes("/user/history2")) {
+      return Response.json({ results: [], used: [], unused: [] });
+    }
+    return new Response("not found", { status: 404 });
+  };
+  const context = {
+    AbortController,
+    clearTimeout,
+    console,
+    fetch,
+    setTimeout,
+  };
+  context.globalThis = context;
+  vm.runInNewContext(meetsApiSource, context);
+  const result = await context.MiguriMeetsApi.sync({ userId: "session-key" });
+  assert.equal(result.discoveredCampaigns, 1);
+  assert.equal(
+    calls.filter((url) => url.includes("/data/nogizaka46/")).length,
+    1,
   );
-  assert.match(
-    officialSource,
-    /Date\.now\(\) - startedAt < 18_000/,
-  );
-  assert.match(
-    backgroundSource,
-    /await chrome\.storage\.session\.remove\(JOB_KEY\)/,
-  );
+  assert.equal(calls.some((url) => url.includes("logo.png/config.json")), false);
 });
 
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {
@@ -135,6 +241,12 @@ test("automatic sync imports Music then launches one inactive three-group Meets 
   const event = () => ({ addListener() {} });
   const context = {
     crypto,
+    importScripts() {},
+    MiguriMeetsApi: {
+      async sync() {
+        return { records: [], warnings: [], temporarilyUnavailable: [] };
+      },
+    },
     fetch: async (url, options = {}) => {
       if (`${url}`.includes("/entries/import")) {
         importedRequests += 1;
