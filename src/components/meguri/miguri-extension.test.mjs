@@ -19,6 +19,13 @@ const backgroundSource = readFileSync(
   ),
   "utf8",
 );
+const bridgeSource = readFileSync(
+  new URL(
+    "../../../browser-extension/miguri-sync/bridge.js",
+    import.meta.url,
+  ),
+  "utf8",
+);
 const officialSource = readFileSync(
   new URL(
     "../../../browser-extension/miguri-sync/official.js",
@@ -35,6 +42,10 @@ const meetsApiSource = readFileSync(
 );
 const dashboardSource = readFileSync(
   new URL("./MiguriDashboard.tsx", import.meta.url),
+  "utf8",
+);
+const prototypeSource = readFileSync(
+  new URL("./MeguriPrototype.tsx", import.meta.url),
   "utf8",
 );
 
@@ -79,6 +90,14 @@ test("Miguri extension keeps the official login job separate from normalized res
   assert.match(meetsApiSource, /ticket-api\.fortunemeets\.app\/user\/history2/);
   assert.match(meetsApiSource, /temporaryLanding/);
   assert.match(backgroundSource, /MIGURI46LOG_RESULT/);
+  assert.match(backgroundSource, /MIGURI46LOG_ACK_RESULT/);
+  assert.match(bridgeSource, /message\.type === "TAKE_RESULT"/);
+  assert.match(bridgeSource, /message\.type === "ACK_RESULT"/);
+  assert.match(prototypeSource, /requestMiguriExtensionResult\(\)/);
+  assert.match(
+    prototypeSource,
+    /acknowledgeMiguriExtensionResult\(handoff\.completedAt\)/,
+  );
   assert.match(backgroundSource, /api\/miguri\/entries\/import/);
   assert.match(officialSource, /sourceKey/);
   assert.match(officialSource, /unitPriceYen/);
@@ -91,6 +110,107 @@ test("Miguri extension keeps the official login job separate from normalized res
     /input\[type=["']password["']\][\s\S]{0,80}\.value/,
   );
   assert.doesNotMatch(officialSource, /document\.cookie/);
+});
+
+test("extension worker retains a pending result until D1 import acknowledgement", () => {
+  const takeStart = backgroundSource.indexOf(
+    'message?.type === "MIGURI46LOG_TAKE_RESULT"',
+  );
+  const acknowledgeStart = backgroundSource.indexOf(
+    'message?.type === "MIGURI46LOG_ACK_RESULT"',
+  );
+  assert.ok(takeStart > 0);
+  assert.ok(acknowledgeStart > takeStart);
+  assert.doesNotMatch(
+    backgroundSource.slice(takeStart, acknowledgeStart),
+    /session\.remove\(RESULT_KEY\)/,
+  );
+  assert.match(
+    backgroundSource.slice(acknowledgeStart),
+    /session\.remove\(RESULT_KEY\)/,
+  );
+});
+
+test("Dashboard bridge waits for the importer before taking a pending result", async () => {
+  const pageListeners = [];
+  const posted = [];
+  const sent = [];
+  const runtimeListeners = [];
+  const window = {
+    location: { origin: "https://46log.com" },
+    addEventListener(type, listener) {
+      if (type === "message") pageListeners.push(listener);
+    },
+    postMessage(message) {
+      posted.push(message);
+    },
+  };
+  const context = {
+    chrome: {
+      runtime: {
+        getManifest: () => ({ version: "1.1.12" }),
+        onMessage: {
+          addListener(listener) {
+            runtimeListeners.push(listener);
+          },
+        },
+        async sendMessage(message) {
+          sent.push(message);
+          if (message.type === "MIGURI46LOG_TAKE_RESULT") {
+            return {
+              result: {
+                version: 1,
+                source: "fortunemeets",
+                next: "done",
+                records: [{ sourceKey: "record-1" }],
+                completedAt: "2026-07-29T00:00:00.000Z",
+              },
+            };
+          }
+          return { state: null, ok: true };
+        },
+      },
+    },
+    console,
+    window,
+  };
+  vm.runInNewContext(bridgeSource, context);
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(
+    sent.some((message) => message.type === "MIGURI46LOG_TAKE_RESULT"),
+    false,
+  );
+
+  pageListeners[0]({
+    source: window,
+    origin: window.location.origin,
+    data: { source: "46log-miguri-page", type: "TAKE_RESULT" },
+  });
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(
+    sent.some((message) => message.type === "MIGURI46LOG_TAKE_RESULT"),
+    true,
+  );
+  assert.equal(
+    posted.some((message) => message.type === "RESULT"),
+    true,
+  );
+
+  pageListeners[0]({
+    source: window,
+    origin: window.location.origin,
+    data: {
+      source: "46log-miguri-page",
+      type: "ACK_RESULT",
+      completedAt: "2026-07-29T00:00:00.000Z",
+    },
+  });
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(
+    sent.some((message) => message.type === "MIGURI46LOG_ACK_RESULT"),
+    true,
+  );
+  assert.equal(runtimeListeners.length, 1);
 });
 
 test("manual Meets sync runs through the extension worker instead of campaign iframes", () => {

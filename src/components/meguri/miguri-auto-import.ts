@@ -10,6 +10,7 @@ export type MiguriImportHandoff = {
   source: 'fortunemusic' | 'fortunemeets';
   next: MiguriImportNextStep;
   records: MiguriImportRecord[];
+  completedAt?: string;
 };
 
 const ALLOWED_REFERRER_HOSTS = ['fortunemusic.jp', 'fortunemeets.app'];

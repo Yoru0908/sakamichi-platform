@@ -39,6 +39,14 @@ export function pingMiguriExtension() {
   post("PING");
 }
 
+export function requestMiguriExtensionResult() {
+  post("TAKE_RESULT");
+}
+
+export function acknowledgeMiguriExtensionResult(completedAt?: string) {
+  post("ACK_RESULT", { completedAt: completedAt || "" });
+}
+
 export function startMiguriExtensionSync(
   syncSource: "fortunemusic" | "fortunemeets",
 ) {

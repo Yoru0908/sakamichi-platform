@@ -494,12 +494,27 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message?.type === "MIGURI46LOG_TAKE_RESULT") {
     chrome.storage.session
       .get(RESULT_KEY)
-      .then(async (stored) => {
-        const result = stored[RESULT_KEY] || null;
-        if (result) await chrome.storage.session.remove(RESULT_KEY);
-        sendResponse({ result });
+      .then((stored) => {
+        sendResponse({ result: stored[RESULT_KEY] || null });
       })
       .catch(() => sendResponse({ result: null }));
+    return true;
+  }
+
+  if (message?.type === "MIGURI46LOG_ACK_RESULT") {
+    chrome.storage.session
+      .get(RESULT_KEY)
+      .then(async (stored) => {
+        const result = stored[RESULT_KEY] || null;
+        if (
+          result
+          && (!message.completedAt || result.completedAt === message.completedAt)
+        ) {
+          await chrome.storage.session.remove(RESULT_KEY);
+        }
+        sendResponse({ ok: true });
+      })
+      .catch(() => sendResponse({ ok: false }));
     return true;
   }
 });

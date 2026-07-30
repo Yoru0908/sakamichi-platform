@@ -27,6 +27,26 @@ window.addEventListener("message", (event) => {
     return;
   }
 
+  if (message.type === "TAKE_RESULT") {
+    chrome.runtime
+      .sendMessage({ type: "MIGURI46LOG_TAKE_RESULT" })
+      .then((response) => {
+        if (response?.result) post("RESULT", { payload: response.result });
+      })
+      .catch(() => post("ERROR", { message: "同步结果读取失败，请刷新页面重试" }));
+    return;
+  }
+
+  if (message.type === "ACK_RESULT") {
+    chrome.runtime
+      .sendMessage({
+        type: "MIGURI46LOG_ACK_RESULT",
+        completedAt: message.completedAt || "",
+      })
+      .catch(() => {});
+    return;
+  }
+
   if (
     message.type === "START" &&
     ["fortunemusic", "fortunemeets"].includes(message.syncSource)
@@ -81,11 +101,5 @@ chrome.runtime.onMessage.addListener((message) => {
   }
 });
 
-chrome.runtime
-  .sendMessage({ type: "MIGURI46LOG_TAKE_RESULT" })
-  .then((response) => {
-    post("PONG", { version: chrome.runtime.getManifest().version });
-    postAutoState().catch(() => {});
-    if (response?.result) post("RESULT", { payload: response.result });
-  })
-  .catch(() => {});
+post("PONG", { version: chrome.runtime.getManifest().version });
+postAutoState().catch(() => {});

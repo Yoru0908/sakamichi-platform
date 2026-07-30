@@ -51,7 +51,11 @@ import {
   parseMiguriImportHandoff,
   splitMiguriImportRecords,
 } from './miguri-auto-import';
-import { subscribeMiguriExtension } from './miguri-extension';
+import {
+  acknowledgeMiguriExtensionResult,
+  requestMiguriExtensionResult,
+  subscribeMiguriExtension,
+} from './miguri-extension';
 
 type AddForm = {
   date: string;
@@ -265,58 +269,63 @@ export default function MeguriPrototype() {
     };
   }, []);
 
-  useEffect(() => subscribeMiguriExtension((extensionEvent) => {
-    if (extensionEvent.type !== 'RESULT') return;
-    const handoff = extensionEvent.payload;
-    if (
-      handoff.version !== 1
-      || !Array.isArray(handoff.records)
-      || handoff.records.length === 0
-    ) {
-      setAutoImportState({
-        status: 'error',
-        message: '扩展没有返回可保存的履历。',
-        next: null,
-      });
-      return;
-    }
-
-    setActiveTab('dashboard');
-    setAutoImportState({
-      status: 'saving',
-      message: `扩展已读取 ${handoff.records.length} 条履历，正在保存…`,
-      next: handoff.next,
-    });
-
-    void (async () => {
-      let imported = 0;
-      let created = 0;
-      let updated = 0;
-      try {
-        for (const records of splitMiguriImportRecords(handoff.records)) {
-          const result = await importMiguriEntries(records);
-          if (!result.success || !result.data) {
-            throw new Error(result.message || result.error || '自动保存失败');
-          }
-          imported += result.data.imported;
-          created += result.data.created;
-          updated += result.data.updated;
-          setEntries((current) => mergeEntries(current, result.data!.entries));
-        }
-        setAutoImportState({
-          status: 'success',
-          message: `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），Dashboard 已刷新。`,
-          next: handoff.next,
-        });
-      } catch (extensionError) {
+  useEffect(() => {
+    const unsubscribe = subscribeMiguriExtension((extensionEvent) => {
+      if (extensionEvent.type !== 'RESULT') return;
+      const handoff = extensionEvent.payload;
+      if (
+        handoff.version !== 1
+        || !Array.isArray(handoff.records)
+        || handoff.records.length === 0
+      ) {
         setAutoImportState({
           status: 'error',
-          message: extensionError instanceof Error ? extensionError.message : '扩展履历保存失败。',
+          message: '扩展没有返回可保存的履历。',
           next: null,
         });
+        return;
       }
-    })();
-  }), []);
+
+      setActiveTab('dashboard');
+      setAutoImportState({
+        status: 'saving',
+        message: `扩展已读取 ${handoff.records.length} 条履历，正在保存…`,
+        next: handoff.next,
+      });
+
+      void (async () => {
+        let imported = 0;
+        let created = 0;
+        let updated = 0;
+        try {
+          for (const records of splitMiguriImportRecords(handoff.records)) {
+            const result = await importMiguriEntries(records);
+            if (!result.success || !result.data) {
+              throw new Error(result.message || result.error || '自动保存失败');
+            }
+            imported += result.data.imported;
+            created += result.data.created;
+            updated += result.data.updated;
+            setEntries((current) => mergeEntries(current, result.data!.entries));
+          }
+          acknowledgeMiguriExtensionResult(handoff.completedAt);
+          setAutoImportState({
+            status: 'success',
+            message: `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），Dashboard 已刷新。`,
+            next: handoff.next,
+          });
+        } catch (extensionError) {
+          setAutoImportState({
+            status: 'error',
+            message: extensionError instanceof Error ? extensionError.message : '扩展履历保存失败。',
+            next: null,
+          });
+        }
+      })();
+    });
+    requestMiguriExtensionResult();
+    return unsubscribe;
+  }, []);
 
   const sortedEvents = useMemo(() => sortEventsForDisplay(events), [events]);
 
