@@ -267,7 +267,7 @@ test('resolveMiguriEntrySpend includes lost Meets applications only when request
   assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 19200);
 });
 
-test('resolveMiguriEntrySpend keeps total Meets payment on allocated serials', () => {
+test('resolveMiguriEntrySpend uses official losses within the paid serial pool', () => {
   const entry = {
     id: 'serial-pool',
     member: '山川宇衣',

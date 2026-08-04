@@ -310,11 +310,16 @@ export function resolveMiguriEntrySpend(
     const allocatedSerials = hasSerialAllocation
       ? Math.max(0, entry.paidTickets || 0)
       : appliedTickets;
-    const rescueTickets = Math.max(0, appliedTickets - allocatedSerials);
-    const allocatedWonSerials = Math.max(
-      0,
-      Math.min(wonTickets - rescueTickets, allocatedSerials),
+    const officialLostTickets = entry.status === 'planned'
+      ? 0
+      : Math.max(0, appliedTickets - wonTickets);
+    const allocatedLostSerials = Math.min(
+      allocatedSerials,
+      officialLostTickets,
     );
+    const allocatedWonSerials = entry.status === 'planned'
+      ? 0
+      : Math.max(0, allocatedSerials - allocatedLostSerials);
     const meetsTickets = includeLostMeetsCost
       ? allocatedSerials
       : allocatedWonSerials;

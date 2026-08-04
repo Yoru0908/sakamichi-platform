@@ -565,8 +565,7 @@ export default function MiguriDashboard({
               meetsDiscountPct,
               true,
             ).spendYen;
-            totals.won += wonSpend;
-            totals.lost += Math.max(0, paidSpend - wonSpend);
+            const lostSpend = Math.max(0, paidSpend - wonSpend);
             totals.paid += paidSpend;
             if (entry.category === "サイン会") {
               totals.signPaid += paidSpend;
@@ -576,10 +575,16 @@ export default function MiguriDashboard({
               entry.category === "全国ミーグリ"
             ) {
               totals.miguriPaid += paidSpend;
+              totals.miguriLost += lostSpend;
             }
             return totals;
           },
-          { won: 0, lost: 0, paid: 0, signPaid: 0, miguriPaid: 0 },
+          {
+            paid: 0,
+            signPaid: 0,
+            miguriPaid: 0,
+            miguriLost: 0,
+          },
         ),
     [filteredEntries, meetsDiscountPct],
   );
@@ -794,7 +799,7 @@ export default function MiguriDashboard({
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,.9fr)] lg:items-end">
           <div>
             <div className="text-sm font-semibold text-[var(--text-secondary)]">
-              当选分摊金额（不含未中分摊）
+              当选金额（普通序列号，不含落选）
             </div>
             <div className="mt-2 text-5xl font-black tracking-[-0.055em] text-[var(--text-primary)] sm:text-7xl">
               <span className="mr-1 text-2xl font-semibold text-[var(--text-tertiary)] sm:text-4xl">
@@ -869,13 +874,13 @@ export default function MiguriDashboard({
                   </strong>
                 </span>
                 <span className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--border-primary)] pt-3 text-xs text-[var(--text-secondary)]">
-                  <span>参考：当选／未中分摊</span>
-                  <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
-                    {formatYen(meetsSpend.won)} / {formatYen(meetsSpend.lost)}
+                  <span>リアミ＋全国落选金额合计</span>
+                  <strong className="shrink-0 tabular-nums text-rose-600">
+                    {formatYen(meetsSpend.miguriLost)}
                   </strong>
                 </span>
                 <span className="mt-3 block text-[11px] leading-5 text-[var(--text-tertiary)]">
-                  扩展会结合官方 used 的 type／serialInfo、应募时间与活动保障期 serialName 识别保障券：保障券保留在应募、中签和中签率中，但金额为 ¥0。普通序列号按 serialInfo 逐张归属；旧活动缺少归属信息时才进入リアミ＋全国共同池。当选／未中金额始终守恒，不会超过支付合计。
+                  扩展会结合官方 used 的 type／serialInfo、应募时间与活动保障期 serialName 识别保障券：保障券保留在应募、中签和中签率中，但金额为 ¥0。リアミ＋全国落选金额直接按两类官方落选张数合计计算，并以普通付费序列号为上限，不使用百分比分摊。
                 </span>
               </label>
             ) : null}
@@ -940,14 +945,14 @@ export default function MiguriDashboard({
           {
             label:
               dashboard.estimatedSpendYen > 0
-                ? "当选分摊金额（含估算）"
-                : "当选分摊金额",
+                ? "当选金额（含价格估算）"
+                : "当选金额",
             value: formatYen(dashboard.totalSpendYen),
             icon: CircleDollarSign,
             color: "text-indigo-500",
           },
           {
-            label: "未中分摊金额",
+            label: "落选金额合计",
             value: formatYen(dashboard.lostSpendYen),
             icon: TrendingUp,
             color: "text-rose-500",
@@ -1160,7 +1165,7 @@ export default function MiguriDashboard({
           {memberRanking.length > 0 ? (
             <p className="mt-5 text-xs leading-5 text-[var(--text-tertiary)]">
               成员排行的“支付金额”和“单张成本”包含该成员落选申请对应的 CD
-              费用；上方当选与分类分摊金额不包含未中分摊。
+              费用；上方当选与分类金额不包含落选金额。
             </p>
           ) : null}
         </section>
@@ -1174,7 +1179,7 @@ export default function MiguriDashboard({
       <p className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
         <Ticket size={13} />
         forTUNE music 的中签 CD 统一按每张 ¥1,200 计算；Meets
-        按参考站发行价格表计算，可用“限定盘折扣”调整渠道实付；价格未知的活动不计入。未中分摊计入支付合计及成员排行。
+        按参考站发行价格表计算，可用“限定盘折扣”调整渠道实付；价格未知的活动不计入。落选金额计入支付合计及成员排行。
       </p>
     </div>
   );
