@@ -4,6 +4,7 @@ const JOB_KEY = "miguriSyncJob";
 const RESULT_KEY = "miguriSyncResult";
 const AUTO_STATE_KEY = "miguriAutoSyncState";
 const AUTO_ALARM = "miguriAutoSync";
+const AUTO_JOB_TIMEOUT_ALARM = "miguriAutoSyncJobTimeout";
 const AUTO_INTERVAL_MINUTES = 30;
 const JOB_TIMEOUT_MS = 10 * 60 * 1000;
 const MUSIC_URL = "https://fortunemusic.jp/mypage/apply_list/";
@@ -49,6 +50,36 @@ async function loadAutoState() {
   return { ...defaultAutoState(), ...(stored[AUTO_STATE_KEY] || {}) };
 }
 
+function isJobStale(job) {
+  const startedAt = Date.parse(job?.startedAt || "");
+  return !Number.isFinite(startedAt) || Date.now() - startedAt >= JOB_TIMEOUT_MS;
+}
+
+async function removeStoredJob(job = null) {
+  const current = await loadJob();
+  if (job && current?.id !== job.id) return false;
+  await chrome.storage.session.remove(JOB_KEY);
+  await chrome.alarms.clear(AUTO_JOB_TIMEOUT_ALARM);
+  return true;
+}
+
+async function discardSyncJob(job, closeTab = true) {
+  const removed = await removeStoredJob(job);
+  if (removed && closeTab && job?.tabId) {
+    await chrome.tabs.remove(job.tabId).catch(() => {});
+  }
+  return removed;
+}
+
+async function scheduleAutoJobTimeout(job) {
+  if (!job?.auto) return;
+  const startedAt = Date.parse(job.startedAt || "");
+  await chrome.alarms.create(AUTO_JOB_TIMEOUT_ALARM, {
+    when:
+      (Number.isFinite(startedAt) ? startedAt : Date.now()) + JOB_TIMEOUT_MS,
+  });
+}
+
 async function broadcastAutoState(state) {
   const tabs = await chrome.tabs
     .query({ url: `${DASHBOARD_URL}*` })
@@ -92,10 +123,7 @@ async function ensureAutoAlarm() {
 async function setAutoEnabled(enabled) {
   const activeJob = await loadJob();
   if (!enabled && activeJob?.auto) {
-    await chrome.storage.session.remove(JOB_KEY);
-    if (activeJob.tabId) {
-      await chrome.tabs.remove(activeJob.tabId).catch(() => {});
-    }
+    await discardSyncJob(activeJob);
   }
   const state = await updateAutoState({
     enabled,
@@ -110,14 +138,8 @@ async function setAutoEnabled(enabled) {
 async function startJob(source, returnTabId, options = {}) {
   const activeJob = await loadJob();
   if (activeJob) {
-    const startedAt = Date.parse(activeJob.startedAt || "");
-    const stale =
-      !Number.isFinite(startedAt) || Date.now() - startedAt >= JOB_TIMEOUT_MS;
-    if (!stale) throw new Error("已有同步任务正在运行");
-    await chrome.storage.session.remove(JOB_KEY);
-    if (activeJob.tabId) {
-      await chrome.tabs.remove(activeJob.tabId).catch(() => {});
-    }
+    if (!isJobStale(activeJob)) throw new Error("已有同步任务正在运行");
+    await discardSyncJob(activeJob);
   }
   const job = {
     id: crypto.randomUUID(),
@@ -138,9 +160,10 @@ async function startJob(source, returnTabId, options = {}) {
     });
     const storedJob = { ...job, tabId: tab.id || null };
     await chrome.storage.session.set({ [JOB_KEY]: storedJob });
+    await scheduleAutoJobTimeout(storedJob);
     return storedJob;
   } catch (error) {
-    await chrome.storage.session.remove(JOB_KEY);
+    await removeStoredJob(job);
     throw error;
   }
 }
@@ -205,14 +228,11 @@ async function writeRecords(records) {
   return imported;
 }
 
-async function closeJobTab(sender) {
-  if (!sender.tab?.id) return;
-  await chrome.tabs.remove(sender.tab.id).catch(() => {});
-}
-
 async function failAutoJob(job, sender, error, needsLogin = "") {
-  await chrome.storage.session.remove(JOB_KEY);
-  await closeJobTab(sender);
+  await discardSyncJob(job);
+  if (sender.tab?.id && sender.tab.id !== job.tabId) {
+    await chrome.tabs.remove(sender.tab.id).catch(() => {});
+  }
   await chrome.action.setBadgeBackgroundColor({ color: "#d95b91" });
   await chrome.action.setBadgeText({ text: "!" });
   await chrome.action.setTitle({
@@ -229,8 +249,10 @@ async function failAutoJob(job, sender, error, needsLogin = "") {
 
 async function finishAutoSource(job, records, sender) {
   const imported = await writeRecords(records);
-  await chrome.storage.session.remove(JOB_KEY);
-  await closeJobTab(sender);
+  await discardSyncJob(job);
+  if (sender.tab?.id && sender.tab.id !== job.tabId) {
+    await chrome.tabs.remove(sender.tab.id).catch(() => {});
+  }
   if (job.source === "fortunemusic") {
     await updateAutoState({
       status: "syncing",
@@ -257,7 +279,12 @@ async function finishAutoSource(job, records, sender) {
 
 async function startAutoCycle() {
   const state = await loadAutoState();
-  if (!state.enabled || (await loadJob())) return;
+  if (!state.enabled) return false;
+  const activeJob = await loadJob();
+  if (activeJob) {
+    if (!isJobStale(activeJob)) return false;
+    await discardSyncJob(activeJob);
+  }
   await updateAutoState({
     status: "syncing",
     lastAttemptAt: new Date().toISOString(),
@@ -265,11 +292,42 @@ async function startAutoCycle() {
     needsLogin: "",
     imported: 0,
   });
-  await startJob("fortunemusic", null, { auto: true });
+  try {
+    await startJob("fortunemusic", null, { auto: true });
+    return true;
+  } catch (error) {
+    await updateAutoState({
+      status: "error",
+      lastError: error?.message || "自动同步启动失败",
+      needsLogin: "",
+    });
+    throw error;
+  }
+}
+
+async function restartTimedOutAutoJob() {
+  const job = await loadJob();
+  if (!job?.auto) return;
+  if (!isJobStale(job)) {
+    await scheduleAutoJobTimeout(job);
+    return;
+  }
+  await discardSyncJob(job);
+  await chrome.action.setBadgeBackgroundColor({ color: "#d95b91" });
+  await chrome.action.setBadgeText({ text: "!" });
+  await chrome.action.setTitle({
+    title: "46log 咪咕力同步：上次任务超时，正在自动重试",
+  });
+  await updateAutoState({
+    status: "error",
+    lastError: "上次自动同步超过 10 分钟，已清理并重试",
+    needsLogin: "",
+  });
+  await startAutoCycle();
 }
 
 chrome.runtime.onInstalled.addListener(async () => {
-  await chrome.storage.session.remove(JOB_KEY);
+  await removeStoredJob();
   await loadAutoState().then((state) =>
     chrome.storage.local.set({ [AUTO_STATE_KEY]: state }),
   );
@@ -282,13 +340,16 @@ chrome.runtime.onStartup.addListener(() => {
 
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === AUTO_ALARM) startAutoCycle().catch(() => {});
+  if (alarm.name === AUTO_JOB_TIMEOUT_ALARM) {
+    restartTimedOutAutoJob().catch(() => {});
+  }
 });
 
 chrome.tabs.onRemoved.addListener((tabId) => {
   loadJob()
     .then(async (job) => {
       if (!job || job.tabId !== tabId) return;
-      await chrome.storage.session.remove(JOB_KEY);
+      await removeStoredJob(job);
       if (job.auto) {
         await updateAutoState({
           status: "error",
@@ -426,7 +487,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           );
           return;
         }
-        await chrome.storage.session.remove(JOB_KEY);
+        await removeStoredJob(job);
         await relayToDashboard(job, {
           type: "MIGURI46LOG_EXTENSION_PROGRESS",
           title: "同步暂时停止",
@@ -472,7 +533,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           completedAt: new Date().toISOString(),
         };
         await chrome.storage.session.set({ [RESULT_KEY]: result });
-        await chrome.storage.session.remove(JOB_KEY);
+        await removeStoredJob(job);
         await setAutoEnabled(true);
         if (job.returnTabId) {
           await chrome.tabs.update(job.returnTabId, {

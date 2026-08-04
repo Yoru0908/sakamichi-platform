@@ -257,7 +257,8 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
               </div>
               <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
                 每 {autoState?.intervalMinutes || 30}{" "}
-                分钟检查一次；登录失效时暂停并提示。
+                分钟检查一次；登录失效时暂停并提示，单轮超过 10
+                分钟会自动清理并重试。
                 {autoState?.lastSuccessAt
                   ? ` 上次成功：${relativeSyncTime(autoState.lastSuccessAt)}。`
                   : ""}
@@ -302,8 +303,9 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                 推荐从 Chrome Web Store 安装
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
-                商店当前公开版为 v1.1.11；包含 D1 写入确认修复的 v1.1.12
-                正在准备商店更新。需要立即使用修复时，可下载下方 ZIP 临时安装。
+                商店当前公开版为 v1.1.11；最新 v1.1.13 增加 D1
+                写入确认及自动同步超时恢复。需要立即使用修复时，可下载下方 ZIP
+                临时安装。
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
@@ -318,7 +320,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                 download
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-indigo-500/35 px-4 text-sm font-bold text-indigo-700 transition-colors hover:bg-indigo-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
-                <Download size={16} /> 下载 v1.1.12 ZIP
+                <Download size={16} /> 下载 v1.1.13 ZIP
               </a>
               <a
                 href="https://chromewebstore.google.com/detail/46log-%E5%92%AA%E5%92%95%E5%8A%9B%E5%90%8C%E6%AD%A5/kdfpdlijajcjianjpffgnmodnmigckdh?authuser=0&hl=ja"

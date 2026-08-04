@@ -55,6 +55,7 @@ const supportSource = readFileSync(
 
 test("Miguri extension has only scoped sync, storage, tab, and alarm permissions", () => {
   assert.equal(manifest.manifest_version, 3);
+  assert.equal(manifest.version, "1.1.13");
   assert.deepEqual(manifest.permissions, ["storage", "tabs", "alarms"]);
   assert.equal(manifest.permissions.includes("cookies"), false);
   assert.equal(manifest.host_permissions.includes("<all_urls>"), false);
@@ -73,6 +74,8 @@ test("Miguri extension keeps the official login job separate from normalized res
   assert.match(backgroundSource, /chrome\.storage\.local/);
   assert.match(backgroundSource, /chrome\.alarms/);
   assert.match(backgroundSource, /AUTO_INTERVAL_MINUTES = 30/);
+  assert.match(backgroundSource, /AUTO_JOB_TIMEOUT_ALARM/);
+  assert.match(backgroundSource, /restartTimedOutAutoJob/);
   assert.match(
     backgroundSource,
     /ticket\.fortunemeets\.app\/nogizaka46/,
@@ -602,7 +605,8 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /Chrome Web Store · 已上线/);
   assert.match(dashboardSource, /Chrome Web Store 安装/);
   assert.match(dashboardSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
-  assert.match(dashboardSource, /下载 v1\.1\.12 ZIP/);
+  assert.match(dashboardSource, /下载 v1\.1\.13 ZIP/);
+  assert.match(dashboardSource, /单轮超过 10/);
   assert.match(dashboardSource, /downloads\/46log-miguri-sync\.zip/);
   assert.match(supportSource, /Chrome Web Store · 已上线/);
   assert.match(supportSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
@@ -640,7 +644,7 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.doesNotMatch(dashboardSource, /46log 不接收 forTUNE/);
 });
 
-test("automatic sync imports Music then launches one inactive three-group Meets scan", async () => {
+test("automatic sync imports both sources and recovers a stale background job", async () => {
   const local = {};
   const session = {};
   const alarms = new Map();
@@ -756,6 +760,7 @@ test("automatic sync imports Music then launches one inactive three-group Meets 
   assert.equal((await send({ type: "MIGURI46LOG_RUN_AUTO" })).ok, true);
   assert.equal(createdTabs[0].active, false);
   assert.match(createdTabs[0].url, /fortunemusic\.jp/);
+  assert.ok(Number.isFinite(alarms.get("miguriAutoSyncJobTimeout").when));
   const musicJob = session.miguriSyncJob;
   assert.equal(musicJob.auto, true);
   assert.equal(musicJob.source, "fortunemusic");
@@ -792,4 +797,16 @@ test("automatic sync imports Music then launches one inactive three-group Meets 
   assert.equal(importedRequests, 2);
   assert.equal(local.miguriAutoSyncState.status, "success");
   assert.equal(local.miguriAutoSyncState.imported, 4);
+
+  session.miguriSyncJob = {
+    id: "stale-meets-job",
+    source: "fortunemeets",
+    auto: true,
+    tabId: 99,
+    startedAt: "2020-01-01T00:00:00.000Z",
+  };
+  assert.equal((await send({ type: "MIGURI46LOG_RUN_AUTO" })).ok, true);
+  assert.ok(removedTabs.includes(99));
+  assert.equal(session.miguriSyncJob.source, "fortunemusic");
+  assert.equal(createdTabs[2].active, false);
 });
