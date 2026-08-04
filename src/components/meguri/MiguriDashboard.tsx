@@ -64,6 +64,18 @@ const GROUP_LABELS: Record<MiguriGroupId, string> = {
 };
 const MEETS_DISCOUNT_STORAGE_KEY =
   "46log:miguri:limited-edition-discount-pct";
+const MIN_AUTO_SYNC_VERSION = [1, 1, 13] as const;
+
+function extensionNeedsAutoSyncUpdate(version: string) {
+  const current = version.split(".").map((part) => Number(part) || 0);
+  return MIN_AUTO_SYNC_VERSION.some((minimum, index) => {
+    const value = current[index] || 0;
+    const previousEqual = MIN_AUTO_SYNC_VERSION.slice(0, index).every(
+      (part, previousIndex) => (current[previousIndex] || 0) === part,
+    );
+    return previousEqual && value < minimum;
+  });
+}
 
 function clampMeetsDiscount(value: number) {
   return Math.max(0, Math.min(30, Number.isFinite(value) ? value : 0));
@@ -192,6 +204,9 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
     [],
   );
 
+  const needsAutoSyncUpdate =
+    extensionVersion !== "" && extensionNeedsAutoSyncUpdate(extensionVersion);
+
   const startSync = (source: "fortunemusic" | "fortunemeets") => {
     if (!extensionVersion) {
       setExtensionMessage("请先安装扩展并重新加载页面。");
@@ -215,13 +230,21 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
         <div
           className={`inline-flex min-h-11 items-center gap-2 rounded-xl border px-3 text-xs font-semibold ${
             extensionVersion
-              ? "border-emerald-500/25 bg-emerald-500/10 text-emerald-700"
+              ? needsAutoSyncUpdate
+                ? "border-amber-500/30 bg-amber-500/10 text-amber-700"
+                : "border-emerald-500/25 bg-emerald-500/10 text-emerald-700"
               : "border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-secondary)]"
           }`}
         >
-          {extensionVersion ? <CheckCircle2 size={16} /> : <Puzzle size={16} />}
+          {extensionVersion && !needsAutoSyncUpdate ? (
+            <CheckCircle2 size={16} />
+          ) : (
+            <Puzzle size={16} />
+          )}
           {extensionVersion
-            ? `扩展已连接 · v${extensionVersion}`
+            ? needsAutoSyncUpdate
+              ? `扩展需要更新 · v${extensionVersion}`
+              : `扩展已连接 · v${extensionVersion}`
             : "等待安装同步扩展"}
         </div>
       </div>
@@ -244,68 +267,100 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
               同步 forTUNE meets（三坂） <ArrowRight size={18} />
             </button>
           </div>
-          <div className="flex flex-col gap-3 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <div className="flex items-center gap-2 text-sm font-bold text-[var(--text-primary)]">
-                <RefreshCw
-                  size={15}
-                  className={
-                    autoState?.status === "syncing" ? "animate-spin" : ""
-                  }
-                />
-                浏览器运行时自动同步
+          {needsAutoSyncUpdate ? (
+            <div
+              className="flex flex-col gap-3 rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4 sm:flex-row sm:items-center sm:justify-between"
+              role="alert"
+            >
+              <div>
+                <div className="text-sm font-bold text-amber-800">
+                  当前版本无法可靠自动同步
+                </div>
+                <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
+                  Chrome Web Store 当前版会卡在“检查中”。请先关闭旧版自动同步，并手动下载安装 v1.1.13；商店更新通过后会恢复普通更新。
+                </p>
               </div>
-              <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                每 {autoState?.intervalMinutes || 30}{" "}
-                分钟检查一次；登录失效时暂停并提示，单轮超过 10
-                分钟会自动清理并重试。
-                {autoState?.lastSuccessAt
-                  ? ` 上次成功：${relativeSyncTime(autoState.lastSuccessAt)}。`
-                  : ""}
-              </p>
+              <div className="flex shrink-0 flex-wrap gap-2">
+                {autoState?.enabled ? (
+                  <button
+                    type="button"
+                    onClick={() => setMiguriExtensionAutoSync(false)}
+                    className="min-h-11 rounded-xl border border-amber-600/35 px-3 text-xs font-bold text-amber-800"
+                  >
+                    关闭旧版自动同步
+                  </button>
+                ) : null}
+                <a
+                  href="/downloads/46log-miguri-sync.zip"
+                  download
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-xs font-bold text-white hover:bg-indigo-700"
+                >
+                  <Download size={15} /> 下载 v1.1.13 ZIP
+                </a>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {autoState?.enabled ? (
+          ) : (
+            <div className="flex flex-col gap-3 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-sm font-bold text-[var(--text-primary)]">
+                  <RefreshCw
+                    size={15}
+                    className={
+                      autoState?.status === "syncing" ? "animate-spin" : ""
+                    }
+                  />
+                  浏览器运行时自动同步
+                </div>
+                <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
+                  每 {autoState?.intervalMinutes || 30}{" "}
+                  分钟检查一次；登录失效时暂停并提示，单轮超过 10
+                  分钟会自动清理并重试。
+                  {autoState?.lastSuccessAt
+                    ? ` 上次成功：${relativeSyncTime(autoState.lastSuccessAt)}。`
+                    : ""}
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {autoState?.enabled ? (
+                  <button
+                    type="button"
+                    onClick={runMiguriExtensionAutoSync}
+                    disabled={autoState.status === "syncing"}
+                    className="min-h-11 rounded-xl border border-[var(--border-primary)] px-3 text-xs font-semibold text-[var(--text-primary)] disabled:cursor-wait disabled:opacity-50"
+                  >
+                    {autoState.status === "syncing" ? "检查中…" : "立即检查"}
+                  </button>
+                ) : null}
                 <button
                   type="button"
-                  onClick={runMiguriExtensionAutoSync}
-                  disabled={autoState.status === "syncing"}
-                  className="min-h-11 rounded-xl border border-[var(--border-primary)] px-3 text-xs font-semibold text-[var(--text-primary)] disabled:cursor-wait disabled:opacity-50"
+                  aria-pressed={autoState?.enabled === true}
+                  onClick={() =>
+                    setMiguriExtensionAutoSync(!autoState?.enabled)
+                  }
+                  className={`min-h-11 rounded-xl px-4 text-xs font-bold ${
+                    autoState?.enabled
+                      ? "bg-emerald-600 text-white"
+                      : "bg-[var(--bg-secondary)] text-[var(--text-secondary)]"
+                  }`}
                 >
-                  {autoState.status === "syncing" ? "检查中…" : "立即检查"}
+                  自动同步 {autoState?.enabled ? "已开启" : "已关闭"}
                 </button>
-              ) : null}
-              <button
-                type="button"
-                aria-pressed={autoState?.enabled === true}
-                onClick={() =>
-                  setMiguriExtensionAutoSync(!autoState?.enabled)
-                }
-                className={`min-h-11 rounded-xl px-4 text-xs font-bold ${
-                  autoState?.enabled
-                    ? "bg-emerald-600 text-white"
-                    : "bg-[var(--bg-secondary)] text-[var(--text-secondary)]"
-                }`}
-              >
-                自动同步 {autoState?.enabled ? "已开启" : "已关闭"}
-              </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       ) : (
         <div className="mt-5 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 text-xs font-bold text-emerald-700">
-                <CheckCircle2 size={14} /> Chrome Web Store · 已上线
+              <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 text-xs font-bold text-amber-800">
+                <Puzzle size={14} /> Chrome Web Store · 当前版待更新
               </div>
               <div className="mt-3 text-sm font-bold text-[var(--text-primary)]">
-                推荐从 Chrome Web Store 安装
+                请临时手动下载 v1.1.13
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
-                商店当前公开版为 v1.1.11；最新 v1.1.13 增加 D1
-                写入确认及自动同步超时恢复。需要立即使用修复时，可下载下方 ZIP
-                临时安装。
+                Chrome Web Store 当前公开的 v1.1.11 无法可靠自动同步，暂不推荐安装。请先使用下方 ZIP；商店更新到 v1.1.13 后再切回商店版。
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
@@ -318,17 +373,17 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
               <a
                 href="/downloads/46log-miguri-sync.zip"
                 download
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-indigo-500/35 px-4 text-sm font-bold text-indigo-700 transition-colors hover:bg-indigo-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
               >
-                <Download size={16} /> 下载 v1.1.13 ZIP
+                <Download size={16} /> 手动下载 v1.1.13 ZIP
               </a>
               <a
                 href="https://chromewebstore.google.com/detail/46log-%E5%92%AA%E5%92%95%E5%8A%9B%E5%90%8C%E6%AD%A5/kdfpdlijajcjianjpffgnmodnmigckdh?authuser=0&hl=ja"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-amber-600/30 px-4 text-sm font-bold text-amber-800 transition-colors hover:bg-amber-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
               >
-                Chrome Web Store 安装 <ArrowRight size={16} />
+                查看商店（等待更新） <ArrowRight size={16} />
               </a>
             </div>
           </div>

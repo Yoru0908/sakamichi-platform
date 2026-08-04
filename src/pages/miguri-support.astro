@@ -16,32 +16,32 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         私人咪咕力面板，并在浏览器运行期间定时检查更新。
       </p>
 
-      <section class="mt-8 rounded-2xl border border-emerald-500/25 bg-emerald-500/10 p-5">
-        <p class="text-xs font-bold uppercase tracking-[0.14em] text-emerald-700">
-          Chrome Web Store · 已上线
+      <section class="mt-8 rounded-2xl border border-amber-500/30 bg-amber-500/10 p-5">
+        <p class="text-xs font-bold uppercase tracking-[0.14em] text-amber-800">
+          Chrome Web Store · 当前版待更新
         </p>
         <h2 class="mt-2 text-lg font-bold text-[var(--text-primary)]">
-          推荐从商店安装
+          请临时手动下载 v1.1.13
         </h2>
         <p class="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-          商店当前公开版为 v1.1.11。最新 v1.1.13 增加 D1
-          写入确认及自动同步超时恢复；需要立即使用修复时，可暂时安装 ZIP 版本。
+          Chrome Web Store 当前公开的 v1.1.11 无法可靠自动同步，暂不推荐安装。
+          请先使用 ZIP；商店更新到 v1.1.13 后再切回商店版。
         </p>
         <div class="mt-4 flex flex-wrap gap-3">
+          <a
+            href="/downloads/46log-miguri-sync.zip"
+            download
+            class="inline-flex min-h-11 items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+          >
+            手动下载 v1.1.13 ZIP
+          </a>
           <a
             href="https://chromewebstore.google.com/detail/46log-%E5%92%AA%E5%92%95%E5%8A%9B%E5%90%8C%E6%AD%A5/kdfpdlijajcjianjpffgnmodnmigckdh?authuser=0&hl=ja"
             target="_blank"
             rel="noreferrer"
-            class="inline-flex min-h-11 items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+            class="inline-flex min-h-11 items-center justify-center rounded-xl border border-amber-600/30 px-4 text-sm font-bold text-amber-800 transition-colors hover:bg-amber-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
           >
-            从 Chrome Web Store 安装
-          </a>
-          <a
-            href="/downloads/46log-miguri-sync.zip"
-            download
-            class="inline-flex min-h-11 items-center justify-center rounded-xl border border-indigo-500/35 px-4 text-sm font-bold text-indigo-700 transition-colors hover:bg-indigo-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-          >
-            下载 v1.1.13 ZIP
+            查看商店（等待更新）
           </a>
         </div>
       </section>
@@ -49,9 +49,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <section class="mt-10">
         <h2 class="text-lg font-bold text-[var(--text-primary)]">使用方式</h2>
         <ol class="mt-4 list-decimal space-y-3 pl-5 leading-7 text-[var(--text-secondary)]">
-          <li>推荐点击上方 Chrome Web Store 按钮完成普通安装。</li>
+          <li>当前请点击上方按钮手动下载 v1.1.13 ZIP。</li>
           <li>
-            如需临时安装最新 ZIP：下载并解压后，在 <code class="rounded bg-black/5 px-1.5 py-0.5 text-sm dark:bg-white/10">chrome://extensions</code>
+            下载并解压后，在 <code class="rounded bg-black/5 px-1.5 py-0.5 text-sm dark:bg-white/10">chrome://extensions</code>
             开启“开发者模式”，点击“加载已解压的扩展程序”。
           </li>
           <li>登录 46log 并打开咪咕力面板，重新加载后确认显示“扩展已连接”。</li>

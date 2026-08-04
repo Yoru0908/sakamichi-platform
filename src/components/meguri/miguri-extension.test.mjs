@@ -602,15 +602,18 @@ test("Meets API accepts three-group campaign discovery from the official tab", a
 });
 
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {
-  assert.match(dashboardSource, /Chrome Web Store · 已上线/);
-  assert.match(dashboardSource, /Chrome Web Store 安装/);
+  assert.match(dashboardSource, /Chrome Web Store · 当前版待更新/);
+  assert.match(dashboardSource, /当前版本无法可靠自动同步/);
+  assert.match(dashboardSource, /extensionNeedsAutoSyncUpdate/);
   assert.match(dashboardSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
-  assert.match(dashboardSource, /下载 v1\.1\.13 ZIP/);
+  assert.match(dashboardSource, /手动下载 v1\.1\.13 ZIP/);
   assert.match(dashboardSource, /单轮超过 10/);
   assert.match(dashboardSource, /downloads\/46log-miguri-sync\.zip/);
-  assert.match(supportSource, /Chrome Web Store · 已上线/);
+  assert.match(supportSource, /Chrome Web Store · 当前版待更新/);
+  assert.match(supportSource, /v1\.1\.11 无法可靠自动同步/);
+  assert.match(supportSource, /手动下载 v1\.1\.13 ZIP/);
   assert.match(supportSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
-  assert.doesNotMatch(dashboardSource, /Chrome Web Store · 审核中/);
+  assert.doesNotMatch(dashboardSource, /Chrome Web Store · 已上线/);
   assert.match(dashboardSource, /同步 forTUNE music/);
   assert.match(dashboardSource, /同步 forTUNE meets/);
   assert.match(dashboardSource, /浏览器运行时自动同步/);
