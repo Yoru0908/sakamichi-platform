@@ -550,6 +550,17 @@ export default function MiguriDashboard({
   const hasMeetsEntries = filteredEntries.some(
     (entry) => entry.source === "fortunemeets",
   );
+  const combinedMiguriEntries = useMemo(
+    () =>
+      entries.filter(
+        (entry) =>
+          entry.source === "fortunemeets" &&
+          (selectedGroup === "all" || entry.group === selectedGroup) &&
+          (entry.category === "リアミ" ||
+            entry.category === "全国ミーグリ"),
+      ),
+    [entries, selectedGroup],
+  );
   const meetsSpend = useMemo(
     () =>
       filteredEntries
@@ -570,23 +581,32 @@ export default function MiguriDashboard({
             if (entry.category === "サイン会") {
               totals.signPaid += paidSpend;
             }
-            if (
-              entry.category === "リアミ" ||
-              entry.category === "全国ミーグリ"
-            ) {
-              totals.miguriPaid += paidSpend;
-              totals.miguriLost += lostSpend;
-            }
             return totals;
           },
-          {
-            paid: 0,
-            signPaid: 0,
-            miguriPaid: 0,
-            miguriLost: 0,
-          },
+          { paid: 0, signPaid: 0 },
         ),
     [filteredEntries, meetsDiscountPct],
+  );
+  const combinedMiguriSpend = useMemo(
+    () =>
+      combinedMiguriEntries.reduce(
+        (totals, entry) => {
+          const wonSpend = resolveMiguriEntrySpend(
+            entry,
+            meetsDiscountPct,
+          ).spendYen;
+          const paidSpend = resolveMiguriEntrySpend(
+            entry,
+            meetsDiscountPct,
+            true,
+          ).spendYen;
+          totals.paid += paidSpend;
+          totals.lost += Math.max(0, paidSpend - wonSpend);
+          return totals;
+        },
+        { paid: 0, lost: 0 },
+      ),
+    [combinedMiguriEntries, meetsDiscountPct],
   );
   const updateMeetsDiscount = (value: number) => {
     const nextValue = clampMeetsDiscount(value);
@@ -799,7 +819,9 @@ export default function MiguriDashboard({
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,.9fr)] lg:items-end">
           <div>
             <div className="text-sm font-semibold text-[var(--text-secondary)]">
-              当选金额（普通序列号，不含落选）
+              {selectedCategory === "all"
+                ? "当选金额（普通序列号，不含落选）"
+                : `${selectedCategory}当选金额（普通序列号，不含落选）`}
             </div>
             <div className="mt-2 text-5xl font-black tracking-[-0.055em] text-[var(--text-primary)] sm:text-7xl">
               <span className="mr-1 text-2xl font-semibold text-[var(--text-tertiary)] sm:text-4xl">
@@ -856,29 +878,41 @@ export default function MiguriDashboard({
                   className="mt-3 h-2 w-full cursor-pointer accent-indigo-600"
                 />
                 <span className="mt-3 flex items-center justify-between gap-3 text-xs text-[var(--text-secondary)]">
-                  <span>Meets 支付合计（普通used序列号）</span>
+                  <span>
+                    {selectedCategory === "all"
+                      ? "Meets 支付合计（普通used序列号）"
+                      : `${selectedCategory}支付（普通used序列号）`}
+                  </span>
                   <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
                     {formatYen(meetsSpend.paid)}
                   </strong>
                 </span>
-                <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
-                  <span>サイン会支付</span>
-                  <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
-                    {formatYen(meetsSpend.signPaid)}
-                  </strong>
-                </span>
-                <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
-                  <span>リアミ＋全国共同支付</span>
-                  <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
-                    {formatYen(meetsSpend.miguriPaid)}
-                  </strong>
-                </span>
-                <span className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--border-primary)] pt-3 text-xs text-[var(--text-secondary)]">
-                  <span>リアミ＋全国落选金额合计</span>
-                  <strong className="shrink-0 tabular-nums text-rose-600">
-                    {formatYen(meetsSpend.miguriLost)}
-                  </strong>
-                </span>
+                {selectedCategory === "all" || selectedCategory === "サイン会" ? (
+                  <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
+                    <span>サイン会支付</span>
+                    <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
+                      {formatYen(meetsSpend.signPaid)}
+                    </strong>
+                  </span>
+                ) : null}
+                {selectedCategory === "all" ||
+                selectedCategory === "リアミ" ||
+                selectedCategory === "全国ミーグリ" ? (
+                  <>
+                    <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
+                      <span>リアミ＋全国共同支付</span>
+                      <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
+                        {formatYen(combinedMiguriSpend.paid)}
+                      </strong>
+                    </span>
+                    <span className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--border-primary)] pt-3 text-xs text-[var(--text-secondary)]">
+                      <span>リアミ＋全国落选金额合计</span>
+                      <strong className="shrink-0 tabular-nums text-rose-600">
+                        {formatYen(combinedMiguriSpend.lost)}
+                      </strong>
+                    </span>
+                  </>
+                ) : null}
                 <span className="mt-3 block text-[11px] leading-5 text-[var(--text-tertiary)]">
                   扩展会结合官方 used 的 type／serialInfo、应募时间与活动保障期 serialName 识别保障券：保障券保留在应募、中签和中签率中，但金额为 ¥0。リアミ＋全国落选金额直接按两类官方落选张数合计计算，并以普通付费序列号为上限，不使用百分比分摊。
                 </span>
@@ -945,20 +979,30 @@ export default function MiguriDashboard({
           {
             label:
               dashboard.estimatedSpendYen > 0
-                ? "当选金额（含价格估算）"
-                : "当选金额",
+                ? selectedCategory === "all"
+                  ? "当选金额（含价格估算）"
+                  : `${selectedCategory}当选金额（含价格估算）`
+                : selectedCategory === "all"
+                  ? "当选金额"
+                  : `${selectedCategory}当选金额`,
             value: formatYen(dashboard.totalSpendYen),
             icon: CircleDollarSign,
             color: "text-indigo-500",
           },
           {
-            label: "落选金额合计",
+            label:
+              selectedCategory === "all"
+                ? "落选金额合计"
+                : `${selectedCategory}落选金额`,
             value: formatYen(dashboard.lostSpendYen),
             icon: TrendingUp,
             color: "text-rose-500",
           },
           {
-            label: "支付合计（按序列号）",
+            label:
+              selectedCategory === "all"
+                ? "支付合计（按序列号）"
+                : `${selectedCategory}支付合计`,
             value: formatYen(dashboard.totalPaidSpendYen),
             icon: CircleDollarSign,
             color: "text-pink-500",

@@ -609,8 +609,12 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /MEETS_DISCOUNT_STORAGE_KEY/);
   assert.match(dashboardSource, /Meets 支付合计（普通used序列号）/);
   assert.match(dashboardSource, /サイン会支付/);
+  assert.match(dashboardSource, /combinedMiguriEntries/);
+  assert.match(dashboardSource, /\[entries, selectedGroup\]/);
   assert.match(dashboardSource, /リアミ＋全国共同支付/);
+  assert.match(dashboardSource, /formatYen\(combinedMiguriSpend\.paid\)/);
   assert.match(dashboardSource, /リアミ＋全国落选金额合计/);
+  assert.match(dashboardSource, /formatYen\(combinedMiguriSpend\.lost\)/);
   assert.match(dashboardSource, /当选金额（普通序列号，不含落选）/);
   assert.match(dashboardSource, /落选金额合计/);
   assert.match(dashboardSource, /支付合计（按序列号）/);
