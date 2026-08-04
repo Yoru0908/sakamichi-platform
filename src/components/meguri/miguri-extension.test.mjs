@@ -48,6 +48,10 @@ const prototypeSource = readFileSync(
   new URL("./MeguriPrototype.tsx", import.meta.url),
   "utf8",
 );
+const supportSource = readFileSync(
+  new URL("../../pages/miguri-support.astro", import.meta.url),
+  "utf8",
+);
 
 test("Miguri extension has only scoped sync, storage, tab, and alarm permissions", () => {
   assert.equal(manifest.manifest_version, 3);
@@ -595,11 +599,14 @@ test("Meets API accepts three-group campaign discovery from the official tab", a
 });
 
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {
-  assert.match(dashboardSource, /Chrome Web Store · 审核中/);
-  assert.match(dashboardSource, /下载 ZIP 临时安装/);
+  assert.match(dashboardSource, /Chrome Web Store · 已上线/);
+  assert.match(dashboardSource, /Chrome Web Store 安装/);
+  assert.match(dashboardSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
+  assert.match(dashboardSource, /下载 v1\.1\.12 ZIP/);
   assert.match(dashboardSource, /downloads\/46log-miguri-sync\.zip/);
-  assert.match(dashboardSource, /加载已解压扩展/);
-  assert.doesNotMatch(dashboardSource, /Chrome 商店安装/);
+  assert.match(supportSource, /Chrome Web Store · 已上线/);
+  assert.match(supportSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
+  assert.doesNotMatch(dashboardSource, /Chrome Web Store · 审核中/);
   assert.match(dashboardSource, /同步 forTUNE music/);
   assert.match(dashboardSource, /同步 forTUNE meets/);
   assert.match(dashboardSource, /浏览器运行时自动同步/);

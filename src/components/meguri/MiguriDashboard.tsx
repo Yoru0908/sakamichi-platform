@@ -5,7 +5,6 @@ import {
   CalendarDays,
   CheckCircle2,
   CircleDollarSign,
-  Clock3,
   Download,
   LoaderCircle,
   Puzzle,
@@ -296,38 +295,18 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
         <div className="mt-5 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-amber-500/25 bg-amber-500/10 px-3 text-xs font-bold text-amber-700">
-                <Clock3 size={14} /> Chrome Web Store · 审核中
+              <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 text-xs font-bold text-emerald-700">
+                <CheckCircle2 size={14} /> Chrome Web Store · 已上线
               </div>
               <div className="mt-3 text-sm font-bold text-[var(--text-primary)]">
-                审核期间可先安装 ZIP 版本
+                推荐从 Chrome Web Store 安装
               </div>
-              <ol className="mt-2 grid gap-1 text-xs leading-5 text-[var(--text-secondary)] sm:grid-cols-3 sm:gap-3">
-                <li>
-                  <span className="font-bold text-[var(--text-primary)]">
-                    01
-                  </span>{" "}
-                  下载并解压 ZIP
-                </li>
-                <li>
-                  <span className="font-bold text-[var(--text-primary)]">
-                    02
-                  </span>{" "}
-                  打开 chrome://extensions
-                </li>
-                <li>
-                  <span className="font-bold text-[var(--text-primary)]">
-                    03
-                  </span>{" "}
-                  开启开发者模式并加载已解压扩展
-                </li>
-              </ol>
               <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
-                商店审核通过后，这里会切换为 Chrome Web Store
-                的普通安装入口。
+                商店当前公开版为 v1.1.11；包含 D1 写入确认修复的 v1.1.12
+                正在准备商店更新。需要立即使用修复时，可下载下方 ZIP 临时安装。
               </p>
             </div>
-            <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+            <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
               <a
                 href="/miguri-support"
                 className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-indigo-500/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
@@ -337,9 +316,17 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
               <a
                 href="/downloads/46log-miguri-sync.zip"
                 download
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-indigo-500/35 px-4 text-sm font-bold text-indigo-700 transition-colors hover:bg-indigo-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              >
+                <Download size={16} /> 下载 v1.1.12 ZIP
+              </a>
+              <a
+                href="https://chromewebstore.google.com/detail/46log-%E5%92%AA%E5%92%95%E5%8A%9B%E5%90%8C%E6%AD%A5/kdfpdlijajcjianjpffgnmodnmigckdh?authuser=0&hl=ja"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
               >
-                <Download size={16} /> 下载 ZIP 临时安装
+                Chrome Web Store 安装 <ArrowRight size={16} />
               </a>
             </div>
           </div>

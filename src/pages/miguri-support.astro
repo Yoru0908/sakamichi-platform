@@ -16,34 +16,44 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         私人咪咕力面板，并在浏览器运行期间定时检查更新。
       </p>
 
-      <section class="mt-8 rounded-2xl border border-amber-500/25 bg-amber-500/10 p-5">
-        <p class="text-xs font-bold uppercase tracking-[0.14em] text-amber-700">
-          Chrome Web Store · 审核中
+      <section class="mt-8 rounded-2xl border border-emerald-500/25 bg-emerald-500/10 p-5">
+        <p class="text-xs font-bold uppercase tracking-[0.14em] text-emerald-700">
+          Chrome Web Store · 已上线
         </p>
         <h2 class="mt-2 text-lg font-bold text-[var(--text-primary)]">
-          审核期间使用 ZIP 临时安装
+          推荐从商店安装
         </h2>
         <p class="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-          商店版本审核通过后，咪咕力面板会切换为普通的 Chrome Web Store
-          安装入口；现在可以先使用相同功能的 ZIP 版本。
+          商店当前公开版为 v1.1.11。包含 D1 写入确认修复的 v1.1.12
+          正在准备商店更新；需要立即使用修复时，可暂时安装 ZIP 版本。
         </p>
-        <a
-          href="/downloads/46log-miguri-sync.zip"
-          download
-          class="mt-4 inline-flex min-h-11 items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-        >
-          下载 46log 咪咕力同步 ZIP
-        </a>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a
+            href="https://chromewebstore.google.com/detail/46log-%E5%92%AA%E5%92%95%E5%8A%9B%E5%90%8C%E6%AD%A5/kdfpdlijajcjianjpffgnmodnmigckdh?authuser=0&hl=ja"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex min-h-11 items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+          >
+            从 Chrome Web Store 安装
+          </a>
+          <a
+            href="/downloads/46log-miguri-sync.zip"
+            download
+            class="inline-flex min-h-11 items-center justify-center rounded-xl border border-indigo-500/35 px-4 text-sm font-bold text-indigo-700 transition-colors hover:bg-indigo-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          >
+            下载 v1.1.12 ZIP
+          </a>
+        </div>
       </section>
 
       <section class="mt-10">
         <h2 class="text-lg font-bold text-[var(--text-primary)]">使用方式</h2>
         <ol class="mt-4 list-decimal space-y-3 pl-5 leading-7 text-[var(--text-secondary)]">
-          <li>下载 ZIP，将它解压到一个不会随手删除的文件夹。</li>
+          <li>推荐点击上方 Chrome Web Store 按钮完成普通安装。</li>
           <li>
-            在 Chrome 地址栏输入 <code class="rounded bg-black/5 px-1.5 py-0.5 text-sm dark:bg-white/10">chrome://extensions</code>。
+            如需临时安装最新 ZIP：下载并解压后，在 <code class="rounded bg-black/5 px-1.5 py-0.5 text-sm dark:bg-white/10">chrome://extensions</code>
+            开启“开发者模式”，点击“加载已解压的扩展程序”。
           </li>
-          <li>开启右上角“开发者模式”，点击“加载已解压的扩展程序”，选择刚才解压的文件夹。</li>
           <li>登录 46log 并打开咪咕力面板，重新加载后确认显示“扩展已连接”。</li>
           <li>首次分别同步 Music 与 Meets；Meets 会在一个官方标签页中依次检查乃木坂、櫻坂与日向坂。</li>
           <li>首次同步成功后可开启每 30 分钟自动检查。</li>
