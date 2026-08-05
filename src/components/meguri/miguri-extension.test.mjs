@@ -55,7 +55,7 @@ const supportSource = readFileSync(
 
 test("Miguri extension has only scoped sync, storage, tab, and alarm permissions", () => {
   assert.equal(manifest.manifest_version, 3);
-  assert.equal(manifest.version, "1.1.13");
+  assert.equal(manifest.version, "1.1.14");
   assert.deepEqual(manifest.permissions, ["storage", "tabs", "alarms"]);
   assert.equal(manifest.permissions.includes("cookies"), false);
   assert.equal(manifest.host_permissions.includes("<all_urls>"), false);
@@ -98,6 +98,8 @@ test("Miguri extension keeps the official login job separate from normalized res
   assert.match(meetsApiSource, /temporaryLanding/);
   assert.match(backgroundSource, /MIGURI46LOG_RESULT/);
   assert.match(backgroundSource, /MIGURI46LOG_ACK_RESULT/);
+  assert.match(backgroundSource, /job\.tabId === senderTabId/);
+  assert.match(officialSource, /if \(!job\) return/);
   assert.match(bridgeSource, /message\.type === "TAKE_RESULT"/);
   assert.match(bridgeSource, /message\.type === "ACK_RESULT"/);
   assert.match(prototypeSource, /requestMiguriExtensionResult\(\)/);
@@ -603,15 +605,16 @@ test("Meets API accepts three-group campaign discovery from the official tab", a
 
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {
   assert.match(dashboardSource, /Chrome Web Store · 当前版待更新/);
-  assert.match(dashboardSource, /当前版本无法可靠自动同步/);
-  assert.match(dashboardSource, /extensionNeedsAutoSyncUpdate/);
+  assert.match(dashboardSource, /当前版本需要更新/);
+  assert.match(dashboardSource, /误接管您自行打开的 Music／Meets 页面/);
+  assert.match(dashboardSource, /extensionNeedsUpdate/);
   assert.match(dashboardSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
-  assert.match(dashboardSource, /手动下载 v1\.1\.13 ZIP/);
+  assert.match(dashboardSource, /手动下载 v1\.1\.14 ZIP/);
   assert.match(dashboardSource, /单轮超过 10/);
   assert.match(dashboardSource, /downloads\/46log-miguri-sync\.zip/);
   assert.match(supportSource, /Chrome Web Store · 当前版待更新/);
   assert.match(supportSource, /v1\.1\.11 无法可靠自动同步/);
-  assert.match(supportSource, /手动下载 v1\.1\.13 ZIP/);
+  assert.match(supportSource, /手动下载 v1\.1\.14 ZIP/);
   assert.match(supportSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
   assert.doesNotMatch(dashboardSource, /Chrome Web Store · 已上线/);
   assert.match(dashboardSource, /同步 forTUNE music/);
@@ -766,6 +769,20 @@ test("automatic sync imports both sources and recovers a stale background job", 
   assert.ok(Number.isFinite(alarms.get("miguriAutoSyncJobTimeout").when));
   const musicJob = session.miguriSyncJob;
   assert.equal(musicJob.auto, true);
+  assert.equal(
+    (await send(
+      { type: "MIGURI46LOG_GET_JOB" },
+      { tab: { id: musicJob.tabId } },
+    )).job.id,
+    musicJob.id,
+  );
+  assert.equal(
+    (await send(
+      { type: "MIGURI46LOG_GET_JOB" },
+      { tab: { id: 999 } },
+    )).job,
+    null,
+  );
   assert.equal(musicJob.source, "fortunemusic");
 
   const musicResult = await send(

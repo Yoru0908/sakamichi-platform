@@ -373,7 +373,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   if (message?.type === "MIGURI46LOG_GET_JOB") {
     loadJob()
-      .then((job) => sendResponse({ job }))
+      .then((job) => {
+        const senderTabId = sender.tab?.id || null;
+        sendResponse({
+          job:
+            job && senderTabId && job.tabId === senderTabId ? job : null,
+        });
+      })
       .catch(() => sendResponse({ job: null }));
     return true;
   }

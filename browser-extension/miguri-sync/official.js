@@ -63,10 +63,15 @@
   const applicationRound = (value) =>
     compact(value).match(/第[0-9０-９]+次/)?.[0] || "";
 
-  const jobResponse = await chrome.runtime.sendMessage({
-    type: "MIGURI46LOG_GET_JOB",
-  });
-  const job = jobResponse?.job;
+  let job = null;
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    const jobResponse = await chrome.runtime.sendMessage({
+      type: "MIGURI46LOG_GET_JOB",
+    });
+    job = jobResponse?.job || null;
+    if (job) break;
+    if (attempt < 3) await sleep(150);
+  }
   if (!job) return;
   const onMusic = location.hostname === MUSIC_HOST;
   if ((job.source === "fortunemusic") !== onMusic) return;

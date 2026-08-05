@@ -64,13 +64,13 @@ const GROUP_LABELS: Record<MiguriGroupId, string> = {
 };
 const MEETS_DISCOUNT_STORAGE_KEY =
   "46log:miguri:limited-edition-discount-pct";
-const MIN_AUTO_SYNC_VERSION = [1, 1, 13] as const;
+const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 14] as const;
 
-function extensionNeedsAutoSyncUpdate(version: string) {
+function extensionNeedsUpdate(version: string) {
   const current = version.split(".").map((part) => Number(part) || 0);
-  return MIN_AUTO_SYNC_VERSION.some((minimum, index) => {
+  return MIN_RECOMMENDED_EXTENSION_VERSION.some((minimum, index) => {
     const value = current[index] || 0;
-    const previousEqual = MIN_AUTO_SYNC_VERSION.slice(0, index).every(
+    const previousEqual = MIN_RECOMMENDED_EXTENSION_VERSION.slice(0, index).every(
       (part, previousIndex) => (current[previousIndex] || 0) === part,
     );
     return previousEqual && value < minimum;
@@ -204,8 +204,8 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
     [],
   );
 
-  const needsAutoSyncUpdate =
-    extensionVersion !== "" && extensionNeedsAutoSyncUpdate(extensionVersion);
+  const needsUpdate =
+    extensionVersion !== "" && extensionNeedsUpdate(extensionVersion);
 
   const startSync = (source: "fortunemusic" | "fortunemeets") => {
     if (!extensionVersion) {
@@ -230,19 +230,19 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
         <div
           className={`inline-flex min-h-11 items-center gap-2 rounded-xl border px-3 text-xs font-semibold ${
             extensionVersion
-              ? needsAutoSyncUpdate
+              ? needsUpdate
                 ? "border-amber-500/30 bg-amber-500/10 text-amber-700"
                 : "border-emerald-500/25 bg-emerald-500/10 text-emerald-700"
               : "border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-secondary)]"
           }`}
         >
-          {extensionVersion && !needsAutoSyncUpdate ? (
+          {extensionVersion && !needsUpdate ? (
             <CheckCircle2 size={16} />
           ) : (
             <Puzzle size={16} />
           )}
           {extensionVersion
-            ? needsAutoSyncUpdate
+            ? needsUpdate
               ? `扩展需要更新 · v${extensionVersion}`
               : `扩展已连接 · v${extensionVersion}`
             : "等待安装同步扩展"}
@@ -267,17 +267,17 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
               同步 forTUNE meets（三坂） <ArrowRight size={18} />
             </button>
           </div>
-          {needsAutoSyncUpdate ? (
+          {needsUpdate ? (
             <div
               className="flex flex-col gap-3 rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4 sm:flex-row sm:items-center sm:justify-between"
               role="alert"
             >
               <div>
                 <div className="text-sm font-bold text-amber-800">
-                  当前版本无法可靠自动同步
+                  当前版本需要更新
                 </div>
                 <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                  Chrome Web Store 当前版会卡在“检查中”。请先关闭旧版自动同步，并手动下载安装 v1.1.13；商店更新通过后会恢复普通更新。
+                  旧版可能卡在“检查中”，并在同步期间误接管您自行打开的 Music／Meets 页面。请先关闭旧版自动同步，并手动下载安装 v1.1.14。
                 </p>
               </div>
               <div className="flex shrink-0 flex-wrap gap-2">
@@ -295,7 +295,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   download
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-xs font-bold text-white hover:bg-indigo-700"
                 >
-                  <Download size={15} /> 下载 v1.1.13 ZIP
+                  <Download size={15} /> 下载 v1.1.14 ZIP
                 </a>
               </div>
             </div>
@@ -357,10 +357,10 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                 <Puzzle size={14} /> Chrome Web Store · 当前版待更新
               </div>
               <div className="mt-3 text-sm font-bold text-[var(--text-primary)]">
-                请临时手动下载 v1.1.13
+                请临时手动下载 v1.1.14
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
-                Chrome Web Store 当前公开的 v1.1.11 无法可靠自动同步，暂不推荐安装。请先使用下方 ZIP；商店更新到 v1.1.13 后再切回商店版。
+                Chrome Web Store 当前公开的 v1.1.11 无法可靠自动同步，暂不推荐安装。请先使用下方 ZIP；商店更新到 v1.1.14 后再切回商店版。
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
@@ -375,7 +375,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                 download
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
               >
-                <Download size={16} /> 手动下载 v1.1.13 ZIP
+                <Download size={16} /> 手动下载 v1.1.14 ZIP
               </a>
               <a
                 href="https://chromewebstore.google.com/detail/46log-%E5%92%AA%E5%92%95%E5%8A%9B%E5%90%8C%E6%AD%A5/kdfpdlijajcjianjpffgnmodnmigckdh?authuser=0&hl=ja"
