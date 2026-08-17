@@ -18,6 +18,7 @@ interface Recording {
   info?: string;
   description?: string;
   matched_keyword?: string;
+  relative_path?: string;
 }
 
 type GroupFilter = 'all' | 'nogizaka' | 'sakurazaka' | 'hinatazaka' | 'other';
@@ -79,6 +80,10 @@ function formatTime(sec: number): string {
   const m = Math.floor(sec / 60);
   const s = Math.floor(sec % 60);
   return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
+function playPath(rec: Recording): string {
+  return rec.relative_path || rec.filename;
 }
 
 function getRadioApiBase(): string {
@@ -189,9 +194,9 @@ export default function RecordingArchive() {
   }, [stopProgressTracking]);
 
   const togglePlay = useCallback((rec: Recording) => {
-    const audioUrl = `${apiBase}/api/radio/recordings/play/${encodeURIComponent(rec.filename)}`;
+    const audioUrl = `${apiBase}/api/radio/recordings/play/${encodeURIComponent(playPath(rec))}`;
 
-    if (playingFile === rec.filename) {
+    if (playingFile === playPath(rec)) {
       audioRef.current?.pause();
       setPlayingFile(null);
       stopProgressTracking();
@@ -205,7 +210,7 @@ export default function RecordingArchive() {
       audio.onended = () => { setPlayingFile(null); stopProgressTracking(); setAudioProgress(0); };
       audio.onloadedmetadata = () => setAudioDuration(audio.duration);
       audioRef.current = audio;
-      setPlayingFile(rec.filename);
+      setPlayingFile(playPath(rec));
       setAudioProgress(0);
       setAudioCurrentTime(0);
       startProgressTracking();
@@ -351,7 +356,7 @@ export default function RecordingArchive() {
       {/* Recording list */}
       <div className="space-y-2">
         {paged.map(rec => {
-          const isActive = playingFile === rec.filename;
+          const isActive = playingFile === playPath(rec);
           const group = detectGroup(rec);
           const groupColor = GROUP_META[group].color;
           return (
@@ -411,7 +416,7 @@ export default function RecordingArchive() {
                   )}
                 </div>
                 <a
-                  href={`${apiBase}/api/radio/recordings/play/${encodeURIComponent(rec.filename)}`}
+                  href={`${apiBase}/api/radio/recordings/play/${encodeURIComponent(playPath(rec))}`}
                   download={rec.filename}
                   className="shrink-0 p-2 rounded-lg text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
                   title="ダウンロード"
