@@ -250,18 +250,13 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
       const marker = L.marker([lat, lng], { icon });
       marker.on('click', (e) => {
         L.DomEvent.stopPropagation(e);
-        // 如果重复点击已选中的点，则取消选择
-        if (selectedFeature?.properties.id === p.id) {
-          setSelectedFeature(null);
-        } else {
-          setSelectedFeature(f);
-          if (mapInstanceRef.current) {
-            mapInstanceRef.current.flyTo(
-              [lat, lng],
-              Math.max(mapInstanceRef.current.getZoom(), 15),
-              { duration: 0.6 }
-            );
-          }
+        setSelectedFeature((prev) => (prev?.properties.id === p.id ? null : f));
+        if (mapInstanceRef.current) {
+          mapInstanceRef.current.flyTo(
+            [lat, lng],
+            Math.max(mapInstanceRef.current.getZoom(), 15),
+            { duration: 0.6 }
+          );
         }
       });
 
@@ -271,19 +266,15 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
 
   // 列表项点击逻辑（支持重复点击取消选择）
   const handleSelectFeature = (f: Feature) => {
-    if (selectedFeature?.properties.id === f.properties.id) {
-      setSelectedFeature(null);
-    } else {
-      setSelectedFeature(f);
-      if (window.innerWidth < 768) {
-        setMobileView('map');
-      }
-      if (mapInstanceRef.current) {
-        const [lng, lat] = f.geometry.coordinates;
-        mapInstanceRef.current.flyTo([lat, lng], Math.max(mapInstanceRef.current.getZoom(), 15), {
-          duration: 0.6,
-        });
-      }
+    setSelectedFeature((prev) => (prev?.properties.id === f.properties.id ? null : f));
+    if (window.innerWidth < 768) {
+      setMobileView('map');
+    }
+    if (mapInstanceRef.current) {
+      const [lng, lat] = f.geometry.coordinates;
+      mapInstanceRef.current.flyTo([lat, lng], Math.max(mapInstanceRef.current.getZoom(), 15), {
+        duration: 0.6,
+      });
     }
   };
 

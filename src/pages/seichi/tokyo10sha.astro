@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SeichiMap from '@/components/seichi/SeichiMap.tsx';
+
+const mapTitle = '櫻坂46 的野美青・山下瞳月 東京10社めぐりマップ';
+const geojsonUrl = '/seichi/tokyo10sha.geojson';
+---
+
+<BaseLayout
+  title={`${mapTitle} - Sakamichi Tools`}
+  description="櫻坂46 三期生 的野美青、山下瞳月による東京10社めぐり聖地巡礼マップ（全210スポット収録）。"
+  hideFooter
+>
+  <SeichiMap client:only="react" geojsonUrl={geojsonUrl} memberName="的野美青・山下瞳月 東京10社" />
+</BaseLayout>

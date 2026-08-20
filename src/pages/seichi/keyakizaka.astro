@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SeichiMap from '@/components/seichi/SeichiMap.tsx';
+
+const mapTitle = '欅坂46 ロケ地マップ (歴史アーカイブ)';
+const geojsonUrl = '/seichi/keyakizaka-all.geojson';
+---
+
+<BaseLayout
+  title={`${mapTitle} - Sakamichi Tools`}
+  description="欅坂46（2015〜2020）の歴代全MV（サイレントマジョリティー〜黒い羊）・雑誌・サイン・けやかけ・ブログ・イベント会場アーカイブ（1,318スポット）。"
+  hideFooter
+>
+  <SeichiMap client:only="react" geojsonUrl={geojsonUrl} memberName="欅坂46 歴史アーカイブ" />
+</BaseLayout>

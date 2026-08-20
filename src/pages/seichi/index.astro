@@ -1,41 +1,61 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { MapPin, Navigation, Sparkles, Layers, ArrowRight, Video, Compass, Globe, Film } from 'lucide-astro';
+import { MapPin, Navigation, Sparkles, Layers, ArrowRight, Video, Compass, Globe, Film, Heart } from 'lucide-astro';
 
 const maps = [
   {
+    group: 'sakura',
     title: '山川宇衣 聖地巡礼マップ',
     subtitle: '櫻坂46 四期生 山川宇衣 特化マップ',
     author: 'Sakamichi Tools',
     authorType: '原创整理',
     spotCount: 97,
+    hasPhotos: true,
     color: 'var(--color-brand-sakura)',
     href: '/seichi/yamakawa-ui',
     avatar: 'https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/yamakawa-ui/manual/zenkoji/01_zenkoji.png',
     categories: ['MV・楽曲', 'Vlog・企画', '個人PV', '雑誌', 'Blog'],
     highlights: ['四期生デビューVlog仙台松島', '櫻旅長野編', '光源', 'We got your back'],
-    badge: '四期生特化',
+    badge: '四期生特化・写真完備',
     badgeColor: '#e11d48',
   },
   {
-    title: '欅坂46 & 櫻坂46 ロケ地Map',
-    subtitle: 'fumi Diary 2号店様 歴代ロケ地データ',
+    group: 'sakura',
+    title: '櫻坂46 ロケ地マップ (総合版)',
+    subtitle: '歴代シングルMV・雑誌・番組・サイン会店舗',
     author: 'fumi Diary 2号店',
     authorType: '转载参考',
     authorUrl: 'http://blog.livedoor.jp/fumichen2/',
-    spotCount: 1866,
+    spotCount: 548,
     color: 'var(--color-brand-sakura)',
-    href: '/seichi/fumi-sakurazaka',
+    href: '/seichi/sakurazaka',
     avatar: 'https://livedoor.blogimg.jp/fumichen2/imgs/0/b/0b2d9f67.jpg',
-    categories: ['PV・ジャケット', '雑誌', 'サイン', 'テレビ', 'Live・Event', 'Blog'],
-    highlights: ['歴代シングルPV', '雑誌撮影地', '全サイン会店舗', 'そこさくロケ'],
-    badge: '1866スポット網羅',
-    badgeColor: '#7c3aed',
+    categories: ['PV・ジャケット', '雑誌', 'サイン', 'テレビ', '櫻坂46 blog'],
+    highlights: ['Nobody〜I want tomorrow', 'そこさくロケ地', 'We got your back'],
+    badge: '櫻坂46 総合',
+    badgeColor: '#ec4899',
   },
   {
+    group: 'sakura',
+    title: '的野美青・山下瞳月 東京10社めぐり',
+    subtitle: '三期生による東京十社神社めぐり完全追跡',
+    author: 'fumi Diary 2号店',
+    authorType: '转载参考',
+    authorUrl: 'https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM',
+    spotCount: 210,
+    color: '#f59e0b',
+    href: '/seichi/tokyo10sha',
+    avatar: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=120&q=80',
+    categories: ['根津神社', '神田神社', '日枝神社', '赤坂氷川神社', '品川神社', '富岡八幡宮'],
+    highlights: ['東京十社巡拝', '商店街グルメ', '移動経路'],
+    badge: '三期生企画',
+    badgeColor: '#d97706',
+  },
+  {
+    group: 'oversea',
     title: '櫻坂46 海外聖地巡礼マップ',
     subtitle: 'FULL of Sakurazaka46 OVERSEA Map',
-    author: '海外ファン制作',
+    author: 'CybeRiz Seiryuu (Riz)',
     authorType: '转载参考',
     authorUrl: 'https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE',
     spotCount: 130,
@@ -44,17 +64,33 @@ const maps = [
     avatar: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=120&q=80',
     categories: ['パリ', '台北', '香港', 'LA', 'ソウル', 'マレーシア', 'シンガポール'],
     highlights: ['Japan Expo Paris', 'Taipei Tour', 'Clockenflap HK', 'Anime Expo LA'],
-    badge: '海外特化',
+    badge: '海外遠征特化',
     badgeColor: '#0891b2',
+  },
+  {
+    group: 'keyaki',
+    title: '欅坂46 ロケ地マップ (歴史アーカイブ)',
+    subtitle: '2015〜2020 歴代全シングル・けやかけ・サイン会',
+    author: 'fumi Diary 2号店',
+    authorType: '转载参考',
+    authorUrl: 'http://blog.livedoor.jp/fumichen2/',
+    spotCount: 1318,
+    color: '#059669',
+    href: '/seichi/keyakizaka',
+    avatar: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=120&q=80',
+    categories: ['全シングルPV', '雑誌', 'サイン店舗', '欅って、書けない？', 'Live・Event'],
+    highlights: ['サイレントマジョリティー', '二人セゾン', '不協和音', '徳山大五郎'],
+    badge: '1318スポット史料',
+    badgeColor: '#059669',
   },
 ];
 ---
 
 <BaseLayout
   title="聖地巡礼マップ - Sakamichi Tools"
-  description="坂道シリーズ（乃木坂46・櫻坂46・日向坂46）のロケ地・聖地巡礼インタラクティブマップ。作品・MV・Vlog別に収録、Google Maps 一発ナビ対応。"
+  description="坂道シリーズ（乃木坂46・櫻坂46・日向坂46・欅坂46）のロケ地・聖地巡礼インタラクティブマップ。作品・MV・Vlog別に収録、Google Maps 一発ナビ対応。"
 >
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     {/* Hero Header */}
     <div class="mb-10 text-center max-w-2xl mx-auto">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] text-xs font-semibold text-[var(--text-secondary)] mb-4">
@@ -65,22 +101,22 @@ const maps = [
         坂道 聖地巡礼マップ
       </h1>
       <p class="mt-3 text-sm text-[var(--text-tertiary)] leading-relaxed">
-        MV撮影地・Vlogロケ地・個人PV・グラビア撮影場所・海外公演スポットを完全網羅。<br class="hidden sm:inline" />
-        企画別・作品別の階層フィルターと Google Maps 一発ナビゲーションに対応。
+        櫻坂46・欅坂46の歴代MV撮影地・番組ロケ地・個人PV・グラビア・海外遠征地を完全網羅。<br class="hidden sm:inline" />
+        作品別・企画別の二層フィルターと Google Maps 一発ナビゲーションに対応。
       </p>
     </div>
 
-    {/* 地图卡片列表 */}
+    {/* 地图分类浏览区 */}
     <div class="mb-14">
       <div class="flex items-center justify-between mb-4">
         <h2 class="text-xs font-bold uppercase tracking-wider text-[var(--text-tertiary)] flex items-center gap-1.5">
           <Layers size={13} />
           <span>公開中マップ一覧</span>
         </h2>
-        <span class="text-xs text-[var(--text-tertiary)]">{maps.length} マップ公開中</span>
+        <span class="text-xs text-[var(--text-tertiary)]">合計 2,300+ スポット収録</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {maps.map((m) => (
           <a
             href={m.href}
@@ -109,7 +145,9 @@ const maps = [
               <span class="text-xs font-bold text-[var(--text-primary)]">
                 {m.spotCount} スポット
               </span>
-              <span class="text-[10px] text-[var(--text-tertiary)]">· {m.authorType} ({m.author})</span>
+              <span class="text-[10px] text-[var(--text-tertiary)]">
+                · {m.authorType} ({m.author})
+              </span>
             </div>
 
             {/* 包含分类 */}
@@ -142,9 +180,9 @@ const maps = [
         <div class="w-8 h-8 rounded-lg bg-[var(--bg-primary)] flex items-center justify-center text-[var(--color-brand-sakura)] mb-2 shadow-sm">
           <Layers size={16} />
         </div>
-        <h3 class="text-xs font-bold text-[var(--text-primary)] mb-1">二層階層フィルター</h3>
+        <h3 class="text-xs font-bold text-[var(--text-primary)] mb-1">櫻坂＆欅坂 体系化整理</h3>
         <p class="text-[11px] text-[var(--text-tertiary)] leading-relaxed">
-          MV・Vlog・雑誌・ブログなどの大分類から、具体的な子企画・シングル曲まで直感的に絞り込み。
+          現役櫻坂46の最新ロケ地と、欅坂46（2015〜2020）の歴史的アーカイブを独立シリーズとして整理。
         </p>
       </div>
 
@@ -164,7 +202,7 @@ const maps = [
         </div>
         <h3 class="text-xs font-bold text-[var(--text-primary)] mb-1">写真＆出処完備</h3>
         <p class="text-[11px] text-[var(--text-tertiary)] leading-relaxed">
-          現場参考写真・シーン解説・公式動画や考証ブログへの出処リンクを収録。
+          現場参考写真・シーン解説・公式動画や考証ブログ・原作者クレジットを明記。
         </p>
       </div>
     </div>
