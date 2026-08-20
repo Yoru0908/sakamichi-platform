@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SeichiMap from '@/components/seichi/SeichiMap.tsx';
+
+const mapTitle = '日向坂46 聖地巡礼マップ';
+const geojsonUrl = '/seichi/hinatazaka-all.geojson';
+---
+
+<BaseLayout
+  title={`${mapTitle} - Sakamichi Tools`}
+  description="日向坂46（けやき坂46）の聖地巡礼マップ（全3,916スポット収録）。清水ひなたさん作成のマイマップをベースに、MV撮影地・写真集・日向ちゃんねる・ブログ等を網羅。"
+  hideFooter
+>
+  <SeichiMap client:only="react" geojsonUrl={geojsonUrl} memberName="日向坂46 聖地巡礼" />
+</BaseLayout>
