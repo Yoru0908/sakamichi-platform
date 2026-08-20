@@ -12,6 +12,7 @@ export const ja: Record<TranslationKey, string> = {
   'nav.photocard': '生写真カード',
   'nav.miguri': 'ミーグリ',
   'nav.repo': 'ミーグリRepo',
+  'nav.seichi': '聖地巡礼',
   'nav.tools': 'ツールボックス',
   'nav.tools.photocard': '生写真ジェネレーター',
   'nav.tools.msg_generator': 'MSGスタイルジェネレーター',

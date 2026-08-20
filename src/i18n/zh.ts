@@ -11,6 +11,7 @@ export const zh = {
   'nav.photocard': '生写生成',
   'nav.miguri': 'Miguri',
   'nav.repo': '咪咕力Repo',
+  'nav.seichi': '圣巡',
   'nav.tools': '更多工具',
   'nav.tools.photocard': '生写生成器',
   'nav.tools.msg_generator': 'MSG样式生成器',

@@ -1,0 +1,172 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { MapPin, Navigation, Sparkles, Layers, ArrowRight, Video, Compass, Globe, Film } from 'lucide-astro';
+
+const maps = [
+  {
+    title: '山川宇衣 聖地巡礼マップ',
+    subtitle: '櫻坂46 四期生 山川宇衣 特化マップ',
+    author: 'Sakamichi Tools',
+    authorType: '原创整理',
+    spotCount: 97,
+    color: 'var(--color-brand-sakura)',
+    href: '/seichi/yamakawa-ui',
+    avatar: 'https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/yamakawa-ui/manual/zenkoji/01_zenkoji.png',
+    categories: ['MV・楽曲', 'Vlog・企画', '個人PV', '雑誌', 'Blog'],
+    highlights: ['四期生デビューVlog仙台松島', '櫻旅長野編', '光源', 'We got your back'],
+    badge: '四期生特化',
+    badgeColor: '#e11d48',
+  },
+  {
+    title: '欅坂46 & 櫻坂46 ロケ地Map',
+    subtitle: 'fumi Diary 2号店様 歴代ロケ地データ',
+    author: 'fumi Diary 2号店',
+    authorType: '转载参考',
+    authorUrl: 'http://blog.livedoor.jp/fumichen2/',
+    spotCount: 1866,
+    color: 'var(--color-brand-sakura)',
+    href: '/seichi/fumi-sakurazaka',
+    avatar: 'https://livedoor.blogimg.jp/fumichen2/imgs/0/b/0b2d9f67.jpg',
+    categories: ['PV・ジャケット', '雑誌', 'サイン', 'テレビ', 'Live・Event', 'Blog'],
+    highlights: ['歴代シングルPV', '雑誌撮影地', '全サイン会店舗', 'そこさくロケ'],
+    badge: '1866スポット網羅',
+    badgeColor: '#7c3aed',
+  },
+  {
+    title: '櫻坂46 海外聖地巡礼マップ',
+    subtitle: 'FULL of Sakurazaka46 OVERSEA Map',
+    author: '海外ファン制作',
+    authorType: '转载参考',
+    authorUrl: 'https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE',
+    spotCount: 130,
+    color: '#3b82f6',
+    href: '/seichi/oversea',
+    avatar: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=120&q=80',
+    categories: ['パリ', '台北', '香港', 'LA', 'ソウル', 'マレーシア', 'シンガポール'],
+    highlights: ['Japan Expo Paris', 'Taipei Tour', 'Clockenflap HK', 'Anime Expo LA'],
+    badge: '海外特化',
+    badgeColor: '#0891b2',
+  },
+];
+---
+
+<BaseLayout
+  title="聖地巡礼マップ - Sakamichi Tools"
+  description="坂道シリーズ（乃木坂46・櫻坂46・日向坂46）のロケ地・聖地巡礼インタラクティブマップ。作品・MV・Vlog別に収録、Google Maps 一発ナビ対応。"
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    {/* Hero Header */}
+    <div class="mb-10 text-center max-w-2xl mx-auto">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-primary)] text-xs font-semibold text-[var(--text-secondary)] mb-4">
+        <Compass size={14} class="text-[var(--color-brand-sakura)]" />
+        <span>Sakamichi Seichi Pilgrimage Maps</span>
+      </div>
+      <h1 class="text-3xl font-extrabold text-[var(--text-primary)] tracking-tight sm:text-4xl">
+        坂道 聖地巡礼マップ
+      </h1>
+      <p class="mt-3 text-sm text-[var(--text-tertiary)] leading-relaxed">
+        MV撮影地・Vlogロケ地・個人PV・グラビア撮影場所・海外公演スポットを完全網羅。<br class="hidden sm:inline" />
+        企画別・作品別の階層フィルターと Google Maps 一発ナビゲーションに対応。
+      </p>
+    </div>
+
+    {/* 地图卡片列表 */}
+    <div class="mb-14">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-[var(--text-tertiary)] flex items-center gap-1.5">
+          <Layers size={13} />
+          <span>公開中マップ一覧</span>
+        </h2>
+        <span class="text-xs text-[var(--text-tertiary)]">{maps.length} マップ公開中</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {maps.map((m) => (
+          <a
+            href={m.href}
+            class="group relative flex flex-col p-5 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] hover:-translate-y-1 hover:shadow-xl hover:border-[var(--color-brand-sakura)] transition-all duration-200"
+          >
+            <div class="flex items-start justify-between mb-3.5">
+              <div class="w-12 h-12 rounded-xl overflow-hidden bg-[var(--bg-tertiary)] border border-[var(--border-primary)] shrink-0">
+                <img src={m.avatar} alt={m.title} class="w-full h-full object-cover" />
+              </div>
+              <span
+                class="px-2 py-0.5 text-[10px] font-bold text-white rounded-full shadow-sm"
+                style={{ backgroundColor: m.badgeColor }}
+              >
+                {m.badge}
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-base font-bold text-[var(--text-primary)] group-hover:text-[var(--color-brand-sakura)] transition-colors">
+                {m.title}
+              </h3>
+              <p class="text-[11px] text-[var(--text-tertiary)] mt-0.5">{m.subtitle}</p>
+            </div>
+
+            <div className="flex items-center gap-2 mt-3 mb-3">
+              <span class="text-xs font-bold text-[var(--text-primary)]">
+                {m.spotCount} スポット
+              </span>
+              <span class="text-[10px] text-[var(--text-tertiary)]">· {m.authorType} ({m.author})</span>
+            </div>
+
+            {/* 包含分类 */}
+            <div class="flex flex-wrap gap-1 mb-3">
+              {m.categories.slice(0, 4).map((c) => (
+                <span class="px-1.5 py-0.5 text-[9px] rounded bg-[var(--bg-secondary)] text-[var(--text-secondary)] border border-[var(--border-primary)]">
+                  {c}
+                </span>
+              ))}
+              {m.categories.length > 4 && (
+                <span class="px-1.5 py-0.5 text-[9px] rounded bg-[var(--bg-secondary)] text-[var(--text-tertiary)]">
+                  +{m.categories.length - 4}
+                </span>
+              )}
+            </div>
+
+            {/* 代表企划 */}
+            <div class="text-[10px] text-[var(--text-tertiary)] border-t border-[var(--border-primary)] pt-3 mt-auto flex items-center justify-between">
+              <span class="truncate">{m.highlights.slice(0, 2).join(' · ')}</span>
+              <ArrowRight size={12} class="text-[var(--text-tertiary)] group-hover:text-[var(--color-brand-sakura)] group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    {/* 特点说明 */}
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-[var(--border-primary)]">
+      <div class="p-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-primary)]">
+        <div class="w-8 h-8 rounded-lg bg-[var(--bg-primary)] flex items-center justify-center text-[var(--color-brand-sakura)] mb-2 shadow-sm">
+          <Layers size={16} />
+        </div>
+        <h3 class="text-xs font-bold text-[var(--text-primary)] mb-1">二層階層フィルター</h3>
+        <p class="text-[11px] text-[var(--text-tertiary)] leading-relaxed">
+          MV・Vlog・雑誌・ブログなどの大分類から、具体的な子企画・シングル曲まで直感的に絞り込み。
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-primary)]">
+        <div class="w-8 h-8 rounded-lg bg-[var(--bg-primary)] flex items-center justify-center text-[var(--color-brand-sakura)] mb-2 shadow-sm">
+          <Navigation size={16} />
+        </div>
+        <h3 class="text-xs font-bold text-[var(--text-primary)] mb-1">Google Maps 連携</h3>
+        <p class="text-[11px] text-[var(--text-tertiary)] leading-relaxed">
+          地点カードからワンクリックで Google Maps を起動。現在地からのルート案内も一発開始。
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-primary)]">
+        <div class="w-8 h-8 rounded-lg bg-[var(--bg-primary)] flex items-center justify-center text-[var(--color-brand-sakura)] mb-2 shadow-sm">
+          <MapPin size={16} />
+        </div>
+        <h3 class="text-xs font-bold text-[var(--text-primary)] mb-1">写真＆出処完備</h3>
+        <p class="text-[11px] text-[var(--text-tertiary)] leading-relaxed">
+          現場参考写真・シーン解説・公式動画や考証ブログへの出処リンクを収録。
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,11 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SeichiMap from '@/components/seichi/SeichiMap.tsx';
+
+const memberName = '山川宇衣';
+const geojsonUrl = '/seichi/yamakawa-ui.geojson';
+---
+
+<BaseLayout title={`${memberName} 聖地巡礼マップ - Sakamichi Tools`} description={`${memberName}の聖地巡礼（ロケ地）マップ — MV・Vlog・雑誌・Blog 出演地点`} hideFooter>
+  <SeichiMap client:only="react" geojsonUrl={geojsonUrl} memberName={memberName} />
+</BaseLayout>

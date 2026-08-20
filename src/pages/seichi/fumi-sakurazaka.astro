@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SeichiMap from '@/components/seichi/SeichiMap.tsx';
+
+const mapTitle = '欅坂46 & 櫻坂46 ロケ地Map (fumi Diary 2号店)';
+const geojsonUrl = '/seichi/fumi-sakurazaka.geojson';
+---
+
+<BaseLayout
+  title={`${mapTitle} - Sakamichi Tools`}
+  description="fumi Diary 2号店様による欅坂46・櫻坂46の聖地巡礼・ロケ地マップ（全1,866スポット収録）。MV・雑誌・サイン・テレビ・ブログ出演地完全網羅。"
+  hideFooter
+>
+  <SeichiMap client:only="react" geojsonUrl={geojsonUrl} memberName="欅坂46 & 櫻坂46" />
+</BaseLayout>

@@ -27,6 +27,7 @@ export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays' },
   { labelKey: 'nav.miguri', href: '/miguri', icon: 'Calendar' },
   { labelKey: 'nav.repo', href: '/repo', icon: 'Mic' },
+  { labelKey: 'nav.seichi', href: '/seichi', icon: 'MapPin' },
   {
     labelKey: 'nav.tools',
     href: '/tools',
@@ -59,6 +60,7 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
       { labelKey: 'nav.photocard', href: '/photocard', icon: 'Image' },
       { labelKey: 'nav.miguri', href: '/miguri', icon: 'Calendar' },
       { labelKey: 'nav.repo', href: '/repo', icon: 'Mic' },
+      { labelKey: 'nav.seichi', href: '/seichi', icon: 'MapPin' },
       { labelKey: 'nav.gallery', href: '/gallery', icon: 'ImagePlus' },
     ],
   },

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SeichiMap from '@/components/seichi/SeichiMap.tsx';
+
+const mapTitle = '櫻坂46 海外聖地巡礼マップ (OVERSEA Map)';
+const geojsonUrl = '/seichi/oversea.geojson';
+---
+
+<BaseLayout
+  title={`${mapTitle} - Sakamichi Tools`}
+  description="櫻坂46の海外活動・聖地巡礼マップ（パリ・マレーシア・ソウル・香港・台湾・LA・シンガポール等）。"
+  hideFooter
+>
+  <SeichiMap client:only="react" geojsonUrl={geojsonUrl} memberName="櫻坂46 海外活動" />
+</BaseLayout>
