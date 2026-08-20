@@ -33,7 +33,6 @@ export default function RadikoPlayer() {
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const hlsRef = useRef<Hls | null>(null);
-  const heartbeatRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // ─── Fetch station list ───────────────────────
   const fetchStations = useCallback(async () => {
@@ -123,10 +122,6 @@ export default function RadikoPlayer() {
         setSelectedStation({ ...station, streaming: true, hls_url: data.hls_url });
         loadHls(data.hls_url);
 
-        if (heartbeatRef.current) clearInterval(heartbeatRef.current);
-        heartbeatRef.current = setInterval(() => {
-          fetch(`${API_BASE}/api/radio/live/heartbeat/${station.id}`, { method: 'POST' }).catch(() => {});
-        }, HEARTBEAT_INTERVAL);
       } else {
         setHlsError(data.error || 'チューニング失敗');
         setIsLoading(false);
@@ -166,8 +161,29 @@ export default function RadikoPlayer() {
 
   // ─── Cleanup ──────────────────────────────────
   useEffect(() => {
-    return () => { if (heartbeatRef.current) clearInterval(heartbeatRef.current); };
-  }, []);
+    const stationId = selectedStation?.id;
+    if (!stationId || !isPlaying) return;
+
+    const sendHeartbeat = () => {
+      fetch(`${API_BASE}/api/radio/live/heartbeat/${stationId}`, { method: 'POST' }).catch(() => {});
+    };
+    const sendHeartbeatWhenVisible = () => {
+      if (document.visibilityState === 'visible') sendHeartbeat();
+    };
+
+    sendHeartbeat();
+    const interval = setInterval(sendHeartbeat, HEARTBEAT_INTERVAL);
+    document.addEventListener('visibilitychange', sendHeartbeatWhenVisible);
+    window.addEventListener('focus', sendHeartbeat);
+    window.addEventListener('pageshow', sendHeartbeat);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', sendHeartbeatWhenVisible);
+      window.removeEventListener('focus', sendHeartbeat);
+      window.removeEventListener('pageshow', sendHeartbeat);
+    };
+  }, [isPlaying, selectedStation?.id]);
 
   // ─── Group stations by region ─────────────────
   const stationsByRegion = REGION_ORDER.reduce<Record<string, Station[]>>((acc, region) => {
