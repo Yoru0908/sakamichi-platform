@@ -16,6 +16,9 @@ import {
   MessageSquare,
   Sparkles,
   Tag,
+  Lock,
+  LockOpen,
+  Heart,
   Layers,
   List,
   Map as MapIcon,
@@ -69,6 +72,9 @@ interface GeoJSON {
 interface Props {
   geojsonUrl: string;
   memberName: string;
+  groupLabel?: string;
+  groupColor?: string;
+  showGroupIcon?: boolean;
 }
 
 const getFeatureTags = (feature: Feature): string[] =>
@@ -148,7 +154,13 @@ const getFeatureFacetTags = (feature: Feature): FacetTag[] => {
 const hasFacetTag = (feature: Feature, tag: string): boolean =>
   getFeatureFacetTags(feature).some((facet) => facet.name === tag);
 
-export default function SeichiMap({ geojsonUrl, memberName }: Props) {
+export default function SeichiMap({
+  geojsonUrl,
+  memberName,
+  groupLabel = '櫻坂46',
+  groupColor = 'var(--color-brand-sakura)',
+  showGroupIcon = false,
+}: Props) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
@@ -162,6 +174,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
   const [selectedSubcategory, setSelectedSubcategory] = useState<string>('ALL');
   const [selectedTag, setSelectedTag] = useState<string>('ALL');
   const [facetSearch, setFacetSearch] = useState('');
+  const [facetLocked, setFacetLocked] = useState(false);
 
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -494,8 +507,12 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                 全 {data?.features.length || 0} スポット収録
               </p>
             </div>
-            <span className="px-2 py-0.5 text-[10px] font-semibold tracking-wider rounded-full bg-[var(--color-brand-sakura)] text-white">
-              櫻坂46
+            <span
+              className="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold tracking-wider rounded-full text-white"
+              style={{ backgroundColor: groupColor }}
+            >
+              {showGroupIcon && <Heart size={10} fill="currentColor" aria-hidden="true" />}
+              {groupLabel}
             </span>
           </div>
 
@@ -534,6 +551,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
               onClick={() => {
                 setSelectedCategory('ALL');
                 setSelectedSubcategory('ALL');
+                if (!facetLocked) setSelectedTag('ALL');
                 setSelectedFeature(null);
               }}
               className={`px-2.5 py-1 text-xs font-medium rounded-md transition-all shrink-0 ${
@@ -550,6 +568,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                 onClick={() => {
                   setSelectedCategory(cat.name);
                   setSelectedSubcategory('ALL');
+                  if (!facetLocked) setSelectedTag('ALL');
                   setSelectedFeature(null);
                 }}
                 className={`px-2.5 py-1 text-xs font-medium rounded-md flex items-center gap-1.5 transition-all shrink-0 ${
@@ -580,6 +599,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
               <button
                 onClick={() => {
                   setSelectedSubcategory('ALL');
+                  if (!facetLocked) setSelectedTag('ALL');
                   setSelectedFeature(null);
                 }}
                 className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
@@ -595,6 +615,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                   key={sub.name}
                   onClick={() => {
                     setSelectedSubcategory(sub.name);
+                    if (!facetLocked) setSelectedTag('ALL');
                     setSelectedFeature(null);
                   }}
                   className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
@@ -618,9 +639,29 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                 <span>メンバー・作品</span>
               </div>
               {selectedTag !== 'ALL' && (
-                <span className="text-[10px] text-[var(--text-secondary)] truncate">
-                  選択中: {selectedTag}
-                </span>
+                <div className="flex min-w-0 items-center gap-1.5">
+                  <span className="max-w-28 truncate text-[10px] text-[var(--text-secondary)]">
+                    選択中: {selectedTag}
+                  </span>
+                  <button
+                    type="button"
+                    aria-pressed={facetLocked}
+                    aria-label={facetLocked ? 'メンバー・作品条件の固定を解除' : 'メンバー・作品条件を固定'}
+                    title={facetLocked ? '固定中：分類を変えても条件を維持します' : '固定すると分類を変えても条件を維持します'}
+                    onClick={() => setFacetLocked((locked) => !locked)}
+                    className={`inline-flex shrink-0 items-center gap-1 rounded-full border px-1.5 py-0.5 text-[10px] font-medium transition-colors ${
+                      facetLocked
+                        ? 'border-[var(--color-brand-sakura)] bg-[var(--color-brand-sakura)] text-white'
+                        : 'border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+                    }`}
+                  >
+                    <span className="t-icon-swap" data-state={facetLocked ? 'a' : 'b'} aria-hidden="true">
+                      <span className="t-icon" data-icon="a"><Lock size={10} /></span>
+                      <span className="t-icon" data-icon="b"><LockOpen size={10} /></span>
+                    </span>
+                    <span>{facetLocked ? '固定中' : '固定'}</span>
+                  </button>
+                </div>
               )}
             </div>
             <div className="relative mb-1.5">
@@ -638,6 +679,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                 <button
                   onClick={() => {
                     setSelectedTag('ALL');
+                    setFacetLocked(false);
                     setSelectedFeature(null);
                   }}
                   className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${

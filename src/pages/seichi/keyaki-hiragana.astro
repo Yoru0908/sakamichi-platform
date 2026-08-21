@@ -11,5 +11,12 @@ const geojsonUrl = '/seichi/keyaki-hiragana.geojson';
   description="けやき坂46（日向坂46前身）のMV・雑誌・特典映像ロケ地マップ。fumi Diary 2号店データより。"
   hideFooter
 >
-  <SeichiMap client:only="react" geojsonUrl={geojsonUrl} memberName="けやき坂46 ロケ地" />
+  <SeichiMap
+    client:only="react"
+    geojsonUrl={geojsonUrl}
+    memberName="けやき坂46 ロケ地"
+    groupLabel="けやき坂46"
+    groupColor="#8B5CF6"
+    showGroupIcon
+  />
 </BaseLayout>
