@@ -15,6 +15,7 @@ import {
   BookOpen,
   MessageSquare,
   Sparkles,
+  Tag,
   Layers,
   List,
   Map as MapIcon,
@@ -70,6 +71,15 @@ interface Props {
   memberName: string;
 }
 
+const getFeatureTags = (feature: Feature): string[] =>
+  Array.from(
+    new Set([
+      ...(feature.properties.tags || []),
+      ...(feature.properties.source?.tags || []),
+      ...(feature.properties.members || []),
+    ].filter(Boolean))
+  );
+
 export default function SeichiMap({ geojsonUrl, memberName }: Props) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -82,6 +92,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
   // 大层级 (Category) & 小层级 (Subcategory)
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [selectedSubcategory, setSelectedSubcategory] = useState<string>('ALL');
+  const [selectedTag, setSelectedTag] = useState<string>('ALL');
 
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -198,6 +209,35 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
     return Array.from(map.entries()).map(([name, count]) => ({ name, count }));
   }, [data, selectedCategory]);
 
+  const tagScopeCount = useMemo(() => {
+    if (!data) return 0;
+    return data.features.filter((feature) => {
+      const { category, subcategory } = feature.properties;
+      return (
+        (selectedCategory === 'ALL' || category === selectedCategory) &&
+        (selectedSubcategory === 'ALL' || subcategory === selectedSubcategory)
+      );
+    }).length;
+  }, [data, selectedCategory, selectedSubcategory]);
+
+  const tagOptions = useMemo(() => {
+    if (!data) return [];
+    const pool = data.features.filter((feature) => {
+      const { category, subcategory } = feature.properties;
+      return (
+        (selectedCategory === 'ALL' || category === selectedCategory) &&
+        (selectedSubcategory === 'ALL' || subcategory === selectedSubcategory)
+      );
+    });
+    const map = new Map<string, number>();
+    pool.forEach((feature) => {
+      getFeatureTags(feature).forEach((tag) => map.set(tag, (map.get(tag) || 0) + 1));
+    });
+    return Array.from(map.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ja'));
+  }, [data, selectedCategory, selectedSubcategory]);
+
   // 4. 多层级与搜索过滤
   const filteredFeatures = useMemo(() => {
     if (!data) return [];
@@ -214,6 +254,10 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
         return false;
       }
 
+      if (selectedTag !== 'ALL' && !getFeatureTags(f).includes(selectedTag)) {
+        return false;
+      }
+
       if (q) {
         const text = [
           p.name,
@@ -227,7 +271,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
           p.classification?.subcategory,
           p.category,
           p.subcategory,
-          ...(p.tags || []),
+          ...getFeatureTags(f),
         ]
           .join(' ')
           .toLowerCase();
@@ -236,7 +280,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
 
       return true;
     });
-  }, [data, selectedCategory, selectedSubcategory, search]);
+  }, [data, selectedCategory, selectedSubcategory, selectedTag, search]);
 
   // 5. 渲染地图标记 (自定义 SVG 圆形 Marker)
   useEffect(() => {
@@ -396,6 +440,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
               onClick={() => {
                 setSelectedCategory('ALL');
                 setSelectedSubcategory('ALL');
+                setSelectedTag('ALL');
                 setSelectedFeature(null);
               }}
               className={`px-2.5 py-1 text-xs font-medium rounded-md transition-all shrink-0 ${
@@ -412,6 +457,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                 onClick={() => {
                   setSelectedCategory(cat.name);
                   setSelectedSubcategory('ALL');
+                  setSelectedTag('ALL');
                   setSelectedFeature(null);
                 }}
                 className={`px-2.5 py-1 text-xs font-medium rounded-md flex items-center gap-1.5 transition-all shrink-0 ${
@@ -442,6 +488,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
               <button
                 onClick={() => {
                   setSelectedSubcategory('ALL');
+                  setSelectedTag('ALL');
                   setSelectedFeature(null);
                 }}
                 className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
@@ -457,6 +504,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                   key={sub.name}
                   onClick={() => {
                     setSelectedSubcategory(sub.name);
+                    setSelectedTag('ALL');
                     setSelectedFeature(null);
                   }}
                   className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
@@ -466,6 +514,46 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                   }`}
                 >
                   {sub.name} ({sub.count})
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {tagOptions.length > 0 && (
+          <div className="border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 py-2 overflow-x-auto no-scrollbar">
+            <div className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-tertiary)] mb-1.5 px-0.5">
+              <Tag size={11} />
+              <span>タグ</span>
+            </div>
+            <div className="flex flex-wrap gap-1 max-h-20 overflow-y-auto">
+              <button
+                onClick={() => {
+                  setSelectedTag('ALL');
+                  setSelectedFeature(null);
+                }}
+                className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
+                  selectedTag === 'ALL'
+                    ? 'bg-[var(--border-secondary)] text-[var(--text-primary)] font-semibold'
+                    : 'bg-[var(--bg-primary)] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+                }`}
+              >
+                全标签 ({tagScopeCount})
+              </button>
+              {tagOptions.map((tag) => (
+                <button
+                  key={tag.name}
+                  onClick={() => {
+                    setSelectedTag(tag.name);
+                    setSelectedFeature(null);
+                  }}
+                  className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
+                    selectedTag === tag.name
+                      ? 'bg-[var(--border-secondary)] text-[var(--text-primary)] font-semibold'
+                      : 'bg-[var(--bg-primary)] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+                  }`}
+                >
+                  {tag.name} ({tag.count})
                 </button>
               ))}
             </div>
