@@ -33,14 +33,6 @@ zone_name = "46log.com"
 pattern = "api.46log.com/api/manage/miguri/*"
 zone_name = "46log.com"
 
-[[routes]]
-pattern = "api.sakamichi-tools.cn/api/miguri/*"
-zone_name = "sakamichi-tools.cn"
-
-[[routes]]
-pattern = "api.sakamichi-tools.cn/api/manage/miguri/*"
-zone_name = "sakamichi-tools.cn"
-
 # No [triggers] — auto-sync is fired by Homeserver cron (account cron limit reached):
 #   POST https://api.46log.com/api/manage/miguri/sync-from-source
 #   header: x-miguri-sync-secret: $MIGURI_SYNC_SECRET
