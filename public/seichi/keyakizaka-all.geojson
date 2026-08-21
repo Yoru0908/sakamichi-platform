@@ -38946,6 +38946,92 @@
         ],
         "members": []
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7002253,
+          35.65998
+        ]
+      },
+      "properties": {
+        "id": "fumi-1413",
+        "name": "SHIBUYA TSUTAYA",
+        "category": "欅坂46 Live & Event",
+        "subcategory": "欅坂46 Live & Event",
+        "categoryColor": "#d97706",
+        "address": "",
+        "sceneTitle": "",
+        "sceneNote": "説明: 2016/04/06(水) 店頭宣伝 (石森虹花・今泉佑唯・上村莉菜・織田奈那・小林由依・志田愛佳・原田葵・米谷奈々未) 欅坂46サイン入りポスター サイレントマジョリティー: 今泉佑唯 世界には愛しかない: 小林由依 二人セゾン: 守屋茜 真っ白なものは汚したくなる: 渡邉理佐 櫻坂46サイン入りポスター Nobody's fault: 森田ひかる BAN: 山﨑天 流れ弾: 田村保乃 五月雨よ: 全員 As you know?: 森田ひかる 桜月: 守屋麗奈 Start over!: 山﨑天 承認欲求: 森田ひかる 他のも多数のサイン 住所: 〒150-0042 東京都渋谷区宇田川町21-6",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/",
+        "tags": [
+          "欅坂46 Live & Event"
+        ],
+        "images": [
+          "https://lh3.googleusercontent.com/umsh/AN6v0v5-M-rnxMdyfIToruHkAW9WWZ0jqtOwq9K2qcxgqqmR49gtu-9p03ZdqSJd3ZZnhVLW_PYpOGBhYcVS8YaLNTx0X7maoc7AZsntQeJr5HeTO6beX0B7Kc6NnKg8BQcn9OhPalk",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v4YENZcdC_nIPoGKHuzWS8ZO_kFyWXIamsLQ8hCUUkQRto-YCMEItleC6zjB3TpMu7UfN9mTYGd5lNns6WIh9M1NNK9V6CMrUbJESWPAl9s9onAGaToqaRPuvCNCrdZC8XBYg",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v4K-Hx3mRAulhIRJ63pomEOqD84dWvbFDyWakqVsMD-Pgb64DbdPrdoRRvb16tmR3amSBPHCf5UKb1JMMeWvREiZYo30q86JsT0PYYBkYIqsxd141PapOlmUswGFep69GFJ7DQ",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v6MSLIyZL8-1TfIunEc9dKn_E2hhP_28KpUPDUIdNkcEe0SNZXC1zUMJH0bP_dkvIQO_iBP1RBPFsmwwDrv9FRUCIdI6in37tjK60RdQazuSGZTr3UyDqw9qP7Osr8Op4L5yQ",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v4ikBs1pFDPaysM2YKQZ1Zr3PCzI_7ku5OoDqwxvsC7sMlo67fgs-N4Uklcr57ixmWYUa8rra85pHWDISFji6vFzoqIhUKfpJZ6oMpjMBFfL7vW6zytDkEVGPUYASAmmlELkg",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v7YSnyfT6oydK1ZaML07BI1v1vdWvZzliqqigwhWjKqyHDZQHiSMt6_thSC4_nhYSaitulVPUBgBaTEX_0HZVEKdfgULedse92_zjFthTiwZl_EZdNq85saRO6wWO84VFUjt48",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v7lLSUzzfF_W69yJPJpwVKwStrNbrN9dXC3D829KjgWtI4RAuYwTGREUgxVcpRLv3g-fnKFFal_bIjAYtp3ifakqYyFOtpdIuTRa2XdfuIT7C8KlbJXzfLTt9hlDdo9NWrO1g",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v548ftGFKip6ARfrNsr5xoO9LgdzE8fxtU2qWopjH4rBouCB-y9QH520PyAS1-hgtGYKx3SiY0JzUWW947qSaVOaWQkEEyU3Ce0XMLXuBQarA_6woS-zGNabm16jATTaIVt-04",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v6tw7L7QkRvNDezXZOKQbdupzixTu0GlfRN3mydkYNXiPrKbF0jhCfBKtjONmJys50LMvZ5YEIkaZYTpSilIYpXQaJAtWEd_bWIxNf9ljn2gifjHrtNPJI37syNxNchVNRnNAk",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v7ebELZ9m1tyj5SehUoPTvxTFf6nSJ44gjuwAwHVQUpv6QQqcz0BnXHA1vK8TKvcsWqtcD5jnUGX3YGg4T1VZnMUhsTZ3_kOQUG5ik_V7LVY-TCh52rf0Y9ZO1_C0DiX3KSeMQ",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v4iM1fq8eQQrvMJaXkXsMSWAkEATLJPOFwWyRvKuP487cgfEfjUk8oQBQ6a3c3hyC1D8dUyBsLAye5e_V_nZC0lC3r_TI4a4x92IioHCevlcd29mV9NNE_oNHnsKy8VAzY5jzw",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v6p8ddFNIN6ey2XUJXcbTGHKT0kMHzrPtWLhEdMlpYGWPzPguwR6J7WE86tnb9ydYPkrQ4HwIzO92yQOeCri_dk27obEKYTDZgXvudqyd1UiZKLizUAyXjnmSHccgJwJb0eqhI",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v5MMeBFJv3V1MAMTxxczi2YW8fIR_cnB8uuhmCNNz37gKCkWcv-Af7u-MGeO0QzuMxKpu8nQmuvkMRuPLcHYn1Zi5b7gWCbBx7ZbStcOvLQ2xw98MTWnQQnv0ipJ4Uo4SUpgXw-J5auU8bInHZ8Cgxkk7kz",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v5jmnctuW0lSQsLg_riCpTqUj5LD_f5nV5eaRBjctXYPvkrPPwMU8a-llJxNaH2ztJ7QmuRkT8aHnohNv4ajCLwY39piZBhVf0MU_G5US9DhqTbmaLT_EIiHvaNEJaf4_gnJs2noooscd9Y6Ucl-tKSWlQ7",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v5l-Z5uPuq6bd4k32mvoHg0cNlamPzwjQNXB7nUKz355QIrRQzW6zOQx9jBLNVsKQIuP9M3I9boroE0YCjHEzec2qYTqXaeI_xCUa5JUGQiUDySetsvN9sgGGnbXe9iekTDgLMEB4qEdx9i4AikuJI",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v4x_oobgYc-AlOwTi4ddqw-oD1J5gIT2g4WkIWU1zdmsazK0vkqotfPTpHWVQKyBnZNCtjxTis6tefQ3-5eL_mjGxmO3qrO2fPcUGZ1w0eu5K6-nIrRaWmIaHuUhxCjXzvWVXoN40Hcp8TrwA7plTAt6Sle",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v5DGw39hz8gHU4oSP00lfDnoDPGJw9J5FEnwbPk-VaL85slgJ6Jb0l2zo_YVcqZLSSeXjZuEY5B0bPz_uB0ZbkBLtkiQL5m5a_3Q52cN2BCDoXYRzXUR6mTfRDLUdAUAHhmqnokumCn7h7HEdO3NRwbbXxw",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v4RWnQXNgTgejEhz4XNNbNIHTJC2HUFsMBVU2ctx51NH86gYCG6RjFMbWoEWuBwRLZoHjaP0qQjpS_TPpxZdRrseZDLmPkiDBINx6U9wGRuRLZNrFfhoL2L7isQSZ7e8pPUEAWg9diBHQpxY0-c_YIcMrgg",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v70qy1yMs_TAjNUa_nZvK9HF-ogcfeyZonXDJ9td7m-7BEqHvs6ADl6gv-0TuU2FWoGbCKDBSznK9uYlEqkWu5MB_RFBiWGJHQpFAxKCy82QM8FuFVcHAyKYF7Oi6gHZW-j8-R7XAYA5odxpHGyo40eEXtB",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v7-MahUdJirAvoVCFFU0A1NOvfYONR7CXUVEidF_WOv3xEh1-xA1N-EuJP2Eov5cD1EU6eIcUbZ7t40vn8pnU2lvs8l7mDkJSc6qeGDWTfdJWxGNK2aNMeNbfROq0h8Yns3CzAqvqhfy5I92r5gsISPo73B",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v7bfHDzXJioWAIinp6ZM90PpBVpZRZHovxzO3axV38iKp5RAA-cDn6lG9PqT6XWUOSN8J5oQ_ZndVPG9BwszvJ5MBQETaGG4Jm1WCUTYCFYIJmo7HgrYhkzoNIX7hADDeQKRMSVopZyeU-DHvPXyyYElEQ"
+        ],
+        "members": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7010869,
+          35.6619212
+        ]
+      },
+      "properties": {
+        "id": "fumi-1414",
+        "name": "タワーレコード渋谷店",
+        "category": "欅坂46 Live & Event",
+        "subcategory": "欅坂46 Live & Event",
+        "categoryColor": "#d97706",
+        "address": "",
+        "sceneTitle": "",
+        "sceneNote": "説明: 2016/04/06(水) 店頭宣伝 (今泉佑唯・小林由依・鈴本美愉・菅井友香・平手友梨奈・渡辺梨加・渡邉理佐) 2016/08/15(月) SHIBUYA109presents 欅坂46ガールズトーク 2017/07/13(木) 「未確認フェスティバル2017」記者会見 (平手友梨奈) 欅坂46サイン入りポスター サイレントマジョリティー: 渡辺梨加 世界には愛しかない: 石森虹花、今泉佑唯、尾関梨香、小林由依、齋藤冬優花、土生瑞穂、渡邉理佐、長濱ねる 二人セゾン: 土生瑞穂 真っ白なものは汚したくなる: 平手友梨奈 永遠より長い一瞬 ～あの頃、確かに存在した私たち～: 菅井友香 櫻坂46サイン入りポスター Nobody's fault: 藤吉夏鈴 BAN: 森田ひかる 流れ弾: 渡邉理佐 五月雨よ: 森田ひかる As you know?: 田村保乃 桜月: 田村保乃 Start over!: 山下瞳月 他にも多数のサイン 住所: 〒150-0041 東京都渋谷区神南1-22-14",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/",
+        "tags": [
+          "欅坂46 Live & Event"
+        ],
+        "images": [
+          "https://lh3.googleusercontent.com/umsh/AN6v0v7XsL9zuK2QgEwkwrWCuxrMwW4GWEzn8fxA0sUfWTybs2_AElZRoNbOXaMJJMelLiFxk3NO5Q-DHUPRwUsswt1F_2FHdXU2L2RiFuAu1sHMqWj_7LCexJIBimFkikW9iqL54oc",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v7FVvzt-c-7pNHxWdHTCVPCg-I7FqYx2P_wFCRxBiXwVJPq1xxL3EpjbxU9uFNL2yLRFHqG_Um1AJIHOfwwEVF207JFcnAM3S2gcqEcT5uKE0tKgzQaCVvEnfs8eraRh-G7wQ",
+          "https://lh3.googleusercontent.com/umsh/AN6v0v692z1GlGUUC7ab1cTXS8BCgdbjBbnu3OS-LqVInulRfyywu0ZCJ-es4tczp8hsBgmCvlOJvyTTTU6Wi7Prw6iwRp4k7nAi1m9BEmCqpW1nNsF1PlN7Kg",
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/seichi/sakurazaka/3AAjQbR6pwnq6HDGBLYFq5lOgsmtd59OlEghZbvr_9e4db16d.png",
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/seichi/sakurazaka/3AAjQbR44-jIQzOt2wHIaS64eCMhIRjXp6_9Mk5i_98f4e835.png",
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/seichi/sakurazaka/3AAjQbR4i7O6iJh3qkl0mCnmyeRTRGVAxaj7BMrV_38870f9a.png",
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/seichi/sakurazaka/3AAjQbR5X0azg43LxnduP0x7syhojVwmiWiitZi4_e2048854.png",
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/seichi/sakurazaka/3AAjQbR6zS0COzS924MogiFbsfJE00NQDW42x3tC_557df9fb.png",
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/seichi/sakurazaka/3AAjQbR5uUDAn8aObjU_Kz3VUGoBOvlaNhP_ZuH9_90218a16.png"
+        ],
+        "members": []
+      }
     }
   ]
 }
