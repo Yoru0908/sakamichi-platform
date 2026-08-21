@@ -115,9 +115,11 @@ class FakeStatement {
 }
 
 class FakeMiguriDb {
-  constructor() {
+  constructor({ knownEventSlugs = [], slotMembers = [] } = {}) {
     this.entries = new Map();
     this.batchCalls = 0;
+    this.knownEventSlugs = new Set(knownEventSlugs);
+    this.slotMembers = slotMembers;
   }
 
   prepare(sql) {
@@ -143,7 +145,16 @@ class FakeMiguriDb {
       };
     }
 
-    if (sql.includes('SELECT slug FROM miguri_events')) return { results: [] };
+    if (sql.includes('SELECT slug FROM miguri_events')) {
+      return {
+        results: args
+          .filter((slug) => this.knownEventSlugs.has(slug))
+          .map((slug) => ({ slug })),
+      };
+    }
+    if (sql.includes('JOIN miguri_slot_members')) {
+      return { results: this.slotMembers };
+    }
     throw new Error(`Unexpected all() SQL: ${sql}`);
   }
 
@@ -259,6 +270,40 @@ test('handleImportMiguriEntries updates the same source key instead of accumulat
   assert.equal(second.data.entries[0].tickets, 4);
   assert.equal(second.data.entries[0].spendYen, 8000);
   assert.equal(db.entries.size, 1);
+});
+
+test('handleImportMiguriEntries links Music records to one matching managed event', async () => {
+  const token = await signAccessToken('user-1', 'member', 'test-secret');
+  const db = new FakeMiguriDb({
+    slotMembers: [{
+      slug: 'sakurazaka_202606',
+      group_id: 'sakurazaka',
+      event_date: '2026-09-13',
+      slot_number: 2,
+      member_name: '山川 宇衣',
+    }],
+  });
+  const response = await handleImportMiguriEntries(
+    await importRequest(token, [importRecord({
+      source: 'fortunemusic',
+      sourceKey: 'music-1',
+      category: '個別ミーグリ',
+      date: '2026-09-13',
+      slot: 2,
+      paidTickets: 0,
+      signLots: 0,
+      eventSlug: '',
+    })]),
+    {
+      MIGURI_DB: db,
+      JWT_SECRET: 'test-secret',
+    },
+  );
+
+  const payload = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(payload.data.entries[0].eventSlug, 'sakurazaka_202606');
+  assert.equal(db.entries.values().next().value.event_slug, 'sakurazaka_202606');
 });
 
 test('handleImportMiguriEntries rejects the full request when any record is malformed', async () => {

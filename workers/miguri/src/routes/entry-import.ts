@@ -271,6 +271,64 @@ async function findKnownEventSlugs(
   return known;
 }
 
+async function resolveImportEventSlugs(
+  env: Env,
+  records: NormalizedImportRecord[],
+): Promise<Map<string, string>> {
+  const resolved = new Map<string, string>();
+  const requestedSlugs = Array.from(new Set(
+    records.map((record) => record.eventSlug).filter(Boolean),
+  ));
+  const knownEventSlugs = await findKnownEventSlugs(env, requestedSlugs);
+  for (const record of records) {
+    if (knownEventSlugs.has(record.eventSlug)) {
+      resolved.set(record.sourceKey, record.eventSlug);
+    }
+  }
+
+  const inferable = records.filter((record) => (
+    !resolved.has(record.sourceKey)
+    && record.source === 'fortunemusic'
+    && record.category === '個別ミーグリ'
+    && record.group
+    && record.slot > 0
+  ));
+  if (inferable.length === 0) return resolved;
+
+  const groups = Array.from(new Set(inferable.map((record) => record.group!)));
+  const dates = Array.from(new Set(inferable.map((record) => record.date)));
+  const candidates = new Map<string, Set<string>>();
+  for (const dateChunk of chunk(dates, QUERY_CHUNK_SIZE - groups.length)) {
+    const groupPlaceholders = groups.map(() => '?').join(', ');
+    const datePlaceholders = dateChunk.map(() => '?').join(', ');
+    const rows = await env.MIGURI_DB.prepare(`
+      SELECT DISTINCT e.slug, e.group_id, sm.event_date, sm.slot_number, sm.member_name
+      FROM miguri_events e
+      JOIN miguri_slot_members sm ON sm.event_slug = e.slug
+      WHERE e.group_id IN (${groupPlaceholders})
+        AND sm.event_date IN (${datePlaceholders})
+    `).bind(...groups, ...dateChunk).all<{
+      slug: string;
+      group_id: MiguriImportGroup;
+      event_date: string;
+      slot_number: number;
+      member_name: string;
+    }>();
+    for (const row of rows.results || []) {
+      const key = `${row.group_id}|${row.event_date}|${row.slot_number}|${normalizeMemberName(row.member_name)}`;
+      if (!candidates.has(key)) candidates.set(key, new Set());
+      candidates.get(key)!.add(row.slug);
+    }
+  }
+
+  for (const record of inferable) {
+    const key = `${record.group}|${record.date}|${record.slot}|${record.member}`;
+    const matches = candidates.get(key);
+    if (matches?.size === 1) resolved.set(record.sourceKey, matches.values().next().value!);
+  }
+  return resolved;
+}
+
 async function loadImportedEntries(
   env: Env,
   userId: string,
@@ -349,8 +407,7 @@ export async function handleImportMiguriEntries(req: Request, env: Env): Promise
 
   const sourceKeys = records.map((record) => record.sourceKey);
   const existingKeys = await findExistingSourceKeys(env, userId, sourceKeys);
-  const requestedEventSlugs = Array.from(new Set(records.map((record) => record.eventSlug).filter(Boolean)));
-  const knownEventSlugs = await findKnownEventSlugs(env, requestedEventSlugs);
+  const resolvedEventSlugs = await resolveImportEventSlugs(env, records);
 
   const statements = records.map((record) => env.MIGURI_DB.prepare(`
     INSERT INTO miguri_user_entries (
@@ -385,7 +442,7 @@ export async function handleImportMiguriEntries(req: Request, env: Env): Promise
   `).bind(
     nanoid(),
     userId,
-    knownEventSlugs.has(record.eventSlug) ? record.eventSlug : '',
+    resolvedEventSlugs.get(record.sourceKey) || '',
     record.member,
     record.date,
     record.slot,
