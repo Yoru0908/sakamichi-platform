@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SeichiMap from '@/components/seichi/SeichiMap.tsx';
+
+const mapTitle = 'けやき坂46 ロケ地マップ';
+const geojsonUrl = '/seichi/keyaki-hiragana.geojson';
+---
+
+<BaseLayout
+  title={`${mapTitle} - Sakamichi Tools`}
+  description="けやき坂46（日向坂46前身）のMV・雑誌・特典映像ロケ地マップ。fumi Diary 2号店データより。"
+  hideFooter
+>
+  <SeichiMap client:only="react" geojsonUrl={geojsonUrl} memberName="けやき坂46 ロケ地" />
+</BaseLayout>
