@@ -209,6 +209,14 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
     return Array.from(map.entries()).map(([name, count]) => ({ name, count }));
   }, [data, selectedCategory]);
 
+  const subcategoryScopeCount = useMemo(() => {
+    if (!data) return 0;
+    return data.features.filter(
+      (feature) =>
+        selectedCategory === 'ALL' || feature.properties.category === selectedCategory
+    ).length;
+  }, [data, selectedCategory]);
+
   const tagScopeCount = useMemo(() => {
     if (!data) return 0;
     return data.features.filter((feature) => {
@@ -229,13 +237,25 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
         (selectedSubcategory === 'ALL' || subcategory === selectedSubcategory)
       );
     });
-    const map = new Map<string, number>();
+    const map = new Map<string, { count: number; isMember: boolean }>();
     pool.forEach((feature) => {
-      getFeatureTags(feature).forEach((tag) => map.set(tag, (map.get(tag) || 0) + 1));
+      const members = new Set(feature.properties.members || []);
+      getFeatureTags(feature).forEach((tag) => {
+        const current = map.get(tag) || { count: 0, isMember: false };
+        map.set(tag, {
+          count: current.count + 1,
+          isMember: current.isMember || members.has(tag) || tag === '四期生',
+        });
+      });
     });
     return Array.from(map.entries())
-      .map(([name, count]) => ({ name, count }))
-      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ja'));
+      .map(([name, option]) => ({ name, ...option }))
+      .sort(
+        (a, b) =>
+          Number(b.isMember) - Number(a.isMember) ||
+          b.count - a.count ||
+          a.name.localeCompare(b.name, 'ja')
+      );
   }, [data, selectedCategory, selectedSubcategory]);
 
   // 4. 多层级与搜索过滤
@@ -497,7 +517,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                     : 'bg-[var(--bg-secondary)] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                全企画 ({filteredFeatures.length})
+                全企画 ({subcategoryScopeCount})
               </button>
               {subcategories.map((sub) => (
                 <button
@@ -538,7 +558,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                     : 'bg-[var(--bg-primary)] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                全标签 ({tagScopeCount})
+                すべてのタグ ({tagScopeCount})
               </button>
               {tagOptions.map((tag) => (
                 <button
