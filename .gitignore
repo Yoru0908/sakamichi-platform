@@ -1,10 +1,12 @@
 # build output
 dist/
+.tmp/
 # generated types
 .astro/
 
 # dependencies
 node_modules/
+**/__pycache__/
 
 # logs
 npm-debug.log*

@@ -37,7 +37,26 @@ interface Feature {
     referenceUrl: string;
     tags: string[];
     images: string[];
-    members: string[];
+    members?: string[];
+    source?: {
+      provider?: string;
+      url?: string;
+      mapId?: string;
+      layer?: string;
+      tags?: string[];
+      name?: string;
+    };
+    classification?: {
+      category?: string;
+      subcategory?: string;
+      method?: string;
+      status?: string;
+    };
+    classificationCandidates?: {
+      members?: string[];
+      projects?: string[];
+      contentTypes?: string[];
+    };
   };
 }
 
@@ -202,6 +221,10 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
           p.sceneTitle,
           p.sceneNote,
           p.sourceLabel,
+          p.source?.layer,
+          ...(p.source?.tags || []),
+          p.classification?.category,
+          p.classification?.subcategory,
           p.category,
           p.subcategory,
           ...(p.tags || []),
@@ -692,6 +715,19 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                       #{tag}
                     </span>
                   ))}
+                </div>
+              )}
+
+              {selProps.source?.layer && (
+                <div className="mt-2 text-[11px] text-[var(--text-secondary)]">
+                  <span className="font-semibold text-[var(--text-tertiary)]">原作者分类：</span>
+                  {selProps.source.layer}
+                </div>
+              )}
+              {selProps.source?.tags && selProps.source.tags.length > 0 && (
+                <div className="mt-1 text-[11px] text-[var(--text-secondary)]">
+                  <span className="font-semibold text-[var(--text-tertiary)]">原作者标签：</span>
+                  {selProps.source.tags.join(' · ')}
                 </div>
               )}
 

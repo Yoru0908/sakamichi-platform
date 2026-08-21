@@ -35,7 +35,30 @@
           "山川宇衣",
           "Vlog",
           "仙台"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "仙台"
+          ],
+          "name": "仙台駅周辺 - Vlog冒頭"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -72,7 +95,30 @@
           "山川宇衣",
           "Vlog",
           "仙台"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "仙台"
+          ],
+          "name": "仙台駅周辺 - 思い出の場所"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -109,7 +155,30 @@
           "山川宇衣",
           "Vlog",
           "仙台駅"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "仙台駅"
+          ],
+          "name": "JR仙台駅西口ペデストリアンデッキ"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -148,7 +217,31 @@
           "Vlog",
           "仙台",
           "ラーメン"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "仙台",
+            "ラーメン"
+          ],
+          "name": "ラーメン☆ビリー仙台ヨドバシ店"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -187,7 +280,30 @@
           "山川宇衣",
           "Vlog",
           "仙台駅"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "仙台駅"
+          ],
+          "name": "JR仙台駅東口ペデストリアンデッキ"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -224,7 +340,30 @@
           "山川宇衣",
           "Vlog",
           "松島"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "松島"
+          ],
+          "name": "松島海岸駅"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -261,7 +400,30 @@
           "山川宇衣",
           "Vlog",
           "松島"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "松島"
+          ],
+          "name": "松島海岸駅付近 駐車場の道標"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -298,7 +460,30 @@
           "山川宇衣",
           "Vlog",
           "松島"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "松島"
+          ],
+          "name": "松島海岸駅周辺の通り"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -337,7 +522,31 @@
           "Vlog",
           "松島",
           "利久"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "松島",
+            "利久"
+          ],
+          "name": "牛たん炭焼 利久 松島五大堂店"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -374,7 +583,30 @@
           "山川宇衣",
           "Vlog",
           "福浦橋"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "福浦橋"
+          ],
+          "name": "福浦橋付近"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -411,7 +643,30 @@
           "山川宇衣",
           "Vlog",
           "福浦橋"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "福浦橋"
+          ],
+          "name": "福浦橋"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -450,7 +705,31 @@
           "Vlog",
           "松島",
           "公園"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "Vlog",
+            "松島",
+            "公園"
+          ],
+          "name": "西行戻しの松公園 白衣観音前の広場"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -487,7 +766,30 @@
           "山川宇衣",
           "四期生合宿",
           "山中湖"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59195794.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "四期生合宿",
+            "山中湖"
+          ],
+          "name": "至誠荘"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "四期生合宿 山中湖",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -524,7 +826,30 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59195794.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "四期生合宿",
+            "山中湖",
+            "買い出し"
+          ],
+          "name": "オギノ 山中湖店"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "四期生合宿 山中湖",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -559,7 +884,30 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59195794.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "四期生合宿",
+            "山中湖",
+            "平野の浜"
+          ],
+          "name": "平野の浜"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "四期生合宿 山中湖",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -594,7 +942,30 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59195794.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "四期生合宿",
+            "山中湖",
+            "サイクリングロード"
+          ],
+          "name": "県道715号 / サイクリングロード"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "四期生合宿 山中湖",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -628,7 +999,29 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59195794.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "四期生合宿",
+            "山中湖"
+          ],
+          "name": "至誠荘への小径"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "四期生合宿 山中湖",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -663,7 +1056,30 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59195794.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "四期生合宿",
+            "山中湖",
+            "早朝散歩"
+          ],
+          "name": "富士吉田山中湖自転車道線"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "四期生合宿 山中湖",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -698,7 +1114,30 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59195794.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "四期生合宿",
+            "山中湖",
+            "平野の浜"
+          ],
+          "name": "平野の浜 - 3日目早朝散歩"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "四期生合宿 山中湖",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -735,7 +1174,30 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59195794.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "四期生合宿",
+            "山中湖",
+            "早朝散歩"
+          ],
+          "name": "赤芝荘前の湖畔"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "四期生合宿 山中湖",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -774,7 +1236,31 @@
           "週刊少年マガジン",
           "blog",
           "戸倉しろやまテラス"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (マガジン 59344112 / blog「好きなこと」59345419)",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59344112.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "週刊少年マガジン",
+            "blog",
+            "戸倉しろやまテラス"
+          ],
+          "name": "戸倉しろやまテラス"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2025年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -813,7 +1299,30 @@
           "山川宇衣",
           "blog",
           "腰越"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59345419.html",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "blog",
+            "腰越"
+          ],
+          "name": "腰越海岸交差点横断歩道 / 国道134号線"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -852,7 +1361,30 @@
           "山川宇衣",
           "グリーティングカード",
           "腰越海岸"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59394901.html",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "グリーティングカード",
+            "腰越海岸"
+          ],
+          "name": "腰越海岸"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -891,7 +1423,30 @@
           "山川宇衣",
           "blog",
           "神楽坂"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59429929.html",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "blog",
+            "神楽坂"
+          ],
+          "name": "Aux merveilleux de Fred 神楽坂店"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -930,7 +1485,30 @@
           "山川宇衣",
           "blog",
           "鶴岡八幡宮"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59429929.html",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "blog",
+            "鶴岡八幡宮"
+          ],
+          "name": "鶴岡八幡宮 おみくじ結び所付近"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -969,7 +1547,31 @@
           "blog",
           "鎌倉",
           "好好洞"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59476386.html",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "blog",
+            "鎌倉",
+            "好好洞"
+          ],
+          "name": "山ノ内宮下小路隧道 / 好好洞"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1008,7 +1610,30 @@
           "山川宇衣",
           "blog",
           "渋谷"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59470718.html",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "blog",
+            "渋谷"
+          ],
+          "name": "The 3rd.Shibuya"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1047,7 +1672,30 @@
           "山川宇衣",
           "B.L.T.",
           "四期生"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59416586.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "B.L.T.",
+            "四期生"
+          ],
+          "name": "十文字学園女子大学"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2025年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1086,7 +1734,30 @@
           "山川宇衣",
           "ViVi",
           "四期生"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59440654.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "ViVi",
+            "四期生"
+          ],
+          "name": "Purple スタジオ"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2025年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1125,7 +1796,30 @@
           "山川宇衣",
           "ヤングジャンプ",
           "九十九里"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59534473.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "ヤングジャンプ",
+            "九十九里"
+          ],
+          "name": "CONTACT STUDIO"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2025年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1164,7 +1858,30 @@
           "山川宇衣",
           "FLASH",
           "STUDIO MOLCA"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59536364.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "FLASH",
+            "STUDIO MOLCA"
+          ],
+          "name": "STUDIO MOLCA"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2025年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1203,7 +1920,30 @@
           "山川宇衣",
           "BOMB",
           "杉並"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59543470.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "BOMB",
+            "杉並"
+          ],
+          "name": "杉並ハウススタジオ"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2025年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1242,7 +1982,30 @@
           "山川宇衣",
           "BOMB",
           "善福寺川緑地"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59543470.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "BOMB",
+            "善福寺川緑地"
+          ],
+          "name": "善福寺川緑地"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2025年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1281,7 +2044,30 @@
           "山川宇衣",
           "20±SWEET",
           "辰巳の森緑道公園"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59629735.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "20±SWEET",
+            "辰巳の森緑道公園"
+          ],
+          "name": "辰巳の森緑道公園 - たこ広場"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2026年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1320,7 +2106,30 @@
           "山川宇衣",
           "20±SWEET",
           "辰巳の森緑道公園"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59629735.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "20±SWEET",
+            "辰巳の森緑道公園"
+          ],
+          "name": "辰巳の森緑道公園 - パンダ広場"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2026年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1359,7 +2168,30 @@
           "山川宇衣",
           "20±SWEET",
           "studio HYNE"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59629735.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "20±SWEET",
+            "studio HYNE"
+          ],
+          "name": "studio HYNE"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2026年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1398,7 +2230,30 @@
           "山川宇衣",
           "週刊少年マガジン",
           "六郷土手"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59817329.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "週刊少年マガジン",
+            "六郷土手"
+          ],
+          "name": "六郷土手河川敷公園"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2026年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1437,7 +2292,30 @@
           "山川宇衣",
           "週刊少年マガジン",
           "六郷水門"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59817329.html",
+          "mapId": "",
+          "layer": "雑誌・グラビア",
+          "tags": [
+            "山川宇衣",
+            "週刊少年マガジン",
+            "六郷水門"
+          ],
+          "name": "六郷水門付近の建築物"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "2026年 掲載",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1476,7 +2354,30 @@
           "山川宇衣",
           "Alter ego",
           "四期生"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59438651.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "山川宇衣",
+            "Alter ego",
+            "四期生"
+          ],
+          "name": "三橋の森 ラ・クラリエール"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "Alter ego",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1515,7 +2416,30 @@
           "山川宇衣",
           "死んだふり",
           "参考のみ"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59249136.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "山川宇衣",
+            "死んだふり",
+            "参考のみ"
+          ],
+          "name": "東京学芸大学附属高等学校 - 参考のみ"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "死んだふり",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1554,7 +2478,30 @@
           "山川宇衣",
           "UITAN",
           "韮崎"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59722391.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "UITAN",
+            "韮崎"
+          ],
+          "name": "アメリカヤ"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "UITAN",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1593,7 +2540,30 @@
           "山川宇衣",
           "UITAN",
           "釜無川"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59722391.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "UITAN",
+            "釜無川"
+          ],
+          "name": "釜無川河川緑地"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "UITAN",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1632,7 +2602,30 @@
           "山川宇衣",
           "UITAN",
           "韮崎"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59722391.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "UITAN",
+            "韮崎"
+          ],
+          "name": "ゆ～ぷるにらさき 韮崎市健康ふれあいセンター"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "UITAN",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1671,7 +2664,30 @@
           "山川宇衣",
           "UITAN",
           "甲斐市"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59722391.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "UITAN",
+            "甲斐市"
+          ],
+          "name": "中華飯店 味楽"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "UITAN",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1710,7 +2726,30 @@
           "山川宇衣",
           "UITAN",
           "歩道橋"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59722391.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "UITAN",
+            "歩道橋"
+          ],
+          "name": "竜王北小学校前横断歩道橋"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "UITAN",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1746,7 +2785,30 @@
           "山川宇衣",
           "ソロキャンプ",
           "花はなの里"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59798375.html",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "ソロキャンプ",
+            "花はなの里"
+          ],
+          "name": "花はなの里 オートキャンプ場"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "ソロキャンプ",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1787,7 +2849,31 @@
           "その日、その場所で出会う",
           "青森",
           "弘南鉄道"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59848589.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "その日、その場所で出会う",
+            "青森",
+            "弘南鉄道"
+          ],
+          "name": "弘南鉄道弘南線 柏農高校前駅"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "その日、その場所で出会う。",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1828,7 +2914,31 @@
           "その日、その場所で出会う",
           "青森",
           "弘南鉄道"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59848589.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "その日、その場所で出会う",
+            "青森",
+            "弘南鉄道"
+          ],
+          "name": "弘南鉄道大鰐線 義塾高校前駅"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "その日、その場所で出会う。",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1870,7 +2980,31 @@
           "その日、その場所で出会う",
           "青森",
           "弘南鉄道"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59848589.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "その日、その場所で出会う",
+            "青森",
+            "弘南鉄道"
+          ],
+          "name": "弘南鉄道大鰐線 鯖石駅"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "その日、その場所で出会う。",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1911,7 +3045,31 @@
           "その日、その場所で出会う",
           "青森",
           "蔦沼"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59848589.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "その日、その場所で出会う",
+            "青森",
+            "蔦沼"
+          ],
+          "name": "蔦沼展望台"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "その日、その場所で出会う。",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1952,7 +3110,31 @@
           "その日、その場所で出会う",
           "青森",
           "蔦温泉"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59848589.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "その日、その場所で出会う",
+            "青森",
+            "蔦温泉"
+          ],
+          "name": "蔦温泉旅館 久安の湯"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "その日、その場所で出会う。",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1993,7 +3175,30 @@
           "山川宇衣",
           "その日、その場所で出会う",
           "黒石"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59848589.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "その日、その場所で出会う",
+            "黒石"
+          ],
+          "name": "手作り雑貨体験工房IRODORI"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "その日、その場所で出会う。",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2034,7 +3239,31 @@
           "その日、その場所で出会う",
           "黒石",
           "つゆやきそば"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59848589.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "その日、その場所で出会う",
+            "黒石",
+            "つゆやきそば"
+          ],
+          "name": "すずのや"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "その日、その場所で出会う。",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2073,7 +3302,30 @@
           "山川宇衣",
           "その日、その場所で出会う",
           "黒石"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59848589.html",
+          "mapId": "",
+          "layer": "個人PV",
+          "tags": [
+            "山川宇衣",
+            "その日、その場所で出会う",
+            "黒石"
+          ],
+          "name": "高橋家住宅"
+        },
+        "classification": {
+          "category": "個人PV",
+          "subcategory": "その日、その場所で出会う。",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2110,7 +3362,30 @@
           "山川宇衣",
           "光源",
           "FIKA Lounge 南行徳"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59716400.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "山川宇衣",
+            "光源",
+            "FIKA Lounge 南行徳"
+          ],
+          "name": "FIKA Lounge 南行徳 - 山川宇衣 洋室部屋"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "光源",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2144,7 +3419,29 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59716400.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "光源",
+            "FIKA Lounge 南行徳"
+          ],
+          "name": "FIKA Lounge 南行徳 - 山田桃実 バルコニー"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "光源",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2178,7 +3475,29 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59716400.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "光源",
+            "行徳変電所"
+          ],
+          "name": "東京電力パワーグリッド 行徳変電所付近"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "光源",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2213,7 +3532,30 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59716400.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "光源",
+            "JFE条鋼",
+            "鹿島製造所"
+          ],
+          "name": "JFE条鋼 鹿島製造所 - ダンスシーン"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "光源",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2248,7 +3590,30 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59716400.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "光源",
+            "JFE条鋼",
+            "鹿島製造所"
+          ],
+          "name": "JFE条鋼 鹿島製造所 - 松本和子 鋼材置き場"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "光源",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2288,7 +3653,32 @@
           "2026年始VLOG",
           "仙台",
           "大崎八幡宮"
-        ]
+        ],
+        "source": {
+          "provider": "Google Maps保存リスト screenshot / user-provided",
+          "url": "",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "保存リスト",
+            "2026年始VLOG",
+            "仙台",
+            "大崎八幡宮"
+          ],
+          "name": "国宝 大崎八幡宮"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "YouTube企画・ロケ",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2328,7 +3718,32 @@
           "初日の出",
           "深沼",
           "仙台"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 2026年始の過ごし方Vlog PART2",
+          "url": "https://www.youtube.com/watch?v=HdDom_iHFUE",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "2026年始Vlog",
+            "初日の出",
+            "深沼",
+            "仙台"
+          ],
+          "name": "深沼海水浴場"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "YouTube企画・ロケ",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2364,7 +3779,31 @@
           "保存リスト",
           "仙台",
           "水族館"
-        ]
+        ],
+        "source": {
+          "provider": "Google Maps保存リスト screenshot / user-provided",
+          "url": "",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "保存リスト",
+            "仙台",
+            "水族館"
+          ],
+          "name": "仙台うみの杜水族館"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2403,7 +3842,31 @@
           "保存リスト",
           "260617msg",
           "カフェ"
-        ]
+        ],
+        "source": {
+          "provider": "Google Maps保存リスト screenshot / user-provided",
+          "url": "",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "保存リスト",
+            "260617msg",
+            "カフェ"
+          ],
+          "name": "カフェ ブオリ"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2445,7 +3908,32 @@
           "260617msg",
           "鎌倉",
           "長谷寺"
-        ]
+        ],
+        "source": {
+          "provider": "Google Maps保存リスト screenshot / user-provided",
+          "url": "",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "保存リスト",
+            "260617msg",
+            "鎌倉",
+            "長谷寺"
+          ],
+          "name": "長谷寺"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2483,7 +3971,31 @@
           "保存リスト",
           "四期生体力チェック",
           "海老名"
-        ]
+        ],
+        "source": {
+          "provider": "Google Maps保存リスト screenshot / user-provided",
+          "url": "",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "山川宇衣",
+            "保存リスト",
+            "四期生体力チェック",
+            "海老名"
+          ],
+          "name": "海老名運動公園 陸上競技場"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "四期生楽曲MV",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2522,7 +4034,31 @@
           "260510msg",
           "甘栗",
           "深川"
-        ]
+        ],
+        "source": {
+          "provider": "260510msg / user-provided image",
+          "url": "",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "260510msg",
+            "甘栗",
+            "深川"
+          ],
+          "name": "イシイの甘栗 深川店"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2561,7 +4097,31 @@
           "260510msg",
           "富岡八幡宮",
           "おみくじ"
-        ]
+        ],
+        "source": {
+          "provider": "260510msg / user-provided image",
+          "url": "",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "260510msg",
+            "富岡八幡宮",
+            "おみくじ"
+          ],
+          "name": "富岡八幡宮"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2602,7 +4162,32 @@
           "勝又春",
           "260619msg",
           "宇治金時"
-        ]
+        ],
+        "source": {
+          "provider": "260619msg / user-provided image",
+          "url": "",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "松本和子",
+            "勝又春",
+            "260619msg",
+            "宇治金時"
+          ],
+          "name": "追分だんご本舗"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2638,7 +4223,31 @@
           "260408msg電話",
           "仙台",
           "甘味処"
-        ]
+        ],
+        "source": {
+          "provider": "260408msg電話 / user-provided",
+          "url": "",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "260408msg電話",
+            "仙台",
+            "甘味処"
+          ],
+          "name": "甘味処 彦いち"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2678,7 +4287,33 @@
           "仙台",
           "ちーずんだ",
           "牛タン"
-        ]
+        ],
+        "source": {
+          "provider": "MSG電話 / ういとーく / web検索",
+          "url": "https://www.nikunoito.jp/",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "MSG電話",
+            "ういとーく",
+            "仙台",
+            "ちーずんだ",
+            "牛タン"
+          ],
+          "name": "肉のいとう 仙台駅1階店"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2718,7 +4353,33 @@
           "西公園",
           "桜",
           "お花見"
-        ]
+        ],
+        "source": {
+          "provider": "MSG電話 / web検索",
+          "url": "",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "MSG電話",
+            "仙台",
+            "西公園",
+            "桜",
+            "お花見"
+          ],
+          "name": "西公園（仙台）"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2758,7 +4419,33 @@
           "青葉祭り",
           "すずめ踊り",
           "浴衣"
-        ]
+        ],
+        "source": {
+          "provider": "MSG電話 / web検索",
+          "url": "",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "MSG電話",
+            "仙台",
+            "青葉祭り",
+            "すずめ踊り",
+            "浴衣"
+          ],
+          "name": "仙台青葉祭り"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2796,7 +4483,32 @@
           "江の島",
           "湘南",
           "夏"
-        ]
+        ],
+        "source": {
+          "provider": "MSG電話 / web検索",
+          "url": "",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "MSG電話",
+            "江の島",
+            "湘南",
+            "夏"
+          ],
+          "name": "江の島"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2840,7 +4552,35 @@
           "神保町",
           "カレー",
           "エチオピア"
-        ]
+        ],
+        "source": {
+          "provider": "260727msg / 乃木坂配信中「さくさんぽ第5弾」",
+          "url": "https://www.youtube.com/watch?v=HH_mpIk1lwU",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "260727msg",
+            "聖地巡礼",
+            "遠藤さくら",
+            "さくさんぽ",
+            "神保町",
+            "カレー",
+            "エチオピア"
+          ],
+          "name": "カリーライス専門店 エチオピア 本店"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2878,7 +4618,32 @@
           "HMV",
           "E BeanS",
           "サイン入りポスター"
-        ]
+        ],
+        "source": {
+          "provider": "ういとーく / HMV仙台",
+          "url": "https://www.hmv.co.jp/store/SLP/",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "仙台",
+            "HMV",
+            "E BeanS",
+            "サイン入りポスター"
+          ],
+          "name": "HMV 仙台 E BeanS 店"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2921,7 +4686,32 @@
           "NHK仙台",
           "TOHOKU HEART",
           "てれまさ"
-        ]
+        ],
+        "source": {
+          "provider": "NHK仙台フェスティバル2026 / てれまさ",
+          "url": "https://www.nhk.or.jp/sendai/",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "仙台",
+            "NHK仙台",
+            "TOHOKU HEART",
+            "てれまさ"
+          ],
+          "name": "NHK 仙台放送局"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2961,7 +4751,33 @@
           "ひょうたん揚げ",
           "笹かまぼこ",
           "お土産"
-        ]
+        ],
+        "source": {
+          "provider": "ういとーく",
+          "url": "https://www.abekama.co.jp/",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "仙台",
+            "阿部蒲鉾店",
+            "ひょうたん揚げ",
+            "笹かまぼこ",
+            "お土産"
+          ],
+          "name": "阿部蒲鉾店 本店"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3001,7 +4817,33 @@
           "カフェ",
           "クロワッサンサンド",
           "チャイラテ"
-        ]
+        ],
+        "source": {
+          "provider": "ういとーく",
+          "url": "https://dare-store.com/",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "仙台",
+            "darestore",
+            "カフェ",
+            "クロワッサンサンド",
+            "チャイラテ"
+          ],
+          "name": "darestore Coffee & Eatery"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3041,7 +4883,33 @@
           "喜久福",
           "生クリーム大福",
           "お土産"
-        ]
+        ],
+        "source": {
+          "provider": "ういとーく",
+          "url": "https://kikusuian.jp/",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "仙台",
+            "喜久水庵",
+            "喜久福",
+            "生クリーム大福",
+            "お土産"
+          ],
+          "name": "お茶の井ヶ田 喜久水庵 仙台中央通り本店"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3081,7 +4949,33 @@
           "仙台城跡",
           "伊達政宗",
           "夜景"
-        ]
+        ],
+        "source": {
+          "provider": "ういとーく",
+          "url": "https://honmarukaikan.com/",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "仙台",
+            "青葉城址",
+            "仙台城跡",
+            "伊達政宗",
+            "夜景"
+          ],
+          "name": "青葉城址（仙台城跡）"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "デビューVlog 仙台・松島",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3121,7 +5015,32 @@
           "果汁工房果琳",
           "イオンモール幕張新都心",
           "バナナスムージー"
-        ]
+        ],
+        "source": {
+          "provider": "YouTube",
+          "url": "https://www.youtube.com/watch?v=FasWElvoy9c&t=612s",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "YouTube",
+            "果汁工房果琳",
+            "イオンモール幕張新都心",
+            "バナナスムージー"
+          ],
+          "name": "果汁工房果琳 イオンモール幕張新都心店"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3162,7 +5081,32 @@
           "長野",
           "善光寺",
           "JR東日本"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 櫻旅 長野編",
+          "url": "https://www.youtube.com/watch?v=x4ve5VzzEwI",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "櫻旅",
+            "長野",
+            "善光寺",
+            "JR東日本"
+          ],
+          "name": "善光寺"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3206,7 +5150,34 @@
           "更科そば",
           "そば",
           "善光寺門前"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 櫻旅 長野編",
+          "url": "https://www.youtube.com/watch?v=x4ve5VzzEwI",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "櫻旅",
+            "長野",
+            "かどの大丸",
+            "更科そば",
+            "そば",
+            "善光寺門前"
+          ],
+          "name": "かどの大丸"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3251,7 +5222,34 @@
           "あづみ堂",
           "善光寺仲見世",
           "信州牛野沢菜"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 櫻旅 長野編",
+          "url": "https://www.youtube.com/watch?v=x4ve5VzzEwI",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "櫻旅",
+            "長野",
+            "おやき",
+            "あづみ堂",
+            "善光寺仲見世",
+            "信州牛野沢菜"
+          ],
+          "name": "あづみ堂 善光寺仲見世店"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3298,7 +5296,34 @@
           "白蓮坊",
           "ブレスレット手作り体験",
           "善光寺"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 櫻旅 長野編",
+          "url": "https://www.youtube.com/watch?v=x4ve5VzzEwI",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "櫻旅",
+            "長野",
+            "ギャルリ蓮",
+            "白蓮坊",
+            "ブレスレット手作り体験",
+            "善光寺"
+          ],
+          "name": "ギャルリ蓮（白蓮坊）"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3348,7 +5373,35 @@
           "小布施堂",
           "モンブラン朱雀",
           "りんごジュース"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 櫻旅 長野編",
+          "url": "https://www.youtube.com/watch?v=x4ve5VzzEwI",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "櫻旅",
+            "長野",
+            "小布施",
+            "えんとつ",
+            "小布施堂",
+            "モンブラン朱雀",
+            "りんごジュース"
+          ],
+          "name": "えんとつ（小布施堂）"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3392,7 +5445,33 @@
           "須坂",
           "ブルーベリー農園 森の畑",
           "森のサファイア"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 櫻旅 長野編",
+          "url": "https://www.youtube.com/watch?v=x4ve5VzzEwI",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "櫻旅",
+            "長野",
+            "須坂",
+            "ブルーベリー農園 森の畑",
+            "森のサファイア"
+          ],
+          "name": "ブルーベリー農園 森の畑"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3434,7 +5513,33 @@
           "野沢温泉村",
           "中島屋旅館",
           "温泉宿"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 櫻旅 長野編",
+          "url": "https://www.youtube.com/watch?v=x4ve5VzzEwI",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "櫻旅",
+            "長野",
+            "野沢温泉村",
+            "中島屋旅館",
+            "温泉宿"
+          ],
+          "name": "中島屋旅館"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3476,7 +5581,33 @@
           "小布施",
           "桜井甘精堂",
           "マロンフィナンシェ"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 櫻旅 長野編",
+          "url": "https://www.youtube.com/watch?v=x4ve5VzzEwI",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "櫻旅",
+            "長野",
+            "小布施",
+            "桜井甘精堂",
+            "マロンフィナンシェ"
+          ],
+          "name": "桜井甘精堂 本店"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3518,7 +5649,33 @@
           "小布施",
           "井筒屋鐵治",
           "小布施栗のフィナンシェ"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 櫻旅 長野編",
+          "url": "https://www.youtube.com/watch?v=x4ve5VzzEwI",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "櫻旅",
+            "長野",
+            "小布施",
+            "井筒屋鐵治",
+            "小布施栗のフィナンシェ"
+          ],
+          "name": "井筒屋鐵治 小布施店"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3562,7 +5719,34 @@
           "竹風堂",
           "どら焼山",
           "栗粒あん"
-        ]
+        ],
+        "source": {
+          "provider": "櫻坂チャンネル / 櫻旅 長野編",
+          "url": "https://www.youtube.com/watch?v=x4ve5VzzEwI",
+          "mapId": "",
+          "layer": "Vlog・企画",
+          "tags": [
+            "山川宇衣",
+            "櫻旅",
+            "長野",
+            "小布施",
+            "竹風堂",
+            "どら焼山",
+            "栗粒あん"
+          ],
+          "name": "竹風堂 小布施本店"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻旅 長野編",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3600,7 +5784,31 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59914210.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "四期生",
+            "We got your back",
+            "PV",
+            "渋谷"
+          ],
+          "name": "京王井の頭線 渋谷1号踏切 - We got your back"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "We got your back",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3638,7 +5846,31 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59914210.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "四期生",
+            "We got your back",
+            "PV",
+            "新宿"
+          ],
+          "name": "都庁通り - We got your back"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "We got your back",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3676,7 +5908,31 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59914210.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "四期生",
+            "We got your back",
+            "PV",
+            "新宿"
+          ],
+          "name": "首都高速4号新宿線 高架下 - We got your back"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "We got your back",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3714,7 +5970,31 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59914210.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "四期生",
+            "We got your back",
+            "PV",
+            "横浜"
+          ],
+          "name": "三森興産第2スクラップヤード - We got your back"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "We got your back",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3752,7 +6032,31 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59914210.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "四期生",
+            "We got your back",
+            "PV",
+            "渋谷"
+          ],
+          "name": "渋谷駅前スクランブル交差点 - We got your back"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "We got your back",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3790,7 +6094,31 @@
         ],
         "members": [
           "山川宇衣"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/59914210.html",
+          "mapId": "",
+          "layer": "MV・楽曲",
+          "tags": [
+            "四期生",
+            "We got your back",
+            "PV",
+            "千葉"
+          ],
+          "name": "原岡桟橋（岡本桟橋） - We got your back"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "We got your back",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     }
   ]

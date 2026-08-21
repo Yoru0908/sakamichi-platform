@@ -34,7 +34,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "大島川水門テラス"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -69,7 +93,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "永代公園南側"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -104,7 +152,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "永代河岸通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -139,7 +211,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "あみ亀"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -174,7 +270,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "大島川児童遊園"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -209,7 +329,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "永代河岸通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -244,7 +388,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "門前仲町交差点 / 門前仲町駅4番出口"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -279,7 +447,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "永代通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -314,7 +506,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "永代通り / ファミリーマート 深川門前仲町店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -350,7 +566,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "富岡八幡宮 正面参道前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -386,7 +626,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "富岡八幡宮 本殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -421,7 +685,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "富岡八幡宮 授与所"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -456,7 +744,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "富岡八幡宮 本殿前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -491,7 +803,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "永代通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -526,7 +862,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "木場駅3番出口"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -561,7 +921,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "都立木場公園前交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -598,7 +982,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "末広橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -633,7 +1041,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "東京都現代美術館"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -668,7 +1100,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "美術館通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -703,7 +1159,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "ファミリーマート 江東石島店前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -738,7 +1218,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "深川警察署 千田交番前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -774,7 +1278,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "四ツ目通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -809,7 +1337,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "江東公園"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -844,7 +1396,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "扇橋二丁目交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -879,7 +1455,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "四ツ目通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -915,7 +1515,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "小名木川橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -950,7 +1574,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "新大橋通り横断歩道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -985,7 +1633,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "猿江恩賜公園"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1020,7 +1692,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "特別区道江128号 / 秀和亀戸天神橋レジデンス前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1055,7 +1751,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "天神橋交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1090,7 +1810,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "蔵前橋通り / スズキ"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1126,7 +1870,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "亀戸天神入口交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1161,7 +1929,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "亀戸神社 男橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1196,7 +1988,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "亀戸天神社 本殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1229,7 +2045,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "亀戸天神社 受付所"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1266,7 +2106,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "亀戸天神社 絵馬掛所前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1301,7 +2165,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "亀戸天神社 女橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1336,7 +2224,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "天神橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1371,7 +2283,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "横十間川沿い"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1406,7 +2342,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "横十間川沿い"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1441,7 +2401,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "押上駅前交差点 / 三菱UFJ銀行 押上駅前支店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1477,7 +2461,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "浅草通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1512,7 +2520,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "浅草通り / ドミノ・ピザ押上店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1547,7 +2579,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "浅草通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1582,7 +2638,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "業平一丁目交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1617,7 +2697,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "吾妻橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1652,7 +2756,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "吾妻橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1689,7 +2817,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "雷門交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1724,7 +2876,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "国際通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1759,7 +2935,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "国際通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1794,7 +2994,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "国際通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1829,7 +3053,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "寿四丁目交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1865,7 +3113,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "春日通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1903,7 +3175,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "博多豚骨らぁ麺 一絆 御徒町本店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1938,7 +3234,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "上野広小路"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -1973,7 +3293,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "上野恩賜公園"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2009,7 +3353,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "上野恩賜公園"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2045,7 +3413,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "上野恩賜公園 不忍池 親水デッキ"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2080,7 +3472,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "不忍池通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2115,7 +3531,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "根津"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2151,7 +3591,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "根津神社 表参道前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2186,7 +3650,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "根津神社 本殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2219,7 +3707,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "根津神社 授与所"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2257,7 +3769,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "根津神社 唐門"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2292,7 +3828,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "根津神社 神橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2327,7 +3887,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "不忍池通り / 朝日根津八重垣マンション"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2364,7 +3948,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "百舌珈琲店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2399,7 +4007,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "巣鴨駅前交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2434,7 +4066,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "白山通り / マクドナルド 巣鴨店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2469,7 +4125,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "巣鴨地蔵通商店街"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2504,7 +4184,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "伊勢屋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2540,7 +4244,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "雷神堂 巣鴨本店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2575,7 +4303,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "玉屋 巣鴨"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2610,7 +4362,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "巣鴨 笑店街カフェ (ガモール志學亭)"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2648,7 +4424,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "あんぱんの喜福堂"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2683,7 +4483,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "momo"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2718,7 +4542,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "すっぽん料理専門店 巣鴨三浦屋 本店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2755,7 +4603,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "Salon de platinum"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2791,7 +4663,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "マミー化粧品店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2827,7 +4723,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "地蔵通りみね歯科"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2864,7 +4784,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "도깨비시장(おばけ市場、トッケビ市場) 韓国料理"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2899,7 +4843,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "眼鏡工房久保田・時計工房久保田"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2934,7 +4902,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "庚申塚交差点 / 巣鴨地蔵通商店街北入り口"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -2969,7 +4961,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "白山通 / ヴィラ・トリシクル"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3004,7 +5020,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "滝野川三丁目交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3039,7 +5079,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "滝野川三丁目交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3075,7 +5139,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "滝野川三丁目交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3110,7 +5198,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "明治通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3145,7 +5257,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "滝野川二丁目交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3180,7 +5316,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "明治通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3215,7 +5375,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "明治通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3250,7 +5434,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "明治通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3285,7 +5493,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "明治通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3320,7 +5552,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "アップルパーク 王子本町第3"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3356,7 +5612,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "王子神社 鳥居"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3391,7 +5671,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "王子神社 本殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3424,7 +5728,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "王子神社 授与所"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3459,7 +5787,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "王子神社 参道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3494,7 +5846,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "旧岩槻街道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3529,7 +5905,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "明治通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3564,7 +5964,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "飛鳥山交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3599,7 +6023,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "駒込橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3634,7 +6082,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "白山上交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3669,7 +6141,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "白山5丁目"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3704,7 +6200,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "白山神社 鳥居"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3740,7 +6260,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "白山神社 本殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3773,7 +6317,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "白山神社 授与所"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3808,7 +6376,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "BRANZ文京白山前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3843,7 +6435,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "中山道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3878,7 +6494,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "中山道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3913,7 +6553,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "白山一丁目交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3948,7 +6612,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本富士警察署 弥生町交番"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -3985,7 +6673,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "東京大学"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4020,7 +6732,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "東京大学"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4056,7 +6792,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "東京大学 正門"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4091,7 +6851,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "東京大学 避難場所看板"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4126,7 +6910,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "東京大学 赤門"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4162,7 +6970,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本郷通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4197,7 +7029,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本郷通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4233,7 +7089,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本郷通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4268,7 +7148,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本郷通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4304,7 +7208,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本郷通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4339,7 +7267,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本郷通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4377,7 +7329,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "サッカーミュージアム入口交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4412,7 +7388,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "中山道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4447,7 +7447,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "天野屋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4482,7 +7506,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "神田神社 鳥居"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4518,7 +7566,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "神田神社 御神殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4551,7 +7623,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "神田神社 授与所"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4586,7 +7682,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "神田神社"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4621,7 +7741,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "神田神社 表参道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4656,7 +7800,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本郷通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4691,7 +7859,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "湯島聖堂"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4727,7 +7919,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "聖橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4766,7 +7982,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "聖橋交差点 / 御茶ノ水ソラシティ前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4801,7 +8041,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "新御茶ノ水駅 B2出口"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4836,7 +8100,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本郷通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4872,7 +8160,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本郷通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4909,7 +8221,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "本郷通り / 京阪大手町ビル"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4944,7 +8280,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "錦町有楽町線"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -4979,7 +8339,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "鎌倉橋"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5014,7 +8398,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "アーバンネット大手町ビル前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5049,7 +8457,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "東京駅丸の内駅前広場"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5084,7 +8516,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "霞が関バス停 2番のりば 小滝橋車庫行"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5119,7 +8575,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "六本木通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5154,7 +8634,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "六本木通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5189,7 +8693,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "外堀通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5224,7 +8752,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "日枝神社 山王鳥居"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5263,7 +8815,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "日枝神社 社務所横"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5299,7 +8875,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "日枝神社 本殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5332,7 +8932,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "日枝神社 授与所"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5368,7 +8992,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "日枝神社 神門前"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5403,7 +9051,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "赤坂2・14プラザビル"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5438,7 +9110,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "氷川坂"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5473,7 +9169,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "赤坂氷川神社 氷川坂入口"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5508,7 +9228,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "赤坂氷川神社 社殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5544,7 +9288,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "赤坂氷川神社 授与所"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5583,7 +9351,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "赤坂氷川神社"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5618,7 +9410,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "日蓮宗 妙像寺"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5653,7 +9469,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "六本木通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5688,7 +9528,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "六本木通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5725,7 +9589,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "わ蔵 六本木店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5760,7 +9648,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "飯倉片町交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5796,7 +9708,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "飯倉片町交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5831,7 +9767,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "桜田通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5866,7 +9826,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "東麻布一丁目交差点 / 桜田通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5901,7 +9885,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "芝公園12号地"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5936,7 +9944,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "芝公園10号地"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -5973,7 +10005,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "芝大神宮 表参道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6009,7 +10065,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "芝大神宮 本殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6042,7 +10122,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "芝大神宮 授与所"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6082,7 +10186,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "芝大神宮"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6117,7 +10245,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "芝商店会 芝辛・激辛ストリート"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6152,7 +10304,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "ペナン レストラン / 芝商店会 芝辛・激辛ストリート"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6187,7 +10363,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "芝商店会 芝辛・激辛ストリート"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6222,7 +10422,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "芝商店会 芝辛・激辛ストリート"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6257,7 +10481,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "中国料理 生駒軒 / 芝商店会 芝辛・激辛ストリート"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6292,7 +10540,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6328,7 +10600,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6363,7 +10659,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "芝五丁目交差点 / 第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6400,7 +10720,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6436,7 +10780,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6471,7 +10839,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6506,7 +10898,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6542,7 +10958,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "品川駅"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6577,7 +11017,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6613,7 +11077,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6648,7 +11136,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6683,7 +11195,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "第一京浜国道"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6719,7 +11255,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北品川本通り商店会"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6754,7 +11314,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北品川本通り商店会"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6790,7 +11374,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北品川本通り商店会"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6830,7 +11438,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "八百半商店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6865,7 +11497,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北品川本通り商店会"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6900,7 +11556,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北品川本通り商店会"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6938,7 +11618,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "家尾福青果店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -6974,7 +11678,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "関生花店"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7009,7 +11737,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北品川本通り商店会"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7044,7 +11796,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北品川本通り商店会"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7079,7 +11855,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北品川本通り商店会"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7117,7 +11917,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "KAIDO books&coffee"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7153,7 +11977,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北馬場参道通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7188,7 +12036,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北馬場参道通り"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7224,7 +12096,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "北品川三丁目交差点"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7259,7 +12155,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "品川神社"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7295,7 +12215,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "品川神社 本殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7328,7 +12272,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "品川神社 授与所"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7365,7 +12333,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "品川神社 神楽殿"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7402,7 +12394,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "品川神社 絵馬掛け"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     },
     {
@@ -7440,7 +12456,31 @@
         "members": [
           "的野美青",
           "山下瞳月"
-        ]
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店 (東京10社めぐりマップ)",
+          "url": "https://www.google.com/maps/d/viewer?mid=1EOjvzb1kdZoT-4NoJnzMx1_b6dR_UoM",
+          "mapId": "",
+          "layer": "東京10社めぐり",
+          "tags": [
+            "東京10社",
+            "的野美青",
+            "山下瞳月",
+            "神社"
+          ],
+          "name": "品川神社"
+        },
+        "classification": {
+          "category": "東京10社めぐり",
+          "subcategory": "的野美青・山下瞳月",
+          "method": "legacy-import",
+          "status": "unreviewed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
       }
     }
   ]
