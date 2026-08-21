@@ -36,6 +36,7 @@ DEFAULT_TAGS = ["櫻坂46", *FOURTH_MEMBERS]
 SAKURAZAKA_MEMBERS = {
     "森田ひかる", "田村保乃", "藤吉夏鈴", "守屋麗奈", "山﨑天", "大園玲",
     "武元唯衣", "松田里奈", "井上梨名", "増本綺良", "大沼晶保", "幸阪茉里乃",
+    "小池美波", "遠藤光莉",
     "的野美青", "山下瞳月", "谷口愛季", "村井優", "中嶋優月", "小島凪紗",
     "村山美羽", "遠藤理子", "小田倉麗奈", "石森璃花", "向井純葉",
     *FOURTH_MEMBERS,
@@ -203,15 +204,22 @@ def meaningful_name(lines: list[str], index: int, title: str) -> str:
     return title
 
 
-def classify(title: str) -> tuple[str, str]:
+def clean_content_title(title: str) -> str:
+    value = re.sub(r"^\d{4}[.年]\d{1,2}[.月]\d{1,2}日?\s*", "", title).strip()
+    value = value.replace("櫻坂46", "", 1).strip()
+    for member in SAKURAZAKA_MEMBERS:
+        value = value.replace(member, "")
+    return value.strip(" 、,&　")
+
+
+def classify(title: str, tags: Iterable[str] = ()) -> tuple[str, str]:
     quoted = re.search(r"[「『](.+?)[」』]", title)
     project = quoted.group(1).strip() if quoted else ""
+    source_tags_value = set(tags)
     if "個人PV" in title:
         return "個人PV", project or "個人PV"
     if any(word in title for word in ("PV撮影", "MV撮影", "ジャケット写真")):
         return "MV・楽曲", project or "MV・楽曲"
-    if "Vlog" in title or "櫻坂チャンネル" in title:
-        return "Vlog・企画", project or "Vlog"
     if any(word in title for word in ("blog", "ブログ", "グリーティングカード")):
         return "Blog・MSG", "公式Blog・写真"
     if any(word in title for word in (
@@ -219,15 +227,22 @@ def classify(title: str) -> tuple[str, str]:
         "EX大衆", "アップトゥボーイ", "グラビア", "IDOL AND READ", "Top Yell",
         "20±SWEET", "blt graph", "写真撮影場所",
     )):
-        publication = re.sub(r"^.*? (?:四期生 )?", "", title)
-        publication = publication.split("写真撮影場所", 1)[0].strip()
+        publication = clean_content_title(title).split("写真撮影場所", 1)[0].strip()
         return "雑誌・グラビア", publication[:60] or "雑誌・グラビア"
+    if "Vlog" in title:
+        return "Vlog・企画", "四期生Vlog" if "四期生Vlog" in title else "Vlog"
+    if "四期生合宿" in title:
+        return "Vlog・企画", "四期生合宿"
+    if "ソロキャンプ" in title:
+        return "Vlog・企画", "ソロキャンプ"
+    if "櫻坂チャンネル" in source_tags_value or "櫻坂チャンネル" in title:
+        return "Vlog・企画", project or "櫻坂チャンネル"
     if any(word in title for word in (
         "テレビ", "番組", "生配信", "イベント", "サクコイ", "そこ曲がったら", "ちょこさく",
-        "ラヴィット", "ロケ地", "撮影場所",
-    )):
+        "ラヴィット", "ロケ地", "撮影場所", "収録場所", "出張リポート",
+    )) or project:
         return "番組・イベント", project or "番組・イベント"
-    return "その他", project or "fumi Diary 新着"
+    return "Vlog・企画", "その他企画"
 
 
 def parse_locations(article: Article, html: str) -> list[dict[str, Any]]:
@@ -247,7 +262,7 @@ def parse_locations(article: Article, html: str) -> list[dict[str, Any]]:
     members = unique(members)
     generation_tags = ["四期生"] if any(member in FOURTH_MEMBERS for member in members) else []
     tags = unique((*tags, *generation_tags, *members))
-    category, subcategory = classify(title)
+    category, subcategory = classify(title, tags)
 
     addresses: list[dict[str, Any]] = []
     coordinates: list[tuple[int, float, float]] = []

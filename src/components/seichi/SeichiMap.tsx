@@ -80,6 +80,74 @@ const getFeatureTags = (feature: Feature): string[] =>
     ].filter(Boolean))
   );
 
+type FacetTagKind = 'member' | 'project';
+interface FacetTag {
+  name: string;
+  kind: FacetTagKind;
+}
+
+const GENERATION_RE = /^[一二三四五六七八九十]+期生$/;
+const KNOWN_MEMBER_NAMES = new Set([
+  '森田ひかる', '田村保乃', '藤吉夏鈴', '守屋麗奈', '山﨑天', '大園玲',
+  '武元唯衣', '松田里奈', '井上梨名', '増本綺良', '大沼晶保', '幸阪茉里乃',
+  '小池美波', '遠藤光莉', '的野美青', '山下瞳月', '谷口愛季', '村井優',
+  '中嶋優月', '小島凪紗', '村山美羽', '遠藤理子', '小田倉麗奈', '石森璃花',
+  '向井純葉', '山川宇衣', '佐藤愛桜', '浅井恋乃未', '稲熊ひな', '勝又春',
+  '中川智尋', '松本和子', '目黒陽色', '山田桃実',
+]);
+const GENERIC_PROJECTS = new Set([
+  '',
+  'MISC',
+  'Vlog',
+  'MV・楽曲',
+  '個人PV',
+  '番組・イベント',
+  '雑誌・グラビア',
+  '公式Blog・写真',
+  'fumi Diary 新着',
+  'PV&ジャケット写真',
+  '櫻坂46 blog',
+  '欅坂46 blog',
+  'テレビ',
+  'サイン',
+]);
+
+const getFeatureFacetTags = (feature: Feature): FacetTag[] => {
+  const { properties } = feature;
+  const facets = new Map<string, FacetTagKind>();
+
+  (properties.members || []).forEach((member) => {
+    if (KNOWN_MEMBER_NAMES.has(member)) facets.set(member, 'member');
+  });
+  [...(properties.tags || []), ...(properties.source?.tags || [])].forEach((tag) => {
+    if (GENERATION_RE.test(tag)) facets.set(tag, 'member');
+  });
+
+  const projectCandidates = [properties.subcategory];
+  [properties.sceneTitle, properties.sceneNote, properties.source?.layer].forEach((text) => {
+    if (!text) return;
+    for (const match of text.matchAll(/[「『](.+?)[」』]/g)) {
+      projectCandidates.push(match[1].trim());
+    }
+  });
+  projectCandidates.forEach((project) => {
+    const value = project?.trim();
+    if (
+      value &&
+      value !== properties.category &&
+      !GENERIC_PROJECTS.has(value) &&
+      value.length <= 60
+    ) {
+      if (!facets.has(value)) facets.set(value, 'project');
+    }
+  });
+
+  return Array.from(facets, ([name, kind]) => ({ name, kind }));
+};
+
+const hasFacetTag = (feature: Feature, tag: string): boolean =>
+  getFeatureFacetTags(feature).some((facet) => facet.name === tag);
+
 export default function SeichiMap({ geojsonUrl, memberName }: Props) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -93,6 +161,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [selectedSubcategory, setSelectedSubcategory] = useState<string>('ALL');
   const [selectedTag, setSelectedTag] = useState<string>('ALL');
+  const [facetSearch, setFacetSearch] = useState('');
 
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -178,8 +247,12 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
   // 3. 大层级与小层级聚合
   const categories = useMemo(() => {
     if (!data) return [];
+    const pool =
+      selectedTag === 'ALL'
+        ? data.features
+        : data.features.filter((feature) => hasFacetTag(feature, selectedTag));
     const map = new Map<string, number>();
-    data.features.forEach((f) => {
+    pool.forEach((f) => {
       const cat = f.properties.category;
       map.set(cat, (map.get(cat) || 0) + 1);
     });
@@ -191,72 +264,73 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
         data.features.find((f) => f.properties.category === name)?.properties.categoryColor ||
         '#666',
     }));
-  }, [data]);
+  }, [data, selectedTag]);
+
+  const categoryScopeCount = useMemo(() => {
+    if (!data) return 0;
+    return selectedTag === 'ALL'
+      ? data.features.length
+      : data.features.filter((feature) => hasFacetTag(feature, selectedTag)).length;
+  }, [data, selectedTag]);
 
   const subcategories = useMemo(() => {
-    if (!data) return [];
-    const pool =
-      selectedCategory === 'ALL'
-        ? data.features
-        : data.features.filter((f) => f.properties.category === selectedCategory);
+    if (!data || selectedCategory === 'ALL') return [];
+    const pool = data.features.filter(
+      (feature) =>
+        feature.properties.category === selectedCategory &&
+        (selectedTag === 'ALL' || hasFacetTag(feature, selectedTag))
+    );
 
     const map = new Map<string, number>();
     pool.forEach((f) => {
       const sub = f.properties.subcategory;
-      map.set(sub, (map.get(sub) || 0) + 1);
+      if (sub && !GENERIC_PROJECTS.has(sub) && sub !== f.properties.category) {
+        map.set(sub, (map.get(sub) || 0) + 1);
+      }
     });
 
-    return Array.from(map.entries()).map(([name, count]) => ({ name, count }));
-  }, [data, selectedCategory]);
+    return Array.from(map.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ja'));
+  }, [data, selectedCategory, selectedTag]);
 
   const subcategoryScopeCount = useMemo(() => {
     if (!data) return 0;
     return data.features.filter(
       (feature) =>
-        selectedCategory === 'ALL' || feature.properties.category === selectedCategory
+        (selectedCategory === 'ALL' || feature.properties.category === selectedCategory) &&
+        (selectedTag === 'ALL' || hasFacetTag(feature, selectedTag))
     ).length;
-  }, [data, selectedCategory]);
-
-  const tagScopeCount = useMemo(() => {
-    if (!data) return 0;
-    return data.features.filter((feature) => {
-      const { category, subcategory } = feature.properties;
-      return (
-        (selectedCategory === 'ALL' || category === selectedCategory) &&
-        (selectedSubcategory === 'ALL' || subcategory === selectedSubcategory)
-      );
-    }).length;
-  }, [data, selectedCategory, selectedSubcategory]);
+  }, [data, selectedCategory, selectedTag]);
 
   const tagOptions = useMemo(() => {
     if (!data) return [];
-    const pool = data.features.filter((feature) => {
-      const { category, subcategory } = feature.properties;
-      return (
-        (selectedCategory === 'ALL' || category === selectedCategory) &&
-        (selectedSubcategory === 'ALL' || subcategory === selectedSubcategory)
-      );
-    });
-    const map = new Map<string, { count: number; isMember: boolean }>();
-    pool.forEach((feature) => {
-      const members = new Set(feature.properties.members || []);
-      getFeatureTags(feature).forEach((tag) => {
-        const current = map.get(tag) || { count: 0, isMember: false };
-        map.set(tag, {
-          count: current.count + 1,
-          isMember: current.isMember || members.has(tag) || tag === '四期生',
+    const map = new Map<string, { count: number; kind: FacetTagKind }>();
+    data.features.forEach((feature) => {
+      getFeatureFacetTags(feature).forEach((tag) => {
+        const current = map.get(tag.name);
+        map.set(tag.name, {
+          count: (current?.count || 0) + 1,
+          kind: current?.kind === 'member' ? 'member' : tag.kind,
         });
       });
     });
     return Array.from(map.entries())
       .map(([name, option]) => ({ name, ...option }))
-      .sort(
-        (a, b) =>
-          Number(b.isMember) - Number(a.isMember) ||
-          b.count - a.count ||
-          a.name.localeCompare(b.name, 'ja')
-      );
-  }, [data, selectedCategory, selectedSubcategory]);
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ja'));
+  }, [data]);
+
+  const normalizedFacetSearch = facetSearch.toLocaleLowerCase('ja').trim();
+  const memberTagOptions = tagOptions.filter(
+    (tag) =>
+      tag.kind === 'member' &&
+      (!normalizedFacetSearch || tag.name.toLocaleLowerCase('ja').includes(normalizedFacetSearch))
+  );
+  const projectTagOptions = tagOptions.filter(
+    (tag) =>
+      tag.kind === 'project' &&
+      (!normalizedFacetSearch || tag.name.toLocaleLowerCase('ja').includes(normalizedFacetSearch))
+  );
 
   // 4. 多层级与搜索过滤
   const filteredFeatures = useMemo(() => {
@@ -274,7 +348,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
         return false;
       }
 
-      if (selectedTag !== 'ALL' && !getFeatureTags(f).includes(selectedTag)) {
+      if (selectedTag !== 'ALL' && !hasFacetTag(f, selectedTag)) {
         return false;
       }
 
@@ -460,7 +534,6 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
               onClick={() => {
                 setSelectedCategory('ALL');
                 setSelectedSubcategory('ALL');
-                setSelectedTag('ALL');
                 setSelectedFeature(null);
               }}
               className={`px-2.5 py-1 text-xs font-medium rounded-md transition-all shrink-0 ${
@@ -469,7 +542,7 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                   : 'bg-[var(--bg-primary)] text-[var(--text-secondary)] border border-[var(--border-primary)] hover:border-[var(--border-secondary)]'
               }`}
             >
-              すべて ({data?.features.length || 0})
+              すべて ({categoryScopeCount})
             </button>
             {categories.map((cat) => (
               <button
@@ -477,7 +550,6 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                 onClick={() => {
                   setSelectedCategory(cat.name);
                   setSelectedSubcategory('ALL');
-                  setSelectedTag('ALL');
                   setSelectedFeature(null);
                 }}
                 className={`px-2.5 py-1 text-xs font-medium rounded-md flex items-center gap-1.5 transition-all shrink-0 ${
@@ -508,7 +580,6 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
               <button
                 onClick={() => {
                   setSelectedSubcategory('ALL');
-                  setSelectedTag('ALL');
                   setSelectedFeature(null);
                 }}
                 className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
@@ -524,7 +595,6 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
                   key={sub.name}
                   onClick={() => {
                     setSelectedSubcategory(sub.name);
-                    setSelectedTag('ALL');
                     setSelectedFeature(null);
                   }}
                   className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
@@ -541,41 +611,92 @@ export default function SeichiMap({ geojsonUrl, memberName }: Props) {
         )}
 
         {tagOptions.length > 0 && (
-          <div className="border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 py-2 overflow-x-auto no-scrollbar">
-            <div className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-tertiary)] mb-1.5 px-0.5">
-              <Tag size={11} />
-              <span>タグ</span>
+          <div className="border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 py-2">
+            <div className="flex items-center justify-between gap-2 mb-1.5 px-0.5">
+              <div className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-tertiary)]">
+                <Tag size={11} />
+                <span>メンバー・作品</span>
+              </div>
+              {selectedTag !== 'ALL' && (
+                <span className="text-[10px] text-[var(--text-secondary)] truncate">
+                  選択中: {selectedTag}
+                </span>
+              )}
             </div>
-            <div className="flex flex-wrap gap-1 max-h-20 overflow-y-auto">
-              <button
-                onClick={() => {
-                  setSelectedTag('ALL');
-                  setSelectedFeature(null);
-                }}
-                className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
-                  selectedTag === 'ALL'
-                    ? 'bg-[var(--border-secondary)] text-[var(--text-primary)] font-semibold'
-                    : 'bg-[var(--bg-primary)] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
-                }`}
-              >
-                すべてのタグ ({tagScopeCount})
-              </button>
-              {tagOptions.map((tag) => (
+            <div className="relative mb-1.5">
+              <Search size={11} className="absolute left-2 top-1.5 text-[var(--text-tertiary)]" />
+              <input
+                type="search"
+                value={facetSearch}
+                onChange={(event) => setFacetSearch(event.target.value)}
+                placeholder="メンバー・楽曲・作品を検索"
+                className="w-full rounded-md border border-[var(--border-primary)] bg-[var(--bg-primary)] py-1 pl-6 pr-2 text-[10px] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:outline-none focus:border-[var(--color-brand-sakura)]"
+              />
+            </div>
+            <div className="max-h-36 overflow-y-auto pr-0.5">
+              <div className="flex flex-wrap gap-1">
                 <button
-                  key={tag.name}
                   onClick={() => {
-                    setSelectedTag(tag.name);
+                    setSelectedTag('ALL');
                     setSelectedFeature(null);
                   }}
                   className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
-                    selectedTag === tag.name
+                    selectedTag === 'ALL'
                       ? 'bg-[var(--border-secondary)] text-[var(--text-primary)] font-semibold'
                       : 'bg-[var(--bg-primary)] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                   }`}
                 >
-                  {tag.name} ({tag.count})
+                  すべて ({data?.features.length || 0})
                 </button>
-              ))}
+                {memberTagOptions.map((tag) => (
+                  <button
+                    key={`member-${tag.name}`}
+                    onClick={() => {
+                      setSelectedTag(tag.name);
+                      setSelectedCategory('ALL');
+                      setSelectedSubcategory('ALL');
+                      setSelectedFeature(null);
+                    }}
+                    className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
+                      selectedTag === tag.name
+                        ? 'bg-[var(--color-brand-sakura)] text-white font-semibold'
+                        : 'bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                    }`}
+                  >
+                    {tag.name} ({tag.count})
+                  </button>
+                ))}
+              </div>
+              {projectTagOptions.length > 0 && (
+                <>
+                  <div className="my-1.5 border-t border-[var(--border-primary)]" />
+                  <div className="flex flex-wrap gap-1">
+                    {projectTagOptions.map((tag) => (
+                      <button
+                        key={`project-${tag.name}`}
+                        onClick={() => {
+                          setSelectedTag(tag.name);
+                          setSelectedCategory('ALL');
+                          setSelectedSubcategory('ALL');
+                          setSelectedFeature(null);
+                        }}
+                        className={`px-2 py-0.5 text-[11px] rounded-full transition-colors ${
+                          selectedTag === tag.name
+                            ? 'bg-[var(--color-brand-sakura)] text-white font-semibold'
+                            : 'bg-[var(--bg-primary)] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+                        }`}
+                      >
+                        {tag.name} ({tag.count})
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
+              {memberTagOptions.length === 0 && projectTagOptions.length === 0 && (
+                <p className="py-2 text-center text-[10px] text-[var(--text-tertiary)]">
+                  該当するメンバー・作品がありません
+                </p>
+              )}
             </div>
           </div>
         )}

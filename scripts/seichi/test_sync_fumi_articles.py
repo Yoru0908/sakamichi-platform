@@ -65,6 +65,20 @@ class SyncFumiArticlesTest(unittest.TestCase):
         )
         self.assertEqual("熱海市田原本町5-5", MODULE.clean_address("〒4130011 熱海市田原本町5-5"))
 
+    def test_classification_uses_source_channel_and_normalizes_publication(self):
+        self.assertEqual(
+            ("Vlog・企画", "櫻坂チャンネル"),
+            MODULE.classify("2026.01.01 櫻坂46 山川宇衣 キャンプへ!", ["櫻坂チャンネル"]),
+        )
+        self.assertEqual(
+            ("番組・イベント", "THE TIME,"),
+            MODULE.classify("2024.07.19 櫻坂46 松田里奈「THE TIME,」出張リポート"),
+        )
+        self.assertEqual(
+            ("雑誌・グラビア", "週刊少年マガジン 2026 No.22+23"),
+            MODULE.classify("櫻坂46 山川宇衣 週刊少年マガジン 2026 No.22+23 写真撮影場所"),
+        )
+
     def test_private_home_is_excluded(self):
         html = """
         <h2 class="article-title">blog写真撮影場所</h2>
