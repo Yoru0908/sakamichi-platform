@@ -1578,6 +1578,22 @@
       "generationNumber": "2",
       "status": "graduated",
       "isActive": false
+    },
+    "小津 玲奈": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/59c/974b3199023a021b45c9d1b5a7635.jpg",
+      "group": "乃木坂46",
+      "generation": "六期生",
+      "generationNumber": "6",
+      "status": "active",
+      "isActive": true
+    },
+    "小津玲奈": {
+      "imageUrl": "https://www.nogizaka46.com/images/46/59c/974b3199023a021b45c9d1b5a7635.jpg",
+      "group": "乃木坂46",
+      "generation": "六期生",
+      "generationNumber": "6",
+      "status": "active",
+      "isActive": true
     }
   },
   "statusSchema": {
@@ -1586,20 +1602,6 @@
     "generation": "来自 blog baseline / 官网字段"
   },
   "excluded": {
-    "小津 玲奈": {
-      "imageUrl": "https://www.nogizaka46.com/images/46/59c/974b3199023a021b45c9d1b5a7635.jpg",
-      "group": "乃木坂46",
-      "status": "excluded",
-      "isActive": false,
-      "excludeReason": "not_in_blog_baseline"
-    },
-    "小津玲奈": {
-      "imageUrl": "https://www.nogizaka46.com/images/46/59c/974b3199023a021b45c9d1b5a7635.jpg",
-      "group": "乃木坂46",
-      "status": "excluded",
-      "isActive": false,
-      "excludeReason": "not_in_blog_baseline"
-    },
     "清宮 レイ": {
       "imageUrl": "https://www.nogizaka46.com/images/46/38d/13aad5d716ac21d9909b499f314b8.jpg",
       "group": "乃木坂46",

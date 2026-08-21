@@ -237,7 +237,7 @@ function parseMembers(text: string): string[] {
         && !member.includes('詳しくは')
         && !member.includes('参加メンバーは都合')
         && !member.includes('スケジュールの都合')
-        && !member.includes('不参加とさせていただきます')
+        && !member.includes('不参加')
         && !member.includes('休業のため')
         && !member.includes('変更となる場合')),
   ));

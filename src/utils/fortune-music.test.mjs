@@ -48,6 +48,10 @@ test('parseEventDetailHtml extracts slots from schedule sections and keeps line-
         伊藤理々杏<br>
         愛宕 心響<br>
         大越ひなの<br>
+        小津玲奈<br>
+        42ndシングルの活動に不参加のため<br>
+        全て不参加とさせて頂きます。<br>
+        全日程不参加となります。<br>
         ※奥田いろはですが、スケジュールの都合により3月22日(日)・4月5日(日)を不参加とさせていただきます。<br>
         参加メンバーは都合により変更となる場合がございますので予めご了承ください。
       </p>
@@ -65,7 +69,7 @@ test('parseEventDetailHtml extracts slots from schedule sections and keeps line-
     receptionEnd: '11:15',
     endTime: '11:30',
   });
-  assert.deepEqual(detail.members, ['伊藤理々杏', '愛宕心響', '大越ひなの']);
+  assert.deepEqual(detail.members, ['伊藤理々杏', '愛宕心響', '大越ひなの', '小津玲奈']);
 });
 
 test('parseEventDetailHtml supports colon end times and slash-delimited member lines', () => {
