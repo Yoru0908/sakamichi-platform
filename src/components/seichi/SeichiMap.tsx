@@ -18,7 +18,6 @@ import {
   Tag,
   Lock,
   LockOpen,
-  Heart,
   Layers,
   List,
   Map as MapIcon,
@@ -74,7 +73,6 @@ interface Props {
   memberName: string;
   groupLabel?: string;
   groupColor?: string;
-  showGroupIcon?: boolean;
 }
 
 const getFeatureTags = (feature: Feature): string[] =>
@@ -159,7 +157,6 @@ export default function SeichiMap({
   memberName,
   groupLabel = '櫻坂46',
   groupColor = 'var(--color-brand-sakura)',
-  showGroupIcon = false,
 }: Props) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -511,7 +508,6 @@ export default function SeichiMap({
               className="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold tracking-wider rounded-full text-white"
               style={{ backgroundColor: groupColor }}
             >
-              {showGroupIcon && <Heart size={10} fill="currentColor" aria-hidden="true" />}
               {groupLabel}
             </span>
           </div>
