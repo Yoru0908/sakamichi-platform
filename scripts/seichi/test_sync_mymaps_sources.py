@@ -53,6 +53,19 @@ class SyncTests(unittest.TestCase):
         self.assertEqual(first, source_key("map", "Layer", "Name", (35.6, 139.7)))
         self.assertNotEqual(first, source_key("map", "Layer", "Other", (35.6, 139.7)))
 
+    def test_stacked_placemarks_receive_unique_stable_keys(self):
+        duplicate_kml = KML.replace(
+            b"</Folder>\n    </Folder>",
+            """<Placemark><name>测试地点</name><description>另一条说明</description>
+            <Point><coordinates>139.700000,35.600000,0</coordinates></Point></Placemark>
+            </Folder>\n    </Folder>""".encode(),
+        )
+        first, _ = parse_kml(duplicate_kml, SOURCE)
+        second, _ = parse_kml(duplicate_kml, SOURCE)
+        keys = [row["properties"]["sourceKey"] for row in first["features"]]
+        self.assertEqual(len(keys), len(set(keys)))
+        self.assertEqual(keys, [row["properties"]["sourceKey"] for row in second["features"]])
+
     def test_diff(self):
         old, _ = parse_kml(KML, SOURCE)
         current = copy.deepcopy(old)

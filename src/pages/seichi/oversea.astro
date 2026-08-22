@@ -3,7 +3,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import SeichiMap from '@/components/seichi/SeichiMap.tsx';
 
 const mapTitle = '櫻坂46 海外聖地巡礼マップ (OVERSEA Map)';
-const geojsonUrl = '/seichi/oversea.geojson';
+const geojsonUrl = '/api/seichi-data/oversea';
+const fallbackGeojsonUrl = '/seichi/oversea.geojson';
 ---
 
 <BaseLayout
@@ -11,5 +12,10 @@ const geojsonUrl = '/seichi/oversea.geojson';
   description="櫻坂46の海外活動・聖地巡礼マップ（CybeRiz Seiryuu (Riz) 様制作：パリ・台北・香港・LA・ソウル・マレーシア・シンガポール等）。"
   hideFooter
 >
-  <SeichiMap client:only="react" geojsonUrl={geojsonUrl} memberName="櫻坂46 海外活動" />
+  <SeichiMap
+    client:only="react"
+    geojsonUrl={geojsonUrl}
+    fallbackGeojsonUrl={fallbackGeojsonUrl}
+    memberName="櫻坂46 海外活動"
+  />
 </BaseLayout>

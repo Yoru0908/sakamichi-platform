@@ -165,6 +165,30 @@ def make_feature(source: dict[str, Any], layer: str, placemark: ET.Element) -> d
     return feature
 
 
+def disambiguate_source_keys(features: list[dict[str, Any]]) -> None:
+    """Keep IDs unique when a source intentionally contains stacked placemarks."""
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for feature in features:
+        groups.setdefault(feature["properties"]["sourceKey"], []).append(feature)
+    for base_key, rows in groups.items():
+        if len(rows) < 2:
+            continue
+        used: set[str] = set()
+        for index, feature in enumerate(rows, 1):
+            props = feature["properties"]
+            identity = json.dumps({
+                "note": props.get("sceneNote", ""),
+                "images": props.get("images", []),
+            }, ensure_ascii=False, sort_keys=True)
+            suffix = hashlib.sha256(identity.encode()).hexdigest()[:10]
+            candidate = f"{base_key}:{suffix}"
+            if candidate in used:
+                candidate = f"{candidate}:{index}"
+            used.add(candidate)
+            props["id"] = candidate
+            props["sourceKey"] = candidate
+
+
 def parse_kml(body: bytes, source: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
     try:
         root = ET.fromstring(body)
@@ -190,6 +214,9 @@ def parse_kml(body: bytes, source: dict[str, Any]) -> tuple[dict[str, Any], list
                 walk(item, folders)
 
     walk(root, [])
+    disambiguate_source_keys(features)
+    for feature in features:
+        feature["properties"]["fingerprint"] = fingerprint(feature)
     return {"type": "FeatureCollection", "features": features}, skipped
 
 

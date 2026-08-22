@@ -70,6 +70,7 @@ interface GeoJSON {
 
 interface Props {
   geojsonUrl: string;
+  fallbackGeojsonUrl?: string;
   memberName: string;
   groupLabel?: string;
   groupColor?: string;
@@ -154,6 +155,7 @@ const hasFacetTag = (feature: Feature, tag: string): boolean =>
 
 export default function SeichiMap({
   geojsonUrl,
+  fallbackGeojsonUrl,
   memberName,
   groupLabel = '櫻坂46',
   groupColor = 'var(--color-brand-sakura)',
@@ -181,19 +183,39 @@ export default function SeichiMap({
   // 移动端视图模式：'map' | 'list'
   const [mobileView, setMobileView] = useState<'map' | 'list'>('map');
 
-  // 1. 获取 GeoJSON 数据
+  // 1. 获取 GeoJSON 数据；动态数据异常时回退到随 Pages 发布的静态快照。
   useEffect(() => {
-    fetch(geojsonUrl)
-      .then((r) => r.json())
-      .then((d: GeoJSON) => {
-        setData(d);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Failed to load GeoJSON:', err);
-        setLoading(false);
-      });
-  }, [geojsonUrl]);
+    let cancelled = false;
+    const urls = Array.from(new Set([geojsonUrl, fallbackGeojsonUrl].filter(Boolean))) as string[];
+
+    const load = async () => {
+      let lastError: unknown = new Error('No GeoJSON URL configured');
+      for (const url of urls) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
+          const next = await response.json() as GeoJSON;
+          if (next.type !== 'FeatureCollection' || !Array.isArray(next.features)) {
+            throw new Error(`${url}: invalid FeatureCollection`);
+          }
+          if (!cancelled) setData(next);
+          return;
+        } catch (error) {
+          lastError = error;
+          console.warn('Failed to load GeoJSON source:', error);
+        }
+      }
+      console.error('Failed to load GeoJSON:', lastError);
+    };
+
+    setLoading(true);
+    load().finally(() => {
+      if (!cancelled) setLoading(false);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [geojsonUrl, fallbackGeojsonUrl]);
 
   // 重置图片索引
   useEffect(() => {

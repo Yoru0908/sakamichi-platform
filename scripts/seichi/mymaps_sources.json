@@ -1,6 +1,18 @@
 {
   "sources": [
     {
+      "id": "cyberiz-oversea",
+      "label": "FULL of Sakurazaka46 OVERSEA Map",
+      "provider": "FULL of Sakurazaka46 OVERSEA Map",
+      "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+      "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+      "tags": ["海外"],
+      "output": ".tmp/mymaps-sync/cyberiz-oversea.geojson",
+      "platform": {
+        "categoryColor": "#3b82f6"
+      }
+    },
+    {
       "id": "shimizu-hinata-main",
       "label": "清水ひなた 日向坂46聖地マイマップ",
       "provider": "清水ひなた",

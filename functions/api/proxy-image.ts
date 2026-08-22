@@ -21,6 +21,7 @@ const ALLOWED_HOSTS = [
   'www.hinatazaka46.com',
   'keyakizaka46.com',
   'www.keyakizaka46.com',
+  'mymaps.usercontent.google.com',
 ];
 
 const MAX_SIZE = 10 * 1024 * 1024; // 10MB
