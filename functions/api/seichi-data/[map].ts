@@ -1,7 +1,11 @@
 const CACHE_TTL = 300;
-const MIN_OVERSEA_FEATURES = 100;
+const MIN_FEATURES: Record<string, number> = {
+  oversea: 100,
+  hinatazaka: 3500,
+};
 const SOURCES: Record<string, string> = {
   oversea: 'https://raw.githubusercontent.com/Yoru0908/sakamichi-platform/sakamichi-platform/public/seichi/oversea.geojson',
+  hinatazaka: 'https://raw.githubusercontent.com/Yoru0908/sakamichi-platform/sakamichi-platform/public/seichi/hinatazaka-all.geojson',
 };
 
 type SeichiDataContext = {
@@ -38,7 +42,7 @@ export const onRequest = async ({ params, request }: SeichiDataContext) => {
     if (
       data.type !== 'FeatureCollection' ||
       !Array.isArray(data.features) ||
-      (map === 'oversea' && data.features.length < MIN_OVERSEA_FEATURES)
+      data.features.length < (MIN_FEATURES[map ?? ''] ?? 1)
     ) {
       return new Response('Seichi data failed validation', { status: 502 });
     }

@@ -18,10 +18,9 @@
       "provider": "清水ひなた",
       "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
       "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+      "tags": ["日向坂46"],
       "output": ".tmp/mymaps-sync/shimizu-hinata-main.geojson",
       "platform": {
-        "category": "日向坂46",
-        "subcategory": "清水ひなた My Maps",
         "categoryColor": "#5BC2AE"
       }
     }

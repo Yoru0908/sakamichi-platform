@@ -1,6 +1,16 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { MapPin, Navigation, Sparkles, Layers, ArrowRight, Video, Compass, Globe, Film, Heart } from 'lucide-astro';
+import { readFileSync } from 'node:fs';
+
+const featureCount = (filename: string) => {
+  const path = new URL(`../../../public/seichi/${filename}`, import.meta.url);
+  const data = JSON.parse(readFileSync(path, 'utf-8')) as { features?: unknown[] };
+  return Array.isArray(data.features) ? data.features.length : 0;
+};
+const sakurazakaSpotCount = featureCount('sakurazaka-all.geojson');
+const overseaSpotCount = featureCount('oversea.geojson');
+const hinatazakaSpotCount = featureCount('hinatazaka-all.geojson');
 
 const maps = [
   {
@@ -26,7 +36,7 @@ const maps = [
     author: 'fumi Diary 2号店',
     authorType: '转载参考',
     authorUrl: 'http://blog.livedoor.jp/fumichen2/',
-    spotCount: 1404,
+    spotCount: sakurazakaSpotCount,
     color: 'var(--color-brand-sakura)',
     href: '/seichi/sakurazaka',
     avatar: 'https://livedoor.blogimg.jp/fumichen2/imgs/0/b/0b2d9f67.jpg',
@@ -58,7 +68,7 @@ const maps = [
     author: 'CybeRiz Seiryuu (Riz)',
     authorType: '转载参考',
     authorUrl: 'https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE',
-    spotCount: 128,
+    spotCount: overseaSpotCount,
     color: '#3b82f6',
     href: '/seichi/oversea',
     avatar: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=120&q=80',
@@ -74,13 +84,13 @@ const maps = [
     author: '清水ひなた (My Maps)',
     authorType: '转载参考',
     authorUrl: 'https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ',
-    spotCount: 3916,
+    spotCount: hinatazakaSpotCount,
     color: '#5BC2AE',
     href: '/seichi/hinatazaka',
     avatar: 'https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=120&q=80',
     categories: ['シングル・アルバム', 'CD特典映像', '写真集', '日向ちゃんねる', 'メンバーブログ', '映画・ドラマ・TV'],
     highlights: ['キュン', 'One choice', '君はハニーデュー', '日向坂で会いましょう'],
-    badge: '3916スポット',
+    badge: `${hinatazakaSpotCount.toLocaleString()}スポット`,
     badgeColor: '#5BC2AE',
   },
   {

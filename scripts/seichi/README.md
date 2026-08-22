@@ -43,11 +43,72 @@ SEICHI_RUNTIME_DIR=/vol1/seichi-sync \
 
 Latest run status is written to `/vol1/seichi-sync/reports/latest.json`; logs are in `/vol1/seichi-sync/logs/oversea-sync.log`.
 
-## fumi articles
+## 清水ひなた My Maps automation
 
-The fumi synchronizer remains a separately invoked workflow:
+The public 日向坂46 My Maps source `shimizu-hinata-main` is checked every six
+hours and promoted into `public/seichi/hinatazaka-all.geojson`.
+
+- Source Map ID: `14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ`
+- Entrypoint: `/vol1/sakamichi-platform/scripts/seichi/run_shimizu_hinata_sync.sh`
+- Runtime: `/vol1/seichi-sync/shimizu-hinata/`
+- Report: `/vol1/seichi-sync/reports/shimizu-hinata-latest.json`
+- Log: `/vol1/seichi-sync/logs/shimizu-hinata-sync.log`
+- Cron: `31 */6 * * *`
+- Dynamic endpoint: `/api/seichi-data/hinatazaka` with the Pages snapshot as fallback
+
+The promoter requires at least 3,500 source points and permits at most 50
+additions or 10 removals per normal run. It validates coordinates and unique
+stable source keys. Legacy/matched images are retained, Google My Maps images
+use `/api/proxy-image`, and direct YouTube thumbnails remain unchanged. Rows not
+owned by this Map ID are preserved so manually curated additions are not erased.
+
+Manual run:
 
 ```bash
-python3 scripts/seichi/sync_fumi_articles.py \
-  --merge-target public/seichi/sakurazaka-all.geojson
+SEICHI_REPO_DIR=/vol1/sakamichi-platform \
+SEICHI_RUNTIME_DIR=/vol1/seichi-sync \
+/vol1/sakamichi-platform/scripts/seichi/run_shimizu_hinata_sync.sh
 ```
+
+## fumi article automation
+
+fumi's public article tags are checked automatically on Homeserver. Tag indexes
+are fetched on each run, while immutable article pages and GSI geocoding results
+are cached under `/vol1/seichi-sync/fumi/cache/`.
+
+```text
+fumi public tag/article pages
+  -> sync_fumi_articles.py (complete managed supplement after the fixed cutoff)
+  -> promote_fumi_articles.py (quality gate; preserve every non-fumi feature)
+  -> public/seichi/sakurazaka-all.geojson
+  -> tests + git commit/push to sakamichi-platform
+  -> Cloudflare Pages build
+```
+
+- Entrypoint: `/vol1/sakamichi-platform/scripts/seichi/run_fumi_sync.sh`
+- Runtime and cache: `/vol1/seichi-sync/fumi/`
+- Reports: `/vol1/seichi-sync/reports/fumi-*.json`
+- Log: `/vol1/seichi-sync/logs/fumi-sync.log`
+- Cron: `43 */6 * * *`
+
+Manual run:
+
+```bash
+SEICHI_REPO_DIR=/vol1/sakamichi-platform \
+SEICHI_RUNTIME_DIR=/vol1/seichi-sync \
+/vol1/sakamichi-platform/scripts/seichi/run_fumi_sync.sh
+```
+
+The fumi promoter requires at least 700 managed features, permits at most 50
+additions or 10 removals in one run, validates stable unique IDs and WGS84
+coordinates, and replaces only features whose ID starts with `fumi-article:`.
+My Maps imports and manually curated records remain untouched. The fumi and
+overseas runners share a Git publication lock so they cannot commit concurrently.
+Both stop at 85% `/vol1` usage and rotate their individual logs at 5 MiB.
+
+## YouTube policy
+
+YouTube subtitles and official descriptions may be used to prepare a review
+list, but YouTube locations are never part of an automatic publication job.
+They are verified and added manually, with a separate source record per video
+appearance. Private homes and unconfirmed recording studios are excluded.
