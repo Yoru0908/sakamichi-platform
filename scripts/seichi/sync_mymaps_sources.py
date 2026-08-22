@@ -176,10 +176,9 @@ def disambiguate_source_keys(features: list[dict[str, Any]]) -> None:
         used: set[str] = set()
         for index, feature in enumerate(rows, 1):
             props = feature["properties"]
-            identity = json.dumps({
-                "note": props.get("sceneNote", ""),
-                "images": props.get("images", []),
-            }, ensure_ascii=False, sort_keys=True)
+            # Google may rotate hosted-image URLs without changing a placemark.
+            # The cleaned note is stable and distinguishes stacked source rows.
+            identity = str(props.get("sceneNote", ""))
             suffix = hashlib.sha256(identity.encode()).hexdigest()[:10]
             candidate = f"{base_key}:{suffix}"
             if candidate in used:

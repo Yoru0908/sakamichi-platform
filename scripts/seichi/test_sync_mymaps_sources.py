@@ -62,9 +62,11 @@ class SyncTests(unittest.TestCase):
         )
         first, _ = parse_kml(duplicate_kml, SOURCE)
         second, _ = parse_kml(duplicate_kml, SOURCE)
+        rotated_image, _ = parse_kml(duplicate_kml.replace(b"a.jpg", b"rotated.jpg"), SOURCE)
         keys = [row["properties"]["sourceKey"] for row in first["features"]]
         self.assertEqual(len(keys), len(set(keys)))
         self.assertEqual(keys, [row["properties"]["sourceKey"] for row in second["features"]])
+        self.assertEqual(keys, [row["properties"]["sourceKey"] for row in rotated_image["features"]])
 
     def test_diff(self):
         old, _ = parse_kml(KML, SOURCE)
