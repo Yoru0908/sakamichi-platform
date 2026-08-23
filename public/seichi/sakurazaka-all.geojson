@@ -80276,6 +80276,120 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.702484,
+          35.688541
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:a09f7d1bc612d4ba05c8",
+        "sourceKey": "fumi-article:a09f7d1bc612d4ba05c8",
+        "name": "SALON BAKE & TEA NEWoMan新宿店",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都新宿区新宿4-1-6 NEWoMan 3F",
+        "sceneTitle": "2026.08.18 櫻坂46 目黒陽色 夏のご褒美。 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都新宿区新宿4-1-6 NEWoMan 3F",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60013385.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60013385.html",
+        "tags": [
+          "櫻坂46",
+          "目黒陽色",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "目黒陽色"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60013385.html",
+          "mapId": "",
+          "layer": "2026.08.18 櫻坂46 目黒陽色 夏のご褒美。 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "目黒陽色",
+            "四期生"
+          ],
+          "name": "SALON BAKE & TEA NEWoMan新宿店",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.801255,
+          32.771977
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:5e76c114945882b838b1",
+        "sourceKey": "fumi-article:5e76c114945882b838b1",
+        "name": "かきどまり白浜海岸",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "長崎県長崎市柿泊町",
+        "sceneTitle": "2026.08.09 櫻坂46 中川智尋 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。長崎県長崎市柿泊町",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60013921.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60013921.html",
+        "tags": [
+          "櫻坂46",
+          "中川智尋",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "中川智尋"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60013921.html",
+          "mapId": "",
+          "layer": "2026.08.09 櫻坂46 中川智尋 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "中川智尋",
+            "四期生"
+          ],
+          "name": "かきどまり白浜海岸",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
