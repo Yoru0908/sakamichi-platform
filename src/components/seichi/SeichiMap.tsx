@@ -74,6 +74,8 @@ interface Props {
   memberName: string;
   groupLabel?: string;
   groupColor?: string;
+  sourceReferences?: string[];
+  locationCredits?: string;
 }
 
 const getFeatureTags = (feature: Feature): string[] =>
@@ -159,6 +161,8 @@ export default function SeichiMap({
   memberName,
   groupLabel = '櫻坂46',
   groupColor = 'var(--color-brand-sakura)',
+  sourceReferences = ['櫻坂チャンネル YouTube / 公式ブログ / 雑誌'],
+  locationCredits = 'fumi Diary 2号店 様',
 }: Props) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -857,8 +861,10 @@ export default function SeichiMap({
         {/* 来源与致谢说明 */}
         <div className="p-3 border-t border-[var(--border-primary)] bg-[var(--bg-secondary)] text-[10px] text-[var(--text-tertiary)] leading-relaxed">
           <p className="font-semibold text-[var(--text-secondary)] mb-0.5">データ出典・参考：</p>
-          <p>• 櫻坂チャンネル YouTube / 公式ブログ / 雑誌</p>
-          <p>• ロケ地考証：fumi Diary 2号店 様</p>
+          {sourceReferences.map((reference) => (
+            <p key={reference}>• {reference}</p>
+          ))}
+          <p>• ロケ地考証：{locationCredits}</p>
         </div>
       </aside>
 
