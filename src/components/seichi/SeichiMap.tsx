@@ -496,8 +496,18 @@ export default function SeichiMap({
 
   const selProps = selectedFeature?.properties;
   const [selLng, selLat] = selectedFeature?.geometry.coordinates || [0, 0];
-  const gmapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${selLat},${selLng}`;
-  const gmapsDirUrl = `https://www.google.com/maps/dir/?api=1&destination=${selLat},${selLng}`;
+  const coordinateQuery = `${selLat},${selLng}`;
+  // Address-backed venues should resolve to Google's official Place rather than
+  // a raw coordinate, which may be a block centroid or a point beside the entrance.
+  // Roads and scene-only points without an address keep their exact source coordinate.
+  const namedPlaceQuery = [selProps?.name, selProps?.address]
+    .map((value) => value?.trim())
+    .filter(Boolean)
+    .join(' ');
+  const googleMapsQuery = namedPlaceQuery || coordinateQuery;
+  const encodedGoogleMapsQuery = encodeURIComponent(googleMapsQuery);
+  const gmapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodedGoogleMapsQuery}`;
+  const gmapsDirUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedGoogleMapsQuery}`;
   const currentImages = selProps?.images || [];
 
   return (
