@@ -3,7 +3,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import SeichiMap from '@/components/seichi/SeichiMap.tsx';
 
 const mapTitle = '櫻坂46 ロケ地マップ (総合版)';
-const geojsonUrl = '/seichi/sakurazaka-all.geojson';
+const geojsonUrl = '/api/seichi-data/sakurazaka';
+const fallbackGeojsonUrl = '/seichi/sakurazaka-all.geojson';
 ---
 
 <BaseLayout
@@ -11,5 +12,10 @@ const geojsonUrl = '/seichi/sakurazaka-all.geojson';
   description="櫻坂46の歴代MV・PV・雑誌・サイン会店舗・テレビ番組・ブログ出演地点を完全網羅（fumi Diary 2号店様データより整理）。"
   hideFooter
 >
-  <SeichiMap client:only="react" geojsonUrl={geojsonUrl} memberName="櫻坂46 総合" />
+  <SeichiMap
+    client:only="react"
+    geojsonUrl={geojsonUrl}
+    fallbackGeojsonUrl={fallbackGeojsonUrl}
+    memberName="櫻坂46 総合"
+  />
 </BaseLayout>

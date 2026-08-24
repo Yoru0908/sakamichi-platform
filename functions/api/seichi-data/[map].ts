@@ -1,10 +1,12 @@
 const CACHE_TTL = 300;
 const MIN_FEATURES: Record<string, number> = {
   oversea: 100,
+  sakurazaka: 1000,
   hinatazaka: 3500,
 };
 const SOURCES: Record<string, string> = {
   oversea: 'https://raw.githubusercontent.com/Yoru0908/sakamichi-platform/sakamichi-platform/public/seichi/oversea.geojson',
+  sakurazaka: 'https://raw.githubusercontent.com/Yoru0908/sakamichi-platform/sakamichi-platform/public/seichi/sakurazaka-all.geojson',
   hinatazaka: 'https://raw.githubusercontent.com/Yoru0908/sakamichi-platform/sakamichi-platform/public/seichi/hinatazaka-all.geojson',
 };
 

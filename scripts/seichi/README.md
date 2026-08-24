@@ -82,7 +82,7 @@ fumi public tag/article pages
   -> promote_fumi_articles.py (quality gate; preserve every non-fumi feature)
   -> public/seichi/sakurazaka-all.geojson
   -> tests + git commit/push to sakamichi-platform
-  -> Cloudflare Pages build
+  -> /api/seichi-data/sakurazaka (GitHub Raw proxy; static snapshot fallback)
 ```
 
 - Entrypoint: `/vol1/sakamichi-platform/scripts/seichi/run_fumi_sync.sh`
@@ -90,6 +90,7 @@ fumi public tag/article pages
 - Reports: `/vol1/seichi-sync/reports/fumi-*.json`
 - Log: `/vol1/seichi-sync/logs/fumi-sync.log`
 - Cron: `43 */6 * * *`
+- Dynamic endpoint: `/api/seichi-data/sakurazaka` with the Pages snapshot as fallback
 
 Manual run:
 
