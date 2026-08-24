@@ -2624,14 +2624,14 @@
         ]
       },
       "properties": {
-        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:a6f35fb6d02817a83e9a",
-        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:a6f35fb6d02817a83e9a",
-        "name": "25°03'25.3\"N 121°30'49.9\"E",
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:782c74ebe5a859609d45",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:782c74ebe5a859609d45",
+        "name": "Yublog 0515 過馬路",
         "category": "2025 Taipei ver2",
         "subcategory": "2025 Taipei ver2",
         "categoryColor": "#3b82f6",
         "address": "",
-        "sceneTitle": "25°03'25.3\"N 121°30'49.9\"E",
+        "sceneTitle": "Yublog 0515 過馬路",
         "sceneNote": "Note: 石森璃花 IG Story Yublog 0515 過馬路 URL: 25.0570128,121.5138676 Tags: Comment:",
         "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
@@ -2640,7 +2640,9 @@
           "海外",
           "2025 Taipei ver2"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6W95gO4yTiJ2F89d8BTlKgpJm6w31hypoImz2a7QD228PBRKNmRv7SABn5_j06J46fdnP2PSgnL8DFCTikQYXI59_AGo6k-DzX70ND9OllysSR88o3AME8YbG_tIQwdHdfP9mutxcGP5twnjFywbGgVwIiNUoxflIAFES_OvT-vIos2TLjuE6HlNQGBC4NZfMpVixK2jtm5Ob7wvGmUl7vOEFn3SUfXQN9OIdxAIHiLMwNzA_h0JiN_pc%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -2651,7 +2653,7 @@
             "海外",
             "2025 Taipei ver2"
           ],
-          "name": "25°03'25.3\"N 121°30'49.9\"E"
+          "name": "Yublog 0515 過馬路"
         },
         "classification": {
           "category": "2025 Taipei ver2",
