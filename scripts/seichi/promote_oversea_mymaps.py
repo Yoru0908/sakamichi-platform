@@ -74,11 +74,16 @@ def normalise_candidate(
     layer = source_layer(feature)
     source_images = list(props.get("images") or [])
     previous_images = list((previous or {}).get("properties", {}).get("images") or [])
-    retained_images = [url for url in previous_images if R2_HOST in url]
+    previous_backed_images = [
+        url for url in previous_images
+        if R2_HOST in url or url.startswith("/api/proxy-image?url=")
+    ]
     direct_r2_images = [url for url in source_images if R2_HOST in url]
     source_non_r2 = [url for url in source_images if R2_HOST not in url]
-    # Existing images stay on R2. Newly introduced My Maps images use the
-    # same-origin proxy until the next optional R2 mirror pass.
+    # Google rotates its hosted-image URLs. Keep the existing R2/proxy URL by
+    # image position, trim it when the source removes an image, and proxy only
+    # genuinely new positions. This prevents an empty sync from creating a commit.
+    retained_images = previous_backed_images[:len(source_non_r2)]
     new_source_images = source_non_r2[len(retained_images):]
     proxied_images = [
         "/api/proxy-image?url=" + urllib.parse.quote(url, safe="")

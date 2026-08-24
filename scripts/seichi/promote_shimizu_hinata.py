@@ -106,7 +106,10 @@ def normalise_candidate(
 
     source_images = list(props.get("images") or [])
     previous_images = list((previous or {}).get("properties", {}).get("images") or [])
-    retained_r2 = [url for url in previous_images if R2_HOST in url]
+    previous_backed_images = [
+        url for url in previous_images
+        if R2_HOST in url or url.startswith("/api/proxy-image?url=")
+    ]
     direct_images = [
         url for url in source_images
         if "mymaps.usercontent.google.com" not in url
@@ -115,12 +118,15 @@ def normalise_candidate(
         url for url in source_images
         if "mymaps.usercontent.google.com" in url
     ]
-    new_google_images = google_images[len(retained_r2):]
+    # Google rotates hosted-image URLs. Preserve existing R2/proxy URLs by
+    # position so unchanged source data does not produce an empty Git commit.
+    retained_backed_images = previous_backed_images[:len(google_images)]
+    new_google_images = google_images[len(retained_backed_images):]
     proxied_images = [
         "/api/proxy-image?url=" + urllib.parse.quote(url, safe="")
         for url in new_google_images
     ]
-    props["images"] = unique(retained_r2 + direct_images + proxied_images)
+    props["images"] = unique(direct_images + retained_backed_images + proxied_images)
     props.pop("fingerprint", None)
 
     props["category"] = layer

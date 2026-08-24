@@ -47,6 +47,18 @@ class PromoteTests(unittest.TestCase):
         self.assertEqual(report["added"], 1)
         self.assertEqual(result["features"][0]["properties"]["tags"], ["海外", "Trip"])
 
+    def test_preserves_existing_proxy_when_google_rotates_url(self):
+        old_proxy = "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fold.png"
+        current = {"type": "FeatureCollection", "features": [
+            feature("stable", "Place", 1, 2, images=[old_proxy]),
+        ]}
+        candidate = {"type": "FeatureCollection", "features": [
+            feature("stable", "Place", 1, 2, images=["https://mymaps.usercontent.google.com/rotated.png"]),
+        ]}
+        result, report = promote(current, candidate, min_features=1, max_additions=5, max_removals=5)
+        self.assertEqual([old_proxy], result["features"][0]["properties"]["images"])
+        self.assertEqual(0, report["newSourceImagesUsingProxy"])
+
     def test_refuses_unexpected_bulk_removal(self):
         current = {"type": "FeatureCollection", "features": [
             feature(f"old-{index}", f"Place {index}", index, 2) for index in range(5)

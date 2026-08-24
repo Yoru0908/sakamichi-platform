@@ -85,6 +85,15 @@ class PromoteShimizuHinataTest(unittest.TestCase):
         self.assertTrue(image.startswith("/api/proxy-image?url="))
         self.assertEqual(1, report["newSourceImagesUsingProxy"])
 
+    def test_preserves_existing_proxy_when_google_rotates_url(self):
+        old_proxy = "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fold.png"
+        result, report = self.promote(
+            [legacy(images=[old_proxy])],
+            [candidate(images=["https://mymaps.usercontent.google.com/rotated.png"])],
+        )
+        self.assertEqual([old_proxy], result["features"][0]["properties"]["images"])
+        self.assertEqual(0, report["newSourceImagesUsingProxy"])
+
     def test_youtube_thumbnail_remains_direct(self):
         thumbnail = "https://img.youtube.com/vi/example/hqdefault.jpg"
         result, report = self.promote([], [candidate(images=[thumbnail])])
