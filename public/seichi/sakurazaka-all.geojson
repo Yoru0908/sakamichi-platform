@@ -80390,6 +80390,116 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.788625,
+          35.630654
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:676b0ab381ac181b48ff",
+        "sourceKey": "fumi-article:676b0ab381ac181b48ff",
+        "name": "シンボルプロムナード公園",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都江東区有明3-1-17",
+        "sceneTitle": "2026.08.07 櫻坂46 中嶋優月 夏 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都江東区有明3-1-17",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60017470.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60017470.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60017470.html",
+          "mapId": "",
+          "layer": "2026.08.07 櫻坂46 中嶋優月 夏 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月"
+          ],
+          "name": "シンボルプロムナード公園",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.788331,
+          35.630657
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:a11fd4f03e9fbcc7024e",
+        "sourceKey": "fumi-article:a11fd4f03e9fbcc7024e",
+        "name": "サクラミーツイベントのキービジュアル撮影の時のオフショットー☺︎",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "",
+        "sceneTitle": "2026.08.07 櫻坂46 中嶋優月 夏 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60017470.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60017470.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60017470.html",
+          "mapId": "",
+          "layer": "2026.08.07 櫻坂46 中嶋優月 夏 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月"
+          ],
+          "name": "サクラミーツイベントのキービジュアル撮影の時のオフショットー☺︎",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
