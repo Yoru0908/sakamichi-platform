@@ -2673,6 +2673,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          121.5094754,
+          25.0556258
+        ]
+      },
+      "properties": {
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:013404dbed6f51a9703c",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:013404dbed6f51a9703c",
+        "name": "大園玲blog中出鏡的小草",
+        "category": "2025 Taipei ver2",
+        "subcategory": "2025 Taipei ver2",
+        "categoryColor": "#3b82f6",
+        "address": "",
+        "sceneTitle": "大園玲blog中出鏡的小草",
+        "sceneNote": "Note: 松田里奈blog 小巷 zonogram twoshot with shizuki zonoblog 小草 the little grass and tube Yublog 0515 Two-shot with rika (Complete address: No. 13, Lane 72, Section 1, Dihua St, Datong District) URL: https://www.google.com/maps/place/No.+13,+Lane+72,+Section+1,+Dihua+St,+Datong+District/data=!4m2!3m1!1s0x3442a9140e9b79cf:0xd5a04b26d87a8244 Tags: Comment:",
+        "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "tags": [
+          "海外",
+          "2025 Taipei ver2"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5WN3VNEfBRBcanAS0_OFWHhrLoKp-bdWq8Kk4w3bcR9O85kgHuJXmd8ey8Fb-ztlM_6Z3APvbJ1B0aC0NDJdrJF03CkPlWgQMWbaGn8kSD6ElxzGSeN7a8yFfhhO5s1MqFe2XISVrlX7OVXyYE-kNQJzy3AGC8rV8wgbNKbKtQ8sc2RcUGWezj_0gJgAtNiP99GxPisdjh6VKmeYX-eC5R0L6KHBbjgzb3ATQXVEH_xHoNLl36tl8mCyw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5JV84gktymXuCrsK1z3AToM1Q27keGTtUunHgT6VgI2r5egmZkUQ-i8QqOyajZxWNMV2chCZRBzM3q8whjWpYUuIxV-o6G5VvbZetRvze8GSE_xO5xEExD42T_tVFwoLjRFtlthW6fNVYVHpsrP9EyLgoGQ8Qpk9wIobFuLxRww0y16ry1UD_Y563rby7osGOEqBlMH8ldbuVq4tKYrpWcFCSc00igG2cjX7TyEI7lDtjcUHauDeyCGP4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "FULL of Sakurazaka46 OVERSEA Map",
+          "url": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "layer": "2025 Taipei ver2",
+          "tags": [
+            "海外",
+            "2025 Taipei ver2"
+          ],
+          "name": "大園玲blog中出鏡的小草"
+        },
+        "classification": {
+          "category": "2025 Taipei ver2",
+          "subcategory": "2025 Taipei ver2",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           121.5201319,
           25.0532277
         ]
@@ -2746,7 +2801,9 @@
           "海外",
           "2025 Taipei ver2"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7BL2Nc-U_oK9UeYanBpAN2I74y2Yj6pWYGO_ovgKoHX4E9Szr6ApDElvB9cbz7H2hIqeA38_J8N5wKybyZL_qmUS0yp7TFlgm3l1u9B7cEDdRATcKCG0_J9AzkWa60Jp_eNEOVHVBLOW3r3iAY9ufc75nLHp1sP2FkdZd3yxwf8Likqx9NkpOkMW4CIl6nD2ZrBYhg7wxEvuYwVWmWu9-ATfGGaKoR9FIxmCvJeRLfj2lKKJ50MJcJHTE%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -2758,6 +2815,60 @@
             "2025 Taipei ver2"
           ],
           "name": "25°03'15.0\"N 121°31'06.4\"E"
+        },
+        "classification": {
+          "category": "2025 Taipei ver2",
+          "subcategory": "2025 Taipei ver2",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.5098861,
+          25.0581701
+        ]
+      },
+      "properties": {
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:626015dd76218425e007",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:626015dd76218425e007",
+        "name": "No. 17, Lane 72, Section 1, Dihua St, Datong District",
+        "category": "2025 Taipei ver2",
+        "subcategory": "2025 Taipei ver2",
+        "categoryColor": "#3b82f6",
+        "address": "",
+        "sceneTitle": "No. 17, Lane 72, Section 1, Dihua St, Datong District",
+        "sceneNote": "Note: zonoblog with mio yudu, blurry blurry URL: https://www.google.com/maps/place/No.+17,+Lane+72,+Section+1,+Dihua+St,+Datong+District/data=!4m2!3m1!1s0x3442a9140eddcd2f:0x2f01a2059dabd1fc Tags: Comment:",
+        "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "tags": [
+          "海外",
+          "2025 Taipei ver2"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4MbMWcpf4-zsoSTS66a7C00qEofCiwQCI1MkghMvc9rsqNZI1yoUjxDjQ6qg3c4fD8F-bkdaoVV6ownaetiHSbx8BZZRMv0cdJkFRw_0-OtI_QFv52OvEGCnMSg37zZ-zp6nPzTYjdwSHmGlVqimrwW0C_dc5qBWi838SMydfjJje-0CdHGAexZIHfHQ1BmXGgWbCa43VjsihTGIZJF03XuqvnzK18jNpohOdwRuZCU6xWi1GXbDJvYU8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "FULL of Sakurazaka46 OVERSEA Map",
+          "url": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "layer": "2025 Taipei ver2",
+          "tags": [
+            "海外",
+            "2025 Taipei ver2"
+          ],
+          "name": "No. 17, Lane 72, Section 1, Dihua St, Datong District"
         },
         "classification": {
           "category": "2025 Taipei ver2",
@@ -2798,7 +2909,9 @@
           "海外",
           "2025 Taipei ver2"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wPu8O9qFnwOEEn9uap0QODJOUdpUtfJTdLpCID0hitcYUO5c_BLwyLascwW-9nuYHo-UgVMtNIb_zxFQYL0pBbuYvVx4TrUtWI6qv4Y7qnzUPcyDoY8X4PPn2jB7Ya-Rojk_B8HRf_rpfDD_Le76GwemcxzUkqrxVQ3hBT0vshxSPKYeWfm4hhqfis5ftT3dFKNsQ7ROXdB-OEhyqRSEbhMLYwPridB9z4cH3nB5ivyrCIRhYh3Vfe5U%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -3006,7 +3119,9 @@
           "海外",
           "2025 Taipei ver2"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR51kDO3cqEy22JOFT20XKeAa9eDyypHfCFaq1X2EzqaVEWTwP3y-fnyn2cqd9uYlQiH-pcMlUwLmd5A3olA39lvli1ApClVzGnH460ctFjMvfQPe2FAM7WKYCGsf4sso-cgEXz9_q8yPJR1fUk9kI5LFeuX-am7-G0dspyH5YZxJZLEY5Wql-_SNwzhTcsiKcpCOiJFHwX1eKyk3gRTCp1pbXMCwLJnNfs-C7YrR9PcdKXYE_GFsrIUgG4%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -3174,6 +3289,60 @@
             "2025 Taipei ver2"
           ],
           "name": "25°03'25.2\"N 121°30'53.7\"E"
+        },
+        "classification": {
+          "category": "2025 Taipei ver2",
+          "subcategory": "2025 Taipei ver2",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.5768478,
+          25.0515104
+        ]
+      },
+      "properties": {
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:6d684f94fbb2e29f35db",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:6d684f94fbb2e29f35db",
+        "name": "Rainbow Bridge",
+        "category": "2025 Taipei ver2",
+        "subcategory": "2025 Taipei ver2",
+        "categoryColor": "#3b82f6",
+        "address": "",
+        "sceneTitle": "Rainbow Bridge",
+        "sceneNote": "Note: tenkarin URL: No. 180, Songhe St, Ciyou Village, Songshan District, Taipei City, Taiwan 105 Tags: Comment:",
+        "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "tags": [
+          "海外",
+          "2025 Taipei ver2"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7pU86xD8AJGDp4z0udqJlil-kLOJsbBaCAqJdMRCOJ9T4uo8H-rfizGiKZApV9nwv3Q4Q54pJ7r5oeTFrtlR6zxLqAntQZjSY_N8wCQyOyF6oXnUJpqm0AojYsL649ZVOQ-agPxtbHF7PzNQ4bVmdWFGAIV-XofX9mMWOFFFJHVb6-lIFVWzjvfUF8Kux9nWISU-Bge0Y4s7dNp4_e0XKstGrZrns_KTlbS2jh3eFDc6R0gql0hqWB0AM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "FULL of Sakurazaka46 OVERSEA Map",
+          "url": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "layer": "2025 Taipei ver2",
+          "tags": [
+            "海外",
+            "2025 Taipei ver2"
+          ],
+          "name": "Rainbow Bridge"
         },
         "classification": {
           "category": "2025 Taipei ver2",
@@ -6859,14 +7028,14 @@
         ]
       },
       "properties": {
-        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:e9374f31e5264cde1b73",
-        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:e9374f31e5264cde1b73",
-        "name": "Rådhuspladsen",
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:d534a059edf48667a218",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:d534a059edf48667a218",
+        "name": "大園玲 - Rådhuspladsen",
         "category": "Private trip/photobook/others",
         "subcategory": "Private trip/photobook/others",
         "categoryColor": "#3b82f6",
         "address": "",
-        "sceneTitle": "Rådhuspladsen",
+        "sceneTitle": "大園玲 - Rådhuspladsen",
         "sceneNote": "description: Note: URL: Tags: Comment: Title:",
         "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
@@ -6886,7 +7055,7 @@
             "海外",
             "Private trip/photobook/others"
           ],
-          "name": "Rådhuspladsen"
+          "name": "大園玲 - Rådhuspladsen"
         },
         "classification": {
           "category": "Private trip/photobook/others",
@@ -6911,14 +7080,14 @@
         ]
       },
       "properties": {
-        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:294b3348485f0bc2d43e",
-        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:294b3348485f0bc2d43e",
-        "name": "Østerlandsk Thehus",
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:06894a533c600e399bbe",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:06894a533c600e399bbe",
+        "name": "大園玲 - Østerlandsk Thehus",
         "category": "Private trip/photobook/others",
         "subcategory": "Private trip/photobook/others",
         "categoryColor": "#3b82f6",
         "address": "",
-        "sceneTitle": "Østerlandsk Thehus",
+        "sceneTitle": "大園玲 - Østerlandsk Thehus",
         "sceneNote": "description: Note: URL: Tags: Comment: Title:",
         "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
@@ -6938,7 +7107,7 @@
             "海外",
             "Private trip/photobook/others"
           ],
-          "name": "Østerlandsk Thehus"
+          "name": "大園玲 - Østerlandsk Thehus"
         },
         "classification": {
           "category": "Private trip/photobook/others",
@@ -6963,14 +7132,14 @@
         ]
       },
       "properties": {
-        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:581888b121859203edee",
-        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:581888b121859203edee",
-        "name": "Copenhagen City Hall",
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:6f1808ff60f3b01a9459",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:6f1808ff60f3b01a9459",
+        "name": "大園玲 - Copenhagen City Hall",
         "category": "Private trip/photobook/others",
         "subcategory": "Private trip/photobook/others",
         "categoryColor": "#3b82f6",
         "address": "",
-        "sceneTitle": "Copenhagen City Hall",
+        "sceneTitle": "大園玲 - Copenhagen City Hall",
         "sceneNote": "description: Note: URL: Tags: Comment: Title:",
         "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
@@ -6990,7 +7159,7 @@
             "海外",
             "Private trip/photobook/others"
           ],
-          "name": "Copenhagen City Hall"
+          "name": "大園玲 - Copenhagen City Hall"
         },
         "classification": {
           "category": "Private trip/photobook/others",
@@ -7015,14 +7184,14 @@
         ]
       },
       "properties": {
-        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:8bff8a30e4062ac1f2eb",
-        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:8bff8a30e4062ac1f2eb",
-        "name": "Tivoli Illuminations",
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:6dab8c54dac53ae0bc71",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:6dab8c54dac53ae0bc71",
+        "name": "大園玲 - Tivoli Illuminations",
         "category": "Private trip/photobook/others",
         "subcategory": "Private trip/photobook/others",
         "categoryColor": "#3b82f6",
         "address": "",
-        "sceneTitle": "Tivoli Illuminations",
+        "sceneTitle": "大園玲 - Tivoli Illuminations",
         "sceneNote": "description: Note: URL: Tags: Comment: Title:",
         "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
@@ -7031,7 +7200,9 @@
           "海外",
           "Private trip/photobook/others"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4bTQBunmWrEbfmreChXRkziPR6FO6RnUVDsNFE4j8_FhdRcVYrzPKXPEEPFnEmj3mB2yBfFTFM4jSsgOpScpeMoaogi7K5WFOFhcilaIhICVCLvZqOY3MNlt8T3S472SrV1Q1vrMYaB3cGINFPp9CrUyxkUhQ30JziNhQ5GEPZyCKxKoW59HRD6zLCcSSvxhEktpuvBn9Ms8mQ4snxqywXz9aggLJbrv64-ohgd3_5qXNWbmVxALPyjWc%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -7042,7 +7213,7 @@
             "海外",
             "Private trip/photobook/others"
           ],
-          "name": "Tivoli Illuminations"
+          "name": "大園玲 - Tivoli Illuminations"
         },
         "classification": {
           "category": "Private trip/photobook/others",
@@ -7067,14 +7238,14 @@
         ]
       },
       "properties": {
-        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:8b69c1e59f049881998c",
-        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:8b69c1e59f049881998c",
-        "name": "Railway Station",
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:27e2e022c4a38be24be3",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:27e2e022c4a38be24be3",
+        "name": "大園玲 - Railway Station",
         "category": "Private trip/photobook/others",
         "subcategory": "Private trip/photobook/others",
         "categoryColor": "#3b82f6",
         "address": "",
-        "sceneTitle": "Railway Station",
+        "sceneTitle": "大園玲 - Railway Station",
         "sceneNote": "description: Note: URL: Tags: Comment: Title:",
         "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
@@ -7083,7 +7254,9 @@
           "海外",
           "Private trip/photobook/others"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4UCq6Zo6eY73j62QlHMFmPFKzFWvfoJnRw3O_X4cZauECvH03dteX4vgaYAZnjORefRr8gd2VcRzDySebk9D_N4eJ8hkm4zNI_3WYblklVqrTGYD4HeZlWxNMy-t4cdJLbZJcgYUjuyomQx09L1MEtT3YZP9xszZqQsdwCD0D6-DPEsa3ExaV4Ypk347mXpyRhXlyRcXyz3g4wdb32jbZCweFxyCq0hpRYOH37hvzwQGhkQUpOnUPzqPI%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -7094,7 +7267,7 @@
             "海外",
             "Private trip/photobook/others"
           ],
-          "name": "Railway Station"
+          "name": "大園玲 - Railway Station"
         },
         "classification": {
           "category": "Private trip/photobook/others",
@@ -7119,14 +7292,14 @@
         ]
       },
       "properties": {
-        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:3cbef5826718dbda1805",
-        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:3cbef5826718dbda1805",
-        "name": "Toldbodgade 3",
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:cf3233c3c9b55daeed61",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:cf3233c3c9b55daeed61",
+        "name": "大園玲 - Toldbodgade 3",
         "category": "Private trip/photobook/others",
         "subcategory": "Private trip/photobook/others",
         "categoryColor": "#3b82f6",
         "address": "",
-        "sceneTitle": "Toldbodgade 3",
+        "sceneTitle": "大園玲 - Toldbodgade 3",
         "sceneNote": "description: Note: URL: Tags: Comment: Title:",
         "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
@@ -7135,7 +7308,9 @@
           "海外",
           "Private trip/photobook/others"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6lalKUKLHgsFs4sb6DKlnmUv42eABhZd_Hla_Hklap0Tp__vifoOb-MUDfdzfjofle7d5TjRXdw7KV9gRQY-Pro4O7Rt2zz3YX216bT-PFMAyvu7strS_Lz4ko_b0zZru4W6jzG0uxfae82sKxjy9XBPaPBSMPsTP3VvS2OZa6wrMjMgIPaxpCS59jXEwXdjUwWeW_pZp89wUZFBtLDPISFX4LOLT1Y5lP7mulslWFidqkoPuAagNNWQ4%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -7146,7 +7321,7 @@
             "海外",
             "Private trip/photobook/others"
           ],
-          "name": "Toldbodgade 3"
+          "name": "大園玲 - Toldbodgade 3"
         },
         "classification": {
           "category": "Private trip/photobook/others",
