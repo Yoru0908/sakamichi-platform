@@ -58576,6 +58576,59 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7900954,
+          35.6364746
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:26dd9edf0a6f62271e23",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:26dd9edf0a6f62271e23",
+        "name": "有明コロシアム",
+        "category": "ライブ会場・舞台",
+        "subcategory": "ライブ会場・舞台",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "有明コロシアム",
+        "sceneNote": "ひらがなけやき初のワンマン（欅坂46）ライブ会場",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "ライブ会場・舞台"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "ライブ会場・舞台",
+          "tags": [
+            "日向坂46",
+            "ライブ会場・舞台"
+          ],
+          "name": "有明コロシアム",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "ライブ会場・舞台",
+          "subcategory": "ライブ会場・舞台",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.6989673,
           35.6653755
         ]
@@ -58664,62 +58717,6 @@
             "ライブ会場・舞台"
           ],
           "name": "TBS赤坂ACTシアター",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "ライブ会場・舞台",
-          "subcategory": "ライブ会場・舞台",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7518323,
-          35.7056309
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:38dcf5711b465472af54",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:38dcf5711b465472af54",
-        "name": "東京ドーム",
-        "category": "ライブ会場・舞台",
-        "subcategory": "ライブ会場・舞台",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "東京ドーム",
-        "sceneNote": "３回目のひな誕祭(2022.3.30-31)、Happy MagicalTour2024(12.25加藤史帆卒業セレモニー＆12.26千穐楽）開催地、「僕なんか」「卒業写真だけが知ってる」初披露地。「One Choice」「君しか勝たん」センター継承地。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "ライブ会場・舞台"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4gNV0hQDO4sHit-uainvrSc_uciIrPlQ3DmZEA6KNKrw0TyUgyzovQaeFzb5izADUTc9Ow1EEzFjOWW_K4-qfsCdU8Pl87poo8vKMvL3MMvOcY195VhpDxTpenrxyn9M4yAgAKoM9GqSQ4_Nhcj81OGFRxkC8hRD5Sob8UjiWh9UBlTJnPmuDtIEoq9gtapBHf3NwudS5TFlLnya6_mOeg2Czf8L5DjZyBwa0bNhx2YCEuefJbxxWyORc%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7IjQVZNvrFj5XqHffdCYNED0KbvIIjRD8n73j9Clrg6CXDhxc1A5jMfJ8U4fsltDGegkAXkEPju4ZqKtGgGc-kEIuy-U-__BcFMswxQtjs2DHahz1D9wTEGX8kzGfAxYLHS6z93ohV9vurWu64zLQZ5LsVjv5y6jPXO4rHoFJYIAClFlyLjl5KhE5EassF33vhDCjqfgV9SjXxZlhiEoZOEy8bGiwX-mJ4PIrWNxNgV2R6YLhTkdhY6_4%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "ライブ会場・舞台",
-          "tags": [
-            "日向坂46",
-            "ライブ会場・舞台"
-          ],
-          "name": "東京ドーム",
           "group": "日向坂46"
         },
         "classification": {
@@ -58830,6 +58827,63 @@
             "ライブ会場・舞台"
           ],
           "name": "横浜アリーナ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "ライブ会場・舞台",
+          "subcategory": "ライブ会場・舞台",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7518323,
+          35.7056309
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:38dcf5711b465472af54",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:38dcf5711b465472af54",
+        "name": "東京ドーム",
+        "category": "ライブ会場・舞台",
+        "subcategory": "ライブ会場・舞台",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "東京ドーム",
+        "sceneNote": "３回目のひな誕祭(2022.3.30-31)、Happy MagicalTour2024(12.25加藤史帆卒業セレモニー＆12.26千穐楽）開催地、「僕なんか」「卒業写真だけが知ってる」初披露地。「One Choice」「君しか勝たん」センター継承地。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "ライブ会場・舞台"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4gNV0hQDO4sHit-uainvrSc_uciIrPlQ3DmZEA6KNKrw0TyUgyzovQaeFzb5izADUTc9Ow1EEzFjOWW_K4-qfsCdU8Pl87poo8vKMvL3MMvOcY195VhpDxTpenrxyn9M4yAgAKoM9GqSQ4_Nhcj81OGFRxkC8hRD5Sob8UjiWh9UBlTJnPmuDtIEoq9gtapBHf3NwudS5TFlLnya6_mOeg2Czf8L5DjZyBwa0bNhx2YCEuefJbxxWyORc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7IjQVZNvrFj5XqHffdCYNED0KbvIIjRD8n73j9Clrg6CXDhxc1A5jMfJ8U4fsltDGegkAXkEPju4ZqKtGgGc-kEIuy-U-__BcFMswxQtjs2DHahz1D9wTEGX8kzGfAxYLHS6z93ohV9vurWu64zLQZ5LsVjv5y6jPXO4rHoFJYIAClFlyLjl5KhE5EassF33vhDCjqfgV9SjXxZlhiEoZOEy8bGiwX-mJ4PIrWNxNgV2R6YLhTkdhY6_4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6alsmM0U_zDfCiSkhdjcCRn5ngCdBEHS1QJHlX6bdh-iBhcteFjEWAstAXiigT4EE6EeB3UBMt9gx7AEs3PKWV1ck5o9DKthpsO30sS-WBYo36rzDIZH3eCiR2hQ8ps4shHNV5u0T0pfWklTPr-zumURa75s2ueH2DvDNIp0HDnzWkox_IbgqQrfg9xue6emxkBWTTy1lME3akwe5yoO_EQcGjl7bLFbkgO8YosjOFoq4mflzcjw8qhZU%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "ライブ会場・舞台",
+          "tags": [
+            "日向坂46",
+            "ライブ会場・舞台"
+          ],
+          "name": "東京ドーム",
           "group": "日向坂46"
         },
         "classification": {
@@ -61050,59 +61104,6 @@
             "ライブ会場・舞台"
           ],
           "name": "お台場・駐車場",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "ライブ会場・舞台",
-          "subcategory": "ライブ会場・舞台",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7900954,
-          35.6364746
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:26dd9edf0a6f62271e23",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:26dd9edf0a6f62271e23",
-        "name": "有明コロシアム",
-        "category": "ライブ会場・舞台",
-        "subcategory": "ライブ会場・舞台",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "有明コロシアム",
-        "sceneNote": "ひらがなけやき初のワンマン（欅坂46）ライブ会場",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "ライブ会場・舞台"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "ライブ会場・舞台",
-          "tags": [
-            "日向坂46",
-            "ライブ会場・舞台"
-          ],
-          "name": "有明コロシアム",
           "group": "日向坂46"
         },
         "classification": {
@@ -69361,7 +69362,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "とこにゃん",
-        "sceneNote": "日向坂ちゃんねる【愛知帰省】成人式終わりの山下葉留花が常滑を散策してきました【振袖】 https://www.youtube.com/watch?v=MxH5PTGr02o",
+        "sceneNote": "日向坂ちゃんねる【愛知帰省】成人式終わりの山下葉留花が常滑を散策してきました【振袖】 https://www.youtube.com/watch?v=MxH5PTGr02o225.09.07 O.A.大須テレビ特別編で山下葉留花が訪れた場所。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -69370,7 +69371,10 @@
           "日向ちゃんねる関連"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6lHNamiHLLspRg2Cv7OaGvdYwesqrkZl6rap12jsOfR0s7YFENXtjj5nxpk_47IAIDQ5k1IkMhqbXqCtJ9NrWhXsrul_IJBGxgy0ap_hMGiumDN7aLzZk2A7ipQKuFH7x_aRGBpz0bRh48gXnBK9cBZ8ajhhIovrqqk7lVCC6BK3taaz3wpQ2kI5_mTvVmFU1yncESzIFTmOeR44pSzUNl7L2qM5mpPjwcmFagc7yupwIdl06MMcuLQg0%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6lHNamiHLLspRg2Cv7OaGvdYwesqrkZl6rap12jsOfR0s7YFENXtjj5nxpk_47IAIDQ5k1IkMhqbXqCtJ9NrWhXsrul_IJBGxgy0ap_hMGiumDN7aLzZk2A7ipQKuFH7x_aRGBpz0bRh48gXnBK9cBZ8ajhhIovrqqk7lVCC6BK3taaz3wpQ2kI5_mTvVmFU1yncESzIFTmOeR44pSzUNl7L2qM5mpPjwcmFagc7yupwIdl06MMcuLQg0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6GHa4auDyuPdZ6h0EQmtfEOZu3fxxqcXiFwv4xn9ctAWFSN1M2fKi8bF152hgwPrQDtb0uD1gPPq74MpjwgZnRFwP3ieg3seoX29UA6Snj8QV3DVOV3LG_2LyBN7TS0Z2cYwG_XUUDgsAUJVK2tq5xF8HXaWe60mu-u3w1_qOzRnsdWzii7gEDQtM5KjJ87UC-H87eaYNYXlVNDshgtEuvK_417gq4TyY7aq2wh7ABbTMOQ_futykKIzk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5j_ZgbF2-mG_ONE5kFFO13GsEe0nZASF0FyjdmEIX716BcSxCqpjCr5FQL8JIG9bxD43ehzpTetKljaNy7ASpfaxeO-7iAuZMIwWUz6O5X-rzgmt5qLmmS9zGopmvd5aDM5PrtjHAq3kyn9oToGBH3S4pYe1FXbXWDbeV-eUXlK8-eQznzLMtp5bnk5h_BcvOUFGEa53qkCKXXlygR_0OmTGtuafXK28_lrixizUg-h85RjVpkkC8GWM0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4cYGgbP7JvhBtI-l3MY_tDHmLTYj2N2IoCDOQSliV-hv7aPH6s-f0KzP2vC9rf5KuXcbK6EXaLSoHB0lZFipcN5lWq7cacPrNFwfwIt-gtrdQ0CKaLGQ7dtsv2FwR4E787fKFOm-iLIWt3I6C3yxW4hUedtN-VxbRUKCsDSq75VvOZs3ZeeRnjlzDVKh2nxE_QofSIv3xHDA-fDtzSIzG7kwOkPJ_c-VasiCwVcHGDR51kPzorxshta_M%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -135315,13 +135319,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          131.2546512,
-          31.9990116
+          131.253978,
+          31.9990298
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7071deb1c765fad8c54a",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7071deb1c765fad8c54a",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e5506b9fa53f55be992b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e5506b9fa53f55be992b",
         "name": "綾 手づくりほんものセンター",
         "category": "メンバーブログ・SNS・その他",
         "subcategory": "メンバーブログ・SNS・その他",
@@ -135337,9 +135341,9 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6CGm0xpRs7ck4Sg2SCfN_sYlRGmQBcFazhk3wvXFhhgU9piQ7Mo-SrK2ET_n_X3G1c_6iMIT4XmNsIE3McSUqLKGmdDdeR-rO2NZ7tnx664gNt74bA57fKL9ozIaWSGz2KDW0KWsS4Qi5fNWWMyMVNohY0TH6EY0-cmNnUtZWKHmEPyyqpGlSE5Up0cuLKfA29Vh78I4wWln2ubmCvk7qp2CkUbWUP6YRw9nHK8IF6nzBRadg3ArTC4Ks%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5joQGbf6TcmkLiI_2u4q6QuzZAVLBw13DhC1R2XdzsCno64P5IawS4TPsR2hUzl0_BSkafm_TYPmMGbPtg6dGumEto9B5-L09q4CMs2j445UQlh-gIZbbjfldqV5ePAFQllj2ycRCLAUxp4fgBKIMK1r1hsDKlx7z_pR33f13S29ETidK6Nabyj1u5XZ6WQDH6_8tsTuP9MjVNtbNWBY6OQlInrvPqwj7JzQU8U_DpOE1jodiHMZb2M44%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7dAKTTrlIGZSmx2dTtGDMJ1VVZAouVMQ5VPk0Nq1p1uVeDgRFl5Q5A6-7WPYwnbVjrY-f1amBBajFhDJDCcmopOcaEXdKTJdN7_O6_ZtaMJ4IG-XJVIQeMlriCFQIDiHmmw0uuYuZB98_CblXGsFXtDfnuz79X4s3XZIy7ZS_kRiswOsfkbqJMNitsiXDdFvie79JbkbmtNgn7_DKtsB1gFJf1bYnF17H7AmgsCar780IMNDZgAvgjA0I%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7f5UP2lvgO30cmEjKdX9EFr6pv32wWm5qdPsKHbt8eKUAFa_UCkG9VTvvz-uQS3ZO-vzLQdx48e2qM0c5qqAkSsxJNlC99zGp0PNSBFwztkRBWJ7YEoah4oLhvOQrqhPAyqPOdiC7X06N4Lv2GuBEqg7U3_3Hy5vw8DRJYBKtl6cdHUsEo7KlzbCrWbJqXojiyg-72n1OkRjUNAjmGuOYE_-T5B9EkORpxocsV2KVIJGc6EUnRlIy6Evk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR43TGt7W4solclbW8GO5TQd62eIktqefZEo8j_YvClTH5D1g3364aMTgb-0UX2lLTE0Z6XYKdNIAJU_HjtThWffv-rTnJYWkmy9RrcPhUUYmTNI5OepXqOCatqplcBdrGLy8se-ne0Kj9eReiTpWhO9qVUdswcf6HAvrWyHpwieSx4W2OFLKkPyRdjHeiWWyZQfeBqYMq6RHrTM-TADE1Ac0XDFwbqkjhthzUsTmyoOh3thfWkwM8AMsqo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7pXa8zTjqKx0fiPPUaZ45FKmV2qSq-6uRE6ia8z8tE96s2iJX9ifmIpSx3-E7DtphNWCzuNPljeJ1gr_zOffBChaJ4nRMRn2_lkwh_ths1o99OT_wSqk3jPpH53I5D_hFzzDkqMVaBCEiCfy_7yIDYVtAokravSVZn-5ap7IuUkgS7MC_0jPAomOOljyEoaL_W-LI0SW3lz5B_8F-Rx0a1L-JlnTV0fcgApMesM2ZCPGP3BVd0GYPjDuU%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -220278,59 +220282,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          133.245273,
-          35.5000631
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:73d4f9d5679ac2c07939",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:73d4f9d5679ac2c07939",
-        "name": "米子空港（米子鬼太郎空港）３F送迎デッキ",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "米子空港（米子鬼太郎空港）３F送迎デッキ",
-        "sceneNote": "２０２６．０８.２３山口陽世卒業セレモニーVTR「ひなたのさきへ」冒頭で山口陽世が東京行きの飛行機を眺めていた場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "米子空港（米子鬼太郎空港）３F送迎デッキ",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           133.4363889,
           35.3903406
         ]
@@ -220344,7 +220295,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "植田正治美術館付近のひまわり畑",
-        "sceneNote": "２０２６．０８.２３山口陽世卒業セレモニーVTR「ひなたのさきへ」に登場するひまわり畑。",
+        "sceneNote": "2026.08.23 山口陽世卒業セレモニーVTR「ひなたのさきへ」に登場するひまわり畑。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -220397,7 +220348,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "大山まきばみるくの里",
-        "sceneNote": "２０２６．０８.２３山口陽世卒業セレモニーVTR「ひなたのさきへ」で山口陽世がインタビューを受けていた場所。",
+        "sceneNote": "2026.08.23 山口陽世卒業セレモニーVTR「ひなたのさきへ」で山口陽世がインタビューを受けていた場所。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -220417,6 +220368,59 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "大山まきばみるくの里",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.245273,
+          35.5000631
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:73d4f9d5679ac2c07939",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:73d4f9d5679ac2c07939",
+        "name": "米子空港（米子鬼太郎空港）３F送迎デッキ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "米子空港（米子鬼太郎空港）３F送迎デッキ",
+        "sceneNote": "2026.08.23 山口陽世卒業セレモニーVTR「ひなたのさきへ」冒頭で山口陽世が東京行きの飛行機を眺めていた場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "米子空港（米子鬼太郎空港）３F送迎デッキ",
           "group": "日向坂46"
         },
         "classification": {
