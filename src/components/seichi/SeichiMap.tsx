@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useMemo } from 'react';
+import { useEffect, useRef, useState, useMemo, type ReactNode } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {
@@ -9,6 +9,7 @@ import {
   ExternalLink,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Film,
   Video,
   User,
@@ -21,6 +22,20 @@ import {
   Layers,
   List,
   Map as MapIcon,
+  Route,
+  Plus,
+  Check,
+  GripVertical,
+  ArrowUp,
+  ArrowDown,
+  Trash2,
+  LocateFixed,
+  TrainFront,
+  Footprints,
+  Car,
+  SkipForward,
+  CircleCheck,
+  RotateCcw,
 } from 'lucide-react';
 
 interface Feature {
@@ -28,6 +43,7 @@ interface Feature {
   geometry: { type: 'Point'; coordinates: [number, number] };
   properties: {
     id: string;
+    sourceKey?: string;
     name: string;
     category: string;
     subcategory: string;
@@ -155,6 +171,66 @@ const getFeatureFacetTags = (feature: Feature): FacetTag[] => {
 const hasFacetTag = (feature: Feature, tag: string): boolean =>
   getFeatureFacetTags(feature).some((facet) => facet.name === tag);
 
+type RouteTravelMode = 'transit' | 'walking' | 'driving';
+
+const MAX_ROUTE_STOPS = 12;
+
+const SEICHI_MAP_OPTIONS = [
+  { path: '/seichi/sakurazaka', label: '櫻坂46 総合' },
+  { path: '/seichi/hinatazaka', label: '日向坂46 総合' },
+  { path: '/seichi/keyakizaka', label: '欅坂46' },
+  { path: '/seichi/keyaki-hiragana', label: 'けやき坂46' },
+  { path: '/seichi/yamakawa-ui', label: '山川宇衣' },
+  { path: '/seichi/fumi-sakurazaka', label: 'fumi 櫻坂46' },
+  { path: '/seichi/tokyo10sha', label: '東京十社' },
+  { path: '/seichi/oversea', label: '海外聖地' },
+  { path: '/seichi', label: '聖地巡礼トップ' },
+] as const;
+
+const getRouteKey = (feature: Feature): string => {
+  if (feature.properties.sourceKey) return feature.properties.sourceKey;
+  const [lng, lat] = feature.geometry.coordinates;
+  return `${feature.properties.id}:${lng.toFixed(6)},${lat.toFixed(6)}`;
+};
+
+const getGoogleMapsQuery = (feature: Feature): string => {
+  const { name, address } = feature.properties;
+  if (name?.trim() && address?.trim()) return `${name.trim()} ${address.trim()}`;
+  const [lng, lat] = feature.geometry.coordinates;
+  return `${lat},${lng}`;
+};
+
+const getRouteLabel = (index: number): string =>
+  index < 26 ? String.fromCharCode(65 + index) : String(index + 1);
+
+const distanceBetween = (from: [number, number], to: [number, number]): number => {
+  const toRadians = (value: number) => value * Math.PI / 180;
+  const [fromLng, fromLat] = from;
+  const [toLng, toLat] = to;
+  const dLat = toRadians(toLat - fromLat);
+  const dLng = toRadians(toLng - fromLng);
+  const a = Math.sin(dLat / 2) ** 2
+    + Math.cos(toRadians(fromLat)) * Math.cos(toRadians(toLat)) * Math.sin(dLng / 2) ** 2;
+  return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+};
+
+const buildDirectionsUrl = ({
+  destination,
+  mode,
+  origin,
+  waypoints = [],
+}: {
+  destination: string;
+  mode: RouteTravelMode;
+  origin?: string;
+  waypoints?: string[];
+}): string => {
+  const params = new URLSearchParams({ api: '1', destination, travelmode: mode });
+  if (origin) params.set('origin', origin);
+  if (waypoints.length > 0) params.set('waypoints', waypoints.join('|'));
+  return `https://www.google.com/maps/dir/?${params.toString()}`;
+};
+
 export default function SeichiMap({
   geojsonUrl,
   fallbackGeojsonUrl,
@@ -186,6 +262,41 @@ export default function SeichiMap({
   const [sidebarOpen, setSidebarOpen] = useState(true);
   // 移动端视图模式：'map' | 'list'
   const [mobileView, setMobileView] = useState<'map' | 'list'>('map');
+  const [currentMapPath, setCurrentMapPath] = useState('');
+
+  // 巡礼路线：仅在浏览器本地保存，不上传当前位置或行程。
+  const routeStorageKey = `seichi-route:${geojsonUrl}`;
+  const [routeOpen, setRouteOpen] = useState(false);
+  const [routeStopKeys, setRouteStopKeys] = useState<string[]>([]);
+  const [routeTravelMode, setRouteTravelMode] = useState<RouteTravelMode>('transit');
+  const [routeActiveIndex, setRouteActiveIndex] = useState(0);
+  const [routeStarted, setRouteStarted] = useState(false);
+  const [routeRestored, setRouteRestored] = useState(false);
+  const [routeNotice, setRouteNotice] = useState('');
+  const [currentLocation, setCurrentLocation] = useState<[number, number] | null>(null);
+  const [locationStatus, setLocationStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
+  const [draggedStopIndex, setDraggedStopIndex] = useState<number | null>(null);
+
+  const routeFeatureIndex = useMemo(() => {
+    const index = new Map<string, Feature>();
+    data?.features.forEach((feature) => index.set(getRouteKey(feature), feature));
+    return index;
+  }, [data]);
+
+  const routeStops = useMemo(
+    () => routeStopKeys.map((key) => routeFeatureIndex.get(key)).filter(Boolean) as Feature[],
+    [routeStopKeys, routeFeatureIndex]
+  );
+
+  useEffect(() => {
+    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    setCurrentMapPath(path);
+  }, []);
+
+  const switchSeichiMap = (path: string) => {
+    if (!path || path === currentMapPath) return;
+    window.location.assign(path);
+  };
 
   // 1. 获取 GeoJSON 数据；动态数据异常时回退到随 Pages 发布的静态快照。
   useEffect(() => {
@@ -221,33 +332,85 @@ export default function SeichiMap({
     };
   }, [geojsonUrl, fallbackGeojsonUrl]);
 
+  // 地图数据就绪后恢复本地路线。只保存稳定地点键，不保存完整地点或当前位置。
+  useEffect(() => {
+    if (!data || routeRestored) return;
+    try {
+      const saved = JSON.parse(localStorage.getItem(routeStorageKey) || '{}') as {
+        stopKeys?: string[];
+        travelMode?: RouteTravelMode;
+        activeIndex?: number;
+        started?: boolean;
+      };
+      const available = new Set(data.features.map(getRouteKey));
+      setRouteStopKeys((saved.stopKeys || []).filter((key) => available.has(key)).slice(0, MAX_ROUTE_STOPS));
+      if (saved.travelMode && ['transit', 'walking', 'driving'].includes(saved.travelMode)) {
+        setRouteTravelMode(saved.travelMode);
+      }
+      setRouteActiveIndex(Math.max(0, saved.activeIndex || 0));
+      setRouteStarted(Boolean(saved.started));
+    } catch (error) {
+      console.warn('Failed to restore local seichi route:', error);
+    } finally {
+      setRouteRestored(true);
+    }
+  }, [data, routeRestored, routeStorageKey]);
+
+  useEffect(() => {
+    if (!routeRestored) return;
+    localStorage.setItem(routeStorageKey, JSON.stringify({
+      stopKeys: routeStopKeys,
+      travelMode: routeTravelMode,
+      activeIndex: routeActiveIndex,
+      started: routeStarted,
+    }));
+  }, [routeActiveIndex, routeRestored, routeStarted, routeStopKeys, routeStorageKey, routeTravelMode]);
+
+  useEffect(() => {
+    if (routeActiveIndex <= routeStops.length) return;
+    setRouteActiveIndex(routeStops.length);
+  }, [routeActiveIndex, routeStops.length]);
+
+  useEffect(() => {
+    if (!routeNotice) return;
+    const timer = window.setTimeout(() => setRouteNotice(''), 2600);
+    return () => window.clearTimeout(timer);
+  }, [routeNotice]);
+
   // 重置图片索引
   useEffect(() => {
     setActiveImageIndex(0);
   }, [selectedFeature]);
 
-  // 键盘 Esc 取消选择
+  // 键盘 Esc 优先关闭路线面板，再取消地点选择。
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setSelectedFeature(null);
-      }
+      if (e.key !== 'Escape') return;
+      if (routeOpen) setRouteOpen(false);
+      else setSelectedFeature(null);
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [routeOpen]);
 
   // 2. 初始化 Leaflet 地图
   useEffect(() => {
     if (!mapContainer.current || mapInstanceRef.current) return;
 
+    const useMobileMapBehavior = window.matchMedia('(max-width: 767px)').matches;
     const map = L.map(mapContainer.current, {
       center: [36.2, 139.2],
       zoom: 7,
       zoomControl: false,
+      // Mobile pinch zoom already updates continuously. Disabling Leaflet's
+      // final 250ms zoom animation prevents marker/vector panes drifting apart.
+      zoomAnimation: !useMobileMapBehavior,
+      fadeAnimation: !useMobileMapBehavior,
     });
 
-    L.control.zoom({ position: 'topright' }).addTo(map);
+    if (!useMobileMapBehavior) {
+      L.control.zoom({ position: 'topright' }).addTo(map);
+    }
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
       attribution:
@@ -268,6 +431,14 @@ export default function SeichiMap({
     markersLayerRef.current = markersGroup;
     mapInstanceRef.current = map;
 
+    // On mobile, briefly hide only the straight route guide while pinching.
+    // It returns at the exact recalculated position on zoomend.
+    const mapRoot = mapContainer.current.closest('.seichi-map-root');
+    const handleZoomStart = () => mapRoot?.classList.add('seichi-map-zooming');
+    const handleZoomEnd = () => mapRoot?.classList.remove('seichi-map-zooming');
+    map.on('zoomstart', handleZoomStart);
+    map.on('zoomend', handleZoomEnd);
+
     const resizeObserver = new ResizeObserver(() => {
       map.invalidateSize();
     });
@@ -275,6 +446,9 @@ export default function SeichiMap({
 
     return () => {
       resizeObserver.disconnect();
+      mapRoot?.classList.remove('seichi-map-zooming');
+      map.off('zoomstart', handleZoomStart);
+      map.off('zoomend', handleZoomEnd);
       map.remove();
       mapInstanceRef.current = null;
     };
@@ -412,19 +586,159 @@ export default function SeichiMap({
     });
   }, [data, selectedCategory, selectedSubcategory, selectedTag, search]);
 
-  // 5. 渲染地图标记 (自定义 SVG 圆形 Marker)
+  const resetRouteProgress = () => {
+    setRouteActiveIndex(0);
+    setRouteStarted(false);
+  };
+
+  const toggleRouteStop = (feature: Feature) => {
+    const key = getRouteKey(feature);
+    if (routeStopKeys.includes(key)) {
+      setRouteStopKeys(routeStopKeys.filter((item) => item !== key));
+      resetRouteProgress();
+      return;
+    }
+    if (routeStopKeys.length >= MAX_ROUTE_STOPS) {
+      setRouteNotice(`プレビュー版は最大${MAX_ROUTE_STOPS}地点までです`);
+      return;
+    }
+    setRouteStopKeys([...routeStopKeys, key]);
+    resetRouteProgress();
+    setRouteNotice(`${feature.properties.name}をルートに追加しました`);
+  };
+
+  const removeRouteStop = (index: number) => {
+    setRouteStopKeys((current) => current.filter((_, itemIndex) => itemIndex !== index));
+    resetRouteProgress();
+  };
+
+  const moveRouteStop = (from: number, to: number) => {
+    if (from === to || to < 0 || to >= routeStopKeys.length) return;
+    setRouteStopKeys((current) => {
+      const next = [...current];
+      const [moved] = next.splice(from, 1);
+      next.splice(to, 0, moved);
+      return next;
+    });
+    resetRouteProgress();
+  };
+
+  const sortRouteByDistance = () => {
+    if (routeStops.length < 3) return;
+    const remaining = [...routeStops];
+    const sorted: Feature[] = [];
+    let cursor: [number, number];
+    if (currentLocation) {
+      cursor = currentLocation;
+    } else {
+      const first = remaining.shift();
+      if (!first) return;
+      sorted.push(first);
+      cursor = first.geometry.coordinates;
+    }
+    while (remaining.length > 0) {
+      let nearestIndex = 0;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+      remaining.forEach((feature, index) => {
+        const distance = distanceBetween(cursor, feature.geometry.coordinates);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestIndex = index;
+        }
+      });
+      const [nearest] = remaining.splice(nearestIndex, 1);
+      sorted.push(nearest);
+      cursor = nearest.geometry.coordinates;
+    }
+    setRouteStopKeys(sorted.map(getRouteKey));
+    resetRouteProgress();
+    setRouteNotice(currentLocation ? '現在地から近い順に並べました' : 'A地点から近い順に並べました');
+  };
+
+  const requestCurrentLocation = () => {
+    if (!navigator.geolocation) {
+      setLocationStatus('error');
+      setRouteNotice('このブラウザは現在地取得に対応していません');
+      return;
+    }
+    setLocationStatus('loading');
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const location: [number, number] = [position.coords.longitude, position.coords.latitude];
+        setCurrentLocation(location);
+        setLocationStatus('ready');
+        setRouteNotice('現在地を取得しました');
+        mapInstanceRef.current?.flyTo([location[1], location[0]], Math.max(mapInstanceRef.current.getZoom(), 13));
+      },
+      () => {
+        setLocationStatus('error');
+        setRouteNotice('現在地を取得できませんでした。Google Maps側の現在地を使用します');
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  };
+
+  const fitRouteOnMap = () => {
+    if (!mapInstanceRef.current || routeStops.length === 0) return;
+    const points = routeStops.map((feature) => {
+      const [lng, lat] = feature.geometry.coordinates;
+      return L.latLng(lat, lng);
+    });
+    if (currentLocation) points.unshift(L.latLng(currentLocation[1], currentLocation[0]));
+    mapInstanceRef.current.fitBounds(L.latLngBounds(points), { padding: [42, 42], maxZoom: 16 });
+    setMobileView('map');
+    setRouteOpen(false);
+  };
+
+  const visibleMapFeatures = useMemo(() => {
+    const features = new Map(filteredFeatures.map((feature) => [getRouteKey(feature), feature]));
+    routeStops.forEach((feature) => features.set(getRouteKey(feature), feature));
+    return Array.from(features.values());
+  }, [filteredFeatures, routeStops]);
+
+  // 5. 渲染地图标记与路线预览。路线折线仅表示访问顺序，真实道路交给 Google Maps。
   useEffect(() => {
     if (!mapInstanceRef.current || !markersLayerRef.current) return;
     const markersGroup = markersLayerRef.current;
     markersGroup.clearLayers();
 
-    filteredFeatures.forEach((f) => {
+    if (routeStops.length > 1) {
+      const routePoints = routeStops.map((feature) => {
+        const [lng, lat] = feature.geometry.coordinates;
+        return L.latLng(lat, lng);
+      });
+      if (currentLocation) routePoints.unshift(L.latLng(currentLocation[1], currentLocation[0]));
+      L.polyline(routePoints, {
+        color: routeStops[0]?.properties.categoryColor || '#F19DB5',
+        weight: 4,
+        opacity: 0.72,
+        dashArray: '8 8',
+        lineCap: 'round',
+        className: 'seichi-route-line',
+      }).addTo(markersGroup);
+    }
+
+    if (currentLocation) {
+      L.circleMarker([currentLocation[1], currentLocation[0]], {
+        radius: 8,
+        color: '#ffffff',
+        weight: 3,
+        fillColor: '#2563eb',
+        fillOpacity: 1,
+      }).bindTooltip('現在地').addTo(markersGroup);
+    }
+
+    visibleMapFeatures.forEach((f) => {
       const p = f.properties;
       const [lng, lat] = f.geometry.coordinates;
-
+      const routeIndex = routeStopKeys.indexOf(getRouteKey(f));
+      const isRouteStop = routeIndex >= 0;
+      const isVisited = isRouteStop && routeIndex < routeActiveIndex;
+      const isActiveRouteStop = isRouteStop && routeStarted && routeIndex === routeActiveIndex;
       const isSelected = selectedFeature?.properties.id === p.id;
-      const size = isSelected ? 20 : 14;
-      const borderWidth = isSelected ? 3 : 2;
+      const size = isRouteStop ? 28 : isSelected ? 20 : 14;
+      const borderWidth = isRouteStop || isSelected ? 3 : 2;
+      const background = isVisited ? '#16a34a' : isActiveRouteStop ? '#f59e0b' : p.categoryColor;
 
       const icon = L.divIcon({
         className: 'custom-seichi-marker',
@@ -433,18 +747,24 @@ export default function SeichiMap({
             width: ${size}px;
             height: ${size}px;
             border-radius: 50%;
-            background-color: ${p.categoryColor};
+            background-color: ${background};
             border: ${borderWidth}px solid #ffffff;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.35);
             transition: transform 0.15s ease;
             cursor: pointer;
-          "></div>
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 800;
+          ">${isRouteStop ? (isVisited ? '✓' : getRouteLabel(routeIndex)) : ''}</div>
         `,
         iconSize: [size, size],
         iconAnchor: [size / 2, size / 2],
       });
 
-      const marker = L.marker([lat, lng], { icon });
+      const marker = L.marker([lat, lng], { icon, zIndexOffset: isRouteStop ? 500 : 0 });
       marker.on('click', (e) => {
         L.DomEvent.stopPropagation(e);
         setSelectedFeature((prev) => (prev?.properties.id === p.id ? null : f));
@@ -459,7 +779,7 @@ export default function SeichiMap({
 
       markersGroup.addLayer(marker);
     });
-  }, [filteredFeatures, selectedFeature]);
+  }, [currentLocation, routeActiveIndex, routeStarted, routeStopKeys, routeStops, selectedFeature, visibleMapFeatures]);
 
   // 列表项点击逻辑（支持重复点击取消选择）
   const handleSelectFeature = (f: Feature) => {
@@ -499,23 +819,76 @@ export default function SeichiMap({
   };
 
   const selProps = selectedFeature?.properties;
-  const [selLng, selLat] = selectedFeature?.geometry.coordinates || [0, 0];
-  const coordinateQuery = `${selLat},${selLng}`;
-  // Address-backed venues should resolve to Google's official Place rather than
-  // a raw coordinate, which may be a block centroid or a point beside the entrance.
-  // Roads and scene-only points without an address keep their exact source coordinate.
-  const namedPlaceQuery = [selProps?.name, selProps?.address]
-    .map((value) => value?.trim())
-    .filter(Boolean)
-    .join(' ');
-  const googleMapsQuery = namedPlaceQuery || coordinateQuery;
+  const googleMapsQuery = selectedFeature ? getGoogleMapsQuery(selectedFeature) : '0,0';
   const encodedGoogleMapsQuery = encodeURIComponent(googleMapsQuery);
   const gmapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodedGoogleMapsQuery}`;
   const gmapsDirUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedGoogleMapsQuery}`;
   const currentImages = selProps?.images || [];
+  const selectedFeatureInRoute = selectedFeature
+    ? routeStopKeys.includes(getRouteKey(selectedFeature))
+    : false;
+
+  const routeOrigin = currentLocation ? `${currentLocation[1]},${currentLocation[0]}` : undefined;
+  const nextRouteStop = routeStops[routeActiveIndex];
+  const nextRouteUrl = nextRouteStop
+    ? buildDirectionsUrl({
+        destination: getGoogleMapsQuery(nextRouteStop),
+        mode: routeTravelMode,
+        origin: routeOrigin,
+      })
+    : '';
+  const combinedRouteStops = routeStops.slice(0, 9);
+  const combinedRouteUrl = combinedRouteStops.length > 0
+    ? buildDirectionsUrl({
+        destination: getGoogleMapsQuery(combinedRouteStops[combinedRouteStops.length - 1]),
+        mode: routeTravelMode,
+        origin: routeOrigin,
+        waypoints: combinedRouteStops.slice(0, -1).map(getGoogleMapsQuery),
+      })
+    : '';
+  const routeCompleted = routeStops.length > 0 && routeActiveIndex >= routeStops.length;
 
   return (
-    <div className="relative flex flex-col md:flex-row w-full" style={{ height: 'calc(100vh - 56px)', overflow: 'hidden' }}>
+    <div className="seichi-map-root relative flex w-full flex-col md:flex-row" style={{ height: 'calc(100vh - 56px)', overflow: 'hidden' }}>
+      {/* 移动端地图/列表切换：放在两种视图之外，确保打开列表后仍能返回地图。 */}
+      <button
+        type="button"
+        onClick={() => setMobileView(mobileView === 'map' ? 'list' : 'map')}
+        className="absolute right-3 top-3 z-[1100] flex min-h-11 items-center gap-1.5 rounded-full border border-[var(--border-primary)] bg-[var(--bg-primary)] px-3.5 py-2 text-xs font-semibold text-[var(--text-primary)] shadow-lg backdrop-blur-md md:hidden"
+        aria-label={mobileView === 'map' ? `リストを表示。${filteredFeatures.length}地点` : 'マップに戻る'}
+      >
+        {mobileView === 'map' ? (
+          <>
+            <List size={15} />
+            <span>リスト ({filteredFeatures.length})</span>
+          </>
+        ) : (
+          <>
+            <MapIcon size={15} />
+            <span>マップに戻る</span>
+          </>
+        )}
+      </button>
+
+      {mobileView === 'map' && (
+        <div className="absolute left-3 top-3 z-[1100] md:hidden">
+          <label className="sr-only" htmlFor="mobile-seichi-map-switcher">聖地マップを切り替える</label>
+          <select
+            id="mobile-seichi-map-switcher"
+            value={currentMapPath}
+            onChange={(event) => switchSeichiMap(event.target.value)}
+            className="min-h-11 max-w-[150px] appearance-none rounded-full border border-[var(--border-primary)] bg-[var(--bg-primary)] py-2 pl-3.5 pr-8 text-xs font-semibold text-[var(--text-primary)] shadow-lg"
+            aria-label="聖地マップを切り替える"
+          >
+            {!currentMapPath && <option value="">マップ切替</option>}
+            {SEICHI_MAP_OPTIONS.map((option) => (
+              <option key={option.path} value={option.path}>{option.label}</option>
+            ))}
+          </select>
+          <ChevronDown size={13} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
+        </div>
+      )}
+
       {/* 侧边栏（桌面端侧滑，移动端全屏切换） */}
       <aside
         style={{
@@ -531,7 +904,7 @@ export default function SeichiMap({
       >
         {/* 顶部标题与搜索栏 */}
         <div className="p-3.5 sm:p-4 border-b border-[var(--border-primary)]">
-          <div className="flex items-center justify-between mb-2">
+          <div className="mb-2 flex items-center justify-between pr-28 md:pr-0">
             <div>
               <h1 className="text-sm sm:text-base font-bold text-[var(--text-primary)] tracking-tight">
                 {memberName} 聖地巡礼マップ
@@ -541,15 +914,31 @@ export default function SeichiMap({
               </p>
             </div>
             <span
-              className="inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold tracking-wider rounded-full text-white"
+              className="hidden items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wider text-white md:inline-flex"
               style={{ backgroundColor: groupColor }}
             >
               {groupLabel}
             </span>
           </div>
 
-          {/* 全局搜索框 */}
           <div className="relative mt-2.5">
+            <MapIcon size={13} className="pointer-events-none absolute left-2.5 top-1/2 z-10 -translate-y-1/2 text-[var(--text-tertiary)]" />
+            <select
+              value={currentMapPath}
+              onChange={(event) => switchSeichiMap(event.target.value)}
+              className="min-h-9 w-full appearance-none rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] py-1.5 pl-8 pr-8 text-xs font-semibold text-[var(--text-primary)] focus:border-[var(--color-brand-sakura)] focus:outline-none"
+              aria-label="聖地マップを切り替える"
+            >
+              {!currentMapPath && <option value="">マップを切り替える</option>}
+              {SEICHI_MAP_OPTIONS.map((option) => (
+                <option key={option.path} value={option.path}>{option.label}</option>
+              ))}
+            </select>
+            <ChevronDown size={13} className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
+          </div>
+
+          {/* 全局搜索框 */}
+          <div className="relative mt-2">
             <Search size={14} className="absolute left-2.5 top-2.5 text-[var(--text-tertiary)]" />
             <input
               type="text"
@@ -781,6 +1170,7 @@ export default function SeichiMap({
             const fp = f.properties;
             const isSelected = selectedFeature?.properties.id === fp.id;
             const hasImg = fp.images && fp.images.length > 0;
+            const isInRoute = routeStopKeys.includes(getRouteKey(f));
 
             return (
               <div
@@ -825,15 +1215,33 @@ export default function SeichiMap({
                       <h4 className="text-xs font-bold text-[var(--text-primary)] truncate">
                         {fp.name}
                       </h4>
-                      <span
-                        className="text-[9px] px-1.5 py-0.2 rounded font-medium shrink-0"
-                        style={{
-                          backgroundColor: `color-mix(in srgb, ${fp.categoryColor} 12%, transparent)`,
-                          color: fp.categoryColor,
-                        }}
-                      >
-                        {fp.subcategory}
-                      </span>
+                      <div className="flex shrink-0 items-center gap-1">
+                        <span
+                          className="max-w-28 truncate text-[9px] px-1.5 py-0.2 rounded font-medium"
+                          style={{
+                            backgroundColor: `color-mix(in srgb, ${fp.categoryColor} 12%, transparent)`,
+                            color: fp.categoryColor,
+                          }}
+                        >
+                          {fp.subcategory}
+                        </span>
+                        <button
+                          type="button"
+                          aria-label={isInRoute ? `${fp.name}をルートから削除` : `${fp.name}をルートに追加`}
+                          title={isInRoute ? 'ルートから削除' : 'ルートに追加'}
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            toggleRouteStop(f);
+                          }}
+                          className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors md:h-7 md:w-7 ${
+                            isInRoute
+                              ? 'border-[var(--color-brand-sakura)] bg-[var(--color-brand-sakura)] text-white'
+                              : 'border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:border-[var(--color-brand-sakura)]'
+                          }`}
+                        >
+                          {isInRoute ? <Check size={13} /> : <Plus size={13} />}
+                        </button>
+                      </div>
                     </div>
                     {fp.sceneTitle && (
                       <p className="text-[11px] text-[var(--text-secondary)] truncate mt-0.5">
@@ -878,26 +1286,6 @@ export default function SeichiMap({
         >
           {sidebarOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
         </button>
-
-        {/* 移动端地图/列表切换 FAB */}
-        <div className="md:hidden absolute top-3 right-3 z-[1000] flex items-center gap-2">
-          <button
-            onClick={() => setMobileView(mobileView === 'map' ? 'list' : 'map')}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--bg-primary)] text-[var(--text-primary)] border border-[var(--border-primary)] shadow-md text-xs font-semibold backdrop-blur-md"
-          >
-            {mobileView === 'map' ? (
-              <>
-                <List size={14} />
-                <span>リスト ({filteredFeatures.length})</span>
-              </>
-            ) : (
-              <>
-                <MapIcon size={14} />
-                <span>マップ</span>
-              </>
-            )}
-          </button>
-        </div>
 
         {/* Loading 提示 */}
         {loading && (
@@ -1036,6 +1424,21 @@ export default function SeichiMap({
                 </div>
               )}
 
+              {selectedFeature && (
+                <button
+                  type="button"
+                  onClick={() => toggleRouteStop(selectedFeature)}
+                  className={`mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg border py-2.5 px-3 text-xs font-semibold transition-colors ${
+                    selectedFeatureInRoute
+                      ? 'border-[var(--color-brand-sakura)] bg-[color-mix(in_srgb,var(--color-brand-sakura)_12%,transparent)] text-[var(--text-primary)]'
+                      : 'border-[var(--border-primary)] bg-[var(--bg-secondary)] text-[var(--text-primary)] hover:border-[var(--color-brand-sakura)]'
+                  }`}
+                >
+                  {selectedFeatureInRoute ? <Check size={14} /> : <Plus size={14} />}
+                  <span>{selectedFeatureInRoute ? '巡礼ルートに追加済み' : '巡礼ルートに追加'}</span>
+                </button>
+              )}
+
               {/* 双操作按钮：Google Maps 搜索 + 直达导航 */}
               <div className="grid grid-cols-2 gap-2 mt-2">
                 <a
@@ -1077,6 +1480,348 @@ export default function SeichiMap({
           </div>
         )}
       </main>
+
+      {/* 地图与列表共通的路线入口。地点详情打开时は详情内按钮优先。 */}
+      {!routeOpen && !selectedFeature && (
+        <button
+          type="button"
+          onClick={() => {
+            setRouteOpen(true);
+            setSelectedFeature(null);
+          }}
+          className="absolute bottom-3 right-3 z-[1100] flex min-h-11 items-center gap-2 rounded-full border border-[var(--border-primary)] bg-[var(--bg-primary)] px-4 py-2.5 text-xs font-bold text-[var(--text-primary)] shadow-xl transition-transform hover:-translate-y-0.5 md:bottom-5 md:right-5"
+          aria-label={`巡礼ルートを開く。${routeStops.length}地点選択中`}
+        >
+          <Route size={17} className="text-[var(--color-brand-sakura)]" />
+          <span>巡礼ルート</span>
+          <span className="flex min-w-5 items-center justify-center rounded-full bg-[var(--color-brand-sakura)] px-1.5 py-0.5 text-[10px] text-white">
+            {routeStops.length}
+          </span>
+        </button>
+      )}
+
+      {routeOpen && (
+        <button
+          type="button"
+          className="absolute inset-0 z-[1140] bg-black/25 md:hidden"
+          aria-label="巡礼ルートを閉じる"
+          onClick={() => setRouteOpen(false)}
+        />
+      )}
+
+      {/* 巡礼路线编辑器：移动端 Bottom Sheet、桌面端右侧浮动面板。 */}
+      <section
+        className="t-panel-slide absolute bottom-2 left-2 right-2 z-[1150] flex max-h-[calc(100%-1rem)] flex-col overflow-hidden rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] shadow-2xl md:bottom-4 md:left-auto md:right-4 md:top-4 md:w-[400px] md:max-h-none"
+        data-open={routeOpen ? 'true' : 'false'}
+        role="dialog"
+        aria-modal={routeOpen ? 'true' : undefined}
+        aria-hidden={!routeOpen}
+        inert={!routeOpen}
+        aria-label="巡礼ルート編集"
+      >
+        <header className="flex shrink-0 items-center justify-between border-b border-[var(--border-primary)] px-4 py-3.5">
+          <div className="flex min-w-0 items-center gap-2.5">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[color-mix(in_srgb,var(--color-brand-sakura)_16%,transparent)] text-[var(--color-brand-sakura)]">
+              <Route size={18} />
+            </div>
+            <div className="min-w-0">
+              <h2 className="text-sm font-bold text-[var(--text-primary)]">巡礼ルート</h2>
+              <p className="text-[10px] text-[var(--text-tertiary)]">
+                {routeStops.length}地点 · 端末内だけに保存
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-1">
+            {routeStops.length > 0 && (
+              <button
+                type="button"
+                onClick={() => {
+                  setRouteStopKeys([]);
+                  resetRouteProgress();
+                  setRouteNotice('ルートをクリアしました');
+                }}
+                className="flex h-9 w-9 items-center justify-center rounded-lg text-[var(--text-tertiary)] hover:bg-[var(--bg-secondary)] hover:text-red-500"
+                title="ルートをクリア"
+              >
+                <Trash2 size={15} />
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => setRouteOpen(false)}
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-[var(--text-tertiary)] hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)]"
+              aria-label="閉じる"
+            >
+              <X size={18} />
+            </button>
+          </div>
+        </header>
+
+        <div className="shrink-0 border-b border-[var(--border-primary)] px-4 py-3">
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-tertiary)]">移動方法</p>
+          <div className="grid grid-cols-3 rounded-xl bg-[var(--bg-secondary)] p-1">
+            {([
+              { id: 'transit', label: '電車', icon: <TrainFront size={14} /> },
+              { id: 'walking', label: '徒歩', icon: <Footprints size={14} /> },
+              { id: 'driving', label: '車', icon: <Car size={14} /> },
+            ] as { id: RouteTravelMode; label: string; icon: ReactNode }[]).map((mode) => (
+              <button
+                type="button"
+                key={mode.id}
+                onClick={() => setRouteTravelMode(mode.id)}
+                className={`flex min-h-9 items-center justify-center gap-1.5 rounded-lg text-xs font-semibold transition-colors ${
+                  routeTravelMode === mode.id
+                    ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm'
+                    : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
+                }`}
+              >
+                {mode.icon}
+                {mode.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex-1 overflow-y-auto px-3 py-3 sm:px-4">
+          <div className="mb-2.5 flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-3 py-2.5 dark:border-blue-900/60 dark:bg-blue-950/30">
+            <div className="relative flex h-7 w-7 shrink-0 items-center justify-center">
+              <span className="absolute h-5 w-5 rounded-full bg-blue-500/20" />
+              <span className="relative h-2.5 w-2.5 rounded-full border-2 border-white bg-blue-500 shadow" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-bold text-[var(--text-primary)]">現在地から開始</p>
+              <p className="truncate text-[10px] text-[var(--text-tertiary)]">
+                {locationStatus === 'ready'
+                  ? '取得済み · 距離順の計算にも使用します'
+                  : locationStatus === 'error'
+                    ? '未取得 · Google Maps側の現在地を使用します'
+                    : 'Google Maps側で現在地を使用します'}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={requestCurrentLocation}
+              disabled={locationStatus === 'loading'}
+              className="flex min-h-8 shrink-0 items-center gap-1 rounded-lg border border-blue-200 bg-white px-2.5 text-[10px] font-semibold text-blue-600 disabled:opacity-50 dark:border-blue-900 dark:bg-blue-950"
+            >
+              <LocateFixed size={12} className={locationStatus === 'loading' ? 'animate-pulse' : ''} />
+              {locationStatus === 'loading' ? '取得中' : '取得'}
+            </button>
+          </div>
+
+          {routeStops.length === 0 ? (
+            <div className="flex min-h-48 flex-col items-center justify-center rounded-2xl border border-dashed border-[var(--border-secondary)] bg-[var(--bg-secondary)] px-6 text-center">
+              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--bg-primary)] text-[var(--color-brand-sakura)] shadow-sm">
+                <Plus size={22} />
+              </div>
+              <h3 className="text-sm font-bold text-[var(--text-primary)]">地点を追加してください</h3>
+              <p className="mt-1 max-w-56 text-[11px] leading-relaxed text-[var(--text-tertiary)]">
+                リストまたは地点詳細の「＋」から、巡りたい場所を選択できます。
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setRouteOpen(false);
+                  setMobileView('list');
+                  setSidebarOpen(true);
+                }}
+                className="mt-4 rounded-lg bg-[var(--text-primary)] px-4 py-2 text-xs font-semibold text-[var(--bg-primary)]"
+              >
+                地点を選ぶ
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="mb-2 flex items-center justify-between gap-2">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-[var(--text-tertiary)]">経由地</p>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={sortRouteByDistance}
+                    disabled={routeStops.length < 3}
+                    className="min-h-9 rounded-md border border-[var(--border-primary)] px-2.5 py-1 text-[10px] font-semibold text-[var(--text-secondary)] disabled:opacity-40"
+                  >
+                    距離順
+                  </button>
+                  <button
+                    type="button"
+                    onClick={fitRouteOnMap}
+                    className="min-h-9 rounded-md border border-[var(--border-primary)] px-2.5 py-1 text-[10px] font-semibold text-[var(--text-secondary)]"
+                  >
+                    全体表示
+                  </button>
+                </div>
+              </div>
+
+              <ol className="space-y-2">
+                {routeStops.map((stop, index) => {
+                  const visited = index < routeActiveIndex;
+                  const active = routeStarted && index === routeActiveIndex;
+                  return (
+                    <li
+                      key={getRouteKey(stop)}
+                      draggable
+                      onDragStart={() => setDraggedStopIndex(index)}
+                      onDragOver={(event) => event.preventDefault()}
+                      onDrop={() => {
+                        if (draggedStopIndex !== null) moveRouteStop(draggedStopIndex, index);
+                        setDraggedStopIndex(null);
+                      }}
+                      className={`flex items-center gap-2 rounded-xl border px-2 py-2 transition-colors ${
+                        active
+                          ? 'border-amber-400 bg-amber-50 dark:bg-amber-950/20'
+                          : visited
+                            ? 'border-green-200 bg-green-50 dark:border-green-900 dark:bg-green-950/20'
+                            : 'border-[var(--border-primary)] bg-[var(--bg-primary)]'
+                      }`}
+                    >
+                      <div
+                        className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[11px] font-extrabold text-white ${
+                          visited ? 'bg-green-600' : active ? 'bg-amber-500' : ''
+                        }`}
+                        style={{ backgroundColor: !visited && !active ? stop.properties.categoryColor : undefined }}
+                      >
+                        {visited ? <Check size={13} /> : getRouteLabel(index)}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setRouteOpen(false);
+                          handleSelectFeature(stop);
+                        }}
+                        className="min-w-0 flex-1 text-left"
+                      >
+                        <span className="block truncate text-xs font-bold text-[var(--text-primary)]">{stop.properties.name}</span>
+                        <span className="block truncate text-[10px] text-[var(--text-tertiary)]">
+                          {stop.properties.address || stop.properties.subcategory}
+                        </span>
+                      </button>
+                      <div className="flex shrink-0 items-center">
+                        <div className="hidden cursor-grab p-1 text-[var(--text-tertiary)] md:block" title="ドラッグして並べ替え">
+                          <GripVertical size={14} />
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => moveRouteStop(index, index - 1)}
+                          disabled={index === 0}
+                          className="flex h-9 w-9 items-center justify-center rounded text-[var(--text-tertiary)] disabled:opacity-25 md:h-7 md:w-7"
+                          aria-label="一つ前へ"
+                        >
+                          <ArrowUp size={13} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => moveRouteStop(index, index + 1)}
+                          disabled={index === routeStops.length - 1}
+                          className="flex h-9 w-9 items-center justify-center rounded text-[var(--text-tertiary)] disabled:opacity-25 md:h-7 md:w-7"
+                          aria-label="一つ後へ"
+                        >
+                          <ArrowDown size={13} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => removeRouteStop(index)}
+                          className="flex h-9 w-9 items-center justify-center rounded text-[var(--text-tertiary)] hover:text-red-500 md:h-7 md:w-7"
+                          aria-label={`${stop.properties.name}を削除`}
+                        >
+                          <X size={13} />
+                        </button>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </>
+          )}
+        </div>
+
+        {routeStops.length > 0 && (
+          <footer className="shrink-0 border-t border-[var(--border-primary)] bg-[var(--bg-secondary)] p-3 sm:p-4">
+            {routeCompleted ? (
+              <div className="rounded-xl border border-green-200 bg-green-50 p-3 text-center dark:border-green-900 dark:bg-green-950/30">
+                <CircleCheck size={26} className="mx-auto text-green-600" />
+                <p className="mt-1 text-sm font-bold text-[var(--text-primary)]">ルート完了</p>
+                <p className="text-[10px] text-[var(--text-tertiary)]">おつかれさまでした</p>
+                <button
+                  type="button"
+                  onClick={resetRouteProgress}
+                  className="mt-2 inline-flex items-center gap-1 rounded-lg border border-green-200 bg-white px-3 py-1.5 text-[10px] font-semibold text-green-700 dark:border-green-900 dark:bg-green-950"
+                >
+                  <RotateCcw size={11} /> 最初から
+                </button>
+              </div>
+            ) : nextRouteStop ? (
+              <>
+                <div className="mb-2.5 flex items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-semibold text-[var(--text-tertiary)]">
+                      {routeStarted ? `巡礼進捗 ${routeActiveIndex + 1} / ${routeStops.length}` : '次の目的地'}
+                    </p>
+                    <p className="truncate text-sm font-bold text-[var(--text-primary)]">{nextRouteStop.properties.name}</p>
+                  </div>
+                  <span className="flex h-8 min-w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-brand-sakura)] px-2 text-xs font-bold text-white">
+                    {getRouteLabel(routeActiveIndex)}
+                  </span>
+                </div>
+
+                <a
+                  href={nextRouteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setRouteStarted(true)}
+                  className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-[var(--text-primary)] px-4 text-sm font-bold text-[var(--bg-primary)] shadow-sm"
+                >
+                  <Navigation size={16} />
+                  {routeStarted ? '次の地点をGoogle Mapsで開く' : '巡礼を開始・次の地点へ'}
+                </a>
+
+                {routeStarted && (
+                  <div className="mt-2 grid grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setRouteActiveIndex((index) => Math.min(index + 1, routeStops.length))}
+                      className="flex min-h-10 items-center justify-center gap-1.5 rounded-lg bg-green-600 px-3 text-xs font-bold text-white"
+                    >
+                      <CircleCheck size={14} /> 到着・次へ
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setRouteActiveIndex((index) => Math.min(index + 1, routeStops.length))}
+                      className="flex min-h-10 items-center justify-center gap-1.5 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-3 text-xs font-semibold text-[var(--text-secondary)]"
+                    >
+                      <SkipForward size={14} /> スキップ
+                    </button>
+                  </div>
+                )}
+
+                {routeTravelMode !== 'transit' && routeStops.length > 1 && (
+                  <a
+                    href={combinedRouteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 flex min-h-9 w-full items-center justify-center gap-1.5 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-3 text-[11px] font-semibold text-[var(--text-secondary)]"
+                  >
+                    <Route size={13} />
+                    {routeStops.length > 9 ? '前半9地点を一括で開く' : '全経由地を一括で開く'}
+                  </a>
+                )}
+
+                {routeTravelMode === 'transit' && (
+                  <p className="mt-2 text-center text-[10px] leading-relaxed text-[var(--text-tertiary)]">
+                    電車モードはGoogle Mapsの制限に合わせ、1区間ずつ案内します。
+                  </p>
+                )}
+              </>
+            ) : null}
+          </footer>
+        )}
+      </section>
+
+      {routeNotice && (
+        <div className="pointer-events-none absolute left-1/2 top-3 z-[1300] -translate-x-1/2 rounded-full bg-gray-950 px-4 py-2 text-center text-[11px] font-semibold text-white shadow-xl">
+          {routeNotice}
+        </div>
+      )}
     </div>
   );
 }
