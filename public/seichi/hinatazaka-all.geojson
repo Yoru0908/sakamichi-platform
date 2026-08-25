@@ -58737,6 +58737,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          141.7833958,
+          43.1624696
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bf40edb93175c2993a1a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bf40edb93175c2993a1a",
+        "name": "野外音楽堂 キタオン",
+        "category": "ライブ会場・舞台",
+        "subcategory": "ライブ会場・舞台",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "野外音楽堂 キタオン",
+        "sceneNote": "「SUNNY TRAIN REVUE 2018」",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "ライブ会場・舞台"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ME2qHNdK_UEjO16fRu7bLXhblhPXjt7-TNcDLsPSJVjRU4mxtXP465y83vK6QwDGfOgov6Hii3Mf-BCLml1KCMCqBdiaNo7u-rK0WkeZB0Rm_csByCEFyLswmbyUSEt1XBnZn-m221BgLd6kwTpQzUYzQWznUfLffjtVkD6_MHCwFrjVmysEAnV-HSLMy2gI7uJcu9FDtVPppq7fhtx1HfN0O43RYEPfgjy42cA8cchCN6ZJXJdGmzkw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "ライブ会場・舞台",
+          "tags": [
+            "日向坂46",
+            "ライブ会場・舞台"
+          ],
+          "name": "野外音楽堂 キタオン",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "ライブ会場・舞台",
+          "subcategory": "ライブ会場・舞台",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7497076,
           35.69333
         ]
@@ -58917,7 +58972,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "横浜スタジアム",
-        "sceneNote": "4回目のひな誕祭(2023.4.1-2)、 齊藤京子卒業コンサート&5回目のひな誕祭（2024.4.5-7）、6回目のひな誕祭（2025.4.5-6）、7回目のひな誕祭(2026.4.4-5)開催地",
+        "sceneNote": "4回目のひな誕祭(2023.4.1-2)、 齊藤京子卒業コンサート&5回目のひな誕祭（2024.4.5-7）、6回目のひな誕祭,佐々木美玲、佐々木久美卒業セレモニー＆キャプテン継承（2025.4.5-6）、7回目のひな誕祭(2026.4.4-5)開催地、Kind of Love初披露の地",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -58927,7 +58982,11 @@
         ],
         "images": [
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4R0e8BCy522joXirQdnqLyVASCfCIBJLRATxb07GMEq_BPZpHqKgtJpuF7wKGsnyA0U6knbCTYWUUbD7d8o55JLas4QpoJ0Lh9XJkCSfqEY0aR52onNMSi9FbZ_qgW3I2Sb1k6Yx98cdkaN-vfM1najfNyYK0fEt8St8PehtDyDFDgZwCFNo6NDkgkivoYqGgOb4rVb-DI4a8YzU5WMoqaXiWgOUcI6BVNsHBflCulyuw5zKp0hPm7kLo%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5ottlYL8Mv12oz193q1f3NokixYggkeKWUM7BfhgW9XhNcgS8mM3lROahDJ6bNGNxFGnQODCGTjNyaNxIH3e0YKuMHpdWwKijPRR9y_jpiZAnOnzRTxW8oSs08AqZTBgrz1oaE7xfa9gKka8JaqrJmgqeYG9E2y-sqNPjW3UpgliQyGQLvIPYTbYcI6PZEANBDNmJ7gesNvPxs91oXyG-LO9hMs8734yDnW7EFAOFYyjjb_Y-4yk5R2Dg%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5ottlYL8Mv12oz193q1f3NokixYggkeKWUM7BfhgW9XhNcgS8mM3lROahDJ6bNGNxFGnQODCGTjNyaNxIH3e0YKuMHpdWwKijPRR9y_jpiZAnOnzRTxW8oSs08AqZTBgrz1oaE7xfa9gKka8JaqrJmgqeYG9E2y-sqNPjW3UpgliQyGQLvIPYTbYcI6PZEANBDNmJ7gesNvPxs91oXyG-LO9hMs8734yDnW7EFAOFYyjjb_Y-4yk5R2Dg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7svFNa8G9N02_eQNLtl3UlWgIxzxJz1zLDxY2otT6OrsmsGjwC8-VRkW-TSNCwHNOKESaVY4RhXWcSZ9SBDxiSPuB_7FX_r5KzZ_2RHJrN1iT03gb_m5Xo3-Uo4N5IgXauiynUm5d7juriJlfj7Fx6vPpBQtPjlaWls32iZ4Ia28J2RiooHPk3YsmWOrzZtk5YrJQ8upwseaTXD6q3phnwP6vnYp1FsoA44PC0iGLD0eyYmmd12EqW6gE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR66TD_lPwNJcYGgMRFfGWtuTWlSm3hRDNvqrd21vQzxRC-UNIyrHS9cppYVKviV-CAOgyTWfEvbZBVG93pAaURW5IWkWvJID-Hed0CK4xxCKwP4u_4iIF1bp83MMJyrHuE6IDERnfO6dVn1KCsV7yjO3ifvP_7wrWXF4YOojEkqSU9kTdTVKykUMbu8mg3Sf6CQQi6nL8iD0NnpV65_hUe69dC2nxTt78NUN_EwslH-0N6NyVU0q6tbgWs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5_PgtCpY9EKzHMTvMzuLTqSskDW4rD-hN8Ud8tFSa2grCHPvJFY9-KVaTZbOmmkOypPEXDjWrh7nG5eTVSQJoCij6eCO6NysCDHus6-Ih_BYfpOKSlWX_y7U3INXZ3ajHvMsEI7MJVu83ZlE1nverNSfCyY9r7x3q2gMne_Rs3gJQb9HUQNB3oEhSYd-vSiYvsnzzvxkT4BbZ-5EoMPRIOW_CWvPbP6TSJxSCdd8ENrp87rfoOCTBuWCg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR58rcKhBdlyw9gSnTLwmwtIOO9XglUT4cdMUF7r1_mtyH7gkV4KE1HprJmmPUEYrBvA-v67ncSITnm1FMBxRkNlzFdHSUYZ8y5sOQ0QqHtucOFJCgq4qrWJ-Kl3g8vowdXUuYD9pUzz6VcUgaMKODoFStxeBcD1oIDtQ6vVku8unFZX6hQ3kSvtr_A5stc3Ll_e9T5F569hp9Lx7gNB4KJK9J7KrkSFFCs5G6P9JHbnv5ovLyAdjP8WDY4%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -60668,61 +60727,6 @@
             "ライブ会場・舞台"
           ],
           "name": "ユニバーサルスタジオジャパン・グラマシーパーク",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "ライブ会場・舞台",
-          "subcategory": "ライブ会場・舞台",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          141.7833958,
-          43.1624696
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bf40edb93175c2993a1a",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bf40edb93175c2993a1a",
-        "name": "野外音楽堂 キタオン",
-        "category": "ライブ会場・舞台",
-        "subcategory": "ライブ会場・舞台",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "野外音楽堂 キタオン",
-        "sceneNote": "「SUNNY TRAIN REVUE 2018」",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "ライブ会場・舞台"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ME2qHNdK_UEjO16fRu7bLXhblhPXjt7-TNcDLsPSJVjRU4mxtXP465y83vK6QwDGfOgov6Hii3Mf-BCLml1KCMCqBdiaNo7u-rK0WkeZB0Rm_csByCEFyLswmbyUSEt1XBnZn-m221BgLd6kwTpQzUYzQWznUfLffjtVkD6_MHCwFrjVmysEAnV-HSLMy2gI7uJcu9FDtVPppq7fhtx1HfN0O43RYEPfgjy42cA8cchCN6ZJXJdGmzkw%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "ライブ会場・舞台",
-          "tags": [
-            "日向坂46",
-            "ライブ会場・舞台"
-          ],
-          "name": "野外音楽堂 キタオン",
           "group": "日向坂46"
         },
         "classification": {
