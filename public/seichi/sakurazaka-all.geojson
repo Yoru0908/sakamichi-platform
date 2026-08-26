@@ -80720,6 +80720,61 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.701614,
+          35.682076
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:47152c0221aa14501ce1",
+        "sourceKey": "fumi-article:47152c0221aa14501ce1",
+        "name": "un.",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都渋谷区代々木1-28-1 オーブ代々木 1階",
+        "sceneTitle": "2026.07.23 櫻坂46 森田ひかる 25 blog誕生日ケーキ",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都渋谷区代々木1-28-1 オーブ代々木 1階",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60018795.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60018795.html",
+        "tags": [
+          "櫻坂46",
+          "森田ひかる"
+        ],
+        "images": [],
+        "members": [
+          "森田ひかる"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60018795.html",
+          "mapId": "",
+          "layer": "2026.07.23 櫻坂46 森田ひかる 25 blog誕生日ケーキ",
+          "tags": [
+            "櫻坂46",
+            "森田ひかる"
+          ],
+          "name": "un.",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
