@@ -2733,14 +2733,14 @@
         ]
       },
       "properties": {
-        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:6fea2fb7e955845a7448",
-        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:6fea2fb7e955845a7448",
-        "name": "25°03'11.6\"N 121°31'12.5\"E",
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:d6f9b41ae66d8e884139",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:d6f9b41ae66d8e884139",
+        "name": "田村保乃 blog",
         "category": "2025 Taipei ver2",
         "subcategory": "2025 Taipei ver2",
         "categoryColor": "#3b82f6",
         "address": "",
-        "sceneTitle": "25°03'11.6\"N 121°31'12.5\"E",
+        "sceneTitle": "田村保乃 blog",
         "sceneNote": "Note: 田村保乃 blog URL: 25.0532277,121.5201319 Tags: Comment:",
         "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
@@ -2749,7 +2749,9 @@
           "海外",
           "2025 Taipei ver2"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4SBfPdKyLKUB72zgvbIlylR8jCGmmHFtQiuDxWWH5t9vXrcFAX77xvc1foFdwx7xXdvrMfL03RQyS4jeOZXYsE-gDWWqaD272PBtOGfOkUTRVDhQ9gBawhX-LTvRrXYBRuUGiVchV7td7ihMiJEgaMsWI1Q0OmAHkHX3DVACTQiuNjfn-K6sNa6wkY_qsp_iRvCplVIW59gOEaRGgSMh6QhrsiM3xYMybQ2-XNd9aDTCtPdU7W0ZBJkPs%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -2760,7 +2762,7 @@
             "海外",
             "2025 Taipei ver2"
           ],
-          "name": "25°03'11.6\"N 121°31'12.5\"E"
+          "name": "田村保乃 blog"
         },
         "classification": {
           "category": "2025 Taipei ver2",
@@ -3067,7 +3069,9 @@
           "海外",
           "2025 Taipei ver2"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5biX22ZGs21XjJfu49O3Qsy74yqFd1SrA4W4OXof3oH4LHbYGNPLkSLDORvRqGoZ1H5ul5koIKF43Kg0yz96bL9Ws7zVcaHTqs_potVS3G8RTI4IelKzfaq6KFqFIl_7SLH8jGdSSk4xYmcukF21C3Yks_TbW-yPqSTL07N0M_KWOWRj8wieZ8KlLBLHpdPC3uIuW9uYD7ZGs9TlPiq2GUlLWxRAmLczluuHw3kYjCdINWwKxaqGZS6H8%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -7023,58 +7027,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.5691426,
-          55.6759246
-        ]
-      },
-      "properties": {
-        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:d534a059edf48667a218",
-        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:d534a059edf48667a218",
-        "name": "大園玲 - Rådhuspladsen",
-        "category": "Private trip/photobook/others",
-        "subcategory": "Private trip/photobook/others",
-        "categoryColor": "#3b82f6",
-        "address": "",
-        "sceneTitle": "大園玲 - Rådhuspladsen",
-        "sceneNote": "description: Note: URL: Tags: Comment: Title:",
-        "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
-        "tags": [
-          "海外",
-          "Private trip/photobook/others"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "FULL of Sakurazaka46 OVERSEA Map",
-          "url": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
-          "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
-          "layer": "Private trip/photobook/others",
-          "tags": [
-            "海外",
-            "Private trip/photobook/others"
-          ],
-          "name": "大園玲 - Rådhuspladsen"
-        },
-        "classification": {
-          "category": "Private trip/photobook/others",
-          "subcategory": "Private trip/photobook/others",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.5846967,
           55.6791438
         ]
@@ -7096,7 +7048,9 @@
           "海外",
           "Private trip/photobook/others"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5OfRbA5SVgXNsA0ppitkWL9lpUJLD-D_v6jbLPbQqJiEOUefyofuFLsKRAnC_XYl7dl6-dHiuPYyXoMJVpkxzgrHiOQtjf-5KyI9se3uwGogMSEMuQUKPj8r5Umq49DcHJ9CytlGvDlnDPXyPs_2VJAf5n1zHB9I08ghrshzL7IYTrCqS1Qk6qiIMPO7VLaUY2VxPScXHGku5B5kkgPhyOwmd0Kn0lZsCVSEEUuXVfaHQdaUmbFULe1SI%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -7148,7 +7102,9 @@
           "海外",
           "Private trip/photobook/others"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7YbdMVqVd8n6RSBS4fQ2AKX3l_qzvrFjUBSvvtKutB7E5cdyAXLrC5v8TEXAcgkJBJ2PYZre40zKeFYfRGxD1mg9RWMD01qyuZqy92p_ETdhpE4id8pXpcfES1dU16--c7LXzLv0T6fI-1mtZBp61KI0O5plhDShXDG-IXVGawDXzYz-ur9vFZdwt7qwISs7g4ssmeGq8nu616j3wl-PAwN4VxVPpbNRgYwU3gBHdolQYMS0_lGAw9g8c%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -7322,6 +7278,164 @@
             "Private trip/photobook/others"
           ],
           "name": "大園玲 - Toldbodgade 3"
+        },
+        "classification": {
+          "category": "Private trip/photobook/others",
+          "subcategory": "Private trip/photobook/others",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5923808,
+          55.684192
+        ]
+      },
+      "properties": {
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:106ee5323b0dcffea4ff",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:106ee5323b0dcffea4ff",
+        "name": "大園玲 - Amalienborg Palace",
+        "category": "Private trip/photobook/others",
+        "subcategory": "Private trip/photobook/others",
+        "categoryColor": "#3b82f6",
+        "address": "",
+        "sceneTitle": "大園玲 - Amalienborg Palace",
+        "sceneNote": "description: Note: URL: Tags: Comment: Title:",
+        "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "tags": [
+          "海外",
+          "Private trip/photobook/others"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6hooQ96Fg6Og3TQhA5ScOSD8aLV8-9UkEnN9oNXWhtEvw9qHuYaogZYEClErWad7cQ2atNgzWClYPgkTQVQWVRGJUCU_tr2EKB_qjgB1kshS8noRenQCFbBWcx1r06yI_x6TjmCmv8I0-gZ5iI3-X58Uq46Vu_mspM31yrkcjzNINvMRTnF56KyVyZv6s5A-vJnOB1CjtTc83__G_UvVPyR-4GglbBs40RftCtg67Ae6xvW8P3KWuzqPo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "FULL of Sakurazaka46 OVERSEA Map",
+          "url": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "layer": "Private trip/photobook/others",
+          "tags": [
+            "海外",
+            "Private trip/photobook/others"
+          ],
+          "name": "大園玲 - Amalienborg Palace"
+        },
+        "classification": {
+          "category": "Private trip/photobook/others",
+          "subcategory": "Private trip/photobook/others",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5691426,
+          55.6759246
+        ]
+      },
+      "properties": {
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:d534a059edf48667a218",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:d534a059edf48667a218",
+        "name": "大園玲 - Rådhuspladsen",
+        "category": "Private trip/photobook/others",
+        "subcategory": "Private trip/photobook/others",
+        "categoryColor": "#3b82f6",
+        "address": "",
+        "sceneTitle": "大園玲 - Rådhuspladsen",
+        "sceneNote": "description: Note: URL: Tags: Comment: Title:",
+        "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "tags": [
+          "海外",
+          "Private trip/photobook/others"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "FULL of Sakurazaka46 OVERSEA Map",
+          "url": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "layer": "Private trip/photobook/others",
+          "tags": [
+            "海外",
+            "Private trip/photobook/others"
+          ],
+          "name": "大園玲 - Rådhuspladsen"
+        },
+        "classification": {
+          "category": "Private trip/photobook/others",
+          "subcategory": "Private trip/photobook/others",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5645557,
+          55.674654
+        ]
+      },
+      "properties": {
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:a20a1b2c32d1abfc0eb5",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:a20a1b2c32d1abfc0eb5",
+        "name": "55.674654,12.5645557",
+        "category": "Private trip/photobook/others",
+        "subcategory": "Private trip/photobook/others",
+        "categoryColor": "#3b82f6",
+        "address": "",
+        "sceneTitle": "55.674654,12.5645557",
+        "sceneNote": "description: Note: URL: Tags: Comment: Title:",
+        "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "tags": [
+          "海外",
+          "Private trip/photobook/others"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "FULL of Sakurazaka46 OVERSEA Map",
+          "url": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "layer": "Private trip/photobook/others",
+          "tags": [
+            "海外",
+            "Private trip/photobook/others"
+          ],
+          "name": "55.674654,12.5645557"
         },
         "classification": {
           "category": "Private trip/photobook/others",
