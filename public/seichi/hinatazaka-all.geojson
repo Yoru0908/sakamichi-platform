@@ -58576,6 +58576,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -80.1328981,
+          25.7870872
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6fa7aa6c96cdb4272d41",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6fa7aa6c96cdb4272d41",
+        "name": "川樾 Yue Chinese",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "川樾 Yue Chinese",
+        "sceneNote": "藤嶌果歩1st写真集『果実の歩幅』https://x.com/kahorin1st/status/2091420174184268027",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR42PpEp45Mk2wVn33Qpviy1Rs-aDS-iac0NiEyk65ll8OjwbZc1i9_f39WLNJWZkcf9mDP7ya3Ol5719K0wN-OvTv6L22OPGh5UWPAuY5gfO6DTD1xxVIoHIjrm4DU3ckF51l-p5JSXYH2p_GITb4Bp6ftj8XZyKRuUbU2lZeBByakE5SPgkijsRnBXailFaOufFJ9S9a9XObQ7bRfanZ5PBdvBgxm43oisER4egqwOGMm5YU5IBRGXz_s%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7YAg3LStemQysRQmud1h44botOZYmc5junuDzU-d9q5cf15ik5RJLmzMaRefpH2zc4FRXPNyKgm1C_Xk6oBthCFMt2FWpv9MyrGBYMla-vHbF7uLmfvWtIDqDw2C4FY1iBqY8uCt8a-eojNmv79_ewRUSYS1aJX4APKo1EYif0AfL9u8s9bA2PY0w_o-9U2H_ueRmxspZgcspqBysHr1W3u7Ovf0UvBirkdsl1aAMstUj3Jd-isjdEIkQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "川樾 Yue Chinese",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7353357,
           35.6725476
         ]
@@ -220591,6 +220647,61 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "川登棚田群 栃又棚田",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.2034041,
+          32.7157473
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d177e22636f5125590f2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d177e22636f5125590f2",
+        "name": "株式会社 宮崎茶房",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "株式会社 宮崎茶房",
+        "sceneNote": "MRTわけもん！！で山下葉留花 &と片山紗希が訪れた場所 https://x.com/hinatazaka46/status/2092507373567132062",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4o4plziyz5y-LktKg586s1CQ5ZXia4Jxj2lB4L9WXtwwSVsKBmbB_7gqaxktnHIH4GjUumHf07cWyNAX38SFcmzMkIToglJklnDqUvO4eJO-UGROMYaeDt8P3Juf0xw57eBBO9D4RhHRMD6PaXflFlEBaTzXyCbozkvJeTgDO-7paZgIakLU27BmJgCILQxyYSx17BLN2dV3AAZBpBUrXxduIID1xuNEGrHBok93SAaMB9eykVtXk16pg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "株式会社 宮崎茶房",
           "group": "日向坂46"
         },
         "classification": {
