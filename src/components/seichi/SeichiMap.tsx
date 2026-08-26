@@ -187,6 +187,54 @@ const SEICHI_MAP_OPTIONS = [
   { path: '/seichi', label: '聖地巡礼トップ' },
 ] as const;
 
+type BaseMapStyle = 'light' | 'street' | 'osm' | 'satellite';
+
+const BASE_MAP_OPTIONS: { id: BaseMapStyle; label: string }[] = [
+  { id: 'light', label: '淡色' },
+  { id: 'street', label: '道路' },
+  { id: 'osm', label: 'OSM' },
+  { id: 'satellite', label: '航空写真' },
+];
+
+const ESRI_ATTRIBUTION =
+  'Tiles &copy; <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, OpenStreetMap contributors, and the GIS user community';
+
+const createBaseMapLayer = (style: BaseMapStyle): L.Layer => {
+  if (style === 'light') {
+    const base = L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      { attribution: ESRI_ATTRIBUTION, maxNativeZoom: 20, maxZoom: 20 }
+    );
+    const labels = L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}',
+      { maxNativeZoom: 20, maxZoom: 20 }
+    );
+    return L.layerGroup([base, labels]);
+  }
+  if (style === 'street') {
+    return L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+      { attribution: ESRI_ATTRIBUTION, maxNativeZoom: 20, maxZoom: 20 }
+    );
+  }
+  if (style === 'satellite') {
+    return L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      {
+        attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a>, Vantor, Earthstar Geographics, and the GIS user community',
+        maxNativeZoom: 20,
+        maxZoom: 20,
+      }
+    );
+  }
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxNativeZoom: 19,
+    maxZoom: 20,
+  });
+};
+
 const getRouteKey = (feature: Feature): string => {
   if (feature.properties.sourceKey) return feature.properties.sourceKey;
   const [lng, lat] = feature.geometry.coordinates;
@@ -243,6 +291,7 @@ export default function SeichiMap({
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
+  const baseLayerRef = useRef<L.Layer | null>(null);
 
   const [data, setData] = useState<GeoJSON | null>(null);
   const [loading, setLoading] = useState(true);
@@ -263,6 +312,7 @@ export default function SeichiMap({
   // 移动端视图模式：'map' | 'list'
   const [mobileView, setMobileView] = useState<'map' | 'list'>('map');
   const [currentMapPath, setCurrentMapPath] = useState('');
+  const [baseMapStyle, setBaseMapStyle] = useState<BaseMapStyle>('light');
 
   // 巡礼路线：仅在浏览器本地保存，不上传当前位置或行程。
   const routeStorageKey = `seichi-route:${geojsonUrl}`;
@@ -291,6 +341,10 @@ export default function SeichiMap({
   useEffect(() => {
     const path = window.location.pathname.replace(/\/$/, '') || '/';
     setCurrentMapPath(path);
+    const savedBaseMap = localStorage.getItem('seichi-basemap-style');
+    if (BASE_MAP_OPTIONS.some((option) => option.id === savedBaseMap)) {
+      setBaseMapStyle(savedBaseMap as BaseMapStyle);
+    }
   }, []);
 
   const switchSeichiMap = (path: string) => {
@@ -412,13 +466,6 @@ export default function SeichiMap({
       L.control.zoom({ position: 'topright' }).addTo(map);
     }
 
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxNativeZoom: 19,
-      maxZoom: 20,
-    }).addTo(map);
-
     // 点击地图空白处自动取消选择
     map.on('click', (e: L.LeafletMouseEvent) => {
       const orig = e.originalEvent?.target as HTMLElement;
@@ -450,9 +497,20 @@ export default function SeichiMap({
       map.off('zoomstart', handleZoomStart);
       map.off('zoomend', handleZoomEnd);
       map.remove();
+      baseLayerRef.current = null;
       mapInstanceRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map) return;
+    if (baseLayerRef.current) map.removeLayer(baseLayerRef.current);
+    const nextLayer = createBaseMapLayer(baseMapStyle);
+    nextLayer.addTo(map);
+    baseLayerRef.current = nextLayer;
+    localStorage.setItem('seichi-basemap-style', baseMapStyle);
+  }, [baseMapStyle]);
 
   // 3. 大层级与小层级聚合
   const categories = useMemo(() => {
@@ -871,21 +929,37 @@ export default function SeichiMap({
       </button>
 
       {mobileView === 'map' && (
-        <div className="absolute left-3 top-3 z-[1100] md:hidden">
-          <label className="sr-only" htmlFor="mobile-seichi-map-switcher">聖地マップを切り替える</label>
-          <select
-            id="mobile-seichi-map-switcher"
-            value={currentMapPath}
-            onChange={(event) => switchSeichiMap(event.target.value)}
-            className="min-h-11 max-w-[150px] appearance-none rounded-full border border-[var(--border-primary)] bg-[var(--bg-primary)] py-2 pl-3.5 pr-8 text-xs font-semibold text-[var(--text-primary)] shadow-lg"
-            aria-label="聖地マップを切り替える"
-          >
-            {!currentMapPath && <option value="">マップ切替</option>}
-            {SEICHI_MAP_OPTIONS.map((option) => (
-              <option key={option.path} value={option.path}>{option.label}</option>
-            ))}
-          </select>
-          <ChevronDown size={13} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
+        <div className="absolute left-3 top-3 z-[1100] flex flex-col items-start gap-2 md:hidden">
+          <div className="relative">
+            <label className="sr-only" htmlFor="mobile-seichi-map-switcher">聖地マップを切り替える</label>
+            <select
+              id="mobile-seichi-map-switcher"
+              value={currentMapPath}
+              onChange={(event) => switchSeichiMap(event.target.value)}
+              className="min-h-11 max-w-[150px] appearance-none rounded-full border border-[var(--border-primary)] bg-[var(--bg-primary)] py-2 pl-3.5 pr-8 text-xs font-semibold text-[var(--text-primary)] shadow-lg"
+              aria-label="聖地マップを切り替える"
+            >
+              {!currentMapPath && <option value="">マップ切替</option>}
+              {SEICHI_MAP_OPTIONS.map((option) => (
+                <option key={option.path} value={option.path}>{option.label}</option>
+              ))}
+            </select>
+            <ChevronDown size={13} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
+          </div>
+          <div className="relative">
+            <Layers size={13} className="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-[var(--text-tertiary)]" />
+            <select
+              value={baseMapStyle}
+              onChange={(event) => setBaseMapStyle(event.target.value as BaseMapStyle)}
+              className="min-h-10 appearance-none rounded-full border border-[var(--border-primary)] bg-[var(--bg-primary)] py-1.5 pl-8 pr-8 text-[11px] font-semibold text-[var(--text-primary)] shadow-lg"
+              aria-label="背景地図を切り替える"
+            >
+              {BASE_MAP_OPTIONS.map((option) => (
+                <option key={option.id} value={option.id}>背景：{option.label}</option>
+              ))}
+            </select>
+            <ChevronDown size={12} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
+          </div>
         </div>
       )}
 
@@ -932,6 +1006,21 @@ export default function SeichiMap({
               {!currentMapPath && <option value="">マップを切り替える</option>}
               {SEICHI_MAP_OPTIONS.map((option) => (
                 <option key={option.path} value={option.path}>{option.label}</option>
+              ))}
+            </select>
+            <ChevronDown size={13} className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
+          </div>
+
+          <div className="relative mt-2">
+            <Layers size={13} className="pointer-events-none absolute left-2.5 top-1/2 z-10 -translate-y-1/2 text-[var(--text-tertiary)]" />
+            <select
+              value={baseMapStyle}
+              onChange={(event) => setBaseMapStyle(event.target.value as BaseMapStyle)}
+              className="min-h-9 w-full appearance-none rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] py-1.5 pl-8 pr-8 text-xs font-semibold text-[var(--text-primary)] focus:border-[var(--color-brand-sakura)] focus:outline-none"
+              aria-label="背景地図を切り替える"
+            >
+              {BASE_MAP_OPTIONS.map((option) => (
+                <option key={option.id} value={option.id}>背景地図：{option.label}</option>
               ))}
             </select>
             <ChevronDown size={13} className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
