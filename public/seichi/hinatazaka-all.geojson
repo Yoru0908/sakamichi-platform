@@ -58576,6 +58576,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7353357,
+          35.6725476
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7d5a13574a7988d84934",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7d5a13574a7988d84934",
+        "name": "TBS赤坂BLITZスタジオ",
+        "category": "ライブ会場・舞台",
+        "subcategory": "ライブ会場・舞台",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "TBS赤坂BLITZスタジオ",
+        "sceneNote": "「ひらがなおもてなし会」2016年10月28日",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "ライブ会場・舞台"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR47fYs3cU1RsKXFR7pKBgk5VWWC2HKHdJmGnAtdR3h8ZDEDn-DlATTE8S2Nt7wwUeSPi7jL7i5erSB2ZHZ4gLIlMmYoICQUSt6WmaX7U86Yj21rtTxi0Ymd9kIvKeoZJnd8vlGJI2JpfZvNC6hCIyxzvB6KNMNs2ALIIXoxiaT92u1MgBBtbqbnwgr1VrBAQ6nA1yc9tUWMDmYmWn1htG2De9I78aa5iCCCRlAsTgAjmWGyzMX77TXRvxQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "ライブ会場・舞台",
+          "tags": [
+            "日向坂46",
+            "ライブ会場・舞台"
+          ],
+          "name": "TBS赤坂BLITZスタジオ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "ライブ会場・舞台",
+          "subcategory": "ライブ会場・舞台",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7900954,
           35.6364746
         ]
@@ -58737,6 +58792,115 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7744733,
+          35.6218859
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d9d558422b303660e749",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d9d558422b303660e749",
+        "name": "お台場・駐車場",
+        "category": "ライブ会場・舞台",
+        "subcategory": "ライブ会場・舞台",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "お台場・駐車場",
+        "sceneNote": "TIF2017で佐々木久美が1期生にぶちぎれた場所",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "ライブ会場・舞台"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6VKh_0N7jeW7ap7wEL1dAzDgyeb6YQ0yiBPYdiWWgHnD6tRrEf1kAIii3l241XPi2yocxO16X5n4widR-GkOqVb8z3qQHWu18R2Yhx7LF5mJG0o8vUGfijXANjFKqYjAoW0MEMO7ZKBo1Lm-jKlJzwA6wCyx44hf-VB1qCLXqDRCtcIqHiGo8gR-Bpc0mDbdnavi9fImjVadq_luCijXJfA38lTXny6dZw1phqYze8Tlxpdfja9BV9Sjc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4nzF1nWvjmcxT-3aVuzUKc65WL3UtLX3kQwka07N_zKsOPrOAm6YkLpfrHiqYykPhMBNfZge92n_VFbt754vI8SKUAizTUpG3IxNoKXp-Vlfxb2OsETrMvEzOhG9XmxdJfIcgAbE4jxJCWxnnWNzekzB3xkYlV8uktTLBOnx-peCqNxVVLLu7oUzcc83qhnJWeQUVqfG8nyYl0DIH2z0b1Qr1-bBQSoAHgj40wq0qsDMpo4xmyIkxmUIs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "ライブ会場・舞台",
+          "tags": [
+            "日向坂46",
+            "ライブ会場・舞台"
+          ],
+          "name": "お台場・駐車場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "ライブ会場・舞台",
+          "subcategory": "ライブ会場・舞台",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.3533244,
+          43.0495339
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1e8138810691ad7789d6",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1e8138810691ad7789d6",
+        "name": "Zepp Sapporo",
+        "category": "ライブ会場・舞台",
+        "subcategory": "ライブ会場・舞台",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Zepp Sapporo",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "ライブ会場・舞台"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "ライブ会場・舞台",
+          "tags": [
+            "日向坂46",
+            "ライブ会場・舞台"
+          ],
+          "name": "Zepp Sapporo",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "ライブ会場・舞台",
+          "subcategory": "ライブ会場・舞台",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           141.7833958,
           43.1624696
         ]
@@ -58847,6 +59011,59 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          127.0093041,
+          37.5665128
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1eb142c1ba88bc959b42",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1eb142c1ba88bc959b42",
+        "name": "DDP東大門デザインプラザ",
+        "category": "ライブ会場・舞台",
+        "subcategory": "ライブ会場・舞台",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "DDP東大門デザインプラザ",
+        "sceneNote": "mama授賞式",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "ライブ会場・舞台"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "ライブ会場・舞台",
+          "tags": [
+            "日向坂46",
+            "ライブ会場・舞台"
+          ],
+          "name": "DDP東大門デザインプラザ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "ライブ会場・舞台",
+          "subcategory": "ライブ会場・舞台",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.6201797,
           35.5122721
         ]
@@ -58882,6 +59099,116 @@
             "ライブ会場・舞台"
           ],
           "name": "横浜アリーナ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "ライブ会場・舞台",
+          "subcategory": "ライブ会場・舞台",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7542192,
+          35.7033641
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7dbae13a57d1ef976c24",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7dbae13a57d1ef976c24",
+        "name": "TOKYO DOME CITY HALL",
+        "category": "ライブ会場・舞台",
+        "subcategory": "ライブ会場・舞台",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "TOKYO DOME CITY HALL",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "ライブ会場・舞台"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Ymt-_dLEy6hloYNh98i3WK495ODG4DroJHr8ILNfFmUOU6LJyF28KiciysbMS-rOSFSPHQItiCY-8sFNJiQ3CDQRexoxpF0h4HD1J8FL0jPrqKs3VLoR5Cnu7tOCR1zEIEYGgxPe_A78qH7Fx42RFo6kEzIlB8jRwZdwuibrpYvu0OiBoHmJhwA5jUzJlcd3goDAIli4QJAQbZiKjbg7qhcMWDLaRy3BgneZY4Wp2etFac8eekgtZngk%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "ライブ会場・舞台",
+          "tags": [
+            "日向坂46",
+            "ライブ会場・舞台"
+          ],
+          "name": "TOKYO DOME CITY HALL",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "ライブ会場・舞台",
+          "subcategory": "ライブ会場・舞台",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6307319,
+          35.895081
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:64c6821e7af2f0c04db2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:64c6821e7af2f0c04db2",
+        "name": "さいたまスーパーアリーナ",
+        "category": "ライブ会場・舞台",
+        "subcategory": "ライブ会場・舞台",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "さいたまスーパーアリーナ",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "ライブ会場・舞台"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6MNvz59XHI5COlHo96ga_ao-2_tUzD-wlLPzjwRt44679NG7VqTkdQrpHqoNt6HMZrEJqCY8zTXD1KPBjXV2nYpu3KeoXDWNq_Ns-VsuvisaeafuDHQJijvCB_To3uwrT0la4LdC89rdVTRcj90D-oDbye-JjaRgrRp-XZyctuWL-tsDNBr9Yqk4CDqoeD-d5CFXC1nj6RPw8-tsPmiOdXBVzuNw0qHF8IPfiSMnr4gB-7NXVMsSUWSHs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "ライブ会場・舞台",
+          "tags": [
+            "日向坂46",
+            "ライブ会場・舞台"
+          ],
+          "name": "さいたまスーパーアリーナ",
           "group": "日向坂46"
         },
         "classification": {
@@ -59330,116 +59657,6 @@
             "ライブ会場・舞台"
           ],
           "name": "Zepp DiverCity (TOKYO)",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "ライブ会場・舞台",
-          "subcategory": "ライブ会場・舞台",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7542192,
-          35.7033641
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7dbae13a57d1ef976c24",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7dbae13a57d1ef976c24",
-        "name": "TOKYO DOME CITY HALL",
-        "category": "ライブ会場・舞台",
-        "subcategory": "ライブ会場・舞台",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "TOKYO DOME CITY HALL",
-        "sceneNote": "",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "ライブ会場・舞台"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Ymt-_dLEy6hloYNh98i3WK495ODG4DroJHr8ILNfFmUOU6LJyF28KiciysbMS-rOSFSPHQItiCY-8sFNJiQ3CDQRexoxpF0h4HD1J8FL0jPrqKs3VLoR5Cnu7tOCR1zEIEYGgxPe_A78qH7Fx42RFo6kEzIlB8jRwZdwuibrpYvu0OiBoHmJhwA5jUzJlcd3goDAIli4QJAQbZiKjbg7qhcMWDLaRy3BgneZY4Wp2etFac8eekgtZngk%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "ライブ会場・舞台",
-          "tags": [
-            "日向坂46",
-            "ライブ会場・舞台"
-          ],
-          "name": "TOKYO DOME CITY HALL",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "ライブ会場・舞台",
-          "subcategory": "ライブ会場・舞台",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.6307319,
-          35.895081
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:64c6821e7af2f0c04db2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:64c6821e7af2f0c04db2",
-        "name": "さいたまスーパーアリーナ",
-        "category": "ライブ会場・舞台",
-        "subcategory": "ライブ会場・舞台",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "さいたまスーパーアリーナ",
-        "sceneNote": "",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "ライブ会場・舞台"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6MNvz59XHI5COlHo96ga_ao-2_tUzD-wlLPzjwRt44679NG7VqTkdQrpHqoNt6HMZrEJqCY8zTXD1KPBjXV2nYpu3KeoXDWNq_Ns-VsuvisaeafuDHQJijvCB_To3uwrT0la4LdC89rdVTRcj90D-oDbye-JjaRgrRp-XZyctuWL-tsDNBr9Yqk4CDqoeD-d5CFXC1nj6RPw8-tsPmiOdXBVzuNw0qHF8IPfiSMnr4gB-7NXVMsSUWSHs%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "ライブ会場・舞台",
-          "tags": [
-            "日向坂46",
-            "ライブ会場・舞台"
-          ],
-          "name": "さいたまスーパーアリーナ",
           "group": "日向坂46"
         },
         "classification": {
@@ -60162,59 +60379,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          141.3533244,
-          43.0495339
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1e8138810691ad7789d6",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1e8138810691ad7789d6",
-        "name": "Zepp Sapporo",
-        "category": "ライブ会場・舞台",
-        "subcategory": "ライブ会場・舞台",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "Zepp Sapporo",
-        "sceneNote": "",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "ライブ会場・舞台"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "ライブ会場・舞台",
-          "tags": [
-            "日向坂46",
-            "ライブ会場・舞台"
-          ],
-          "name": "Zepp Sapporo",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "ライブ会場・舞台",
-          "subcategory": "ライブ会場・舞台",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           136.8847316,
           35.1633536
         ]
@@ -60533,59 +60697,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          127.0093041,
-          37.5665128
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1eb142c1ba88bc959b42",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1eb142c1ba88bc959b42",
-        "name": "DDP東大門デザインプラザ",
-        "category": "ライブ会場・舞台",
-        "subcategory": "ライブ会場・舞台",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "DDP東大門デザインプラザ",
-        "sceneNote": "mama授賞式",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "ライブ会場・舞台"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "ライブ会場・舞台",
-          "tags": [
-            "日向坂46",
-            "ライブ会場・舞台"
-          ],
-          "name": "DDP東大門デザインプラザ",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "ライブ会場・舞台",
-          "subcategory": "ライブ会場・舞台",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           138.8911081,
           37.4150023
         ]
@@ -60727,61 +60838,6 @@
             "ライブ会場・舞台"
           ],
           "name": "ユニバーサルスタジオジャパン・グラマシーパーク",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "ライブ会場・舞台",
-          "subcategory": "ライブ会場・舞台",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7353357,
-          35.6725476
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7d5a13574a7988d84934",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7d5a13574a7988d84934",
-        "name": "TBS赤坂BLITZスタジオ",
-        "category": "ライブ会場・舞台",
-        "subcategory": "ライブ会場・舞台",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "TBS赤坂BLITZスタジオ",
-        "sceneNote": "「ひらがなおもてなし会」2016年10月28日",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "ライブ会場・舞台"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR47fYs3cU1RsKXFR7pKBgk5VWWC2HKHdJmGnAtdR3h8ZDEDn-DlATTE8S2Nt7wwUeSPi7jL7i5erSB2ZHZ4gLIlMmYoICQUSt6WmaX7U86Yj21rtTxi0Ymd9kIvKeoZJnd8vlGJI2JpfZvNC6hCIyxzvB6KNMNs2ALIIXoxiaT92u1MgBBtbqbnwgr1VrBAQ6nA1yc9tUWMDmYmWn1htG2De9I78aa5iCCCRlAsTgAjmWGyzMX77TXRvxQ%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "ライブ会場・舞台",
-          "tags": [
-            "日向坂46",
-            "ライブ会場・舞台"
-          ],
-          "name": "TBS赤坂BLITZスタジオ",
           "group": "日向坂46"
         },
         "classification": {
@@ -60977,7 +61033,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "広島サンプラザホール",
-        "sceneNote": "全国ツアー2025公演地（2025年9月27-28日）9.27のDay1はみくにんのキャプテン就任後初の誕生日ときらりんちょの広島初凱旋が重なり、未曽有のチケット争奪戦となる。",
+        "sceneNote": "Monster Groove2025広島公演開催地（2025年9月27-28日）9.27のDay1は髙橋未来虹のキャプテン就任後初の誕生日と竹内希来里の広島初凱旋が重なり、未曽有のチケット争奪戦となる。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -61052,62 +61108,6 @@
             "ライブ会場・舞台"
           ],
           "name": "国営ひたち海浜公園",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "ライブ会場・舞台",
-          "subcategory": "ライブ会場・舞台",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7744733,
-          35.6218859
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d9d558422b303660e749",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d9d558422b303660e749",
-        "name": "お台場・駐車場",
-        "category": "ライブ会場・舞台",
-        "subcategory": "ライブ会場・舞台",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "お台場・駐車場",
-        "sceneNote": "TIF2017で佐々木久美が1期生にぶちぎれた場所",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "ライブ会場・舞台"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6VKh_0N7jeW7ap7wEL1dAzDgyeb6YQ0yiBPYdiWWgHnD6tRrEf1kAIii3l241XPi2yocxO16X5n4widR-GkOqVb8z3qQHWu18R2Yhx7LF5mJG0o8vUGfijXANjFKqYjAoW0MEMO7ZKBo1Lm-jKlJzwA6wCyx44hf-VB1qCLXqDRCtcIqHiGo8gR-Bpc0mDbdnavi9fImjVadq_luCijXJfA38lTXny6dZw1phqYze8Tlxpdfja9BV9Sjc%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4nzF1nWvjmcxT-3aVuzUKc65WL3UtLX3kQwka07N_zKsOPrOAm6YkLpfrHiqYykPhMBNfZge92n_VFbt754vI8SKUAizTUpG3IxNoKXp-Vlfxb2OsETrMvEzOhG9XmxdJfIcgAbE4jxJCWxnnWNzekzB3xkYlV8uktTLBOnx-peCqNxVVLLu7oUzcc83qhnJWeQUVqfG8nyYl0DIH2z0b1Qr1-bBQSoAHgj40wq0qsDMpo4xmyIkxmUIs%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "ライブ会場・舞台",
-          "tags": [
-            "日向坂46",
-            "ライブ会場・舞台"
-          ],
-          "name": "お台場・駐車場",
           "group": "日向坂46"
         },
         "classification": {
@@ -135360,6 +135360,117 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "綾 手づくりほんものセンター",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2104704,
+          -33.8574551
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7ed5c6cc528a0238ff61",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7ed5c6cc528a0238ff61",
+        "name": "シドニーオペラハウス対岸",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "シドニーオペラハウス対岸",
+        "sceneNote": "2026年8月頃に佐々木久美が訪れた場所。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7oZAgdChs1EWfup8ZpQlhtHKlf2-XXtn0XuaJCK013_MGHLu4IV6HgU1CL-wsuT_dnVzCyv_csijXi0fcVmgh5R2vuWVp36sP9-gHsQgd5VTAY6qnhtCrl2zjd4FyHkJHhzyhmMgUX1Opxu1G_jMXuaiCWNP2wlp7_Ys6TrZdOr0Kz4jLq-YSYIO31NhTfiqY8gGBaFg7ijqzyYOfcPPE0xirBdNZ_Mty5V1bLfLYiQRTb4PYG34fVHkM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4OmE8FXR31EgibdpvOTWLOsPuyDPpIDW5mZXHapMP_QxmOJjvgUkj3KL6nfkvZjFavEOhMAEWbH9TrS376gHsLrtdT6upj79tHk81MfyqsFshXRdgLM1LGh7tPTGXzQyk9GhRppIhIxKuUxlsuD7Gy_juslx3SVrwCHo7MdJJisBUlYXxlpINiVFWBsGNPaOFxaJmj3DaCqgdmyKwExs1cs3N7-krEdCGxZWcG_5U376ac3ToNaKdx2dU%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "シドニーオペラハウス対岸",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.1887978,
+          -33.8859126
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1dc1b99b74579c9573a2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1dc1b99b74579c9573a2",
+        "name": "シドニー大学四面時計塔",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "シドニー大学四面時計塔",
+        "sceneNote": "2026年8月頃に佐々木久美が訪れた場所。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6LxegKvN-mwHu3i3Y2L92_sBvThIu0Q7ui5Uxq0RXE7hRC_dqZM7w814_KPaJovG74-MHpaqrPu7f8wZ0_o_USgDJPmBn-H62Pk30welyefbUg6cDp9Ax5qa2aoKDLgAef5pF3nv6dsS21PgOlIsHMh3Xh0WYwUdVcr87xdEn3C4rMo_4pW6y_UeJWUFNvW3-VtcBuSzcqnePbQ9xd3qLmZSXW6xLeVDo5i77THddViuqj6dj-bUr0xJA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "シドニー大学四面時計塔",
           "group": "日向坂46"
         },
         "classification": {
