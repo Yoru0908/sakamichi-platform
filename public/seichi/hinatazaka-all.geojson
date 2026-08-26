@@ -220550,6 +220550,61 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3335816,
+          32.7130488
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2f4006e1befb1d88c832",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2f4006e1befb1d88c832",
+        "name": "川登棚田群 栃又棚田",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "川登棚田群 栃又棚田",
+        "sceneNote": "MRTわけもん！！で山下葉留花 &と片山紗希が訪れた場所 https://x.com/mrtwakemon/status/2092483500033389034",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6_3Prah9kwvoeHkduJFsuaFIhNoDSIV9FIUz3v0pAdDcrpLc4knqlTmArjyBBNXMbTWjg9FD68eBcbJvWGfAGoF5M7s1S6hTdcWr1Gj2ErR1cB9EexD8LLhWwg74ZcLFpJ2ti2ApbXGMj8f_KJAEE2tHja4pnEKXX-SzdE7QZ-eKux0K1M79_oGwLHKtWO8ViormqAue23lzsE3veS27VFbZfQh201qBwq5Ll4qzhgNlRSvuIaDyvCK88%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "川登棚田群 栃又棚田",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
