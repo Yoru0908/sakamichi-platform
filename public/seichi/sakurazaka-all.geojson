@@ -80500,6 +80500,226 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.590951,
+          35.714952
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:71effb12245d643971ac",
+        "sourceKey": "fumi-article:71effb12245d643971ac",
+        "name": "Parkside Villa Tokyo",
+        "category": "雑誌・グラビア",
+        "subcategory": "週刊少年サンデー 2026 No.33",
+        "categoryColor": "#7c3aed",
+        "address": "東京都杉並区善福寺",
+        "sceneTitle": "櫻坂46 森田ひかる 週刊少年サンデー 2026 No.33 写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都杉並区善福寺",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+        "tags": [
+          "櫻坂46",
+          "森田ひかる"
+        ],
+        "images": [],
+        "members": [
+          "森田ひかる"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+          "mapId": "",
+          "layer": "櫻坂46 森田ひかる 週刊少年サンデー 2026 No.33 写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "森田ひかる"
+          ],
+          "name": "Parkside Villa Tokyo",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "週刊少年サンデー 2026 No.33",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.589905,
+          35.71619
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:14e2adec5ad1a1d25b61",
+        "sourceKey": "fumi-article:14e2adec5ad1a1d25b61",
+        "name": "善福寺公園",
+        "category": "雑誌・グラビア",
+        "subcategory": "週刊少年サンデー 2026 No.33",
+        "categoryColor": "#7c3aed",
+        "address": "東京都杉並区善福寺3-9-10",
+        "sceneTitle": "櫻坂46 森田ひかる 週刊少年サンデー 2026 No.33 写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都杉並区善福寺3-9-10",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+        "tags": [
+          "櫻坂46",
+          "森田ひかる"
+        ],
+        "images": [],
+        "members": [
+          "森田ひかる"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+          "mapId": "",
+          "layer": "櫻坂46 森田ひかる 週刊少年サンデー 2026 No.33 写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "森田ひかる"
+          ],
+          "name": "善福寺公園",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "週刊少年サンデー 2026 No.33",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.591078,
+          35.715005
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:e9e4dd927fa35dfa7228",
+        "sourceKey": "fumi-article:e9e4dd927fa35dfa7228",
+        "name": "公衆トイレ前",
+        "category": "雑誌・グラビア",
+        "subcategory": "週刊少年サンデー 2026 No.33",
+        "categoryColor": "#7c3aed",
+        "address": "",
+        "sceneTitle": "櫻坂46 森田ひかる 週刊少年サンデー 2026 No.33 写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+        "tags": [
+          "櫻坂46",
+          "森田ひかる"
+        ],
+        "images": [],
+        "members": [
+          "森田ひかる"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+          "mapId": "",
+          "layer": "櫻坂46 森田ひかる 週刊少年サンデー 2026 No.33 写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "森田ひかる"
+          ],
+          "name": "公衆トイレ前",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "週刊少年サンデー 2026 No.33",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.590823,
+          35.715312
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:885e9ad93e509b9d17d7",
+        "sourceKey": "fumi-article:885e9ad93e509b9d17d7",
+        "name": "善福寺池ボート乗場横の紫陽花",
+        "category": "雑誌・グラビア",
+        "subcategory": "週刊少年サンデー 2026 No.33",
+        "categoryColor": "#7c3aed",
+        "address": "",
+        "sceneTitle": "櫻坂46 森田ひかる 週刊少年サンデー 2026 No.33 写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+        "tags": [
+          "櫻坂46",
+          "森田ひかる"
+        ],
+        "images": [],
+        "members": [
+          "森田ひかる"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60018512.html",
+          "mapId": "",
+          "layer": "櫻坂46 森田ひかる 週刊少年サンデー 2026 No.33 写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "森田ひかる"
+          ],
+          "name": "善福寺池ボート乗場横の紫陽花",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "週刊少年サンデー 2026 No.33",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
