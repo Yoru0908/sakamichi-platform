@@ -1,4 +1,13 @@
 #!/usr/bin/env node
+import {
+  completeSoldoutPush,
+  DEFAULT_SOLDOUT_PUSH_OUTBOX_DIR,
+  enqueueSoldoutPush,
+  listSoldoutPushes,
+  requireNapcatSuccess,
+  saveSoldoutPush,
+} from './soldout-push-outbox.mjs';
+
 /**
  * Fortune Music 完售データ自動監視スクリプト
  *
@@ -8,7 +17,8 @@
  * 環境変数:
  *   FORTUNE_EMAIL      - Fortune Music ログインメール
  *   FORTUNE_PW         - Fortune Music ログインパスワード
- *   MIGURI_SYNC_SECRET - 46log API サーバー認証キー
+ *   MIGURI_SYNC_SECRET        - 46log API サーバー認証キー
+ *   SOLDOUT_PUSH_OUTBOX_DIR   - 失敗した配信の再試行状態（default: /vol1/fortune-soldout-watcher/push-outbox）
  *
  * Usage:
  *   node scripts/fortune-soldout-watcher.mjs
@@ -187,6 +197,8 @@ async function importToApi(eventSlug, roundNumber, roundLabel, cells) {
 const NAPCAT_URL = process.env.NAPCAT_URL || 'http://127.0.0.1:3002';
 const NAPCAT_TOKEN = process.env.NAPCAT_TOKEN || '';
 const PUSH_GROUP_ID = process.env.PUSH_GROUP_ID || '768670254';
+const PUSH_OUTBOX_DIR =
+  process.env.SOLDOUT_PUSH_OUTBOX_DIR || DEFAULT_SOLDOUT_PUSH_OUTBOX_DIR;
 
 function groupHashtag(group) {
   if (group === 'sakurazaka') return '#櫻坂46#';
@@ -195,11 +207,12 @@ function groupHashtag(group) {
   return '#坂道#';
 }
 
-async function generateAndPush(eventSlug, group, resultRound, importResult) {
+async function generateAndPush(job) {
+  const { eventSlug, group, resultRound, importResult } = job;
   const { generateSoldOutImage } = await import('./soldout-image-gen.mjs');
   const { publishToWeibo, isWeiboEnabled } = await import('./weibo-publisher.mjs');
 
-  console.log(`[${ts()}]   Generating images...`);
+  console.log(`[${ts()}]   Generating images for pending push ${job.id}...`);
   const [soldoutImg, generationImg] = await Promise.all([
     generateSoldOutImage(eventSlug, group, 'soldout'),
     generateSoldOutImage(eventSlug, group, 'generation'),
@@ -210,15 +223,16 @@ async function generateAndPush(eventSlug, group, resultRound, importResult) {
     `[${ts()}]   Images generated (soldout=${Math.round(soldoutImg.length / 1024)}KB, generation=${Math.round(generationImg.length / 1024)}KB)`,
   );
 
-  // Send to QQ group via NapCat
   const message = [
     { type: 'text', data: { text: `【${resultRound}次完売更新】\n${eventSlug}\n新增 ${importResult.newCells} 枠完売 (合計 ${importResult.totalCells})\n` } },
     { type: 'image', data: { file: `base64://${soldoutBase64}` } },
     { type: 'image', data: { file: `base64://${generationBase64}` } },
   ];
 
-  const groups = PUSH_GROUP_ID.split(',');
+  const delivered = new Set((job.deliveredGroupIds || []).map(String));
+  const groups = PUSH_GROUP_ID.split(',').map(value => value.trim()).filter(Boolean);
   for (const groupId of groups) {
+    if (delivered.has(groupId)) continue;
     const res = await fetch(`${NAPCAT_URL}/send_group_msg`, {
       method: 'POST',
       headers: {
@@ -226,15 +240,17 @@ async function generateAndPush(eventSlug, group, resultRound, importResult) {
         ...(NAPCAT_TOKEN ? { Authorization: `Bearer ${NAPCAT_TOKEN}` } : {}),
       },
       body: JSON.stringify({ group_id: Number(groupId), message }),
+      signal: AbortSignal.timeout(60_000),
     });
-    if (res.ok) {
-      console.log(`[${ts()}]   ✅ Pushed to QQ group ${groupId}`);
-    } else {
-      console.error(`[${ts()}]   ❌ Push to ${groupId} failed: ${res.status}`);
-    }
+    await requireNapcatSuccess(res);
+    delivered.add(groupId);
+    job.deliveredGroupIds = [...delivered];
+    job.lastError = '';
+    await saveSoldoutPush(job, PUSH_OUTBOX_DIR);
+    console.log(`[${ts()}]   ✅ Pushed to QQ group ${groupId}`);
   }
 
-  if (isWeiboEnabled()) {
+  if (isWeiboEnabled() && !job.weiboDelivered) {
     const text = [
       `【個別ミーグリ完売更新】`,
       eventSlug,
@@ -251,7 +267,38 @@ async function generateAndPush(eventSlug, group, resultRound, importResult) {
       ],
       meta: { eventSlug, group, resultRound, importResult },
     });
+    job.weiboDelivered = true;
+    await saveSoldoutPush(job, PUSH_OUTBOX_DIR);
     console.log(`[${ts()}]   ✅ Queued Weibo publish`);
+  }
+
+  await completeSoldoutPush(job, PUSH_OUTBOX_DIR);
+}
+
+async function deliverPendingPush(job) {
+  try {
+    await generateAndPush(job);
+  } catch (error) {
+    job.attempts = Number(job.attempts || 0) + 1;
+    job.lastAttemptAt = new Date().toISOString();
+    job.lastError = error instanceof Error ? error.message : String(error);
+    await saveSoldoutPush(job, PUSH_OUTBOX_DIR);
+    throw error;
+  }
+}
+
+async function retryPendingPushes() {
+  const jobs = await listSoldoutPushes(PUSH_OUTBOX_DIR);
+  if (jobs.length === 0) return;
+  console.log(`[${ts()}] Retrying ${jobs.length} pending soldout push(es)...`);
+  for (const job of jobs) {
+    try {
+      await deliverPendingPush(job);
+    } catch (error) {
+      console.error(
+        `[${ts()}]   ⚠️ Pending push ${job.id} failed: ${error instanceof Error ? error.message : error}`,
+      );
+    }
   }
 }
 
@@ -259,6 +306,10 @@ async function generateAndPush(eventSlug, group, resultRound, importResult) {
 
 async function main() {
   console.log(`\n[${ts()}] === Fortune Music Soldout Watcher ===`);
+
+  // Retry D1-imported updates whose QQ/Weibo delivery was not confirmed.
+  // The durable outbox lives on /vol1 so a NapCat outage cannot lose a push.
+  await retryPendingPushes();
 
   // 1. Get active events
   const events = await getActiveEvents();
@@ -317,11 +368,22 @@ async function main() {
         console.log(`[${ts()}]   No new cells (data unchanged)`);
       } else {
         console.log(`[${ts()}]   ✅ Imported: round=${result.roundNumber}, new=${result.newCells}, total=${result.totalCells}`);
-        // Generate image and push to QQ
+        // Persist before delivery: D1 import must never consume the only retry signal.
+        const pushJob = await enqueueSoldoutPush(
+          {
+            eventSlug: event.slug,
+            group: event.group,
+            resultRound,
+            importResult: result,
+          },
+          PUSH_OUTBOX_DIR,
+        );
         try {
-          await generateAndPush(event.slug, event.group, resultRound, result);
+          await deliverPendingPush(pushJob);
         } catch (pushErr) {
-          console.error(`[${ts()}]   ⚠️ Push failed: ${pushErr.message}`);
+          console.error(
+            `[${ts()}]   ⚠️ Push queued for retry: ${pushErr instanceof Error ? pushErr.message : pushErr}`,
+          );
         }
       }
     } catch (e) {
