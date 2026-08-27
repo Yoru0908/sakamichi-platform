@@ -220722,6 +220722,63 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          131.3169418,
+          32.7117866
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:21f0906c47736ad0d912",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:21f0906c47736ad0d912",
+        "name": "荒立神社",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "荒立神社",
+        "sceneNote": "わけもん！で山下葉留花と片山紗希が訪れた神社 https://x.com/mrtwakemon/status/2092810083394875464",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6liz-tXilA4ozNu5mBgn6tVF-FaN1eVz9XwFDGwMzubyLXs7bwB0DiOlBHw50v5Fwp0k4XQq8BET3reba-cQGxLwmOh9Elhgrlu2wcsRtPedPJBP1zcEDgaqzTOOyGk99SQC_qqcAG1Y1x0RsLnolxl_wjhdTIGkVdlsKaUeQfbqG3Rs-aVt6NEEXVZPnjhWxLqLTbPM0MptJzCKP9zoFuqFvdpL-fKeyt-RxtmcFQemppSTSyHfTMtIQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7MdYaeFfgdqsEC0n52dWXbsdfFcxgvujD_wWfb2l8DSQpk_UCa12zkotosrFWSWQiQvQ2vlz1HP9ZW9ns7qkzXq6mVRE5kjlZuQUZN1ZhcgA_IxHaxwKK2RXDZK5vxzCGaajPttFrN1TgB9tZ_q_5n78OGYaIhdYze9f6aE8uWCV2rDhh8HDfbl3TRpk2Cmse895V9GAsxSuWzo59TS-uFT2WfmuWAclDSKItGPQO5BglgsPsTfdG4z98%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7lkagiuV5Gsu3Db-63j9vQ94TaCVxdcjQuTaJrH64Rj1NdQ5VatAyVr0fST9eOS1tu7gV4AAD0Xxx_E7M1PSrdjCBGUIFQgX745aq6Wu_0nTnfMu35mgQIGJHkQnhsw9zOlrz5CRZ1QATjFwB7TUtIWNm28l4QLhy0dpepcK7ERckaDnH8zmJ-S-VmaTXa_rH-W3mhK5CfPUbRkh97cnHCLnRWJ4nPSYHVbeyv6KSatwaonQOvcAMtYgI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "荒立神社",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7132897,
           35.6467195
         ]
@@ -220759,6 +220816,61 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "東京スバル株式会社 恵比寿店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.1704341,
+          32.2211993
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec8a157e1645b9974e12",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec8a157e1645b9974e12",
+        "name": "百菜屋",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "百菜屋",
+        "sceneNote": "おひさまブランコがある場所 https://x.com/nishimera_furu/status/2084531010927304879/photo/1",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4KBGBaapSPwhvXddWvy5UJs0l-0uOkGBvokbYsAwg4E0_8btdNGPauc2DYM3PYBIogi_BRWduDEytdiJDiJhXEOA-iWH2SPcF1yQigwDFxbBZcH4AxPPWM88Fil1O5SjyE3HKb9k7HISzF9kaOFGG-VlOos7NqIyIHjoT2UU0OC_hlnOOlrvOyyGFI3ERVYHlaOmvkPPbF3yqW98RrHa3qsWsBmcJPPvRrlhtEJq1hoeVRx2Oh9Q4C2XA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "百菜屋",
           "group": "日向坂46"
         },
         "classification": {
