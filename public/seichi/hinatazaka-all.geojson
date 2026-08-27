@@ -220716,6 +220716,63 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7132897,
+          35.6467195
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1c4bf6f2b3d408105c90",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1c4bf6f2b3d408105c90",
+        "name": "東京スバル株式会社 恵比寿店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "東京スバル株式会社 恵比寿店",
+        "sceneNote": "BSよしもと「クルマ温泉チャンネル」#23,24,25",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7E1S_ljr4urL3VWcW6gjcfrQPw4HREV04CChQ5A_ouqcazbaFcO0uldX3tub6cEqmoExDKnnY7F_4stOZUU91eaq3Pz8DNURmMESm33U_Txn4veQJZ9vHUBr6AOmaGTKYbmpPT-eqOd-u66TpErAfskg1cRu4t6GSPSGd1AqTnrFPk-xmvuj3YTcS27I3a4BpjmvrlPN-mfc976Oj2HO5_xkQ2BqfjU0gMHWLl7NSj6Am5iJN_IZwnzB8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6VsoxWKq9v4lRRAA5cEau0-vgvic96fpEegn1BaksfqEH5Iv-TW1ifyEztFF3V3mtofbXdS4_-DclsjgVva6SvIVShY-3EW3stqqbRHwzGlPU7iGgpYtE2d63dPRY4QE4Qypv0wTWaMQSPWpksMvjvGTcmMNXyJHcq6y-HdJXbklxDXB7sbU-TE0opeztdaMiCooyE0SACP2PdkUeGhLpyBPpJOy25LrkIvMGJNvt2imhOS0yZ-94Q1BU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5hE9WM8o5g5c8RGxkvPqwoQGsWDT-Z7JvJNZdaAQYtcBzXqKBz8KmMhYb1aXHqb77-ap3qWqzSmrm7VM7hBw8Mt0GTJkyo00f-ukdPnnrJ34aEmUEOwBvno3JfDAFsGvhYhMN787j3bvhcrpdBt69K6W586cjje9A9Uk1088rlolPFP4MvVS2C1IrIjtpHEaLLV7xWwA4AcfW2zgLvDOW7xxtNNeDTR8s6J-gASj_eyuRwkorQ_QBvjs8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "東京スバル株式会社 恵比寿店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
