@@ -24,7 +24,8 @@ import {
  *   node scripts/fortune-soldout-watcher.mjs
  *
  * Cron example (every 30 min):
- *   star/30 * * * * cd ~/sakamichi-platform && node scripts/fortune-soldout-watcher.mjs >> logs/soldout-watcher.log 2>&1
+ *   star/30 * * * * /home/srzwyuu/fortune-soldout-watcher/run.sh
+ *   Logs and retry state must stay below /vol1/.
  *   (replace star with *)
  */
 
