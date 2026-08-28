@@ -112830,7 +112830,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "カフェ デイジーク(1)",
-        "sceneNote": "2025年2月に茉莉、みーぱん、めいめいが韓国旅行で訪れた場所。https://www.instagram.com/p/DHLfHo9THG4/?hl=ja&img_index=1 題名:",
+        "sceneNote": "2025年2月に森本茉莉、佐々木美玲、東村芽依が韓国旅行で訪れた場所。https://www.instagram.com/p/DHLfHo9THG4/?hl=ja&img_index=1 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -118882,7 +118882,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "カフェ デイジーク(2)",
-        "sceneNote": "2025年におたけが訪れた場所。同所には、みーぱん、めいめい、茉莉も訪れたことがある。（高本彩花インスタより） 題名:",
+        "sceneNote": "2025年に高本彩花が訪れた場所。同所には、佐々木美玲、東村芽依、森本茉莉も訪れたことがある。（高本彩花インスタより） 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -135527,6 +135527,175 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "シドニー大学四面時計塔",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.059517,
+          37.5413877
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:73a0e6aefcc432991bb4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:73a0e6aefcc432991bb4",
+        "name": "nyunyu LAB＋",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "nyunyu LAB＋",
+        "sceneNote": "2026年夏に小西夏菜実と山下葉留花が韓国旅行で訪れたお店。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4-AZeXI8XFeuXcC_Rh7_o_SuNmAKJT2Hrqxdk4f82-5wRVg-4-vTuAaifvyWx8pj1wxJwBCgYq-0ENLXv0zUO9vBKzm4TYvoTux0ey8QhGQ3OeeYQkTho3gB3a-vGb3TUC4Rg8oyEzOrVkWsq71gn8WZcO88cOqotReADQRQrXrgjM3E1moqQe7X4csOnHWs67wy8aJ7VAtEgsLAQ4XhsmcB6irL_SDfyBDnMdG68IBBuJcUib5zFiiPk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7VihI2nbDrBUJXOD1ZrxACtUbfu9MLy7fpoGEwOkm5C2rYxXnWqZoHKhhFvdlt0AzumQG2khuUBw7x7Wan3c-RgLfB-dqaVAyMg24mNvzzzpFs2hp3n9UTIxkmI_IMWDxjvQE-OALJCMvgcX9ev0nOF_iyfrBC05X3WD0WaNjfthc08oEgE_pmCo8iukTWCFXeKwWtz3nQSSs8fOkK-GKJ8vHU_fxsh_htpJH4qrslMU7bMG6ESQwU_HI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5JDc8V7UXaXPhKwTFsRuRmicbbz8Zn_Nq7q3wnVYHIK507XUEzgDzpsw71BtC8K65Ew8PU-SDWFtL-e1QwUTS6U8PiwKN31Sq1oNGxas1LV4ZMYmHyyIBjfiMkwL9H1lSIb838vPWWL6WmLnle5p-8FDDnyUYRtC6D73xZhpVYg3VwnSRtWc5B3Rw7UrjN2ZHnGw9lUt3naQUjtpGLUp_1kGXwIDCTvkz3VQHtllD7RvaoftMOVrW9E-4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "nyunyu LAB＋",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0524371,
+          37.5436043
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:11b058a356760ff3846c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:11b058a356760ff3846c",
+        "name": "カフェ デイジーク(3)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "カフェ デイジーク(3)",
+        "sceneNote": "2026年夏に小西夏菜実と山下葉留花が韓国旅行で訪れたお店。（過去に一期生や森本茉莉も訪れている。） 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7-pdKPMRwFUGF6izbXpDuWdMApjHEq3pliybzvD0nQUQMLrf0GfiN7OLmo9PyID9ZJJYHxYAgFugnnXcZUiuifHbAnyAD6EtUjmZv2nmK5BURJ_FbxbbhJirLRZS4ohtgIwGjPt3vXd9lxyW4Z00aInOK2nwTahGYyMKyGZ1jnf0ib1GqWacdwdJHgXUaoV-JCk7AcjCO37ji2iCIcA8HBag0lPk6cZx6aOGD2HbU2vq5IJzdDYrgJCqI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5fJM8fW8E70CpE6B625l2fuSJkRM7-WpCs9CIiLIIxf_zWKPNYZ7Kb6NKSnEfDLEQ8NnsWWpp1G1VX2n1jHwSauPqUrfvVFxdORfLqNrTnhsWCwvtdjYNBWbA-YW3N7FhDuBecfIjSyiAdhlRpBx4NjAKINrNWhOfUm3ecm7G_11mTRH_ENO3rAa3eDA-He-QHVjIzqgZlJdsOkli7_YUc3MuxKY1q-SAqxeBh0kee1vx_8BAfe-l67Q4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "カフェ デイジーク(3)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0552259,
+          37.5429447
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3df08b8c74b9c1990512",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3df08b8c74b9c1990512",
+        "name": "ベトン",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ベトン",
+        "sceneNote": "2026年夏に小西夏菜実と山下葉留花が韓国旅行で訪れたお店。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4c9IxG74JkA85NRfD9hmvl5K0YW5lXAbxxCSJixiWIgq_rK4QyPP6oDwdzymIwZT3dR2TkViPEhx8tNQEdTLuNeq6J_xnax-AS3tkkPdVOYYzbYm3LSHhIkp55-dFe30ZpmyJ-y4u9JD96ywhOckX1UD6Wk2Vry0hF_4A6tYN3qouBdq7hzGDMGBCv4hpv4Bo30N_kCmBiXRSspkoB4a8EqklOv_jqjwlI7_bFxtmEXlUZ5CsqzNXlgI4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR73YCmWqOw1SEdU9M3KpsAsXYMBiWUQ_nFEnlfodXETaSaF2WRkJ_zO3aADPNfvtn314bXoGVgm8jk7QTpSnzGnBBIeBz_jdrtrUwFfNu9vsus4L5x1Zr6ML_G88BBEzgMwn8UgUXO4nSqJsGA6LFJetuBym2_guG04eTRlpNxkJ-PDRz7-2ZlSoBMkJ934mH0uqPrTl0qyeAbztnE8THXSjo33txfmQgC-HzRoB6OUPB_UCqp9PH5GUzs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "ベトン",
           "group": "日向坂46"
         },
         "classification": {
