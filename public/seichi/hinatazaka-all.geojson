@@ -58259,7 +58259,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Café Diglas",
-        "sceneNote": "金村美玖2nd写真集の撮影地 https://x.com/miku_2ndbook/status/2090354481544454232",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2090354481544454232",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -58314,7 +58314,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Alt & Neu Records",
-        "sceneNote": "金村美玖2nd写真集の撮影地 https://x.com/miku_2ndbook/status/2090354958097088896",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2090354958097088896",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -58369,7 +58369,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ウィーン西駅",
-        "sceneNote": "金村美玖2nd写真集の撮影地 https://x.com/miku_2ndbook/status/2090362624043348030 https://www.hinatazaka46.com/s/official/diary/detail/70662",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2090362624043348030 https://www.hinatazaka46.com/s/official/diary/detail/70662",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -58425,7 +58425,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Papierhaus A. Katzer",
-        "sceneNote": "金村美玖2nd写真集の撮影地 https://x.com/miku_2ndbook/status/2090362624043348030 https://www.tiktok.com/@miku_2ndbook/video/7675968470994963732",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2090362624043348030 https://www.tiktok.com/@miku_2ndbook/video/7675968470994963732",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -58489,7 +58489,9 @@
           "日向坂46",
           "写真集関連"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4g8u4Zw54z9NLGQcLt6KEa7L4LTYrXGLx5EbBsylp9-s5VgjyBr6tCzcYBwKMH_0OhwKnZ7P5lk3_5kc8MgBjnYsVwLfa5VBJMeIO4JEWipY60iMXOSv_ajfzR46kZmf9bx3kxMlMMt6dSF6opX8iqkQp_rinrN8v2GrfCVRiV50Zck9qyqduHIpHCY3MUblbDsJ0y_nQAzTpRenEEz-HJ6-g3YjPLr8Fxtz2qXgO5VgI0xSELSudrEgQ%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -58590,7 +58592,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Lehárgasse",
-        "sceneNote": "金村美玖2nd写真集 #みくさんぽ の撮影地 途中で道を渡ったのかと思いきや来た道を引き返している。 https://x.com/miku_2ndbook/status/2090727259510636755",
+        "sceneNote": "金村美玖2nd写真集『機微』 #みくさんぽ の撮影地 途中で道を渡ったのかと思いきや来た道を引き返している。 https://x.com/miku_2ndbook/status/2090727259510636755",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -135696,6 +135698,227 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "ベトン",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0518596,
+          37.5447613
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6f42802b6cd505c39d9d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6f42802b6cd505c39d9d",
+        "name": "Maison De Margarett",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Maison De Margarett",
+        "sceneNote": "2026年夏に小西夏菜実と山下葉留花が韓国旅行で訪れたお店。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5q-gLZwlDRhFw4vCIwqKuZ_I2zM2pM9qpg0cVOCL9TQtUigQ0dWfqTRz3XtGqzzp9MtkThb38Jlod-6RPPS3vBd0QY4vjEbpXJqcrs5AmR8MiaUhVuBJDC1bY-h8n5fbMrIiK_E9z5M46qRwAqcsLq7ywtsEfkdsNmnt_ljA6jcy8saemCRZ3fy98vSjrvUxZBkZfhHAHh6nSt-idfS1NnKZTIsZ5hu4bylPw8RMBFKx5DxNqcP9vOZdU%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "Maison De Margarett",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9834056,
+          37.5648667
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5ce17430285509dc707b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5ce17430285509dc707b",
+        "name": "ソルビン 明洞店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ソルビン 明洞店",
+        "sceneNote": "2026年夏に小西夏菜実と山下葉留花が韓国旅行で訪れたお店。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR54GU11TnzGs1_guWVP5P-egnh5Zl5D89b_sal2R8TaSo1Y_VAtL37Yn0jfIcDFLhFbm15sFEBvo7d7QvprvkZYHtE7hpvOheogw2dYYckdiyc4BKhaAsk0ZZJAt9Jjaa9HAWC1ATFeWAWV4by2hdKjC3Dr3i66Mhn9mPJKZlbBmdNadApqoTN6F9tz3e-thmIBem7AYTWTKM9PWrnQJtztxrOSpqbuPiF-frAiEX_S27VkeaylHAYEBo0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4d6WVZIk-zfcu6pE84j-KP9kU4fi-pt25XbwCm4uvBccyxTPTE3LZ7eOrwfnb2JjXr_Df7GRrTo9379Tn2kTcpqS6M5VtNu0IM4kny-6R_Y5N85JTXliibLLYR_oMCvzZMeGSGn9mdsSFBiXknx131nuusajNs2i1fKsAByRquWEqprgB_uPEO8sE2gKLxZmU6MXUTK-t-NM40j_ujQvXlNbnvP9IZ6lM_4sAByheYVvIei-tmCvGCD-g%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "ソルビン 明洞店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.4478472,
+          37.4464698
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:828cf86a65847d17badb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:828cf86a65847d17badb",
+        "name": "仁川国際空港第一旅客ターミナル１４番ゲート付近",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "仁川国際空港第一旅客ターミナル１４番ゲート付近",
+        "sceneNote": "2026年夏に小西夏菜実と山下葉留花が韓国旅行で訪れた場所。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR701-JVdj7IqHXOZOGsAc6czYHPOMDVasbO8N1X7pX-V0t0eS6wjc-w3Qj8Vu_gqwN_2tfgxY_AUgSklOCv4rRZz14xTmzGPMDyKiPgpqNBitF7G-NvVR3VaPOsm7wWbWnDgso0ax-Tal_mrOt4P-kPaetctKQ34pBASQinAEl8YeKGpwjp8eeZ8CVl3eboM7RGqCyYVANvPuY4wu02mfUkxcBsYkd-y4AkGuOrbB4Rk-IqcTN_SpB-PKw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "仁川国際空港第一旅客ターミナル１４番ゲート付近",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.4496069,
+          37.4490252
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0644c60e72891d8d6a10",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0644c60e72891d8d6a10",
+        "name": "仁川国際空港第一旅客ターミナル１０番ゲート付近",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "仁川国際空港第一旅客ターミナル１０番ゲート付近",
+        "sceneNote": "2026年夏に小西夏菜実と山下葉留花が韓国旅行で訪れた場所。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR65Gvfp-ONetrDYcGHL31L7yCVFECeMLu60OHzggKrxbob_b3ZpunaNNYwGqutmW33OhkT0AFhwHuTaPT97kQS3mYVF91g_jhTFXOGaQO2tKWXU7zaQsy76sDNPk6CtA-3HVVmQASujUQVNaGbgWJoCJTzk4q_zhEcKpVse_B9St1AjzqMER1JU5KKvpsVj0onP2beBbi63e_EP-137D5XpC3tbqk1Yt3MkalbrGezN8quKxSaLEtZUUpg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "仁川国際空港第一旅客ターミナル１０番ゲート付近",
           "group": "日向坂46"
         },
         "classification": {
