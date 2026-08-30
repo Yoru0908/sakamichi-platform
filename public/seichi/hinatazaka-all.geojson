@@ -95356,6 +95356,65 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          130.8085394,
+          33.869201
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f7c8cafc2aca597edb76",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f7c8cafc2aca597edb76",
+        "name": "北九州市立いのちのたび博物館",
+        "category": "日向ちゃんねる関連",
+        "subcategory": "日向ちゃんねる関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "北九州市立いのちのたび博物館",
+        "sceneNote": "https://www.youtube.com/embed/zxH2McSLZqI 日向坂ちゃんねる【大迫力】恐竜の骨格標本や化石、動物の剥製まで！小坂菜緒が西日本最大級の総合博物館に行ってみた！【真夏の自由研究】https://www.youtube.com/watch?v=zxH2McSLZqI",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "日向ちゃんねる関連"
+        ],
+        "images": [
+          "https://img.youtube.com/vi/zxH2McSLZqI/hqdefault.jpg",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR615H4jFqmJq2X1i0IWtXEk7g5GB4hq5iKqLu4UHtfO-eWBzOAUMh0Jbup9eiQGvci1ZK0GCgfZ0TcPdkUllE4NP9vpDKtBzPrxp_u2iV83XXFvp7jgtgQdAvWNMhpFOD5zcSgqkdWwpFi0iH9U9bLBTERjUv0nz4T1uVcROyc43ygYwP1WNfcxe6iFNg0cB8_fDSX-hNt3A-gjIfkajJXWMnW9d_0plLVUNI07F45_wsgpH62TZjl5oco%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7BITBECBr2PotJXYjoBN66zh-WEPkIttH_EtLwkOmdqB3OZYbcSs1e89eD_ou3bhg4DXVjupEF5W3LI7TuP4N92tshXLsG3LP2cWmWtiLVI1FaUQbNDCFYn02cfA_7-VZphlTM3217uTWG0rUluaYAaymOec37Uv9ehOSMKFTN9bg9uMD_BOepNxYyxxnU_bfSRk_3J836JhNMQPCysdJLaL4mByMFY0RZQWCfagZ1MOOyzBSbKxFfL5w%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4OUhbgMl7E9eFmQiwMA-ekSt_liBFoKeRDhjLzQiuXFAzIGT9gAYkmbJRvximE_AYtqQF_N1zXNiFAZdxSYIi6dtE6YTXwkqvPKmdZ7YnXxYkcGZc6963_PlYYAVdt2QJaPN4a6v4abvvkwlCMwv_nkfkkX71CREG65NWIdEdtS8WR7YJ0hLhK5zR1TYEDD7_uXeEgdlrfCCOsacCfcjxj5ib0r0espuTjVYNJeL9g6E3AI-FkYZddtqY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6FZUZCfD5PiOgXeNIuFmBIXmwejK25W6N8ljkwgug3JmKVdmba32JrTCVvaE5UEyiKXaec34ijzQlVsK2WtiGt1pvM2Z-SpLH5gwB3QG4uL8VpGTWMOmhHxXAXs7q2c7wJAHutJFHVJ15XJ6MmT0YVL21Tk9jGPtY6RqDNgwbnP0Gm79IlGC5LI23_ildm9yxKcGLtHsK9wi4QJ6W9VbIpj5Gcp3XWyipOyHqiWVu9hrc-JkrQDFQAWP0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "日向ちゃんねる関連",
+          "tags": [
+            "日向坂46",
+            "日向ちゃんねる関連"
+          ],
+          "name": "北九州市立いのちのたび博物館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "日向ちゃんねる関連",
+          "subcategory": "日向ちゃんねる関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           131.1944103,
           32.0286342
         ]
@@ -221486,6 +221545,59 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "Dot Glamping 北軽井沢",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7189768,
+          35.7356954
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c8c5893dc1c3c058628c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c8c5893dc1c3c058628c",
+        "name": "青竹手打佐野らーめん和龍 池袋店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "青竹手打佐野らーめん和龍 池袋店",
+        "sceneNote": "2026.09.05 O.A.「ラーメンを食べる。」で松田好花が訪れるお店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "青竹手打佐野らーめん和龍 池袋店",
           "group": "日向坂46"
         },
         "classification": {
