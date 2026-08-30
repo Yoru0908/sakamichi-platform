@@ -80775,6 +80775,966 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.647675,
+          36.577168
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:b13674bbed777e836505",
+        "sourceKey": "fumi-article:b13674bbed777e836505",
+        "name": "JR西日本 金沢駅",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市木ノ新保町1-1",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市木ノ新保町1-1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "JR西日本 金沢駅",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.664612,
+          36.57251
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:175f593ed2794b96067b",
+        "sourceKey": "fumi-article:175f593ed2794b96067b",
+        "name": "炭火焼鶏Ryo ひがし茶屋街店 / 城北大通り",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市東山3-1-30",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市東山3-1-30",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "炭火焼鶏Ryo ひがし茶屋街店 / 城北大通り",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.664694,
+          36.572638
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:9ceb946f8aa6cd9814ea",
+        "sourceKey": "fumi-article:9ceb946f8aa6cd9814ea",
+        "name": "東山やつはし、横断歩道前で信号待ち",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市東山3-2-22",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市東山3-2-22",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "東山やつはし、横断歩道前で信号待ち",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.666168,
+          36.572178
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:9a9c4c43cf5f9d1ddee6",
+        "sourceKey": "fumi-article:9a9c4c43cf5f9d1ddee6",
+        "name": "能登牛 ましば",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市観音町1-4-6",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市観音町1-4-6",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "能登牛 ましば",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.665883,
+          36.57264
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:7d65d2ec3f5671862caa",
+        "sourceKey": "fumi-article:7d65d2ec3f5671862caa",
+        "name": "RITSUKA",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市東山1-23-10",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市東山1-23-10",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "RITSUKA",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.661388,
+          36.572425
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:b04acd56669fb26aca2d",
+        "sourceKey": "fumi-article:b04acd56669fb26aca2d",
+        "name": "30分お二人様 8,000円",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市彦三町1-8-1",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市彦三町1-8-1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "30分お二人様 8,000円",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.662211,
+          36.565444
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:63ac007ec0a3980746eb",
+        "sourceKey": "fumi-article:63ac007ec0a3980746eb",
+        "name": "30分お二人様 8,000円",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市丸の内8 金沢城公園",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市丸の内8 金沢城公園",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "30分お二人様 8,000円",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.665955,
+          36.572617
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:f2a1cfcf4da6c5e8008e",
+        "sourceKey": "fumi-article:f2a1cfcf4da6c5e8008e",
+        "name": "金沢観光人力車 浪漫屋",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市東山1-4-40",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市東山1-4-40",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "金沢観光人力車 浪漫屋",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.657779,
+          36.570986
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:b8427bf60a04216358f2",
+        "sourceKey": "fumi-article:b8427bf60a04216358f2",
+        "name": "上近江町通り",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市上近江町13",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市上近江町13",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "上近江町通り",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.657025,
+          36.57108
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:c5219aabf94ba975a508",
+        "sourceKey": "fumi-article:c5219aabf94ba975a508",
+        "name": "上近江町通り",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市上近江町24-1",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市上近江町24-1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "上近江町通り",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.655993,
+          36.571464
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:3784d23a7cf199e237b8",
+        "sourceKey": "fumi-article:3784d23a7cf199e237b8",
+        "name": "日本、",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市下近江町24",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市下近江町24",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "日本、",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.657166,
+          36.571175
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:5937b34902d4f47138bc",
+        "sourceKey": "fumi-article:5937b34902d4f47138bc",
+        "name": "近江町市場",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市上近江町50",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市上近江町50",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "近江町市場",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.654346,
+          36.57343
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:31d36d7e1f3ace38f076",
+        "sourceKey": "fumi-article:31d36d7e1f3ace38f076",
+        "name": "近江町市場",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市安江町11-13",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市安江町11-13",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "近江町市場",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.647675,
+          36.577168
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:e7caf1caac59ea99ca50",
+        "sourceKey": "fumi-article:e7caf1caac59ea99ca50",
+        "name": "近江町コロッケ 金沢駅店",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市木ノ新保町1-1 金沢百番街 あんと西 1F",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市木ノ新保町1-1 金沢百番街 あんと西 1F",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "近江町コロッケ 金沢駅店",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.648137,
+          36.577602
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:ca84e033b5cd08ce718e",
+        "sourceKey": "fumi-article:ca84e033b5cd08ce718e",
+        "name": "「微宇音・微宙音・微界音」、JR金沢駅東口のマクドナルド前",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "石川県金沢市木ノ新保町2",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。石川県金沢市木ノ新保町2",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "「微宇音・微宙音・微界音」、JR金沢駅東口のマクドナルド前",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.648751,
+          36.577981
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:8d810887f9445480bbea",
+        "sourceKey": "fumi-article:8d810887f9445480bbea",
+        "name": "村山美羽プランニングでプライベート金沢旅行をお届け🚅",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "",
+        "sceneTitle": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月",
+          "村山美羽",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月",
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60025936.html",
+          "mapId": "",
+          "layer": "2026.08.25 櫻坂46 中嶋優月、村山美羽 みゅーづのプライベート金沢旅行!完全2人旅!",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月",
+            "村山美羽",
+            "櫻坂チャンネル"
+          ],
+          "name": "村山美羽プランニングでプライベート金沢旅行をお届け🚅",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
