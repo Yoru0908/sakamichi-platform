@@ -135998,6 +135998,232 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7929019,
+          35.6550507
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4c4898dd433d3e596d3d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4c4898dd433d3e596d3d",
+        "name": "餃子の福包 豊洲店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "餃子の福包 豊洲店",
+        "sceneNote": "2026年夏に富田鈴花と渡邉美穂が訪れた餃子屋さん。https://www.instagram.com/p/DcdoZMYE-6T/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR58y-fCJGaY-LWx3as97mMg4L8iYNCY1POVX89KeVcNDGwjlbfEh-M-pJBxfhxfapmUQDFur85crksglcrmVQp7UoRaFdQLlBC25EoHVba_r21qVYWFzR7nms_jHIDRXHCSRi3CdLem9-DrKnaYX9jpzkOJPR8O9Ai1fOnUNZnqWN8Kfw5t7Rii40Rhezdw7p2XZVLl_A7c7q2R-8l8de56PfbAOD751vdzWRfTApCGlm7LFGESP1PTscQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6hBWQym1ZvCqOYYAhP4-Vri-oTb5jhipAy7W2kYVPYtoWJwACewfS-dDBJzNrPqQEasdrRGSk6PvXceletDx58vt19vHEh5ck8XwYR4omlz0YAPSpOPy8menKCnh4vUGQ-bJFZbXqrx8V-4ucuGyp7pLsOrbESkLJDzFU9IFctnK0jcJ6W5qBbgbn_FpR1WIdRy0EDlN5-BBNI83wvcXLMgQiH12mNGg3_xd8QKnZPenepiWLI06IEm54%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7qZnm5zahMKCAkC_CICqvcf47aC2Kru663NZbdLYPv9veYQarSLyVe1ausuECpBZA1gAjQHgDsp4lvNMkUnjJUHF1wWYBdoLgt8AE-d_bfQbj9iLVgJZnGUqYJ4shLnQUxXGzi3hGBIGVWYgtyG9i-mYJfmNbikf3UPGeE9Tl9Cqr4x4H_VLSoddFfcCl1i_rEUbw3C2BmsyisptU_XlR2BU7lcLngVZwv-d4_pCzCZfEsldLsQAEiCNo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Kuce_t_P4Uy9krJGGvV7tLwIVfGOO3hdoCGvmfkiSvGFN5ymZHmj4EX2Gydzox2yzXqtKQ8syAfzzrt_lNRdEHHV3rNP6aoEYGAybpYRpcy3eki1PLz04cwv95rBUx4Xua2_ZY74Hsp4LCcGiCkARWmTUAQqApqGffHqnbTzbGg-YC-cYvSNpJdGcJGxWJKO8QP1EAkcERByrCb9ihYfIsapxmLmtLxvlbjshwdzsoctzx6gbYjxrg3s%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "餃子の福包 豊洲店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.4088269,
+          35.907027
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3ba73c04b792b4b37922",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3ba73c04b792b4b37922",
+        "name": "TruffleBAKERY 南八ヶ岳",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "TruffleBAKERY 南八ヶ岳",
+        "sceneNote": "2026年7月に富田鈴花が訪れたパン屋さん。https://www.instagram.com/p/DbQjr6sE3Vm/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7eq7S1y26cwRP7P7JrAxnX3GSa1drvy3nW-kTFn9NfV0spbPIsm3CRIm81COfx9ihuQr_kXztYP0HgoFOYPMTZ6h0M493QfHRBFAf18mMeJtwTmCq69EWtrzJMPy7dooBnhOUarN_3L_aLRXvyGDfZnFW0DtSOqIbfslU1K7v4SXZVvi1Ht8smA8oOZVRbPH3ya8Mz0a1Du1sJNDtpQmR6ThyU99ySFQHo0Ljhe3EA7WTAc8l5bENkH9Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4UmK4ykHhHD_pKHBjz_4M3wnQZe_WIT3xVqscRVTfvgndT2URa9ZzAALRwy0BU7MqVI9FDq0oRxJPXcZHCwuzh8KSgUbqWi0txiBlKqoE0m5phlF5CAcNHAzi82f49eZ4JT0AEc-nYVmvnQ0bIzX_KWGnLQO7CnRA98bV1_IuSntAIWqOiEuWOTwgUwuvpQNV-0FiCWlrSgkwD77wzuNWiUg5_dZ963P_6b3Mm0rMzBLue_Q3XvBFYC9o%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4f1ZgAM8cXjTE0GOdYdA6UYSrOX2xrBTSdab2RrDKhvXpa1T2yB-8sPLeheV2UCXBQo7YVLv_MwEXvZOSD21XlUCDJSkB0fFFgxh401FGRxwVYXxNZFaVcwz3nqSraYtKIrDoIKzxlg2ZtsianmlFDs6w5aeGI76JdP87zghfCwbUzgolSbv_IRdx9swJygcZ7vMAQ8UJnK3uWgwwukeI48oCEn0VKkgkarFOLwYSSv-N1DBugCBqIGXQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR72iMUURPaqkRpdz7aSSh2z-O6UtnBti0haxcM5gFqtzU3ifYCpM8iVRm5Tzfzz8tB4X2t9mmgyqbM_GE90nAfX6YllMHVNNUXhVpyfjOlvapZMkk43x_QdlI8Ux-AisyO3hyFJGO-AUFXHgyBLSu2p-X86zi0AlnF827DuosRLKcpevG2VB3WpsdYpOdEZCmZlGVkoTolIg7rxc96bSbzJZ28fIVEXoKQ_H7yr8Gv4hEdZYLNmIHQOqdI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "TruffleBAKERY 南八ヶ岳",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.8643249,
+          34.6513986
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:10f4e1a7d20e3580326e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:10f4e1a7d20e3580326e",
+        "name": "扇屋製菓",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "扇屋製菓",
+        "sceneNote": "https://www.instagram.com/p/DbGXS6Ujwsd/?img_index=5 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4JPIM3qJJtJPg7jsCKLwMcqAVcYLXTdF5joL3r1tc31RIHw9ggRionuhPganD8INJN4nasXN9xiPwsftLRvgeI6ke4ohi5V2iGOcmWo2Me9SxNwVY7U4aaZzEoaHIeGPKSqsW9_EkzuOJPc5cOgi_iKgK_Yz8Y64NnturOTA3EeE7vnhrDv8pxlpGhDkKhzCNht5Kb_mloUVKfmgrl6kn2IzPYgK6-_8hAHGxytViNK2ZTDPQ9xU-wU4A%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "扇屋製菓",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1684004,
+          22.294783
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:428aef3dbc80109dc1fd",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:428aef3dbc80109dc1fd",
+        "name": "高達展覽",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "高達展覽",
+        "sceneNote": "https://www.instagram.com/p/DXopUMFkzeh/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wWq1vezD8OdqLva4ty_dDHE7se9VtbaBpaAQi3kSMbLXr8djoMUPMvD4GW91n-3Cg1Y7TutGd2-Cjdi3EUj-zOvziKWXwRzVwbePuZESLkNypkXNa57BUNdIEwlt4WZDRIEfOOMIDNQMOK5do8mAMmRoUU4UfFNa45HqXVLqu1rz4PV-0_tbwbNfcGx9g7cjtyF-9iASe4Ih3Lw6sZBzVR5naf9PqkG-hlp9qQ_Y618_N8gOIsp0NEWQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "高達展覽",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
@@ -221427,7 +221653,11 @@
           "日向坂46",
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5zuJUezyKoxGNcgj8heotGve4XgqTTeXqSmIi3AM1u48aIr5sV6r-rE27ll1z17NbU1hT1-JhzSic0EqnAOPMHGOiKClapm0Z_MoKiQ66gJrlLPfGwEltaCilxjsmG7aCyb_jeElklYMsuUIO1J3wAWEcEpcKO45oRiOUqs_IciTpuyv6zXj2V63kk4rI6orLbxMCNzlKLzgWUDaAj8tIHk8rmtX4TBydRBVL_douRwG5BoRGTmoHXiqI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5TOBhhg0Svd8_5lpVdkzlE4tD7ZriiX7fIYanmNkzwkD2rFU2t17oDGSxnXgYsd0-9OfNcksaOMnWazp8lzd47fkw_ZhKimvWpiam8WMzNgwbdnbYRgI2yqvBL0xK2XjVpepWmlzaBnynD2sU9eByoGdroKGI-4HkHJBO9f3EMo4m9cOERZDGhYqMO-6crzJVVgsaWEAZ1u_wS6sfeQCiSNQrVJOUf399-iG4-3DOLQzpX4EGeJ_x8pYo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7oVex3EFCBkaF7SSm2zu58tH3PvBZxxc13LapfBZTHFX5DM2wREXKDWErudTeQaCmqDCVwLv-iqkCRw75_4fWgW5eayOGyS8Q8zGrhN-qnpyJLsJfcbHiQzWsTC22PiNm3aITZ7m_0kCIi32FpqT4XuA9pWCDs_Lp856ylyEZhDWgip6s9fpgK0Zq6mlAjk4tKwtsIONMKoE9mcckw1Tkj7Nwu7Zbx-Lmiq3-ItXPx3d6WrkNrTLuczX4%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -221480,7 +221710,9 @@
           "日向坂46",
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6O1JZnf9e6woM9QVRUS9c6YVgL2wU_WFuWHeHqSB-kFX1hSoh-zAyl3nMdkWMSab8ahwrjz5jPSn5suCZnyxyTTqzuQRpLPgVZvM93Hq8wBcxmsrDlkZd7_Fv7Aj01EhTqb66OhiTDzz0UiMtSWte8iputluGx05gtHK9Eckxig3cxt9SlpUEDKq5UqX0JPqDmYVcKl2zzu5iD-gZg4nRds2HMnwbmy8OY37QRBbukMHCUCnwAamRvVk4%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -221533,7 +221765,12 @@
           "日向坂46",
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5TEviyQoiG8XbRNKKVVFsg-_8gy-wwMtSVvqNKGa7CNLr9voMLbWePnsdYHSqUfg_21b8ARXdJHckICCyysAEQ0OPFTmulxFTBDhACYXd34sPGDQK5g2RfaP6vUCv323Wb7fL7aasYLwBOwxJo6VuXl4KPTvmDeGbVhj98C8NHM4TNR81TsyC9CIm8XvTCvxhNjX2C4nrmpD44A7Mb04IsVDg5RT5sLj1XhfsnMJ0z90R2U1p0O3_z0ag%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5t6ZASx9tg1X8gtfg2zi6GlRHODg8xUQFjYIe4fehVsJ2ZprVQn6TNc19i_6ckuNLuZRAQ6hB2W7QZEgtonK98G3dS27Nj9OfLvxuiy-oGR-zENwMm1qfOyY2D3VF2WyTA_jBI6qjJci2PPAgr-X51ytinLT7xbZi5hSyRNTyQ16ztqq9spcrfLus_OJ0m9EfhdNdMwfyFtjz2XOAranqOWZf7OWhZ8UUl-Dro3rjP-ttrldCXnt7h4Eg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5BeyI42sOGvNPxrPq8S1uvP0PxW8QnvJgVNyfj4QYef0yBB3_b6D-RJWhAqLphGsVWUDKfmt-yT9u40vuYykU6mDvgzOHr7hGq7qOe_E0q5QNru28E59_dYls3OM-LAWi9cwyxJkV-6GhDfA8U5BsMz312CgDvMr3Czvp9tg28qaUQlNMLxK-ORJzv-LIz8Mb7K7trys7Ygaa2Q7iXIZaYDcq9uv8gezJGCM47pyTmOpwfIuXOLRp18h8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5GoQg9kSz9pL0049sLBXU_pJCKniOd4tET4bHxLRQfjykzWGjvPKN69zjqlDs-wlfqIy6VJ5eyB66NpDHiZmYct4TSimwAUffVX9sBooiLQ61dp3cGuv2JlP-R9wBp8LenewNqr5xvW8v2sVIx1qo0gabfPGqdc45sd85uIdysUgSy0IfRBQ2V60cHY6lOGQJYEUAzzCnQo1Prt2N2RZYolxg3ClMJEe1_7h3PGyNNmLBdrw0yPJrXcO4%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
