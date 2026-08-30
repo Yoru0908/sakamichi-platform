@@ -14314,6 +14314,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7052464,
+          35.6520455
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2825fc74b7b79a97c883",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2825fc74b7b79a97c883",
+        "name": "Lime代官山町6丁目 ステーション",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Lime代官山町6丁目 ステーション",
+        "sceneNote": "18thシングル『イチャイチャ虫』のMV撮影地 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR67rF5vuWq93buIfmaWinhU9Dks82xUy025HHI7eRNrHeqVB83LB9VhXIVIB4H1_KI0S4Jas1x26AFao8t1SgFSw1Dc0HyLOiPv9485v5sp6xFy3tOdfPlVtv9c2IkmFFTuReqrExjaT-3HKQaAiuUQRV7CsHr9J4uDACTxRCryKiJfeStkEhIykOvd3gNq4jTZOAB5cHCbD4kFFWKHXI9IM5bmPmeME-IiDZYZxPqPSN0URm1N4k24lOE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "Lime代官山町6丁目 ステーション",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           137.4590857,
           35.3996834
         ]
@@ -136182,7 +136237,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "高達展覽",
-        "sceneNote": "https://www.instagram.com/p/DXopUMFkzeh/?img_index=1 題名:",
+        "sceneNote": "2026年春に加藤史帆と佐々木久美が香港旅行をした際に訪れたスポット。https://www.instagram.com/p/DXopUMFkzeh/?img_index=1 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
