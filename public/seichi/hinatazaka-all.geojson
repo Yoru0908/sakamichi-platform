@@ -58536,7 +58536,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Spielplatz - Playground",
-        "sceneNote": "金村美玖2nd写真集で金村が撮影した風景 湖上なのでフェリーからの撮影か？ https://x.com/miku_2ndbook/status/2091103315233059088",
+        "sceneNote": "金村美玖2nd写真集『機微』で金村が撮影した風景 湖上なのでフェリーからの撮影か？ https://x.com/miku_2ndbook/status/2091103315233059088",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -58591,7 +58591,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "カフェ シュペール",
-        "sceneNote": "金村美玖2nd写真集の撮影地 https://x.com/miku_2ndbook/status/2090710498241343653 https://x.com/miku_2ndbook/status/2091133317580198264",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2090710498241343653 https://x.com/miku_2ndbook/status/2091133317580198264",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -58669,6 +58669,391 @@
             "写真集関連"
           ],
           "name": "Lehárgasse",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7898285,
+          47.923564
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a8abaefb5b4fb3e308e1",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a8abaefb5b4fb3e308e1",
+        "name": "Gmunden Ceramics",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Gmunden Ceramics",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2092220445844029844",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ppiP95kkPLDixXmeJYQJ-M2Dgm9kdAxZL62xwqpglX46OrF00L-euzOAJhVAJc7YdO_PqLnCZRU2_u7cCMIP9_lkqlLOFwWNkZiEjuL1KYZZODpC3eFbHfFLGzseCwtzj7k4vPCmRfBA_pEFyckv4XGD2t1gFlabvNyrwlIhQ3RAtn8fWWG1WY4I2cv67PqPXT-KBnpyKalPgCzhMxQLAMArWA5E0V5AU845Mzl4Wqf3_3Ba1bbhFETs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "Gmunden Ceramics",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3685026,
+          48.204232
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c0229fe5eefb57ce8b87",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c0229fe5eefb57ce8b87",
+        "name": "アルベルティーナ",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "アルベルティーナ",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2093292520507638160",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5WJb7fUMwznHYfRlw55UDaz5qYCjh_JYcLzn-v8JZXFypTt28ipcKxEaxJdD-qo-dmIMty1lMx2A060mN-dZDqBZRKy0HQA6lgJ8imEGfBsNxv7w1dIyx3xY2F8XnAl_yUjbQ1zfcEMbK31B-aUq3JYQz6lGRmswrX1MIN8gz0GCJpfPtlK7_HnYGqlK-87EzUrFzGL3W_WMKyAdWf2OgIdfsIDLQP993aWepzG47yoVdXTX3M6mvflAM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "アルベルティーナ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7926704987255,
+          47.9150273416198
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f9b971e13d59efe18b51",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f9b971e13d59efe18b51",
+        "name": "AEIOUのオブジェ付近",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "AEIOUのオブジェ付近",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2093488818477518949",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR56ILfFB-xrF_z0zQnZQ8tzX0RJHYjqnMcaefxZ3F8pkM9TgAhfIFvK3sWB4idSfmEurxlsQrjdyN-WlR9Dipcw6kGjHWvX81iZHpYSD5XPVat0l40LrjGE75RuSeumXHlbV1swYQMYE72tfFQrJkOPhZplo6J8IV-wc3ldnQBEQAk4jGCG8WIWjgZwIsbkR9O6XHJvsRQAT-iQ9C3J-Ig2xkh2MIpCCc4vB0gvGwWloUEffoNIQV6frgI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "AEIOUのオブジェ付近",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3730029,
+          48.2089881
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2908819fa0cdb18ccaa8",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2908819fa0cdb18ccaa8",
+        "name": "Stephansplatz",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Stephansplatz",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2093625038822064428",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5_8LWLMoAMgHEZPuhutg0rhnFeccSJpXbt5ugBGdRZoaqogF-WM7TaCFTQuPA4vkc1nTg7htRAChK62KeOK8UargUNQuIQzfzSw_pVNDoJlKgT5yoynNIH-oXGa29AugsLa2QebnHKh6TPO33itcCFLNFZI_Q9VD77aCS9JKmyU-qnO68jFsUa0DEECeQVeObxAYoy4qgx0ne0YB91NkH0QM8t8qIGRfXsCmUGN1L-Y-IVHg4TSEX2n90%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "Stephansplatz",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3714247,
+          48.2108398
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1fe404de959bfb739cf3",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1fe404de959bfb739cf3",
+        "name": "トゥッフラウベン",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "トゥッフラウベン",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2093625038822064428",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6SJPyiV5kKbWJBSTqRGusjWWQ74QUyJ_WTZjll42ZmMpzh2Wgk7jMCIKxiJLKTQ2SsIUpui57Fdbzy4Nogf32V-MJYKqV0AQEbD2ljjiPzYZiQSn2v7jUYs104FbcGNqu0glUNJ94cz12QAcg97-j5RNdaPRXLshmgJptxdU1TZPdKvDjEbBkFtJcvIA1QP6c31hyA3LQuuOoSAp2ZstfFFGOguZFBkg8ECcfH-DTgkKXs5Qu5dV_NxD8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "トゥッフラウベン",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3800507,
+          48.2044421
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:34084e2b3ebdf15fa7f6",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:34084e2b3ebdf15fa7f6",
+        "name": "市立公園",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "市立公園",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地 https://x.com/miku_2ndbook/status/2093625038822064428",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6sMd7Da_6ywMJ5cwoKb_mgDQ7cnilqFyOJ8t_5IjEc0s6uRKeUZuqFZVH6nRiPeHVUL98Pg4ZlCAA7diuETOgL9wHXmgbLtrnjiL7qJ6DRCNds1KEiVM9sqoZepQRDv6eivlLdJ_G0hl-hbsQyFbGyGg6TrZwE1pfmvmeu4vLtY4jKFwp5FA-W8v2xbaDBg0pwar0iuZX7tdb3IRabH7DciVHRQZWUrNqRH5DIxfsFnvppGszvit0tERk%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "市立公園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7923932,
+          47.9147731
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a2f58d2b0e58cd654324",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a2f58d2b0e58cd654324",
+        "name": "エスプラナーデ",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "エスプラナーデ",
+        "sceneNote": "金村美玖2nd写真集『機微』 #みくさんぽ の撮影地 https://x.com/miku_2ndbook/status/2093858998667886631",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5jTlETp8WNf0_kY0i2HBOz-FHemU1sGNWq8dWcduHJJrZOBLg4W_1S_B70HTZ9FuwP6LDlr-l40dK63efsyod1ojwGt2BGP_kwifCvhEDAEiuVVjMJwqmT9Ld_7YOPICIJXz_KModJfDqnsaTt6ykJSZn_AnHIvUi7QdQEahij8HwIIS91Ws0JA8vkdWDgMOAw1b3T4y4yqikgjgeKhOf0Rwha2fOQiX9wjg5v3_rr3ruty5dzPLHXKSs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "エスプラナーデ",
           "group": "日向坂46"
         },
         "classification": {
@@ -127426,7 +127811,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Cameron Road",
-        "sceneNote": "2026年春にきくとしが訪れた香港のストリート。https://www.instagram.com/p/DWq8zfVkwxR/?hl=ja&img_index=1 題名:",
+        "sceneNote": "2026年春に加藤史帆と佐々木久美が訪れた香港のストリート。https://www.instagram.com/p/DWq8zfVkwxR/?hl=ja&img_index=1 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -136246,7 +136631,8 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wWq1vezD8OdqLva4ty_dDHE7se9VtbaBpaAQi3kSMbLXr8djoMUPMvD4GW91n-3Cg1Y7TutGd2-Cjdi3EUj-zOvziKWXwRzVwbePuZESLkNypkXNa57BUNdIEwlt4WZDRIEfOOMIDNQMOK5do8mAMmRoUU4UfFNa45HqXVLqu1rz4PV-0_tbwbNfcGx9g7cjtyF-9iASe4Ih3Lw6sZBzVR5naf9PqkG-hlp9qQ_Y618_N8gOIsp0NEWQ%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wWq1vezD8OdqLva4ty_dDHE7se9VtbaBpaAQi3kSMbLXr8djoMUPMvD4GW91n-3Cg1Y7TutGd2-Cjdi3EUj-zOvziKWXwRzVwbePuZESLkNypkXNa57BUNdIEwlt4WZDRIEfOOMIDNQMOK5do8mAMmRoUU4UfFNa45HqXVLqu1rz4PV-0_tbwbNfcGx9g7cjtyF-9iASe4Ih3Lw6sZBzVR5naf9PqkG-hlp9qQ_Y618_N8gOIsp0NEWQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7A6ryZuyoTZ4mg9lnhSqTcjNOBRDVwaLfroEfOracwgQE_e_W-tTd9wEvQetiih0m4mvdlr-3uezroZlNezKh4Po3aBQIyj7EFFHsi5UreyH_lEoYX7ntMJnOFC08bb6SHpw50cKd7PuY5UrTTCQgTJ_GzWd_QKZcXRNbP9qrHNA2qywyTWRCKLHxMybQfH_Efebxp_YmE-nYX_O_ldvB5CaagoPrYRJdGt7LA7xTGhTqKGxxG-gU6iMI%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -136259,6 +136645,61 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "高達展覽",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1684682,
+          22.293973
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3ab4c9eb8ef68ab7c9a6",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3ab4c9eb8ef68ab7c9a6",
+        "name": "スターフェリー乗り場",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "スターフェリー乗り場",
+        "sceneNote": "2026年春に加藤史帆と佐々木久美が香港旅行をした際に訪れたスポット。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Zzq9EyebaPP1QfrHjmCSy8MctkwBFu2k7Ya4_d5oqY5qeB7xf2lpC37tAV_-753uSx_npD85nret4LwenHtEVcINgfTwFVdOxOKef_cmktdcfRt7Zg0R-dQ-AzN6pCg_kLCpRsOp9wp2M0Kntrg0YAZFkL23SPwy5hvIoBOfxx_dSOHK4_5jaD3yMd-YOENrqqLrRf4vWViw1EHYtJM-j18qKz4hB-n66-_KZDdi2KNnHHWDFFRM4Brw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "スターフェリー乗り場",
           "group": "日向坂46"
         },
         "classification": {
