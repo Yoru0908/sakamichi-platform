@@ -14369,6 +14369,63 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7543762,
+          35.5489051
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e51c6736a8e48637b5f2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e51c6736a8e48637b5f2",
+        "name": "天空橋駅",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "天空橋駅",
+        "sceneNote": "18thシングル『イチャイチャ虫』のMV撮影地 https://youtu.be/mgFUz_c4ToM 題名: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7sL-jdiEeiP4Ulc_a4rr4WH12dQQRnkkShZSRNTuAZQ5O1eX9_UFPqZ-HEuwxD2JUAzNsBKUik8Y9FkTbQjW_Gq0wR_t1pMC5p2wjddvihGZXCWAeyOMuvocSSkzn6Jg935zC79Te6nJGNW9B-qlV3jKlmeBzbu_e7Sf-F3vTzIvMO3NaauFSdFdpZWMKCAQh80EdXrF7ZPv1dZCVTZ0EX4M9ELSkko7buwLVbczvBPuI6enchXIrxDd4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6Nd7Q8jqYX1RRA2U3pKUcPSOnp2_HLG2Mv8tpDD6lK7igaHsA1FYkI9z2sVSUiABgpbTcN0DiY-4wGfRlToayl82uQfhmx7NiWu9_OnwW8aJRGELdXY0gEcbYWQbNeGVI52n4SfUKDtd-ywV9TS4UVHbCyh9kPw_m3mKfFsRxG5sDEeVu9ywFB1OPGWi1rx_CHSsLFe17ijH_YdDQEk7BpYKSqATaURpRzS88Ga_aKAS8rTW45-ou5gks%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6cwj6HJoXj9Je5EoswDxucD54zNB-qTJ5LH_5aNwM-FvfJTjzQqCWVy9CZ28AXQXbW3znDZS1vbb6joaGBvaRw5IWCoM8M6CpoYneVXg7td7VtqWx2K6_lRKlQdsZFc9Js5jjf_Bjqq7lucLk9NwvsOX1P17wrLqScAURim_pZdrUtCYCCrJ_Qb_7C0gnRwSUo8MKeBwN7FdZvZfZgtyddMYtOy5lcyEG6kAtKhmKyyVCqIVn4ftDGzL4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "天空橋駅",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.6925795,
           35.568058
         ]
@@ -14480,19 +14537,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7062403,
+          139.706239,
           35.6545158
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c46a567645aef1232151",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c46a567645aef1232151",
-        "name": "マンション渋谷並木橋",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8260a2ea271c981ac7cb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8260a2ea271c981ac7cb",
+        "name": "SON OF THE CHEESE",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "マンション渋谷並木橋",
+        "sceneTitle": "SON OF THE CHEESE",
         "sceneNote": "日向坂46 18thシングル表題曲「イチャイチャ虫」MVロケ地 https://www.youtube.com/watch?v=mgFUz_c4ToM 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -14502,7 +14559,7 @@
           "シングル・アルバム（ロケ地）"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4WyjTpp3dkK5EUJNcTCNlLrgbKGyXJqCWjQRgoe2Iu_bSj-1RIsIvHG30E87SMvuibEeZpxmUbnXOFPhI3Igj8RfvlR0dXvcDa2htmaIf8g2GAZweVwipZZ-JJGTuf6h59jmg04S9LmUviDb5QelE0iRU3Mwd6mm7LfTlvFRXeI0bBn1WulG-M0GgKTpKPP3KrGMmHtQoIgIRFJ9C3sLd6_GJZGZ0Le1CM6DsAUqcTQlGkhqeVmofHQ1M%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ZVngZk4sbXl21lf_A_zgbBhtQ9jtPaXZ-qBms0sWCJu3NEX8pWIOHG8fhp50Ph5NxYsszoHSRh0ni10rFf4TcPmrLASX7Ghm16VpTM-qnxVtD949nluRzL0d-ak-go2_C6-zAuPrrrT-k9vtOIY_mOkfon43MCYtmD0uaow7ovkjiwITSy6aHCiq0LyMgc0NF3GjUP3ZXRjNbLzXrv2ja4Ye2kFi25LvrP6lU6QbpvrD5uGoojk_26EM%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -14514,7 +14571,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "マンション渋谷並木橋",
+          "name": "SON OF THE CHEESE",
           "group": "日向坂46"
         },
         "classification": {
@@ -56047,13 +56104,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7117031,
-          35.6766593
+          139.7116894,
+          35.6766563
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d00a9fd4d41c7ab76824",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d00a9fd4d41c7ab76824",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:609167a0cec715066bc1",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:609167a0cec715066bc1",
         "name": "スタジオotro（オトロ）",
         "category": "写真集関連",
         "subcategory": "写真集関連",
@@ -56069,7 +56126,7 @@
           "写真集関連"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Uok4UIVercKDALlrbj33JQ9hTWUYnMsenf97fTifXb0o8-McW19DddpXXNATEg_FTl8uY2v3fcaKM9JjWhWA-ZOKxf7G7j42BlnJkWyL8i67xD7LlpRDu9AjlgkotNbIqk5TXzGIx5i1A9q-jBpsZmQz7dcOpadBDMOS4vaqqxF-CZXFpJIONZQsGpAPXUSi9XDRPD1DAUjYfMx4a2LGIB86HnP5Uz_9_nOYu1ftm7HreawgcsS-nCGc%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6lt9aJUuC_zRzEGh9Vj3rrdV-B3ErE9GahNzU5y6_m_7weBWy6nS1DdOu9Toi_alaLKbhI4XSGjDHlSOSP9qDuYnhPb29ce0ZkTTFMX1R9OqH8eUtxA02KzWIny4DpLtf5T0lTLrjIWmiAOB30De3MWBmE7ydEUMmsXjzZj988Vb9xJcP90pZMGvMafiYzpu3IW5GCue6RMie3ZWCLh61aDTHTpd7LteUwjNMCU3hRndkrSe6mNCQdCuo%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -59386,6 +59443,61 @@
             "写真集関連"
           ],
           "name": "エスプラナーデ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7117769,
+          35.6766527
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:38c0b5f9be728e0daa9b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:38c0b5f9be728e0daa9b",
+        "name": "スタジオotro（オトロ）",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "スタジオotro（オトロ）",
+        "sceneNote": "金村美玖2nd写真集『機微』のSNS企画撮影地 https://www.tiktok.com/@miku_2ndbook/video/7679796018250091796",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6VBnk_Y0A7VgnkqJvSrdv0qz5dVvzekA6er1bS4lgYWpvv-1TiekSOQWaUolgLldCqIEr_W04A39kkcjXCwOtjmG0sSKUg3pjymTfQFPnhzIQZ0r6NvO3u5N0pqkuhSePcPcaDUcnJv-KHnjzVjyAyFX5FzGpXc8kHxhJITJY16GeIuhnGL4UOS-aDPCWC5loF31pgVDQhzc3uoPMGm21bZg0ds-tjk-K02R_IfdBINokNZtKSrDsYKMM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "スタジオotro（オトロ）",
           "group": "日向坂46"
         },
         "classification": {
@@ -96167,59 +96279,6 @@
             "日向ちゃんねる関連"
           ],
           "name": "北九州市立いのちのたび博物館",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "日向ちゃんねる関連",
-          "subcategory": "日向ちゃんねる関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.6925795,
-          35.568058
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f5a95ddc154cada67fda",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f5a95ddc154cada67fda",
-        "name": "中華麺舗 虎",
-        "category": "日向ちゃんねる関連",
-        "subcategory": "日向ちゃんねる関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "中華麺舗 虎",
-        "sceneNote": "",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "日向ちゃんねる関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "日向ちゃんねる関連",
-          "tags": [
-            "日向坂46",
-            "日向ちゃんねる関連"
-          ],
-          "name": "中華麺舗 虎",
           "group": "日向坂46"
         },
         "classification": {
