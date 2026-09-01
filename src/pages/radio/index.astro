@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Radio, Play, Clock, Calendar, Archive, Headphones, Disc3, ChevronDown } from 'lucide-astro';
 import SakumimiArchive from '@/components/radio/SakumimiArchive';
+import FourthLiveRadioArchive from '@/components/radio/FourthLiveRadioArchive';
 import LiveRadioPlayer from '@/components/radio/LiveRadioPlayer';
 import RecordingArchive from '@/components/radio/RecordingArchive';
 import RadikoPlayer from '@/components/radio/RadikoPlayer';
@@ -11,6 +12,7 @@ const tabs = [
   { id: 'live', label: '坂道广播', icon: 'radio' },
   { id: 'recordings', label: '录制回放', icon: 'archive' },
   { id: 'sakumimi', label: 'さくみみ', icon: 'headphones' },
+  { id: 'fourthlive', label: '四期生LIVE', icon: 'headphones' },
   { id: 'radiko', label: '日本電台', icon: 'disc' },
 ];
 ---
@@ -94,6 +96,11 @@ const tabs = [
     <!-- Tab: さくみみ -->
     <div id="tab-sakumimi" class="radio-tab-content hidden">
       <SakumimiArchive client:visible />
+    </div>
+
+    <!-- Tab: 四期生LIVE -->
+    <div id="tab-fourthlive" class="radio-tab-content hidden">
+      <FourthLiveRadioArchive client:visible />
     </div>
 
     <!-- Tab: 日本電台 -->
