@@ -14327,7 +14327,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Lime代官山町6丁目 ステーション",
-        "sceneNote": "18thシングル『イチャイチャ虫』のMV撮影地 https://youtu.be/mgFUz_c4ToM 題名: 18thシングル",
+        "sceneNote": "18thシングル『イチャイチャ虫』のMV撮影地 https://youtu.be/mgFUz_c4ToM （なお、Limeのステーションは2026/9/1現在は廃止されているそうです。） 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -14382,7 +14382,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "天空橋駅",
-        "sceneNote": "18thシングル『イチャイチャ虫』のMV撮影地 https://youtu.be/mgFUz_c4ToM 題名: 18thシングル",
+        "sceneNote": "18thシングル『イチャイチャ虫』のMV撮影地 （金村・小坂＋正源司） https://youtu.be/mgFUz_c4ToM 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -14439,7 +14439,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "中華麺舗 虎",
-        "sceneNote": "日向坂46 18thシングル表題曲「イチャイチャ虫」MVロケ地 https://www.youtube.com/watch?v=mgFUz_c4ToM 題名: 18thシングル",
+        "sceneNote": "日向坂46 18thシングル表題曲「イチャイチャ虫」MVロケ地（上村・藤嶌・山下＋正源司） https://www.youtube.com/watch?v=mgFUz_c4ToM 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -14495,7 +14495,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "バイミースタンド BUY ME STAND",
-        "sceneNote": "日向坂46 18thシングル表題曲「イチャイチャ虫」MVロケ地 https://www.youtube.com/watch?v=mgFUz_c4ToM 題名: 18thシングル",
+        "sceneNote": "日向坂46 18thシングル表題曲「イチャイチャ虫」MVロケ地 （髙橋・大野・松尾・片山＋正源司） https://www.youtube.com/watch?v=mgFUz_c4ToM 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -14715,7 +14715,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "野口ボクシングジム",
-        "sceneNote": "日向坂46 18thシングル表題曲「イチャイチャ虫」MVロケ地 https://www.youtube.com/watch?v=mgFUz_c4ToM 題名: 18thシングル",
+        "sceneNote": "日向坂46 18thシングル表題曲「イチャイチャ虫」MVロケ地 （森本・小西・平岡・佐藤＋正源司） https://www.youtube.com/watch?v=mgFUz_c4ToM 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -19754,6 +19754,59 @@
             "シングル・アルバム（ヒット祈願関連）"
           ],
           "name": "SHIBUYA TSUTAYA",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.1499614,
+          35.782833
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53f2caa5ed6a77adec29",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53f2caa5ed6a77adec29",
+        "name": "武蔵御嶽神社",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "武蔵御嶽神社",
+        "sceneNote": "WKT: 18th.Single「イチャイチャ虫」ヒット祈願。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "武蔵御嶽神社",
           "group": "日向坂46"
         },
         "classification": {
@@ -31918,7 +31971,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "サンビーチ 一ツ葉",
-        "sceneNote": "おたけ、久美さんの伝説のぐるぐるバットが起きた聖地、上村ひなのの写真集撮影場所",
+        "sceneNote": "高本彩花、佐々木久美の伝説のぐるぐるバットが起きた聖地、上村ひなのの写真集撮影場所",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -31973,7 +32026,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "宮崎市フェニックス自然動物園",
-        "sceneNote": "すーじーがお猿さんに唾をかけられた動物園 園内のレストラン奥のトイレに向かう道中にサインあり",
+        "sceneNote": "富田鈴花がチンパンジーに唾をかけられた動物園 園内のレストラン奥のトイレに向かう道中にサインあり",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -74226,7 +74279,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "宮崎県庁",
-        "sceneNote": "佐々木美玲・河田陽菜・正源司陽子が県知事を表敬訪問した場所。 2024.8.16に日向坂46がグループとして宮崎ふるさと大使に任命され、代表して丹生ちゃんとみくにんが委嘱状を受理した。",
+        "sceneNote": "佐々木美玲・河田陽菜・正源司陽子が県知事を表敬訪問した場所。 2024.8.16に日向坂46がグループとして宮崎ふるさと大使に任命され、代表して丹生明里と髙橋未来虹が委嘱状を受理した。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -193412,7 +193465,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "お倉ケ浜総合公園",
-        "sceneNote": "2025.3.9開催の第31回日向ひょっとこマラソンin日向岬でかとしがスターターを務めた。（2025.4.2 O.A.の「わけもん！」より）",
+        "sceneNote": "2025.3.9開催の第31回日向ひょっとこマラソンin日向岬で加藤史帆がスターターを務めた。（2025.4.2 O.A.の「わけもん！」より）",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
