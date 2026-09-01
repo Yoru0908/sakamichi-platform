@@ -14327,7 +14327,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Lime代官山町6丁目 ステーション",
-        "sceneNote": "18thシングル『イチャイチャ虫』のMV撮影地 https://youtu.be/mgFUz_c4ToM （なお、Limeのステーションは2026/9/1現在は廃止されているそうです。） 題名: 18thシングル",
+        "sceneNote": "18thシングル『イチャイチャ虫』のMV撮影地 https://youtu.be/mgFUz_c4ToM （なお、Limeのステーションは2026/9/1現在は廃止されているそうです。） ↑スワップステーションが停止中なだけでポート自体はあるのではないでしょうか？ 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -31971,7 +31971,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "サンビーチ 一ツ葉",
-        "sceneNote": "高本彩花、佐々木久美の伝説のぐるぐるバットが起きた聖地、上村ひなのの写真集撮影場所",
+        "sceneNote": "高本彩花、佐々木久美の伝説のぐるぐるバットが起きた聖地",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -220618,6 +220618,69 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7400276,
+          35.6361067
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0d6a54204d2aedadf48c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0d6a54204d2aedadf48c",
+        "name": "VERMICULAR FLAGSHIP SHOP",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "VERMICULAR FLAGSHIP SHOP",
+        "sceneNote": "かまいまちで松田好花が訪れた無水調理器具メーカーの営むレストラン。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR749eSgD6sD2najx3k2vKqTWeu5wXDVOGVcS-e9hfkFqB6xpQc8i4Tiez3esoqpPUmme4Q80YzF-WyVJSqeEF0lJim32x5MJVbqhDCjgrE7aFcc9KyzMwKyLj_FlDUgiuLQN6YaWpY0-zzg-an37yMd6ysCsH162UDow98te9QKrkAPTSKIf0BwJ11oEwU6zS6M-sjrlk_rK6P-z9FB-qAkk14N0tNAKrBcJGjO008opPp4CkW0muICBYs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR71Wnl8km3K29LKDokETqlKl971onYMkZqLb2NgF8IjzyRudLqzJtmjXmVhC9t8K05u7S1gmVNqigLII06zwcb4d6Ki4CTcEPTXeyZ6giQzsyAXz6ROIfx_kIU15wY59vUxpymFdb8c7PtnfkEPYb1Vy50n1aAOqDmh_cE2ogafi61nKktMigourqpv7HJm3NzlR6hSx9R0PWE3J8gvZ5WngmISri4-jVGKyQ6Bu8FUeJ2dyuYb5rBZzDs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4eTbSJ3FMNJOuzc8-1VOf98fBQE9mcYzXwPw-1MfCTFh59FcGzEUiwKGbw2UdxR5FafVVgFgx4qEHqbPXyzBGjT51WtKtT2oqmoqlgkPu9FJZpE_j71l4OeSYRIIXfQ623GgQf6uxn33O07Bb_9vYWrVf3QI-x6UY0QZSRWGI2vy2DE_wsgY4ax1pWRrllOJORlOojLzer4fJoap4F1BHTAeJn2rnjdZgkuwiWkyHOvwPRBdTwwdtseXU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ftfg_V-WrLXvztgoC4mTVn4plTOUmQnHV4RwoKBUirwphFucUPdrDUgrVW6r7UP4Yt7qgA0jYZBAn6W0IwDc2OfPdbmS5IJzbrZRf8CXA1kOSnfp3BKBZnc1jaLkC6aJgtCTAksrVu6Zr9i2YAXEDJAVdUk6bT4tdwQgdzo_7FUlfMptmj1bCd5WETVKbxclqxli20bkabIBHwzhU4vA02Eg368Vek6SdVhcCCiJyfL7bh30hD0Z9zg0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6cpXBhUfWHtgWC2anCViCPtYqFaVDmTzK_V5IM52pv1cHTgh-fGRSmZYNNnUj0lC0z9PsxnY2fjSUZzFN_P3aPyi6_7VGhOlv91JyQfbU0C-7qVoLPbILEhncpvGR30GM5vGiUMtltwukW86UDA6PoTEwL_rT9nwX6ufl2_Y7bKJv1GCCFaz9M5LdWPFkcJIoyRA8dl678yjWCnoNennx4qOk0NiVSrr1vNm-_pkaFZ2XpWQC0y83LJa8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Mey43l053ck6UEu3VHHlLZXTCzeiykzncfu3i0lv0149meLoYdngEt9Gy9xABjUdxSflbbQqCEmadSGx129cRXiE9yVefCkXTmoPv9bl_YQTK4pFiOmIetQZOa142Fa2a9GAK6mVDbH2wkoSewkS_RasJxxZHx8_C3FrAJBpfXal5Kpzt-PVN0Jk0w-0HQ5RS2-QHCJxVAM7AL0HUNeY9c3Wh8tHzwpHuSju2NkyXWC0CRQrrgS1EOpI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4amf8fXV0M_BLQziUU7egOadx46BAshfcDdbeQOscT2Le61UEsQjrDeJakiVUaf0xrW9gvIZ3v9-nCK-u4onOk8FHPDBQs3GqLKTVPk0LubMuPLwZW_1sZLALs5x-vq9z_RyL64GQ2WwitPoVedscXiLfyblIm7N50uV5eLMHK4Hnyo-XY-ZWk7bxHKoTv423sgH-3eMkNzdwpXppFyJFyiWlhN7En2HPtZuiC-muQdatyU_FJgXPQcjY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4i-JBJe-YqRYkRxDvyOyTw-jGt9IeuIykQy-9IzIDmVM2Voz8TkkDH5dd-0DjsUrRCbuZ0zCwsFyEpGGSWhyf5_feMzLJuNzPUOW_4XKO0AXdPv2GtMa6JVjv5rv2-p5KXQwqYcEInXPCMo0Dlo5Sq65MNHAaPVjsNpyLDPYt_gBS99L2fTCTbBE37TUkg-xX4h2kFjL1kf6kjyW7_v15VSR5SHK9pyrVWnEKDmxizQOMAhkaTYLFlN7Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5EIUrZOrSSK49p4-73k3xgTaIKX2konwZiPn2YD55zRXhYPBDsGNtK44cCoGwYWT1RMdtuz43jD-XM0vRI2pFtYe-xAWxJOzslsGW_eknWnhQaij8puVTDZG9-XoRsuH0pUsQymmP6trwnyCp2XuvmBeOH2l5EajaXCPqaiOhtEXPjtD-L-xHTKHkrzbGI-2ch89HqZ5YM1jd8eQpriXRTdaElrqIdtryaP8XvWyjZsAjONtEFOrXd3ik%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "VERMICULAR FLAGSHIP SHOP",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           132.3854112,
           34.3928532
         ]
@@ -223064,69 +223127,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7400276,
-          35.6361067
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0d6a54204d2aedadf48c",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0d6a54204d2aedadf48c",
-        "name": "VERMICULAR FLAGSHIP SHOP",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "VERMICULAR FLAGSHIP SHOP",
-        "sceneNote": "かまいまちで松田好花が訪れた無水調理器具メーカーの営むレストラン。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR749eSgD6sD2najx3k2vKqTWeu5wXDVOGVcS-e9hfkFqB6xpQc8i4Tiez3esoqpPUmme4Q80YzF-WyVJSqeEF0lJim32x5MJVbqhDCjgrE7aFcc9KyzMwKyLj_FlDUgiuLQN6YaWpY0-zzg-an37yMd6ysCsH162UDow98te9QKrkAPTSKIf0BwJ11oEwU6zS6M-sjrlk_rK6P-z9FB-qAkk14N0tNAKrBcJGjO008opPp4CkW0muICBYs%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR71Wnl8km3K29LKDokETqlKl971onYMkZqLb2NgF8IjzyRudLqzJtmjXmVhC9t8K05u7S1gmVNqigLII06zwcb4d6Ki4CTcEPTXeyZ6giQzsyAXz6ROIfx_kIU15wY59vUxpymFdb8c7PtnfkEPYb1Vy50n1aAOqDmh_cE2ogafi61nKktMigourqpv7HJm3NzlR6hSx9R0PWE3J8gvZ5WngmISri4-jVGKyQ6Bu8FUeJ2dyuYb5rBZzDs%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4eTbSJ3FMNJOuzc8-1VOf98fBQE9mcYzXwPw-1MfCTFh59FcGzEUiwKGbw2UdxR5FafVVgFgx4qEHqbPXyzBGjT51WtKtT2oqmoqlgkPu9FJZpE_j71l4OeSYRIIXfQ623GgQf6uxn33O07Bb_9vYWrVf3QI-x6UY0QZSRWGI2vy2DE_wsgY4ax1pWRrllOJORlOojLzer4fJoap4F1BHTAeJn2rnjdZgkuwiWkyHOvwPRBdTwwdtseXU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ftfg_V-WrLXvztgoC4mTVn4plTOUmQnHV4RwoKBUirwphFucUPdrDUgrVW6r7UP4Yt7qgA0jYZBAn6W0IwDc2OfPdbmS5IJzbrZRf8CXA1kOSnfp3BKBZnc1jaLkC6aJgtCTAksrVu6Zr9i2YAXEDJAVdUk6bT4tdwQgdzo_7FUlfMptmj1bCd5WETVKbxclqxli20bkabIBHwzhU4vA02Eg368Vek6SdVhcCCiJyfL7bh30hD0Z9zg0%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6cpXBhUfWHtgWC2anCViCPtYqFaVDmTzK_V5IM52pv1cHTgh-fGRSmZYNNnUj0lC0z9PsxnY2fjSUZzFN_P3aPyi6_7VGhOlv91JyQfbU0C-7qVoLPbILEhncpvGR30GM5vGiUMtltwukW86UDA6PoTEwL_rT9nwX6ufl2_Y7bKJv1GCCFaz9M5LdWPFkcJIoyRA8dl678yjWCnoNennx4qOk0NiVSrr1vNm-_pkaFZ2XpWQC0y83LJa8%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Mey43l053ck6UEu3VHHlLZXTCzeiykzncfu3i0lv0149meLoYdngEt9Gy9xABjUdxSflbbQqCEmadSGx129cRXiE9yVefCkXTmoPv9bl_YQTK4pFiOmIetQZOa142Fa2a9GAK6mVDbH2wkoSewkS_RasJxxZHx8_C3FrAJBpfXal5Kpzt-PVN0Jk0w-0HQ5RS2-QHCJxVAM7AL0HUNeY9c3Wh8tHzwpHuSju2NkyXWC0CRQrrgS1EOpI%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4amf8fXV0M_BLQziUU7egOadx46BAshfcDdbeQOscT2Le61UEsQjrDeJakiVUaf0xrW9gvIZ3v9-nCK-u4onOk8FHPDBQs3GqLKTVPk0LubMuPLwZW_1sZLALs5x-vq9z_RyL64GQ2WwitPoVedscXiLfyblIm7N50uV5eLMHK4Hnyo-XY-ZWk7bxHKoTv423sgH-3eMkNzdwpXppFyJFyiWlhN7En2HPtZuiC-muQdatyU_FJgXPQcjY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4i-JBJe-YqRYkRxDvyOyTw-jGt9IeuIykQy-9IzIDmVM2Voz8TkkDH5dd-0DjsUrRCbuZ0zCwsFyEpGGSWhyf5_feMzLJuNzPUOW_4XKO0AXdPv2GtMa6JVjv5rv2-p5KXQwqYcEInXPCMo0Dlo5Sq65MNHAaPVjsNpyLDPYt_gBS99L2fTCTbBE37TUkg-xX4h2kFjL1kf6kjyW7_v15VSR5SHK9pyrVWnEKDmxizQOMAhkaTYLFlN7Y%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5EIUrZOrSSK49p4-73k3xgTaIKX2konwZiPn2YD55zRXhYPBDsGNtK44cCoGwYWT1RMdtuz43jD-XM0vRI2pFtYe-xAWxJOzslsGW_eknWnhQaij8puVTDZG9-XoRsuH0pUsQymmP6trwnyCp2XuvmBeOH2l5EajaXCPqaiOhtEXPjtD-L-xHTKHkrzbGI-2ch89HqZ5YM1jd8eQpriXRTdaElrqIdtryaP8XvWyjZsAjONtEFOrXd3ik%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "VERMICULAR FLAGSHIP SHOP",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           131.4230102,
           31.9151034
         ]
@@ -223221,6 +223221,63 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "有馬湯",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7400293,
+          35.6361012
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:569d0f6ebd4f1c65642a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:569d0f6ebd4f1c65642a",
+        "name": "茶々水 SASUI 伊藤園",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "茶々水 SASUI 伊藤園",
+        "sceneNote": "かまいまちで松田好花が訪れたお茶の専門店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4cXpBstkpfNT0ZBozbLQt3DmI7vvlmhrIMF9Ig8bES9mEjEggjcTUG5piqgz8rbCbkvT4RbRPenYBB-hvOwm4esde2qdvJG1ru5jteGhz_wxPEUz1zsZ-bw_JmXatQKBkIq3Qa0W6XrgHT2WsqI9oJ8hvaWNg3F9nJ7DjAyun4o68ut7LsdBv0me6RzECm4QFkokLZiuWBf4CBqw4MqBFgPNGBfdU3F2CLFysU6SZxkSGEjYO2tt2mXXo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6uFtlzGLv048F8GhEiFnsMj9XBwW1Z6SS-EaS0C8IUGl_FMiu05wkAosaM8CcWi260yn5R9C-rWFhdKOpLieyrd0A0kSb-0R_vyrgrIj_xsS7QIajM6j4mN73by5YUkyok05gi5lpO4z5H8LT1I66R1OquNEGHnsa02zkIM35SVKmIxQoEt8nSPs_OS0G8ugMva2prepF8WLvBnceni8tMxkmUupBKyP4BxcbjX8PnTVOH3kYUGixY6xY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR45IwaDxbz8poLRjA7G3rpD9PbzYyL5I1kQ0a57-vZYUb8bupxgBKEWGWgbIx3j-KYRZS1jwh0wHOdkiImDh5pHF7LlC-E2xwGSc2jAysye_MfCr8VK3WKnnTMDotIDZ5MhpmusKsJM4Yj6mK6-_LIl2RAxhUZiK9YesrIZzMNY_UuYD5TS86WL_pip2RWqH80D6ni9YiHF3nB2jCXNhTdeZvTziyaqP364mAdAK0PjDvXZZAwtVwcoisw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "茶々水 SASUI 伊藤園",
           "group": "日向坂46"
         },
         "classification": {
