@@ -137376,6 +137376,229 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          130.714519,
+          33.257787
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6ce998b4b59f2c799811",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6ce998b4b59f2c799811",
+        "name": "KashiKichi星の村",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "KashiKichi星の村",
+        "sceneNote": "2026.08放送の旅サラダで丹生明里が訪れた八女市のお店。https://www.instagram.com/p/Dcstam6jz9T/?img_index=7 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5DLIe2J0c8pXmE5qYO7SCG3qNk0iAAH-AOOYxr6xvgDn4IJjnEXvR5rrY72K1UURXSweRKUaUw4YkJYQzRtegwbd56_atq2u-u5vbq_DVebRl6psgPXwlLS2MubyMJXhlBQmWKyEQiqI5EfSQAQRS15aUs36ZGuH1YqhilRUQmk3A4DgwWuJVW1ydwEFAGEXjjkg1ZlYy1WTeNTJ0QEcMvvG9NyHTKxsblyC9tMo3Xk3-9pJuKqxsDgTk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR47y4mqe2n559tuUCZNwa-ldpt2Mq9_FLQyjVu7tTt16ajW7JSNLRxZ36yy3AuXLwcBaPFMBmbay2e6nIcSMAQrPPMAKP_39vhxSclt196Syv4xvaWwn26t8Al66ZXFzHC_VcfhoaT-QYwonw-aqonatcqZfx_M_vk81WWd9dQsYFXIxv7ROdgfdhHQr197ucIHEJH1_cZK1aMhYBBf931wD9zjybVI2OWKrb-Hn5Su5lhPYUJ2Ffy0ZD0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wcJvwuVR8yb3pIb7xm05xThnQRKZ3T2NIvHDdzlflF5AkgcvNgpazdkPDPlg4F682aD20F9EjUDUirOJ5CvInu0Q7x81EKNgYpFLDQi7nlDEvp1c9-B-2_e2tG7FXHH7wUB9MLXHcZ8wSYViS3z0JHE184Fwaaz22cPGuMm_T2KP3UM5TruAja7jVGyZqhe_VX3st-28oJdKaBbkjIpPGxwcY5ZZrLtNwK2rOBA6Duj1VqpNW4zi9xxU%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "KashiKichi星の村",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.5596349,
+          33.2126922
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cddf4159b356da72fdaa",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cddf4159b356da72fdaa",
+        "name": "鶏の極み とり源",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "鶏の極み とり源",
+        "sceneNote": "2026.08 O.A.の旅サラダで丹生明里が訪れたお店。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7vxMhm54rQ6uYPcHMzUiEAHMCVrIc0a7GYB-wGbGkSSWtgKmKucH2m9bAcCTvVmZU2_CJyFUuSN6NldUIbp5YoU9e47Nwt7JdftNpHfL6BT6JSq9VrSZFISjsjilQvpd-mpnz8NHjYbWe1z4GYlJNEqsX1J3zCUBR1PtBsDH12CHLhenOi_hBwAv2EnGCIv9V79E3lzgGGTGRwdAieal2YrVTLbwoZzvsGwO_QnycXmYNC9pMOgoPnvZo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "鶏の極み とり源",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.9714124,
+          -37.8054312
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f0a491090ec0c4e09d24",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f0a491090ec0c4e09d24",
+        "name": "カールトン庭園",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "カールトン庭園",
+        "sceneNote": "2026.08に佐々木久美がメルボルンに短期留学した際に訪れた場所。背後の建物は王立展示館。https://www.instagram.com/p/DctL21Ijzdr/?img_index=9 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6icLXPJlLr42fYBbXhZJWAHdJP7XuAiPpw58lj4VvoMUzJ_CpEJhDk5naRFv2lYEAjstRhX50ysfO8s3I2Znb2nisMUqfCtUsfhoZ4gDojcVZPW3XdhNF4j-O2V6yuXhDcGceGo7ghf5C-n93fc_R0axf_0CS3pEFOlZuDH8uTMVF9yJM7oXWaQTTC7TkSitYl8_MgvhFtdd-OWkC36ChWJ_yi1TpJ57AUHUuDuI55N29XvSMw0gD9C9A%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4LHWoFSZI1UpJSffEMA60fLG4qXpIUXOhhLC1_2GeYK8vND1F9iuOHtXlkyoN2CXpZuaSiNPqVdufMRafzsVB2mVrDsBObOO-tGdRQMjZcHRvFhMxqtSPrVYfJJex9m_UVav_gaNK3PNl1N_4tY07N_dteHQaI-o6OYgtOf6tscZnB90CMi1RHlNsmlM21tkJCYoKdNbt-XcPjdzjwox9Ii_8fjW1DwOSyREQYvO-QTmztVM4EiePSKsc%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "カールトン庭園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.9620995,
+          -37.8137243
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1022e3694372f704258e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1022e3694372f704258e",
+        "name": "Pinned Coffee",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Pinned Coffee",
+        "sceneNote": "2026.08に佐々木久美がメルボルンに短期留学した際に訪れたコーヒーショップ。https://www.instagram.com/p/DctL21Ijzdr/?img_index=7 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6Nk4I9RA_siqCPPt2MeKkkwU_wZHY8oddf38CRPaYj1z8zMXBIqKrKSFnIxyoW9zvsMCDX1bqex4MGE1za83u4ZejzojBfMC40hwgT-LvnfCXEIuNxAOunA7KwoGw0faRh97Hm0lUmNKfNQzzJA7s_ulbo8MfeIS3muHSocjEA2CFkYxa-3HoLlS9QXQ2ASFrey6cbyxKlPoAObXjj2dTeifZY7AusUAREO7XkcUiTbZeJz4g0dads36I%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "Pinned Coffee",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
@@ -216300,6 +216523,64 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.4872194,
+          35.3110893
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:11f3a6f9a15a6393b736",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:11f3a6f9a15a6393b736",
+        "name": "江ノ島駅",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "江ノ島駅",
+        "sceneNote": "2022.01.15「土曜はナニする」で長濱ねるが訪れた場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7tNSsWLGFpDmW1hdfMsS1WDqrpukdquuHZnQZbc1iQmPyBEfrXb6bhMTmBQLrXGTBwKP-zm4jxNNxyfUpPBXqvrdIIEcgz02e8gLLKi_-rbSxcmuwmxcf_P20X_erGgJF5y6PVtRT2RI7ekXA5Ds3dWFhNxfvSP5SljiVOBOcfOibYwlAU6uastPMKyPkrlY4W897xipGGnicuTrwL1j9xTnjijTE2mUuM4vMZKrFIojd6ms36Y9FPbUc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7uZVy5517T6vEjZijJLX-6_bhrZxrHdnEtQcta7eyLR0gdrIWuBSo3AaWqVWlOS6RzlRiV0YiqsazlO3w4PcFAYjYR3_oVB652kDH00j65nJzAz6mDn6eiiMpibe29eI7YqCmcjRlK9-1H-z4idmHW9TIb46gu2d1ut4zz2BguXWPwIyTAbpq8ic9QFh72n071Yy8K4565d72eNfnnUCUWP4C7eL5_6i9yi9-mNBa1V3eKiUqe7QFG54Q%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7fVyA6zRGGp7e8JaJc4AMMUPRi0ng52KNLzMhfFIYlGbkhT8zpEUZYDySoRNIPQ-IXpBWCPk-BRZeAdExpYo8wuDCuNkeENj3HNy23RyBKaGoli5gXtObhO-adCoGOH0cDMNIpfgZaiYxil9SHi231S4ue9dgTHCXRRdq7oXkxvKRbtTP6j8skxpxgMuJPwiw61gRA4NHl8SqiqfCPTlDJRjKFqP7odSKSD6NP44k91q2_-QjnmRqPDTY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7h06UijrAR-vt4hzemrqJBlCEyxlFlDBYwbw0H3TcOABnjtiLypRyf2ssc4gYLLEep9m5nz6rEx_TPSsDiFGXC8oFGrSd0-9jrYviJZTgSXPoDIAPQiH85zIwl5gHCyzoZ0tOCPNW7AwYr32lSKkCXC7F-ITQtZANtAugW8lTrkSsObAUUAUboApP7egMwOVheBb-WCeyYD2RJJ5cPnIPHYLlKMb9gJD8i6y32mRufZP_Zx7wHHSa3Djg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "江ノ島駅",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.8351911,
           35.6727139
         ]
@@ -217740,64 +218021,6 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "ハウススタジオ KiN",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.4872194,
-          35.3110893
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:11f3a6f9a15a6393b736",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:11f3a6f9a15a6393b736",
-        "name": "江ノ島駅",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "江ノ島駅",
-        "sceneNote": "2022.01.15「土曜はナニする」で長濱ねるが訪れた場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7tNSsWLGFpDmW1hdfMsS1WDqrpukdquuHZnQZbc1iQmPyBEfrXb6bhMTmBQLrXGTBwKP-zm4jxNNxyfUpPBXqvrdIIEcgz02e8gLLKi_-rbSxcmuwmxcf_P20X_erGgJF5y6PVtRT2RI7ekXA5Ds3dWFhNxfvSP5SljiVOBOcfOibYwlAU6uastPMKyPkrlY4W897xipGGnicuTrwL1j9xTnjijTE2mUuM4vMZKrFIojd6ms36Y9FPbUc%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7uZVy5517T6vEjZijJLX-6_bhrZxrHdnEtQcta7eyLR0gdrIWuBSo3AaWqVWlOS6RzlRiV0YiqsazlO3w4PcFAYjYR3_oVB652kDH00j65nJzAz6mDn6eiiMpibe29eI7YqCmcjRlK9-1H-z4idmHW9TIb46gu2d1ut4zz2BguXWPwIyTAbpq8ic9QFh72n071Yy8K4565d72eNfnnUCUWP4C7eL5_6i9yi9-mNBa1V3eKiUqe7QFG54Q%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7fVyA6zRGGp7e8JaJc4AMMUPRi0ng52KNLzMhfFIYlGbkhT8zpEUZYDySoRNIPQ-IXpBWCPk-BRZeAdExpYo8wuDCuNkeENj3HNy23RyBKaGoli5gXtObhO-adCoGOH0cDMNIpfgZaiYxil9SHi231S4ue9dgTHCXRRdq7oXkxvKRbtTP6j8skxpxgMuJPwiw61gRA4NHl8SqiqfCPTlDJRjKFqP7odSKSD6NP44k91q2_-QjnmRqPDTY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7h06UijrAR-vt4hzemrqJBlCEyxlFlDBYwbw0H3TcOABnjtiLypRyf2ssc4gYLLEep9m5nz6rEx_TPSsDiFGXC8oFGrSd0-9jrYviJZTgSXPoDIAPQiH85zIwl5gHCyzoZ0tOCPNW7AwYr32lSKkCXC7F-ITQtZANtAugW8lTrkSsObAUUAUboApP7egMwOVheBb-WCeyYD2RJJ5cPnIPHYLlKMb9gJD8i6y32mRufZP_Zx7wHHSa3Djg%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "江ノ島駅",
           "group": "日向坂46"
         },
         "classification": {
@@ -220681,6 +220904,63 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7400293,
+          35.6361012
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:569d0f6ebd4f1c65642a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:569d0f6ebd4f1c65642a",
+        "name": "茶々水 SASUI 伊藤園",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "茶々水 SASUI 伊藤園",
+        "sceneNote": "かまいまちで松田好花が訪れたお茶の専門店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4cXpBstkpfNT0ZBozbLQt3DmI7vvlmhrIMF9Ig8bES9mEjEggjcTUG5piqgz8rbCbkvT4RbRPenYBB-hvOwm4esde2qdvJG1ru5jteGhz_wxPEUz1zsZ-bw_JmXatQKBkIq3Qa0W6XrgHT2WsqI9oJ8hvaWNg3F9nJ7DjAyun4o68ut7LsdBv0me6RzECm4QFkokLZiuWBf4CBqw4MqBFgPNGBfdU3F2CLFysU6SZxkSGEjYO2tt2mXXo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6uFtlzGLv048F8GhEiFnsMj9XBwW1Z6SS-EaS0C8IUGl_FMiu05wkAosaM8CcWi260yn5R9C-rWFhdKOpLieyrd0A0kSb-0R_vyrgrIj_xsS7QIajM6j4mN73by5YUkyok05gi5lpO4z5H8LT1I66R1OquNEGHnsa02zkIM35SVKmIxQoEt8nSPs_OS0G8ugMva2prepF8WLvBnceni8tMxkmUupBKyP4BxcbjX8PnTVOH3kYUGixY6xY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR45IwaDxbz8poLRjA7G3rpD9PbzYyL5I1kQ0a57-vZYUb8bupxgBKEWGWgbIx3j-KYRZS1jwh0wHOdkiImDh5pHF7LlC-E2xwGSc2jAysye_MfCr8VK3WKnnTMDotIDZ5MhpmusKsJM4Yj6mK6-_LIl2RAxhUZiK9YesrIZzMNY_UuYD5TS86WL_pip2RWqH80D6ni9YiHF3nB2jCXNhTdeZvTziyaqP364mAdAK0PjDvXZZAwtVwcoisw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "茶々水 SASUI 伊藤園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           132.3854112,
           34.3928532
         ]
@@ -222567,6 +222847,65 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          131.4230102,
+          31.9151034
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3a4062f9024efbf85920",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3a4062f9024efbf85920",
+        "name": "まつりえれこっちゃみやざきダンスステージ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "まつりえれこっちゃみやざきダンスステージ",
+        "sceneNote": "2026.07.26にまつりえれこっちゃみやざきにゲストとして石塚瑤季と清水理央が登場。えれこっちゃ受賞チームにひなたフェス2026宮崎こーねーへの出場権が進呈されることが発表された。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7bmsKkBodd2Y-KoHcJ5VWiKkCg8LBJZ_5npcoLC9YvZF_OMVdhgBPpxOl-no4Y8jJ7jHyV_1oNuXilEhJ96v3Vy54PgzwjIFk8KpgwK0DFfSpHmwqdIicigvccIfnhzi17DmRpX_5LyAsp7aQrRhXx2mANboKJtBUJtXnmYg3eI37Z_FMbC0-4GFJ10J2jiUWxD91nGiuXVzi4hdSkZBejhQ3SaWgFFkONjAzsZUUmLtus_VMcQx5r9js%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7KPaCG80f7mJKiJfRAYcjEl1tCL0VVEzOUIRFSPSFxQC699bYM2X3BcJJF0VrUm76pzkBfU2OrE9ZHQI-DqUMS7XTc8-oxeevMVOIlVTCpM7Kq26LHbev2_EgPkFsvx797Ae7L4z2wefp2opMqnmuX2M-9limOSh-LqhEZtAsTIzxjfy8GR9c3LppevgVQuQ1N6tNKiuK-QZX4GSWSUVGRyXkX0xutL67Nnz7a18-PVZSN12XS9toa6Wk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7kaFLy4VhoUPmS3h1kgsLwcF3iUT-UFH5Okuxbk294HYxAsaa7hG68Ep98_NLpw4OGZxYas0_ToonBaFysV-fgtJ2lw0GB6zYusu3ZPRTHpA2Jnqh7aoOk0zgaJZ4Lb7E2qkHvg0qwoXoS0ceMUmUj4fAwQioxLxDLR2jgcjPhDbD7Gpr4jD1MX_zxDlyNZjcQOfcgol8ZwWoCjzdWG9jm_GDn8iq1Yh8q_pNYd0hLx4DAzwRt7o864Ss%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6IJ5zeqDnH-trTKFejKGt0dIMo9-5XP4Ab78IoKkDSz3WTpnQt8JdDGtBJh9FRRQDP2D5j-hzddsfzhqWDhJ9HPxsEq14e5h6PpDVLyzCh--3mNmmWkoqw98_E9hmEnKs6oF3Tr1bP1oLZsb2WwaXuwBucdbgaL4DnK2_B99eo331dg8rRtV00JtrGVmKQ9VwU0p5HkyHNiIOpBqIrYczH1vBLrqWkTGgfun0CYfgl3ZzOxw7s-Urbj2k%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7gBRREdL_X6c9JsLqjikkJFw10cV6FqZYMoAFg4mioLnTgjz-jq6i6FjG8mGSUgcoHQHxQzwW9kYyEk6BlL7ybCeusxgAPUfxvo8DXXBHlkIvLC9inP8wrz0PAPN9AWrTYqdAgVO1HIEbCLsuK5a3meaTalVmy9nrzn25bkZERVWckg3zRuiRm_-pk6fjnD6uonRszpvpsK_VMpNOPp_QTnfGzIuHuNt9HWaS2a31hHF4o6PxPtWxrf4o%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "まつりえれこっちゃみやざきダンスステージ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           131.3335816,
           32.7130488
         ]
@@ -223127,65 +223466,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          131.4230102,
-          31.9151034
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3a4062f9024efbf85920",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3a4062f9024efbf85920",
-        "name": "まつりえれこっちゃみやざきダンスステージ",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "まつりえれこっちゃみやざきダンスステージ",
-        "sceneNote": "2026.07.26にまつりえれこっちゃみやざきにゲストとして石塚瑤季と清水理央が登場。えれこっちゃ受賞チームにひなたフェス2026宮崎こーねーへの出場権が進呈されることが発表された。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7bmsKkBodd2Y-KoHcJ5VWiKkCg8LBJZ_5npcoLC9YvZF_OMVdhgBPpxOl-no4Y8jJ7jHyV_1oNuXilEhJ96v3Vy54PgzwjIFk8KpgwK0DFfSpHmwqdIicigvccIfnhzi17DmRpX_5LyAsp7aQrRhXx2mANboKJtBUJtXnmYg3eI37Z_FMbC0-4GFJ10J2jiUWxD91nGiuXVzi4hdSkZBejhQ3SaWgFFkONjAzsZUUmLtus_VMcQx5r9js%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7KPaCG80f7mJKiJfRAYcjEl1tCL0VVEzOUIRFSPSFxQC699bYM2X3BcJJF0VrUm76pzkBfU2OrE9ZHQI-DqUMS7XTc8-oxeevMVOIlVTCpM7Kq26LHbev2_EgPkFsvx797Ae7L4z2wefp2opMqnmuX2M-9limOSh-LqhEZtAsTIzxjfy8GR9c3LppevgVQuQ1N6tNKiuK-QZX4GSWSUVGRyXkX0xutL67Nnz7a18-PVZSN12XS9toa6Wk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7kaFLy4VhoUPmS3h1kgsLwcF3iUT-UFH5Okuxbk294HYxAsaa7hG68Ep98_NLpw4OGZxYas0_ToonBaFysV-fgtJ2lw0GB6zYusu3ZPRTHpA2Jnqh7aoOk0zgaJZ4Lb7E2qkHvg0qwoXoS0ceMUmUj4fAwQioxLxDLR2jgcjPhDbD7Gpr4jD1MX_zxDlyNZjcQOfcgol8ZwWoCjzdWG9jm_GDn8iq1Yh8q_pNYd0hLx4DAzwRt7o864Ss%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6IJ5zeqDnH-trTKFejKGt0dIMo9-5XP4Ab78IoKkDSz3WTpnQt8JdDGtBJh9FRRQDP2D5j-hzddsfzhqWDhJ9HPxsEq14e5h6PpDVLyzCh--3mNmmWkoqw98_E9hmEnKs6oF3Tr1bP1oLZsb2WwaXuwBucdbgaL4DnK2_B99eo331dg8rRtV00JtrGVmKQ9VwU0p5HkyHNiIOpBqIrYczH1vBLrqWkTGgfun0CYfgl3ZzOxw7s-Urbj2k%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7gBRREdL_X6c9JsLqjikkJFw10cV6FqZYMoAFg4mioLnTgjz-jq6i6FjG8mGSUgcoHQHxQzwW9kYyEk6BlL7ybCeusxgAPUfxvo8DXXBHlkIvLC9inP8wrz0PAPN9AWrTYqdAgVO1HIEbCLsuK5a3meaTalVmy9nrzn25bkZERVWckg3zRuiRm_-pk6fjnD6uonRszpvpsK_VMpNOPp_QTnfGzIuHuNt9HWaS2a31hHF4o6PxPtWxrf4o%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "まつりえれこっちゃみやざきダンスステージ",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.7950654,
           35.7264969
         ]
@@ -223221,63 +223501,6 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "有馬湯",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7400293,
-          35.6361012
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:569d0f6ebd4f1c65642a",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:569d0f6ebd4f1c65642a",
-        "name": "茶々水 SASUI 伊藤園",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "茶々水 SASUI 伊藤園",
-        "sceneNote": "かまいまちで松田好花が訪れたお茶の専門店。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4cXpBstkpfNT0ZBozbLQt3DmI7vvlmhrIMF9Ig8bES9mEjEggjcTUG5piqgz8rbCbkvT4RbRPenYBB-hvOwm4esde2qdvJG1ru5jteGhz_wxPEUz1zsZ-bw_JmXatQKBkIq3Qa0W6XrgHT2WsqI9oJ8hvaWNg3F9nJ7DjAyun4o68ut7LsdBv0me6RzECm4QFkokLZiuWBf4CBqw4MqBFgPNGBfdU3F2CLFysU6SZxkSGEjYO2tt2mXXo%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6uFtlzGLv048F8GhEiFnsMj9XBwW1Z6SS-EaS0C8IUGl_FMiu05wkAosaM8CcWi260yn5R9C-rWFhdKOpLieyrd0A0kSb-0R_vyrgrIj_xsS7QIajM6j4mN73by5YUkyok05gi5lpO4z5H8LT1I66R1OquNEGHnsa02zkIM35SVKmIxQoEt8nSPs_OS0G8ugMva2prepF8WLvBnceni8tMxkmUupBKyP4BxcbjX8PnTVOH3kYUGixY6xY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR45IwaDxbz8poLRjA7G3rpD9PbzYyL5I1kQ0a57-vZYUb8bupxgBKEWGWgbIx3j-KYRZS1jwh0wHOdkiImDh5pHF7LlC-E2xwGSc2jAysye_MfCr8VK3WKnnTMDotIDZ5MhpmusKsJM4Yj6mK6-_LIl2RAxhUZiK9YesrIZzMNY_UuYD5TS86WL_pip2RWqH80D6ni9YiHF3nB2jCXNhTdeZvTziyaqP364mAdAK0PjDvXZZAwtVwcoisw%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "茶々水 SASUI 伊藤園",
           "group": "日向坂46"
         },
         "classification": {
