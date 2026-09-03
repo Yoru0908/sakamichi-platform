@@ -43,7 +43,16 @@ window.addEventListener("message", (event) => {
         type: "MIGURI46LOG_ACK_RESULT",
         completedAt: message.completedAt || "",
       })
-      .catch(() => {});
+      .then((response) => {
+        if (!response?.ok) {
+          post("ERROR", {
+            message: response?.error || "履历已保存，但无法继续下一项同步",
+          });
+        }
+      })
+      .catch(() =>
+        post("ERROR", { message: "履历已保存，但无法继续下一项同步" }),
+      );
     return;
   }
 

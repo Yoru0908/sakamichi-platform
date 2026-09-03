@@ -64,7 +64,7 @@ const GROUP_LABELS: Record<MiguriGroupId, string> = {
 };
 const MEETS_DISCOUNT_STORAGE_KEY =
   "46log:miguri:limited-edition-discount-pct";
-const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 14] as const;
+const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 15] as const;
 
 function extensionNeedsUpdate(version: string) {
   const current = version.split(".").map((part) => Number(part) || 0);
@@ -257,14 +257,14 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
               onClick={() => startSync("fortunemusic")}
               className="flex min-h-14 items-center justify-between rounded-2xl bg-indigo-600 px-5 text-left text-sm font-bold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
             >
-              同步 forTUNE music <ArrowRight size={18} />
+              {needsUpdate ? "同步 Music（需手动继续 Meets）" : "一键同步 Music + Meets"} <ArrowRight size={18} />
             </button>
             <button
               type="button"
               onClick={() => startSync("fortunemeets")}
               className="flex min-h-14 items-center justify-between rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-5 text-left text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-pink-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
             >
-              同步 forTUNE meets（三坂） <ArrowRight size={18} />
+              仅同步 Meets（三坂） <ArrowRight size={18} />
             </button>
           </div>
           {needsUpdate ? (
@@ -277,7 +277,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   当前版本需要更新
                 </div>
                 <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                  旧版可能卡在“检查中”，并在同步期间误接管您自行打开的 Music／Meets 页面。请先关闭旧版自动同步，并手动下载安装 v1.1.14。
+                  v1.1.15 会在 Music 保存成功后自动继续 Meets，并正确处理某一来源没有履历的情况。请先关闭旧版自动同步，再更新扩展。
                 </p>
               </div>
               <div className="flex shrink-0 flex-wrap gap-2">
@@ -295,7 +295,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   download
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-xs font-bold text-white hover:bg-indigo-700"
                 >
-                  <Download size={15} /> 下载 v1.1.14 ZIP
+                  <Download size={15} /> 下载 v1.1.15 ZIP
                 </a>
               </div>
             </div>
@@ -354,13 +354,13 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 text-xs font-bold text-amber-800">
-                <Puzzle size={14} /> Chrome Web Store · 当前版待更新
+                <Puzzle size={14} /> Chrome Web Store · v1.1.14
               </div>
               <div className="mt-3 text-sm font-bold text-[var(--text-primary)]">
-                请临时手动下载 v1.1.14
+                请更新至 v1.1.15
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
-                Chrome Web Store 当前公开的 v1.1.11 无法可靠自动同步，暂不推荐安装。请先使用下方 ZIP；商店更新到 v1.1.14 后再切回商店版。
+                v1.1.15 将 Music 与 Meets 改为一次连续同步，避免只写入 Music。商店审核期间请先使用下方 ZIP。
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
@@ -375,7 +375,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                 download
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
               >
-                <Download size={16} /> 手动下载 v1.1.14 ZIP
+                <Download size={16} /> 手动下载 v1.1.15 ZIP
               </a>
               <a
                 href="https://chromewebstore.google.com/detail/46log-%E5%92%AA%E5%92%95%E5%8A%9B%E5%90%8C%E6%AD%A5/kdfpdlijajcjianjpffgnmodnmigckdh?authuser=0&hl=ja"

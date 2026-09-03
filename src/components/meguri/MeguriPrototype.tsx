@@ -241,7 +241,9 @@ export default function MeguriPrototype() {
           if (mounted) {
             setAutoImportState({
               status: 'success',
-              message: `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），重复同步不会累加。`,
+              message: imported > 0
+                ? `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），重复同步不会累加。`
+                : '本次没有发现可保存的履历。',
               next: handoff.next,
             });
           }
@@ -273,14 +275,10 @@ export default function MeguriPrototype() {
     const unsubscribe = subscribeMiguriExtension((extensionEvent) => {
       if (extensionEvent.type !== 'RESULT') return;
       const handoff = extensionEvent.payload;
-      if (
-        handoff.version !== 1
-        || !Array.isArray(handoff.records)
-        || handoff.records.length === 0
-      ) {
+      if (handoff.version !== 1 || !Array.isArray(handoff.records)) {
         setAutoImportState({
           status: 'error',
-          message: '扩展没有返回可保存的履历。',
+          message: '扩展返回的同步结果无效。',
           next: null,
         });
         return;
@@ -308,11 +306,16 @@ export default function MeguriPrototype() {
             updated += result.data.updated;
             setEntries((current) => mergeEntries(current, result.data!.entries));
           }
+          const willAutoContinue = handoff.autoContinue === true && handoff.next === 'meets';
           acknowledgeMiguriExtensionResult(handoff.completedAt);
           setAutoImportState({
             status: 'success',
-            message: `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），Dashboard 已刷新。`,
-            next: handoff.next,
+            message: willAutoContinue
+              ? `${imported > 0 ? `已保存 ${imported} 条 Music 履历` : 'Music 没有发现履历'}，正在自动继续同步 Meets（三坂）。`
+              : imported > 0
+                ? `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），Dashboard 已刷新。`
+                : '三坂 Meets 检查完成，本次没有发现可保存的履历。',
+            next: willAutoContinue ? null : handoff.next,
           });
         } catch (extensionError) {
           setAutoImportState({

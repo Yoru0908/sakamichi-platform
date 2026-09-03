@@ -9,6 +9,7 @@ export type MiguriImportHandoff = {
   version: 1;
   source: 'fortunemusic' | 'fortunemeets';
   next: MiguriImportNextStep;
+  autoContinue?: boolean;
   records: MiguriImportRecord[];
   completedAt?: string;
 };
@@ -40,7 +41,7 @@ export function parseMiguriImportHandoff(
     if (payload.version !== 1) return null;
     if (payload.source !== 'fortunemusic' && payload.source !== 'fortunemeets') return null;
     if (!['music', 'meets', 'done'].includes(payload.next || '')) return null;
-    if (!Array.isArray(payload.records) || payload.records.length === 0) return null;
+    if (!Array.isArray(payload.records)) return null;
     return payload as MiguriImportHandoff;
   } catch {
     return null;

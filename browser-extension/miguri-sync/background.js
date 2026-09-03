@@ -45,6 +45,11 @@ async function loadJob() {
   return stored[JOB_KEY] || null;
 }
 
+async function loadPendingResult() {
+  const stored = await chrome.storage.session.get(RESULT_KEY);
+  return stored[RESULT_KEY] || null;
+}
+
 async function loadAutoState() {
   const stored = await chrome.storage.local.get(AUTO_STATE_KEY);
   return { ...defaultAutoState(), ...(stored[AUTO_STATE_KEY] || {}) };
@@ -136,6 +141,9 @@ async function setAutoEnabled(enabled) {
 }
 
 async function startJob(source, returnTabId, options = {}) {
+  if (await loadPendingResult()) {
+    throw new Error("上一项履历正在保存，请稍候");
+  }
   const activeJob = await loadJob();
   if (activeJob) {
     if (!isJobStale(activeJob)) throw new Error("已有同步任务正在运行");
@@ -280,6 +288,9 @@ async function finishAutoSource(job, records, sender) {
 async function startAutoCycle() {
   const state = await loadAutoState();
   if (!state.enabled) return false;
+  // A manual source result remains in session storage until the Dashboard has
+  // committed it to D1. Do not let an alarm race with that acknowledgement.
+  if (await loadPendingResult()) return false;
   const activeJob = await loadJob();
   if (activeJob) {
     if (!isJobStale(activeJob)) return false;
@@ -535,12 +546,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           version: 1,
           source: job.source,
           next: job.source === "fortunemusic" ? "meets" : "done",
+          autoContinue: job.source === "fortunemusic",
           records,
           completedAt: new Date().toISOString(),
         };
         await chrome.storage.session.set({ [RESULT_KEY]: result });
         await removeStoredJob(job);
-        await setAutoEnabled(true);
         if (job.returnTabId) {
           await chrome.tabs.update(job.returnTabId, {
             active: true,
@@ -574,14 +585,41 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       .then(async (stored) => {
         const result = stored[RESULT_KEY] || null;
         if (
-          result
-          && (!message.completedAt || result.completedAt === message.completedAt)
+          !result
+          || (message.completedAt && result.completedAt !== message.completedAt)
         ) {
-          await chrome.storage.session.remove(RESULT_KEY);
+          sendResponse({ ok: true, continued: false });
+          return;
         }
-        sendResponse({ ok: true });
+
+        // Acknowledge only after the Dashboard has persisted the result. Music
+        // then continues directly into Meets, so first-time users cannot stop
+        // after writing only half of their history to D1.
+        await chrome.storage.session.remove(RESULT_KEY);
+        if (result.autoContinue && result.next === "meets") {
+          const returnTabId = sender.tab?.id || null;
+          await relayToDashboard(
+            { returnTabId },
+            {
+              type: "MIGURI46LOG_EXTENSION_PROGRESS",
+              title: "Music 已保存",
+              detail: "正在自动继续同步 Meets（三坂）…",
+            },
+          );
+          await startJob("fortunemeets", returnTabId);
+          sendResponse({ ok: true, continued: true });
+          return;
+        }
+
+        await setAutoEnabled(true);
+        sendResponse({ ok: true, continued: false });
       })
-      .catch(() => sendResponse({ ok: false }));
+      .catch((error) =>
+        sendResponse({
+          ok: false,
+          error: error instanceof Error ? error.message : "无法继续同步",
+        }),
+      );
     return true;
   }
 });

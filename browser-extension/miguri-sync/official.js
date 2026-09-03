@@ -109,21 +109,19 @@
   };
   const finish = async (records) => {
     if (records.length === 0) {
-      if (job.auto || job.source === "fortunemeets") {
-        show(
-          job.source === "fortunemeets" ? "三坂没有找到履历" : "没有找到履历",
-          job.source === "fortunemeets"
-            ? "已检查乃木坂、櫻坂与日向坂，请确认 Meets 登录状态。"
-            : "本次没有发现新的应募记录。",
-        );
-        await chrome.runtime.sendMessage({
-          type: "MIGURI46LOG_RESULT",
-          jobId: job.id,
-          records: [],
-        });
-        return;
-      }
-      show("没有找到履历", "确认当前账号已有应募记录后，可回到 46log 重试。");
+      show(
+        job.source === "fortunemeets" ? "三坂没有找到履历" : "Music 没有找到履历",
+        job.source === "fortunemeets"
+          ? "已检查乃木坂、櫻坂与日向坂，本次没有可保存的记录。"
+          : "Music 检查完成，将继续检查 Meets。",
+      );
+      // Empty is still a successful source check. Deliver it so the Dashboard
+      // can acknowledge the result and the extension can continue the chain.
+      await chrome.runtime.sendMessage({
+        type: "MIGURI46LOG_RESULT",
+        jobId: job.id,
+        records: [],
+      });
       return;
     }
     show(

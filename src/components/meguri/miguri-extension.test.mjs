@@ -55,7 +55,7 @@ const supportSource = readFileSync(
 
 test("Miguri extension has only scoped sync, storage, tab, and alarm permissions", () => {
   assert.equal(manifest.manifest_version, 3);
-  assert.equal(manifest.version, "1.1.14");
+  assert.equal(manifest.version, "1.1.15");
   assert.deepEqual(manifest.permissions, ["storage", "tabs", "alarms"]);
   assert.equal(manifest.permissions.includes("cookies"), false);
   assert.equal(manifest.host_permissions.includes("<all_urls>"), false);
@@ -98,6 +98,9 @@ test("Miguri extension keeps the official login job separate from normalized res
   assert.match(meetsApiSource, /temporaryLanding/);
   assert.match(backgroundSource, /MIGURI46LOG_RESULT/);
   assert.match(backgroundSource, /MIGURI46LOG_ACK_RESULT/);
+  assert.match(backgroundSource, /autoContinue: job\.source === "fortunemusic"/);
+  assert.match(backgroundSource, /result\.autoContinue && result\.next === "meets"/);
+  assert.match(backgroundSource, /startJob\("fortunemeets", returnTabId\)/);
   assert.match(backgroundSource, /job\.tabId === senderTabId/);
   assert.match(officialSource, /if \(!job\) return/);
   assert.match(bridgeSource, /message\.type === "TAKE_RESULT"/);
@@ -237,6 +240,7 @@ test("manual Meets sync runs through the extension worker instead of campaign if
   assert.match(meetsApiSource, /recordForSerialInfo/);
   assert.match(meetsApiSource, /usedDuringRescuePeriod/);
   assert.match(backgroundSource, /JOB_TIMEOUT_MS = 10 \* 60 \* 1000/);
+  assert.match(officialSource, /Empty is still a successful source check/);
 });
 
 test("Meets API results normalize winning and losing counts without rendering the SPA", () => {
@@ -604,21 +608,21 @@ test("Meets API accepts three-group campaign discovery from the official tab", a
 });
 
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {
-  assert.match(dashboardSource, /Chrome Web Store · 当前版待更新/);
+  assert.match(dashboardSource, /Chrome Web Store · v1\.1\.14/);
   assert.match(dashboardSource, /当前版本需要更新/);
-  assert.match(dashboardSource, /误接管您自行打开的 Music／Meets 页面/);
+  assert.match(dashboardSource, /Music 保存成功后自动继续 Meets/);
   assert.match(dashboardSource, /extensionNeedsUpdate/);
   assert.match(dashboardSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
-  assert.match(dashboardSource, /手动下载 v1\.1\.14 ZIP/);
+  assert.match(dashboardSource, /手动下载 v1\.1\.15 ZIP/);
   assert.match(dashboardSource, /单轮超过 10/);
   assert.match(dashboardSource, /downloads\/46log-miguri-sync\.zip/);
-  assert.match(supportSource, /Chrome Web Store · 当前版待更新/);
-  assert.match(supportSource, /v1\.1\.11 无法可靠自动同步/);
-  assert.match(supportSource, /手动下载 v1\.1\.14 ZIP/);
+  assert.match(supportSource, /Chrome Web Store · v1\.1\.14/);
+  assert.match(supportSource, /Music 保存成功后自动继续同步 Meets/);
+  assert.match(supportSource, /手动下载 v1\.1\.15 ZIP/);
   assert.match(supportSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
   assert.doesNotMatch(dashboardSource, /Chrome Web Store · 已上线/);
-  assert.match(dashboardSource, /同步 forTUNE music/);
-  assert.match(dashboardSource, /同步 forTUNE meets/);
+  assert.match(dashboardSource, /一键同步 Music \+ Meets/);
+  assert.match(dashboardSource, /仅同步 Meets/);
   assert.match(dashboardSource, /浏览器运行时自动同步/);
   assert.match(dashboardSource, /限定盘折扣/);
   assert.match(dashboardSource, /type="range"/);
@@ -829,4 +833,65 @@ test("automatic sync imports both sources and recovers a stale background job", 
   assert.ok(removedTabs.includes(99));
   assert.equal(session.miguriSyncJob.source, "fortunemusic");
   assert.equal(createdTabs[2].active, false);
+
+  // Finish the restarted automatic cycle before exercising first-time manual sync.
+  const restartedMusicJob = session.miguriSyncJob;
+  await send(
+    {
+      type: "MIGURI46LOG_RESULT",
+      jobId: restartedMusicJob.id,
+      records: [],
+    },
+    { tab: { id: restartedMusicJob.tabId } },
+  );
+  const restartedMeetsJob = session.miguriSyncJob;
+  await send(
+    {
+      type: "MIGURI46LOG_RESULT",
+      jobId: restartedMeetsJob.id,
+      records: [],
+    },
+    { tab: { id: restartedMeetsJob.tabId } },
+  );
+  assert.equal(session.miguriSyncJob, undefined);
+
+  const manualStart = await send(
+    { type: "MIGURI46LOG_START", source: "fortunemusic" },
+    { tab: { id: 700 } },
+  );
+  assert.equal(manualStart.ok, true);
+  const manualMusicJob = session.miguriSyncJob;
+  assert.equal(manualMusicJob.auto, false);
+  assert.equal(createdTabs.at(-1).active, true);
+
+  const manualMusicResult = await send(
+    {
+      type: "MIGURI46LOG_RESULT",
+      jobId: manualMusicJob.id,
+      records: [],
+    },
+    { tab: { id: manualMusicJob.tabId } },
+  );
+  assert.equal(manualMusicResult.ok, true);
+  assert.equal(session.miguriSyncResult.autoContinue, true);
+  assert.equal(session.miguriSyncResult.records.length, 0);
+  assert.equal(session.miguriSyncJob, undefined);
+
+  // An automatic alarm must not race the pending Dashboard D1 write.
+  assert.equal((await send({ type: "MIGURI46LOG_RUN_AUTO" })).ok, true);
+  assert.equal(session.miguriSyncJob, undefined);
+
+  const acknowledgement = await send(
+    {
+      type: "MIGURI46LOG_ACK_RESULT",
+      completedAt: session.miguriSyncResult.completedAt,
+    },
+    { tab: { id: 700 } },
+  );
+  assert.equal(acknowledgement.ok, true);
+  assert.equal(acknowledgement.continued, true);
+  assert.equal(session.miguriSyncResult, undefined);
+  assert.equal(session.miguriSyncJob.source, "fortunemeets");
+  assert.equal(session.miguriSyncJob.returnTabId, 700);
+  assert.equal(createdTabs.at(-1).active, true);
 });

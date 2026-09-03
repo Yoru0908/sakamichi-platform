@@ -43,6 +43,24 @@ test('parseMiguriImportHandoff accepts only official forTUNE referrers', () => {
   assert.equal(parseMiguriImportHandoff(handoff, ''), null);
 });
 
+test('parseMiguriImportHandoff accepts an empty successful source result', () => {
+  const handoff = `${MIGURI_HANDOFF_PREFIX}${JSON.stringify({
+    version: 1,
+    source: 'fortunemusic',
+    next: 'meets',
+    autoContinue: true,
+    records: [],
+  })}`;
+
+  const parsed = parseMiguriImportHandoff(
+    handoff,
+    'https://fortunemusic.jp/mypage/apply_list/',
+  );
+  assert.deepEqual(parsed?.records, []);
+  assert.equal(parsed?.autoContinue, true);
+  assert.equal(parsed?.next, 'meets');
+});
+
 test('splitMiguriImportRecords keeps API writes within the 500-record limit', () => {
   const records = Array.from({ length: 1001 }, (_, index) => ({
     ...record,
