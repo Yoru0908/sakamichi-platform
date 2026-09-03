@@ -608,19 +608,22 @@ test("Meets API accepts three-group campaign discovery from the official tab", a
 });
 
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {
-  assert.match(dashboardSource, /Chrome Web Store · v1\.1\.14/);
+  assert.match(dashboardSource, /Chrome Web Store · v1\.1\.15/);
+  assert.match(dashboardSource, /安装最新版同步扩展/);
   assert.match(dashboardSource, /当前版本需要更新/);
   assert.match(dashboardSource, /Music 保存成功后自动继续 Meets/);
   assert.match(dashboardSource, /extensionNeedsUpdate/);
   assert.match(dashboardSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
-  assert.match(dashboardSource, /手动下载 v1\.1\.15 ZIP/);
+  assert.match(dashboardSource, /从 Chrome Web Store 安装/);
+  assert.match(dashboardSource, /备用下载 ZIP/);
   assert.match(dashboardSource, /单轮超过 10/);
   assert.match(dashboardSource, /downloads\/46log-miguri-sync\.zip/);
-  assert.match(supportSource, /Chrome Web Store · v1\.1\.14/);
+  assert.match(supportSource, /Chrome Web Store · v1\.1\.15/);
+  assert.match(supportSource, /最新版已上线/);
   assert.match(supportSource, /Music 保存成功后自动继续同步 Meets/);
-  assert.match(supportSource, /手动下载 v1\.1\.15 ZIP/);
+  assert.match(supportSource, /备用下载 v1\.1\.15 ZIP/);
   assert.match(supportSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
-  assert.doesNotMatch(dashboardSource, /Chrome Web Store · 已上线/);
+  assert.doesNotMatch(supportSource, /等待更新/);
   assert.match(dashboardSource, /一键同步 Music \+ Meets/);
   assert.match(dashboardSource, /仅同步 Meets/);
   assert.match(dashboardSource, /浏览器运行时自动同步/);
