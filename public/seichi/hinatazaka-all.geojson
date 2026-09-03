@@ -223515,6 +223515,63 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3227857,
+          31.3754028
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c762e89aad61c198285c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c762e89aad61c198285c",
+        "name": "小松ヶ丘 展望駐車場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "小松ヶ丘 展望駐車場",
+        "sceneNote": "日向坂46五期生デビューPVのロケ記念の標柱がある場所",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7d8sxmAKjZyp3zVinhctR8MB0IoylqXfNnPsHyeORUeNPHzHLJiBPQfIvBX-1BPhl0VoarxqtRj7Iv4hrdsn6qgbJaNqOMzNOcuzjkwMlrEL-s1o2YqrDCNASXTR7MXl1l-cdRRwJU9DQoyguNoYTncRn94wn6doW8m_s3QBTwrxIgJD5g4q2SMkhOVu4By2bfMdRCctYatSyTV_1oPbQV9MXfmXZXWtwlRNZL_xM4fprgwwt6_yvycXI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4aNYTQRxocIYSkQhLaCg2fWUnDKxhh-jv1uS4NxBnilMJYQv-VlWFYlzd1uj29Qc3tRVXN9QsFCXjVOcsEbtB0BTjzpHng-_8ddTpQY20PUcYttc03acPhcjdGDrjzvUblHCkXj7I7SlDspa2dx8JqlT9fnCyt2Cz6hAyU2_2DAC7VbXzE6T-jap22NguuxB0Q0MHAHPOc_4R50ZrpwX178q0Wl0iF4mNGhS4wXNjr6_ubdz3_fAf8_3Q%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4GvAWR3ThdquFTbOrM6VTzTwO3Ce_aI08GVxS88ikyMAUuKOXPr-SpgHP90E0aI19BErg6JSmKNpSTzBNikouV2mw247hRvPaKoUtKdtZozFmYXpfMTp259tDG_qsRiwMxrd00JdCYQZm8oKz4U0lZgOE8AK5IJp_BNvXpYiipI5F_1DGxYKU_psmM2oaW20_lpFALPwqCHjxEgAfEoe8u7eZhc1JQkoOOadD8L32mgbjlUqJMVuyBsm0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "小松ヶ丘 展望駐車場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
