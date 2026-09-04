@@ -223627,6 +223627,225 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.2980313,
+          33.2634153
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53716d0e0da62540e32f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53716d0e0da62540e32f",
+        "name": "鍋島直正·古賀穀堂·鍋島茂義像",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "鍋島直正·古賀穀堂·鍋島茂義像",
+        "sceneNote": "小西夏菜実がイチバン研究所の取材で訪れた場所 https://www.youtube.com/watch?v=e3PtkTAiIPQ",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "鍋島直正·古賀穀堂·鍋島茂義像",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.2992319,
+          33.2600535
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:19c9662950ff362cbec7",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:19c9662950ff362cbec7",
+        "name": "佐賀銀行 本店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "佐賀銀行 本店",
+        "sceneNote": "小西夏菜実が一番研究所の取材で訪れた場所 https://www.youtube.com/watch?v=e3PtkTAiIPQ",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4B5W2hDTn3iS_5HWZS39kPdxmGay7iz-hZxSr6fk0eR0daZAGaaGDa8Kd-LxitsbbQpf34vA4DlhBnt0PeSbaogEOGCaWnxif_Z9hBdmK-TBh_6mR3LrmKI5mOD-pN2m9UK_rqKNInyQRpX8_slI5yrjqZFAiMihGAhxUDC_Cwt9gjVl77pLGlq_LKatoqcynOdGjP8CNGaR3vGOEmm9wjJBX0cgrtRLHhZBmvCt3DtcTZFW_LoYJSl9g%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "佐賀銀行 本店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.3040699,
+          33.2574033
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1cfc81cd43d5711e0094",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1cfc81cd43d5711e0094",
+        "name": "佐賀銀行 兵庫支店（さぎんパーソナルプラザ佐賀）",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "佐賀銀行 兵庫支店（さぎんパーソナルプラザ佐賀）",
+        "sceneNote": "小西夏菜実がイチバン研究所の取材で訪れた場所 https://www.youtube.com/watch?v=e3PtkTAiIPQ",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6IAucZeP6s0j6W8GvdWo6It4tdlm5rVZFiQp87FFo_E4uDoLdbxJbmglKzsgvbWFeTODNfYPMBwyvYGm8VUYC8nRUqU9DRwWwSixZTHluJC69NzDVBIczcvQqNWAxOqldthp6oxf6O89HXXV8RGVxTToCs_s0c5gUZCMg68JFNKVzx5UtRpdUsfe2Xmy0GcN5WCaVb0FXXE5G2Zt3G4cZ-Nx7l70zLAHT4IaqzLhpih2k9ouVvqRrT2K8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "佐賀銀行 兵庫支店（さぎんパーソナルプラザ佐賀）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.0987025,
+          33.3015109
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c5200c1d81850bd2aeda",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c5200c1d81850bd2aeda",
+        "name": "(株)佐賀鉄工所 多久工場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "(株)佐賀鉄工所 多久工場",
+        "sceneNote": "小西夏菜実がイチバン研究所の取材で訪れた場所 https://www.youtube.com/watch?v=e3PtkTAiIPQ",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Sh0dJ7SX5sfIhY_swzWlOIBvn78zP-u-WiZaTtGqPJm49sggXt3tL1-5P_F6aHcUZjtqtsagN6eC1bxooE6BgEuqj643vAWICANwFMXdrkSb7dXd5eZrLtqX1bncs_oE4KS9GCHQbYxe-RoSR5kD1pIFYLuQirfiBmMrjZiI5XqgFfdu7Ht798KlqTLbDPAO_-VtYiSYVdqDQZDlgF7r07W-cgrA9QxcxVmZx7sEReQKXumaZ4K437Ww%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4QFPiqDVvjzp_IBRAGP2EfCgxVhRr3FR0RcCQaqkM_uIyaWQQcubTX4ELxBCd2P0cvsbg0GmXIB86W1o18ALi527NMF2hDd6gc3zjHJ8Bm5EnDKAhV5C1GvClRW1CrlFF5S5ROnR0K_yhdlXRyeexb4yRkYxAMzpVUnGehg2gkIjkN7Cq5Rby08N6z5G0ZdPfXbOPscUBGbFEdkeNARx42HtEWJsruZy8CwN_t9pUDt8uOvHnlGsVwmAk%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "(株)佐賀鉄工所 多久工場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
