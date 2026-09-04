@@ -40,6 +40,8 @@ import {
   countPendingDraftRecords,
   groupEntriesForCalendar,
   hasEventDatePassed,
+  preferOfficialMusicEntries,
+  prepareEntriesForCalendar,
   type CalendarEntryGroup,
   inferEventState,
   parseFortuneImportText,
@@ -212,7 +214,9 @@ function CalendarEntryCard({
             className="flex min-w-0 items-center justify-between gap-1 rounded-lg bg-[var(--bg-primary)] px-2 py-1"
           >
             <span className="min-w-0 truncate text-[9px] text-[var(--text-tertiary)]">
-              {entry.applicationRound || `履历 ${index + 1}`}
+              {entry.source === 'manual'
+                ? '手动录入'
+                : entry.applicationRound || `官方履历 ${index + 1}`}
             </span>
             <span className="shrink-0 text-[9px] font-semibold text-[var(--text-secondary)]">
               {entry.tickets} 张
@@ -446,13 +450,21 @@ export default function MeguriPrototype() {
     }));
   }, [selectedEvent]);
 
+  const reconciledEntries = useMemo(
+    () => preferOfficialMusicEntries(entries),
+    [entries],
+  );
   const selectedEntries = useMemo(
-    () => (selectedEvent ? entries.filter((entry) => entry.eventSlug === selectedEvent.slug) : []),
-    [entries, selectedEvent],
+    () => (selectedEvent ? reconciledEntries.filter((entry) => entry.eventSlug === selectedEvent.slug) : []),
+    [reconciledEntries, selectedEvent],
+  );
+  const calendarEntries = useMemo(
+    () => prepareEntriesForCalendar(selectedEntries),
+    [selectedEntries],
   );
 
-  const summary = useMemo(() => summarizeEntries(selectedEntries), [selectedEntries]);
-  const groupedEntries = useMemo(() => groupEntriesForCalendar(selectedEntries), [selectedEntries]);
+  const summary = useMemo(() => summarizeEntries(calendarEntries), [calendarEntries]);
+  const groupedEntries = useMemo(() => groupEntriesForCalendar(calendarEntries), [calendarEntries]);
   const pendingDraftsForEvent = useMemo(
     () => (selectedEvent ? pendingDrafts.filter((draft) => draft.eventSlug === selectedEvent.slug) : []),
     [pendingDrafts, selectedEvent],
@@ -747,7 +759,7 @@ export default function MeguriPrototype() {
         </div>
         {error ? <p className="text-sm text-rose-600">{error}</p> : null}
         <MiguriDashboard
-          entries={entries}
+          entries={reconciledEntries}
           importState={autoImportState}
         />
       </div>
@@ -1062,7 +1074,7 @@ export default function MeguriPrototype() {
 
           {activeTab === 'dashboard' ? (
             <MiguriDashboard
-              entries={entries}
+              entries={reconciledEntries}
               importState={autoImportState}
             />
           ) : null}

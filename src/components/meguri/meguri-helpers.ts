@@ -583,6 +583,37 @@ export function groupEntriesByDateAndSlot<T extends EntryLike>(entries: T[]) {
   return groups;
 }
 
+type ReconciliableEntry = EntryLike & Partial<Pick<
+  MiguriEntry,
+  'eventSlug' | 'source' | 'wonTickets'
+>>;
+
+function reconciliationKey(entry: ReconciliableEntry) {
+  return [entry.eventSlug || '', entry.date, entry.slot, entry.member].join('::');
+}
+
+export function preferOfficialMusicEntries<T extends ReconciliableEntry>(entries: T[]) {
+  const officialCombinations = new Set(
+    entries
+      .filter((entry) => entry.source === 'fortunemusic')
+      .map(reconciliationKey),
+  );
+  return entries.filter(
+    (entry) =>
+      entry.source !== 'manual'
+      || !officialCombinations.has(reconciliationKey(entry)),
+  );
+}
+
+export function prepareEntriesForCalendar<T extends ReconciliableEntry>(entries: T[]) {
+  return preferOfficialMusicEntries(entries).flatMap((entry) => {
+    if (entry.source !== 'fortunemusic') return [entry];
+    const wonTickets = Math.max(0, Number(entry.wonTickets || 0));
+    if (wonTickets === 0) return [];
+    return [{ ...entry, tickets: wonTickets } as T];
+  });
+}
+
 export type CalendarEntryGroup<T extends EntryLike> = {
   key: string;
   date: string;

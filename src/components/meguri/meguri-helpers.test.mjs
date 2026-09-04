@@ -9,6 +9,8 @@ import {
   groupEntriesByDateAndSlot,
   groupEntriesForCalendar,
   inferEventState,
+  preferOfficialMusicEntries,
+  prepareEntriesForCalendar,
   resolveFortuneMeetsSource,
   resolveMiguriEntryLostSpend,
   resolveMiguriEntrySpend,
@@ -106,6 +108,72 @@ test('groupEntriesByDateAndSlot groups entries into nested date and slot buckets
 
   assert.equal(grouped['2026-05-31'][2].length, 2);
   assert.equal(grouped['2026-06-07'][1][0].member, '藤嶌果歩');
+});
+
+test('prepareEntriesForCalendar prefers official Music data and excludes losses', () => {
+  const entries = [
+    {
+      id: 'manual-total', eventSlug: 'sakurazaka_202606', source: 'manual',
+      member: '山川宇衣', date: '2026-06-14', slot: 6, tickets: 13,
+      wonTickets: 0, status: 'won',
+    },
+    {
+      id: 'round-1', eventSlug: 'sakurazaka_202606', source: 'fortunemusic',
+      member: '山川宇衣', date: '2026-06-14', slot: 6, tickets: 3,
+      wonTickets: 3, status: 'won',
+    },
+    {
+      id: 'round-2', eventSlug: 'sakurazaka_202606', source: 'fortunemusic',
+      member: '山川宇衣', date: '2026-06-14', slot: 6, tickets: 3,
+      wonTickets: 3, status: 'won',
+    },
+    {
+      id: 'round-3-lost', eventSlug: 'sakurazaka_202606', source: 'fortunemusic',
+      member: '山川宇衣', date: '2026-06-14', slot: 6, tickets: 3,
+      wonTickets: 0, status: 'lost',
+    },
+    {
+      id: 'round-3-a', eventSlug: 'sakurazaka_202606', source: 'fortunemusic',
+      member: '山川宇衣', date: '2026-06-14', slot: 6, tickets: 1,
+      wonTickets: 1, status: 'won',
+    },
+    {
+      id: 'round-3-b', eventSlug: 'sakurazaka_202606', source: 'fortunemusic',
+      member: '山川宇衣', date: '2026-06-14', slot: 6, tickets: 2,
+      wonTickets: 2, status: 'won',
+    },
+    {
+      id: 'round-3-c', eventSlug: 'sakurazaka_202606', source: 'fortunemusic',
+      member: '山川宇衣', date: '2026-06-14', slot: 6, tickets: 3,
+      wonTickets: 3, status: 'won',
+    },
+    {
+      id: 'round-3-d', eventSlug: 'sakurazaka_202606', source: 'fortunemusic',
+      member: '山川宇衣', date: '2026-06-14', slot: 6, tickets: 1,
+      wonTickets: 1, status: 'won',
+    },
+  ];
+
+  const reconciled = preferOfficialMusicEntries(entries);
+  assert.equal(reconciled.some((entry) => entry.id === 'manual-total'), false);
+  assert.equal(reconciled.some((entry) => entry.id === 'round-3-lost'), true);
+
+  const calendarEntries = prepareEntriesForCalendar(entries);
+  assert.equal(calendarEntries.some((entry) => entry.id === 'manual-total'), false);
+  assert.equal(calendarEntries.some((entry) => entry.id === 'round-3-lost'), false);
+  assert.equal(calendarEntries.reduce((sum, entry) => sum + entry.tickets, 0), 13);
+});
+
+test('prepareEntriesForCalendar keeps manual entries without official coverage', () => {
+  const entries = prepareEntriesForCalendar([
+    {
+      id: 'manual-only', eventSlug: 'sakurazaka_202606', source: 'manual',
+      member: '山川宇衣', date: '2026-06-27', slot: 2, tickets: 3,
+      wonTickets: 0, status: 'won',
+    },
+  ]);
+  assert.equal(entries.length, 1);
+  assert.equal(entries[0].tickets, 3);
 });
 
 test('groupEntriesForCalendar combines rounds by date, slot, and member', () => {
