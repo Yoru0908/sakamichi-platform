@@ -289,7 +289,42 @@ async function loadEntryById(env: Env, userId: string, entryId: string) {
   return row ? mapEntryRow(row) : null;
 }
 
-async function loadEventResponse(env: Env) {
+const EVENT_RESPONSE_CACHE_KEY = new Request(
+  'https://api.46log.com/__internal-cache/miguri/event-response-v1',
+);
+const EVENT_RESPONSE_CACHE_SECONDS = 5 * 60;
+
+async function readCachedEventResponse(): Promise<EventResponseShape[] | null> {
+  if (typeof caches === 'undefined') return null;
+  try {
+    const response = await caches.default.match(EVENT_RESPONSE_CACHE_KEY);
+    if (!response) return null;
+    const payload = await response.json();
+    return Array.isArray(payload) ? payload as EventResponseShape[] : null;
+  } catch (err) {
+    console.warn('[Miguri] Event metadata cache read failed:', err);
+    return null;
+  }
+}
+
+async function cacheEventResponse(events: EventResponseShape[]): Promise<void> {
+  if (typeof caches === 'undefined') return;
+  try {
+    await caches.default.put(EVENT_RESPONSE_CACHE_KEY, new Response(JSON.stringify(events), {
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': `public, max-age=${EVENT_RESPONSE_CACHE_SECONDS}`,
+      },
+    }));
+  } catch (err) {
+    console.warn('[Miguri] Event metadata cache write failed:', err);
+  }
+}
+
+export async function loadEventResponse(env: Env) {
+  const cached = await readCachedEventResponse();
+  if (cached) return cached;
+
   const [eventsResult, windowsResult, slotsResult, membersResult] = await Promise.all([
     env.MIGURI_DB.prepare(`
       SELECT slug, group_id, title, source_url, sale_type, status, synced_at, raw_payload
@@ -379,7 +414,9 @@ async function loadEventResponse(env: Env) {
       : unique(event.members).sort((left, right) => left.localeCompare(right, 'ja'));
   }
 
-  return Array.from(eventMap.values());
+  const events = Array.from(eventMap.values());
+  await cacheEventResponse(events);
+  return events;
 }
 
 export async function handleGetMiguriEvents(req: Request, env: Env): Promise<Response> {

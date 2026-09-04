@@ -47,6 +47,62 @@ test('normalizeMiguriPayload expands dates slots and members into syncable recor
   assert.equal(normalized.slotMembers[0].memberName, '小坂菜緒');
 });
 
+test('loadEventResponse caches public metadata instead of rescanning every slot member', async () => {
+  const originalCaches = globalThis.caches;
+  let cachedResponse = null;
+  let databaseReads = 0;
+  globalThis.caches = {
+    default: {
+      async match() {
+        return cachedResponse?.clone() || undefined;
+      },
+      async put(_key, response) {
+        cachedResponse = response.clone();
+      },
+    },
+  };
+
+  const env = {
+    MIGURI_DB: {
+      prepare(sql) {
+        return {
+          async all() {
+            databaseReads += 1;
+            if (sql.includes('FROM miguri_events')) {
+              return { results: [{
+                slug: 'event-1', group_id: 'sakurazaka', title: '15th',
+                source_url: 'https://example.com', sale_type: 'lottery',
+                status: 'active', synced_at: '2026-09-04', raw_payload: '{}',
+              }] };
+            }
+            if (sql.includes('FROM miguri_event_windows')) {
+              return { results: [{ event_slug: 'event-1', label: '第1次', start_at: '2026-09-01', end_at: '2026-09-02', sort_order: 1 }] };
+            }
+            if (sql.includes('FROM miguri_event_slots')) {
+              return { results: [{ event_slug: 'event-1', event_date: '2026-09-12', slot_number: 1, reception_start: '10:45', start_time: '11:00', reception_end: '11:45', end_time: '12:00' }] };
+            }
+            if (sql.includes('FROM miguri_slot_members')) {
+              return { results: [{ event_slug: 'event-1', event_date: '2026-09-12', slot_number: 1, member_name: '山川宇衣' }] };
+            }
+            throw new Error(`Unexpected SQL: ${sql}`);
+          },
+        };
+      },
+    },
+  };
+
+  try {
+    const first = await miguriRoutes.loadEventResponse(env);
+    const second = await miguriRoutes.loadEventResponse(env);
+    assert.deepEqual(second, first);
+    assert.equal(databaseReads, 4);
+    assert.deepEqual(first[0].slots[0].members, ['山川宇衣']);
+  } finally {
+    if (originalCaches === undefined) delete globalThis.caches;
+    else globalThis.caches = originalCaches;
+  }
+});
+
 test('buildGoogleCalendarUrl creates a prefilled Google Calendar event link', () => {
   const url = buildGoogleCalendarUrl({
     title: '日向坂46 ミーグリ',
