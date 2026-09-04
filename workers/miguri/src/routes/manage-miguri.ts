@@ -3,7 +3,7 @@ import { error, success } from '../utils/response.ts';
 import { buildMiguriSyncPayload, fetchFortuneEventsWithDetails, type EnrichedFortuneEvent } from '../../../../src/utils/fortune-music.ts';
 import { getAuthUser } from './preferences.ts';
 import { syncAllConnectedMiguriGoogleCalendars } from './google-calendar.ts';
-import { normalizeMiguriPayload, type MiguriSyncPayload } from './miguri.ts';
+import { invalidateEventResponseCache, normalizeMiguriPayload, type MiguriSyncPayload } from './miguri.ts';
 
 type MiguriSyncEvent = MiguriSyncPayload['events'][number];
 
@@ -590,6 +590,7 @@ export async function persistMiguriSyncPayload(env: Env, body: MiguriSyncPayload
     ),
   );
   await batchExecute(env.MIGURI_DB, slotMemberInserts);
+  await invalidateEventResponseCache(env);
 
   return {
     eventCount: normalized.events.length,

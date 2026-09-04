@@ -3,6 +3,8 @@ export interface Env {
   DB: D1Database;
   /** miguri D1 (events / windows / slots / entries / soldout) */
   MIGURI_DB: D1Database;
+  /** Cross-colo cache for public event metadata. */
+  MIGURI_CACHE?: KVNamespace;
   JWT_SECRET: string;
   CORS_ORIGIN: string;
   MIGURI_SYNC_SECRET: string;

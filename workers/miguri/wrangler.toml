@@ -12,6 +12,11 @@ MIGURI_WEIBO_WEBHOOK_URL = "https://blog-push.46log.com/webhook/weibo-publish"
 # NAPCAT_NOTIFY_GROUPS, MIGURI_NEW_WINDOW_NOTIFY_GROUPS
 # (optional: NAPCAT_NOTIFY_URL, NAPCAT_NOTIFY_TOKEN, MIGURI_WEIBO_WEBHOOK_SECRET)
 
+# Public event metadata cache: avoids scanning every slot-member row per page load.
+[[kv_namespaces]]
+binding = "MIGURI_CACHE"
+id = "e4fc7b6b21a44cfd9d5f5945093a1f8b"
+
 # auth D1 (users / followed members / google calendar connections) — shared with sakamichi-auth
 [[d1_databases]]
 binding = "DB"

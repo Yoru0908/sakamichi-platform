@@ -289,15 +289,23 @@ async function loadEntryById(env: Env, userId: string, entryId: string) {
   return row ? mapEntryRow(row) : null;
 }
 
-const EVENT_RESPONSE_CACHE_KEY = new Request(
-  'https://api.46log.com/__internal-cache/miguri/event-response-v1',
-);
-const EVENT_RESPONSE_CACHE_SECONDS = 5 * 60;
+const EVENT_RESPONSE_CACHE_URL = 'https://api.46log.com/__internal-cache/miguri/event-response-v2';
+const EVENT_RESPONSE_KV_KEY = 'public:event-response:v2';
+const EVENT_RESPONSE_CACHE_SECONDS = 60 * 60;
 
-async function readCachedEventResponse(): Promise<EventResponseShape[] | null> {
+async function readCachedEventResponse(env: Env): Promise<EventResponseShape[] | null> {
+  if (env.MIGURI_CACHE) {
+    try {
+      const payload = await env.MIGURI_CACHE.get<EventResponseShape[]>(EVENT_RESPONSE_KV_KEY, 'json');
+      if (Array.isArray(payload)) return payload;
+    } catch (err) {
+      console.warn('[Miguri] Event metadata KV read failed:', err);
+    }
+  }
+
   if (typeof caches === 'undefined') return null;
   try {
-    const response = await caches.default.match(EVENT_RESPONSE_CACHE_KEY);
+    const response = await caches.default.match(new Request(EVENT_RESPONSE_CACHE_URL));
     if (!response) return null;
     const payload = await response.json();
     return Array.isArray(payload) ? payload as EventResponseShape[] : null;
@@ -307,10 +315,38 @@ async function readCachedEventResponse(): Promise<EventResponseShape[] | null> {
   }
 }
 
-async function cacheEventResponse(events: EventResponseShape[]): Promise<void> {
+export async function invalidateEventResponseCache(env: Env): Promise<void> {
+  if (env.MIGURI_CACHE) {
+    try {
+      await env.MIGURI_CACHE.delete(EVENT_RESPONSE_KV_KEY);
+    } catch (err) {
+      console.warn('[Miguri] Event metadata KV invalidation failed:', err);
+    }
+  }
+  if (typeof caches !== 'undefined') {
+    try {
+      await caches.default.delete(new Request(EVENT_RESPONSE_CACHE_URL));
+    } catch (err) {
+      console.warn('[Miguri] Event metadata cache invalidation failed:', err);
+    }
+  }
+}
+
+async function cacheEventResponse(env: Env, events: EventResponseShape[]): Promise<void> {
+  const serialized = JSON.stringify(events);
+  if (env.MIGURI_CACHE) {
+    try {
+      await env.MIGURI_CACHE.put(EVENT_RESPONSE_KV_KEY, serialized, {
+        expirationTtl: EVENT_RESPONSE_CACHE_SECONDS,
+      });
+    } catch (err) {
+      console.warn('[Miguri] Event metadata KV write failed:', err);
+    }
+  }
+
   if (typeof caches === 'undefined') return;
   try {
-    await caches.default.put(EVENT_RESPONSE_CACHE_KEY, new Response(JSON.stringify(events), {
+    await caches.default.put(new Request(EVENT_RESPONSE_CACHE_URL), new Response(serialized, {
       headers: {
         'Content-Type': 'application/json',
         'Cache-Control': `public, max-age=${EVENT_RESPONSE_CACHE_SECONDS}`,
@@ -322,7 +358,7 @@ async function cacheEventResponse(events: EventResponseShape[]): Promise<void> {
 }
 
 export async function loadEventResponse(env: Env) {
-  const cached = await readCachedEventResponse();
+  const cached = await readCachedEventResponse(env);
   if (cached) return cached;
 
   const [eventsResult, windowsResult, slotsResult, membersResult] = await Promise.all([
@@ -415,7 +451,7 @@ export async function loadEventResponse(env: Env) {
   }
 
   const events = Array.from(eventMap.values());
-  await cacheEventResponse(events);
+  await cacheEventResponse(env, events);
   return events;
 }
 

@@ -50,6 +50,8 @@ test('normalizeMiguriPayload expands dates slots and members into syncable recor
 test('loadEventResponse caches public metadata instead of rescanning every slot member', async () => {
   const originalCaches = globalThis.caches;
   let cachedResponse = null;
+  let kvPayload = null;
+  let kvWrites = 0;
   let databaseReads = 0;
   globalThis.caches = {
     default: {
@@ -63,6 +65,18 @@ test('loadEventResponse caches public metadata instead of rescanning every slot 
   };
 
   const env = {
+    MIGURI_CACHE: {
+      async get(_key, type) {
+        return kvPayload && type === 'json' ? JSON.parse(kvPayload) : kvPayload;
+      },
+      async put(_key, value) {
+        kvWrites += 1;
+        kvPayload = value;
+      },
+      async delete() {
+        kvPayload = null;
+      },
+    },
     MIGURI_DB: {
       prepare(sql) {
         return {
@@ -96,6 +110,7 @@ test('loadEventResponse caches public metadata instead of rescanning every slot 
     const second = await miguriRoutes.loadEventResponse(env);
     assert.deepEqual(second, first);
     assert.equal(databaseReads, 4);
+    assert.equal(kvWrites, 1);
     assert.deepEqual(first[0].slots[0].members, ['山川宇衣']);
   } finally {
     if (originalCaches === undefined) delete globalThis.caches;
@@ -460,7 +475,8 @@ test('worker config exposes miguri routes and migration entry points', () => {
   const authPackageJson = JSON.parse(readFileSync(new URL('../../../auth/package.json', import.meta.url), 'utf8'));
 
   assert.match(wranglerSource, /pattern = "api\.46log\.com\/api\/miguri\/\*"/);
-  assert.match(wranglerSource, /pattern = "api\.sakamichi-tools\.cn\/api\/miguri\/\*"/);
+  assert.match(wranglerSource, /binding = "MIGURI_CACHE"/);
+  assert.doesNotMatch(wranglerSource, /api\.sakamichi-tools\.cn\/api\/miguri/);
   assert.equal(authPackageJson.type, 'module');
   assert.equal(authPackageJson.scripts['db:migrate:miguri'], 'wrangler d1 execute miguri --file=./src/db/migrations/005_miguri.sql');
   assert.equal(authPackageJson.scripts['db:migrate:miguri-calendar'], 'wrangler d1 execute miguri --file=./src/db/migrations/009_miguri_calendar_subscriptions.sql');
