@@ -7,6 +7,7 @@ import {
   buildPendingMeguriDraft,
   countPendingDraftRecords,
   groupEntriesByDateAndSlot,
+  groupEntriesForCalendar,
   inferEventState,
   resolveFortuneMeetsSource,
   resolveMiguriEntryLostSpend,
@@ -85,6 +86,17 @@ test('summarizeEntries counts tickets, slots, members, and dates', () => {
   });
 });
 
+test('summarizeEntries counts repeated application rounds as one member slot', () => {
+  const summary = summarizeEntries([
+    { id: 'round-1', member: '山川宇衣', date: '2026-06-14', slot: 1, tickets: 5, status: 'won' },
+    { id: 'round-2', member: '山川宇衣', date: '2026-06-14', slot: 1, tickets: 2, status: 'won' },
+    { id: 'round-3', member: '山川宇衣', date: '2026-06-14', slot: 1, tickets: 3, status: 'won' },
+  ]);
+
+  assert.equal(summary.totalSlots, 1);
+  assert.equal(summary.totalTickets, 10);
+});
+
 test('groupEntriesByDateAndSlot groups entries into nested date and slot buckets', () => {
   const grouped = groupEntriesByDateAndSlot([
     { id: '1', member: '小坂菜緒', date: '2026-05-31', slot: 2, tickets: 3, status: 'paid' },
@@ -94,6 +106,21 @@ test('groupEntriesByDateAndSlot groups entries into nested date and slot buckets
 
   assert.equal(grouped['2026-05-31'][2].length, 2);
   assert.equal(grouped['2026-06-07'][1][0].member, '藤嶌果歩');
+});
+
+test('groupEntriesForCalendar combines rounds by date, slot, and member', () => {
+  const grouped = groupEntriesForCalendar([
+    { id: 'round-1', member: '山川宇衣', date: '2026-06-14', slot: 1, tickets: 5, status: 'won' },
+    { id: 'round-2', member: '山川宇衣', date: '2026-06-14', slot: 1, tickets: 2, status: 'won' },
+    { id: 'round-3', member: '山川宇衣', date: '2026-06-14', slot: 1, tickets: 3, status: 'won' },
+    { id: 'other', member: '小西夏菜実', date: '2026-06-14', slot: 1, tickets: 4, status: 'won' },
+  ]);
+
+  const groups = grouped['2026-06-14'][1];
+  const yamakawa = groups.find((group) => group.member === '山川宇衣');
+  assert.equal(groups.length, 2);
+  assert.equal(yamakawa.tickets, 10);
+  assert.equal(yamakawa.entries.length, 3);
 });
 
 test('aggregateMiguriDashboard builds next stop, category totals, and per-slot ticket counts', () => {

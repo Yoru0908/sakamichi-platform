@@ -213,7 +213,9 @@ export function inferEventState(
 export function summarizeEntries<T extends EntryLike>(entries: T[]) {
   return {
     totalTickets: entries.reduce((sum, entry) => sum + entry.tickets, 0),
-    totalSlots: entries.length,
+    totalSlots: new Set(
+      entries.map((entry) => `${entry.date}::${entry.slot}::${entry.member}`),
+    ).size,
     uniqueMembers: new Set(entries.map((entry) => entry.member)).size,
     uniqueDates: new Set(entries.map((entry) => entry.date)).size,
   };
@@ -579,6 +581,51 @@ export function groupEntriesByDateAndSlot<T extends EntryLike>(entries: T[]) {
   }
 
   return groups;
+}
+
+export type CalendarEntryGroup<T extends EntryLike> = {
+  key: string;
+  date: string;
+  slot: number;
+  member: string;
+  tickets: number;
+  entries: T[];
+};
+
+export function groupEntriesForCalendar<T extends EntryLike>(entries: T[]) {
+  const grouped: Record<string, Record<number, CalendarEntryGroup<T>[]>> = {};
+  const byCombination = new Map<string, CalendarEntryGroup<T>>();
+
+  for (const entry of entries) {
+    const key = `${entry.date}::${entry.slot}::${entry.member}`;
+    const current = byCombination.get(key);
+    if (current) {
+      current.tickets += entry.tickets;
+      current.entries.push(entry);
+      continue;
+    }
+    byCombination.set(key, {
+      key,
+      date: entry.date,
+      slot: entry.slot,
+      member: entry.member,
+      tickets: entry.tickets,
+      entries: [entry],
+    });
+  }
+
+  for (const group of byCombination.values()) {
+    if (!grouped[group.date]) grouped[group.date] = {};
+    if (!grouped[group.date][group.slot]) grouped[group.date][group.slot] = [];
+    grouped[group.date][group.slot].push(group);
+  }
+  for (const slots of Object.values(grouped)) {
+    for (const groups of Object.values(slots)) {
+      groups.sort((left, right) => left.member.localeCompare(right.member, 'ja'));
+    }
+  }
+
+  return grouped;
 }
 
 export function buildPendingMeguriDraft(

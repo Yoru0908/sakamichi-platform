@@ -38,8 +38,9 @@ import {
 import {
   buildPendingMeguriDraft,
   countPendingDraftRecords,
-  groupEntriesByDateAndSlot,
+  groupEntriesForCalendar,
   hasEventDatePassed,
+  type CalendarEntryGroup,
   inferEventState,
   parseFortuneImportText,
   sortEventsForDisplay,
@@ -141,6 +142,102 @@ function createPendingDraftId() {
   }
 
   return `draft-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+function CalendarEntryCard({
+  group,
+  onEdit,
+  onDelete,
+}: {
+  group: CalendarEntryGroup<MiguriEntry>;
+  onEdit: (entry: MiguriEntry) => void;
+  onDelete: (entryId: string) => void;
+}) {
+  const totalLabel = `合计 ${group.tickets} 张`;
+  const cardClass = 'group relative rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-secondary)] p-2 transition-colors hover:border-[var(--border-primary)]';
+
+  if (group.entries.length === 1) {
+    const entry = group.entries[0];
+    return (
+      <div className={cardClass}>
+        <div className="pointer-events-none absolute -top-2 right-1 z-10 flex translate-y-1 items-center gap-1 opacity-0 transition-all duration-150 group-hover:translate-y-0 group-hover:opacity-100 focus-within:translate-y-0 focus-within:opacity-100">
+          <button
+            type="button"
+            title="编辑记录"
+            onClick={() => onEdit(entry)}
+            className="pointer-events-auto rounded-full border border-sky-100 bg-white p-1.5 text-sky-600 shadow-sm hover:bg-sky-50"
+          >
+            <Pencil size={12} />
+          </button>
+          <button
+            type="button"
+            title="删除记录"
+            onClick={() => onDelete(entry.id)}
+            className="pointer-events-auto rounded-full border border-rose-100 bg-white p-1.5 text-rose-500 shadow-sm hover:bg-rose-50"
+          >
+            <Trash2 size={12} />
+          </button>
+        </div>
+        <div className="flex min-w-0 items-center justify-between gap-2">
+          <div className="min-w-0 truncate whitespace-nowrap text-xs font-bold leading-4 text-[var(--text-primary)]">
+            {group.member}
+          </div>
+          <span className="shrink-0 rounded-full bg-[var(--bg-primary)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--text-secondary)]">
+            {totalLabel}
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <details className={cardClass}>
+      <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+        <div className="flex min-w-0 items-center justify-between gap-2">
+          <div className="min-w-0 truncate whitespace-nowrap text-xs font-bold leading-4 text-[var(--text-primary)]">
+            {group.member}
+          </div>
+          <span className="shrink-0 rounded-full bg-[var(--bg-primary)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--text-secondary)]">
+            {totalLabel}
+          </span>
+        </div>
+        <div className="mt-1 text-[9px] text-[var(--text-tertiary)]">
+          {group.entries.length} 条履历 · 点击查看明细
+        </div>
+      </summary>
+      <div className="mt-2 space-y-1 border-t border-[var(--border-secondary)] pt-2">
+        {group.entries.map((entry, index) => (
+          <div
+            key={entry.id}
+            className="flex min-w-0 items-center justify-between gap-1 rounded-lg bg-[var(--bg-primary)] px-2 py-1"
+          >
+            <span className="min-w-0 truncate text-[9px] text-[var(--text-tertiary)]">
+              {entry.applicationRound || `履历 ${index + 1}`}
+            </span>
+            <span className="shrink-0 text-[9px] font-semibold text-[var(--text-secondary)]">
+              {entry.tickets} 张
+            </span>
+            <button
+              type="button"
+              title="编辑这条履历"
+              onClick={() => onEdit(entry)}
+              className="shrink-0 rounded p-1 text-sky-500 hover:bg-sky-50"
+            >
+              <Pencil size={10} />
+            </button>
+            <button
+              type="button"
+              title="删除这条履历"
+              onClick={() => onDelete(entry.id)}
+              className="shrink-0 rounded p-1 text-rose-400 hover:bg-rose-50"
+            >
+              <Trash2 size={10} />
+            </button>
+          </div>
+        ))}
+      </div>
+    </details>
+  );
 }
 
 export default function MeguriPrototype() {
@@ -355,7 +452,7 @@ export default function MeguriPrototype() {
   );
 
   const summary = useMemo(() => summarizeEntries(selectedEntries), [selectedEntries]);
-  const groupedEntries = useMemo(() => groupEntriesByDateAndSlot(selectedEntries), [selectedEntries]);
+  const groupedEntries = useMemo(() => groupEntriesForCalendar(selectedEntries), [selectedEntries]);
   const pendingDraftsForEvent = useMemo(
     () => (selectedEvent ? pendingDrafts.filter((draft) => draft.eventSlug === selectedEvent.slug) : []),
     [pendingDrafts, selectedEvent],
@@ -1014,21 +1111,13 @@ export default function MeguriPrototype() {
 
                               {slotEntries.length > 0 ? (
                                 <div className="mt-1.5 space-y-1">
-                                  {slotEntries.map((entry) => (
-                                    <div key={entry.id} className="flex items-center justify-between gap-2 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-2.5 py-1.5">
-                                      <div className="flex min-w-0 items-center gap-1.5">
-                                        <span className="truncate text-xs font-semibold text-[var(--text-primary)]">{entry.member}</span>
-                                        <span className="shrink-0 text-[10px] text-[var(--text-tertiary)]">{entry.tickets}张</span>
-                                      </div>
-                                      <div className="flex shrink-0 items-center gap-0.5">
-                                        <button type="button" title="编辑" onClick={() => openEditDrawer(entry)} className="rounded p-1 text-sky-500">
-                                          <Pencil size={11} />
-                                        </button>
-                                        <button type="button" title="删除" onClick={() => void removeEntry(entry.id)} className="rounded p-1 text-rose-400">
-                                          <Trash2 size={11} />
-                                        </button>
-                                      </div>
-                                    </div>
+                                  {slotEntries.map((entryGroup) => (
+                                    <CalendarEntryCard
+                                      key={entryGroup.key}
+                                      group={entryGroup}
+                                      onEdit={openEditDrawer}
+                                      onDelete={(entryId) => void removeEntry(entryId)}
+                                    />
                                   ))}
                                 </div>
                               ) : null}
@@ -1041,14 +1130,14 @@ export default function MeguriPrototype() {
                 })}
               </div>
 
-              <div className="hidden overflow-x-auto -mx-4 sm:mx-0 lg:block">
-                <div className="min-w-[800px] p-1">
+              <div className="-mx-4 hidden overflow-x-auto sm:mx-0 lg:block">
+                <div className="min-w-[1100px] p-1">
                   <table className="w-full border-separate border-spacing-2">
                     <thead>
                       <tr>
                         <th className="w-32 py-4 pl-2 text-left text-sm font-bold text-[var(--text-tertiary)]">日期 / 部数</th>
                         {slotNumbers.map((slot) => (
-                          <th key={slot} className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] py-4 text-center text-sm font-bold text-[var(--text-secondary)]">
+                          <th key={slot} className="min-w-36 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] py-4 text-center text-sm font-bold text-[var(--text-secondary)]">
                             第 {slot} 部
                           </th>
                         ))}
@@ -1082,29 +1171,16 @@ export default function MeguriPrototype() {
                                     <div className="flex h-full items-center justify-center text-[10px] text-[var(--text-tertiary)]">未开放</div>
                                   ) : slotEntries.length > 0 ? (
                                     <div className="flex flex-col gap-2">
-                                      {slotEntries.map((entry) => {
-                                        return (
-                                          <div key={entry.id} className="group relative rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-secondary)] p-2 transition-all hover:border-[var(--border-primary)]">
-                                            <div className="pointer-events-none absolute -top-2 right-1 z-10 flex items-center gap-1 opacity-0 transition-all duration-150 group-hover:opacity-100 group-hover:translate-y-0 focus-within:opacity-100 translate-y-1">
-                                              <button
-                                                title="编辑记录"
-                                                onClick={() => openEditDrawer(entry)}
-                                                className="pointer-events-auto rounded-full border border-sky-100 bg-white p-1.5 text-sky-600 shadow-sm hover:bg-sky-50"
-                                              >
-                                                <Pencil size={12} />
-                                              </button>
-                                              <button title="删除记录" onClick={() => void removeEntry(entry.id)} className="pointer-events-auto rounded-full border border-rose-100 bg-white p-1.5 text-rose-500 shadow-sm hover:bg-rose-50">
-                                                <Trash2 size={12} />
-                                              </button>
-                                            </div>
-                                            <div className="flex min-w-0 items-start justify-between gap-2 text-[10px] text-[var(--text-tertiary)]">
-                                              <div className="min-w-0 break-words text-xs font-bold leading-4 text-[var(--text-primary)]">{entry.member}</div>
-                                              <span className="shrink-0 rounded-full bg-[var(--bg-primary)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--text-tertiary)]">{entry.tickets} 张</span>
-                                            </div>
-                                          </div>
-                                        );
-                                      })}
+                                      {slotEntries.map((entryGroup) => (
+                                        <CalendarEntryCard
+                                          key={entryGroup.key}
+                                          group={entryGroup}
+                                          onEdit={openEditDrawer}
+                                          onDelete={(entryId) => void removeEntry(entryId)}
+                                        />
+                                      ))}
                                       <button
+                                        type="button"
                                         onClick={() => openAddDrawer(date, slotNumber)}
                                         className="mt-1 w-full rounded-lg border border-dashed border-[var(--border-secondary)] py-1 text-[10px] text-[var(--text-tertiary)] hover:bg-[var(--bg-secondary)] hover:text-[var(--text-secondary)]"
                                       >
