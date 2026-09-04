@@ -23,7 +23,7 @@ export default function AnnouncementBanner() {
       <div className="max-w-3xl mx-auto flex items-center justify-center gap-2">
         <Megaphone size={14} className="shrink-0 hidden sm:block" />
         <span>
-          <strong>公告：</strong>登录功能维护中。因 Cloudflare 数据库额度异常，普通账号及 Google 登录暂时不可用；公开内容仍可正常浏览。预计日本时间 9 月 5 日 09:00 后恢复。
+          <strong>公告：</strong>登录功能维护中。普通账号及 Google 登录暂时不可用；公开内容仍可正常浏览。预计日本时间 9 月 5 日 09:00 后恢复。
         </span>
       </div>
       <button
