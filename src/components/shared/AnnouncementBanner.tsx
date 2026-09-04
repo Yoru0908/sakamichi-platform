@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 import { X, Megaphone } from 'lucide-react';
 
 const STORAGE_KEY = 'announcement-dismissed';
-const ANNOUNCEMENT_ID = 'server-outage-2026-07';
+const ANNOUNCEMENT_ID = 'auth-maintenance-2026-09-05';
 
 export default function AnnouncementBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(false);
+    setVisible(localStorage.getItem(STORAGE_KEY) !== ANNOUNCEMENT_ID);
   }, []);
 
   const dismiss = () => {
@@ -23,7 +23,7 @@ export default function AnnouncementBanner() {
       <div className="max-w-3xl mx-auto flex items-center justify-center gap-2">
         <Megaphone size={14} className="shrink-0 hidden sm:block" />
         <span>
-          <strong>公告：</strong>后端服务器故障中，MSG 推送、广播收听、新内容抓取等服务暂时不可用；已有博客内容可正常浏览。预计 7 月 3 日前恢复。
+          <strong>公告：</strong>登录功能维护中。因 Cloudflare 数据库额度异常，普通账号及 Google 登录暂时不可用；公开内容仍可正常浏览。预计日本时间 9 月 5 日 09:00 后恢复。
         </span>
       </div>
       <button
