@@ -30,14 +30,6 @@ database_id = "969491b9-4960-4e5a-ab2d-37fa8e457b67"
 #                /api/community/* + /api/repo/* + /api/manage/reports* → sakamichi-community
 # （更具体的 pattern 优先级更高，/api/manage/* 仍归 auth）
 [[routes]]
-pattern = "api.sakamichi-tools.cn/api/auth/*"
-zone_name = "sakamichi-tools.cn"
-
-[[routes]]
-pattern = "api.sakamichi-tools.cn/api/user/*"
-zone_name = "sakamichi-tools.cn"
-
-[[routes]]
 pattern = "api.46log.com/api/auth/*"
 zone_name = "46log.com"
 
@@ -52,14 +44,6 @@ zone_name = "46log.com"
 [[routes]]
 pattern = "api.46log.com/api/webhook/*"
 zone_name = "46log.com"
-
-[[routes]]
-pattern = "api.sakamichi-tools.cn/api/manage/*"
-zone_name = "sakamichi-tools.cn"
-
-[[routes]]
-pattern = "api.sakamichi-tools.cn/api/webhook/*"
-zone_name = "sakamichi-tools.cn"
 
 [triggers]
 crons = ["0 3 * * *"]  # Daily at 03:00 UTC (12:00 JST)
