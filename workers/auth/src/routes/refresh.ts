@@ -1,7 +1,8 @@
 import type { Env, UserRow, RefreshTokenRow } from '../types';
-import { signAccessToken } from '../utils/jwt';
+import { signAccessToken, verifyEmergencyRefreshToken } from '../utils/jwt';
 import { error, success, setCookies } from '../utils/response';
 import { generateGeoPass, shouldIssueGeoPass } from '../utils/geo-pass';
+import { createRefreshCredential } from '../utils/refresh-token';
 
 /** Extract refresh_token from cookie */
 function getRefreshToken(req: Request): string | null {
@@ -14,6 +15,18 @@ export async function handleRefresh(req: Request, env: Env): Promise<Response> {
   const token = getRefreshToken(req);
   if (!token) {
     return error('unauthorized', 401);
+  }
+
+  // A short-lived signed credential is issued only when D1's account-wide
+  // free-tier read quota prevents storing the normal revocable token.
+  const emergency = await verifyEmergencyRefreshToken(token, env.JWT_SECRET);
+  if (emergency) {
+    const newAccessToken = await signAccessToken(emergency.sub, emergency.role, env.JWT_SECRET);
+    const newRefresh = await createRefreshCredential(env, emergency.sub, emergency.role);
+    return setCookies(success({}), [
+      { name: 'access_token', value: newAccessToken, maxAge: 15 * 60, domain: '.46log.com' },
+      { name: 'refresh_token', value: newRefresh.token, maxAge: newRefresh.maxAge, path: '/api/auth', domain: '.46log.com' },
+    ]);
   }
 
   // Find valid refresh token
@@ -43,19 +56,12 @@ export async function handleRefresh(req: Request, env: Env): Promise<Response> {
 
   // Sign new tokens
   const newAccessToken = await signAccessToken(user.id, user.role, env.JWT_SECRET);
-  const newRefreshToken = crypto.randomUUID();
-  const refreshExpires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
-
-  await env.DB.prepare(
-    'INSERT INTO refresh_tokens (id, user_id, expires_at) VALUES (?, ?, ?)',
-  )
-    .bind(newRefreshToken, user.id, refreshExpires)
-    .run();
+  const newRefresh = await createRefreshCredential(env, user.id, user.role);
 
   const res = success({});
   const cookies: { name: string; value: string; maxAge: number; path?: string; domain?: string }[] = [
     { name: 'access_token', value: newAccessToken, maxAge: 15 * 60, domain: '.46log.com' },
-    { name: 'refresh_token', value: newRefreshToken, maxAge: 7 * 24 * 60 * 60, path: '/api/auth', domain: '.46log.com' },
+    { name: 'refresh_token', value: newRefresh.token, maxAge: newRefresh.maxAge, path: '/api/auth', domain: '.46log.com' },
   ];
 
   if (shouldIssueGeoPass(user)) {

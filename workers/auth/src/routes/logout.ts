@@ -1,6 +1,7 @@
 import type { Env } from '../types';
 import { verifyAccessToken } from '../utils/jwt';
 import { success, clearCookies } from '../utils/response';
+import { runBestEffortDuringD1Quota } from '../utils/refresh-token';
 
 /** Extract access_token from cookie */
 function getAccessToken(req: Request): string | null {
@@ -16,11 +17,13 @@ export async function handleLogout(req: Request, env: Env): Promise<Response> {
     const payload = await verifyAccessToken(token, env.JWT_SECRET);
     if (payload) {
       // Revoke all refresh tokens for this user
-      await env.DB.prepare(
-        'UPDATE refresh_tokens SET revoked = 1 WHERE user_id = ? AND revoked = 0',
-      )
-        .bind(payload.sub)
-        .run();
+      await runBestEffortDuringD1Quota(() =>
+        env.DB.prepare(
+          'UPDATE refresh_tokens SET revoked = 1 WHERE user_id = ? AND revoked = 0',
+        )
+          .bind(payload.sub)
+          .run(),
+      );
     }
   }
 

@@ -1,10 +1,9 @@
-import type { Env } from '../types';
-
 interface JwtPayload {
   sub: string;
   role: string;
   iat: number;
   exp: number;
+  tokenType?: 'emergency_refresh';
 }
 
 const encoder = new TextEncoder();
@@ -34,34 +33,47 @@ function base64urlDecode(str: string): Uint8Array {
   return bytes;
 }
 
+async function signToken(payload: JwtPayload, secret: string): Promise<string> {
+  const header = base64url(encoder.encode(JSON.stringify({ alg: 'HS256', typ: 'JWT' })));
+  const payloadB64 = base64url(encoder.encode(JSON.stringify(payload)));
+  const sigData = encoder.encode(`${header}.${payloadB64}`);
+  const key = await getKey(secret);
+  const sig = await crypto.subtle.sign('HMAC', key, sigData);
+  return `${header}.${payloadB64}.${base64url(sig)}`;
+}
+
 /** Sign a JWT access token (15 min) */
 export async function signAccessToken(
   userId: string,
   role: string,
   secret: string,
 ): Promise<string> {
-  const header = base64url(encoder.encode(JSON.stringify({ alg: 'HS256', typ: 'JWT' })));
   const now = Math.floor(Date.now() / 1000);
-  const payload: JwtPayload = {
+  return signToken({
     sub: userId,
     role,
     iat: now,
-    exp: now + 15 * 60, // 15 minutes
-  };
-  const payloadB64 = base64url(encoder.encode(JSON.stringify(payload)));
-  const sigData = encoder.encode(`${header}.${payloadB64}`);
-
-  const key = await getKey(secret);
-  const sig = await crypto.subtle.sign('HMAC', key, sigData);
-
-  return `${header}.${payloadB64}.${base64url(sig)}`;
+    exp: now + 15 * 60,
+  }, secret);
 }
 
-/** Verify a JWT access token. Returns payload or null. */
-export async function verifyAccessToken(
-  token: string,
+/** Short-lived fallback used only while the account-wide D1 quota is exhausted. */
+export async function signEmergencyRefreshToken(
+  userId: string,
+  role: string,
   secret: string,
-): Promise<JwtPayload | null> {
+): Promise<string> {
+  const now = Math.floor(Date.now() / 1000);
+  return signToken({
+    sub: userId,
+    role,
+    iat: now,
+    exp: now + 24 * 60 * 60,
+    tokenType: 'emergency_refresh',
+  }, secret);
+}
+
+async function verifyToken(token: string, secret: string): Promise<JwtPayload | null> {
   const parts = token.split('.');
   if (parts.length !== 3) return null;
 
@@ -82,4 +94,15 @@ export async function verifyAccessToken(
   } catch {
     return null;
   }
+}
+
+/** Verify a JWT access token. Returns payload or null. */
+export async function verifyAccessToken(token: string, secret: string): Promise<JwtPayload | null> {
+  const payload = await verifyToken(token, secret);
+  return payload && !payload.tokenType ? payload : null;
+}
+
+export async function verifyEmergencyRefreshToken(token: string, secret: string): Promise<JwtPayload | null> {
+  const payload = await verifyToken(token, secret);
+  return payload?.tokenType === 'emergency_refresh' ? payload : null;
 }

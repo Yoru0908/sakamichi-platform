@@ -36,6 +36,7 @@ import { handleListUnmatchedPayments, handleResolveUnmatchedPayment, handleListS
 import { handleListVerifications, handleResolveVerification, handleRequestVerification } from './routes/admin-verification';
 import { handleGetDiscordStatus, handleSyncDiscordRoles } from './routes/discord';
 import { syncDiscordRolesForUser } from './utils/discord-bot';
+import { isD1QuotaError } from './utils/refresh-token';
 
 type Handler = (req: Request, env: Env) => Promise<Response>;
 
@@ -115,7 +116,9 @@ export default {
       res = handler ? await handler(req, env) : error('Not found', 404);
     } catch (e) {
       console.error('[Auth Worker] Error:', e);
-      res = error('Internal server error', 500);
+      res = isD1QuotaError(e)
+        ? error('认证数据库今日额度已耗尽，请稍后重试', 503)
+        : error('Internal server error', 500);
     }
 
     return withCors(res, env, origin);

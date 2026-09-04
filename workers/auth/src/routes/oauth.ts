@@ -5,6 +5,7 @@ import { setCookies } from '../utils/response.ts';
 import { generateGeoPass, shouldIssueGeoPass } from '../utils/geo-pass.ts';
 import { getAuthUser } from './preferences.ts';
 import { buildGoogleAuthState, parseGoogleAuthState, saveGoogleCalendarConnection, syncAllMiguriToGoogleCalendar } from './google-calendar.ts';
+import { createRefreshCredential, runBestEffortDuringD1Quota } from '../utils/refresh-token.ts';
 
 /** Get primary site URL from comma-separated CORS_ORIGIN */
 function getSiteUrl(env: Env): string {
@@ -276,10 +277,13 @@ async function handleOAuthUser(req: Request, env: Env, profile: OAuthProfile, re
 
   if (existing) {
     userId = existing.user_id;
-    // Update last login
-    await env.DB.prepare('UPDATE users SET last_login_at = datetime(\'now\') WHERE id = ?')
-      .bind(userId)
-      .run();
+    // Last-login metadata is non-essential and must not block OAuth during a
+    // temporary account-wide D1 quota exhaustion.
+    await runBestEffortDuringD1Quota(() =>
+      env.DB.prepare('UPDATE users SET last_login_at = datetime(\'now\') WHERE id = ?')
+        .bind(userId)
+        .run(),
+    );
   } else {
     // Check if email already used by another account
     const emailUser = await env.DB.prepare('SELECT id FROM users WHERE email = ?')
@@ -325,14 +329,7 @@ async function handleOAuthUser(req: Request, env: Env, profile: OAuthProfile, re
 
   // Sign tokens
   const accessToken = await signAccessToken(user.id, user.role, env.JWT_SECRET);
-  const refreshToken = crypto.randomUUID();
-  const refreshExpires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
-
-  await env.DB.prepare(
-    'INSERT INTO refresh_tokens (id, user_id, expires_at) VALUES (?, ?, ?)',
-  )
-    .bind(refreshToken, user.id, refreshExpires)
-    .run();
+  const refresh = await createRefreshCredential(env, user.id, user.role);
 
   // Redirect directly — cookies are set, initAuth() picks them up on any page
   const redirectUrl = user.is_first_login
@@ -342,7 +339,7 @@ async function handleOAuthUser(req: Request, env: Env, profile: OAuthProfile, re
   const res = Response.redirect(redirectUrl, 302);
   const cookies: { name: string; value: string; maxAge: number; path?: string; domain?: string }[] = [
     { name: 'access_token', value: accessToken, maxAge: 15 * 60, domain: '.46log.com' },
-    { name: 'refresh_token', value: refreshToken, maxAge: 7 * 24 * 60 * 60, path: '/api/auth', domain: '.46log.com' },
+    { name: 'refresh_token', value: refresh.token, maxAge: refresh.maxAge, path: '/api/auth', domain: '.46log.com' },
   ];
 
   if (shouldIssueGeoPass(user)) {

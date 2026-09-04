@@ -4,6 +4,7 @@ import { verifyPassword } from '../utils/password';
 import { signAccessToken } from '../utils/jwt';
 import { error, success, setCookies } from '../utils/response';
 import { generateGeoPass, shouldIssueGeoPass } from '../utils/geo-pass';
+import { createRefreshCredential, runBestEffortDuringD1Quota } from '../utils/refresh-token';
 
 export async function handleLogin(req: Request, env: Env): Promise<Response> {
   let body: { email?: string; password?: string };
@@ -42,26 +43,21 @@ export async function handleLogin(req: Request, env: Env): Promise<Response> {
   // Sign access token
   const accessToken = await signAccessToken(user.id, user.role, env.JWT_SECRET);
 
-  // Create refresh token
-  const refreshToken = crypto.randomUUID();
-  const refreshExpires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+  const refresh = await createRefreshCredential(env, user.id, user.role);
 
-  await env.DB.prepare(
-    'INSERT INTO refresh_tokens (id, user_id, expires_at) VALUES (?, ?, ?)',
-  )
-    .bind(refreshToken, user.id, refreshExpires)
-    .run();
-
-  // Update last_login_at
-  await env.DB.prepare('UPDATE users SET last_login_at = datetime(\'now\') WHERE id = ?')
-    .bind(user.id)
-    .run();
+  // Login must remain available if this non-essential audit write is the first
+  // operation rejected after the account-wide D1 daily quota is exhausted.
+  await runBestEffortDuringD1Quota(() =>
+    env.DB.prepare('UPDATE users SET last_login_at = datetime(\'now\') WHERE id = ?')
+      .bind(user.id)
+      .run(),
+  );
 
   const res = success({ data: { user: toPublicUser(user) } });
 
   const cookies: { name: string; value: string; maxAge: number; path?: string; domain?: string }[] = [
     { name: 'access_token', value: accessToken, maxAge: 15 * 60, domain: '.46log.com' },
-    { name: 'refresh_token', value: refreshToken, maxAge: 7 * 24 * 60 * 60, path: '/api/auth', domain: '.46log.com' },
+    { name: 'refresh_token', value: refresh.token, maxAge: refresh.maxAge, path: '/api/auth', domain: '.46log.com' },
   ];
 
   if (shouldIssueGeoPass(user)) {
