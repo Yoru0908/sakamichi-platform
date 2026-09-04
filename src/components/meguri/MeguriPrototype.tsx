@@ -153,7 +153,7 @@ function CalendarEntryCard({
   onEdit: (entry: MiguriEntry) => void;
   onDelete: (entryId: string) => void;
 }) {
-  const totalLabel = `合计 ${group.tickets} 张`;
+  const totalLabel = `本部 ${group.tickets} 张`;
   const cardClass = 'group relative rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-secondary)] p-2 transition-colors hover:border-[var(--border-primary)]';
 
   if (group.entries.length === 1) {
@@ -1036,10 +1036,10 @@ export default function MeguriPrototype() {
             ) : activeTab === 'manage' ? (
               <div className="mt-4 grid grid-cols-4 gap-2 sm:mt-6 sm:grid-cols-2 sm:gap-3 xl:grid-cols-4">
                 {[
-                  { label: '部数', fullLabel: '我有多少部', value: summary.totalSlots, icon: Layers3, color: '#7c3aed' },
-                  { label: '张数', fullLabel: '总张数', value: summary.totalTickets, icon: Ticket, color: '#f59e0b' },
-                  { label: '成员', fullLabel: '都有谁', value: summary.uniqueMembers, icon: Users, color: '#2563eb' },
-                  { label: '天数', fullLabel: '日历占几天', value: summary.uniqueDates, icon: CalendarDays, color: '#10b981' },
+                  { label: '部数', fullLabel: '我有多少部', value: summary.totalSlots, suffix: '部', icon: Layers3, color: '#7c3aed' },
+                  { label: '总张数', fullLabel: '全部日期总张数', value: summary.totalTickets, suffix: '张', icon: Ticket, color: '#f59e0b' },
+                  { label: '成员', fullLabel: '都有谁', value: summary.uniqueMembers, suffix: '人', icon: Users, color: '#2563eb' },
+                  { label: '天数', fullLabel: '日历占几天', value: summary.uniqueDates, suffix: '天', icon: CalendarDays, color: '#10b981' },
                 ].map((item) => {
                   const Icon = item.icon;
                   return (
@@ -1049,7 +1049,10 @@ export default function MeguriPrototype() {
                         <span className="sm:hidden">{item.label}</span>
                         <span className="hidden sm:inline">{item.fullLabel}</span>
                       </div>
-                      <div className="mt-1 text-lg font-bold text-[var(--text-primary)] sm:mt-2 sm:text-2xl">{item.value}</div>
+                      <div className="mt-1 text-lg font-bold text-[var(--text-primary)] sm:mt-2 sm:text-2xl">
+                        {item.value}
+                        <span className="ml-1 text-xs font-semibold text-[var(--text-tertiary)]">{item.suffix}</span>
+                      </div>
                     </div>
                   );
                 })}
