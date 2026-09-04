@@ -223572,6 +223572,61 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0319444,
+          37.5241667
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:eab04a23c7e5c116b435",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:eab04a23c7e5c116b435",
+        "name": "Sinsa Mugunghwa Park(新沙ムクゲ公園)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Sinsa Mugunghwa Park(新沙ムクゲ公園)",
+        "sceneNote": "佐々木久美が遊んでた遊具のある場所 https://www.instagram.com/kumisasaki_/?hl=ja",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7PLrwMmbbbQkmHQhuEU1tnZp7r662tM_hwRLPsSqWjj7_uOJuG2FtI8LzORtU1utYvMeNCDD32mBF_Di6XGgKfw1v6UGy0v6d4I-TscYmzA6IACgg6JiwLeo3izOTYlO65j9fuaC9fJelFQXlA56gk5quTz4mvLYalPs5PjeDMLhnUuPBP86KjKJFm6n7RtLErGXpwJm_pdeyJK6jDgJ_Bf8WqHPBABBmxABAmoe03RjXdEOryMjYqLc0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "Sinsa Mugunghwa Park(新沙ムクゲ公園)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
