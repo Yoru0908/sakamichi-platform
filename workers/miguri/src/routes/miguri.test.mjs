@@ -657,12 +657,22 @@ test('handleMiguriSync archives missing events while keeping incoming events act
     }),
   });
 
+  let publishedEvents;
   const res = await handleMiguriSync(req, {
     MIGURI_DB: db,
     MIGURI_SYNC_SECRET: 'test-secret',
+    MIGURI_CACHE: {
+      async put(_key, value) {
+        // Publish only once all source data has reached D1, including members.
+        assert.equal(db.slotMembers.length, 1);
+        publishedEvents = JSON.parse(value);
+      },
+    },
   });
   const json = await res.json();
 
+  assert.deepEqual(publishedEvents.map(e => e.slug), ['hinatazaka_202605']);
+  assert.deepEqual(publishedEvents[0].slots[0].members, ['小坂菜緒']);
   assert.equal(res.status, 200);
   assert.equal(json.data.eventCount, 1);
   assert.equal(json.data.archivedEventCount, 1);

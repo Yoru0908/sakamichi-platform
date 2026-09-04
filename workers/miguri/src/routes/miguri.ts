@@ -289,8 +289,8 @@ async function loadEntryById(env: Env, userId: string, entryId: string) {
   return row ? mapEntryRow(row) : null;
 }
 
-const EVENT_RESPONSE_CACHE_URL = 'https://api.46log.com/__internal-cache/miguri/event-response-v2';
-const EVENT_RESPONSE_KV_KEY = 'public:event-response:v2';
+const EVENT_RESPONSE_CACHE_URL = 'https://api.46log.com/__internal-cache/miguri/event-response-v3';
+const EVENT_RESPONSE_KV_KEY = 'public:event-response:v3';
 const EVENT_RESPONSE_CACHE_SECONDS = 60 * 60;
 
 async function readCachedEventResponse(env: Env): Promise<EventResponseShape[] | null> {
@@ -301,6 +301,9 @@ async function readCachedEventResponse(env: Env): Promise<EventResponseShape[] |
     } catch (err) {
       console.warn('[Miguri] Event metadata KV read failed:', err);
     }
+    // A deleted/missing KV key must not fall through to stale Cache API data in
+    // another colo. With a KV binding, KV is the only shared metadata cache.
+    return null;
   }
 
   if (typeof caches === 'undefined') return null;
@@ -315,23 +318,6 @@ async function readCachedEventResponse(env: Env): Promise<EventResponseShape[] |
   }
 }
 
-export async function invalidateEventResponseCache(env: Env): Promise<void> {
-  if (env.MIGURI_CACHE) {
-    try {
-      await env.MIGURI_CACHE.delete(EVENT_RESPONSE_KV_KEY);
-    } catch (err) {
-      console.warn('[Miguri] Event metadata KV invalidation failed:', err);
-    }
-  }
-  if (typeof caches !== 'undefined') {
-    try {
-      await caches.default.delete(new Request(EVENT_RESPONSE_CACHE_URL));
-    } catch (err) {
-      console.warn('[Miguri] Event metadata cache invalidation failed:', err);
-    }
-  }
-}
-
 async function cacheEventResponse(env: Env, events: EventResponseShape[]): Promise<void> {
   const serialized = JSON.stringify(events);
   if (env.MIGURI_CACHE) {
@@ -342,6 +328,7 @@ async function cacheEventResponse(env: Env, events: EventResponseShape[]): Promi
     } catch (err) {
       console.warn('[Miguri] Event metadata KV write failed:', err);
     }
+    return;
   }
 
   if (typeof caches === 'undefined') return;
@@ -357,10 +344,54 @@ async function cacheEventResponse(env: Env, events: EventResponseShape[]): Promi
   }
 }
 
-export async function loadEventResponse(env: Env) {
+// Called only after every source-sync write succeeds. Reuse the normalized
+// payload instead of deleting KV and making the next reader scan thousands of rows.
+export async function cacheSyncedEventResponse(
+  env: Env,
+  normalized: ReturnType<typeof normalizeMiguriPayload>,
+  syncedAt: string,
+): Promise<void> {
+  const events: EventResponseShape[] = normalized.events.map((event) => ({
+    slug: event.slug,
+    group: event.group,
+    title: event.title,
+    sourceUrl: event.sourceUrl,
+    saleType: event.saleType,
+    windows: event.windows.map(({ label, start, end }) => ({ label, start, end })),
+    dates: [...event.dates],
+    members: [...event.members].sort((a, b) => a.localeCompare(b, 'ja')),
+    slots: event.dates.flatMap(date => event.slots.map(slot => ({
+      date,
+      slotNumber: slot.slotNumber,
+      receptionStart: slot.receptionStart,
+      startTime: slot.startTime,
+      receptionEnd: slot.receptionEnd,
+      endTime: slot.endTime,
+      members: [...event.members].sort(),
+    }))),
+    syncedAt,
+  })).sort((a, b) => a.slug < b.slug ? 1 : a.slug > b.slug ? -1 : 0);
+  await cacheEventResponse(env, events);
+}
+
+const eventResponseLoads = new WeakMap<D1Database, Promise<EventResponseShape[]>>();
+
+export async function loadEventResponse(env: Env): Promise<EventResponseShape[]> {
   const cached = await readCachedEventResponse(env);
   if (cached) return cached;
 
+  // Coalesce simultaneous cold reads within an isolate; never cache user data.
+  let pending = eventResponseLoads.get(env.MIGURI_DB);
+  if (!pending) {
+    pending = loadEventResponseFromDb(env).finally(() => {
+      eventResponseLoads.delete(env.MIGURI_DB);
+    });
+    eventResponseLoads.set(env.MIGURI_DB, pending);
+  }
+  return pending;
+}
+
+async function loadEventResponseFromDb(env: Env): Promise<EventResponseShape[]> {
   const [eventsResult, windowsResult, slotsResult, membersResult] = await Promise.all([
     env.MIGURI_DB.prepare(`
       SELECT slug, group_id, title, source_url, sale_type, status, synced_at, raw_payload
