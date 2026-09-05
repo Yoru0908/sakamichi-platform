@@ -1,4 +1,4 @@
-# 日本电台目录扩充（待部署）
+# 日本电台目录扩充（2026-09-05 已部署）
 
 旧版 v4.1 和广播后端的 `config.json.station_mapping` 都有 36 台，
 但直播接口仅开放 14 台。本次配套后端扩至 36 台，前端只更新分组逻辑。
@@ -23,7 +23,13 @@ RKB/NIKKEI 第1/NHK-FM 仍请求原来的 `/api/radio/live/tune/{id}`（POST）�
 
 ## 状态
 
-Homeserver 两条 SSH 路径超时，前后端均尚未部署。线上仍为 14 台。
-改动推送至功能分支，不触发生产主分支部署；需与后端配套发布。
-后端变更范围、测试结果与部署注意事项见
+前端 `716ee9e` 与广播后端 `26445fa` 已配套部署。
+部署地址：`https://69334406.sakamichi-platform-test.pages.dev`；生产：`https://46log.com/radio/`。
+
+真实线上浏览器确认 36 台、9 个分组；NACK5、RKB、NIKKEI 第1 经现有接口/HLS
+实际播放，播放时间持续前进，测试流已关闭。并非已逐台验收全部 36 台。
+
+Homeserver Tailscale 节点密钥已过期，本次经 M1 Air `100.76.114.34` 跳转到
+Homeserver LAN 完成部署，没有修改 VPN 登录配置；节点直连仍需重新授权。
+后端变更、日志/缓存迁至 `/vol1/` 的记录及部署注意事项见
 [广播后端说明](../../坂道广播platform/docs/live-station-catalog.md)。
