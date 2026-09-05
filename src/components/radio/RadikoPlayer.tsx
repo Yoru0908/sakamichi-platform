@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Hls from 'hls.js';
+import { groupStationsByRegion } from './radiko-stations';
 import { Play, Pause, Volume2, VolumeX, AlertCircle, Loader2, Radio } from 'lucide-react';
 
 // ─── Config ─────────────────────────────────────
@@ -15,8 +16,6 @@ interface Station {
   streaming: boolean;
   hls_url: string | null;
 }
-
-const REGION_ORDER = ['関東', '山梨', '関西', '東海', '北海道'];
 
 // ─── Component ──────────────────────────────────
 export default function RadikoPlayer() {
@@ -186,11 +185,7 @@ export default function RadikoPlayer() {
   }, [isPlaying, selectedStation?.id]);
 
   // ─── Group stations by region ─────────────────
-  const stationsByRegion = REGION_ORDER.reduce<Record<string, Station[]>>((acc, region) => {
-    const list = stations.filter(s => s.region === region);
-    if (list.length) acc[region] = list;
-    return acc;
-  }, {});
+  const stationsByRegion = groupStationsByRegion(stations);
 
   // ─── Render ───────────────────────────────────
   return (
@@ -211,7 +206,7 @@ export default function RadikoPlayer() {
           )}
         </div>
 
-        {Object.entries(stationsByRegion).map(([region, stationList]) => (
+        {stationsByRegion.map(([region, stationList]) => (
           <div key={region} className="mb-3 last:mb-0">
             <p className="text-[10px] text-[var(--text-tertiary)] mb-1.5 pl-0.5">{region}</p>
             <div className="flex flex-wrap gap-1.5">
