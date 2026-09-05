@@ -3,7 +3,7 @@ import { useStore } from '@nanostores/react';
 import { Search, ChevronDown, ExternalLink, Play, Pause, X, SkipBack, SkipForward, Heart } from 'lucide-react';
 import { $auth } from '@/stores/auth';
 import { getBookmarks, addBookmark, removeBookmark } from '@/utils/auth-api';
-import { memberImagesToList } from '@/utils/member-images';
+import { buildSakumimiMembers, normalizeSakumimiEpisode, sakumimiCoverSources, type ArchiveMember } from './sakumimi-archive-data';
 
 // ─── Types ───────────────────────────────────────
 interface Episode {
@@ -34,6 +34,31 @@ const PAGE_SIZE = 12;
 const BRAND_PINK = '#F19DB5';
 const BRAND_PINK_LIGHT = 'rgba(241,157,181,0.12)';
 
+// Try the local archive first, then the source image, then an explicit episode placeholder.
+function EpisodeCover({ episode }: { episode: Episode }) {
+  const [sourceIndex, setSourceIndex] = useState(0);
+  const sources = sakumimiCoverSources(episode);
+  const src = sources[sourceIndex];
+  return src ? (
+    <img
+      src={src}
+      alt={`#${episode.ep}`}
+      className="w-36 sm:w-48 aspect-video rounded-lg object-cover bg-[var(--bg-tertiary)]"
+      loading="lazy"
+      onError={() => setSourceIndex(index => index + 1)}
+    />
+  ) : (
+    <div
+      className="w-36 sm:w-48 aspect-video rounded-lg flex items-center justify-center text-white text-lg font-bold"
+      style={{ backgroundColor: BRAND_PINK }}
+      role="img"
+      aria-label={`#${episode.ep} 封面暂无`}
+    >
+      #{episode.ep}
+    </div>
+  );
+}
+
 // ─── Component ───────────────────────────────────
 export default function SakumimiArchive() {
   const [episodes, setEpisodes] = useState<Episode[]>([]);
@@ -41,7 +66,7 @@ export default function SakumimiArchive() {
   const [error, setError] = useState('');
 
   // Members data
-  const [sakuraMembers, setSakuraMembers] = useState<{ name: string; imageUrl: string; generation: string }[]>([]);
+  const [sakuraMembers, setSakuraMembers] = useState<ArchiveMember[]>([]);
   const [selectedMembers, setSelectedMembers] = useState<Set<string>>(new Set());
   const [showMemberFilter, setShowMemberFilter] = useState(false);
 
@@ -78,21 +103,10 @@ export default function SakumimiArchive() {
       .then(([indexData, membersData]: [SakumimiIndex, any]) => {
         // Process episodes - sort newest first
         const eps = Object.values(indexData.episodes)
+          .map(normalizeSakumimiEpisode)
           .sort((a, b) => b.ep - a.ep);
         setEpisodes(eps);
-
-        // Extract sakurazaka members (no-space names only), sort by generation then あいうえお
-        const GEN_ORDER: Record<string, number> = { '二期生': 1, '三期生': 2, '四期生': 3 };
-        const members = memberImagesToList(membersData.images || {}, { activeOnly: true, requireImage: true })
-          .filter((v) => v.group === '樱坂46')
-          .map((v) => ({ name: v.name.replace(/\s+/g, ''), imageUrl: v.imageUrl, generation: v.generation || '' }))
-          .sort((a, b) => {
-            const ga = GEN_ORDER[a.generation] ?? 99;
-            const gb = GEN_ORDER[b.generation] ?? 99;
-            if (ga !== gb) return ga - gb;
-            return a.name.localeCompare(b.name, 'ja');
-          });
-        setSakuraMembers(members);
+        setSakuraMembers(buildSakumimiMembers(membersData.images || {}, eps));
       })
       .catch(e => {
         if (e.name !== 'AbortError') {
@@ -310,6 +324,7 @@ export default function SakumimiArchive() {
                       <button
                         key={m.name}
                         onClick={() => toggleMember(m.name)}
+                        aria-pressed={selectedMembers.has(m.name)}
                         className={`flex items-center gap-1.5 px-2 py-1.5 rounded-lg text-[10px] font-medium transition-all ${
                           selectedMembers.has(m.name)
                             ? 'text-white shadow-sm'
@@ -317,15 +332,20 @@ export default function SakumimiArchive() {
                         }`}
                         style={selectedMembers.has(m.name) ? { backgroundColor: BRAND_PINK } : {}}
                       >
-                        {m.imageUrl && (
-                          <img
-                            src={m.imageUrl}
-                            alt={m.name}
-                            className="w-5 h-5 rounded-full object-cover shrink-0"
-                            loading="lazy"
-                          />
-                        )}
+                        <span className="relative w-5 h-5 rounded-full shrink-0 overflow-hidden bg-[var(--bg-tertiary)] text-[var(--text-secondary)] flex items-center justify-center" aria-hidden="true">
+                          {m.name.slice(0, 1)}
+                          {m.imageUrl && (
+                            <img
+                              src={m.imageUrl}
+                              alt=""
+                              className="absolute inset-0 w-full h-full object-cover"
+                              loading="lazy"
+                              onError={event => { event.currentTarget.style.display = 'none'; }}
+                            />
+                          )}
+                        </span>
                         <span className="truncate">{m.name}</span>
+                        <span className="ml-auto opacity-70">{m.episodeCount}</span>
                       </button>
                     ))}
                   </div>
@@ -372,26 +392,13 @@ export default function SakumimiArchive() {
         {pagedEpisodes.map(ep => (
           <div
             key={ep.ep}
+            data-sakumimi-episode={ep.ep}
             className="rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] overflow-hidden hover:border-[var(--border-secondary)] transition-colors"
           >
             <div className="flex gap-4 p-4">
               {/* Cover image */}
               <div className="shrink-0">
-                {(ep.cover_url || ep.image) ? (
-                  <img
-                    src={ep.cover_url || ep.image}
-                    alt={`#${ep.ep}`}
-                    className="w-36 sm:w-48 aspect-video rounded-lg object-cover bg-[var(--bg-tertiary)]"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div
-                    className="w-36 sm:w-48 aspect-video rounded-lg flex items-center justify-center text-white text-lg font-bold"
-                    style={{ backgroundColor: BRAND_PINK }}
-                  >
-                    #{ep.ep}
-                  </div>
-                )}
+                <EpisodeCover key={`${ep.cover_url}|${ep.image}`} episode={ep} />
               </div>
 
               {/* Content */}
