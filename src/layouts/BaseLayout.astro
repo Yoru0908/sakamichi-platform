@@ -3,7 +3,6 @@ import { ClientRouter } from 'astro:transitions';
 import '@/styles/global.css';
 import Navbar from '@/components/nav/Navbar.astro';
 import Footer from '@/components/footer/Footer.astro';
-import AnnouncementBanner from '@/components/shared/AnnouncementBanner';
 
 interface Props {
   title?: string;
@@ -83,7 +82,6 @@ const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toStr
   <!-- Accessibility: skip to main content -->
   <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <AnnouncementBanner client:load />
   {!hideNav && <Navbar />}
 
   <main id="main-content" class="min-h-[calc(100vh-3.5rem)]">
