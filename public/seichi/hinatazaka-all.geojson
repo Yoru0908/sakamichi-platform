@@ -184277,8 +184277,8 @@
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8c3524430582be0ac11a",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8c3524430582be0ac11a",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8c3524430582be0ac11a:3598c5737c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8c3524430582be0ac11a:3598c5737c",
         "name": "自然薯農家レストラン 山薬 宮城野本店",
         "category": "映画・ドラマ・TV番組・雑誌・新聞",
         "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
@@ -223832,6 +223832,725 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "(株)佐賀鉄工所 多久工場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.727622,
+          35.6859434
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:af3f236ffe6e191724db",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:af3f236ffe6e191724db",
+        "name": "イメージスタジオ109 四谷スタジオ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "イメージスタジオ109 四谷スタジオ",
+        "sceneNote": "2026年9月6日 緊急生配信 https://youtu.be/OAM2ulVoa4Y",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Mv_ZVPUFo7CD8kFidkkHoALXgvOGjdIag3AVlTI29uCL0rGib1SocZin48XsYOSobKsTURU9_BZw85arDysgDby5SicNsJzDch5EjRPz-72PREKbkQaFrHuQ0DIkfnlD8ihpNth1aA7WvYM8sD1Nr32uHeD98c5s5KPSn8iXKnLuKKU59QCsgoQgtHeELgoniIRrAj1KPRY3grjVm9a_NcUShlFOoEMimFXyZaLpIWCri9QrDaTNa4IM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "イメージスタジオ109 四谷スタジオ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.154085,
+          35.2508283
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1a68adf686737b37c215",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1a68adf686737b37c215",
+        "name": "本丸広場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "本丸広場",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅で訪れた場所 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR70ndi--hR8JB2XHb_b8Xfzoswt61ryfjqJ5b0ryn4DWGlqXkTPjZ2iNtGRBK4ZV55TxrSBbjH2PfoFh-_g2jpuDBSRRDZEXrT21yD1cvtwC8kXw4eL3N8E5DkMksKGn1-oR2VHuUDizDbAMbVzZpimngoaz1cdLDVBBUmZyg3rULyIUDcKZBmsvInJSYAIrXESKgLGPmD2IZ1V7dRCwX9RC7WJDaucRtQTFTbHyQ5AaMW7LDGGKvM8WiM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "本丸広場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.1535136,
+          35.2509493
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ad40bf49af81d8f93191",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ad40bf49af81d8f93191",
+        "name": "小田原城",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "小田原城",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅で訪れた場所 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7QhFV749wFhOt0AhkaxeIv5Njnrnv9oWBqfL9MhlFJhOD63RG9vkgM4eeUd1ruG-WEmU4SEYuC5lYPSASrIZ3D0du0bYEGWxs1GPIp-70RLj1HYFSL4gSAH9B0BVREM6ti3ECM4b9Nn80CSVbjs8NBsyzj5BWwETj2fWqwiiGjH5L-CtQCX6eu4u1p8Con5Tt-ej0yYuLTxwh_R1tIANKLj0CzCLXahQAImWGc8kj7yZxY9GI4P4hImVU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6-6TwXnTsvMLKH9O5Tj4mv7JDprqiekxUp2-W-YlZYRPMMOHxG3IHjFriHnA6Uco-AUAKnz8kvwCx4k5n4HEYrk6k_kvIjtMditvbBht9wclZshAkxvMWw5sqMzEDXLtEU-6-vhUAKsB-Vz1WbLfPNC4OaRm7N4iJXRNQ5LoXEwfu8o5vDUzVgXYYjFDDV5qgtlR9J9cjzuATooaK2zcALHbaAd_5vCqJ9Neupob2GE8fZbl5LSmxPhyI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "小田原城",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.1540428,
+          35.2512143
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:38fed86141c24c29b081",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:38fed86141c24c29b081",
+        "name": "本丸茶屋",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "本丸茶屋",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅でかき氷たべたお店 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6W2Z9mInnj-ezrf3PAUzp9rYu-Ru7CnLrK-AdD6kOgUsTRrgOqnZ4_MpcRbNL4bOXA2Pke9SwKMP8MzIC815SDz0IuKoy787lLHIF-nocHyRWOjB36Es_5CGNpcEszqXRK4bteYUIIRpOE_V72FPhZmVtyXusQb0MtjdAOg9LhcNEgAb6Pe1Uh2H9_BD1ThZTpWMGCipEGJ0PlwmkjdbsY5ZEMhsulRUdabxixvO3GYPXpt6c3qp0wAEE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "本丸茶屋",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0472378,
+          35.2568524
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8c3524430582be0ac11a:0f30c7a50d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8c3524430582be0ac11a:0f30c7a50d",
+        "name": "自然薯農家レストラン 山薬 宮城野本店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "自然薯農家レストラン 山薬 宮城野本店",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅で訪れた場所 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6j-XzpeD7GDErPHehW6tFY3J7qUkaGf6prDXSyu8LR8oa3JWGaGZqYfyK2O9BmK61H2eQ8dVRH9ENSuRFNuBfuIkmjm1bDoH1riSL8fqwaW4CecEe04VtomlSEatj6FH74h-dollMGLrSC-WKPhOVHckpNR27VHPjcRwuZpDex0uusddf57NEhI767QuVDlsHyWlBZiLAGbtYKPUiAv4LG4NWRYKYXQMaP_KoJMatEuuc0A8fDK___4bM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5SHIsTSu9kereSuiGQ4NvEeF9qTv2ispNmos3p5UUccjq5-G5VsFr7u5A-VE0ioN9eKZxnI4dpksF5mkVc2Fzp4_H0Nos5ZYsK42EDRA_-_oI6_XdobtNKquj1L-GYROOiBix86DeoanFrodn-EpZ81VjpOQtgCuMIi845ZaXfIe2QM1loMacC3LZtdrwlEwpWFh0LXCxghnDTMj01LYmeXFP7uDy2mAsKmqTuYjhIYUzvuvps_pQvyGo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "自然薯農家レストラン 山薬 宮城野本店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0625263,
+          35.2122355
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5aefe3fe658896989f2f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5aefe3fe658896989f2f",
+        "name": "金指寄せ木工芸館",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "金指寄せ木工芸館",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅で訪れた場所 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7euweWM2z5DqaHz9K5MhrunFdZVjPSghy-Ai7ZrDng2xhKf8jFIhGblNiC_-QFxrqIsMgCZsRLpPQ1W2JdtEEauScegU89Nh-kc1zFQc339qU1hqHRakbLwhx25d4GWqFS-K7o561gxIrAKLW-xd93KIFd9Og3y_2tNometkULxEGIf_cMJKRugjHmktXtHkOmxF_JZ6Zf2cCTI-SreIalTwPYsGKByaPNiuXMX9q13kRdBGAOmBdTl5Y%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "金指寄せ木工芸館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0198233,
+          35.2435107
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a8ea7fc502530f105ca1",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a8ea7fc502530f105ca1",
+        "name": "大涌谷展望台",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "大涌谷展望台",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅で訪れた場所 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR709p5jgtSobPnS0khrllCA5V5qe33UqXmkz3tzadrUMem7SiSHgdMKThG3nVR8G2CDrsQwrIXoYULmpGChwWqayL1sYXTUvkjqbrWUvsM8BFnr6qs11WZZD-43jnMaLynISSjYEM-6sH3a31vbY1jw851JJ91DiWM4qUBdq87merCxnNPBK6-nybfKiBpus5Xti6tY9oEAdASSf_NsbQ5UFcu3nGj4xrfMHYgeuGQ5RMEsGMdqAkaQSJI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "大涌谷展望台",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0197197,
+          35.2434916
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:80ff3082369bdab665f1",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:80ff3082369bdab665f1",
+        "name": "大涌谷インフォメーションセンター",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "大涌谷インフォメーションセンター",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅で訪れた場所 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7o6mfNKZUOh4KRSXg7L4jn2DjrFttlvYToY_IyUIgc9bCMjLdSHpLL2XJdNE-EmKvsPj1F0gzbEJGvatmU3erz0qj1bEzVOYsgZzEeMtgXeMBnMZvIyjLLV8x6s_yDnNdIUMEL2U9Jo5KdvZ5XkInHoBoOveabI6H459j3USz_oEeWRzFJ3a_xT1M00nvxjgbe01XrIzNdl_7YmNoEhe0gkS8YiIuCoJrmd7cwXuhwh8OB-gU2xoLyKkU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6r4qkbhak4fw5mm7uXYa8mPQBOu65vVkloKo1yCHTSk_vAK6mrAxixhEtqQYmjyTERUn0v0mgFT7LfwpVafZTDYSLbHCD-HBe6jy9MRzEC2S9Re8NyC-3HcotQalkzK1Zin3bAriW20JJxwJ6mR1epOj-nJXzSgWyKTbZ4mhRkyabDw_KkFgR42IRtTTgCK-aJRsZXh1YmIKIKAVcJm2D1KPiYmgCh0VYvs2PVfNYL9kK4feQvVErx3GE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "大涌谷インフォメーションセンター",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0255605,
+          35.203694
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:96410e03f688862c69af",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:96410e03f688862c69af",
+        "name": "箱根神社",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "箱根神社",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅で訪れた場所 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6lxXol9F7XBqEInzLq6hmfiDKf8JPunTBDcduVvbM0xUiHaEmBvRSY5D84RuYbAa_nj3HAHoaZqvOKqUvuQ2JcW2wM-GrlY0yWnwSeL4jaMlGk4UmapfmRYwpX0LIJBe1cK8ADGsNQGukkOag6oGwJQnGXiC_zRhqXhgXeOI6cB4aP01_VgFy7zGLdG8SympH6zN1AcI6L_VexXYZDcE9UEDtC0TrhJnHLivpZK9pmjCW-drH2u0Kh5xQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "箱根神社",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0253731,
+          35.2047517
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:26e7f4ef75447c3e048b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:26e7f4ef75447c3e048b",
+        "name": "箱根神社　本殿",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "箱根神社　本殿",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅で訪れた場所 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5excA7ZKBIeJPy0SuNwUSov1256KIWuayYtkg5q3UtUuigioJFx_e-jHEQTaJgD1m94g9N6TK__4ECBK7XofkFJOaL1GUTVEB40ym5E3687LpqWE9aee9tvqYrUBDJ_JZ_jjG1v0Mvuo3YGMTkbnD0OiVbFLTHLxSuvcF9naFB3_HG_DiC3tuG86Yz53e9jEB25rgNnUYc2XVpPafsMrQILI59bhqTgxOsMosNXcyGG3YifNPfx8gya9Y%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "箱根神社　本殿",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0253085,
+          35.2044121
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f02fecb659f824f65067",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f02fecb659f824f65067",
+        "name": "箱根神社　お札授与所",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "箱根神社　お札授与所",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅で訪れた場所 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5mUOgSaC2QacTcn5BsKiOf3GZi_7cG0dOeVXkaxE4bfypd8Uyb0QhdZ08kMY5yK1iyc4fkL0hdFRLmUOVN3_0EV32h0euX8GXM_yvdh8RLjYdhgdyAJdy-g0ixT_73qm8eK1zRmnLFFGy1Lbgg2WtvZPu6vSOtKM2kZxPpbpBe9weTgYpmXAkXGy2rE_GEWFFX8yN7fwnljVmDK9-soPuLlZJTyJ7BW6mmrzFICM-QAQ4XuYaEC0t1-6I%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7KZ6LUDxvLCBpIj7wAev0qnoY9LxeLb6-JKB7OHs4rQbUjfoKXMtCTDoiYUHIwe5omg4_CollAAA90rsJmGEfk7ytkTZwSQOxbpndeXyd5vvW-crnznSPj26j7q9rtzAmUv83ZOwZM1AqwiAMkMbragDjTELL1u0Oi2V_CT7E8sOP9PcxHZzP97-BBqXvlTvoad4Y0XOGYum3zYgorMU_bl6ptWcEDuNGL8K1T6vpYUp_V6R1gT4DBlNc%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "箱根神社　お札授与所",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0226762,
+          35.2034854
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1502a8c4d58ec0dd701a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1502a8c4d58ec0dd701a",
+        "name": "フラワーカフェ ロザージュ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "フラワーカフェ ロザージュ",
+        "sceneNote": "正源司陽子が路線バスで寄り道の旅で訪れた場所 https://x.com/TVer_info/status/2096502872716521669",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7CpME32xNoD7IzsOHv8cdDZloF5SlEiI92xjLQ-MCpIIQBl46Hzp4kD1-aohxNbWS8H26C1mPVM2UQwTlSYvE519oBBBPBaAOt1XZczx58C9ICa58TT5mpHXb66EIqI4AJK86M6r3eZjVUej-LKhsVl7WIC9ApkXRHDstclhGyneRxiXMBxBsQGnXuEbmFV34kA-oFHpONnFeSNenhg1cz94olkdsHc24BFccuhM8wvldwFaN3jFVoRAA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "フラワーカフェ ロザージュ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8315618,
+          35.6519256
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3e6123f8f96da3db6037",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3e6123f8f96da3db6037",
+        "name": "マリーナ&グリル",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "マリーナ&グリル",
+        "sceneNote": "正源司陽子が有吉ぃぃeeeeeで訪れた場所 https://x.com/ariyoshieeeee/status/2096599550278385839",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4F0kl14bMhzLh5alu-Nrxm52gDZh_OseuGnEYKzyCciHpUcsDzJ0NdCKC-PQUzhNJZz5PipaKCZVlqJsbDFIbaszdq8f83P4BTBas2ZswQ03K-jUwqXdkF47tOsYb2JS-OgkK7WdOZvfGcieBrw4r_lN_7T2ZdF4je5_7SAau2vs2aWZp0fFMLfnO8gR_w7U1MPm9CC75eupk7Es0UXPq7ec8owvRefgZDiwMbM6bxV5HVE5PR627Uai0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "マリーナ&グリル",
           "group": "日向坂46"
         },
         "classification": {
