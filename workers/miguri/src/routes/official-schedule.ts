@@ -281,9 +281,8 @@ export async function fetchOfficialScheduleMonth(
 ): Promise<CalendarEvent[]> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
-  let response: Response;
   try {
-    response = await fetcher(officialMonthUrl(group, yearMonth), {
+    const response = await fetcher(officialMonthUrl(group, yearMonth), {
       headers: {
         Accept: 'application/json,text/html;q=0.9,*/*;q=0.8',
         'Accept-Language': 'ja,en;q=0.8',
@@ -291,17 +290,17 @@ export async function fetchOfficialScheduleMonth(
       },
       signal: controller.signal,
     });
+    if (!response.ok) {
+      throw new Error(`${GROUP_LABELS[group]} schedule fetch failed: ${response.status}`);
+    }
+
+    const body = await response.text();
+    if (group === 'nogizaka') return parseNogizakaSchedule(body);
+    if (group === 'sakurazaka') return parseSakurazakaSchedule(body);
+    return parseHinatazakaSchedule(body, yearMonth);
   } finally {
     clearTimeout(timeout);
   }
-  if (!response.ok) {
-    throw new Error(`${GROUP_LABELS[group]} schedule fetch failed: ${response.status}`);
-  }
-
-  const body = await response.text();
-  if (group === 'nogizaka') return parseNogizakaSchedule(body);
-  if (group === 'sakurazaka') return parseSakurazakaSchedule(body);
-  return parseHinatazakaSchedule(body, yearMonth);
 }
 
 export async function loadOfficialScheduleEvents(

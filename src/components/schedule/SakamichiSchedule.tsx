@@ -115,8 +115,7 @@ function readCache(): CachePayload | null {
   try {
     const value = sessionStorage.getItem(CACHE_KEY);
     if (!value) return null;
-    const parsed = JSON.parse(value) as CachePayload;
-    return Date.now() - parsed.storedAt < CACHE_MAX_AGE ? parsed : null;
+    return JSON.parse(value) as CachePayload;
   } catch {
     return null;
   }
@@ -548,16 +547,16 @@ export default function SakamichiSchedule() {
   const [subscriptionGroup, setSubscriptionGroup] = useState<MiguriGroupId | null>(null);
 
   async function loadFeeds(ignoreCache = false) {
-    if (!ignoreCache) {
-      const cached = readCache();
-      if (cached) {
-        setEvents(cached.events);
-        setLoadState('ready');
-        return;
-      }
+    const cached = ignoreCache ? null : readCache();
+    const hasVisibleEvents = cached ? cached.events.length > 0 : events.length > 0;
+
+    if (cached) {
+      setEvents(cached.events);
+      setLoadState('ready');
+      if (Date.now() - cached.storedAt < CACHE_MAX_AGE) return;
     }
 
-    setLoadState('loading');
+    if (!hasVisibleEvents) setLoadState('loading');
     setLoadWarning('');
     const results = await Promise.allSettled(FEEDS.map(async (feed) => {
       const response = await fetch(feed.path, { headers: { Accept: 'text/calendar' } });
@@ -568,7 +567,8 @@ export default function SakamichiSchedule() {
     const failedCount = results.filter((result) => result.status === 'rejected').length;
 
     if (successful.length === 0) {
-      setLoadState('error');
+      if (!hasVisibleEvents) setLoadState('error');
+      else setLoadWarning('日程刷新失败，当前显示的是缓存内容。');
       return;
     }
 

@@ -105,6 +105,21 @@ test('official month requests are aborted when an upstream stalls', async () => 
   );
 });
 
+test('official month response bodies are also covered by the timeout', async () => {
+  const stalledBodyFetch = async (_url, init) => ({
+    ok: true,
+    status: 200,
+    text: () => new Promise((_resolve, reject) => {
+      init.signal.addEventListener('abort', () => reject(init.signal.reason), { once: true });
+    }),
+  });
+
+  await assert.rejects(
+    fetchOfficialScheduleMonth('nogizaka', '202607', stalledBodyFetch, 5),
+    (error) => error?.name === 'AbortError',
+  );
+});
+
 test('official and complete feeds stay separate while complete feed merges Miguri windows', async () => {
   const originalFetch = globalThis.fetch;
   globalThis.fetch = async () => new Response(`res({"data":[{
