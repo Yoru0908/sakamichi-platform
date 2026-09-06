@@ -81735,6 +81735,116 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.71199,
+          35.661888
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:e14ea7fc7db52cebc485",
+        "sourceKey": "fumi-article:e14ea7fc7db52cebc485",
+        "name": "IDOL",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都港区南青山5-11-9 レキシントン青山ビル B1F",
+        "sceneTitle": "2023.05.10 櫻坂46 村山美羽 花 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都港区南青山5-11-9 レキシントン青山ビル B1F",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60038240.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60038240.html",
+        "tags": [
+          "櫻坂46",
+          "村山美羽"
+        ],
+        "images": [],
+        "members": [
+          "村山美羽"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60038240.html",
+          "mapId": "",
+          "layer": "2023.05.10 櫻坂46 村山美羽 花 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "村山美羽"
+          ],
+          "name": "IDOL",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.783478,
+          35.68782
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:31fd035c3de4a7a2df00",
+        "sourceKey": "fumi-article:31fd035c3de4a7a2df00",
+        "name": "UNION SAND YARD ユニオンサンドヤード",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都中央区日本橋富沢町2-5 Suビル 1F",
+        "sceneTitle": "2026.01.21 櫻坂46 石森璃花 24、173 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都中央区日本橋富沢町2-5 Suビル 1F",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60038260.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60038260.html",
+        "tags": [
+          "櫻坂46",
+          "石森璃花"
+        ],
+        "images": [],
+        "members": [
+          "石森璃花"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60038260.html",
+          "mapId": "",
+          "layer": "2026.01.21 櫻坂46 石森璃花 24、173 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "石森璃花"
+          ],
+          "name": "UNION SAND YARD ユニオンサンドヤード",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
