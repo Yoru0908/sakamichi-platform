@@ -62,23 +62,38 @@ export interface SearchResponse {
 
 // ===== Cache =====
 
+const MAX_CACHE_ENTRIES = 40;
 const blogCacheMap = new Map<string, { data: BlogItem[]; time: number }>();
+export interface BlogPageResult {
+  blogs: BlogItem[];
+  total?: number;
+  hasMore: boolean;
+  pagination?: PaginationInfo;
+}
+const listCache = new Map<string, { data: BlogPageResult; time: number }>();
+const listRequests = new Map<string, Promise<BlogPageResult>>();
+
+function trimCache(cache: Map<string, unknown>) {
+  while (cache.size > MAX_CACHE_ENTRIES) cache.delete(cache.keys().next().value!);
+}
 
 function getCached(key: string): BlogItem[] | null {
   const cached = blogCacheMap.get(key);
   if (cached && Date.now() - cached.time < CACHE_TTL) return cached.data;
+  blogCacheMap.delete(key);
   return null;
 }
 
 function setCache(key: string, data: BlogItem[]) {
   blogCacheMap.set(key, { data, time: Date.now() });
+  trimCache(blogCacheMap);
 }
 
 // ===== Fetch helper =====
 
 async function fetchWithRetry(url: string, retries = 2, backoff = 1000): Promise<Response> {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, { signal: AbortSignal.timeout(15_000) });
     if (!response.ok && response.status >= 500 && retries > 0) {
       throw new Error(`HTTP ${response.status}`);
     }
@@ -115,19 +130,17 @@ export async function fetchBlogs(params: {
   member?: string;
   page?: number;
   useCache?: boolean;
-}): Promise<{ blogs: BlogItem[]; total?: number; hasMore: boolean; pagination?: PaginationInfo }> {
+}): Promise<BlogPageResult> {
   const { group = 'all', member, page = 1, useCache = true } = params;
   const isAll = group === 'all';
   const perPage = isAll ? ALL_PAGE_SIZE : PAGE_SIZE;
 
-  // Check cache
-  const cacheKey = `${group}_${page}_${member || ''}`;
-  if (useCache && !member) {
-    const cached = getCached(cacheKey);
-    if (cached && cached.length > 0) {
-      return { blogs: cached, hasMore: isAll ? cached.length >= perPage : false };
-    }
-  }
+  const cacheKey = JSON.stringify([getApiBaseUrl(), group, page, member || '']);
+  const cached = listCache.get(cacheKey);
+  if (cached && Date.now() - cached.time >= CACHE_TTL) listCache.delete(cacheKey);
+  else if (useCache && cached) return cached.data;
+  const pending = listRequests.get(cacheKey);
+  if (pending) return pending;
 
   const offset = (page - 1) * perPage;
   const urlParams = new URLSearchParams({ limit: String(perPage), offset: String(offset) });
@@ -141,31 +154,25 @@ export async function fetchBlogs(params: {
 
   const apiBase = getApiBaseUrl();
   const url = `${apiBase}/api/blogs?${urlParams}`;
-  const response = await fetchWithRetry(url);
-  const data: BlogsResponse = await response.json();
+  const request = (async (): Promise<BlogPageResult> => {
+    const response = await fetchWithRetry(url);
+    const data: BlogsResponse = await response.json();
+    if (!data.success || !data.blogs) throw new Error(data.error || '加载博客失败');
 
-  if (!data.success || !data.blogs) {
-    throw new Error(data.error || '加载博客失败');
-  }
-
-  let blogs = data.blogs.map(processBlog);
-  blogs = removeDuplicates(blogs);
-  blogs.sort((a, b) => {
-    const da = new Date(a.publish_date || 0).getTime();
-    const db = new Date(b.publish_date || 0).getTime();
-    return db - da;
-  });
-
-  // Cache
-  if (!member) {
-    setCache(cacheKey, blogs);
-  }
-
-  const pag = data.pagination || {};
-  const total = data.total ?? pag.total ?? pag.totalCount ?? undefined;
-  const hasMore = typeof pag.hasMore === 'boolean' ? pag.hasMore : blogs.length >= perPage;
-
-  return { blogs, total, hasMore, pagination: pag };
+    const blogs = removeDuplicates(data.blogs.map(processBlog));
+    blogs.sort((a, b) => new Date(b.publish_date || 0).getTime() - new Date(a.publish_date || 0).getTime());
+    const pag = data.pagination || {};
+    const total = data.total ?? pag.total ?? pag.totalCount ?? undefined;
+    const hasMore = typeof pag.hasMore === 'boolean' ? pag.hasMore : blogs.length >= perPage;
+    const result = { blogs, total, hasMore, pagination: pag };
+    // Preserve pagination metadata and valid empty pages, not only the rows.
+    listCache.delete(cacheKey);
+    listCache.set(cacheKey, { data: result, time: Date.now() });
+    trimCache(listCache);
+    return result;
+  })().finally(() => listRequests.delete(cacheKey));
+  listRequests.set(cacheKey, request);
+  return request;
 }
 
 export async function fetchBlogById(blogId: string): Promise<BlogItem | null> {

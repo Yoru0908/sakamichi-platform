@@ -1,4 +1,5 @@
 import { atom } from 'nanostores';
+import { singleFlight } from '@/utils/single-flight';
 import {
   login as apiLogin,
   register as apiRegister,
@@ -62,28 +63,53 @@ function userToState(user: AuthUser): AuthState {
   };
 }
 
+let authRevision = 0;
+let initializedAt: number | null = null;
+const INIT_REUSE_MS = 30_000;
+
 export function setAuth(state: Partial<AuthState>) {
+  // A profile edit must not be overwritten by an older initialization response.
+  authRevision += 1;
   $auth.set({ ...$auth.get(), ...state });
 }
 
 // ── Actions ──
 
-/** Initialize auth state from server (call on app load) */
-export async function initAuth(): Promise<void> {
-  setAuth({ loading: true });
+const initialize = singleFlight(async (): Promise<void> => {
+  const revision = authRevision;
+  $auth.set({ ...$auth.get(), loading: true });
   const res = await fetchMe();
+  if (revision !== authRevision) {
+    $auth.set({ ...$auth.get(), loading: false });
+    return;
+  }
   if (res.success && res.data?.user) {
     $auth.set(userToState(res.data.user));
+    initializedAt = Date.now();
   } else {
     $auth.set({ ...defaultAuth, loading: false });
+    // Do not retain failures: recovery should not wait for a frontend cache TTL.
+    initializedAt = null;
   }
+});
+
+/** Reuse recent successful initialization across islands; never replace authorization. */
+export function initAuth(force = false): Promise<void> {
+  if (!force && initializedAt !== null && Date.now() - initializedAt < INIT_REUSE_MS) {
+    return Promise.resolve();
+  }
+  return initialize();
 }
 
 /** Email + password login */
 export async function login(req: LoginRequest): Promise<{ success: boolean; error?: string; isFirstLogin?: boolean }> {
+  authRevision += 1;
+  initializedAt = null;
   const res = await apiLogin(req);
   if (res.success && res.data?.user) {
+    authRevision += 1;
     $auth.set(userToState(res.data.user));
+    initializedAt = Date.now();
     return { success: true, isFirstLogin: res.data.user.isFirstLogin };
   }
   return { success: false, error: res.message || res.error || '登录失败' };
@@ -100,6 +126,9 @@ export async function register(req: RegisterRequest): Promise<{ success: boolean
 
 /** Logout */
 export async function logout(): Promise<void> {
+  authRevision += 1;
+  initializedAt = null;
   await apiLogout();
+  authRevision += 1;
   $auth.set({ ...defaultAuth, loading: false });
 }

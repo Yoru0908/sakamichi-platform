@@ -1,4 +1,5 @@
 import { API_CONFIG } from './constants';
+import { singleFlight } from './single-flight';
 
 // ── Types ──
 export interface AuthUser {
@@ -444,14 +445,17 @@ async function apiFetch<T>(
   options: RequestInit = {},
 ): Promise<ApiResponse<T>> {
   try {
-    const res = await fetch(url, {
+    const headers = new Headers(options.headers);
+    if (typeof options.body === 'string' && !headers.has('Content-Type')) {
+      headers.set('Content-Type', 'application/json');
+    }
+    const requestOptions: RequestInit = {
       credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        ...options.headers,
-      },
       ...options,
-    });
+      headers,
+      signal: options.signal ?? AbortSignal.timeout(20_000),
+    };
+    const res = await fetch(url, requestOptions);
 
     const data = await res.json() as ApiResponse<T>;
 
@@ -460,12 +464,8 @@ async function apiFetch<T>(
       const refreshed = await refreshToken();
       if (refreshed) {
         const retry = await fetch(url, {
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-            ...options.headers,
-          },
-          ...options,
+          ...requestOptions,
+          signal: options.signal ?? AbortSignal.timeout(20_000),
         });
         return await retry.json() as ApiResponse<T>;
       }
@@ -514,17 +514,19 @@ export async function fetchMe(): Promise<ApiResponse<{ user: AuthUser }>> {
   return authFetch<{ user: AuthUser }>('/me');
 }
 
-export async function refreshToken(): Promise<boolean> {
+// Rotation is server-side: concurrent 401s must not each consume the same token.
+export const refreshToken = singleFlight(async (): Promise<boolean> => {
   try {
     const res = await fetch(`${AUTH_BASE}/refresh`, {
       method: 'POST',
       credentials: 'include',
+      signal: AbortSignal.timeout(20_000),
     });
     return res.ok;
   } catch {
     return false;
   }
-}
+});
 
 export async function verifyEmail(token: string): Promise<ApiResponse> {
   return authFetch(`/verify?token=${encodeURIComponent(token)}`);

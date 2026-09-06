@@ -126,6 +126,7 @@ export default function BlogApp() {
       {/* Content area */}
       {activeTab === 'blog' && (
         <BlogGrid
+          key={route.group}
           group={route.group}
           memberFilter={route.memberFilter}
           searchQuery={searchQuery}

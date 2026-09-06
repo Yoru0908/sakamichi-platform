@@ -5,7 +5,7 @@ dist/
 .astro/
 
 # dependencies
-node_modules/
+node_modules
 **/__pycache__/
 
 # logs
@@ -38,4 +38,5 @@ _backup_*.tar.gz
 # backup dirs
 **/.bak-*/
 *.backup
+*.bak*
 scripts/*debug*.html

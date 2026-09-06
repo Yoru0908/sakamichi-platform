@@ -10,6 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test:unit": "node --experimental-strip-types --test \"src/**/*.test.mjs\"",
     "workers:typecheck": "npm --prefix workers/auth run typecheck && npm --prefix workers/community run typecheck && npm --prefix workers/miguri run typecheck",
     "workers:smoke": "node ./scripts/smoke-workers.mjs",
     "discord:setup": "node ./scripts/setup-discord-channels.mjs",
@@ -49,6 +50,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "cheerio": "^1.2.0"
+    "cheerio": "^1.2.0",
+    "esbuild": "0.27.4"
   }
 }

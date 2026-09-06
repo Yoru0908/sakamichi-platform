@@ -18,17 +18,21 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
   const [blogs, setBlogs] = useState<BlogItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
-  const [page, setPage] = useState(1);
+  const [query, setQuery] = useState({ page: 1, member: memberFilter || '' });
+  const { page, member: memberSelect } = query;
+  const setPage = useCallback((next: number | ((value: number) => number)) => {
+    setQuery(current => ({ ...current, page: typeof next === 'function' ? next(current.page) : next }));
+  }, []);
+  const setMemberSelect = useCallback((member: string) => setQuery({ member, page: 1 }), []);
   const [totalPages, setTotalPages] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [groupData, setGroupData] = useState<GroupMembersData | null>(null);
   const [latestDateBlogs, setLatestDateBlogs] = useState<BlogItem[]>([]);
-  const [memberSelect, setMemberSelect] = useState(memberFilter || '');
   const [searchResults, setSearchResults] = useState<BlogItem[] | null>(null);
   const [searchCount, setSearchCount] = useState(0);
   const sentinelRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const prevGroupRef = useRef(group);
+  const requestSequence = useRef(0);
   const pageRef = useRef(page);
   pageRef.current = page;
 
@@ -36,6 +40,7 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
 
   // Load blogs
   const loadBlogs = useCallback(async (p: number, append = false) => {
+    const sequence = ++requestSequence.current;
     if (!append) setLoading(true);
     else setLoadingMore(true);
 
@@ -46,6 +51,7 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
         page: p,
         useCache: !memberSelect,
       });
+      if (sequence !== requestSequence.current) return;
 
       if (append) {
         setBlogs(prev => {
@@ -58,27 +64,31 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
       }
 
       setHasMore(result.hasMore);
-      if (result.total) {
+      if (result.total !== undefined) {
         const perPage = isAll ? ALL_PAGE_SIZE : PAGE_SIZE;
         setTotalPages(Math.max(1, Math.ceil(result.total / perPage)));
       }
     } catch (error) {
       console.error('[BlogGrid] 加载失败:', error);
     } finally {
-      setLoading(false);
-      setLoadingMore(false);
+      if (sequence === requestSequence.current) {
+        setLoading(false);
+        setLoadingMore(false);
+      }
     }
   }, [group, memberSelect, isAll]);
 
   // Load group members info
   useEffect(() => {
+    let cancelled = false;
     if (group !== 'all') {
       fetchGroupMembers(group).then(data => {
-        if (data) setGroupData(data);
+        if (!cancelled && data) setGroupData(data);
       });
     } else {
       setGroupData(null);
     }
+    return () => { cancelled = true; };
   }, [group]);
 
   useEffect(() => {
@@ -111,40 +121,17 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
     };
   }, [group, groupData]);
 
-  // Reset on group change
+  // BlogApp keys this component by group. Member + page change atomically.
   useEffect(() => {
-    if (prevGroupRef.current !== group) {
-      setPage(1);
-      setBlogs([]);
-      setLatestDateBlogs([]);
-      setSearchResults(null);
-      setMemberSelect('');
-      prevGroupRef.current = group;
-    }
-    loadBlogs(1);
-  }, [group]); // eslint-disable-line react-hooks/exhaustive-deps
+    setMemberSelect(memberFilter || '');
+  }, [memberFilter, setMemberSelect]);
 
-  // Reload on page change (for pagination mode)
+  // One owner for list loading, including infinite-scroll pages.
   useEffect(() => {
-    if (!isAll && page > 0) {
-      loadBlogs(page);
-    }
-  }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Restore member filter from URL
-  useEffect(() => {
-    if (memberFilter && memberFilter !== memberSelect) {
-      setMemberSelect(memberFilter);
-    }
-  }, [memberFilter]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Reload on member filter change
-  useEffect(() => {
-    if (prevGroupRef.current === group) {
-      setPage(1);
-      loadBlogs(1);
-    }
-  }, [memberSelect]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (externalSearch) return;
+    void loadBlogs(page, isAll && page > 1);
+    return () => { requestSequence.current += 1; };
+  }, [loadBlogs, page, isAll, externalSearch]);
 
   // Infinite scroll for #all
   useEffect(() => {
@@ -158,7 +145,6 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
           const nextPage = pageRef.current + 1;
           setPage(nextPage);
           pageRef.current = nextPage;
-          loadBlogs(nextPage, true);
         }
       },
       { rootMargin: '200px' }
@@ -171,31 +157,32 @@ export default function BlogGrid({ group, memberFilter, searchQuery: externalSea
     return () => observerRef.current?.disconnect();
   }, [isAll, hasMore, loadingMore, loading, loadBlogs]);
 
-  // Handle external search query from parent
+  // Ignore stale search responses just like stale list responses.
   useEffect(() => {
     if (!externalSearch) {
-      if (searchResults) {
-        setSearchResults(null);
-        loadBlogs(1);
-      }
+      setSearchResults(null);
       return;
     }
+    const sequence = ++requestSequence.current;
     setLoading(true);
     searchBlogs(externalSearch, group)
       .then(result => {
+        if (sequence !== requestSequence.current) return;
         setSearchResults(result.blogs);
         setSearchCount(result.count);
       })
       .catch(err => console.error('[BlogGrid] 搜索失败:', err))
-      .finally(() => setLoading(false));
-  }, [externalSearch, group]); // eslint-disable-line react-hooks/exhaustive-deps
+      .finally(() => {
+        if (sequence === requestSequence.current) setLoading(false);
+      });
+    return () => { requestSequence.current += 1; };
+  }, [externalSearch, group]);
 
   const clearSearch = useCallback(() => {
     setSearchResults(null);
     setPage(1);
-    loadBlogs(1);
     onClearSearch?.();
-  }, [loadBlogs, onClearSearch]);
+  }, [setPage, onClearSearch]);
 
   // Member filter handler
   const handleMemberFilter = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
