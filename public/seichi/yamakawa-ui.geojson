@@ -6120,6 +6120,151 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.869184,
+          38.265626
+        ]
+      },
+      "properties": {
+        "id": "blog-70916-sendai-pageant",
+        "name": "SENDAI光のページェント（定禅寺通）",
+        "category": "Blog・MSG",
+        "subcategory": "ブログ写真・グリーティング",
+        "categoryColor": "#f59e0b",
+        "address": "宮城県仙台市青葉区定禅寺通（仙台三越前〜定禅寺ガーデンヒルズ迎賓館前）",
+        "sceneTitle": "公式ブログ「宇宙船に乗って、どの星を目指そう」 / SENDAI光のページェント",
+        "sceneNote": "幼少期、父の運転する車にパジャマ姿で乗り、車窓から『ひかペ』を見た思い出を公式ブログで紹介。定禅寺通のケヤキ並木がライトアップされる仙台の冬の風物詩。",
+        "sourceLabel": "櫻坂46 山川宇衣 公式ブログ",
+        "sourceUrl": "https://46log.com/blog/#blog/sakurazaka-70916",
+        "referenceUrl": "https://sendaihikape.jp/overview/",
+        "tags": [
+          "山川宇衣",
+          "公式ブログ",
+          "仙台",
+          "SENDAI光のページェント",
+          "定禅寺通",
+          "ひかペ"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "公式ブログ",
+          "仙台",
+          "SENDAI光のページェント",
+          "定禅寺通",
+          "ひかペ"
+        ],
+        "source": {
+          "provider": "櫻坂46 山川宇衣 公式ブログ",
+          "url": "https://46log.com/blog/#blog/sakurazaka-70916",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "公式ブログ",
+            "仙台",
+            "SENDAI光のページェント",
+            "定禅寺通",
+            "ひかペ"
+          ],
+          "name": "SENDAI光のページェント（定禅寺通）"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "公式ブログ"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.714157,
+          35.729336
+        ]
+      },
+      "properties": {
+        "id": "msg-260904-parfait-terrace-milkyway",
+        "name": "パフェテラス ミルキーウェイ",
+        "category": "Blog・MSG",
+        "subcategory": "ブログ写真・グリーティング",
+        "categoryColor": "#f59e0b",
+        "address": "東京都豊島区東池袋1-12-8 富士喜ビル2F",
+        "sceneTitle": "260904msg / 喫茶店のプリン",
+        "sceneNote": "メッセージ『喫茶店のプリン…✨』に添付された、プリンにホイップクリームとチェリーを添えた写真。素材時刻は2026-09-04 18:17:31。",
+        "sourceLabel": "260904msg / user-provided",
+        "sourceUrl": "",
+        "referenceUrl": "https://milkyway-cafe.sakura.ne.jp/access.html",
+        "tags": [
+          "山川宇衣",
+          "MSG",
+          "260904msg",
+          "池袋",
+          "喫茶店",
+          "プリン",
+          "カフェ"
+        ],
+        "images": [
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/yamakawa-ui/manual/parfait-terrace-milkyway/01_original.jpg"
+        ],
+        "members": [
+          "山川宇衣",
+          "MSG",
+          "260904msg",
+          "池袋",
+          "喫茶店",
+          "プリン",
+          "カフェ"
+        ],
+        "source": {
+          "provider": "260904msg / user-provided",
+          "url": "https://milkyway-cafe.sakura.ne.jp/access.html",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "MSG",
+            "260904msg",
+            "池袋",
+            "喫茶店",
+            "プリン",
+            "カフェ"
+          ],
+          "name": "パフェテラス ミルキーウェイ"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "MSG"
+          ]
+        }
+      }
     }
   ]
 }
