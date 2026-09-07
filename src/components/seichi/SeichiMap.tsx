@@ -842,14 +842,19 @@ export default function SeichiMap({
   // 列表项点击逻辑（支持重复点击取消选择）
   const handleSelectFeature = (f: Feature) => {
     setSelectedFeature((prev) => (prev?.properties.id === f.properties.id ? null : f));
+    const [lng, lat] = f.geometry.coordinates;
+    const focusFeature = () => {
+      const map = mapInstanceRef.current;
+      if (!map) return;
+      map.invalidateSize();
+      map.flyTo([lat, lng], Math.max(map.getZoom(), 15), { duration: 0.6 });
+    };
     if (window.innerWidth < 768) {
       setMobileView('map');
-    }
-    if (mapInstanceRef.current) {
-      const [lng, lat] = f.geometry.coordinates;
-      mapInstanceRef.current.flyTo([lat, lng], Math.max(mapInstanceRef.current.getZoom(), 15), {
-        duration: 0.6,
-      });
+      // Wait until the hidden map regains a non-zero size before calculating flyTo.
+      window.requestAnimationFrame(() => window.requestAnimationFrame(focusFeature));
+    } else {
+      focusFeature();
     }
   };
 
