@@ -81845,6 +81845,118 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.070923,
+          34.334576
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:82ad93643782f30727a3",
+        "sourceKey": "fumi-article:82ad93643782f30727a3",
+        "name": "ラ・ファミーユ 高松本店",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "香川県高松市木太町2192 (高松国際ホテル前)",
+        "sceneTitle": "2026.08.31 櫻坂46 幸阪茉里乃 香川🥢 blogツアー完走ケーキ",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。香川県高松市木太町2192 (高松国際ホテル前)",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60043374.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60043374.html",
+        "tags": [
+          "櫻坂46",
+          "幸阪茉里乃"
+        ],
+        "images": [],
+        "members": [
+          "幸阪茉里乃"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60043374.html",
+          "mapId": "",
+          "layer": "2026.08.31 櫻坂46 幸阪茉里乃 香川🥢 blogツアー完走ケーキ",
+          "tags": [
+            "櫻坂46",
+            "幸阪茉里乃"
+          ],
+          "name": "ラ・ファミーユ 高松本店",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.736984,
+          35.628574
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:af185b1b88ad995d830c",
+        "sourceKey": "fumi-article:af185b1b88ad995d830c",
+        "name": "マクセル アクアパーク品川 Maxell AQUAPARK SHINAGAWA",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都港区高輪4-10-30 (品川プリンスホテル内)",
+        "sceneTitle": "2026.09.09 櫻坂46 中川智尋 白昼夢 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都港区高輪4-10-30 (品川プリンスホテル内)",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60043410.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60043410.html",
+        "tags": [
+          "櫻坂46",
+          "中川智尋",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "中川智尋"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60043410.html",
+          "mapId": "",
+          "layer": "2026.09.09 櫻坂46 中川智尋 白昼夢 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "中川智尋",
+            "四期生"
+          ],
+          "name": "マクセル アクアパーク品川 Maxell AQUAPARK SHINAGAWA",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
