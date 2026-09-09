@@ -14758,20 +14758,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          138.3117649,
-          35.8792171
+          138.3116791,
+          35.8790671
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:08f0467d917945e69d78",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:08f0467d917945e69d78",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1b57800d1c5e7699363f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1b57800d1c5e7699363f",
         "name": "アルソア 女神の森 美ウェルネスガーデン （旧：ウェルネスガーデン）",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "アルソア 女神の森 美ウェルネスガーデン （旧：ウェルネスガーデン）",
-        "sceneNote": "https://www.youtube.com/embed/QzNd53mcPLU 「風にキンモクセイ」のロケ地 https://www.youtube.com/watch?v=QzNd53mcPLU 題名: 18thシングル",
+        "sceneNote": "「風にキンモクセイ」のロケ地 https://www.youtube.com/watch?v=QzNd53mcPLU 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -14780,7 +14780,8 @@
           "シングル・アルバム（ロケ地）"
         ],
         "images": [
-          "https://img.youtube.com/vi/QzNd53mcPLU/hqdefault.jpg"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7uwIjeFppmQKDbRo1brIBKskzHqu4n7XCFu4dU66D3_vXxSrEW0WblaJ2mIA6uNc66A6s2dNNq_9SCkwX4SxkA_1HPmbDKK0ePD93nEH0Svxukhrc7qC51Vd6D3d_lxn3n3acBtjKPk5GP-vdHMXMruDITqJMoMIDEx6iBXry3ZrlsRosC8eQuu9ZzHkGMWUuhGPzeUsDfyxriSouCVcDBpPDsb911oNgvGpfCholYgV7JW4h3rGqRzt0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6hQM4ZUZ5cRJWRAOdl5t4EVy-F6bR33225mdwX61x9aa2U2J7cH1K9Ms2T5YqPU7-YKrQxAyzI1cSBb4J0MUvQsRC2qzByEsCmUhVzIDWN9e8ZnRNfVVyJ3Fc0Z0OE_5ynPxGt6maexAfsJWHdngh1bKxuo3H4Rwgf7XnOjD8fL5EE7n2fmc2EpiZuf0dwjEobIO1JoTJLe2xeEvlUo5nzVejWLU3PnWIYJdtPs5cMATYc1vkqong_NSk%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -14813,20 +14814,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          138.3186598,
-          35.8759703
+          138.3186088,
+          35.8758595
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5cb45aba5d55c7dba035",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5cb45aba5d55c7dba035",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9ab3270b5d338d3421ed",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9ab3270b5d338d3421ed",
         "name": "アルソア女神の森 シンフォニアガーデン（旧：セントラルガーデン）",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "アルソア女神の森 シンフォニアガーデン（旧：セントラルガーデン）",
-        "sceneNote": "題名:",
+        "sceneNote": "『風にキンモクセイ』MV撮影地 https://youtu.be/QzNd53mcPLU 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -14834,7 +14835,9 @@
           "日向坂46",
           "シングル・アルバム（ロケ地）"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6WZAnf7i0qwGiiuRPyAk5GX59SJOkknRwUGbkMYAG_lDw715P-1s7QiyDaFisP5EsJ5emHzOntsqWPAOzVpfMIQHReA625p_HsAqPqgszIHA-_PMMsb_GwMMSqgJTwQXJ8YRM4NUWSORiZ29fQ6GZ82MlHZe0WfXBiXWCmaNtsr9fgPRps7sIajdR22M8h-vzEdIlJPRwkpXVfYYdETup0Vaahd1DyocmxqWIOXzlLZPXONKNiaBaEeo4%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -14866,20 +14869,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          138.4485885,
-          35.9072844
+          138.448736,
+          35.9073583
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cf2f0ad45954a85eb9f2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cf2f0ad45954a85eb9f2",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bebfea55770199de5d83",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bebfea55770199de5d83",
         "name": "VILLAGE Ⅲ 清里",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "VILLAGE Ⅲ 清里",
-        "sceneNote": "題名:",
+        "sceneNote": "『風にキンモクセイ』MV撮影地 https://youtu.be/QzNd53mcPLU 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -14887,7 +14890,13 @@
           "日向坂46",
           "シングル・アルバム（ロケ地）"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7BG4v_JepLG_dCK2mpx6j1jQQzipaGhSSbsKSts3sgxwYwY7fvWxFAMg-Hus6oAljp9DTe6oB99otNTnVHgOGhpQl1UTsDvoc8ZkOz7JvJjY7OLU-wUaC1tZRs8SNYPHVX-v4DTJafhQGZnu59VaBojbBT0tN5FOk2G9HeXOsrr3CFTrRZ_wH_uHBF6aObAmrvYqy2Hf1kC32jSzt5Mv0WmlCpjFlmO5Jao16QEYLQto8Jt_9UDS3ZYp4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6Zf9QmwsAS_AuCl6-U-CFkYXBiWljgurUc9VymCD_yvzvrHTwsyrwgvV74FrC3l9tY_s5zzQ-LxKPJyNbpAS61gE8FqXFuEFWEJFTBxBOb6ynfAN08rPVab35n7uIobOKeeouDBxHPQKcxGI5vdLS3OkVK0fEtsoxEo6xmscS3aEmpE_oRuxDkSowM_yTXAP9swUbPaPemMdR4VRpTxYmuQB7mpfYJxh9cLLmo6PzhtaiYcbvsXnOmKd8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7exRxRaQvp7j0IW-s8m82Km952Vn0YLCILuDrJ9StVKhLa9S4Bt9LIa8BkTUr9JH-GF4CzeK6MKfUdAnWYJ_9vDGwcTD5nMRqH-pUJps8jqFM1lo_9TrJhkM-fPDo172iM1sC64x1hEaAeiiq37o0rXkOVxXOV-jA5ibWPJK85JEEUZ2rKpczzYFuV6w_zeaGbu1T-GpGRzQJiDO_aG5sCQUJRqtk12t37vud7P96_n-W_Y4hTVZKvTdk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7pJcEgmveaZHpk9l5GDUna1ZFxZBx0HeqaNFjIiwz4gjONl9uUtz6phWND1OWNRUrCmwSJyEUVk5Hwl6n-5NupTyqigP_JwtPKndd9_aORpPMMUDBlrDtwC8DdGzpUzsIGDXRcIMfkej2MCPBuG0QYsLHigGfbtxWoZcI9Nl5ExVgKT4g3KLzQ4GdTCT53Nj-eWsWAnREWNxFeR8fEAhKhq5mUVao8JAIpUQBcGJaJCQD71IohH7dZ0oY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5_juEKqxhxAkH_FXm_3kEsAluMjhoGMUh1GfzFHNDOoFgkO_keT7u-R9M5OS2wKuyJNU67JtJ6H20XF7B-4t9XhmX8AJwW8GmCgwqLD6g3eAahZswvMWb9abQQF7xG3fZBhfJ00Yss0K5DF_FU86La7aBST9UYewMwKKYdm2dJCqeiZe57Pn0YY2NVXJObl1VczbCnHswpIj0ogwRGKHMCLi332iIbsGdR9Xc4I9OA9oMWoJQUVp_NmQY%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -14899,6 +14908,63 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "VILLAGE Ⅲ 清里",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.1653145,
+          36.0909488
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:eafcc1aadc2b747db195",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:eafcc1aadc2b747db195",
+        "name": "霧ヶ峰 蛙原",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "霧ヶ峰 蛙原",
+        "sceneNote": "『風にキンモクセイ』MV撮影地 https://youtu.be/QzNd53mcPLU 題名: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Pjqj1ilnXwrckopBFAg2v3QwClSFWxS9naTYZWRVDkiOKHzz7LYm_Wltfiuk6WTrEgBYiVQPsXMrhe0UzTgJmbwqnUgFXaV4TFcrBOq3dalUvcqvlAp0J5qk2YWPtUYeK-s9KYR59rU_kQWWg7-qFelbcULH8ci1V5HURfP1eNCm8gb7jYRfjUgyASnG2uj2thnWFIX3eEWsy9M8CyPO6Op8NepzagkxJ1k855o_K9ibtkDN34Kdmjhw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4w859QHFDWrGklPoswcBv09mHM8Qv6EsmOmU6ky5kmR4CYaWEWAhW0k5tTfpXI5Nqx2D37lSgWCcM6kk1d3dGMZ57kG2sq0SaFeQ7droN-VyC_-njAms353q-1l4AlyD0WvnpvBvSnI0nYn5hTyDmxW6oeWoGcxjbr0mrVOAx_wJVmh-zXqBXHCtveeczUC0cbAV2kaijVTak_ilxagzKgrO7hmG5r3i94zymf3XlU0pZEaGhvKwOrNmU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7L5I-qTkJwAQ0VgO-HfYQdfqBS8KWZNRaUSdvDn8JijKLZc1kSFe1B3SQ-Rqq4RAygmtYNiMni9-FiCcuA9o3hlz8_OY0y-bYVlr9re_Mgr6-YzGLhvm1nIpeKDrIVtBrnYm9rHRgDaErOJyKV_yRCZwq5NCUh052T2vf5QiKPsPcZ8l1lIDiqoiSczY7x0o6dGnIX2rzX68rAQhRsFhQaPQ8sVKQyxBfNu0mOUfvIbTcUF-KlA3fe51E%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "霧ヶ峰 蛙原",
           "group": "日向坂46"
         },
         "classification": {
