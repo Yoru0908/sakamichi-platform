@@ -81957,6 +81957,61 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.702316,
+          35.657951
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:2bde2076875cdc42967b",
+        "sourceKey": "fumi-article:2bde2076875cdc42967b",
+        "name": "東急百貨店 +Q Beauty",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都渋谷区渋谷2-24-12 渋谷スクランブルスクエア 6階",
+        "sceneTitle": "2026.09.08 櫻坂46 守屋麗奈 SNIDEL BEAUTY blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都渋谷区渋谷2-24-12 渋谷スクランブルスクエア 6階",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/60043808.html",
+        "referenceUrl": "http://blog.livedoor.jp/fumichen2/archives/60043808.html",
+        "tags": [
+          "櫻坂46",
+          "守屋麗奈"
+        ],
+        "images": [],
+        "members": [
+          "守屋麗奈"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "http://blog.livedoor.jp/fumichen2/archives/60043808.html",
+          "mapId": "",
+          "layer": "2026.09.08 櫻坂46 守屋麗奈 SNIDEL BEAUTY blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "守屋麗奈"
+          ],
+          "name": "東急百貨店 +Q Beauty",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
