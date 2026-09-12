@@ -52,6 +52,7 @@ async function authorizationStatus(request: Context['request'], fetcher: typeof 
   } catch (error) {
     // No token, cookie, upstream body or arbitrary error message in logs.
     console.warn('[blog-relations] auth check failed', stage, error instanceof Error ? error.name : 'UnknownError');
+    if (stage === 'fetch' && error instanceof TypeError) console.warn('[blog-relations] native fetch diagnostic', error.message.replaceAll(token, '[redacted]').slice(0, 160));
     return 503;
   } finally { clearTimeout(timer); }
 }
