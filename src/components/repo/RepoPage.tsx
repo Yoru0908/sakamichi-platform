@@ -3,7 +3,8 @@ import { useStore } from '@nanostores/react';
 import { PenLine, Users, Download, Send, Palette, Save, Plus, LogIn, FolderOpen, Trash2, X, ChevronDown, ChevronRight, MessageSquare, TrendingUp, Sparkles, Heart, Star, Folder } from 'lucide-react';
 import type { Message, RepoData, TemplateId, AtmosphereTag, Member, GroupId } from '@/types/repo';
 import { TEMPLATES, ATMOSPHERE_TAGS, GROUP_META } from '@/types/repo';
-import { getMemberById } from '@/utils/repo-mock-data';
+import { getMemberById, MOCK_MEMBERS } from '@/utils/repo-mock-data';
+import { buildRepoMemberFolders, type FolderCategory } from './repo-member-folders';
 import { proxyImageUrl } from '@/utils/proxy-image';
 import { exportRepoElementAsPng } from '@/utils/repo-image-export';
 import { createRepoWork, deleteRepoWork, getMyRepoWorks, getRepoStats, updateRepoWork, type CreateRepoPayload, type RepoStatsResponse, type RepoWorkItem } from '@/utils/auth-api';
@@ -39,17 +40,6 @@ interface SavedRepo {
     tags: AtmosphereTag[];
     template: TemplateId;
   };
-}
-
-type FolderCategory = 'oshi' | 'favorite' | 'custom';
-
-interface MemberFolder {
-  memberId: string;
-  memberName: string;
-  groupId: GroupId;
-  memberImageUrl: string;
-  category: FolderCategory;
-  repos: SavedRepo[];
 }
 
 const CATEGORY_META: Record<FolderCategory, { label: string; icon: typeof Heart; color: string }> = {
@@ -362,32 +352,14 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
     };
   }
 
-  // Derive member category from auth oshi + favorites store
-  const favoriteNames = new Set(favorites.map(f => f.name));
-  const getMemberCategory = useCallback((memberName: string): FolderCategory => {
-    if (auth.oshiMember && memberName === auth.oshiMember) return 'oshi';
-    if (favoriteNames.has(memberName)) return 'favorite';
-    return 'custom';
-  }, [auth.oshiMember, favoriteNames]);
-
-  // Group repos by member for sidebar, with auto-category
-  const memberFolders: MemberFolder[] = (() => {
-    const map = new Map<string, MemberFolder>();
-    for (const repo of savedRepos) {
-      if (!map.has(repo.memberId)) {
-        map.set(repo.memberId, {
-          memberId: repo.memberId,
-          memberName: repo.memberName,
-          groupId: repo.groupId,
-          memberImageUrl: repo.memberImageUrl,
-          category: getMemberCategory(repo.memberName),
-          repos: [],
-        });
-      }
-      map.get(repo.memberId)!.repos.push(repo);
-    }
-    return Array.from(map.values());
-  })();
+  // Seed account preferences even when no drafts exist; reactive stores refresh
+  // this projection after login/hydration or changes in account settings.
+  const memberFolders = buildRepoMemberFolders({
+    repos: savedRepos,
+    members: MOCK_MEMBERS,
+    oshiMember: auth.oshiMember,
+    favorites,
+  });
 
   const foldersByCategory = (cat: FolderCategory) => memberFolders.filter(f => f.category === cat);
 
@@ -682,19 +654,19 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
                             {isExpanded ? <ChevronDown size={10} className="text-[var(--text-tertiary)]" /> : <ChevronRight size={10} className="text-[var(--text-tertiary)]" />}
                             <CatIcon size={11} style={{ color: meta.color }} />
                             <span className="font-medium text-[var(--text-secondary)]">{meta.label}</span>
-                            {folders.length > 0 && <span className="text-[9px] text-[var(--text-tertiary)] ml-auto">{folders.reduce((n, f) => n + f.repos.length, 0)}</span>}
+                            {folders.length > 0 && <span className="text-[9px] text-[var(--text-tertiary)] ml-auto">{folders.length} 人 · {folders.reduce((n, f) => n + f.repos.length, 0)} Repo</span>}
                           </button>
                           {isExpanded && (
                             <div className="ml-3 border-l border-[var(--border-primary)] pl-2 space-y-0.5 mt-0.5">
                               {folders.length === 0 ? (
                                 <div className="text-[10px] text-[var(--text-tertiary)] py-1 pl-1">
-                                  {cat === 'oshi' ? '选择成员后保存即可创建' : cat === 'favorite' ? '将常用成员标记为お気に入り' : '自定义分组'}
+                                  {auth.loading ? '正在读取账号设置...' : cat === 'oshi' ? '尚未设置推し，请在账号设置中选择' : cat === 'favorite' ? '尚未设置お気に入り，请在账号设置中添加' : '其他成员的草稿会显示在这里'}
                                 </div>
                               ) : folders.map(folder => {
-                                const color = GROUP_META[folder.groupId]?.color || '#999';
+                                const color = folder.groupId ? GROUP_META[folder.groupId]?.color || '#999' : '#999';
                                 const isMemberExpanded = expandedMemberId === folder.memberId;
                                 return (
-                                  <div key={folder.memberId}>
+                                  <div key={folder.memberId} data-repo-member-folder={folder.memberId}>
                                     <button type="button" onClick={() => setExpandedMemberId(isMemberExpanded ? null : folder.memberId)}
                                       className="w-full flex items-center gap-1.5 px-1.5 py-1 rounded-md text-[11px] hover:bg-[var(--bg-tertiary)] transition-colors">
                                       {isMemberExpanded ? <ChevronDown size={9} className="text-[var(--text-tertiary)]" /> : <ChevronRight size={9} className="text-[var(--text-tertiary)]" />}
@@ -723,10 +695,13 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
                                             </button>
                                           </div>
                                         ))}
-                                        <button type="button" onClick={() => newRepoForMember(folder.memberId)}
-                                          className="w-full flex items-center gap-1.5 px-2 py-1 rounded-md text-[10px] text-[var(--text-tertiary)] hover:text-[var(--color-brand-nogi)] hover:bg-[var(--bg-tertiary)] transition-colors">
-                                          <Plus size={9} /> 新建Repo
-                                        </button>
+                                        {folder.repos.length === 0 && <p className="px-2 py-1 text-[10px] text-[var(--text-tertiary)]">暂无草稿</p>}
+                                        {folder.canCreate ? (
+                                          <button type="button" onClick={() => newRepoForMember(folder.memberId)}
+                                            className="w-full flex items-center gap-1.5 px-2 py-1 rounded-md text-[10px] text-[var(--text-tertiary)] hover:text-[var(--color-brand-nogi)] hover:bg-[var(--bg-tertiary)] transition-colors">
+                                            <Plus size={9} /> 新建Repo
+                                          </button>
+                                        ) : <p className="px-2 py-1 text-[10px] text-[var(--text-tertiary)]">该成员不在当前可选名单中，已有草稿仍可打开</p>}
                                       </div>
                                     )}
                                   </div>
