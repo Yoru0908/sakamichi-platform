@@ -129,6 +129,16 @@ test('JP guard requires a verified CURRENT session, not a forged geo_pass; prote
   assert.equal(await authorize(jp, async () => { throw new Error('network'); }), false);
 });
 
+test('default auth fetch preserves the native Workers receiver', async () => {
+  const previous = globalThis.fetch;
+  globalThis.fetch = async function () {
+    assert.equal(this, globalThis, 'Native Workers fetch rejects unbound invocation');
+    return Response.json({ success: true, data: { user: { role: 'admin' } } });
+  };
+  try { assert.equal(await authorize(request(undefined, 'JP', { headers: { Cookie: 'access_token=test' } })), true); }
+  finally { globalThis.fetch = previous; }
+});
+
 test('cached data remains behind authorization, uses no-store externally, HEAD has no body', async () => {
   const previous = globalThis.caches; let lookups = 0;
   globalThis.caches = { default: { async match() { lookups++; return Response.json({ success: true, data: { public: true } }); } } };

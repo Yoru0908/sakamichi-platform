@@ -27,7 +27,9 @@ const json = (body: unknown, status = 200, head = false) => new Response(head ? 
 // boundary. Do not expose it on unguarded Pages preview/custom aliases. A JP
 // request additionally needs a CURRENT approved/admin platform session; a forged
 // geo_pass cookie alone is never accepted. Do this BEFORE looking in the cache.
-async function authorizationStatus(request: Context['request'], fetcher: typeof fetch = fetch) {
+// Workers' native fetch must retain its global receiver when used as a dependency.
+const nativeFetch: typeof fetch = (...args) => globalThis.fetch(...args);
+async function authorizationStatus(request: Context['request'], fetcher: typeof fetch = nativeFetch) {
   if (new URL(request.url).hostname !== '46log.com') return 403;
   if (request.cf?.country !== 'JP') return 200;
   const token = request.headers.get('Cookie')?.match(/(?:^|;\s*)access_token=([^;]+)/)?.[1];
@@ -42,7 +44,7 @@ async function authorizationStatus(request: Context['request'], fetcher: typeof 
     return result.success === true && (result.data?.user?.role === 'admin' || result.data?.user?.verificationStatus === 'approved') ? 200 : 403;
   } catch { return 503; }
 }
-export async function authorize(request: Context['request'], fetcher: typeof fetch = fetch) {
+export async function authorize(request: Context['request'], fetcher: typeof fetch = nativeFetch) {
   return await authorizationStatus(request, fetcher) === 200;
 }
 
