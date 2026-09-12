@@ -56,3 +56,13 @@ wrangler pages deploy dist --project-name sakamichi-platform --branch sakamichi-
 - Worker 旧版本（回滚）：`755fcc51-9242-401c-8215-fd171e13e57a`。
 - Pages 旧部署（回滚）：`a90b61ef-91c8-43aa-a32f-4a8a3584c1fe`，Git `336224b`。
 - 不部署/重启 Homeserver PM2，不触碰队列采集器及券数模型，不调用写入型同步接口来做测试。
+
+### 已验证发布
+
+- 功能 Git：`f9562ad`。
+- Worker：`ceaa8226-ac7e-4d38-94c3-70cb32af7be2`（100%）。
+- Pages：`898b907f-1c45-400d-a18e-9382c55556ac`，production / Git `f9562ad`；部署预览 `https://898b907f.sakamichi-platform-test.pages.dev`。
+- 正式域名 `46log.com/miguri/history` 的 `/_astro/SoldOutHistory.CeEqg1ob.js` SHA-256 与本地构建一致。
+- 正式 API：目录8个活动，当前管理目录仍为4个；日向坂17单9轮/941格/27成员，乃木坂41单2轮/197格/29成员，均有已保存部次结构。櫻坂15单16轮/916格，缺结构标记为 false。
+- 正式域名桌面/手机 Chromium 实测：上述两个归档矩阵可读，无采集的櫻坂14单明确缺失，櫻坂15单显示100条分页记录且不显示100%或全完售；分页、管理页入口均正常，无浏览器运行时错误或整页横向溢出。
+- 部署地图同步更新了平台历史入口与 `sakamichi-miguri` Worker 清单。
