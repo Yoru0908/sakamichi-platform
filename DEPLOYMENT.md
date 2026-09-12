@@ -156,6 +156,17 @@ wrangler pages deploy dist --project-name sakamichi-platform --branch sakamichi-
 - 本轮站点改动只部署 Pages，不能因此重启 Homeserver 或改 Worker 数据。
 - 已验证生产：Pages `028b056b-9c02-45d4-b530-3cb1f6df17fd`（Git `2b730f1`，功能 `1627fc3`），`https://028b056b.sakamichi-platform-test.pages.dev` / `46log.com`。GitHub 已推送工作分支与生产分支，并保留并行 Repo 修复至 `f1250f6`。124项回归、45页构建及正式域名1440/1280/1024/390px语言/归档测试通过；六种MSG撤下URL仍为410。Miguri Worker保持 `d808de1b-be97-4069-94bd-61f62a2db635`，本轮未重部署/同步。
 
+### 中文博客日语提及分析（2026-09-13，当前 Pages）
+
+`https://46log.com/blog/` →「关系分析」。按实际月份读取日语存档，在浏览器 Web Worker 计算作者→对象提及，提供逐篇原文依据、篇数/出现处数、排行和期别追溯。不是私交评分；缺日语/非名录作者/错误来源明确排除，不再使用旧8月 API/静态 fallback。
+
+- 当前 production `40217ecd-0699-4f94-8e03-9bd7e7468851`，Git `e27a581`，success / clean；保留 Repo 等改动至 `9db090c`。
+- 新增同源 Pages Function `/api/blog-relations`；选月加 `group`、`month`、`format=source`。production 增加 `BLOG_RELATIONS_SOURCE` → D1 `9eaf182b-e777-4f14-8330-17af49ca4f7e`；应用只运行固定 `blogs` SELECT，不是数据库级只读权限。不得扩展为任意查询或读取同库的 MSG/config 表。原 secrets、preview、WAF、独立 Workers/PM2/采集器不变，无迁移或数据修复写入。
+- 139项回归、45页构建；3916条存档中3741篇可分析日语，3733条摘录自动核对原文一致。桌面/手机真实D1 fixtures 的后台线程计算通过；全仓仍59个类型错误，整页启动期仍有单独记录的 React #418，不声称全站诊断干净。
+- 日本匿名/伪造凭据实际401，preview403，六种MSG旧路径继续410。**真实账号或合规非JP浏览器的公开接口200放行链路仍待补验**；未拿 fixture 测试代替，也未放宽原站限制。登录过期只沿用现有会话刷新机制重试一次。
+
+详细口径、数据覆盖、测试边界和回滚见 [`docs/blog-relations-evidence.md`](docs/blog-relations-evidence.md)。搜索、阅读管理、日本新站以及用户暂停的其他页面语言修复均未开展。
+
 ### Auth Worker Discord 会员联动
 
 `sakamichi-auth` 负责 Discord OAuth 绑定和付费身份组同步：

@@ -48,10 +48,47 @@ node scripts/test-blog-relations-browser.mjs
 node scripts/audit-blog-relations.mjs /outside/repository/source-snapshot.json
 ```
 
-浏览器覆盖 1440px/390px、按月懒加载并由真实 Web Worker 解析原始 HTML、日语高亮/链接、每页10篇依据、排行/期别追溯、缺正文和零匹配的差别、快速切换请求取消、错误不显示旧数值、重试、不请求旧 API/静态 fallback。该套浏览器用 API fixtures；不能替代部署后的真实 D1/API 验收。
+浏览器覆盖 1440px/390px、按月懒加载并由真实 Web Worker 解析原始 HTML、日语高亮/链接、每页10篇依据、排行/期别追溯、缺正文和零匹配的差别、快速切换请求取消、错误不显示旧数值、重试、401会话续期一次、不请求旧 API/静态 fallback。该套浏览器用 API fixtures；不能替代部署后的真实账号/API 放行验收。
+
+可用 `RELATIONS_REAL_SOURCE_FIXTURES=/outside/repository/live-d1-source-fixtures.json` 额外传入真实 SELECT 结果，验证浏览器线程和离线引擎一致。`RELATIONS_BASE_URL=https://46log.com` 测正式页面资源；此时仍拦截数据 API，不会读写真实账号。
+
+整页启动期仍偶发可恢复 React #418（本地和线上都观察到，发生在进入关系分析前；既有 Repo 文档也记录过此类早期认证 hydration 问题）。默认测试严格失败；明确设置 `RELATIONS_ALLOW_STARTUP_418=1` 时只把**进入关系分析前**的该警告单独输出，其他错误以及进入关系分析后的全部错误仍失败。发布验收使用此显式范围，不声称整站没有 hydration 问题，也未开展用户暂停的全站语言/认证界面修复。
 
 全仓 Astro 诊断基线仍有 59 个错误，不声称全仓类型检查通过；本轮新文件另行核查。
 
 ## 发布记录
 
-待生产验收后填入部署编号、数据覆盖/自动核验结果及实际请求结果。回滚仅回滚本轮 Pages 代码/专用 binding 配置，不回滚旧非原子 Miguri Worker，不删除原始博客或任何独立服务。
+### 2026-09-13
+
+- 当前 Pages production：`40217ecd-0699-4f94-8e03-9bd7e7468851`，Git `e27a581342d1a995a1c92330aa059cf3bc49350e`；production branch `sakamichi-platform`，部署状态 success，`commit_dirty:false`。
+- 主站 `https://46log.com/blog/`；部署预览 `https://40217ecd.sakamichi-platform-test.pages.dev` 的受保护数据接口故意返回403。
+- 初始服务端版本 `368ffd1`，浏览器线程 `68f3b2d`，登录续期 `8742bed`，随后完善边缘原生 fetch 兼容（保留 receiver、AbortController、manual 重定向并拒绝3xx），最终删除临时诊断。旧部署编号不是当前推荐回滚目标。
+- 保留生产 Repo 旁白颜色/导出等改动至 `9db090c`，也保留 Miguri 原子修复、MSG 410、Instagram 归档导航；没有部署脏的博客后端工作区。
+- 只增加 production `BLOG_RELATIONS_SOURCE` binding；原 `GEO_PASS_SECRET`、其他 Pages 配置和 preview 均逐项比较未变。未改 WAF/套餐/CPU配置、独立 Workers/采集器/PM2，也没有创建新日本站。
+- **139 项回归通过，45 页 Astro 构建与 Pages Functions 编译通过。** 全仓 Astro check 仍为59 errors / 0 warnings / 139 hints，本轮相关源文件没有新增错误。
+- 本地和正式页面的桌面/手机业务流程通过（显式记录上述启动警告）。真实 D1 的5组/月数据另外送入正式页面的 Web Worker：櫻坂2026-09、日向坂2025-12及2026-09、乃木坂2026-09及缺正文的2024-10，结果与离线引擎一致；较大月份228条正常分析，缺正文不显示伪造零关系结论。
+- 直接调用真实 D1 的固定 SQL + 本地 handler 集成测试：51个团体/月目录，5个月份；**21,666 rows read / 0 writes**。这是“真实D1＋本地授权上下文”测试，不伪称是公开接口认证放行测试。
+- 真实 HTTP 验证：日本匿名、伪造 geo_pass、无效 access_token 和伪造 `CF-IPCountry: US` 均被拒绝（401）；preview403；无效 token 确认经过真实 Auth 服务返回401，不再落入先前的边缘 fetch 503。最终按专用请求头过滤的短时 tail 捕获2条自己的拒绝请求，均 outcome=ok、logs/exceptions 为空；不把它扩称为授权放行路径日志验收。六种 MSG 撤下 URL 仍410/noindex/no-store。
+- **仍待补验：使用已有已认证账号，或合规非日本真实浏览器，完整走公开数据接口的200放行链路。** 现有测试出口均识别为日本；美国普通 HTTP 探针被原 WAF challenge 拦截。未放宽安全规则，也未使用用户真实登录态。不能把 fixture 或拒绝路径验收写成此项已通过。
+
+只读全量存档核验（51个团体/月，原始数据 SHA-256 `c9cdde157533965de29cfe962de6c7befcd06b3d53f05e930cf183dbc13d8b83`）：
+
+| 团体 | 源记录 | 可分析日语 | 缺日语 | 非名录作者 | 无有效官方来源 |
+|---|---:|---:|---:|---:|---:|
+| 乃木坂 | 862 | 800 | 61 | 1 | 0 |
+| 櫻坂 | 1134 | 1112 | 21 | 1 | 0 |
+| 日向坂 | 1920 | 1829 | 27 | 52 | 12 |
+| 合计 | 3916 | 3741 | 109 | 54 | 12 |
+
+自动逐条验证 **3733 条展示摘录**均存在于对应博客的规范化日语正文中、作者/原文链接一致、博客数/出现处数可对账；不是声称所有自然语言指代都经人工确认。12条无有效来源包括误存的商品/直播链接与旧恢复占位地址，只排除、不改写。另有2条真实相对官方博客路径已正确解析。
+
+2026-09 可分析数/关系组合：乃木坂16篇/3组、櫻坂30篇/13组、日向坂81篇/52组。例：山川宇衣→小田倉麗奈的旅行博客 `sakurazaka-70916` 保留2处日语依据，不再凭译文猜测。
+
+生产资源与本地构建哈希一致：
+
+- `BlogInteractions.CbWDQO31.js`：`98626dd24bf0577772c7ed21381625431c4f0b00d9086566fca99eab7f8ffefd`
+- `relationship-analysis.worker-B37WPLFJ.js`：`aba53a88a3afbea745c11bed3d015721e7b3dceeeb5d6b9a3221bd9977f99611`
+
+审计文件和截图在 `/Users/yoru/.cache/blog-relations/`，原始源导出、配置备份和诊断 tail 为本地受限文件，不进入 Git/生产资源。没有向 Homeserver 根分区写下载或日志。
+
+回滚仅回滚本轮 Pages 代码/专用 binding 配置（保留其他 secrets/bindings），不回滚旧非原子 Miguri Worker，不删除原始博客或任何独立服务。
