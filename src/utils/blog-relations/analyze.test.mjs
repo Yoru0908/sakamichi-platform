@@ -135,7 +135,7 @@ test('cached data remains behind authorization, uses no-store externally, HEAD h
   const { db, env, queries } = sqliteEnv();
   try {
     const context = { env, waitUntil() {} };
-    assert.equal((await onRequest({ ...context, request: request(undefined, 'JP') })).status, 403);
+    assert.equal((await onRequest({ ...context, request: request(undefined, 'JP') })).status, 401);
     assert.equal(lookups, 0);
     const response = await onRequest({ ...context, request: request(undefined, 'CN', { method: 'HEAD' }) });
     assert.equal(response.status, 200); assert.equal(await response.text(), '');

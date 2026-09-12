@@ -3,6 +3,7 @@ import { GROUPS, type GroupKey } from './blog-config';
 import type { Analysis, Edge } from '../../utils/blog-relations/analyze';
 import { SOURCE_SCHEMA_VERSION, type SourceMonth } from '../../utils/blog-relations/contract.ts';
 import { relationshipRanking, generationRelations } from './relationship-helpers.ts';
+import { refreshToken } from '../../utils/auth-api';
 
 type CatalogMonth = { group: GroupKey; month: string; blogCount: number; latestSourceUpdate: string };
 const panel = 'rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 sm:p-5';
@@ -10,8 +11,16 @@ const control = 'min-h-10 rounded-lg border border-[var(--border-primary)] bg-[v
 const pairKey = (edge: Edge) => `${edge.from}::${edge.to}`;
 const PAGE_SIZE = 10;
 
+let pendingRefresh: Promise<boolean> | null = null;
 async function readApi<T>(query: string, signal: AbortSignal): Promise<T> {
-  const response = await fetch(`/api/blog-relations${query}`, { signal, credentials: 'same-origin' });
+  const load = () => fetch(`/api/blog-relations${query}`, { signal, credentials: 'same-origin' });
+  let response = await load();
+  if (response.status === 401 && !signal.aborted) {
+    // Same standard refresh endpoint as other authenticated platform features;
+    // refresh at most once, and never retry forbidden/unverified (403) responses.
+    if (!pendingRefresh) pendingRefresh = refreshToken().finally(() => { pendingRefresh = null; });
+    if (await pendingRefresh && !signal.aborted) response = await load();
+  }
   const result = await response.json();
   if (!response.ok || result.success !== true || !result.data) throw new Error(result.error || '关系分析读取失败');
   return result.data as T;

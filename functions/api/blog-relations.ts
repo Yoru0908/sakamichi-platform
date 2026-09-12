@@ -27,27 +27,31 @@ const json = (body: unknown, status = 200, head = false) => new Response(head ? 
 // boundary. Do not expose it on unguarded Pages preview/custom aliases. A JP
 // request additionally needs a CURRENT approved/admin platform session; a forged
 // geo_pass cookie alone is never accepted. Do this BEFORE looking in the cache.
-export async function authorize(request: Context['request'], fetcher: typeof fetch = fetch) {
-  if (new URL(request.url).hostname !== '46log.com') return false;
-  if (request.cf?.country !== 'JP') return true;
+async function authorizationStatus(request: Context['request'], fetcher: typeof fetch = fetch) {
+  if (new URL(request.url).hostname !== '46log.com') return 403;
+  if (request.cf?.country !== 'JP') return 200;
   const token = request.headers.get('Cookie')?.match(/(?:^|;\s*)access_token=([^;]+)/)?.[1];
-  if (!token) return false;
+  if (!token) return 401;
   try {
     // /me checks the signed token AND current user row, without reading payment/OAuth links.
     const response = await fetcher('https://api.46log.com/api/auth/me', {
       headers: { Cookie: `access_token=${token}`, Accept: 'application/json' }, redirect: 'error', signal: AbortSignal.timeout(6000),
     });
-    if (!response.ok) return false;
+    if (!response.ok) return response.status === 401 ? 401 : response.status >= 500 ? 503 : 403;
     const result = await response.json() as { success?: boolean; data?: { user?: { role?: string; verificationStatus?: string } } };
-    return result.success === true && (result.data?.user?.role === 'admin' || result.data?.user?.verificationStatus === 'approved');
-  } catch { return false; }
+    return result.success === true && (result.data?.user?.role === 'admin' || result.data?.user?.verificationStatus === 'approved') ? 200 : 403;
+  } catch { return 503; }
+}
+export async function authorize(request: Context['request'], fetcher: typeof fetch = fetch) {
+  return await authorizationStatus(request, fetcher) === 200;
 }
 
 export async function onRequest(context: Context) {
   const { request, env } = context;
   const head = request.method === 'HEAD';
   if (!['GET', 'HEAD'].includes(request.method)) return new Response('Method not allowed', { status: 405, headers: { Allow: 'GET, HEAD' } });
-  if (!await authorize(request)) return json({ success: false, error: '此接口仅在中文主站开放；日本地区需要登录已认证账号。' }, 403, head);
+  const access = await authorizationStatus(request);
+  if (access !== 200) return json({ success: false, error: access === 503 ? '登录状态暂时无法验证，请稍后重试。' : access === 401 ? '请先登录；日本地区需要已认证账号。若已登录，请刷新页面后重试。' : '此接口仅在中文主站开放；日本地区需要登录已认证账号。' }, access, head);
   const url = new URL(request.url);
   const group = url.searchParams.get('group') as Group | null;
   const month = url.searchParams.get('month');
