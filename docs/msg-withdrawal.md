@@ -31,3 +31,9 @@ node --test scripts/test-msg-withdrawal.mjs
 ```
 
 测试覆盖源码保留/路由移除、根/子路径410及禁止索引、各入口/宣传清理、生成物无 MSG 页面与消息 island。
+
+## 已上线核验
+
+功能提交 `9691450`；与结构修复、并行 Repo 输入修复合并的 Pages `bc3e79f0`（Git `69ac9e0`）已在 `46log.com` 核验。桌面/手机六种根路径、斜杠、query、深层路径均返回410/noindex；首页无 MSG 链接、无 `msg-archive.46log.com` 请求，45页构建不包含三个 MSG island。后续并行 Repo 更新已合并并推送 GitHub 生产分支；当前综合部署以 `DEPLOYMENT.md` 为准。
+
+后续「その他」/Instagram 归档调整同样保留这些下架断言，没有恢复 MSG 页面或营销入口。

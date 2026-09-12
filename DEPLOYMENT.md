@@ -131,7 +131,7 @@ official ICS 和三团 lottery ICS，再在前端解析、合并和分类；Page
 
 ### `/miguri/queue` 排队监控
 
-平台页面内嵌 `https://meets.46log.com/` 的完整排队面板，保留本站导航，提供独立窗口入口；可带 `#eid=e28529&tab=summary` 定位场次。首页快捷入口、Miguri 桌面下拉/手机菜单、管理页和页脚均可到达。无需登录，也不把平台登录凭据传给排队 API。
+平台页面内嵌 `https://meets.46log.com/` 的完整排队面板，保留本站导航，提供独立窗口入口；可带 `#eid=e28529&tab=summary` 定位场次。首页快捷入口、Miguri 桌面下拉/手机菜单和页脚均可到达；管理页重复推广链接已移除。无需登录，也不把平台登录凭据传给排队 API。
 
 独立面板由 `fortunemeets-queue/workers/entry/` 的 Worker `meets-entry`（Custom Domain + Static Assets）托管；不是此 Pages 项目的子域名。它复用队列项目的唯一前端源和只读代理，API 仍经 `blog-push.46log.com/fm-queue/api/*` 到 Homeserver。备用入口 `https://meets-9eo.pages.dev/` 保留。旧 `meets.sakamichi-tools.cfd` 不再使用。
 
@@ -145,9 +145,15 @@ wrangler pages deploy dist --project-name sakamichi-platform --branch sakamichi-
 
 ### 个握历史完售（2026-09-12）
 
-公开入口 `/miguri/history`（可加 `?event=<slug>`），管理页、活动总览和导航均可直达。历史目录由 `sakamichi-miguri` 新只读接口 `/api/miguri/soldout-history` 提供，包含归档记录，缓存5分钟，不依赖当前活动列表，也不读取私人报名。详情仍用 `/api/miguri/soldout?event=...`；无记录/无部次结构均明确降级，不伪造0或100%完售。
+公开入口 `/miguri/history`（可加 `?event=<slug>`），活动总览、Miguri 导航及页脚均可直达；管理页顶部重复推广链接已移除。历史目录由 `sakamichi-miguri` 新只读接口 `/api/miguri/soldout-history` 提供，包含归档记录，缓存5分钟，不依赖当前活动列表，也不读取私人报名。详情仍用 `/api/miguri/soldout?event=...`；无记录/无部次结构均明确降级，不伪造0或100%完售。
 
-发布时需同时部署 `workers/miguri`（保留生产 vars/secrets）与 Pages；无需 D1 迁移、同步数据或 PM2 重启。实现、保留边界、测试、生产数据核查及回滚见 [`docs/miguri-soldout-history.md`](docs/miguri-soldout-history.md)。
+历史首发同时部署 `workers/miguri`（保留生产 vars/secrets）与 Pages；后续已修复特殊日期解析/非原子同步，并安全恢复当前活动结构。Worker `d808de1b-be97-4069-94bd-61f62a2db635`；无迁移、无 PM2 重启，44快照/3422格/521私人报名与归档元数据保持不变。不要重复执行修复同步，也不要回滚到旧非原子 Worker；详见 [`docs/miguri-structure-repair.md`](docs/miguri-structure-repair.md)。实现、保留边界、测试、生产数据核查及回滚见 [`docs/miguri-soldout-history.md`](docs/miguri-soldout-history.md)。
+
+### MSG 站内下架与「その他」（2026-09-13）
+
+- `/messages`、`/tools/msg-generator` 及其子路径返回410/noindex/no-store；源码移到 `archive/disabled-pages/` 保留，不进入构建。菜单/首页/SEO/付费权益宣传及 MSG islands 移除，独立推送/采集/归档服务和数据不变。详见 [`docs/msg-withdrawal.md`](docs/msg-withdrawal.md)。
+- `/tools` 在日语模式为「その他」；Instagram 移至该分组与「アーカイブ」卡片，保留 `/instagram` 原地址。导航/目录/页脚/Instagram 界面接入统一语言偏好，修复写死中文和 hydration 不一致；平板用抽屉菜单。详见 [`docs/navigation-i18n-instagram-archive.md`](docs/navigation-i18n-instagram-archive.md)。
+- 本轮站点改动只部署 Pages，不能因此重启 Homeserver 或改 Worker 数据。
 
 ### Auth Worker Discord 会员联动
 
