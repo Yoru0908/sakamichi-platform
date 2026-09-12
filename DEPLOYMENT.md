@@ -154,6 +154,7 @@ wrangler pages deploy dist --project-name sakamichi-platform --branch sakamichi-
 - `/messages`、`/tools/msg-generator` 及其子路径返回410/noindex/no-store；源码移到 `archive/disabled-pages/` 保留，不进入构建。菜单/首页/SEO/付费权益宣传及 MSG islands 移除，独立推送/采集/归档服务和数据不变。详见 [`docs/msg-withdrawal.md`](docs/msg-withdrawal.md)。
 - `/tools` 在日语模式为「その他」；Instagram 移至该分组与「アーカイブ」卡片，保留 `/instagram` 原地址。导航/目录/页脚/Instagram 界面接入统一语言偏好，修复写死中文和 hydration 不一致；平板用抽屉菜单。详见 [`docs/navigation-i18n-instagram-archive.md`](docs/navigation-i18n-instagram-archive.md)。
 - 本轮站点改动只部署 Pages，不能因此重启 Homeserver 或改 Worker 数据。
+- 已验证生产：Pages `028b056b-9c02-45d4-b530-3cb1f6df17fd`（Git `2b730f1`，功能 `1627fc3`），`https://028b056b.sakamichi-platform-test.pages.dev` / `46log.com`。GitHub 已推送工作分支与生产分支，并保留并行 Repo 修复至 `f1250f6`。124项回归、45页构建及正式域名1440/1280/1024/390px语言/归档测试通过；六种MSG撤下URL仍为410。Miguri Worker保持 `d808de1b-be97-4069-94bd-61f62a2db635`，本轮未重部署/同步。
 
 ### Auth Worker Discord 会员联动
 
