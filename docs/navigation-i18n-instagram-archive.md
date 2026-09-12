@@ -21,9 +21,17 @@ npm run build
 NODE_PATH=/path/to/playwright/node_modules CHROME_PATH=/path/to/chrome node scripts/test-navigation-i18n-browser.cjs
 ```
 
-- 与 Miguri parser/Worker/矩阵回归合跑：123 项通过；Worker 独立类型检查通过。
+- 与 Miguri parser/Worker/矩阵及 Repo 偏好回归合跑：124 项通过；Worker 独立类型检查通过。
 - Chromium 1440 / 1280 / 1024 / 390px：日语偏好冷启动、切换中英日并刷新保留、跨标签页同步、工具目录→Instagram→前进后退、手机归档分组、选中背景宽度与悬停字色、页脚、无效语言安全回退均通过。
 - 页面有静态标题不等于 React 已完成 hydration。浏览器回归等待 island 加载与 View Transition 完成后再连续前进/后退，避免测试脚本立即取消尚未完成的 hydration（React #424）。正常交互回归无 hydration/运行时错误、无 MSG 归档请求。
 - Astro build 45 页通过。全仓 Astro check 仍有既有诊断；本次修改文件没有新增 error，不以 build 成功代替全仓类型检查通过。
 
 发布使用基于生产分支的 `.worktrees/miguri-structure`，合并保留并行 Repo 编辑器修复，不从旧配置分支构建；测试图片和日志留在本机 `.cache/miguri-structure/`，不混入生产目录。
+
+## 已发布
+
+- 功能提交 `1627fc3`；部署 Git `2b730f1` 保留并行 Repo 修复至 `f1250f6`。已原子推送 `fix/miguri-history-structure` 与 `sakamichi-platform`，无 force push。
+- Pages production `028b056b-9c02-45d4-b530-3cb1f6df17fd`，预览 `https://028b056b.sakamichi-platform-test.pages.dev`，正式域名 `https://46log.com/tools`。
+- 正式域名运行同一 Chromium 回归（业务API使用只读测试fixture，不访问私人账号）；四种宽度、冷启动/切换/刷新、跨标签同步、归档导航/前进后退、页脚和无MSG请求均通过。
+- 另用真实 HTTP 核验六种撤下URL仍返回410/noindex/no-store；公开 `/_astro/NavPill.BuHTOg5b.js` SHA-256 与本地一致：`e0e1cb7c0c147ac7271445258fe757032699122689579051a6d50633e54ecad4`。
+- 最终全仓 Astro check：59项既有 error；本次变更文件没有新 error。站点生产部署状态 success。Miguri Worker仍为 `d808de1b-be97-4069-94bd-61f62a2db635`（100%），没有为本轮文案发布再次同步数据或重启服务。
