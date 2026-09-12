@@ -14,7 +14,8 @@ function nextId() { return `msg_${++msgCounter}`; }
 
 export default function ChatEditor({ messages, onChange, memberName, groupColor }: Props) {
   const [editingId, setEditingId] = useState<string | null>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const pendingReveal = useRef<{ id: string; append: boolean } | null>(null);
   const [insertBeforeId, setInsertBeforeId] = useState<string | null>(null);
 
   function addMessage(speaker: 'me' | 'member' | 'narration', beforeId?: string) {
@@ -24,6 +25,7 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
     const index = beforeId ? messages.findIndex(message => message.id === beforeId) : -1;
     const next = [...messages];
     next.splice(index < 0 ? next.length : index, 0, newMsg);
+    pendingReveal.current = { id: newMsg.id, append: index < 0 };
     onChange(next);
     setInsertBeforeId(null);
     setEditingId(newMsg.id);
@@ -48,6 +50,7 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
     const reader = new FileReader();
     reader.onload = (e) => {
       const newMsg: Message = { id: nextId(), speaker: 'narration', text: '', imageUrl: e.target?.result as string };
+      pendingReveal.current = { id: newMsg.id, append: true };
       onChange([...messages, newMsg]);
     };
     reader.readAsDataURL(file);
@@ -95,6 +98,25 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
     }
   }, [editingId]);
 
+  useEffect(() => {
+    if (!pendingReveal.current) return;
+    // Run after the new row and its focused textarea have been laid out. Only
+    // explicit additions reveal a row: typing, reordering or loading a draft
+    // must not keep pulling the user's scroll position back to the bottom.
+    const raf = requestAnimationFrame(() => {
+      const pending = pendingReveal.current;
+      const list = listRef.current;
+      if (!pending || !list) return;
+      const row = Array.from(list.querySelectorAll<HTMLElement>('[data-message-id]'))
+        .find(element => element.dataset.messageId === pending.id);
+      if (!row) return;
+      pendingReveal.current = null;
+      if (pending.append) list.scrollTop = list.scrollHeight;
+      row.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [messages]);
+
   function getSpeakerLabel(speaker: string) {
     if (speaker === 'me') return '自';
     if (speaker === 'member') return 'M';
@@ -120,7 +142,7 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
         対話内容
       </label>
 
-      <div className="space-y-1.5 max-h-[400px] overflow-y-auto pr-1">
+      <div ref={listRef} data-chat-message-list className="space-y-1.5 max-h-[400px] overflow-y-auto pr-1">
         {messages.map((msg, index) => (
           <div key={msg.id} data-message-id={msg.id} className="group space-y-1">
             <div className="flex items-center justify-end gap-1 text-[10px] text-gray-500" role="group" aria-label={`対話 ${index + 1} の順序と挿入`}>
@@ -266,7 +288,6 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
           </div>
           </div>
         ))}
-        <div ref={bottomRef} />
       </div>
 
       {/* Add buttons - member left, narration center, me right (matching bubble positions) */}

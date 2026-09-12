@@ -119,8 +119,48 @@ try {
   await page.getByRole('button', { name: '挿入をキャンセル', exact: true }).click();
   assert.deepEqual(await readState(), beforeCancel);
   assert.equal(await page.getByRole('group', { name: '挿入する話者', exact: true }).count(), 0);
+  console.log('PASS mobile-width insert-before for all speakers, automatic focus, cancel');
+
+  await page.goto(server.resolvedUrls.local[0] + '?long=1');
+  const list = page.locator('[data-chat-message-list]');
+  await page.locator('[data-message-id="long_29"]').waitFor();
+  await list.evaluate(el => { el.scrollTop = 0; });
+  await page.getByRole('button', { name: '自分', exact: true }).click();
+  await page.waitForFunction(() => {
+    const el = document.querySelector('[data-chat-message-list]');
+    return el.scrollTop > 0 && el.scrollHeight - el.scrollTop - el.clientHeight < 2;
+  });
+  const newInput = page.locator('textarea');
+  assert(await newInput.evaluate(el => document.activeElement === el));
+  assert(await newInput.evaluate(el => {
+    const r = el.getBoundingClientRect(), container = el.closest('[data-chat-message-list]').getBoundingClientRect();
+    return r.top >= container.top && r.bottom <= container.bottom;
+  }));
+  await newInput.pressSequentially('visible addition');
+  await list.evaluate(el => { el.scrollTop = 0; });
+  // Input updates do not steal a manually chosen scroll position.
+  await newInput.evaluate(el => {
+    const setter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value').set;
+    setter.call(el, el.value + '!');
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  await page.waitForTimeout(100);
+  assert.equal(await list.evaluate(el => el.scrollTop), 0);
+  await page.locator('[data-message-id="long_1"]').getByRole('button', { name: /の上に挿入$/ }).click();
+  await page.getByRole('group', { name: '挿入する話者', exact: true }).getByRole('button', { name: '+ ト書き', exact: true }).click();
+  await page.waitForFunction(() => document.activeElement?.tagName === 'TEXTAREA');
+  assert(await list.evaluate(el => el.scrollTop < el.scrollHeight / 2));
+  assert(await page.locator('textarea').evaluate(el => {
+    const r = el.getBoundingClientRect(), container = el.closest('[data-chat-message-list]').getBoundingClientRect();
+    return r.top >= container.top && r.bottom <= container.bottom;
+  }));
+  await page.locator('input[type=file]').first().setInputFiles({ name: 'test.gif', mimeType: 'image/gif', buffer: Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', 'base64') });
+  await page.waitForFunction(() => {
+    const el = document.querySelector('[data-chat-message-list]');
+    return el.scrollTop > 0 && el.scrollHeight - el.scrollTop - el.clientHeight < 2;
+  });
   assert.deepEqual(errors, []);
-  console.log('PASS mobile-width insert-before for all speakers, automatic focus, cancel; no runtime errors');
+  console.log('PASS long-list append/image auto-scroll, insert-near-target, typing preserves manual scroll; no runtime errors');
 } finally {
   await browser.close();
   await server.close();
