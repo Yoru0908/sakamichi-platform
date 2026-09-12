@@ -22,9 +22,13 @@ function detail(slug) {
     { round: 1, date: '2026-05-31', slot: 1, member: members[0] },
     { round: lastRound, date: '2026-05-31', slot: 2, member: members[1] },
   ];
-  return { event, dates: partial ? [] : ['2026-05-31'], slotNumbers: partial ? [] : [1, 2], members, cells,
+  const special = slug === 'old-hina';
+  const keys = ['2026-05-31::1', '2026-05-31::2'];
+  const extraKeys = [1,2,3,4].map((slot) => `2026-11-29::${slot}`);
+  return { event, dates: partial ? [] : special ? ['2026-05-31', '2026-11-29'] : ['2026-05-31'], slotNumbers: partial ? [] : special ? [1,2,3,4] : [1, 2], members, cells,
+    ...(special ? { slotsByDate: { '2026-05-31': [1,2], '2026-11-29': [1,2,3,4] }, memberSlotKeys: { [members[0]]: [...keys, ...extraKeys], [members[1]]: keys } } : {}),
     rounds: [1, lastRound].map((round) => ({ round, windowLabel: `第${round}次`, capturedAt: event.lastCapturedAt, memberCount: 2, cellCount: 1 })),
-    memberTotals: Object.fromEntries(members.map((member) => [member, 2])), structureAvailable: !partial };
+    memberTotals: Object.fromEntries(members.map((member, i) => [member, special && i === 0 ? 6 : 2])), structureAvailable: !partial };
 }
 
 (async () => {
@@ -71,6 +75,8 @@ function detail(slug) {
       await page.locator('[data-history-event="old-hina"]').click();
       await page.getByLabel('回看完售轮次').waitFor();
       await page.getByLabel('回看完售轮次').selectOption('3');
+      assert.equal(await page.locator('table thead tr:first-child th[colspan="4"]').count(), 1);
+      assert.equal(await page.locator('td[aria-label="未安排"]').count(), 4, 'Special-date nonparticipants must not appear as unsold');
       assert.match(page.url(), /event=old-hina/);
       await page.getByText(/14:00:12 JST/).waitFor();
       if (process.env.HISTORY_BROWSER_ARTIFACTS) {
@@ -109,7 +115,16 @@ function detail(slug) {
       await page.getByRole('button', { name: '重新加载目录' }).click();
       await page.locator('[data-history-event="old-hina"]').waitFor();
       await page.goto(base + '/miguri');
-      await page.getByRole('link', { name: '个握历史完售 · 已结束活动也能查 →' }).waitFor();
+      assert.equal(await page.getByRole('link', { name: '个握历史完售 · 已结束活动也能查 →' }).count(), 0);
+      assert.equal(await page.getByRole('link', { name: '排队监控 · 实时队列与历史回顾 →' }).count(), 0);
+      if (name === 'desktop') {
+        await page.locator('nav a[href="/miguri"]').first().hover();
+        await page.locator('nav a[href="/miguri/history"]').waitFor();
+        await page.locator('nav a[href="/miguri/queue"]').waitFor();
+      } else {
+        await page.getByRole('button', { name: 'Open menu', exact: true }).click();
+        await page.getByRole('link', { name: '历史完售', exact: true }).first().waitFor();
+      }
       assert.deepEqual(errors, [], 'No browser runtime errors');
       await context.close();
       console.log(`PASS ${name}: history/filter/round reset/back/deep link/missing/partial/retry/empty manager`);

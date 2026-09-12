@@ -1,9 +1,8 @@
 ---
-import { Pen, MessageCircle, Radio, Camera, Image, Calendar, Mic, Wrench, Cake, Activity } from 'lucide-astro';
+import { Pen, Radio, Camera, Image, Calendar, Mic, Wrench, Cake, Activity } from 'lucide-astro';
 
 const items = [
   { label: '博客', href: '/blog', icon: 'pen', color: 'var(--color-brand-nogi)' },
-  { label: 'MSG', href: '/messages', icon: 'msg', color: 'var(--color-brand-hinata)' },
   { label: '广播', href: '/radio', icon: 'radio', color: 'var(--color-brand-sakura)' },
   { label: 'INS', href: '/instagram', icon: 'camera', color: 'var(--color-brand-nogi)' },
   { label: '生写生成', href: '/photocard', icon: 'image', color: 'var(--color-brand-sakura)' },
@@ -27,7 +26,6 @@ const reloadHrefs = new Set(['/blog', '/repo']);
       >
         <span style={`color: ${item.color};`}>
           {item.icon === 'pen' && <Pen size={13} />}
-          {item.icon === 'msg' && <MessageCircle size={13} />}
           {item.icon === 'radio' && <Radio size={13} />}
           {item.icon === 'camera' && <Camera size={13} />}
           {item.icon === 'image' && <Image size={13} />}

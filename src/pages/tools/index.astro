@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { MessageSquare, FileText, Clock, Sparkles, Wrench, ArrowRight, Ticket, MapPin } from 'lucide-astro';
+import { FileText, Clock, Sparkles, Wrench, ArrowRight, Ticket, MapPin } from 'lucide-astro';
 
 const categories = [
   {
     label: '圣地巡礼',
     tools: [
       { title: '坂道圣地巡礼地图', desc: 'MV・Vlog・杂志拍摄地全收录，支持层级筛选与 Google Maps 导航', href: '/seichi', color: 'var(--color-brand-sakura)', iconIdx: 6 },
-    ],
-  },
-  {
-    label: 'MSG工具',
-    tools: [
-      { title: 'MSG样式生成器', desc: '坂道MSG聊天气泡截图生成，支持全成员头像', href: '/tools/msg-generator', color: 'var(--color-brand-hinata)', iconIdx: 0 },
     ],
   },
   {
@@ -60,7 +54,6 @@ const categories = [
                   class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
                   style={`background: color-mix(in srgb, ${tool.color} 12%, transparent); color: ${tool.color};`}
                 >
-                  {tool.iconIdx === 0 && <MessageSquare size={18} />}
                   {tool.iconIdx === 2 && <FileText size={18} />}
                   {tool.iconIdx === 3 && <Clock size={18} />}
                   {tool.iconIdx === 4 && <Sparkles size={18} />}

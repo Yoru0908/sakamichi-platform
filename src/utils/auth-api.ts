@@ -377,6 +377,8 @@ export interface MiguriSoldOutPayload {
   cells: MiguriSoldOutCell[];
   memberTotals: Record<string, number>;
   structureAvailable?: boolean;
+  slotsByDate?: Record<string, number[]>;
+  memberSlotKeys?: Record<string, string[]>;
 }
 
 export interface MiguriSoldOutHistoryEvent {

@@ -41,7 +41,8 @@ function getCellColor(round: number | null, maxRound: number, theme: typeof THEM
   return theme.cellSolid + Math.round(alpha * 255).toString(16).padStart(2, '0');
 }
 
-function SoldOutCell({ round, maxRound, theme }: { round: number | null; maxRound: number; theme: typeof THEME.sakurazaka }) {
+function SoldOutCell({ round, maxRound, theme, scheduled = true }: { round: number | null; maxRound: number; theme: typeof THEME.sakurazaka; scheduled?: boolean }) {
+  if (!scheduled && round === null) return <td className="p-0 text-center text-[10px] text-[var(--text-tertiary)] bg-[var(--bg-tertiary)] border-r border-b" title="未安排该成员参加此部" aria-label="未安排">—</td>;
   const bg = getCellColor(round, maxRound, theme);
   return (
     <td
@@ -198,7 +199,9 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
 
   const theme = THEME[analysis.event.group as keyof typeof THEME] || THEME.sakurazaka;
   const { dates, slotNumbers } = analysis;
-  const totalCols = dates.length * slotNumbers.length;
+  const slotsForDate = (date: string) => data?.slotsByDate?.[date] || slotNumbers;
+  const totalCols = dates.reduce((sum, date) => sum + slotsForDate(date).length, 0);
+  const scheduled = (member: string, date: string, slot: number) => !data?.memberSlotKeys || !!data.memberSlotKeys[member]?.includes(`${date}::${slot}`);
   const pctSold = analysis.totalCells > 0 ? Math.round((analysis.totalSoldOut / analysis.totalCells) * 100) : 0;
 
   return (
@@ -262,6 +265,8 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
         )}
       </div>
 
+      {data?.memberSlotKeys && <p className="text-[10px] text-[var(--text-tertiary)]">数字为首次记录完售的轮次；空白为未记录完售；灰色「—」为未安排参加。特别场按当天实际部次显示。</p>}
+
       {/* Matrix table */}
       <div className="overflow-x-auto rounded-xl border border-[var(--border-primary)]">
         <table className="w-full border-collapse text-xs" style={{ minWidth: totalCols * 22 + 240 }}>
@@ -278,7 +283,7 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
               {dates.map((date) => (
                 <th
                   key={date}
-                  colSpan={slotNumbers.length}
+                  colSpan={slotsForDate(date).length}
                   className="border-b px-0 py-2 text-center text-[10px] font-bold"
                   style={{ backgroundColor: theme.headerBg, borderLeft: '1px solid rgba(0,0,0,0.08)', borderColor: 'rgba(0,0,0,0.08)' }}
                 >
@@ -294,36 +299,12 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
               </th>
             </tr>
             {/* Slot number header row */}
-            {sortMode === 'generation' && (
-              <tr>
-                {dates.map((date) =>
-                  slotNumbers.map((slot) => (
-                    <th
-                      key={`${date}-${slot}`}
-                      className="border-b px-0 py-0.5 text-center text-[9px] font-normal text-[var(--text-tertiary)]"
-                      style={{ width: 22, minWidth: 22, backgroundColor: theme.accentBg, borderColor: 'rgba(0,0,0,0.06)' }}
-                    >
-                      {slot}
-                    </th>
-                  )),
-                )}
-              </tr>
-            )}
-            {sortMode === 'soldout' && (
-              <tr>
-                {dates.map((date) =>
-                  slotNumbers.map((slot) => (
-                    <th
-                      key={`${date}-${slot}`}
-                      className="border-b px-0 py-0.5 text-center text-[9px] font-normal text-[var(--text-tertiary)]"
-                      style={{ width: 22, minWidth: 22, backgroundColor: theme.accentBg, borderColor: 'rgba(0,0,0,0.06)' }}
-                    >
-                      {slot}
-                    </th>
-                  )),
-                )}
-              </tr>
-            )}
+            <tr>
+              {dates.map((date) => slotsForDate(date).map((slot) => (
+                <th key={`${date}-${slot}`} className="border-b px-0 py-0.5 text-center text-[9px] font-normal text-[var(--text-tertiary)]"
+                  style={{ width: 22, minWidth: 22, backgroundColor: theme.accentBg, borderColor: 'rgba(0,0,0,0.06)' }}>{slot}</th>
+              )))}
+            </tr>
           </thead>
           <tbody>
             {sortMode === 'generation' && generationGroups
@@ -348,8 +329,8 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
                       <tr key={member.name} className="transition-colors hover:bg-black/[0.02]">
                         <MemberNameCell member={member} theme={theme} showRank={false} />
                         {dates.map((date) =>
-                          slotNumbers.map((slot) => (
-                            <SoldOutCell key={`${date}-${slot}`} round={getCellRound(member, date, slot)} maxRound={maxRound} theme={theme} />
+                          slotsForDate(date).map((slot) => (
+                            <SoldOutCell key={`${date}-${slot}`} round={getCellRound(member, date, slot)} maxRound={maxRound} theme={theme} scheduled={scheduled(member.name, date, slot)} />
                           )),
                         )}
                         <StatCell member={member} />
@@ -361,8 +342,8 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
                   <tr key={member.name} className="transition-colors hover:bg-black/[0.02]">
                     <MemberNameCell member={member} rank={idx + 1} theme={theme} showRank />
                     {dates.map((date) =>
-                      slotNumbers.map((slot) => (
-                        <SoldOutCell key={`${date}-${slot}`} round={getCellRound(member, date, slot)} maxRound={maxRound} theme={theme} />
+                      slotsForDate(date).map((slot) => (
+                        <SoldOutCell key={`${date}-${slot}`} round={getCellRound(member, date, slot)} maxRound={maxRound} theme={theme} scheduled={scheduled(member.name, date, slot)} />
                       )),
                     )}
                     <StatCell member={member} />

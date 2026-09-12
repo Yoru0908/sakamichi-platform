@@ -3,7 +3,6 @@ import type { TranslationKey } from './zh';
 export const en: Record<TranslationKey, string> = {
   'nav.home': 'Home',
   'nav.blog': 'Blog',
-  'nav.messages': 'MSG Archive',
   'nav.radio': 'Radio',
   'nav.video': 'Video',
   'nav.instagram': 'INS Archive',
@@ -18,7 +17,6 @@ export const en: Record<TranslationKey, string> = {
   'nav.seichi': 'Pilgrimage',
   'nav.tools': 'Tools',
   'nav.tools.photocard': 'Photocard Generator',
-  'nav.tools.msg_generator': 'MSG Style Generator',
   'nav.tools.subtitle_merge': 'Subtitle Merge',
   'nav.tools.srt_fixer': 'SRT Timeline Fixer',
   'nav.tools.fad_effect': 'FAD Effect',
@@ -41,7 +39,7 @@ export const en: Record<TranslationKey, string> = {
   'theme.light': 'Light Mode',
   'theme.dark': 'Dark Mode',
 
-  'footer.description': 'A comprehensive fan platform for Sakamichi Series — blog translations, MSG archive, radio streaming, and creative tools.',
+  'footer.description': 'A comprehensive fan platform for Sakamichi Series — blog translations, radio streaming, and creative tools.',
   'footer.disclaimer': 'This is an unofficial fan project with no affiliation to Nogizaka46, Sakurazaka46, Hinatazaka46, or their management. All content is for personal and educational use only.',
   'footer.col.content': 'Content',
   'footer.col.tools': 'Tools',

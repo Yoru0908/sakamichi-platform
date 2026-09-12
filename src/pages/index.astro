@@ -3,7 +3,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 // Google OAuth branding verification requires exact URL match + meta description
 import HomeBlogSection from '@/components/home/HomeBlogSection';
 import LiveNowBar from '@/components/home/LiveNowBar';
-import TrendingMSG from '@/components/home/TrendingMSG';
 import LatestMiguri from '@/components/home/LatestMiguri';
 import QuickAccess from '@/components/home/QuickAccess.astro';
 
@@ -47,7 +46,7 @@ try {
 ---
 
 <BaseLayout>
-  <meta name="description" content="Sakamichi Tools (46log.com) is a fan-made platform for Sakamichi Series idol groups. It provides blog translations, MSG/mail archive, radio streaming, event management, and creative tools. Uses Google Calendar API to sync event schedules." slot="head" />
+  <meta name="description" content="Sakamichi Tools (46log.com) is a fan-made platform for Sakamichi Series idol groups. It provides blog translations, radio streaming, event management, and creative tools. Uses Google Calendar API to sync event schedules." slot="head" />
 
   {/* SSG Hero: static HTML with preloaded LCP image — no JS needed */}
   {heroBlog && (
@@ -97,9 +96,6 @@ try {
 
   <!-- 2. Live Now Bar (React Island — polls /api/radio/now-playing) -->
   <LiveNowBar client:load />
-
-  <!-- 4. Trending MSG (React Island — slow marquee scroll on desktop) -->
-  <TrendingMSG client:load />
 
   <!-- 5. Latest Miguri (React Island — real 抽選受付 with countdown) -->
   <LatestMiguri client:load />

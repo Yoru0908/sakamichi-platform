@@ -2,7 +2,6 @@ export const zh = {
   // Nav
   'nav.home': '首页',
   'nav.blog': '博客',
-  'nav.messages': 'MSG',
   'nav.radio': '广播',
   'nav.video': '冠番',
   'nav.instagram': 'INS',
@@ -17,7 +16,6 @@ export const zh = {
   'nav.seichi': '圣巡',
   'nav.tools': '更多工具',
   'nav.tools.photocard': '生写生成器',
-  'nav.tools.msg_generator': 'MSG样式生成器',
   'nav.tools.subtitle_merge': '字幕导出',
   'nav.tools.srt_fixer': 'SRT时间轴修复',
   'nav.tools.fad_effect': 'FAD特效',
@@ -44,7 +42,7 @@ export const zh = {
   'theme.dark': '深色模式',
 
   // Footer
-  'footer.description': '为坂道系粉丝提供博客翻译、MSG消息归档、广播收听、创作工具等综合服务。',
+  'footer.description': '为坂道系粉丝提供博客翻译、广播收听、创作工具等综合服务。',
   'footer.disclaimer': '本站为非官方粉丝项目，与乃木坂46、樱坂46、日向坂46及其运营方无任何关联。所有内容仅供个人学习与交流使用。',
   'footer.col.content': '内容',
   'footer.col.tools': '工具',

@@ -1,7 +1,29 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { parseEventDetailHtml } from './fortune-music.ts';
+import { readFileSync } from 'node:fs';
+import { parseEventDetailHtml, buildMiguriSyncPayload } from './fortune-music.ts';
+
+const specialHtml = readFileSync(new URL('./fixtures/fortune-additional-date.html', import.meta.url), 'utf8');
+
+test('additional date keeps its own timetable and restricted members without duplicate slot 4', () => {
+  const detail = parseEventDetailHtml(specialHtml);
+  assert.equal(detail.dates.length, 7);
+  assert.equal(detail.slots.length, 6);
+  assert.equal(detail.slots[3].startTime, '16:00');
+  assert.equal(detail.dateSchedules.length, 1);
+  const special = detail.dateSchedules[0];
+  assert.equal(special.date, '2026-11-29');
+  assert.equal(special.slots.length, 4);
+  assert.equal(special.slots[3].startTime, '15:30');
+  assert.deepEqual(special.members, ['森本茉莉']);
+  assert.deepEqual(buildMiguriSyncPayload([{ ...detail }]).events[0].dateSchedules, detail.dateSchedules);
+});
+
+test('unmatched timetable or unrecognized participant restriction fails closed', () => {
+  assert.throws(() => parseEventDetailHtml(specialHtml.replace('※11月29日（日）は以下の時間帯', '※11月28日（日）は以下の時間帯')), /対応付け/);
+  assert.throws(() => parseEventDetailHtml(specialHtml.replace('森本 茉莉のみ参加', '参加条件は調整中')), /参加条件/);
+});
 
 test('parseEventDetailHtml extracts slots from the current Fortune Music time row format', () => {
   const html = `
