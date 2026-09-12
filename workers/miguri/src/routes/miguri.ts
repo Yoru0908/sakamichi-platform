@@ -41,6 +41,7 @@ export type MiguriSyncEvent = {
   dates: string[];
   slots: MiguriSyncSlot[];
   members: string[];
+  dateSchedules?: { date: string; slots: MiguriSyncSlot[]; members: string[] }[];
 };
 
 export type MiguriSyncPayload = {
@@ -148,6 +149,10 @@ export function buildGoogleCalendarUrl(event: Omit<CalendarEvent, 'uid'>): strin
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
+function scheduleForDate(event: MiguriSyncEvent, date: string) {
+  return event.dateSchedules?.find((schedule) => schedule.date === date) || event;
+}
+
 export function normalizeMiguriPayload(payload: MiguriSyncPayload): {
   events: MiguriSyncEvent[];
   windows: NormalizedWindow[];
@@ -156,9 +161,14 @@ export function normalizeMiguriPayload(payload: MiguriSyncPayload): {
 } {
   const events = payload.events.map((event) => ({
     ...event,
-    dates: unique(event.dates.filter(Boolean)).sort(),
+    dates: unique([...event.dates, ...(event.dateSchedules || []).map((schedule) => schedule.date)].filter(Boolean)).sort(),
     slots: [...event.slots].sort((left, right) => left.slotNumber - right.slotNumber),
     members: unique(event.members.map(normalizeMemberName).filter(Boolean)),
+    ...(event.dateSchedules ? { dateSchedules: event.dateSchedules.map((schedule) => ({
+      ...schedule,
+      slots: [...schedule.slots].sort((left, right) => left.slotNumber - right.slotNumber),
+      members: unique(schedule.members.map(normalizeMemberName).filter(Boolean)),
+    })) } : {}),
   }));
 
   const windows = events.flatMap((event) => event.windows.map((window, index) => ({
@@ -167,7 +177,7 @@ export function normalizeMiguriPayload(payload: MiguriSyncPayload): {
     sortOrder: index,
   })));
 
-  const slots = events.flatMap((event) => event.dates.flatMap((eventDate) => event.slots.map((slot) => ({
+  const slots = events.flatMap((event) => event.dates.flatMap((eventDate) => scheduleForDate(event, eventDate).slots.map((slot) => ({
     ...slot,
     eventSlug: event.slug,
     eventDate,
@@ -175,8 +185,8 @@ export function normalizeMiguriPayload(payload: MiguriSyncPayload): {
 
   const slotMembers = events.flatMap((event) =>
     event.dates.flatMap((eventDate) =>
-      event.slots.flatMap((slot) =>
-        event.members.map((memberName) => ({
+      scheduleForDate(event, eventDate).slots.flatMap((slot) =>
+        scheduleForDate(event, eventDate).members.map((memberName) => ({
           eventSlug: event.slug,
           eventDate,
           slotNumber: slot.slotNumber,
@@ -360,14 +370,14 @@ export async function cacheSyncedEventResponse(
     windows: event.windows.map(({ label, start, end }) => ({ label, start, end })),
     dates: [...event.dates],
     members: [...event.members].sort((a, b) => a.localeCompare(b, 'ja')),
-    slots: event.dates.flatMap(date => event.slots.map(slot => ({
+    slots: event.dates.flatMap(date => scheduleForDate(event, date).slots.map(slot => ({
       date,
       slotNumber: slot.slotNumber,
       receptionStart: slot.receptionStart,
       startTime: slot.startTime,
       receptionEnd: slot.receptionEnd,
       endTime: slot.endTime,
-      members: [...event.members].sort(),
+      members: [...scheduleForDate(event, date).members].sort(),
     }))),
     syncedAt,
   })).sort((a, b) => a.slug < b.slug ? 1 : a.slug > b.slug ? -1 : 0);
@@ -880,6 +890,13 @@ export async function handleGetMiguriSoldOut(req: Request, env: Env): Promise<Re
         member: c.member_name,
       })),
       memberTotals: Object.fromEntries(memberTotalCells),
+      // Schedule membership, not remaining availability. Sold-out cells stay in the union.
+      memberSlotKeys: Object.fromEntries(allMembers.map((member) => [member, [...new Set([
+        ...(memberAvailableCells.get(member) || []),
+        ...(memberSoldOutCells.get(member)?.keys() || []),
+      ])]])),
+      slotsByDate: Object.fromEntries(dates.map((date) => [date, [...new Set((slotRows.results || [])
+        .filter((row) => row.event_date === date).map((row) => row.slot_number))].sort((a, b) => a - b)])),
       // Missing source structure must not turn known sold-out cells into a 100% denominator.
       structureAvailable: (slotRows.results || []).length > 0 && (availableRows.results || []).length > 0,
     },

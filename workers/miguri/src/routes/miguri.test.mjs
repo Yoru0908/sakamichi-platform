@@ -559,6 +559,10 @@ test('handleMiguriSync archives missing events while keeping incoming events act
     }
 
     async run(sql, args) {
+      if (sql.includes('json_each(?)')) {
+        for (const row of JSON.parse(args[0])) await this.run(sql.replace('json_each(?)', 'test_rows'), row);
+        return { success: true };
+      }
       if (sql.includes('UPDATE miguri_events') && sql.includes("SET status = 'archived'")) {
         for (const slug of args) {
           const current = this.events.get(slug) || { slug };

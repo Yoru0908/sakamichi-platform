@@ -1,5 +1,6 @@
 import type { Env } from '../types.ts';
 import { error, success } from '../utils/response.ts';
+import { buildStructureStatements, validateEventStructure } from './miguri-structure.ts';
 import { buildMiguriSyncPayload, fetchFortuneEventsWithDetails, type EnrichedFortuneEvent } from '../../../../src/utils/fortune-music.ts';
 import { getAuthUser } from './preferences.ts';
 import { syncAllConnectedMiguriGoogleCalendars } from './google-calendar.ts';
@@ -332,7 +333,9 @@ async function assertMiguriSyncPayloadSafe(env: Env, body: MiguriSyncPayload): P
   }
 
   const existingSnapshots = await loadExistingEventSnapshots(env);
+  if (new Set(body.events.map((event) => event.slug)).size !== body.events.length) anomalies.push('活动 slug 重复');
   for (const event of body.events) {
+    anomalies.push(...validateEventStructure(event));
     const memberCount = countUniqueMembers(event);
     if (event.dates.length === 0) {
       anomalies.push(`${event.slug} 日期数量为 0`);
@@ -393,101 +396,12 @@ export type MiguriSyncResult = {
   newWindows?: { eventSlug: string; label: string }[];
 };
 
-async function batchExecute(db: D1Database, statements: D1PreparedStatement[], chunkSize = 80): Promise<void> {
-  for (let i = 0; i < statements.length; i += chunkSize) {
-    await db.batch(statements.slice(i, i + chunkSize));
-  }
-}
-
-// ── Sold-out snapshot logic ──
-// Before slot_members are replaced, compare old vs new to detect sold-out cells.
-
-type SlotMemberCell = { eventSlug: string; eventDate: string; slotNumber: number; memberName: string };
-
-function cellKey(cell: Pick<SlotMemberCell, 'eventDate' | 'slotNumber' | 'memberName'>): string {
-  return `${cell.eventDate}::${cell.slotNumber}::${cell.memberName}`;
-}
-
-async function captureNewSoldOutCells(
-  env: Env,
-  eventSlug: string,
-  incomingMembers: SlotMemberCell[],
-  newWindowLabel: string,
-): Promise<number> {
-  // Load current (old) slot members for this event
-  const oldRows = await env.MIGURI_DB.prepare(
-    'SELECT event_date, slot_number, member_name FROM miguri_slot_members WHERE event_slug = ?',
-  ).bind(eventSlug).all<{ event_date: string; slot_number: number; member_name: string }>();
-
-  const oldCells = (oldRows.results || []);
-  if (oldCells.length === 0) return 0; // first sync, nothing to compare
-
-  const incomingSet = new Set(incomingMembers.map((m) => cellKey(m)));
-  const oldSet = new Set(oldCells.map((c) => cellKey({ eventDate: c.event_date, slotNumber: c.slot_number, memberName: c.member_name })));
-
-  // Cells that existed before but are NOT in the incoming data = newly sold out
-  const newlySoldOut: SlotMemberCell[] = [];
-  for (const cell of oldCells) {
-    const key = cellKey({ eventDate: cell.event_date, slotNumber: cell.slot_number, memberName: cell.member_name });
-    if (!incomingSet.has(key)) {
-      newlySoldOut.push({
-        eventSlug,
-        eventDate: cell.event_date,
-        slotNumber: cell.slot_number,
-        memberName: cell.member_name,
-      });
-    }
-  }
-
-  if (newlySoldOut.length === 0) return 0;
-
-  // Check if any cells were already recorded as sold-out for this event
-  const existingSoldOutRow = await env.MIGURI_DB.prepare(
-    'SELECT COALESCE(MAX(round_number), 0) as max_round FROM miguri_soldout_snapshots WHERE event_slug = ?',
-  ).bind(eventSlug).first<{ max_round: number }>();
-  const nextRound = (existingSoldOutRow?.max_round || 0) + 1;
-
-  // Filter out cells already recorded in a previous round
-  const alreadyRecordedRows = await env.MIGURI_DB.prepare(
-    'SELECT event_date, slot_number, member_name FROM miguri_soldout_cells WHERE event_slug = ?',
-  ).bind(eventSlug).all<{ event_date: string; slot_number: number; member_name: string }>();
-  const alreadyRecorded = new Set(
-    (alreadyRecordedRows.results || []).map((r) => cellKey({ eventDate: r.event_date, slotNumber: r.slot_number, memberName: r.member_name })),
-  );
-
-  const trulyNew = newlySoldOut.filter((c) => !alreadyRecorded.has(cellKey(c)));
-  if (trulyNew.length === 0) return 0;
-
-  // Record the snapshot
-  await env.MIGURI_DB.prepare(`
-    INSERT INTO miguri_soldout_snapshots (event_slug, round_number, window_label, member_count, cell_count)
-    VALUES (?, ?, ?, ?, ?)
-  `).bind(
-    eventSlug,
-    nextRound,
-    newWindowLabel,
-    new Set(trulyNew.map((c) => c.memberName)).size,
-    trulyNew.length,
-  ).run();
-
-  // Record each sold-out cell
-  const inserts = trulyNew.map((c) =>
-    env.MIGURI_DB.prepare(`
-      INSERT OR IGNORE INTO miguri_soldout_cells (event_slug, round_number, event_date, slot_number, member_name)
-      VALUES (?, ?, ?, ?, ?)
-    `).bind(eventSlug, nextRound, c.eventDate, c.slotNumber, c.memberName),
-  );
-  await batchExecute(env.MIGURI_DB, inserts);
-
-  return trulyNew.length;
-}
-
 export async function persistMiguriSyncPayload(env: Env, body: MiguriSyncPayload): Promise<MiguriSyncResult> {
   await assertMiguriSyncPayloadSafe(env, body);
   const normalized = normalizeMiguriPayload(body);
   const now = new Date().toISOString();
   const incomingSlugs = normalized.events.map((event) => event.slug);
-  const archivedSlugs = await archiveMissingEvents(env, incomingSlugs);
+  const { slugs: archivedSlugs, statement: archiveStatement } = await prepareArchivedEvents(env, incomingSlugs);
 
   const eventUpserts = normalized.events.map((event) =>
     env.MIGURI_DB.prepare(`
@@ -512,8 +426,6 @@ export async function persistMiguriSyncPayload(env: Env, body: MiguriSyncPayload
       JSON.stringify(event),
     ),
   );
-  await batchExecute(env.MIGURI_DB, eventUpserts);
-
   const eventSlugs = normalized.events.map((event) => event.slug);
 
   // Detect new windows before deleting old data
@@ -530,66 +442,14 @@ export async function persistMiguriSyncPayload(env: Env, body: MiguriSyncPayload
     (w) => !existingWindowKeys.has(`${w.eventSlug}::${w.label}`),
   );
 
-  // ── Sold-out detection: compare old vs incoming slot_members BEFORE deleting ──
-  for (const slug of eventSlugs) {
-    const incomingForEvent = normalized.slotMembers.filter((sm) => sm.eventSlug === slug);
-    // Determine which window just ended (use the latest new window label, or generic)
-    const windowLabel = newWindows.find((w) => w.eventSlug === slug)?.label || '';
-    try {
-      await captureNewSoldOutCells(env, slug, incomingForEvent.map((sm) => ({
-        eventSlug: sm.eventSlug,
-        eventDate: sm.eventDate,
-        slotNumber: sm.slotNumber,
-        memberName: sm.memberName,
-      })), windowLabel);
-    } catch (err) {
-      console.error('[Miguri] Sold-out snapshot failed for', slug, err);
-    }
-  }
-
-  const deleteStatements = eventSlugs.flatMap((slug) => [
-    env.MIGURI_DB.prepare('DELETE FROM miguri_event_windows WHERE event_slug = ?').bind(slug),
-    env.MIGURI_DB.prepare('DELETE FROM miguri_slot_members WHERE event_slug = ?').bind(slug),
-    env.MIGURI_DB.prepare('DELETE FROM miguri_event_slots WHERE event_slug = ?').bind(slug),
+  // D1 batch is transactional: archive, metadata, deletions and replacements commit together.
+  // General event rosters do NOT describe per-slot stock. Only the authenticated
+  // soldout-import feed may add sold-out observations; metadata changes must not invent them.
+  await env.MIGURI_DB.batch([
+    ...(archiveStatement ? [archiveStatement] : []),
+    ...eventUpserts,
+    ...buildStructureStatements(env, normalized),
   ]);
-  await batchExecute(env.MIGURI_DB, deleteStatements);
-
-  const windowInserts = normalized.windows.map((window) =>
-    env.MIGURI_DB.prepare(`
-      INSERT INTO miguri_event_windows (event_slug, label, start_at, end_at, sort_order)
-      VALUES (?, ?, ?, ?, ?)
-    `).bind(window.eventSlug, window.label, window.start, window.end, window.sortOrder),
-  );
-  await batchExecute(env.MIGURI_DB, windowInserts);
-
-  const slotInserts = normalized.slots.map((slot) =>
-    env.MIGURI_DB.prepare(`
-      INSERT INTO miguri_event_slots (event_slug, event_date, slot_number, reception_start, start_time, reception_end, end_time)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
-    `).bind(
-      slot.eventSlug,
-      slot.eventDate,
-      slot.slotNumber,
-      slot.receptionStart,
-      slot.startTime,
-      slot.receptionEnd,
-      slot.endTime,
-    ),
-  );
-  await batchExecute(env.MIGURI_DB, slotInserts);
-
-  const slotMemberInserts = normalized.slotMembers.map((slotMember) =>
-    env.MIGURI_DB.prepare(`
-      INSERT INTO miguri_slot_members (event_slug, event_date, slot_number, member_name)
-      VALUES (?, ?, ?, ?)
-    `).bind(
-      slotMember.eventSlug,
-      slotMember.eventDate,
-      slotMember.slotNumber,
-      slotMember.memberName,
-    ),
-  );
-  await batchExecute(env.MIGURI_DB, slotMemberInserts);
   await cacheSyncedEventResponse(env, normalized, now);
 
   return {
@@ -754,7 +614,7 @@ export async function handleMiguriSoldOutImport(req: Request, env: Env): Promise
   });
 }
 
-async function archiveMissingEvents(env: Env, incomingSlugs: string[]): Promise<string[]> {
+async function prepareArchivedEvents(env: Env, incomingSlugs: string[]) {
   const rows = await env.MIGURI_DB.prepare(`
     SELECT slug
     FROM miguri_events
@@ -763,15 +623,15 @@ async function archiveMissingEvents(env: Env, incomingSlugs: string[]): Promise<
 
   const existingSlugs = (rows.results || []).map((row) => row.slug);
   const archivedSlugs = diffArchivedEventSlugs(existingSlugs, incomingSlugs);
-  if (archivedSlugs.length === 0) return [];
+  if (archivedSlugs.length === 0) return { slugs: archivedSlugs, statement: undefined };
 
   const placeholders = archivedSlugs.map(() => '?').join(', ');
-  await env.MIGURI_DB.prepare(`
+  const statement = env.MIGURI_DB.prepare(`
     UPDATE miguri_events
     SET status = 'archived',
         updated_at = datetime('now')
     WHERE slug IN (${placeholders})
-  `).bind(...archivedSlugs).run();
+  `).bind(...archivedSlugs);
 
-  return archivedSlugs;
+  return { slugs: archivedSlugs, statement };
 }

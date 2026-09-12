@@ -28,10 +28,17 @@ export type FortuneEventSlot = {
   endTime: string;
 };
 
+export type FortuneDateSchedule = {
+  date: string;
+  slots: FortuneEventSlot[];
+  members: string[];
+};
+
 export type FortuneEventDetail = {
   dates: string[];
   slots: FortuneEventSlot[];
   members: string[];
+  dateSchedules?: FortuneDateSchedule[];
 };
 
 export type EnrichedFortuneEvent = FortuneEvent & FortuneEventDetail;
@@ -47,6 +54,7 @@ export type MiguriSyncPayload = {
     dates: string[];
     slots: FortuneEventSlot[];
     members: string[];
+    dateSchedules?: FortuneDateSchedule[];
   }>;
 };
 
@@ -245,10 +253,43 @@ function parseMembers(text: string): string[] {
 
 export function parseEventDetailHtml(html: string): FortuneEventDetail {
   const text = htmlToText(html);
+  const dates = parseDates(text);
+  const members = parseMembers(text);
+  // Never flatten a special date's timetable into the general timetable.
+  const blocks = [...text.matchAll(/【(?:時間|オンライン[^】]*スケジュール)】([^]*?)(?=【|$)/g)]
+    .map((match) => ({ index: match.index!, slots: parseSlots(match[1]) }))
+    .filter((block) => block.slots.length > 0);
+  const slots = blocks[0]?.slots || parseSlots(text);
+  const additional = extractSectionRaw(text, '【追加日程】');
+  const dateSchedules: FortuneDateSchedule[] = [];
+  const usedBlocks = new Set<number>();
+  for (const line of additional.split(/\n+/).filter((line) => /\d{4}年/.test(line))) {
+    const date = normalizeEventDate(line);
+    if (!date) throw new Error('追加日程の日時を解析できません');
+    const only = line.match(/※\s*(.+?)のみ参加/);
+    if (line.includes('※') && !only) throw new Error(`追加日程の参加条件を解析できません: ${date}`);
+    const participants = only
+      ? only[1].split(/[、,\/]/).map((name) => normalizeJapaneseText(name).replace(/\s/g, '')).filter(Boolean)
+      : members;
+    if (!participants.length || participants.some((name) => !members.includes(name))) {
+      throw new Error(`追加日程の参加メンバーを確認できません: ${date}`);
+    }
+    const [year, month, day] = date.split('-').map(Number);
+    const dateHint = new RegExp(`(?:${year}年)?0?${month}月0?${day}日[^【]{0,80}以下の時間帯`);
+    const matching = blocks.slice(1).filter((block, index) => dateHint.test(text.slice(blocks[index].index, block.index)));
+    if (matching.length > 1) throw new Error(`追加日程の時間帯が曖昧です: ${date}`);
+    const special = matching[0];
+    if (special) usedBlocks.add(special.index);
+    dateSchedules.push({ date, slots: special?.slots || slots, members: participants });
+  }
+  if (blocks.slice(1).some((block) => !usedBlocks.has(block.index))) {
+    throw new Error('日付に対応付けられない複数の時間帯があります');
+  }
   return {
-    dates: parseDates(text),
-    slots: parseSlots(text),
-    members: parseMembers(text),
+    dates: [...new Set([...dates, ...dateSchedules.map((schedule) => schedule.date)])].sort(),
+    slots,
+    members,
+    ...(dateSchedules.length ? { dateSchedules } : {}),
   };
 }
 
@@ -315,6 +356,7 @@ export function buildMiguriSyncPayload(events: EnrichedFortuneEvent[]): MiguriSy
       dates: [...event.dates].sort(),
       slots: [...event.slots].sort((a, b) => a.slotNumber - b.slotNumber),
       members: Array.from(new Set(event.members)).sort((a, b) => a.localeCompare(b, 'ja')),
+      ...(event.dateSchedules ? { dateSchedules: event.dateSchedules } : {}),
     })),
   };
 }

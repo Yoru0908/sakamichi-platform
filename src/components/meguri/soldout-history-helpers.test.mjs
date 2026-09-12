@@ -32,7 +32,8 @@ test('capture timestamps are JST regardless of browser timezone and preserve mis
 
 test('history is reachable even when manager has no current events; desktop/mobile/sidebar links and real island are wired', () => {
   const read = (path) => readFileSync(new URL('../../../' + path, import.meta.url), 'utf8');
-  assert.match(read('src/pages/miguri.astro'), /href="\/miguri\/history"/);
+  assert.match(read('src/pages/miguri.astro'), /<BaseLayout/);
+  assert.doesNotMatch(read('src/pages/miguri.astro'), /个握历史完售 ·|排队监控 ·/);
   assert.match(read('src/pages/miguri/history.astro'), /<SoldOutHistory client:load/);
   assert.equal((read('src/utils/navigation.ts').match(/href: '\/miguri\/history'/g) || []).length, 3);
   assert.equal((read('src/components/meguri/MeguriPrototype.tsx').match(/href="\/miguri\/history"/g) || []).length, 2);
