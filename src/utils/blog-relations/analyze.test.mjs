@@ -4,7 +4,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
 import { analyzeBlogs, japaneseText, extractMentions, canonicalSource, MAX_BLOGS } from './analyze.ts';
 import { MEMBERS, normalizeName } from './roster.ts';
-import { CATALOG_SQL, MONTH_SQL, authorize, onRequest } from '../../../functions/api/blog-relations.ts';
+import { authorize, onRequest } from '../../../functions/api/blog-relations.ts';
 import { relationshipRanking, generationRelations } from '../../components/blog/relationship-helpers.ts';
 
 const member = (name) => MEMBERS.find((item) => normalizeName(item.name) === normalizeName(name));
@@ -98,8 +98,10 @@ test('API catalogue is metadata-only; selecting a month uses real read-only SQLi
   let response = await onRequest(ctx); assert.equal(response.status, 200);
   assert.equal((await response.json()).data.months.length, 2);
   assert.ok(!queries[0].includes('bilingual_content'));
-  response = await onRequest({ ...ctx, request: request('https://46log.com/api/blog-relations?group=sakurazaka&month=2026-09') });
-  const payload = await response.json(); assert.equal(payload.data.edges[0].to, '小田倉麗奈');
+  response = await onRequest({ ...ctx, request: request('https://46log.com/api/blog-relations?group=sakurazaka&month=2026-09&format=source') });
+  const payload = await response.json();
+  assert.equal(payload.data.version, 'ja-source-v1');
+  assert.equal(analyzeBlogs(payload.data.rows, payload.data.group, payload.data.month).edges[0].to, '小田倉麗奈');
   assert.equal(response.headers.get('cache-control'), 'no-store');
   assert.deepEqual(db.prepare('SELECT * FROM blogs').all(), before); db.close();
 });
@@ -107,6 +109,7 @@ test('API catalogue is metadata-only; selecting a month uses real read-only SQLi
 test('API rejects writes, bad parameters, unguarded preview hosts and unpublished data source', async () => {
   const { db, env, queries } = sqliteEnv(); const call = (req, e = env) => onRequest({ request: req, env: e, waitUntil() {} });
   for (const query of ['?group=bad&month=2026-09', '?group=toString&month=2026-09', '?group=sakurazaka&month=2026-13', '?month=2026-09', '?group=sakurazaka&month=2026-09&extra=1']) assert.equal((await call(request('https://46log.com/api/blog-relations' + query))).status, 400);
+  assert.equal((await call(request('https://46log.com/api/blog-relations?group=sakurazaka&month=2026-09'))).status, 426);
   assert.equal((await call(request('https://preview.pages.dev/api/blog-relations'))).status, 403);
   assert.equal((await call(request(undefined, 'CN', { method: 'POST' }))).status, 405);
   assert.equal((await call(request(), {})).status, 503);
@@ -145,7 +148,7 @@ test('cached data remains behind authorization, uses no-store externally, HEAD h
 test('month count and total body size are checked before HTML materialization', async () => {
   for (const summary of [{ blogCount: MAX_BLOGS + 1, sourceChars: 10 }, { blogCount: 10, sourceChars: 6_000_001 }]) {
     const env = { BLOG_RELATIONS_SOURCE: { prepare(sql) { assert.match(sql, /^SELECT COUNT/); return { bind() { return { async all() { return { success: true, results: [summary] }; } }; } }; } } };
-    assert.equal((await onRequest({ request: request('https://46log.com/api/blog-relations?group=sakurazaka&month=2026-09'), env, waitUntil() {} })).status, 422);
+    assert.equal((await onRequest({ request: request('https://46log.com/api/blog-relations?group=sakurazaka&month=2026-09&format=source'), env, waitUntil() {} })).status, 422);
   }
 });
 
@@ -155,4 +158,8 @@ test('frontend removes unverified fallback and subjective relationship claims; e
   assert.ok(!source.includes('最喜欢提及')); assert.ok(!source.includes('话题中心'));
   assert.ok(source.includes('data-relations-evidence')); assert.ok(source.includes('官方原文'));
   assert.ok(!source.includes('dangerouslySetInnerHTML'));
+  assert.ok(source.includes("new URL('./relationship-analysis.worker.ts'"));
+  const apiSource = readFileSync(new URL('../../../functions/api/blog-relations.ts', import.meta.url), 'utf8');
+  assert.ok(!apiSource.includes('analyzeBlogs('), 'Do not parse a whole month in a Pages request');
+  assert.ok(!apiSource.includes('parse5'));
 });

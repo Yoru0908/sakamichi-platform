@@ -6,6 +6,7 @@ import { readFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { analyzeBlogs } from '../src/utils/blog-relations/analyze.ts';
+import { SOURCE_SCHEMA_VERSION } from '../src/utils/blog-relations/contract.ts';
 const { chromium } = createRequire(import.meta.url)('playwright');
 const root = path.resolve('dist');
 const server = createServer(async (req, res) => {
@@ -22,11 +23,12 @@ await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
 const base = process.env.RELATIONS_BASE_URL || `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {}) });
 const fixture = (id, content = '<p lang="ja">小田倉さんと旅行。小田倉さんに感謝。</p>') => ({ id: `sakurazaka-${id}`, member: '山川宇衣', group_name: '樱坂46', title: `旅行 ${id}`, publish_date: '2026.09.07 22:13', original_url: `https://sakurazaka46.com/s/s46/diary/detail/${id}`, original_content: null, bilingual_content: content });
-const reports = {
-  'sakurazaka:2026-09': analyzeBlogs([...Array.from({ length: 12 }, (_, i) => fixture(70916 + i)), fixture(1, '<p lang="zh">守屋麗奈</p>')], 'sakurazaka', '2026-09'),
-  'sakurazaka:2026-08': analyzeBlogs([{ ...fixture(2, '<p lang="zh">小田倉麗奈</p>'), publish_date: '2026.08.01' }], 'sakurazaka', '2026-08'),
-  'nogizaka:2026-09': analyzeBlogs([{ ...fixture(3), member: '梅澤美波', group_name: '乃木坂46', original_url: 'https://www.nogizaka46.com/s/n46/diary/detail/104819', bilingual_content: '<p lang="ja">こんにちは。</p>' }], 'nogizaka', '2026-09'),
+const sourceRows = {
+  'sakurazaka:2026-09': [...Array.from({ length: 12 }, (_, i) => fixture(70916 + i)), fixture(1, '<p lang="zh">守屋麗奈</p>')],
+  'sakurazaka:2026-08': [{ ...fixture(2, '<p lang="zh">小田倉麗奈</p>'), publish_date: '2026.08.01' }],
+  'nogizaka:2026-09': [{ ...fixture(3), member: '梅澤美波', group_name: '乃木坂46', original_url: 'https://www.nogizaka46.com/s/n46/diary/detail/104819', bilingual_content: '<p lang="ja">こんにちは。</p>' }],
 };
+const reports = Object.fromEntries(Object.entries(sourceRows).map(([key, rows]) => { const [group, month] = key.split(':'); return [key, analyzeBlogs(rows, group, month)]; }));
 try {
   for (const [name, viewport] of [['desktop', { width: 1440, height: 1000 }], ['mobile', { width: 390, height: 844 }]]) {
     const context = await browser.newContext({ viewport });
@@ -40,7 +42,9 @@ try {
       if (fail) { await route.fulfill({ status: 503, json: { success: false, error: '测试：数据源暂时不可用' } }); return; }
       if (url.searchParams.has('group')) {
         if (url.searchParams.get('group') === 'sakurazaka') await new Promise((resolve) => setTimeout(resolve, 100));
-        await route.fulfill({ json: { success: true, data: reports[`${url.searchParams.get('group')}:${url.searchParams.get('month')}`] } });
+        assert.equal(url.searchParams.get('format'), 'source');
+        const group = url.searchParams.get('group'), month = url.searchParams.get('month');
+        await route.fulfill({ json: { success: true, data: { version: SOURCE_SCHEMA_VERSION, group, month, sourceFetchedAt: new Date().toISOString(), rows: sourceRows[`${group}:${month}`] } } });
       } else await route.fulfill({ json: { success: true, data: { months: Object.keys(reports).map((key) => { const [group, month] = key.split(':'); return { group, month, blogCount: reports[key].coverage.sourceRows }; }) } } });
     });
     await page.goto(base + '/blog/', { waitUntil: 'domcontentloaded' });
@@ -90,5 +94,39 @@ try {
     }
     console.log(`PASS ${name}: lazy month load, Japanese evidence, pagination, aggregates, missing vs zero, race/error/retry; ${relationRequests.length} requests`);
     await context.close();
+  }
+  if (process.env.RELATIONS_REAL_SOURCE_FIXTURES) {
+    const actual = JSON.parse(await readFile(process.env.RELATIONS_REAL_SOURCE_FIXTURES, 'utf8'));
+    for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
+      const context = await browser.newContext({ viewport });
+      const page = await context.newPage(); page.setDefaultTimeout(20000); const errors = [];
+      page.on('pageerror', (error) => errors.push(error.message));
+      await page.route('https://api.46log.com/**', (route) => route.fulfill({ json: { success: true, blogs: [], data: [], generations: [] } }));
+      await page.route('**/api/blog-relations*', (route) => {
+        const url = new URL(route.request().url());
+        const data = url.searchParams.has('group') ? actual[`${url.searchParams.get('group')}:${url.searchParams.get('month')}`] : { months: Object.values(actual).map(({ group, month, rows }) => ({ group, month, blogCount: rows.length })) };
+        return route.fulfill({ json: { success: true, data } });
+      });
+      await page.goto(base + '/blog/', { waitUntil: 'domcontentloaded' });
+      await page.locator('.blog-pill').filter({ hasText: '关系分析' }).click();
+      await page.locator('[data-relations-coverage]').waitFor();
+      for (const source of Object.values(actual)) {
+        await page.getByLabel('团体', { exact: true }).selectOption(source.group);
+        await page.getByLabel('博客月份（JST）', { exact: true }).selectOption(source.month);
+        const expected = analyzeBlogs(source.rows, source.group, source.month);
+        await page.getByText(`已分析日语正文 ${expected.coverage.analyzedBlogs} 篇`, { exact: true }).waitFor();
+        assert.match(await page.locator('[data-relations-coverage]').innerText(), new RegExp(`提及组合 ${expected.edges.length} 组`));
+        if (expected.edges.length) {
+          const edge = expected.edges[0];
+          await page.getByRole('button', { name: `查看 ${edge.from} 提及 ${edge.to} 的依据`, exact: true }).click();
+          assert.equal(await page.locator('[data-relations-evidence] mark').first().textContent(), edge.evidence[0].snippets[0].match);
+          assert.equal(await page.locator('[data-relations-evidence] a').first().getAttribute('href'), edge.evidence[0].sourceUrl);
+        } else await page.getByText('没有可用的日语正文，无法得出提及统计。', { exact: true }).waitFor();
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+      }
+      assert.deepEqual(errors, []);
+      console.log(`PASS ${viewport.width}px: real D1 source fixtures computed in browser thread (${Object.keys(actual).length} group-months); not a public authenticated API test`);
+      await context.close();
+    }
   }
 } finally { await browser.close(); server.closeAllConnections(); await new Promise((resolve) => server.close(resolve)); }

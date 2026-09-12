@@ -1,8 +1,9 @@
 import source from '../../../public/data/member-images.json' with { type: 'json' };
 
-export type Group = 'nogizaka' | 'sakurazaka' | 'hinatazaka';
+import type { Group } from './contract.ts';
+export type { Group } from './contract.ts';
+export { GROUP_NAMES } from './contract.ts';
 export type Member = { name: string; group: Group; generation: string; aliases: string[] };
-export const GROUP_NAMES: Record<Group, string> = { nogizaka: '乃木坂46', sakurazaka: '櫻坂46', hinatazaka: '日向坂46' };
 export const normalizeName = (value: string) => value.normalize('NFKC').replace(/\s/g, '').replaceAll('﨑', '崎').replaceAll('髙', '高');
 
 // These three 新四期生 entries are incorrectly labelled 五期生 in the avatar index.

@@ -24,11 +24,13 @@
 ## API / 运维边界
 
 - Pages Function `GET /api/blog-relations`：只返回实际存档的团体/月份目录和源记录数。
-- `GET /api/blog-relations?group=sakurazaka&month=2026-09`：只加载所选月份并计算依据。支持 HEAD；其他方法 405；未知/重复参数、原型键、非法月份拒绝。
+- `GET /api/blog-relations?group=sakurazaka&month=2026-09&format=source`：只返回所选月份的固定博客字段（`ja-source-v1`）。受保护的源记录包含既有双语 HTML，但分析线程只识别其中日语段落；不读取独立 `translated_content` 或后台状态/密钥等字段。支持 HEAD；其他方法 405；未知/重复参数、原型键、非法月份拒绝。
+- **解析/匹配运行于浏览器独立 Web Worker** `relationship-analysis.worker.ts`，与离线核验共用同一引擎；不把整月 HTML 解析放进 Cloudflare 请求 CPU 预算。无需新增套餐、服务器进程或 cron；切换月份会取消请求、终止旧线程，30秒未完成明确报错。原始 HTML 绝不插入 DOM。
+- 短暂发布的第一版服务端计算客户端没有 `format=source`，现在返回明确 426 刷新提示，不能把源记录误当成已计算统计。未更改统计口径版本。
 - Pages production 必须增加 `BLOG_RELATIONS_SOURCE` → 现有 D1 `9eaf182b-e777-4f14-8330-17af49ca4f7e`。**不绑定 auth/Miguri 数据库，不改 schema，不导入/改写任何博客、队列或用户数据。**
 - D1 binding 本身具有写权限且该库还包含其他后端表，**不是数据库级只读授权**。安全边界是固定表/列 SELECT、参数化筛选、完整源码审查；不得扩展为任意 SQL/表代理，也不得读取 `msg_messages`、`system_config` 等无关表。
 - 每次读取 HTML 前检查最多 800 条 / 600 万源码字符；单篇最多 60 万字符、识别候选上限 5000、整月依据上限 15000。超过容量失败关闭，不偷偷截断成完整统计。
-- 内部 Cache API TTL 600 秒，键含口径版本/团体/月；对浏览器始终 `no-store`，不开放跨域 CORS。缓存失效回到真实 D1，读取失败显示错误，不回退旧静态数据。
+- 内部 Cache API TTL 600 秒，键含源码接口版本/团体/月；对浏览器始终 `no-store`，不开放跨域 CORS。缓存命中流式转发，不重复解析整个 JSON；未命中只序列化一次。缓存失效回到真实 D1，读取失败显示错误，不回退旧静态数据。源数据读取时间由服务器提供；另列浏览器本机计算时间。
 - 安全检查在任何缓存读取之前：只允许主站 `46log.com`；Pages 预览/未审核别名返回 403。日本来源还必须有 access_token，经固定 `https://api.46log.com/api/auth/me` 查询有效签名及当前用户认证/admin 状态；只转发必要的 access_token，不读取付款/OAuth 链接，不信任伪造 geo_pass。不动既有 WAF、原站访问限制或独立 MSG 服务。
 - 没有定时任务。按需计算仅表示读取**已有**正文；不会补抓缺失文章/日语，也不意味着整站采集完整。
 - 后端工作区存在其他未提交修改，本轮不部署该目录；不重启 Homeserver/PM2/采集器，不重复 Miguri 同步。
@@ -46,7 +48,7 @@ node scripts/test-blog-relations-browser.mjs
 node scripts/audit-blog-relations.mjs /outside/repository/source-snapshot.json
 ```
 
-浏览器覆盖 1440px/390px、按月懒加载、日语高亮/链接、每页10篇依据、排行/期别追溯、缺正文和零匹配的差别、快速切换请求取消、错误不显示旧数值、重试、不请求旧 API/静态 fallback。该套浏览器用 API fixtures；不能替代部署后的真实 D1/API 验收。
+浏览器覆盖 1440px/390px、按月懒加载并由真实 Web Worker 解析原始 HTML、日语高亮/链接、每页10篇依据、排行/期别追溯、缺正文和零匹配的差别、快速切换请求取消、错误不显示旧数值、重试、不请求旧 API/静态 fallback。该套浏览器用 API fixtures；不能替代部署后的真实 D1/API 验收。
 
 全仓 Astro 诊断基线仍有 59 个错误，不声称全仓类型检查通过；本轮新文件另行核查。
 

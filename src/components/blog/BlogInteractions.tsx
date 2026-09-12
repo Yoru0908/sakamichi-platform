@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { GROUPS, type GroupKey } from './blog-config';
 import type { Analysis, Edge } from '../../utils/blog-relations/analyze';
+import { SOURCE_SCHEMA_VERSION, type SourceMonth } from '../../utils/blog-relations/contract.ts';
 import { relationshipRanking, generationRelations } from './relationship-helpers.ts';
 
 type CatalogMonth = { group: GroupKey; month: string; blogCount: number; latestSourceUpdate: string };
@@ -14,6 +15,23 @@ async function readApi<T>(query: string, signal: AbortSignal): Promise<T> {
   const result = await response.json();
   if (!response.ok || result.success !== true || !result.data) throw new Error(result.error || '关系分析读取失败');
   return result.data as T;
+}
+function analyzeInWorker(source: SourceMonth, signal: AbortSignal): Promise<Analysis> {
+  if (source.version !== SOURCE_SCHEMA_VERSION || !Array.isArray(source.rows)) return Promise.reject(new Error('存档格式已更新，请刷新页面。'));
+  return new Promise((resolve, reject) => {
+    const worker = new Worker(new URL('./relationship-analysis.worker.ts', import.meta.url), { type: 'module' });
+    const dispose = () => { worker.terminate(); clearTimeout(timer); signal.removeEventListener('abort', abort); };
+    const abort = () => { dispose(); reject(new DOMException('Aborted', 'AbortError')); };
+    const timer = setTimeout(() => { dispose(); reject(new Error('本机分析超时，请选择其他月份或重试。')); }, 30_000);
+    worker.onmessage = (event: MessageEvent<{ success: boolean; data?: Analysis; error?: string }>) => {
+      dispose();
+      if (event.data.success && event.data.data) resolve(event.data.data);
+      else reject(new Error(event.data.error || '日语提及分析失败'));
+    };
+    worker.onerror = (event) => { event.preventDefault(); dispose(); reject(new Error('无法启动分析线程，请刷新页面或更换浏览器。')); };
+    signal.addEventListener('abort', abort, { once: true });
+    if (signal.aborted) abort(); else worker.postMessage(source);
+  });
 }
 function formatTime(value: string | null) {
   if (!value) return '未知';
@@ -29,6 +47,7 @@ export default function BlogInteractions() {
   const [member, setMember] = useState('');
   const [direction, setDirection] = useState<'both' | 'incoming' | 'outgoing'>('both');
   const [analysis, setAnalysis] = useState<Analysis | null>(null);
+  const [sourceFetchedAt, setSourceFetchedAt] = useState<string | null>(null);
   const [catalogLoading, setCatalogLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [catalogError, setCatalogError] = useState('');
@@ -51,12 +70,14 @@ export default function BlogInteractions() {
   const months = useMemo(() => catalog.filter((entry) => entry.group === group).map((entry) => entry.month).sort().reverse(), [catalog, group]);
   useEffect(() => { if (!months.includes(month)) setMonth(months[0] || ''); }, [months, month]);
   useEffect(() => {
-    setMember(''); setDirection('both'); setSelectedPair(''); setEvidencePage(1); setAnalysis(null); setError('');
+    setMember(''); setDirection('both'); setSelectedPair(''); setEvidencePage(1); setAnalysis(null); setSourceFetchedAt(null); setError('');
     if (!month || !months.includes(month)) return;
     const controller = new AbortController();
     setLoading(true);
-    readApi<Analysis>(`?group=${group}&month=${month}`, controller.signal).then((data) => {
-      if (!controller.signal.aborted) setAnalysis(data);
+    readApi<SourceMonth>(`?group=${group}&month=${month}&format=source`, controller.signal).then(async (source) => {
+      if (source.group !== group || source.month !== month) throw new Error('存档月份不匹配，请重试。');
+      const data = await analyzeInWorker(source, controller.signal);
+      if (!controller.signal.aborted) { setAnalysis(data); setSourceFetchedAt(source.sourceFetchedAt); }
     }).catch((err) => { if (!controller.signal.aborted) setError(err.message); })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
@@ -93,7 +114,7 @@ export default function BlogInteractions() {
         <h2 className="mb-1 text-base font-semibold text-[var(--text-primary)]">真实博客提及 · 可查看原文依据</h2>
         <p>方向为「博客作者 → 文中被提及成员」。只分析本站存档中的日语正文，不分析译文、图片或私下关系，不计算“亲密度”。目前仅统计同团成员，包含名录内的毕业成员。</p>
         <p>识别全名、带敬称的唯一简称，以及同段全名可消歧的简称。裸单字、无法确认的昵称不计入；未识别不代表没有交流。引述、告知中的名字也可能被计入，因此数字只代表文字提及。</p>
-        <p>双语存档只读取标记为日语的段落；早期缺失正文明确排除。结果按需计算、服务器缓存10分钟，不再回退旧静态数据，也不再声称按周更新。</p>
+        <p>双语存档只读取标记为日语的段落；早期缺失正文明确排除。数据源缓存10分钟，浏览器后台线程按需计算，不阻塞页面操作；不再回退旧静态数据，也不再声称按周更新。</p>
       </div>
 
       {(catalogLoading || loading) && <p className="loading-state" role="status">正在读取日语存档并计算提及依据…</p>}
@@ -107,7 +128,7 @@ export default function BlogInteractions() {
           </div>
           <p>独立原文 {current.coverage.originalBlogs} 篇 · 双语存档日语段落 {current.coverage.bilingualJapaneseBlogs} 篇 · 缺日语正文 {current.coverage.missingJapanese} 篇 · 非名录作者 {current.coverage.unknownAuthor} 篇 · 来源/日期异常 {current.coverage.invalidSource + current.coverage.invalidDate} 篇 · 超出大小限制 {current.coverage.oversized} 篇</p>
           {current.unknownAuthors.length > 0 && <p>未纳入作者：{current.unknownAuthors.join('、')}</p>}
-          <p>计算时间：{formatTime(current.computedAt)} · 存档最新变更：{formatTime(current.latestSourceUpdate)}</p>
+          <p>源数据读取：{formatTime(sourceFetchedAt)} · 本机计算时间：{formatTime(current.computedAt)} · 存档最新变更：{formatTime(current.latestSourceUpdate)}</p>
           <p>仅代表本站实际存档，不代表官网全量；当月为截至计算时的部分月份。口径版本：{current.version}</p>
         </div>
 

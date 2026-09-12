@@ -1,13 +1,9 @@
 import { parseFragment } from 'parse5';
 import { MEMBERS, GROUP_NAMES, normalizeName, type Group, type Member } from './roster.ts';
 
-export const ANALYSIS_VERSION = 'ja-evidence-v1';
-export const MAX_BLOGS = 800;
-export type BlogSource = {
-  id: string; member: string; group_name: string; title: string | null; publish_date: string;
-  original_url: string; original_content: string | null; bilingual_content: string | null;
-  updated_at?: string; oversized?: number;
-};
+import { ANALYSIS_VERSION, MAX_BLOGS, type BlogSource } from './contract.ts';
+export { ANALYSIS_VERSION, MAX_BLOGS } from './contract.ts';
+export type { BlogSource } from './contract.ts';
 export type Evidence = {
   blogId: string; title: string; publishedAt: string; sourceUrl: string;
   source: 'original_content' | 'bilingual_ja'; occurrences: number;

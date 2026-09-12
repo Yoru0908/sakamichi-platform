@@ -1,5 +1,4 @@
-import { ANALYSIS_VERSION, MAX_BLOGS, analyzeBlogs, type BlogSource } from '../../src/utils/blog-relations/analyze.ts';
-import { GROUP_NAMES, type Group } from '../../src/utils/blog-relations/roster.ts';
+import { SOURCE_SCHEMA_VERSION, MAX_BLOGS, GROUP_NAMES, type BlogSource, type Group } from '../../src/utils/blog-relations/contract.ts';
 
 // Existing blog-backend D1, NOT the auth/Miguri databases. This D1 also has
 // unrelated backend tables: the binding is NOT a database-level read-only grant.
@@ -21,9 +20,8 @@ export const MONTH_SQL = `SELECT id, title, member, group_name, publish_date, or
   FROM blogs WHERE ${MONTH_WHERE}
   ORDER BY publish_date DESC, id LIMIT ?`;
 
-const json = (body: unknown, status = 200, head = false) => new Response(head ? null : JSON.stringify(body), {
-  status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' },
-});
+const responseHeaders = { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
+const json = (body: unknown, status = 200, head = false) => new Response(head ? null : JSON.stringify(body), { status, headers: responseHeaders });
 
 // Defense in depth: keep this Chinese-site feature behind its existing domain
 // boundary. Do not expose it on unguarded Pages preview/custom aliases. A JP
@@ -53,17 +51,21 @@ export async function onRequest(context: Context) {
   const url = new URL(request.url);
   const group = url.searchParams.get('group') as Group | null;
   const month = url.searchParams.get('month');
-  if ([...url.searchParams.keys()].some((key) => !['group', 'month'].includes(key)) || url.searchParams.getAll('group').length > 1 || url.searchParams.getAll('month').length > 1 ||
+  const format = url.searchParams.get('format');
+  if ([...url.searchParams.keys()].some((key) => !['group', 'month', 'format'].includes(key)) || ['group', 'month', 'format'].some((key) => url.searchParams.getAll(key).length > 1) || (format !== null && format !== 'source') ||
     ((url.searchParams.has('group') || url.searchParams.has('month')) && (!group || !month || !Object.hasOwn(GROUP_NAMES, group) || !/^20\d{2}-(0[1-9]|1[0-2])$/.test(month)))) {
     return json({ success: false, error: '请选择有效的团体和月份。' }, 400, head);
   }
+  // Fail clearly for the briefly released server-analysis client, rather than
+  // returning raw rows where that client expects aggregate counts.
+  if (group && format !== 'source') return json({ success: false, error: '关系分析已更新为后台线程计算，请刷新页面后重试。' }, 426, head);
   if (!env.BLOG_RELATIONS_SOURCE) return json({ success: false, error: '关系分析数据源尚未配置，未使用旧静态统计。' }, 503, head);
-  const cacheKey = new Request(`https://46log.com/api/blog-relations?model=${ANALYSIS_VERSION}&group=${group || 'all'}&month=${month || 'catalog'}`);
+  const cacheKey = new Request(`https://46log.com/api/blog-relations?schema=${SOURCE_SCHEMA_VERSION}&group=${group || 'all'}&month=${month || 'catalog'}`);
   const cache = typeof caches !== 'undefined' ? (caches as CacheStorage & { default?: Cache }).default : undefined;
   try {
     try {
       const hit = await cache?.match(cacheKey);
-      if (hit) return json(await hit.json(), 200, head);
+      if (hit) return new Response(head ? null : hit.body, { status: 200, headers: responseHeaders });
     } catch { /* Cache is an optimization, never the only source. */ }
     let data;
     if (group && month) {
@@ -76,7 +78,9 @@ export async function onRequest(context: Context) {
         .bind(...parameters, MAX_BLOGS + 1).all<BlogSource>();
       if (result.success === false) throw new Error('source query failed');
       if (result.results.length > MAX_BLOGS) return json({ success: false, error: '该月数据超出单次分析上限，未展示截断结果。' }, 422, head);
-      data = analyzeBlogs(result.results, group, month);
+      // Return only the explicit public-blog columns above. CPU-heavy parsing
+      // and matching run in the browser's dedicated Web Worker, not a Pages request.
+      data = { version: SOURCE_SCHEMA_VERSION, group, month, sourceFetchedAt: new Date().toISOString(), rows: result.results };
     } else {
       const result = await env.BLOG_RELATIONS_SOURCE.prepare(CATALOG_SQL).bind().all<{ group_name: string; month: string; blogCount: number; latestSourceUpdate: string }>();
       if (result.success === false) throw new Error('source query failed');
@@ -89,11 +93,11 @@ export async function onRequest(context: Context) {
         if (existing) { existing.blogCount += row.blogCount; existing.latestSourceUpdate = [existing.latestSourceUpdate, row.latestSourceUpdate].sort().at(-1)!; }
         else months.push({ group: key, month: row.month, blogCount: row.blogCount, latestSourceUpdate: row.latestSourceUpdate });
       }
-      data = { version: ANALYSIS_VERSION, computedAt: new Date().toISOString(), months };
+      data = { version: SOURCE_SCHEMA_VERSION, computedAt: new Date().toISOString(), months };
     }
-    const body = { success: true, data };
-    if (cache) context.waitUntil(cache.put(cacheKey, new Response(JSON.stringify(body), { headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${TTL}` } })).catch(() => undefined));
-    return json(body, 200, head);
+    const encoded = JSON.stringify({ success: true, data });
+    if (cache) context.waitUntil(cache.put(cacheKey, new Response(encoded, { headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${TTL}` } })).catch(() => undefined));
+    return new Response(head ? null : encoded, { status: 200, headers: responseHeaders });
   } catch (error) {
     console.error('[blog-relations] read-only analysis failed', error instanceof Error ? error.name : 'UnknownError');
     return json({ success: false, error: '日语存档暂时读取失败，请稍后重试。未使用旧静态统计代替。' }, 503, head);
