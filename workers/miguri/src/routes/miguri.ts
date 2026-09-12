@@ -825,9 +825,10 @@ export async function handleGetMiguriSoldOut(req: Request, env: Env): Promise<Re
   ).bind(eventSlug, eventSlug).all<{ member_name: string }>();
 
   // Build dates and slot numbers
-  const dates = Array.from(new Set((slotRows.results || []).map((r) => r.event_date))).sort();
-  const slotNumbers = Array.from(new Set((slotRows.results || []).map((r) => r.slot_number))).sort((a, b) => a - b);
-  const allMembers = (memberRows.results || []).map((r) => r.member_name).sort((a, b) => a.localeCompare(b, 'ja'));
+  const savedSlots: { event_date: string; slot_number: number }[] = slotRows.results || [];
+  const dates = Array.from(new Set(savedSlots.map((row) => row.event_date))).sort();
+  const slotNumbers = Array.from(new Set(savedSlots.map((row) => row.slot_number))).sort((a, b) => a - b);
+  const allMembers: string[] = (memberRows.results || []).map((row: { member_name: string }) => row.member_name).sort((a: string, b: string) => a.localeCompare(b, 'ja'));
 
   // Load current available cells to compute totalCount per member
   const availableRows = await env.MIGURI_DB.prepare(
@@ -895,7 +896,7 @@ export async function handleGetMiguriSoldOut(req: Request, env: Env): Promise<Re
         ...(memberAvailableCells.get(member) || []),
         ...(memberSoldOutCells.get(member)?.keys() || []),
       ])]])),
-      slotsByDate: Object.fromEntries(dates.map((date) => [date, [...new Set((slotRows.results || [])
+      slotsByDate: Object.fromEntries(dates.map((date) => [date, [...new Set(savedSlots
         .filter((row) => row.event_date === date).map((row) => row.slot_number))].sort((a, b) => a - b)])),
       // Missing source structure must not turn known sold-out cells into a 100% denominator.
       structureAvailable: (slotRows.results || []).length > 0 && (availableRows.results || []).length > 0,
