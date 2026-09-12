@@ -131,12 +131,15 @@ test('JP guard requires a verified CURRENT session, not a forged geo_pass; prote
 
 test('default auth fetch preserves the native Workers receiver', async () => {
   const previous = globalThis.fetch;
-  globalThis.fetch = async function () {
+  const timeoutDescriptor = Object.getOwnPropertyDescriptor(AbortSignal, 'timeout');
+  Object.defineProperty(AbortSignal, 'timeout', { configurable: true, value: undefined });
+  globalThis.fetch = async function (_url, options) {
     assert.equal(this, globalThis, 'Native Workers fetch rejects unbound invocation');
+    assert.ok(options.signal instanceof AbortSignal, 'Use an AbortController without requiring AbortSignal.timeout');
     return Response.json({ success: true, data: { user: { role: 'admin' } } });
   };
   try { assert.equal(await authorize(request(undefined, 'JP', { headers: { Cookie: 'access_token=test' } })), true); }
-  finally { globalThis.fetch = previous; }
+  finally { globalThis.fetch = previous; Object.defineProperty(AbortSignal, 'timeout', timeoutDescriptor); }
 });
 
 test('cached data remains behind authorization, uses no-store externally, HEAD has no body', async () => {

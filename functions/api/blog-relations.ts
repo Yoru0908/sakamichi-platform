@@ -34,15 +34,26 @@ async function authorizationStatus(request: Context['request'], fetcher: typeof 
   if (request.cf?.country !== 'JP') return 200;
   const token = request.headers.get('Cookie')?.match(/(?:^|;\s*)access_token=([^;]+)/)?.[1];
   if (!token) return 401;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 6000);
+  let stage = 'fetch';
   try {
     // /me checks the signed token AND current user row, without reading payment/OAuth links.
     const response = await fetcher('https://api.46log.com/api/auth/me', {
-      headers: { Cookie: `access_token=${token}`, Accept: 'application/json' }, redirect: 'error', signal: AbortSignal.timeout(6000),
+      headers: { Cookie: `access_token=${token}`, Accept: 'application/json' }, redirect: 'error', signal: controller.signal,
     });
-    if (!response.ok) return response.status === 401 ? 401 : response.status >= 500 ? 503 : 403;
+    if (!response.ok) {
+      if (response.status >= 500) console.warn('[blog-relations] auth upstream unavailable', response.status);
+      return response.status === 401 ? 401 : response.status >= 500 ? 503 : 403;
+    }
+    stage = 'json';
     const result = await response.json() as { success?: boolean; data?: { user?: { role?: string; verificationStatus?: string } } };
     return result.success === true && (result.data?.user?.role === 'admin' || result.data?.user?.verificationStatus === 'approved') ? 200 : 403;
-  } catch { return 503; }
+  } catch (error) {
+    // No token, cookie, upstream body or arbitrary error message in logs.
+    console.warn('[blog-relations] auth check failed', stage, error instanceof Error ? error.name : 'UnknownError');
+    return 503;
+  } finally { clearTimeout(timer); }
 }
 export async function authorize(request: Context['request'], fetcher: typeof fetch = nativeFetch) {
   return await authorizationStatus(request, fetcher) === 200;
