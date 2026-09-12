@@ -203,7 +203,7 @@ export default function GeoPassGate() {
 
           {/* Footer note */}
           <p className="text-[10px] text-[var(--text-tertiary)] text-center leading-relaxed">
-            审核通过后即可无限制访问所有内容（博客、MSG归档、广播等）。<br />
+            审核通过后即可访问相应受限内容（博客、广播等）。<br />
             審査完了後、すべてのコンテンツに無制限でアクセスできます。
           </p>
         </div>

@@ -3,7 +3,6 @@ import type { TranslationKey } from './zh';
 export const ja: Record<TranslationKey, string> = {
   'nav.home': 'ホーム',
   'nav.blog': 'ブログ翻訳',
-  'nav.messages': 'MSGアーカイブ',
   'nav.radio': 'ラジオ',
   'nav.video': '冠番',
   'nav.instagram': 'INSアーカイブ',
@@ -18,7 +17,6 @@ export const ja: Record<TranslationKey, string> = {
   'nav.seichi': '聖地巡礼',
   'nav.tools': 'ツールボックス',
   'nav.tools.photocard': '生写真ジェネレーター',
-  'nav.tools.msg_generator': 'MSGスタイルジェネレーター',
   'nav.tools.subtitle_merge': '字幕マージ',
   'nav.tools.srt_fixer': 'SRTタイムライン修正',
   'nav.tools.fad_effect': 'FADエフェクト',
@@ -41,7 +39,7 @@ export const ja: Record<TranslationKey, string> = {
   'theme.light': 'ライトモード',
   'theme.dark': 'ダークモード',
 
-  'footer.description': '坂道シリーズファンのための総合プラットフォーム — ブログ翻訳、MSGアーカイブ、ラジオ配信、クリエイティブツール。',
+  'footer.description': '坂道シリーズファンのための総合プラットフォーム — ブログ翻訳、ラジオ配信、クリエイティブツール。',
   'footer.disclaimer': '本サイトは非公式ファンプロジェクトであり、乃木坂46・櫻坂46・日向坂46およびその運営とは一切関係ありません。全てのコンテンツは個人的な学習・交流目的のみに使用されます。',
   'footer.col.content': 'コンテンツ',
   'footer.col.tools': 'ツール',

@@ -20,7 +20,6 @@ const TICKET_FORM_TOOL_HREF = 'https://chromewebstore.google.com/detail/%E5%9D%8
 export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'nav.home', href: '/', icon: 'Home' },
   { labelKey: 'nav.blog', href: '/blog', icon: 'Pen' },
-  { labelKey: 'nav.messages', href: '/messages', icon: 'MessageCircle' },
   { labelKey: 'nav.radio', href: '/radio', icon: 'Radio' },
   { labelKey: 'nav.instagram', href: '/instagram', icon: 'Camera' },
   { labelKey: 'nav.photocard', href: '/photocard', icon: 'Image' },
@@ -40,7 +39,6 @@ export const NAV_ITEMS: NavItem[] = [
     href: '/tools',
     icon: 'Wrench',
     children: [
-      { labelKey: 'nav.tools.msg_generator', href: '/tools/msg-generator', icon: 'MessageSquare' },
       { labelKey: 'nav.tools.subtitle_merge', href: '/tools/subtitle-merge', icon: 'FileText' },
       { labelKey: 'nav.tools.srt_fixer', href: '/tools/srt-fixer', icon: 'Clock' },
       { labelKey: 'nav.tools.fad_effect', href: '/tools/fad-effect', icon: 'Sparkles' },
@@ -55,7 +53,6 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
     groupKey: 'nav.group.content',
     items: [
       { labelKey: 'nav.blog', href: '/blog', icon: 'Pen' },
-      { labelKey: 'nav.messages', href: '/messages', icon: 'MessageCircle' },
       { labelKey: 'nav.radio', href: '/radio', icon: 'Radio' },
       { labelKey: 'nav.instagram', href: '/instagram', icon: 'Camera' },
       { labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays' },
@@ -76,7 +73,6 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
   {
     groupKey: 'nav.group.tools',
     items: [
-      { labelKey: 'nav.tools.msg_generator', href: '/tools/msg-generator', icon: 'MessageSquare' },
       { labelKey: 'nav.tools.subtitle_merge', href: '/tools/subtitle-merge', icon: 'FileText' },
       { labelKey: 'nav.tools.srt_fixer', href: '/tools/srt-fixer', icon: 'Clock' },
       { labelKey: 'nav.tools.fad_effect', href: '/tools/fad-effect', icon: 'Sparkles' },
@@ -88,7 +84,6 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
 /** Footer link columns */
 export const FOOTER_CONTENT_LINKS: NavItem[] = [
   { labelKey: 'nav.blog', href: '/blog' },
-  { labelKey: 'nav.messages', href: '/messages' },
   { labelKey: 'nav.radio', href: '/radio' },
   { labelKey: 'nav.instagram', href: '/instagram' },
   { labelKey: 'nav.schedule', href: '/schedule' },
@@ -102,7 +97,6 @@ export const FOOTER_COMMUNITY_LINKS: NavItem[] = [
 ];
 
 export const FOOTER_TOOL_LINKS: NavItem[] = [
-  { labelKey: 'nav.tools.msg_generator', href: '/tools/msg-generator' },
   { labelKey: 'nav.tools.ticket_form', href: TICKET_FORM_TOOL_HREF, external: true },
 ];
 

@@ -400,7 +400,6 @@ function SubscriptionCard({ subscription, paymentStatus, verificationStatus }: {
           <div className="mt-3 space-y-2">
             <div className="text-[11px] text-[var(--text-tertiary)] space-y-1">
               <p className="font-medium text-[var(--text-secondary)]">订阅权益：</p>
-              <p>· 根据投喂金额解锁对应组合的 MSG 消息存档</p>
               <p>· 支持网站持续运营与开发</p>
             </div>
             <a
@@ -481,7 +480,7 @@ function VerificationStatusCard({ verificationStatus }: { verificationStatus: st
           <textarea
             value={reason}
             onChange={(e) => setReason(e.target.value)}
-            placeholder="例如：我平时主要关注櫻坂/日向坂，会看博客翻译、MSG归档和广播内容…"
+            placeholder="例如：我平时主要关注櫻坂/日向坂，会看博客翻译和广播内容…"
             className="w-full px-3 py-2 text-xs border border-[var(--border-primary)] rounded-lg bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] resize-none"
             rows={3}
           />
