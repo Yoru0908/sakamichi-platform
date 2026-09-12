@@ -886,7 +886,7 @@ export interface RepoWorkItem {
   slotNumber: number;
   ticketCount: number;
   nickname: string;
-  messages: Array<{ id: string; speaker: 'me' | 'member' | 'narration'; text: string; imageUrl?: string }>;
+  messages: Array<{ id: string; speaker: 'me' | 'member' | 'narration'; text: string; imageUrl?: string; narrationColor?: string }>;
   tags: string[];
   template: string;
   reactions: RepoReaction;
@@ -930,7 +930,7 @@ export interface CreateRepoPayload {
   slotNumber: number;
   ticketCount: number;
   nickname: string;
-  messages: Array<{ speaker: string; text: string; imageUrl?: string }>;
+  messages: Array<{ speaker: string; text: string; imageUrl?: string; narrationColor?: string }>;
   tags: string[];
   template: string;
   isPublic: boolean;

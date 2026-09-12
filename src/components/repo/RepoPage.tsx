@@ -12,6 +12,8 @@ import { $auth } from '@/stores/auth';
 import { $favorites } from '@/stores/favorites';
 import MemberSelector from './MemberSelector';
 import ChatEditor from './ChatEditor';
+import NarrationColorPicker from './NarrationColorPicker';
+import { normalizeNarrationColor, readNarrationColor, withNarrationColor } from './narration-color';
 import RepoCommunity from './RepoCommunity';
 import MeguriTemplate from './templates/MeguriTemplate';
 import LineTemplate from './templates/LineTemplate';
@@ -39,6 +41,7 @@ interface SavedRepo {
     messages: Message[];
     tags: AtmosphereTag[];
     template: TemplateId;
+    narrationColor?: string;
   };
 }
 
@@ -106,9 +109,11 @@ function repoWorkToSavedRepo(work: RepoWorkItem): SavedRepo {
         speaker: message.speaker,
         text: message.text,
         imageUrl: message.imageUrl,
+        narrationColor: normalizeNarrationColor(message.narrationColor),
       })),
       tags: work.tags as AtmosphereTag[],
       template: (work.template || 'meguri') as TemplateId,
+      narrationColor: readNarrationColor(work.messages),
     },
   };
 }
@@ -125,7 +130,7 @@ function savedRepoToDraftPayload(repo: SavedRepo): CreateRepoPayload {
     slotNumber: repo.data.slotNumber,
     ticketCount: repo.data.ticketCount,
     nickname: repo.data.nickname,
-    messages: repo.data.messages.map(({ speaker, text, imageUrl }) => ({ speaker, text, imageUrl })),
+    messages: repo.data.messages.map(({ speaker, text, imageUrl, narrationColor }) => ({ speaker, text, imageUrl, narrationColor: normalizeNarrationColor(narrationColor) })),
     tags: repo.data.tags,
     template: repo.data.template,
     isPublic: false,
@@ -260,6 +265,12 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
   ]);
   const [tags, setTags] = useState<AtmosphereTag[]>([]);
   const [template, setTemplate] = useState<TemplateId>('meguri');
+  const [narrationColor, setNarrationColor] = useState<string | undefined>();
+  function changeNarrationColor(value?: string) {
+    const color = normalizeNarrationColor(value);
+    setNarrationColor(color);
+    setMessages(previous => withNarrationColor(previous, color));
+  }
   const [customMemberAvatar, setCustomMemberAvatar] = useState<string | undefined>();
   const [userAvatar, setUserAvatar] = useState<string | undefined>();
 
@@ -321,7 +332,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
   function buildCurrentPayload(isPublic: boolean): CreateRepoPayload | null {
     if (!selectedMember) return null;
     const filteredMessages = (isPublic ? messages.filter(m => m.text.trim() || m.imageUrl) : messages)
-      .map(({ speaker, text, imageUrl }) => ({ speaker, text, imageUrl }));
+      .map(({ speaker, text, imageUrl, narrationColor }) => ({ speaker, text, imageUrl, narrationColor: normalizeNarrationColor(narrationColor) }));
     return {
       memberId: selectedMember.id,
       memberName: selectedMember.name,
@@ -352,7 +363,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
       userAvatar,
       label: buildRepoLabel(eventDate, slotNumber),
       savedAt: new Date().toISOString(),
-      data: { eventDate, eventType, slotNumber, ticketCount, nickname, messages, tags, template },
+      data: { eventDate, eventType, slotNumber, ticketCount, nickname, messages, tags, template, narrationColor },
     };
   }
 
@@ -413,7 +424,9 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
     setSlotNumber(repo.data.slotNumber);
     setTicketCount(repo.data.ticketCount);
     setNickname(repo.data.nickname);
-    setMessages(repo.data.messages);
+    const savedColor = normalizeNarrationColor(repo.data.narrationColor) || readNarrationColor(repo.data.messages);
+    setNarrationColor(savedColor);
+    setMessages(withNarrationColor(repo.data.messages, savedColor));
     setTags(repo.data.tags);
     setTemplate(repo.data.template);
     setCustomMemberAvatar(repo.customMemberAvatar);
@@ -435,6 +448,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
     const member = getMemberById(memberId);
     setActiveRepoId(null);
     setSelectedMemberId(memberId);
+    setNarrationColor(undefined);
     setNickname('');
     setMessages(createInitialMessages());
     setTags([]);
@@ -447,6 +461,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
   function newRepo() {
     setActiveRepoId(null);
     setSelectedMemberId(null);
+    setNarrationColor(undefined);
     setNickname('');
     setMessages(createInitialMessages());
     setTags([]);
@@ -800,7 +815,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
               </div>
 
               <div className="bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-5">
-                <ChatEditor messages={messages} onChange={setMessages} memberName={selectedMember?.name || ''} groupColor={groupColor} />
+                <ChatEditor messages={messages} onChange={next => setMessages(withNarrationColor(next, narrationColor))} memberName={selectedMember?.name || ''} groupColor={groupColor} />
               </div>
 
               <div className="bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-5">
@@ -830,6 +845,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
                     ))}
                   </div>
                 </div>
+                <NarrationColorPicker value={narrationColor} onChange={changeNarrationColor} />
                 <div className={`bg-[var(--bg-primary)] rounded-xl border border-[var(--border-primary)] p-6 flex justify-center ${!hasContent ? 'opacity-50' : ''}`}>
                   <div ref={previewRef} data-repo-export-root>{renderPreview()}</div>
                 </div>

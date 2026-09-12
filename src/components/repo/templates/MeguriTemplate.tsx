@@ -2,6 +2,7 @@ import type { RepoData } from '@/types/repo';
 import { GROUP_META } from '@/types/repo';
 import { proxyImageUrl } from '@/utils/proxy-image';
 import RepoMemberImage from '../RepoMemberImage';
+import NarrationText from '../NarrationText';
 
 interface Props {
   data: RepoData;
@@ -85,7 +86,7 @@ export default function MeguriTemplate({ data }: Props) {
                   <img src={proxyImageUrl(msg.imageUrl) ?? msg.imageUrl} alt="" className="max-h-28 rounded-lg object-contain mx-auto" />
                 )}
                 {msg.text && (
-                  <div className="text-[11px] text-gray-400 px-4">（{msg.text}）</div>
+                  <NarrationText text={msg.text} color={msg.narrationColor} className="text-[11px] text-gray-400 px-4" />
                 )}
               </div>
             );
