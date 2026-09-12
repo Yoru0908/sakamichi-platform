@@ -30,6 +30,8 @@ npm run build
 
 验证：`node --test src/components/repo/repo-member-folders.test.mjs`（4 项）和 `node scripts/test-repo-preferences.mjs`。浏览器使用模拟 auth/preferences/favorites API、零草稿及延迟返回，验证目录生成、两类成员新建、动态更新偏好后重新分组。所有 API 均拦截，无真实账号写入。可用 `BASE_URL=https://<deployment>.sakamichi-platform-test.pages.dev node scripts/test-repo-preferences.mjs` 对已部署 UI 执行同样模拟账号验收。
 
+线上验收：`2c0d8bce`（提交 `6ae24f2`，已合并并保留同期生产更新）模拟账号推し/お気に入り接口后，零草稿目录、展开、新建并选中对应成员通过。偏好目录延后到客户端挂载后生成，避免其自身 SSR 初始内容不一致。快速模拟登录仍触发全站既有 React #418 可恢复文字 hydration 警告；在修改前版本 `785b31b1` 同样复现。生产 smoke 明确输出该 baseline 警告而不将其伪装为新错误；隔离 fixture 仍严格要求无 runtime error。未读取或改写用户真实偏好。
+
 ## 部署边界
 
 基于 `origin/sakamichi-platform` 的 `31ff1f6` 创建独立工作区 `sakamichi-tools项目统合/.worktrees/repo-editor`、分支 `fix/repo-editor-caret-order`，避免旧开发目录覆盖新版 Meets/Miguri 历史功能。
