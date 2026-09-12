@@ -16,6 +16,7 @@ import {
   handleGetMiguriSoldOut,
   handleGetMiguriLottery,
 } from './routes/miguri.ts';
+import { handleGetMiguriSoldOutHistory } from './routes/soldout-history.ts';
 import { handleImportMiguriEntries } from './routes/entry-import.ts';
 import { handleMiguriSync, handleMiguriSoldOutImport, syncMiguriFromSource } from './routes/manage-miguri.ts';
 import { handleDisconnectGoogleCalendar } from './routes/google-calendar.ts';
@@ -53,6 +54,7 @@ const routes: Record<string, Handler> = {
   'GET /api/miguri/calendar/google-url': handleGetMiguriGoogleCalendarUrl,
   'POST /api/miguri/calendar/google-disconnect': handleDisconnectGoogleCalendar,
   'GET /api/miguri/soldout': handleGetMiguriSoldOut,
+  'GET /api/miguri/soldout-history': handleGetMiguriSoldOutHistory,
   'GET /api/miguri/lottery': (req) => handleGetMiguriLottery(req),
   'POST /api/miguri/soldout-import': handleMiguriSoldOutImport,
   'POST /api/manage/miguri/sync': handleMiguriSync,

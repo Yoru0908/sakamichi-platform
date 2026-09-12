@@ -143,6 +143,12 @@ wrangler pages deploy dist --project-name sakamichi-platform --branch sakamichi-
 
 发布前从 `origin/sakamichi-platform` 更新，保留圣巡自动同步数据与已上线地图修复，勿用旧配置分支覆盖生产。排队入口只改前端/Worker，不重启 Homeserver 采集器，不修改券数模型。
 
+### 个握历史完售（2026-09-12）
+
+公开入口 `/miguri/history`（可加 `?event=<slug>`），管理页、活动总览和导航均可直达。历史目录由 `sakamichi-miguri` 新只读接口 `/api/miguri/soldout-history` 提供，包含归档记录，缓存5分钟，不依赖当前活动列表，也不读取私人报名。详情仍用 `/api/miguri/soldout?event=...`；无记录/无部次结构均明确降级，不伪造0或100%完售。
+
+发布时需同时部署 `workers/miguri`（保留生产 vars/secrets）与 Pages；无需 D1 迁移、同步数据或 PM2 重启。实现、保留边界、测试、生产数据核查及回滚见 [`docs/miguri-soldout-history.md`](docs/miguri-soldout-history.md)。
+
 ### Auth Worker Discord 会员联动
 
 `sakamichi-auth` 负责 Discord OAuth 绑定和付费身份组同步：

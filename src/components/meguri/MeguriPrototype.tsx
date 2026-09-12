@@ -784,7 +784,10 @@ export default function MeguriPrototype() {
         }`}
       >
         <div className="flex items-center justify-between gap-3">
-          <h2 className="text-base font-semibold text-[var(--text-primary)]">活动总览</h2>
+          <div>
+            <h2 className="text-base font-semibold text-[var(--text-primary)]">活动总览</h2>
+            <a href="/miguri/history" className="mt-1 inline-block text-xs text-[var(--color-brand-nogi)] underline">查看已结束活动的历史完售 →</a>
+          </div>
           <button
             type="button"
             onClick={() => setIsSidebarOpen(false)}
@@ -865,7 +868,10 @@ export default function MeguriPrototype() {
         <div className={`hidden w-full transition-all duration-300 ${activeTab !== 'dashboard' && isSidebarOpen ? 'shrink-0 lg:block lg:w-[340px] xl:w-[380px]' : 'lg:hidden'}`}>
           <div className="sticky top-8 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-[var(--text-primary)]">活动总览</h2>
+              <div>
+                <h2 className="text-lg font-semibold text-[var(--text-primary)]">活动总览</h2>
+                <a href="/miguri/history" className="mt-1 inline-block text-xs text-[var(--color-brand-nogi)] underline">查看已结束活动的历史完售 →</a>
+              </div>
               <button
                 onClick={() => setIsSidebarOpen(false)}
                 className="flex items-center gap-1.5 rounded-full border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 py-1 text-xs text-[var(--text-tertiary)] transition-colors hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)]"

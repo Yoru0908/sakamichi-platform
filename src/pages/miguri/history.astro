@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SoldOutHistory from '@/components/meguri/SoldOutHistory';
+import { ArrowLeft, Archive } from 'lucide-astro';
+---
+
+<BaseLayout title="个握历史完售 - Sakamichi Tools" description="三坂个握完售历史档案：按团体、单曲搜索已保存的完售记录，活动结束或下架后仍可按轮次回看。">
+  <main class="mx-auto max-w-screen-2xl space-y-5 px-4 py-6 sm:px-6 lg:px-8">
+    <header class="space-y-3">
+      <a href="/miguri" class="inline-flex min-h-9 items-center gap-1 text-xs text-[var(--text-secondary)]"><ArrowLeft size={13} /> 咪咕力管理</a>
+      <h1 class="flex items-center gap-2 text-2xl font-bold text-[var(--text-primary)]"><Archive size={24} /> 个握历史完售</h1>
+      <p class="text-sm text-[var(--text-tertiary)]">结束不消失，已采集的每一轮都能回来查看。</p>
+    </header>
+    <SoldOutHistory client:load />
+    <noscript>请启用 JavaScript 加载完售历史目录与已保存记录。</noscript>
+  </main>
+</BaseLayout>

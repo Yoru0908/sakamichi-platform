@@ -13,6 +13,7 @@ export const ja: Record<TranslationKey, string> = {
   'nav.miguri': 'ミーグリ',
   'nav.miguri.manage': 'ミーグリ管理',
   'nav.miguri.queue': '待機列モニター',
+  'nav.miguri.history': '完売履歴',
   'nav.repo': 'ミーグリRepo',
   'nav.seichi': '聖地巡礼',
   'nav.tools': 'ツールボックス',

@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { BarChart3, ListOrdered, Users } from 'lucide-react';
 import { getMiguriSoldOut, type MiguriSoldOutPayload } from '@/utils/auth-api';
+import RecordedSoldOutCells from './RecordedSoldOutCells';
 import {
   computeSoldOutAnalysis,
   formatDateShort,
@@ -112,6 +113,8 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
     let mounted = true;
     setIsLoading(true);
     setError('');
+    setData(null);
+    setSelectedRound(null);
     getMiguriSoldOut(eventSlug).then((res) => {
       if (!mounted) return;
       if (!res.success || !res.data) {
@@ -189,6 +192,10 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
     );
   }
 
+  if (data && (data.structureAvailable === false || !data.dates.length || !data.slotNumbers.length)) {
+    return <RecordedSoldOutCells key={eventSlug} data={data} />;
+  }
+
   const theme = THEME[analysis.event.group as keyof typeof THEME] || THEME.sakurazaka;
   const { dates, slotNumbers } = analysis;
   const totalCols = dates.length * slotNumbers.length;
@@ -242,6 +249,7 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
 
         {analysis.rounds.length > 1 && (
           <select
+            aria-label="回看完售轮次"
             className="rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-2.5 py-1.5 text-xs cursor-pointer"
             value={selectedRound ?? ''}
             onChange={(e) => setSelectedRound(e.target.value ? Number(e.target.value) : null)}

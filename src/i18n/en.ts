@@ -13,6 +13,7 @@ export const en: Record<TranslationKey, string> = {
   'nav.miguri': 'Miguri',
   'nav.miguri.manage': 'Miguri Manager',
   'nav.miguri.queue': 'Queue Monitor',
+  'nav.miguri.history': 'Sold-out History',
   'nav.repo': 'Miguri Repo',
   'nav.seichi': 'Pilgrimage',
   'nav.tools': 'Tools',

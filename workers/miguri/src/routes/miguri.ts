@@ -880,6 +880,8 @@ export async function handleGetMiguriSoldOut(req: Request, env: Env): Promise<Re
         member: c.member_name,
       })),
       memberTotals: Object.fromEntries(memberTotalCells),
+      // Missing source structure must not turn known sold-out cells into a 100% denominator.
+      structureAvailable: (slotRows.results || []).length > 0 && (availableRows.results || []).length > 0,
     },
   });
 }

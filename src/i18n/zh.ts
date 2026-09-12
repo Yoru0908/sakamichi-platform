@@ -12,6 +12,7 @@ export const zh = {
   'nav.miguri': 'Miguri',
   'nav.miguri.manage': '咪咕力管理',
   'nav.miguri.queue': '排队监控',
+  'nav.miguri.history': '历史完售',
   'nav.repo': '咪咕力Repo',
   'nav.seichi': '圣巡',
   'nav.tools': '更多工具',

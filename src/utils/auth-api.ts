@@ -376,6 +376,24 @@ export interface MiguriSoldOutPayload {
   rounds: MiguriSoldOutRound[];
   cells: MiguriSoldOutCell[];
   memberTotals: Record<string, number>;
+  structureAvailable?: boolean;
+}
+
+export interface MiguriSoldOutHistoryEvent {
+  slug: string;
+  group: MiguriGroupId;
+  title: string;
+  sourceUrl: string;
+  archived: boolean;
+  roundCount: number;
+  latestRound: number | null;
+  lastCapturedAt: string | null;
+  firstDate: string | null;
+  lastDate: string | null;
+}
+
+export function getMiguriSoldOutHistory(): Promise<ApiResponse<{ events: MiguriSoldOutHistoryEvent[] }>> {
+  return miguriFetch<{ events: MiguriSoldOutHistoryEvent[] }>('/soldout-history', { credentials: 'omit' });
 }
 
 export function getMiguriSoldOut(eventSlug: string): Promise<ApiResponse<MiguriSoldOutPayload>> {
