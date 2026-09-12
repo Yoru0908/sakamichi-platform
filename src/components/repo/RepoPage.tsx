@@ -167,6 +167,10 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
   // Auth & favorites from stores
   const auth = useStore($auth);
   const favorites = useStore($favorites);
+  // Header auth/favorites may hydrate before this island. Keep its first render
+  // identical to static HTML, then project the client account preferences.
+  const [preferencesReady, setPreferencesReady] = useState(false);
+  useEffect(() => { setPreferencesReady(true); }, []);
 
   // Saved repos (persisted to localStorage)
   const [savedRepos, setSavedRepos] = useState<SavedRepo[]>(loadSavedRepos);
@@ -357,8 +361,8 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
   const memberFolders = buildRepoMemberFolders({
     repos: savedRepos,
     members: MOCK_MEMBERS,
-    oshiMember: auth.oshiMember,
-    favorites,
+    oshiMember: preferencesReady ? auth.oshiMember : null,
+    favorites: preferencesReady ? favorites : [],
   });
 
   const foldersByCategory = (cat: FolderCategory) => memberFolders.filter(f => f.category === cat);
@@ -660,7 +664,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
                             <div className="ml-3 border-l border-[var(--border-primary)] pl-2 space-y-0.5 mt-0.5">
                               {folders.length === 0 ? (
                                 <div className="text-[10px] text-[var(--text-tertiary)] py-1 pl-1">
-                                  {auth.loading ? '正在读取账号设置...' : cat === 'oshi' ? '尚未设置推し，请在账号设置中选择' : cat === 'favorite' ? '尚未设置お気に入り，请在账号设置中添加' : '其他成员的草稿会显示在这里'}
+                                  {preferencesReady && auth.loading ? '正在读取账号设置...' : cat === 'oshi' ? '尚未设置推し，请在账号设置中选择' : cat === 'favorite' ? '尚未设置お気に入り，请在账号设置中添加' : '其他成员的草稿会显示在这里'}
                                 </div>
                               ) : folders.map(folder => {
                                 const color = folder.groupId ? GROUP_META[folder.groupId]?.color || '#999' : '#999';

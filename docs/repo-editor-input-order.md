@@ -24,11 +24,19 @@ npm run build
 
 通过：三类话者 Enter/Shift+Enter、模拟 IME composition/Enter 事件契约、中间文字编辑光标、失焦保存/重新编辑、追加焦点、上下移边界/内容与图片元数据完整、编辑中重排焦点、390px 视口三类话者前插与取消、无浏览器 runtime error。IME 测试验证事件处理契约，不替代 macOS/手机原生输入法人工验收。
 
+## 新增行自动定位
+
+新增文字/图片时记录一次性 reveal 请求，React DOM 与焦点更新后在 rAF 中执行：底部追加先滚动内部列表到底部，中间插入则仅 `scrollIntoView(nearest)` 显示目标行。保留输入焦点，不在每次打字、排序、读取草稿时强制滚动。无平滑动画等待，避免手机输入时目标仍在移动。
+
+浏览器回归增加 30 条长列表：追加文字后内部滚动到底部并聚焦、追加图片自动滚动、中间插入不跳底、打字不覆盖用户手动滚动位置。fixture 单独模拟固定高度滚动区，不打包至生产。
+
 ## 账号推し／お気に入り目录
 
 「我的 Repo」之前只遍历 `savedRepos`，即使账号偏好已加载，无草稿的成员也不会显示。现在由纯函数 `repo-member-folders.ts` 先根据 `$auth.oshiMember` 和 `$favorites` 生成目录，再合并已有草稿。推し优先、同成员去重、姓名空格规范化；偏好 store 更新即重新分组，不生成空白数据库草稿、不新增偏好写操作。目录人数与 Repo 数量分别展示，空目录可直接新建并选中对应成员；无法在当前可选名单解析的成员仍显示，但禁止创建无效成员 Repo，已有草稿保留。
 
 验证：`node --test src/components/repo/repo-member-folders.test.mjs`（4 项）和 `node scripts/test-repo-preferences.mjs`。浏览器使用模拟 auth/preferences/favorites API、零草稿及延迟返回，验证目录生成、两类成员新建、动态更新偏好后重新分组。所有 API 均拦截，无真实账号写入。可用 `BASE_URL=https://<deployment>.sakamichi-platform-test.pages.dev node scripts/test-repo-preferences.mjs` 对已部署 UI 执行同样模拟账号验收。
+
+线上验收：`2c0d8bce`（提交 `6ae24f2`，已合并并保留同期生产更新）模拟账号推し/お気に入り接口后，零草稿目录、展开、新建并选中对应成员通过。偏好目录延后到客户端挂载后生成，避免其自身 SSR 初始内容不一致。快速模拟登录仍触发全站既有 React #418 可恢复文字 hydration 警告；在修改前版本 `785b31b1` 同样复现。生产 smoke 明确输出该 baseline 警告而不将其伪装为新错误；隔离 fixture 仍严格要求无 runtime error。未读取或改写用户真实偏好。
 
 ## 部署边界
 
