@@ -119,13 +119,14 @@ test('API rejects writes, bad parameters, unguarded preview hosts and unpublishe
 test('JP guard requires a verified CURRENT session, not a forged geo_pass; protected data is never returned', async () => {
   const jp = request(undefined, 'JP', { headers: { Cookie: 'geo_pass=forged; access_token=test' } });
   let calls = 0;
-  const upstream = (user, success = true) => async (url, options) => { calls++; assert.equal(url, 'https://api.46log.com/api/auth/me'); assert.equal(options.headers.Cookie, 'access_token=test'); assert.equal(options.redirect, 'error'); return Response.json({ success, data: { user } }); };
+  const upstream = (user, success = true) => async (url, options) => { calls++; assert.equal(url, 'https://api.46log.com/api/auth/me'); assert.equal(options.headers.Cookie, 'access_token=test'); assert.equal(options.redirect, 'manual'); return Response.json({ success, data: { user } }); };
   assert.equal(await authorize(request(undefined, 'JP'), upstream({ role: 'admin' })), false);
   assert.equal(await authorize(request(undefined, 'JP', { headers: { Cookie: 'geo_pass=forged' } }), upstream({ role: 'admin' })), false); assert.equal(calls, 0);
   assert.equal(await authorize(jp, upstream({ role: 'member', verificationStatus: 'none' })), false);
   assert.equal(await authorize(jp, upstream({ role: 'member', verificationStatus: 'approved' })), true);
   assert.equal(await authorize(jp, upstream({ role: 'admin' })), true);
   assert.equal(await authorize(jp, upstream({ role: 'admin' }, false)), false);
+  assert.equal(await authorize(jp, async () => new Response(null, { status: 302, headers: { Location: 'https://example.com/' } })), false);
   assert.equal(await authorize(jp, async () => { throw new Error('network'); }), false);
 });
 

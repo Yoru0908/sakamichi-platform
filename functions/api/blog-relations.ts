@@ -40,7 +40,7 @@ async function authorizationStatus(request: Context['request'], fetcher: typeof 
   try {
     // /me checks the signed token AND current user row, without reading payment/OAuth links.
     const response = await fetcher('https://api.46log.com/api/auth/me', {
-      headers: { Cookie: `access_token=${token}`, Accept: 'application/json' }, redirect: 'error', signal: controller.signal,
+      headers: { Cookie: `access_token=${token}`, Accept: 'application/json' }, redirect: 'manual', signal: controller.signal,
     });
     if (!response.ok) {
       if (response.status >= 500) console.warn('[blog-relations] auth upstream unavailable', response.status);
