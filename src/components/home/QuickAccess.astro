@@ -1,5 +1,5 @@
 ---
-import { Pen, MessageCircle, Radio, Camera, Image, Calendar, Mic, Wrench, Cake } from 'lucide-astro';
+import { Pen, MessageCircle, Radio, Camera, Image, Calendar, Mic, Wrench, Cake, Activity } from 'lucide-astro';
 
 const items = [
   { label: '博客', href: '/blog', icon: 'pen', color: 'var(--color-brand-nogi)' },
@@ -9,6 +9,7 @@ const items = [
   { label: '生写生成', href: '/photocard', icon: 'image', color: 'var(--color-brand-sakura)' },
   { label: '生日贺卡', href: '/birthday-cards', icon: 'cake', color: 'var(--color-brand-sakura)' },
   { label: '咪咕力管理', href: '/miguri', icon: 'calendar', color: 'var(--color-brand-hinata)' },
+  { label: '排队监控', href: '/miguri/queue', icon: 'activity', color: 'var(--color-brand-hinata)' },
   { label: '咪咕力Repo', href: '/repo', icon: 'mic', color: 'var(--color-brand-sakura)' },
   { label: '更多工具', href: '/tools', icon: 'wrench', color: 'var(--text-tertiary)' },
 ];
@@ -32,6 +33,7 @@ const reloadHrefs = new Set(['/blog', '/repo']);
           {item.icon === 'image' && <Image size={13} />}
           {item.icon === 'cake' && <Cake size={13} />}
           {item.icon === 'calendar' && <Calendar size={13} />}
+          {item.icon === 'activity' && <Activity size={13} />}
           {item.icon === 'mic' && <Mic size={13} />}
           {item.icon === 'wrench' && <Wrench size={13} />}
         </span>

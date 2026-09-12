@@ -1,0 +1,59 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { ArrowLeft, ExternalLink } from 'lucide-astro';
+
+const queueUrl = 'https://meets.46log.com/';
+---
+
+<BaseLayout
+  title="咪咕力排队监控 - Sakamichi Tools"
+  description="三坂 forTUNE meets 排队监控：实时人数与等待、全员趋势、历史场次回顾及模型参考。"
+  hideFooter
+>
+  <section class="queue-section" aria-label="咪咕力排队监控">
+    <header class="queue-toolbar">
+      <div>
+        <a href="/miguri" class="queue-back"><ArrowLeft size={13} /> 咪咕力管理</a>
+        <h1>排队监控 <span>forTUNE meets</span></h1>
+      </div>
+      <a id="queue-standalone" href={queueUrl} target="_blank" rel="noopener noreferrer" class="queue-open">
+        独立窗口 <ExternalLink size={14} />
+      </a>
+      <p>实时队列与历史回顾 · 券数为模型参考，非实测。面板无法加载时可用独立窗口打开。</p>
+    </header>
+    <iframe
+      id="queue-frame"
+      src={queueUrl}
+      title="forTUNE meets 三坂排队监控与历史档案"
+      referrerpolicy="strict-origin-when-cross-origin"
+      sandbox="allow-scripts allow-same-origin allow-downloads"
+    ></iframe>
+  </section>
+  <script is:inline data-astro-rerun>
+    // Preserve a shared event/tab fragment without accepting an arbitrary iframe URL.
+    (() => {
+      const input = new URLSearchParams(location.hash.slice(1));
+      const fragment = new URLSearchParams();
+      const eid = input.get('eid');
+      const tab = input.get('tab');
+      if (eid && /^e\d+$/.test(eid)) fragment.set('eid', eid);
+      if (tab && ['summary', 'queue', 'overview', 'eval'].includes(tab)) fragment.set('tab', tab);
+      if (!fragment.size) return;
+      const url = 'https://meets.46log.com/#' + fragment.toString();
+      document.getElementById('queue-frame')?.setAttribute('src', url);
+      document.getElementById('queue-standalone')?.setAttribute('href', url);
+    })();
+  </script>
+</BaseLayout>
+
+<style>
+  .queue-section { height: calc(100vh - 3.5rem); height: calc(100dvh - 3.5rem); min-height: 32rem; display: flex; flex-direction: column; }
+  .queue-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; padding: .75rem 1rem; border-bottom: 1px solid var(--border-primary); }
+  .queue-back { display: inline-flex; align-items: center; gap: .25rem; font-size: .75rem; color: var(--text-tertiary); }
+  h1 { margin-top: .25rem; font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+  h1 span { margin-left: .5rem; font-size: .75rem; font-weight: 400; color: var(--text-tertiary); }
+  .queue-open { display: inline-flex; align-items: center; gap: .4rem; padding: .5rem .75rem; border: 1px solid var(--border-primary); border-radius: .5rem; color: var(--text-secondary); font-size: .75rem; }
+  .queue-toolbar p { flex-basis: 100%; margin: 0; font-size: .7rem; color: var(--text-tertiary); }
+  iframe { display: block; flex: 1; min-height: 0; width: 100%; border: 0; background: #fff; }
+  a:focus-visible { outline: 2px solid var(--color-brand-nogi); outline-offset: 3px; }
+</style>

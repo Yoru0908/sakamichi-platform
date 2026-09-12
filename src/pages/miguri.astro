@@ -3,6 +3,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import MeguriPrototype from '@/components/meguri/MeguriPrototype';
 ---
 
-<BaseLayout title="咪咕力管理 - Sakamichi Tools" description="Fortune Music 咪咕力活动管理 - 报名记录、Google Calendar 同步">
+<BaseLayout title="咪咕力管理 - Sakamichi Tools" description="Fortune Music 咪咕力活动管理 - 报名记录、日历订阅与排队监控">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 flex justify-end">
+    <a href="/miguri/queue" class="text-sm font-medium text-[var(--color-brand-nogi)] underline underline-offset-4">排队监控 · 实时队列与历史回顾 →</a>
+  </div>
   <MeguriPrototype client:load />
 </BaseLayout>

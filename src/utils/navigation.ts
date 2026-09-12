@@ -25,7 +25,13 @@ export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'nav.instagram', href: '/instagram', icon: 'Camera' },
   { labelKey: 'nav.photocard', href: '/photocard', icon: 'Image' },
   { labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays' },
-  { labelKey: 'nav.miguri', href: '/miguri', icon: 'Calendar' },
+  {
+    labelKey: 'nav.miguri', href: '/miguri', icon: 'Calendar',
+    children: [
+      { labelKey: 'nav.miguri.manage', href: '/miguri', icon: 'Calendar' },
+      { labelKey: 'nav.miguri.queue', href: '/miguri/queue', icon: 'Activity' },
+    ],
+  },
   { labelKey: 'nav.repo', href: '/repo', icon: 'Mic' },
   { labelKey: 'nav.seichi', href: '/seichi', icon: 'MapPin' },
   {
@@ -59,6 +65,7 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
     items: [
       { labelKey: 'nav.photocard', href: '/photocard', icon: 'Image' },
       { labelKey: 'nav.miguri', href: '/miguri', icon: 'Calendar' },
+      { labelKey: 'nav.miguri.queue', href: '/miguri/queue', icon: 'Activity' },
       { labelKey: 'nav.repo', href: '/repo', icon: 'Mic' },
       { labelKey: 'nav.seichi', href: '/seichi', icon: 'MapPin' },
       { labelKey: 'nav.gallery', href: '/gallery', icon: 'ImagePlus' },
@@ -86,6 +93,7 @@ export const FOOTER_CONTENT_LINKS: NavItem[] = [
 ];
 
 export const FOOTER_COMMUNITY_LINKS: NavItem[] = [
+  { labelKey: 'nav.miguri.queue', href: '/miguri/queue' },
   { labelKey: 'nav.photocard', href: '/photocard' },
   { labelKey: 'nav.gallery', href: '/gallery' },
 ];

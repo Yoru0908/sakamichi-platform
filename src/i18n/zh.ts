@@ -10,6 +10,8 @@ export const zh = {
   'nav.gallery': '画廊',
   'nav.photocard': '生写生成',
   'nav.miguri': 'Miguri',
+  'nav.miguri.manage': '咪咕力管理',
+  'nav.miguri.queue': '排队监控',
   'nav.repo': '咪咕力Repo',
   'nav.seichi': '圣巡',
   'nav.tools': '更多工具',

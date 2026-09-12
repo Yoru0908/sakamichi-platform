@@ -11,6 +11,8 @@ export const en: Record<TranslationKey, string> = {
   'nav.gallery': 'Gallery',
   'nav.photocard': 'Photocard',
   'nav.miguri': 'Miguri',
+  'nav.miguri.manage': 'Miguri Manager',
+  'nav.miguri.queue': 'Queue Monitor',
   'nav.repo': 'Miguri Repo',
   'nav.seichi': 'Pilgrimage',
   'nav.tools': 'Tools',

@@ -129,6 +129,20 @@ official ICS 和三团 lottery ICS，再在前端解析、合并和分类；Page
 使用户已经添加到系统日历的订阅失效。详情中的“订阅该团”默认打开整团订阅，
 总入口同时提供按需 official / lottery 与 complete 两种方案。
 
+### `/miguri/queue` 排队监控
+
+平台页面内嵌 `https://meets.46log.com/` 的完整排队面板，保留本站导航，提供独立窗口入口；可带 `#eid=e28529&tab=summary` 定位场次。首页快捷入口、Miguri 桌面下拉/手机菜单、管理页和页脚均可到达。无需登录，也不把平台登录凭据传给排队 API。
+
+独立面板由 `fortunemeets-queue/workers/entry/` 的 Worker `meets-entry`（Custom Domain + Static Assets）托管；不是此 Pages 项目的子域名。它复用队列项目的唯一前端源和只读代理，API 仍经 `blog-push.46log.com/fm-queue/api/*` 到 Homeserver。备用入口 `https://meets-9eo.pages.dev/` 保留。旧 `meets.sakamichi-tools.cfd` 不再使用。
+
+```bash
+node --test scripts/test-meets-integration.mjs src/components/nav/mobile-nav.test.mjs
+npm run build
+wrangler pages deploy dist --project-name sakamichi-platform --branch sakamichi-platform
+```
+
+发布前从 `origin/sakamichi-platform` 更新，保留圣巡自动同步数据与已上线地图修复，勿用旧配置分支覆盖生产。排队入口只改前端/Worker，不重启 Homeserver 采集器，不修改券数模型。
+
 ### Auth Worker Discord 会员联动
 
 `sakamichi-auth` 负责 Discord OAuth 绑定和付费身份组同步：
