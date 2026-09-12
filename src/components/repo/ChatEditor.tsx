@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Plus, Trash2, MessageCircle, Image, Italic } from 'lucide-react';
+import { Plus, Trash2, MessageCircle, Image, Italic, ArrowUp, ArrowDown, X } from 'lucide-react';
 import type { Message } from '@/types/repo';
 
 interface Props {
@@ -15,11 +15,27 @@ function nextId() { return `msg_${++msgCounter}`; }
 export default function ChatEditor({ messages, onChange, memberName, groupColor }: Props) {
   const [editingId, setEditingId] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const [insertBeforeId, setInsertBeforeId] = useState<string | null>(null);
 
-  function addMessage(speaker: 'me' | 'member' | 'narration') {
-    const newMsg: Message = { id: nextId(), speaker, text: '' };
-    onChange([...messages, newMsg]);
-    setTimeout(() => setEditingId(newMsg.id), 0);
+  function addMessage(speaker: 'me' | 'member' | 'narration', beforeId?: string) {
+    let id = nextId();
+    while (messages.some(message => message.id === id)) id = nextId();
+    const newMsg: Message = { id, speaker, text: '' };
+    const index = beforeId ? messages.findIndex(message => message.id === beforeId) : -1;
+    const next = [...messages];
+    next.splice(index < 0 ? next.length : index, 0, newMsg);
+    onChange(next);
+    setInsertBeforeId(null);
+    setEditingId(newMsg.id);
+  }
+
+  function moveMessage(id: string, direction: -1 | 1) {
+    const index = messages.findIndex(message => message.id === id);
+    const target = index + direction;
+    if (index < 0 || target < 0 || target >= messages.length) return;
+    const next = [...messages];
+    [next[index], next[target]] = [next[target], next[index]];
+    onChange(next);
   }
 
   const imageInputRef = useRef<HTMLInputElement>(null);
@@ -44,6 +60,7 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
   function deleteMessage(id: string) {
     onChange(messages.filter(m => m.id !== id));
     if (editingId === id) setEditingId(null);
+    if (insertBeforeId === id) setInsertBeforeId(null);
   }
 
   function cycleSpeaker(id: string) {
@@ -68,7 +85,11 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
       // 用 requestAnimationFrame 确保 DOM 已渲染后再聚焦
       const raf = requestAnimationFrame(() => {
         const el = document.getElementById(`msg-input-${editingId}`) as HTMLTextAreaElement | null;
-        el?.focus({ preventScroll: true });
+        if (el) {
+          el.focus({ preventScroll: true });
+          // Only position the caret when opening the editor, never on text updates.
+          el.setSelectionRange(el.value.length, el.value.length);
+        }
       });
       return () => cancelAnimationFrame(raf);
     }
@@ -100,10 +121,45 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
       </label>
 
       <div className="space-y-1.5 max-h-[400px] overflow-y-auto pr-1">
-        {messages.map((msg) => (
+        {messages.map((msg, index) => (
+          <div key={msg.id} data-message-id={msg.id} className="group space-y-1">
+            <div className="flex items-center justify-end gap-1 text-[10px] text-gray-500" role="group" aria-label={`対話 ${index + 1} の順序と挿入`}>
+              <button
+                type="button"
+                onClick={() => setInsertBeforeId(insertBeforeId === msg.id ? null : msg.id)}
+                aria-expanded={insertBeforeId === msg.id}
+                aria-label={`対話 ${index + 1} の上に挿入`}
+                className="inline-flex min-h-8 items-center gap-1 rounded-lg px-2 hover:bg-gray-100"
+              >
+                <Plus size={12} /> 上に挿入
+              </button>
+              <button
+                type="button"
+                onMouseDown={event => event.preventDefault()}
+                onClick={() => moveMessage(msg.id, -1)}
+                disabled={index === 0}
+                aria-label={`対話 ${index + 1} を上へ移動`}
+                className="inline-flex min-h-8 min-w-8 items-center justify-center rounded-lg hover:bg-gray-100 disabled:opacity-25 disabled:cursor-not-allowed"
+              ><ArrowUp size={14} /></button>
+              <button
+                type="button"
+                onMouseDown={event => event.preventDefault()}
+                onClick={() => moveMessage(msg.id, 1)}
+                disabled={index === messages.length - 1}
+                aria-label={`対話 ${index + 1} を下へ移動`}
+                className="inline-flex min-h-8 min-w-8 items-center justify-center rounded-lg hover:bg-gray-100 disabled:opacity-25 disabled:cursor-not-allowed"
+              ><ArrowDown size={14} /></button>
+            </div>
+            {insertBeforeId === msg.id && (
+              <div className="flex flex-wrap items-center justify-end gap-1 rounded-lg border border-dashed border-gray-200 p-1 text-[11px]" role="group" aria-label="挿入する話者">
+                <button type="button" onClick={() => addMessage('member', msg.id)} className="min-h-8 rounded-md px-2 hover:bg-gray-100" style={{ color: groupColor }}>+ {memberName || 'M'}</button>
+                <button type="button" onClick={() => addMessage('narration', msg.id)} className="min-h-8 rounded-md px-2 text-amber-600 hover:bg-amber-50">+ ト書き</button>
+                <button type="button" onClick={() => addMessage('me', msg.id)} className="min-h-8 rounded-md px-2 text-gray-600 hover:bg-gray-100">+ 自分</button>
+                <button type="button" onClick={() => setInsertBeforeId(null)} aria-label="挿入をキャンセル" className="flex min-h-8 min-w-8 items-center justify-center rounded-md hover:bg-gray-100"><X size={12} /></button>
+              </div>
+            )}
           <div
-            key={msg.id}
-            className={`group flex items-start gap-1.5 ${
+            className={`flex items-start gap-1.5 ${
               msg.speaker === 'me' ? 'flex-row-reverse' :
               msg.speaker === 'narration' ? 'justify-center' : ''
             }`}
@@ -161,10 +217,9 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
                       value={msg.text}
                       onChange={e => updateMessage(msg.id, { text: e.target.value })}
                       onBlur={() => setEditingId(null)}
-                      onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); setEditingId(null); } }}
                       placeholder={getPlaceholder(msg.speaker)}
                       className="w-full bg-transparent outline-none resize-none text-xs text-amber-700 leading-relaxed min-h-[1.2em] text-center"
-                      rows={1}
+                      rows={Math.max(1, msg.text.split('\n').length)}
                     />
                   ) : (
                     <div onClick={() => setEditingId(msg.id)} className="cursor-text min-h-[1.2em] text-xs text-amber-700 whitespace-pre-wrap">
@@ -187,7 +242,6 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
                     value={msg.text}
                     onChange={e => updateMessage(msg.id, { text: e.target.value })}
                     onBlur={() => setEditingId(null)}
-                    onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); setEditingId(null); } }}
                     placeholder={getPlaceholder(msg.speaker)}
                     className="w-full bg-transparent outline-none resize-none text-sm leading-relaxed min-h-[1.5em]"
                     rows={Math.max(1, msg.text.split('\n').length)}
@@ -209,6 +263,7 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
             >
               <Trash2 size={14} />
             </button>
+          </div>
           </div>
         ))}
         <div ref={bottomRef} />
@@ -255,7 +310,7 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
       </div>
 
       <p className="text-[10px] text-gray-400 text-center mt-1">
-        💡 話者アイコンをクリックで切替（自→M→ト書き）
+        💡 ↑↓で順序変更・「上に挿入」で途中に追加。Enterで改行、話者アイコンで切替。
       </p>
     </div>
   );
