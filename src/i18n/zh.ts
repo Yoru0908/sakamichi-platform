@@ -1,10 +1,13 @@
+import { extra } from './extra.ts';
+
 export const zh = {
+  ...extra.zh,
   // Nav
   'nav.home': '首页',
   'nav.blog': '博客',
   'nav.radio': '广播',
   'nav.video': '冠番',
-  'nav.instagram': 'INS',
+  'nav.instagram': 'Instagram 归档',
   'nav.schedule': '日程',
   'nav.gallery': '画廊',
   'nav.photocard': '生写生成',
@@ -14,7 +17,7 @@ export const zh = {
   'nav.miguri.history': '历史完售',
   'nav.repo': '咪咕力Repo',
   'nav.seichi': '圣巡',
-  'nav.tools': '更多工具',
+  'nav.tools': '更多',
   'nav.tools.photocard': '生写生成器',
   'nav.tools.subtitle_merge': '字幕导出',
   'nav.tools.srt_fixer': 'SRT时间轴修复',
@@ -34,7 +37,7 @@ export const zh = {
   // Mobile drawer groups
   'nav.group.content': '内容',
   'nav.group.community': '社区',
-  'nav.group.tools': '工具',
+  'nav.group.tools': '更多',
   'nav.group.account': '账户',
 
   // Theme

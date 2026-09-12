@@ -20,7 +20,7 @@ const currentPath = Astro.url.pathname;
       <a
         href="/"
         data-astro-reload
-        class="flex items-center gap-2 text-lg font-bold tracking-tight text-[var(--text-primary)] hover:text-[var(--color-brand-nogi)] transition-colors"
+        class="flex shrink-0 whitespace-nowrap items-center gap-2 text-lg font-bold tracking-tight text-[var(--text-primary)] hover:text-[var(--color-brand-nogi)] transition-colors"
       >
         Sakamichi Tools
       </a>
@@ -29,7 +29,7 @@ const currentPath = Astro.url.pathname;
       <NavPill client:load currentPath={currentPath} />
 
       <!-- Right actions -->
-      <div class="flex items-center gap-1">
+      <div class="flex shrink-0 whitespace-nowrap items-center gap-1">
         <ThemeToggle client:load />
         <LanguageSwitch client:load />
 
@@ -40,8 +40,9 @@ const currentPath = Astro.url.pathname;
         {!hideMobileDrawer && (
           <button
             id="mobile-menu-trigger"
-            class="md:hidden p-2 rounded-lg text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
+            class="xl:hidden p-2 rounded-lg text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors"
             aria-label="Open menu"
+            data-i18n-aria-label="nav.open_menu"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />

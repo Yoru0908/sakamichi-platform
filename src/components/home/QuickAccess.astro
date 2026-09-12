@@ -1,16 +1,16 @@
 ---
-import { Pen, Radio, Camera, Image, Calendar, Mic, Wrench, Cake, Activity } from 'lucide-astro';
+import { Pen, Radio, Image, Calendar, Mic, Wrench, Cake, Activity } from 'lucide-astro';
+import { t, type TranslationKey } from '@/i18n';
 
-const items = [
-  { label: '博客', href: '/blog', icon: 'pen', color: 'var(--color-brand-nogi)' },
-  { label: '广播', href: '/radio', icon: 'radio', color: 'var(--color-brand-sakura)' },
-  { label: 'INS', href: '/instagram', icon: 'camera', color: 'var(--color-brand-nogi)' },
-  { label: '生写生成', href: '/photocard', icon: 'image', color: 'var(--color-brand-sakura)' },
-  { label: '生日贺卡', href: '/birthday-cards', icon: 'cake', color: 'var(--color-brand-sakura)' },
-  { label: '咪咕力管理', href: '/miguri', icon: 'calendar', color: 'var(--color-brand-hinata)' },
-  { label: '排队监控', href: '/miguri/queue', icon: 'activity', color: 'var(--color-brand-hinata)' },
-  { label: '咪咕力Repo', href: '/repo', icon: 'mic', color: 'var(--color-brand-sakura)' },
-  { label: '更多工具', href: '/tools', icon: 'wrench', color: 'var(--text-tertiary)' },
+const items: { key: TranslationKey; href: string; icon: string; color: string }[] = [
+  { key: 'nav.blog', href: '/blog', icon: 'pen', color: 'var(--color-brand-nogi)' },
+  { key: 'nav.radio', href: '/radio', icon: 'radio', color: 'var(--color-brand-sakura)' },
+  { key: 'nav.photocard', href: '/photocard', icon: 'image', color: 'var(--color-brand-sakura)' },
+  { key: 'nav.birthdays', href: '/birthday-cards', icon: 'cake', color: 'var(--color-brand-sakura)' },
+  { key: 'nav.miguri.manage', href: '/miguri', icon: 'calendar', color: 'var(--color-brand-hinata)' },
+  { key: 'nav.miguri.queue', href: '/miguri/queue', icon: 'activity', color: 'var(--color-brand-hinata)' },
+  { key: 'nav.repo', href: '/repo', icon: 'mic', color: 'var(--color-brand-sakura)' },
+  { key: 'nav.tools', href: '/tools', icon: 'wrench', color: 'var(--text-tertiary)' },
 ];
 
 const reloadHrefs = new Set(['/blog', '/repo']);
@@ -27,7 +27,6 @@ const reloadHrefs = new Set(['/blog', '/repo']);
         <span style={`color: ${item.color};`}>
           {item.icon === 'pen' && <Pen size={13} />}
           {item.icon === 'radio' && <Radio size={13} />}
-          {item.icon === 'camera' && <Camera size={13} />}
           {item.icon === 'image' && <Image size={13} />}
           {item.icon === 'cake' && <Cake size={13} />}
           {item.icon === 'calendar' && <Calendar size={13} />}
@@ -35,7 +34,7 @@ const reloadHrefs = new Set(['/blog', '/repo']);
           {item.icon === 'mic' && <Mic size={13} />}
           {item.icon === 'wrench' && <Wrench size={13} />}
         </span>
-        {item.label}
+        <span data-i18n={item.key}>{t(item.key)}</span>
       </a>
     ))}
   </div>

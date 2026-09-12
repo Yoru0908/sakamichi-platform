@@ -1,12 +1,13 @@
-import { useStore } from '@nanostores/react';
-import { $language, setLanguage, LANGUAGE_LABELS, type Language } from '@/stores/language';
+import { useLanguage } from '@/i18n/use-language';
+import { t } from '@/i18n';
+import { setLanguage, LANGUAGE_LABELS, type Language } from '@/stores/language';
 import { Globe } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
 const LANGUAGES: Language[] = ['zh', 'en', 'ja'];
 
 export default function LanguageSwitch() {
-  const lang = useStore($language);
+  const lang = useLanguage();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -25,7 +26,7 @@ export default function LanguageSwitch() {
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 h-9 px-2 rounded-lg text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors text-sm"
-        aria-label="Switch language"
+        aria-label={t('nav.language', lang)}
       >
         <Globe size={16} />
         <span className="hidden sm:inline">{LANGUAGE_LABELS[lang]}</span>

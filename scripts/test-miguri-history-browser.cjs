@@ -122,7 +122,7 @@ function detail(slug) {
         await page.locator('nav a[href="/miguri/history"]').waitFor();
         await page.locator('nav a[href="/miguri/queue"]').waitFor();
       } else {
-        await page.getByRole('button', { name: 'Open menu', exact: true }).click();
+        await page.getByRole('button', { name: /^(Open menu|打开菜单|メニューを開く)$/ }).click();
         await page.getByRole('link', { name: '历史完售', exact: true }).first().waitFor();
       }
       assert.deepEqual(errors, [], 'No browser runtime errors');

@@ -2,14 +2,18 @@ import { atom } from 'nanostores';
 
 export type Language = 'zh' | 'en' | 'ja';
 
-const stored = typeof localStorage !== 'undefined' ? localStorage.getItem('lang') as Language | null : null;
+export function isLanguage(value: unknown): value is Language {
+  return value === 'zh' || value === 'ja' || value === 'en';
+}
 
-export const $language = atom<Language>(stored ?? 'zh');
+let stored: string | null = null;
+try { stored = typeof localStorage !== 'undefined' ? localStorage.getItem('lang') : null; } catch { /* Storage may be blocked. */ }
+export const $language = atom<Language>(isLanguage(stored) ? stored : 'zh');
 
 export function setLanguage(lang: Language) {
   $language.set(lang);
-  localStorage.setItem('lang', lang);
-  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+  try { localStorage.setItem('lang', lang); } catch { /* Still switch the current page without persistence. */ }
+  if (typeof document !== 'undefined') document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
 }
 
 export const LANGUAGE_LABELS: Record<Language, string> = {

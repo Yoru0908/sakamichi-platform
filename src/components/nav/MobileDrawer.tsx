@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react';
 import { $mobileDrawerOpen, closeDrawer } from '@/stores/ui';
-import { $language } from '@/stores/language';
+import { useLanguage } from '@/i18n/use-language';
 import { $theme, toggleTheme } from '@/stores/theme';
 import { $auth } from '@/stores/auth';
 import { setLanguage, LANGUAGE_LABELS, type Language } from '@/stores/language';
@@ -17,7 +17,7 @@ interface Props {
 
 export default function MobileDrawer({ currentPath }: Props) {
   const isOpen = useStore($mobileDrawerOpen);
-  const lang = useStore($language);
+  const lang = useLanguage();
   const theme = useStore($theme);
   const auth = useStore($auth);
 
@@ -26,21 +26,21 @@ export default function MobileDrawer({ currentPath }: Props) {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-x-0 bottom-0 top-14 z-40 bg-black/40 backdrop-blur-sm transition-opacity md:hidden"
+          className="fixed inset-x-0 bottom-0 top-14 z-40 bg-black/40 backdrop-blur-sm transition-opacity xl:hidden"
           onClick={closeDrawer}
         />
       )}
 
       {/* Drawer */}
       <div
-        className={`fixed bottom-2 right-2 top-14 z-50 w-[min(22rem,calc(100vw-1rem))] overflow-hidden rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] shadow-2xl transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed bottom-2 right-2 top-14 z-50 w-[min(22rem,calc(100vw-1rem))] overflow-hidden rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] shadow-2xl transition-transform duration-300 ease-out xl:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-[calc(100%+2rem)]'
         }`}
       >
         <button
           onClick={closeDrawer}
           className="absolute right-3 top-3 z-10 rounded-full p-2 text-[var(--text-tertiary)] transition-colors hover:bg-[var(--bg-tertiary)]"
-          aria-label="Close menu"
+          aria-label={t('nav.close_menu', lang)}
         >
           <X size={20} />
         </button>

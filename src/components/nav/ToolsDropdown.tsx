@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { useStore } from '@nanostores/react';
-import { $language } from '@/stores/language';
+import { useLanguage } from '@/i18n/use-language';
 import { t } from '@/i18n';
 import { ChevronDown } from 'lucide-react';
 import type { NavItem } from '@/utils/navigation';
@@ -12,7 +11,7 @@ interface Props {
 }
 
 export default function ToolsDropdown({ item, currentPath, pillState = 'idle' }: Props) {
-  const lang = useStore($language);
+  const lang = useLanguage();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -36,8 +35,6 @@ export default function ToolsDropdown({ item, currentPath, pillState = 'idle' }:
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => setOpen(false), 150);
   };
-
-  const isActive = currentPath.startsWith(item.href);
 
   return (
     <div

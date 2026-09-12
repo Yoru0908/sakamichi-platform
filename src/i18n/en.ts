@@ -1,11 +1,13 @@
 import type { TranslationKey } from './zh';
+import { extra } from './extra.ts';
 
 export const en: Record<TranslationKey, string> = {
+  ...extra.en,
   'nav.home': 'Home',
   'nav.blog': 'Blog',
   'nav.radio': 'Radio',
   'nav.video': 'Video',
-  'nav.instagram': 'INS Archive',
+  'nav.instagram': 'Instagram Archive',
   'nav.schedule': 'Schedule',
   'nav.gallery': 'Gallery',
   'nav.photocard': 'Photocard',
@@ -15,7 +17,7 @@ export const en: Record<TranslationKey, string> = {
   'nav.miguri.history': 'Sold-out History',
   'nav.repo': 'Miguri Repo',
   'nav.seichi': 'Pilgrimage',
-  'nav.tools': 'Tools',
+  'nav.tools': 'More',
   'nav.tools.photocard': 'Photocard Generator',
   'nav.tools.subtitle_merge': 'Subtitle Merge',
   'nav.tools.srt_fixer': 'SRT Timeline Fixer',
@@ -33,7 +35,7 @@ export const en: Record<TranslationKey, string> = {
 
   'nav.group.content': 'Content',
   'nav.group.community': 'Community',
-  'nav.group.tools': 'Tools',
+  'nav.group.tools': 'More',
   'nav.group.account': 'Account',
 
   'theme.light': 'Light Mode',

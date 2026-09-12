@@ -12,6 +12,8 @@ import {
 } from '@/utils/ins-data';
 import { pickItemsInFavoriteOrder } from '@/utils/favorite-order';
 import { $favorites } from '@/stores/favorites';
+import { useLanguage } from '@/i18n/use-language';
+import { createTranslator } from '@/i18n';
 
 // ---------- Types ----------
 interface MediaItem {
@@ -113,6 +115,9 @@ function LazyVideo({ src, className }: { src: string; className: string }) {
 
 // ---------- Component ----------
 export default function InsArchive() {
+  const lang = useLanguage();
+  const tr = createTranslator(lang);
+  const groupLabel = (key: GroupFilter) => key === 'all' ? tr('common.all') : key === 'favorites' ? tr('ins.favorites') : key === 'other' ? tr('common.other') : GROUP_LABELS[key];
   const [group, setGroup] = useState<GroupFilter>('all');
   const [selectedAccount, setSelectedAccount] = useState<InsAccount | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -334,14 +339,14 @@ export default function InsArchive() {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <Camera size={18} className="text-[var(--color-brand-nogi)]" />
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">INS归档</h1>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{tr('ins.title')}</h1>
         </div>
         {/* Stats */}
         {!loading && items.length > 0 && (
           <div className="hidden sm:flex items-center gap-3 text-[10px] text-[var(--text-tertiary)]">
-            <span>总计 {totalCount}</span>
-            <span>视频 {videoCount}</span>
-            <span>图片 {imageCount}</span>
+            <span>{tr('ins.total', { count: String(totalCount) })}</span>
+            <span>{tr('ins.videos', { count: String(videoCount) })}</span>
+            <span>{tr('ins.images', { count: String(imageCount) })}</span>
           </div>
         )}
       </div>
@@ -365,7 +370,7 @@ export default function InsArchive() {
                   <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: GROUP_HEX[g] }} />
                 )}
                 {g === 'favorites' && <Star size={10} />}
-                {GROUP_LABELS[g]}
+                {groupLabel(g)}
               </button>
             ))}
           </div>
@@ -377,7 +382,7 @@ export default function InsArchive() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="搜索成员..."
+              placeholder={tr('ins.search')}
               className="w-full pl-7 pr-2 py-1.5 text-[11px] border border-[var(--border-primary)] rounded-lg bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-nogi)]"
             />
           </div>
@@ -408,7 +413,7 @@ export default function InsArchive() {
             ))}
             {accounts.length === 0 && (
               <p className="text-[10px] text-[var(--text-tertiary)] text-center py-4">
-                {group === 'favorites' ? '暂无收藏' : '无匹配结果'}
+                {group === 'favorites' ? tr('ins.no_favorites') : tr('ins.no_results')}
               </p>
             )}
           </div>
@@ -422,7 +427,7 @@ export default function InsArchive() {
               onClick={() => setShowMobileMembers(true)}
               className="w-full flex items-center justify-between px-3 py-2 rounded-lg border border-[var(--border-primary)] text-xs text-[var(--text-secondary)]"
             >
-              <span>{selectedAccount ? selectedAccount.displayName : '选择成员'}</span>
+              <span>{selectedAccount ? selectedAccount.displayName : tr('ins.select_member')}</span>
               <ChevronDown size={14} />
             </button>
           </div>
@@ -436,7 +441,7 @@ export default function InsArchive() {
                   {selectedAccount ? (
                     <>{selectedAccount.displayName}<span className="ml-2 text-[10px] font-normal text-[var(--text-tertiary)]">@{selectedAccount.username}</span></>
                   ) : (
-                    GROUP_LABELS[group]
+                    groupLabel(group)
                   )}
                 </h2>
                 <div className="flex items-center gap-2">
@@ -450,7 +455,7 @@ export default function InsArchive() {
                           cardSize === s ? 'bg-[var(--bg-primary)] text-[var(--text-primary)] shadow-sm' : 'text-[var(--text-tertiary)]'
                         }`}
                       >
-                        {s === 'small' ? '小' : s === 'medium' ? '中' : '大'}
+                        {tr(s === 'small' ? 'ins.small' : s === 'medium' ? 'ins.medium' : 'ins.large')}
                       </button>
                     ))}
                   </div>
@@ -463,18 +468,18 @@ export default function InsArchive() {
                       className="flex items-center gap-1 px-2.5 py-1 text-[10px] font-medium rounded-lg border border-[var(--border-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] disabled:opacity-40 transition-colors"
                     >
                       <Download size={11} />
-                      批量下载
+                      {tr('ins.batch_download')}
                       <ChevronDown size={10} />
                     </button>
                     {showDownloadMenu && (
                       <div className="absolute right-0 top-full mt-1 w-44 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] shadow-lg z-20 py-1">
                         {[
-                          { label: '下载所有内容', count: items.length, key: 'all' },
-                          { label: '下载所有Post', count: postCount, key: 'posts' },
-                          { label: '下载所有Story', count: storyCount, key: 'stories' },
+                          { label: tr('ins.download_all'), count: items.length, key: 'all' },
+                          { label: tr('ins.download_posts'), count: postCount, key: 'posts' },
+                          { label: tr('ins.download_stories'), count: storyCount, key: 'stories' },
                           null,
-                          { label: '仅下载视频', count: videoCount, key: 'videos' },
-                          { label: '仅下载图片', count: imageCount, key: 'images' },
+                          { label: tr('ins.download_videos'), count: videoCount, key: 'videos' },
+                          { label: tr('ins.download_images'), count: imageCount, key: 'images' },
                         ].map((opt, i) =>
                           opt === null ? (
                             <div key={i} className="border-t border-[var(--border-primary)] my-1" />
@@ -498,9 +503,9 @@ export default function InsArchive() {
               {/* Filter tabs */}
               <div className="flex items-center gap-1">
                 {([
-                  { key: 'all' as ContentFilter, label: '全部' },
-                  { key: 'stories' as ContentFilter, label: 'Story' },
-                  { key: 'posts' as ContentFilter, label: 'Post' },
+                  { key: 'all' as ContentFilter, label: tr('common.all') },
+                  { key: 'stories' as ContentFilter, label: tr('ins.stories') },
+                  { key: 'posts' as ContentFilter, label: tr('ins.posts') },
                 ]).map((f) => (
                   <button
                     key={f.key}
@@ -586,14 +591,14 @@ export default function InsArchive() {
                   {hasMore && (
                     <div ref={sentinelRef} className="flex justify-center py-6">
                       <p className="text-[10px] text-[var(--text-tertiary)]">
-                        已显示 {items.length} / {totalCount}
+                        {tr('ins.shown', { shown: String(items.length), total: String(totalCount) })}
                       </p>
                     </div>
                   )}
                 </>
               ) : (
                 <div className="text-center py-12 text-[var(--text-tertiary)]">
-                  <p className="text-xs">暂无内容</p>
+                  <p className="text-xs">{tr('ins.empty')}</p>
                 </div>
               )}
             </>
@@ -601,9 +606,9 @@ export default function InsArchive() {
             /* Empty state — no account selected */
             <div className="text-center py-16">
               <Camera size={32} className="mx-auto mb-3 text-[var(--text-tertiary)] opacity-40" />
-              <p className="text-sm font-medium text-[var(--text-secondary)]">选择成员查看内容</p>
+              <p className="text-sm font-medium text-[var(--text-secondary)]">{tr('ins.select_hint')}</p>
               <p className="text-xs text-[var(--text-tertiary)] mt-1">
-                从侧边栏选择账号浏览 Instagram 归档
+                {tr('ins.sidebar_hint')}
               </p>
             </div>
           )}
@@ -619,7 +624,7 @@ export default function InsArchive() {
               <div className="w-8 h-1 rounded-full bg-[var(--bg-tertiary)]" />
             </div>
             <div className="px-4 pb-2 flex items-center justify-between">
-              <h3 className="text-sm font-semibold text-[var(--text-primary)]">选择成员</h3>
+              <h3 className="text-sm font-semibold text-[var(--text-primary)]">{tr('ins.select_member')}</h3>
               <button onClick={() => setShowMobileMembers(false)}>
                 <X size={16} className="text-[var(--text-tertiary)]" />
               </button>
@@ -631,7 +636,7 @@ export default function InsArchive() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="搜索成员..."
+                  placeholder={tr('ins.search')}
                   className="w-full pl-7 pr-2 py-1.5 text-[11px] border border-[var(--border-primary)] rounded-lg bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:outline-none"
                 />
               </div>
@@ -663,12 +668,12 @@ export default function InsArchive() {
       {/* === Mobile bottom tab bar === */}
       <div className="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-[var(--bg-primary)] border-t border-[var(--border-primary)] flex items-center justify-around py-2 px-1 safe-area-bottom">
         {([
-          { key: 'all' as GroupFilter, label: '全部', icon: null },
+          { key: 'all' as GroupFilter, label: tr('common.all'), icon: null },
           { key: 'nogizaka' as GroupFilter, label: '乃木坂', color: GROUP_HEX.nogizaka },
           { key: 'sakurazaka' as GroupFilter, label: '櫻坂', color: GROUP_HEX.sakurazaka },
           { key: 'hinatazaka' as GroupFilter, label: '日向坂', color: GROUP_HEX.hinatazaka },
-          { key: 'other' as GroupFilter, label: 'その他', color: GROUP_HEX.other },
-          { key: 'favorites' as GroupFilter, label: '収藏', icon: 'star' },
+          { key: 'other' as GroupFilter, label: tr('common.other'), color: GROUP_HEX.other },
+          { key: 'favorites' as GroupFilter, label: tr('ins.favorites'), icon: 'star' },
         ]).map((tab) => (
           <button
             key={tab.key}
@@ -707,10 +712,10 @@ export default function InsArchive() {
                 setTimeout(() => setLinkCopied(false), 2000);
               }}
               className="relative flex items-center justify-center w-9 h-9 rounded-full bg-white/10 text-white/80 hover:text-white hover:bg-white/20 transition-colors"
-              title={linkCopied ? '已复制' : '复制链接'}
+              title={linkCopied ? tr('ins.copied') : tr('ins.copy_link')}
             >
               <Link2 size={18} />
-              {linkCopied && <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] text-white/80 whitespace-nowrap bg-black/70 px-2 py-0.5 rounded">已复制</span>}
+              {linkCopied && <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] text-white/80 whitespace-nowrap bg-black/70 px-2 py-0.5 rounded">{tr('ins.copied')}</span>}
             </button>
             <a
               href={modalItem.AlistUrl || INS_CONFIG.getMediaUrl(modalItem.Key)}
@@ -718,7 +723,7 @@ export default function InsArchive() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 text-white/80 hover:text-white hover:bg-white/20 transition-colors"
-              title="下载"
+              title={tr('ins.download')}
             >
               <Download size={18} />
             </a>

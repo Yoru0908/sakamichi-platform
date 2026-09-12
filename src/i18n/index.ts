@@ -1,6 +1,6 @@
-import { zh, type TranslationKey } from './zh';
-import { en } from './en';
-import { ja } from './ja';
+import { zh, type TranslationKey } from './zh.ts';
+import { en } from './en.ts';
+import { ja } from './ja.ts';
 import type { Language } from '@/stores/language';
 
 const dictionaries: Record<Language, Record<TranslationKey, string>> = { zh, en, ja };

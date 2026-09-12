@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { NAV_ITEMS } from '@/utils/navigation';
+import { NAV_ITEMS, isNavItemActive } from '@/utils/navigation';
+import { useLanguage } from '@/i18n/use-language';
 import { t } from '@/i18n';
 import ToolsDropdown from './ToolsDropdown';
 
@@ -11,15 +12,13 @@ interface Props {
 }
 
 export default function NavPill({ currentPath }: Props) {
+  const lang = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLAnchorElement | HTMLDivElement | null)[]>([]);
   const [pill, setPill] = useState<{ left: number; width: number } | null>(null);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
-  const activeIdx = NAV_ITEMS.findIndex((item) => {
-    if (item.href === '/') return currentPath === '/';
-    return currentPath === item.href || currentPath.startsWith(item.href + '/');
-  });
+  const activeIdx = NAV_ITEMS.findIndex((item) => isNavItemActive(item, currentPath));
 
   const measureItem = useCallback((idx: number) => {
     const el = itemRefs.current[idx];
@@ -30,13 +29,15 @@ export default function NavPill({ currentPath }: Props) {
     return { left: eRect.left - cRect.left, width: eRect.width };
   }, []);
 
-  // Set pill to active item on mount
+  // Translated labels and late-loaded fonts change widths; track the actual items.
   useEffect(() => {
-    if (activeIdx >= 0) {
-      const m = measureItem(activeIdx);
-      if (m) setPill(m);
-    }
-  }, [activeIdx, measureItem]);
+    const update = () => setPill(measureItem(hoveredIdx ?? activeIdx));
+    update();
+    const observer = new ResizeObserver(update);
+    if (containerRef.current) observer.observe(containerRef.current);
+    itemRefs.current.forEach((item) => { if (item) observer.observe(item); });
+    return () => observer.disconnect();
+  }, [activeIdx, hoveredIdx, lang, measureItem]);
 
   const handleMouseEnter = useCallback((idx: number) => {
     setHoveredIdx(idx);
@@ -54,15 +55,10 @@ export default function NavPill({ currentPath }: Props) {
     }
   }, [activeIdx, measureItem]);
 
-  const isActive = (item: typeof NAV_ITEMS[0]) => {
-    if (item.href === '/') return currentPath === '/';
-    return currentPath === item.href || currentPath.startsWith(item.href + '/');
-  };
-
   return (
     <div
       ref={containerRef}
-      className="hidden md:flex items-center gap-0.5 bg-[var(--bg-tertiary)]/60 backdrop-blur-sm rounded-full px-1 py-0.5 border border-[var(--border-secondary)] relative"
+      className="hidden xl:flex shrink-0 whitespace-nowrap items-center gap-0.5 bg-[var(--bg-tertiary)]/60 backdrop-blur-sm rounded-full px-1 py-0.5 border border-[var(--border-secondary)] relative"
       onMouseLeave={handleMouseLeave}
     >
       {/* Sliding pill background */}
@@ -85,7 +81,9 @@ export default function NavPill({ currentPath }: Props) {
       )}
 
       {NAV_ITEMS.map((item, idx) => {
-        const pillState: PillState = hoveredIdx === idx ? 'hovered' : isActive(item) ? 'active' : 'idle';
+        const pillState: PillState = hoveredIdx !== null
+          ? (hoveredIdx === idx ? 'hovered' : 'idle')
+          : (isNavItemActive(item, currentPath) && pill ? 'active' : 'idle');
         return item.children ? (
           <div
             key={item.href}
@@ -112,7 +110,7 @@ export default function NavPill({ currentPath }: Props) {
             }}
             onMouseEnter={() => handleMouseEnter(idx)}
           >
-            {t(item.labelKey, 'zh')}
+            {t(item.labelKey, lang)}
           </a>
         );
       })}
