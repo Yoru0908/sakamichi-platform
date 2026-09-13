@@ -108430,7 +108430,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "アイアンウッド・グローブ",
-        "sceneNote": "佐々木美玲が訪れた場所 https://www.instagram.com/p/DJoV7kKh9Cx/?img_index=1 題名:",
+        "sceneNote": "佐々木美玲が訪れた場所 https://www.instagram.com/p/DJoV7kKh9Cx/?img_index=1 2026年夏にも同じ場所を訪れている。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -108439,7 +108439,8 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4YgZ6VMBinUys-WOmCOGbALvp3UlL5-TyzAAlUbh4GxrFRKthSyfrCr7nzV_pCuZAT8wjoKqAquAhgJWIGRb9fxLrU0kFPcFHIl6LOdFQ4zxe-C2NlAcaz7a0xDerFtV220WNc2wLhb0-rjWALU_CA-DNGz4KNkQL8z7BfDvs5fmMH868pSbA0eUVN3JiVzkUlVf3GK0ELscMyzTTKGaGdgGJqJRY8EhByaXR1sDzD2fJNNIWqtbQLGTo%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4YgZ6VMBinUys-WOmCOGbALvp3UlL5-TyzAAlUbh4GxrFRKthSyfrCr7nzV_pCuZAT8wjoKqAquAhgJWIGRb9fxLrU0kFPcFHIl6LOdFQ4zxe-C2NlAcaz7a0xDerFtV220WNc2wLhb0-rjWALU_CA-DNGz4KNkQL8z7BfDvs5fmMH868pSbA0eUVN3JiVzkUlVf3GK0ELscMyzTTKGaGdgGJqJRY8EhByaXR1sDzD2fJNNIWqtbQLGTo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6MGh2ZWvmUw1k0tmdBwILhM2UnFNMhGTrXTe9COzUca1SWoY7qY9Ovuk_SEe1xz7BOvZMqvDK8PBDSUQSi6yjh3bcggIx-GYPDKqln10tMrq3tTq_Dfd_8ykcGNWUimxZDTTEwHhwMSfhmg-adlcsOn_fq5oEqnyn9AKqlSX6lNZVRyT9XjPhTg9srBofQ59ZWvcmUqA5Golz4aFjATwb8f-4Lv-Ubypy0i3iKEMwl9v6Q8V6kRPXVGN4%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -137806,6 +137807,117 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "Pinned Coffee",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.7296601,
+          21.3776926
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4b85ca072da016bd8103",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4b85ca072da016bd8103",
+        "name": "ブーツ＆キモズ",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ブーツ＆キモズ",
+        "sceneNote": "2026年夏に佐々木美玲が訪れた、パンケーキが有名なレストラン。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR77KGyMi1H8F4rtwlR1Xdw9AhOzw11AZ5NnWk4dwYlwLYlnyKV6Ydyp8IC7gq6a2xL-yV3T_lE4Ld8-Q-Zl2h2cuxGsk96ZuOs2J9tzTA8iSWY929CIN-twGcmUb9241fhKXFt1XG_rKpW4fwQk9FYPSFvWLcNTLKacmT385wNx7BvR8m2yFqyKt_fzco9OlGcrgZxXLUw5OuV5bDBZ3AM4QnD1XLa73xU2JQa1LLWO8w8KR0LUvV0RugA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "ブーツ＆キモズ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -158.1028563,
+          21.5911105
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a61be2e68f1bf1a9ad7a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a61be2e68f1bf1a9ad7a",
+        "name": "マツモトシェイブアイス",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "マツモトシェイブアイス",
+        "sceneNote": "2026年夏に佐々木美玲が訪れた、ハレイワのシャイブアイズの有名店。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6l3mVop_eoorTvrW0i2_Mttf4PwAdltkR2ePT7a3gyw8OJoQPSf_k2AC2yDJPAoDbWXCqllvZNJS8YIqFpo9fajnyIYyOtWh7kU-d7sewFqTqPjNcmdRbmbPV0KI-4VVpooRjK3JnKtHWbp4d4I2F0K4k9z3erUcaKVoA_onrARuC_h4DH0WXA_54Bu3DLKeTMjmRjsP5m-J-3MjnBvo3ikXeM6Hb72ZDyd3BvSFUENLQ826G15_nyR3c%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Vb8KYfUN47qJDdCd3ctARJbkaA1Bg8h0Q7vGOlfj07RrNsxYbLxaO31mSoq1PEP6FWk-hVYpQc2Gkok-U1D86YoWp83957r11JzpQ9NYTG0fuKgV4jV0sYxNEHwfEKL-UjAx3dTI3lQj5DjAQHfexWN2HQgixS2S8Ft5oBEXPLtfwFCt2fxmEh37mix2tn5SikZYOEa9j86_fbnso7M7d0cER6mComnG56o8Vk3w5AAYrBKZ5nIV0WCU%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "マツモトシェイブアイス",
           "group": "日向坂46"
         },
         "classification": {
@@ -225161,6 +225273,170 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "夢の国の入り口",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.2540763,
+          35.291006
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1fc4e505a7d0ad6ff800",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1fc4e505a7d0ad6ff800",
+        "name": "湖岸緑地 松原",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "湖岸緑地 松原",
+        "sceneNote": "佐々木久美が出演した鳥人間コンテスト2026の離陸地点。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5nMILEhrdSWI4Sdi4GmioeRHAoDDFX72bHz7qZsu2h6CtirFnyh1bxNLIRyFTb2LdrLyPeCoj_iBT1q7IEYVKVyFDloF1Kcd0A2tSIslihb7_LNCoVno09YUC_MXQbLzSkvhCS1yypsD6QtAdJIk5TkBLPlXX1D_yBWJAkWto7K1YUv7m26ixb5z0dVwF8vuujuIwt2maCcCFuXoT2fUPqdBaZBm1LwE96HRW7PEJGuysz3JXJj7LGvEw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5g7boWltiuExo4uWPnv2F0I9jr_kokYwthVkzHgIP4WXTgYFxY9U4qGulwdz3iFwU0sRVaGiOn2ind5SD6vtfHkxsVMc8jpo7lVnHSd4ga7cXoN267FCnWel7z5w4iLuZS0wPk-uexOjQYoulXkpOlOyLKBMnohSPUjNqGdDnBsLPM_i-2RcpxuA8ahSDVdJd5b3ANxf4lT9EkA_xDNKK4eqZUpwYbjLqQbn4OdDL3Y_3hnmTVSYqhjPk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6DeGuoeywVolYDcvrYRxjm5IRcwiVWfo4RnS9Wlv63BuF0LayvUBzo_2ksGZTVNsG9aGEBbL_joXsDS-P-vv4Yk6GQ0O6dx0JWyRK1210bO7lzVhzK-n1mH44AEWvy1GtpgCM_suu1Lc1s0b84D3_0XlUbYWj0QCivtiheT31VwMfFsc_bdQ9Dd6J27iyEHcyUdF3JAF6l2P5KOr3k4YkfeSyROu5UmOEvINhkRQ4XU_AZAn3A5TGOvco%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ZLlc_M3FU25SkXUfuzrw2K4uzKWBakEExO1eTdFO75nx-Fn5H_6QGHsrGCC9wH7d6ng6NCltI8lrEWYjIbVUT7RigUmkAk1cnPd4KE6mJvJOtDg3FByGh9wshsQ3f1YsRPHk3Efnd6XzJEZ8d3cmAmmx--_6Ac2b1iOghn_KlQU2bvy355qKSDaNdyS-sS1BlvmPrvzXleLRoj16WPS9FXenGyy7vs1mecfvf07PtC36WRb7KD4joNUw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "湖岸緑地 松原",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3947253,
+          32.1115948
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:47ae4ba07a6b36fe1796",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:47ae4ba07a6b36fe1796",
+        "name": "西都原13号墳",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "西都原13号墳",
+        "sceneNote": "2026.09.11 O.A.NHK宮崎「てげオシ！」で金村美玖と上村ひなのが訪れた西都市の古墳https://www.nhk.or.jp/miyazaki/info/articles/310/066/22/",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "西都原13号墳",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3937768,
+          32.1168788
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:00aa564135ccbcc4a4c0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:00aa564135ccbcc4a4c0",
+        "name": "西都原81号墳",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "西都原81号墳",
+        "sceneNote": "2026.09.11 O.A.NHK宮崎「てげオシ！」で金村美玖と上村ひなのが訪れた西都市の古墳。https://www.nhk.or.jp/miyazaki/info/articles/310/066/22/",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "西都原81号墳",
           "group": "日向坂46"
         },
         "classification": {
