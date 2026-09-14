@@ -64,7 +64,7 @@ const GROUP_LABELS: Record<MiguriGroupId, string> = {
 };
 const MEETS_DISCOUNT_STORAGE_KEY =
   "46log:miguri:limited-edition-discount-pct";
-const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 15] as const;
+const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 16] as const;
 
 function extensionNeedsUpdate(version: string) {
   const current = version.split(".").map((part) => Number(part) || 0);
@@ -257,7 +257,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
               onClick={() => startSync("fortunemusic")}
               className="flex min-h-14 items-center justify-between rounded-2xl bg-indigo-600 px-5 text-left text-sm font-bold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
             >
-              {needsUpdate ? "同步 Music（需手动继续 Meets）" : "一键同步 Music + Meets"} <ArrowRight size={18} />
+              {needsUpdate ? "同步 Music（建议先更新）" : "一键同步 Music + Meets"} <ArrowRight size={18} />
             </button>
             <button
               type="button"
@@ -277,7 +277,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   当前版本需要更新
                 </div>
                 <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                  v1.1.15 会在 Music 保存成功后自动继续 Meets，并正确处理某一来源没有履历的情况。请先关闭旧版自动同步，再更新扩展。
+                  v1.1.16 修复 Meets 登录后仍停在等待页的问题。请先关闭旧版自动同步，再下载 ZIP 手动更新；商店版尚未包含此修复。
                 </p>
               </div>
               <div className="flex shrink-0 flex-wrap gap-2">
@@ -291,11 +291,11 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   </button>
                 ) : null}
                 <a
-                  href="/downloads/46log-miguri-sync.zip"
+                  href="/downloads/46log-miguri-sync.zip?v=1.1.16"
                   download
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-xs font-bold text-white hover:bg-indigo-700"
                 >
-                  <Download size={15} /> 下载 v1.1.15 ZIP
+                  <Download size={15} /> 下载 v1.1.16 ZIP
                 </a>
               </div>
             </div>
@@ -354,13 +354,13 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 text-xs font-bold text-emerald-800">
-                <Puzzle size={14} /> Chrome Web Store · v1.1.15
+                <Puzzle size={14} /> 修复版 ZIP · v1.1.16
               </div>
               <div className="mt-3 text-sm font-bold text-[var(--text-primary)]">
                 安装最新版同步扩展
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
-                v1.1.15 将 Music 与 Meets 改为一次连续同步，避免只写入 Music。推荐从 Chrome Web Store 安装并自动获取后续更新。
+                v1.1.16 修复 Meets 登录后无法恢复同步的问题，现可下载 ZIP 手动安装。Chrome Web Store 版仍为 v1.1.15，尚未包含此修复。
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
@@ -379,11 +379,11 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                 从 Chrome Web Store 安装 <ArrowRight size={16} />
               </a>
               <a
-                href="/downloads/46log-miguri-sync.zip"
+                href="/downloads/46log-miguri-sync.zip?v=1.1.16"
                 download
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-indigo-500/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
-                <Download size={16} /> 备用下载 ZIP
+                <Download size={16} /> 下载 v1.1.16 ZIP
               </a>
             </div>
           </div>

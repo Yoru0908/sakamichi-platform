@@ -18,14 +18,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
       <section class="mt-8 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5">
         <p class="text-xs font-bold uppercase tracking-[0.14em] text-emerald-800">
-          Chrome Web Store · v1.1.15
+          修复版 ZIP · v1.1.16
         </p>
         <h2 class="mt-2 text-lg font-bold text-[var(--text-primary)]">
-          最新版已上线
+          登录恢复修复版已提供下载
         </h2>
         <p class="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-          v1.1.15 会在 Music 保存成功后自动继续同步 Meets，即使某一来源没有履历也不会中断。
-          推荐通过 Chrome Web Store 安装或更新，以便后续自动获取新版。
+          v1.1.16 修复 Meets 登录后仍停在等待页的问题：同一账号恢复登录后会重新验证官方接口，等待超时也会明确提示。
+          请下载 ZIP 手动更新。Chrome Web Store 版仍为 v1.1.15，尚未包含此修复。
         </p>
         <div class="mt-4 flex flex-wrap gap-3">
           <a
@@ -37,11 +37,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
             从 Chrome Web Store 安装
           </a>
           <a
-            href="/downloads/46log-miguri-sync.zip"
+            href="/downloads/46log-miguri-sync.zip?v=1.1.16"
             download
             class="inline-flex min-h-11 items-center justify-center rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-indigo-500/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           >
-            备用下载 v1.1.15 ZIP
+            下载 v1.1.16 ZIP
           </a>
         </div>
       </section>
@@ -49,7 +49,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <section class="mt-10">
         <h2 class="text-lg font-bold text-[var(--text-primary)]">使用方式</h2>
         <ol class="mt-4 list-decimal space-y-3 pl-5 leading-7 text-[var(--text-secondary)]">
-          <li>点击上方 Chrome Web Store 按钮安装或更新扩展，并确认版本为 v1.1.15。</li>
+          <li>先在 Dashboard 关闭旧版自动同步，下载 v1.1.16 ZIP 并解压到固定目录。</li>
+          <li>打开 chrome://extensions（Edge 为 edge://extensions），启用开发者模式。若原来安装的是商店版，先停用旧扩展，再点击“加载已解压的扩展程序”选择解压目录；若原来就是手动安装版，覆盖原目录后点击扩展卡片的重新加载按钮。只保留一个版本启用，确认版本为 v1.1.16。</li>
           <li>登录 46log 并打开咪咕力面板，重新加载后确认显示“扩展已连接”。</li>
           <li>点击“一键同步 Music + Meets”；Music 保存后会自动打开 Meets，并依次检查乃木坂、櫻坂与日向坂。</li>
           <li>首次同步成功后可开启每 30 分钟自动检查。</li>
@@ -61,7 +62,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <div class="mt-4 space-y-5 text-sm leading-7 text-[var(--text-secondary)]">
           <div>
             <h3 class="font-bold text-[var(--text-primary)]">点击同步后停在登录页</h3>
-            <p>完成官方登录即可继续。扩展不会读取或保存登录表单、密码或 Cookie。</p>
+            <p>若已经登录但仍显示“等待官方登录”，请手动更新到 v1.1.16，关闭旧同步标签页并刷新 Dashboard，再点击“仅同步 Meets（三坂）”。新版在等待恢复时每 5 秒重试官方接口，超过 10 分钟会提示重新发起。扩展不会读取或保存登录表单、密码或 Cookie。</p>
           </div>
           <div>
             <h3 class="font-bold text-[var(--text-primary)]">自动同步没有立即更新</h3>
