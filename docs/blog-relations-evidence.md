@@ -32,7 +32,7 @@
 - 每次读取 HTML 前检查最多 800 条 / 600 万源码字符；单篇最多 60 万字符、识别候选上限 5000、整月依据上限 15000。超过容量失败关闭，不偷偷截断成完整统计。
 - 内部 Cache API TTL 600 秒，键含源码接口版本/团体/月；对浏览器始终 `no-store`，不开放跨域 CORS。缓存命中流式转发，不重复解析整个 JSON；未命中只序列化一次。缓存失效回到真实 D1，读取失败显示错误，不回退旧静态数据。源数据读取时间由服务器提供；另列浏览器本机计算时间。
 - 安全检查在任何缓存读取之前：只允许主站 `46log.com`；Pages 预览/未审核别名返回 403。日本来源还必须有 access_token，经固定 `https://api.46log.com/api/auth/me` 查询有效签名及当前用户认证/admin 状态；只转发必要的 access_token，不读取付款/OAuth 链接，不信任伪造 geo_pass。缺失/过期登录返回401，未认证或非主站返回403，验证服务故障返回503；均在缓存读取前拒绝。客户端仅对401复用既有 `/api/auth/refresh` 续期并重试一次，避免15分钟 access_token 过期后已认证用户一直报错；403不刷新、不循环重试。不动既有 WAF、原站访问限制或独立 MSG 服务。
-- 没有定时任务。按需计算仅表示读取**已有**正文；不会补抓缺失文章/日语，也不意味着整站采集完整。分析数据访问只有 SELECT；登录续期属于既有 Auth 服务的正常会话流程，不是分析服务写入认证库。本轮未用真实账号执行续期。
+- 没有定时任务。按需计算仅表示读取**已有**正文；不会补抓缺失文章/日语，也不意味着整站采集完整。分析数据访问只有 SELECT；登录续期属于既有 Auth 服务的正常会话流程，不是分析服务写入认证库。2026-09-14 经用户授权的测试账号已完成真实登录及续期，详见下方验收记录。
 - 后端工作区存在其他未提交修改，本轮不部署该目录；不重启 Homeserver/PM2/采集器，不重复 Miguri 同步。
 
 ## 验证方法
@@ -58,6 +58,41 @@ node scripts/audit-blog-relations.mjs /outside/repository/source-snapshot.json
 
 ## 发布记录
 
+### 2026-09-14：真实账号线上验收补齐
+
+用户明确授权使用测试账号。独立 Chromium 会话在正式站完成登录，`/api/auth/me` 确认是所指定账号、`role=member`、`verificationStatus=approved`，实际地区 JP；不是管理员特权、伪造国家头或本地授权上下文。
+
+- **12 项真实浏览器检查通过，受保护源接口 11 次200、全部 no-store，零模拟响应。** 正式资源中的 Web Worker 计算结果与同一批实时源记录的离线引擎一致。
+- 1440px 桌面：三团最新月份、较大历史月份、日语高亮依据、被提及排行/期别钻取；实际打开站内博客 `hinatazaka-67403` 以及官方原文，核对官网含该篇标题。
+- 390px 手机：重新加载后的真实会话、月份切换、依据和无页面横向溢出通过。
+- 只删除测试浏览器自己的短期 access_token，真实目录/月接口返回401，既有 `/api/auth/refresh` **一次**200后两接口恢复200。没有伪造响应或改服务器会话规则。
+- 缺正文的乃木坂2024-10明确显示“无法得出提及统计”，不当作已经观察到零关系。
+- 手机整页重载时仍捕获1次已知启动 React #418（进入关系分析前），单独保留在报告中；关系分析激活后没有运行时错误。不声称整站 hydration 或59个既有 Astro 诊断已修复。
+- Pages API 再次确认当前部署仍为 `40217ecd-0699-4f94-8e03-9bd7e7468851` / `e27a581` / success，两个分析资源 SHA-256 与下方发布记录一致。本次只新增验收脚本/记录，**没有重新部署业务代码或修改权限/WAF/数据库/PM2**。
+
+实时月份结果（与9月13日全量快照分开记录，当前月会继续增长）：
+
+| 团体/月 | 源记录 | 可分析日语 | 提及组合 |
+|---|---:|---:|---:|
+| 櫻坂 2026-09 | 36 | 36 | 13 |
+| 乃木坂 2026-09 | 17 | 17 | 3 |
+| 日向坂 2026-09 | 90 | 86 | 53 |
+| 日向坂 2025-12 | 228 | 224 | 149 |
+| 乃木坂 2024-10 | 3 | 0 | 不可判定（缺正文） |
+
+脚本 `scripts/test-blog-relations-authenticated.cjs` 必须显式提供进程环境 `BLOG_RELATIONS_TEST_EMAIL` / `BLOG_RELATIONS_TEST_PASSWORD`；不要把真实值写入脚本、文档或 Git。执行方式：
+
+```bash
+# 事先安全提供上述两个环境变量；这里不填写任何真实账号。
+NODE_PATH=/path/to/playwright/node_modules \
+BLOG_RELATIONS_AUTH_ARTIFACTS=/outside/repository/authenticated-results \
+node scripts/test-blog-relations-authenticated.cjs
+```
+
+脚本仅放行登录/续期 POST，其余写请求拦截；不使用 response fixtures，不修改账号资料/权限或发布内容。正常登录/续期可能产生既有 Auth 会话记录，不冒称整个认证链路零写入。验收脚本不打印账号密码，不把凭据写入测试脚本、生成的报告、截图或凭据文件，也不传入 Chromium 子进程环境；不导出 cookie/storageState/HAR/trace。结束销毁隔离浏览器，不调用会撤销该账号所有设备 refresh token 的 `/api/auth/logout`。
+
+受限本地报告/组件截图：`/Users/yoru/.cache/blog-relations/authenticated-20260914/`，不进入 Git。测试等待已处理登录组件 hydration 和官方链接新窗口导航，未为测试改线上页面。
+
 ### 2026-09-13
 
 - 当前 Pages production：`40217ecd-0699-4f94-8e03-9bd7e7468851`，Git `e27a581342d1a995a1c92330aa059cf3bc49350e`；production branch `sakamichi-platform`，部署状态 success，`commit_dirty:false`。
@@ -69,7 +104,7 @@ node scripts/audit-blog-relations.mjs /outside/repository/source-snapshot.json
 - 本地和正式页面的桌面/手机业务流程通过（显式记录上述启动警告）。真实 D1 的5组/月数据另外送入正式页面的 Web Worker：櫻坂2026-09、日向坂2025-12及2026-09、乃木坂2026-09及缺正文的2024-10，结果与离线引擎一致；较大月份228条正常分析，缺正文不显示伪造零关系结论。
 - 直接调用真实 D1 的固定 SQL + 本地 handler 集成测试：51个团体/月目录，5个月份；**21,666 rows read / 0 writes**。这是“真实D1＋本地授权上下文”测试，不伪称是公开接口认证放行测试。
 - 真实 HTTP 验证：日本匿名、伪造 geo_pass、无效 access_token 和伪造 `CF-IPCountry: US` 均被拒绝（401）；preview403；无效 token 确认经过真实 Auth 服务返回401，不再落入先前的边缘 fetch 503。最终按专用请求头过滤的短时 tail 捕获2条自己的拒绝请求，均 outcome=ok、logs/exceptions 为空；不把它扩称为授权放行路径日志验收。六种 MSG 撤下 URL 仍410/noindex/no-store。
-- **仍待补验：使用已有已认证账号，或合规非日本真实浏览器，完整走公开数据接口的200放行链路。** 现有测试出口均识别为日本；美国普通 HTTP 探针被原 WAF challenge 拦截。未放宽安全规则，也未使用用户真实登录态。不能把 fixture 或拒绝路径验收写成此项已通过。
+- **发布当日的待验项，已于2026-09-14补齐（见上）：真实已认证账号走公开数据接口200放行链路。** 9月13日现有出口均识别为日本，美国普通 HTTP 探针被原 WAF challenge 拦截，当时未使用用户真实登录态。保留这段历史边界，不把早期 fixture 或拒绝路径追溯改称为真实账号测试。
 
 只读全量存档核验（51个团体/月，原始数据 SHA-256 `c9cdde157533965de29cfe962de6c7befcd06b3d53f05e930cf183dbc13d8b83`）：
 
