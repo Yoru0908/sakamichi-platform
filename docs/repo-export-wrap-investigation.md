@@ -37,4 +37,10 @@ npm run build
 - 45-page Astro build passes, with existing static `Astro.request.headers` warnings.
 - Desktop WebKit is not an actual iPhone/iOS native-download validation; no actual Windows machine was used. The original user's exact display settings remain unknown, but the supplied failure pattern is reproduced and fixed.
 
+## Deployment
+
+- Published production Git `45438e6` to Pages deployment `44aa1623-2f94-4c9b-8a50-7e314e70faf7`, preserving current production ancestry through `0421b59`.
+- `node scripts/smoke-repo-export-production.mjs` passed on `https://46log.com/repo/create`: actual deployed UI at 150% display scale, real PNG download, both speakers' text contained. Account/API traffic is entirely mocked; no real account data is read/written. Existing recoverable React #418 hydration warning remains (one observed); no other page errors.
+- No standalone Worker/PM2 restarts or binding changes. Central deployment map updated. To roll back this fix, revert the exporter patch rather than publishing an old whole-site snapshot.
+
 Diagnostics/PNGs are outside the source tree under local `~/.cache/repo-export-wrap/`; no captures or test pages are added to production output. Worktree `.worktrees/repo-export-fix`, branch `fix/repo-export-wrap`.
