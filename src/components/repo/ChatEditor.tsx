@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Plus, Trash2, MessageCircle, Image, Italic, ArrowUp, ArrowDown, X } from 'lucide-react';
 import type { Message } from '@/types/repo';
+import { canPairImage, rotateRepoImage } from './image-layout';
 
 interface Props {
   messages: Message[];
@@ -17,6 +18,28 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
   const listRef = useRef<HTMLDivElement>(null);
   const pendingReveal = useRef<{ id: string; append: boolean } | null>(null);
   const [insertBeforeId, setInsertBeforeId] = useState<string | null>(null);
+  const latest = useRef({ messages, onChange });
+  latest.current = { messages, onChange };
+  const rotationBusy = useRef(false);
+  const [rotatingId, setRotatingId] = useState<string | null>(null);
+  const [imageError, setImageError] = useState('');
+
+  async function rotateImage(message: Message, direction: -1 | 1) {
+    if (!message.imageUrl || rotationBusy.current) return;
+    rotationBusy.current = true;
+    setRotatingId(message.id);
+    setImageError('');
+    try {
+      const imageUrl = await rotateRepoImage(message.imageUrl, direction);
+      const current = latest.current;
+      // A slow decode must not resurrect deleted/replaced images or lose edits.
+      if (current.messages.some(m => m.id === message.id && m.imageUrl === message.imageUrl)) {
+        current.onChange(current.messages.map(m => m.id === message.id ? { ...m, imageUrl } : m));
+      }
+    } catch (error) {
+      setImageError(error instanceof Error ? error.message : '旋转失败，请重试');
+    } finally { rotationBusy.current = false; setRotatingId(null); }
+  }
 
   function addMessage(speaker: 'me' | 'member' | 'narration', beforeId?: string) {
     let id = nextId();
@@ -208,6 +231,18 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
                     {msg.imageUrl ? (
                       <div className="relative group/img">
                         <img src={msg.imageUrl} alt="" className="max-h-32 rounded-lg object-contain mx-auto" />
+                        <div className="flex flex-wrap justify-center gap-2 py-1 text-xs">
+                          <button type="button" disabled={!!rotatingId} onClick={() => rotateImage(msg, -1)} className="min-h-8 rounded border px-2 disabled:opacity-40">↶ 左转90°</button>
+                          <button type="button" disabled={!!rotatingId} onClick={() => rotateImage(msg, 1)} className="min-h-8 rounded border px-2 disabled:opacity-40">↷ 右转90°</button>
+                          <button type="button" aria-pressed={msg.imagePairWithPrevious === true}
+                            disabled={!msg.imagePairWithPrevious && !canPairImage(messages, index)}
+                            onClick={() => updateMessage(msg.id, { imagePairWithPrevious: msg.imagePairWithPrevious ? undefined : true })}
+                            className="min-h-8 rounded border px-2 disabled:opacity-40"
+                            title="将两条相邻的图片并排显示；用↑↓调整顺序">
+                            {msg.imagePairWithPrevious ? '取消并排' : '与上一张并排'}
+                          </button>
+                          {rotatingId === msg.id && <span role="status">旋转中…</span>}
+                        </div>
                         <button
                           type="button"
                           onClick={() => updateMessage(msg.id, { imageUrl: '' })}
@@ -330,6 +365,7 @@ export default function ChatEditor({ messages, onChange, memberName, groupColor 
         </button>
       </div>
 
+      {imageError && <p role="alert" className="text-xs text-red-600">{imageError}</p>}
       <p className="text-[10px] text-gray-400 text-center mt-1">
         💡 ↑↓で順序変更・「上に挿入」で途中に追加。Enterで改行、話者アイコンで切替。
       </p>

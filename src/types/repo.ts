@@ -16,6 +16,7 @@ export interface Message {
   speaker: 'me' | 'member' | 'narration';
   text: string;
   imageUrl?: string;  // optional inline image (user-uploaded or URL)
+  imagePairWithPrevious?: boolean; // pair with adjacent previous narration photo, two per row
   narrationColor?: string; // uniform Repo narration accent, optional #rrggbb in messages JSON
 }
 

@@ -109,6 +109,7 @@ function repoWorkToSavedRepo(work: RepoWorkItem): SavedRepo {
         speaker: message.speaker,
         text: message.text,
         imageUrl: message.imageUrl,
+        imagePairWithPrevious: message.imagePairWithPrevious === true ? true : undefined,
         narrationColor: normalizeNarrationColor(message.narrationColor),
       })),
       tags: work.tags as AtmosphereTag[],
@@ -130,7 +131,7 @@ function savedRepoToDraftPayload(repo: SavedRepo): CreateRepoPayload {
     slotNumber: repo.data.slotNumber,
     ticketCount: repo.data.ticketCount,
     nickname: repo.data.nickname,
-    messages: repo.data.messages.map(({ speaker, text, imageUrl, narrationColor }) => ({ speaker, text, imageUrl, narrationColor: normalizeNarrationColor(narrationColor) })),
+    messages: repo.data.messages.map(({ speaker, text, imageUrl, imagePairWithPrevious, narrationColor }) => ({ speaker, text, imageUrl, imagePairWithPrevious: imagePairWithPrevious === true ? true : undefined, narrationColor: normalizeNarrationColor(narrationColor) })),
     tags: repo.data.tags,
     template: repo.data.template,
     isPublic: false,
@@ -332,7 +333,7 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
   function buildCurrentPayload(isPublic: boolean): CreateRepoPayload | null {
     if (!selectedMember) return null;
     const filteredMessages = (isPublic ? messages.filter(m => m.text.trim() || m.imageUrl) : messages)
-      .map(({ speaker, text, imageUrl, narrationColor }) => ({ speaker, text, imageUrl, narrationColor: normalizeNarrationColor(narrationColor) }));
+      .map(({ speaker, text, imageUrl, imagePairWithPrevious, narrationColor }) => ({ speaker, text, imageUrl, imagePairWithPrevious: imagePairWithPrevious === true ? true : undefined, narrationColor: normalizeNarrationColor(narrationColor) }));
     return {
       memberId: selectedMember.id,
       memberName: selectedMember.name,

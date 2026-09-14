@@ -77,6 +77,8 @@ function preserveBorderLayout(node: Node): void {
 export async function exportRepoElementAsPng(root: HTMLElement, filename: string): Promise<void> {
   await root.ownerDocument.fonts.ready;
   await waitForHtml2CanvasImages(root);
+  // Let image onLoad-driven landscape sizing commit before measuring the clone.
+  await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
   const unmark = markExportRoot(root);
 
   try {
