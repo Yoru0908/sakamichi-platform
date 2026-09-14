@@ -20,4 +20,10 @@ User added `46log.com` in Resend (Tokyo region). Public DNS confirms the supplie
 
 Before deployment, production `cb2b1802-cc9c-4003-ace3-0d0299fdaac3` module was privately backed up under local `~/.cache/auth-pre-email-fix.bundle`; local pre-fix bundle comparison showed esbuild formatting/generated naming differences. No secret values were printed or committed. Existing deployed RESEND_API_KEY is retained; a local development credential did not authorize Resend domain queries and was not used for sending or deployed.
 
+## Deployment / requested account reset
+
+Auth Worker deployed as `5e5df93c-8b77-4e4b-8075-909429d8cfcd`, code `3930607`. Live version bindings confirm the new sender and removal of retired origins. Production empty-login validation returns expected HTTP 400; no test registration/email was sent. Existing Resend secret retained. No Pages redeployment or PM2 restart for this change. Actual provider acceptance/QQ inbox arrival still awaits the user's retry.
+
+The explicitly authorized single-account reset was completed: private full row/token backup `~/.cache/auth-unverified-reset-20260915.json` (0600), guarded DELETE matched exactly one unverified/no-login/member row and excluded every other account-data reference, old email token removed by FK cascade. Post-check confirms no user/email-token occupancy. Auth and Miguri related-data counts were all zero except the single old verification token. No other accounts were deleted and no email was marked verified.
+
 A user explicitly requested resetting one newly created, unverified account. It had no login, Repo, community, preferences, payments/subscriptions, OAuth or Miguri entries (Auth + Miguri D1 scoped count checks). Any reset must be backed up privately, scoped to its exact id/email plus unverified/no-login state, and guarded against existing account data. Do not bulk-delete other unverified accounts or set email_verified=1. Real user email, password hashes and verification tokens are not kept in this document/repository.
