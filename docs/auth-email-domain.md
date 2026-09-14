@@ -20,6 +20,12 @@ User added `46log.com` in Resend (Tokyo region). Public DNS confirms the supplie
 
 Before deployment, production `cb2b1802-cc9c-4003-ace3-0d0299fdaac3` module was privately backed up under local `~/.cache/auth-pre-email-fix.bundle`; local pre-fix bundle comparison showed esbuild formatting/generated naming differences. No secret values were printed or committed. Existing deployed RESEND_API_KEY is retained; a local development credential did not authorize Resend domain queries and was not used for sending or deployed.
 
+## Follow-up: verified domain still rejected
+
+User reports dashboard domain verified at 00:34 JST. Two controlled registrations using Resend's documented `delivered+<label>@resend.dev` simulator returned 502; email-only Worker tail confirmed Resend HTTP 400. Added safe fixed-category provider error logging (no raw provider message). Diagnostic deployment `89d6e04d-aa36-4507-a47d-ee5f5f5c7634` / code `2788054` confirmed `reason=domain_not_verified`, not invalid API key. The dashboard and the deployed credential's domain visibility disagree; account/team or key-scope mismatch is a possibility, not established fact. Requested a new sending key from the same Resend account/domain; **secret not yet replaced, mail remains blocked**. Both created simulator accounts/tokens were deleted after each test. A first Python default-UA probe was blocked before creating an account; retry with browser UA reached the Worker.
+
+At the user's second explicit request, the replacement unverified account for the same email was again privately backed up (`~/.cache/auth-unverified-reset-second-20260915.json`, 0600), checked against current Auth/Miguri schemas (no business data), and conditionally removed; its four old verification tokens cascaded. Recheck confirmed no address occupancy. This reset does not fix provider rejection; advised not to re-register until sending is healthy.
+
 ## Deployment / requested account reset
 
 Auth Worker deployed as `5e5df93c-8b77-4e4b-8075-909429d8cfcd`, code `3930607`. Live version bindings confirm the new sender and removal of retired origins. Production empty-login validation returns expected HTTP 400; no test registration/email was sent. Existing Resend secret retained. No Pages redeployment or PM2 restart for this change. Actual provider acceptance/QQ inbox arrival still awaits the user's retry.
