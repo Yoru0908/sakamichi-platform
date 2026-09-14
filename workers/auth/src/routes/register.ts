@@ -53,7 +53,10 @@ export async function handleRegister(req: Request, env: Env): Promise<Response> 
     .run();
 
   // Send verification email
-  await sendVerificationEmail(env, email, token);
+  const sent = await sendVerificationEmail(env, email, token);
+  if (!sent) {
+    return error('账号已创建，但验证邮件暂时发送失败。请稍后用刚才的邮箱和密码登录以补发邮件，无需重复注册。', 502);
+  }
 
   return success({ message: `验证邮件已发送至 ${email}` }, 201);
 }

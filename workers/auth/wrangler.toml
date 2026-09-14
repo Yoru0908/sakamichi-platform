@@ -3,8 +3,8 @@ main = "src/index.ts"
 compatibility_date = "2024-05-01"
 
 [vars]
-CORS_ORIGIN = "https://46log.com,https://sakamichi-tools.cn,https://test.sakamichi-tools.cn,https://sakamichi-platform-test.pages.dev"
-EMAIL_FROM = "noreply@sakamichi-tools.cn"
+CORS_ORIGIN = "https://46log.com,https://sakamichi-platform-test.pages.dev"
+EMAIL_FROM = "Sakamichi Tools <noreply@46log.com>"
 DISCORD_INVITE_URL = "https://discord.gg/Ddp8As4JA"
 # JWT_SECRET, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, DISCORD_BOT_TOKEN, etc.
 # are set via `wrangler secret put <KEY>`.

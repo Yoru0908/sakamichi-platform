@@ -1,5 +1,6 @@
 import type { Env, UserRow } from '../types';
 import { toPublicUser } from '../types';
+import { sendVerificationEmail } from '../utils/email';
 import { verifyPassword } from '../utils/password';
 import { signAccessToken } from '../utils/jwt';
 import { error, success, setCookies } from '../utils/response';
@@ -37,7 +38,21 @@ export async function handleLogin(req: Request, env: Env): Promise<Response> {
 
   // Check email verified
   if (!user.email_verified) {
-    return error('请先验证邮箱', 403);
+    // Only the owner (password already checked) can request another email.
+    // Token expiry = creation + 24h, so it also provides a per-account cooldown.
+    const latest = await env.DB.prepare('SELECT MAX(expires_at) AS expires_at FROM email_tokens WHERE user_id = ?')
+      .bind(user.id).first<{ expires_at: string | null }>();
+    const now = Date.now();
+    if (latest?.expires_at && Date.parse(latest.expires_at) > now + 24 * 60 * 60 * 1000 - 60 * 1000) {
+      return error('邮箱尚未验证，请检查收件箱和垃圾邮件；如需补发，请至少间隔60秒再登录。', 429);
+    }
+    const token = crypto.randomUUID();
+    await env.DB.prepare('INSERT INTO email_tokens (token, user_id, expires_at) VALUES (?, ?, ?)')
+      .bind(token, user.id, new Date(now + 24 * 60 * 60 * 1000).toISOString()).run();
+    const sent = await sendVerificationEmail(env, user.email, token);
+    return sent
+      ? error('邮箱尚未验证，验证邮件已重新发送，请查收并点击验证链接后再登录。', 403)
+      : error('验证邮件暂时发送失败，请至少间隔60秒后重试登录，或联系管理员。', 502);
   }
 
   // Sign access token

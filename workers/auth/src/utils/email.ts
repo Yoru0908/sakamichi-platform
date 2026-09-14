@@ -12,9 +12,12 @@ export async function sendVerificationEmail(
   const siteUrl = env.CORS_ORIGIN.split(',')[0].trim();
   const verifyUrl = `${siteUrl}/auth/verify?token=${encodeURIComponent(token)}`;
 
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10000);
   try {
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
+      signal: controller.signal,
       headers: {
         Authorization: `Bearer ${env.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
@@ -38,9 +41,20 @@ export async function sendVerificationEmail(
         `,
       }),
     });
-    return res.ok;
+    if (!res.ok) {
+      // Never log recipient addresses, verification URLs, API keys or response bodies.
+      console.error('[Email] Resend rejected verification email', { status: res.status });
+      return false;
+    }
+    const result = await res.json() as { id?: string };
+    if (!result.id) {
+      console.error('[Email] Resend response missing message id');
+      return false;
+    }
+    console.info('[Email] Resend accepted verification email', { id: result.id });
+    return true;
   } catch {
     console.error('[Email] Failed to send verification email');
     return false;
-  }
+  } finally { clearTimeout(timeout); }
 }
