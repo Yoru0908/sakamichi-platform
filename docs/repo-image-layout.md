@@ -29,4 +29,6 @@ node scripts/smoke-repo-export-production.mjs
 - Existing caret/IME/order/insert/scroll tests pass. 18-case actual PNG fractional-border regression passes. Astro 45-page build passes (existing static-header warnings remain).
 - Desktop WebKit coverage is not physical iPhone/iOS download validation. No multi-select upload, arbitrary-angle rotation or cropping added.
 
+Production deployment: `be1db8da-84aa-4eb8-8b83-feefcee45bbf`, Git `83df033`. Both deployed account-image test and prior fractional-border production smoke passed against `https://46log.com`; account/API traffic entirely mocked. Central map updated.
+
 Branch `feat/repo-image-layout`, worktree `.worktrees/repo-export-fix`. Test fixtures under `tests/`, not production routes. No Homeserver files, PM2 processes, D1 rows or credentials modified.
