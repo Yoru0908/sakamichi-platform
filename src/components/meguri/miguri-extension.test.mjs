@@ -55,7 +55,7 @@ const supportSource = readFileSync(
 
 test("Miguri extension has only scoped sync, storage, tab, and alarm permissions", () => {
   assert.equal(manifest.manifest_version, 3);
-  assert.equal(manifest.version, "1.1.15");
+  assert.equal(manifest.version, "1.1.16");
   assert.deepEqual(manifest.permissions, ["storage", "tabs", "alarms"]);
   assert.equal(manifest.permissions.includes("cookies"), false);
   assert.equal(manifest.host_permissions.includes("<all_urls>"), false);
