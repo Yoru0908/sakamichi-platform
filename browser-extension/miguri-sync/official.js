@@ -298,21 +298,38 @@
     });
     return link?.href || "";
   };
-  const waitForMeetsLogin = async (previousUserId = "") => {
+  const waitForMeetsLogin = async (retrySync = null) => {
+    // Landing-page links and login state may appear after document_idle.
     if (onMeetsGroupLanding()) {
       const campaignUrl = firstMeetsCampaignUrl();
-      if (campaignUrl) location.assign(campaignUrl);
-      else await requireLogin();
-      return "";
+      if (campaignUrl) {
+        location.assign(campaignUrl);
+        return null;
+      }
     }
     await requireLogin();
-    if (job.auto) return "";
-    for (let attempt = 0; attempt < 600; attempt += 1) {
-      await sleep(1_000);
+    if (job.auto) return null;
+    const deadline = Date.now() + 10 * 60 * 1_000;
+    while (Date.now() < deadline) {
+      await sleep(retrySync ? 5_000 : 1_000);
       const userId = readMeetsUserId();
-      if (userId && userId !== previousUserId) return userId;
+      if (userId) {
+        if (!retrySync) return userId;
+        // Logging back into the same account need not change its ID.
+        // Only the official API response can confirm that syncing may resume.
+        const response = await retrySync(userId);
+        if (response?.code !== "LOGIN_REQUIRED") return response;
+        show("等待官方登录", "登录状态尚未恢复；登录后每 5 秒自动重试。");
+      }
+      if (onMeetsGroupLanding()) {
+        const campaignUrl = firstMeetsCampaignUrl();
+        if (campaignUrl) {
+          location.assign(campaignUrl);
+          return null;
+        }
+      }
     }
-    return "";
+    throw new Error("等待 Meets 登录超过 10 分钟，请确认官方登录后返回 Dashboard 重新同步。");
   };
   const discoverMeetsCampaigns = async () => {
     const originalUrl = location.href;
@@ -401,9 +418,10 @@
     const campaignsByGroup = await discoverMeetsCampaigns();
     let response = await requestMeetsApiSync(userId, campaignsByGroup);
     if (response?.code === "LOGIN_REQUIRED") {
-      userId = await waitForMeetsLogin(userId);
-      if (!userId) return;
-      response = await requestMeetsApiSync(userId, campaignsByGroup);
+      response = await waitForMeetsLogin((currentUserId) =>
+        requestMeetsApiSync(currentUserId, campaignsByGroup),
+      );
+      if (!response) return;
     }
     if (!response?.ok) {
       throw new Error(response?.error || "官方履历读取失败");

@@ -55,7 +55,7 @@ const supportSource = readFileSync(
 
 test("Miguri extension has only scoped sync, storage, tab, and alarm permissions", () => {
   assert.equal(manifest.manifest_version, 3);
-  assert.equal(manifest.version, "1.1.15");
+  assert.equal(manifest.version, "1.1.16");
   assert.deepEqual(manifest.permissions, ["storage", "tabs", "alarms"]);
   assert.equal(manifest.permissions.includes("cookies"), false);
   assert.equal(manifest.host_permissions.includes("<all_urls>"), false);
@@ -608,20 +608,23 @@ test("Meets API accepts three-group campaign discovery from the official tab", a
 });
 
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {
-  assert.match(dashboardSource, /Chrome Web Store · v1\.1\.15/);
+  assert.match(dashboardSource, /修复版 ZIP · v1\.1\.16/);
+  assert.match(dashboardSource, /MIN_RECOMMENDED_EXTENSION_VERSION = \[1, 1, 16\]/);
   assert.match(dashboardSource, /安装最新版同步扩展/);
   assert.match(dashboardSource, /当前版本需要更新/);
-  assert.match(dashboardSource, /Music 保存成功后自动继续 Meets/);
+  assert.match(dashboardSource, /v1\.1\.16 修复 Meets 登录后仍停在等待页/);
   assert.match(dashboardSource, /extensionNeedsUpdate/);
   assert.match(dashboardSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
   assert.match(dashboardSource, /从 Chrome Web Store 安装/);
-  assert.match(dashboardSource, /备用下载 ZIP/);
+  assert.match(dashboardSource, /下载 v1\.1\.16 ZIP/);
   assert.match(dashboardSource, /单轮超过 10/);
   assert.match(dashboardSource, /downloads\/46log-miguri-sync\.zip/);
-  assert.match(supportSource, /Chrome Web Store · v1\.1\.15/);
-  assert.match(supportSource, /最新版已上线/);
-  assert.match(supportSource, /Music 保存成功后自动继续同步 Meets/);
-  assert.match(supportSource, /备用下载 v1\.1\.15 ZIP/);
+  assert.match(supportSource, /修复版 ZIP · v1\.1\.16/);
+  assert.match(supportSource, /登录恢复修复版已提供下载/);
+  assert.match(supportSource, /Chrome Web Store 版仍为 v1\.1\.15/);
+  assert.match(supportSource, /下载 v1\.1\.16 ZIP/);
+  assert.match(supportSource, /加载已解压的扩展程序/);
+  assert.match(supportSource, /zip\?v=1\.1\.16/);
   assert.match(supportSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
   assert.doesNotMatch(supportSource, /等待更新/);
   assert.match(dashboardSource, /一键同步 Music \+ Meets/);
