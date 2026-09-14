@@ -12,7 +12,7 @@ globalThis.fetch = async (url, options) => {
   calls++; sent.push(JSON.parse(options.body));
   assert.equal(url, 'https://api.resend.com/emails');
   if (mode === 'throw') throw new Error('secret must not leak');
-  return new Response(JSON.stringify(mode === 'ok' ? { id: 'fixture-message-id' } : { message: 'private provider details' }), { status: mode === 'ok' ? 200 : 403 });
+  return new Response(JSON.stringify(mode === 'ok' ? { id: 'fixture-message-id' } : { message: mode === 'key' ? 'API key is invalid' : 'private provider details' }), { status: mode === 'ok' ? 200 : 403 });
 };
 const rows = []; let user = null, latest = null;
 const env = { CORS_ORIGIN: 'https://46log.com', EMAIL_FROM: 'Sakamichi Tools <noreply@46log.com>', RESEND_API_KEY: 'test-key-not-real', DB: { prepare(sql) {
@@ -21,8 +21,10 @@ const env = { CORS_ORIGIN: 'https://46log.com', EMAIL_FROM: 'Sakamichi Tools <no
 } } };
 const req = (path, password = 'test-password') => new Request('https://api.46log.com/api/auth/' + path, { method: 'POST', body: JSON.stringify({ email: 'fixture@example.test', password }) });
 try {
-  for (const next of ['ok', 'fail', 'throw']) { mode = next; assert.equal(await sendVerificationEmail(env, 'fixture@example.test', 'private-token'), next === 'ok'); }
+  for (const next of ['ok', 'fail', 'throw', 'key']) { mode = next; assert.equal(await sendVerificationEmail(env, 'fixture@example.test', 'private-token'), next === 'ok'); }
   assert(sent.every(body => body.from === env.EMAIL_FROM && body.html.includes('https://46log.com/auth/verify?token=')));
+  assert(JSON.stringify(logs).includes('invalid_api_key'));
+  assert(!JSON.stringify(logs).includes('private provider details'));
   assert(!JSON.stringify(logs).includes('private-token')); assert(!JSON.stringify(logs).includes('test-key-not-real')); assert(!JSON.stringify(logs).includes('fixture@example.test'));
   mode = 'fail'; let res = await handleRegister(req('register'), env);
   assert.equal(res.status, 502); assert.equal((await res.json()).success, false);

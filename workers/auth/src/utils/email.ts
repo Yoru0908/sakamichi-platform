@@ -42,8 +42,15 @@ export async function sendVerificationEmail(
       }),
     });
     if (!res.ok) {
-      // Never log recipient addresses, verification URLs, API keys or response bodies.
-      console.error('[Email] Resend rejected verification email', { status: res.status });
+      // Classify provider errors without logging addresses, keys or raw bodies.
+      const detail = await res.json().catch(() => ({})) as { message?: unknown };
+      const message = typeof detail.message === 'string' ? detail.message.toLowerCase() : '';
+      const reason = /api key.*(invalid|not found|missing)|invalid.*api key/.test(message) ? 'invalid_api_key'
+        : /domain.*not verified|verify.*domain/.test(message) ? 'domain_not_verified'
+        : /restricted|permission|not authorized/.test(message) ? 'key_permission'
+        : /quota|limit.*exceed/.test(message) ? 'quota_exceeded'
+        : 'other_provider_error';
+      console.error('[Email] Resend rejected verification email', { status: res.status, reason });
       return false;
     }
     const result = await res.json() as { id?: string };
