@@ -4,7 +4,11 @@
 
 修复及自动化测试完成，网站发布包已更新至 v1.1.16，待真实账号验证和 Chrome Web Store 上传审核。Dashboard 推荐版本、支持页及 `public/downloads/46log-miguri-sync.zip` 同步更新；下载链接增加 `?v=1.1.16`。网站明确区分 ZIP v1.1.16 与商店 v1.1.15，现有安装仍需手动更新。本扩展运行在浏览器，不需要 SCP 或 PM2 重启。
 
-本次发布在 `.worktrees/miguri-login-release/` 基于最新生产分支 `1eb0115`（线上 Pages `44aa1623`、源码 `45438e6`）构建，保留同期 Repo 导出等线上改动，不从旧工作区整站覆盖。
+本次发布在 `.worktrees/miguri-login-release/` 基于最新生产分支 `83df033`（发布前线上 Pages `be1db8da`）构建，保留同期 Repo 导出/图片旋转等线上改动，不从旧工作区整站覆盖。
+
+2026-09-15 JST 正式部署完成：Pages `f3ad3971`，源码 `9f6051d`，生产分支 `sakamichi-platform`。18 项自动化测试及 Astro 生产构建通过（构建保留既有静态页面 request.headers 警告）。
+
+使用 Playwright Chromium 在 `https://46log.com` 实测：支持页 HTTP 200，显示 ZIP v1.1.16、商店 v1.1.15 与手动安装步骤；`/miguri` HTTP 200，加载 `/_astro/MeguriPrototype.VgGu3t29.js`，内含新版本说明及带版本号的下载链接；带/不带 query 的公开 ZIP 均 HTTP 200，与本地修复包逐字节一致。ZIP SHA256：`0dedc0009b03099ca2aa0f1a90949e78c4313cde0e0a60f7586ccc3ff8bbfbec`。普通 curl/urllib 会触发 Cloudflare challenge，未调整站点防护。此次未使用实际官方账号验证同步入库。
 
 ## 问题
 
