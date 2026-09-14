@@ -26,7 +26,7 @@ const messages: Message[] = Array.from({ length: color ? 48 : 8 }, (_, index) =>
   text: index % 3 === 0 ? `${index} 笑顔で手を振ってくれました\n第二行の説明 😊 ${color ? '長い旁白を途中で切らない。'.repeat(5) : ''}` : `${index} ありがとう！\n続きの会話もそのまま表示します。`,
   ...(index === 6 ? { imageUrl: image } : {}),
 }));
-if (params.has('wrap')) messages.splice(0, messages.length, ...['ありがとう！', 'うれしい　こちらこそありがとう', '送ってくれたね　見たよ', 'うん　あぁ　uniがいる', 'わぁ　良かった', '久しぶり〜'].flatMap((text, index) => (['member', 'me'] as const).map(speaker => ({ id: `${index}-${speaker}`, speaker, text }))));
+if (params.has('wrap')) messages.splice(0, messages.length, ...['ありがとう！', 'うれしい　こちらこそありがとう', '送ってくれたね　見たよ', 'うん　あぁ　uniがいる', 'わぁ　良かった', '久しぶり〜', 'エントウ！久しぶり〜 待ってたよ！', '手動改行のテスト\n第二行もそのまま表示します。'].flatMap((text, index) => (['member', 'me'] as const).map(speaker => ({ id: `${index}-${speaker}`, speaker, text }))));
 if (color) messages[messages.length - 1] = { id: 'last', speaker: 'narration', text: 'END 最後の旁白\n' + 'UNBROKEN'.repeat(24) };
 const data: RepoData = {
   memberId: 'fixture', memberName: 'Export Fixture', groupId: 'sakurazaka', groupName: '櫻坂46', memberImageUrl: image,

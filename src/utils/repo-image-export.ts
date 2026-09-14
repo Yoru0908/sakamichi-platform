@@ -39,7 +39,43 @@ async function inlineImages(root: HTMLElement): Promise<void> {
   }));
 }
 
+/** Keep fractional CSS borders from snapping to 1px in the SVG image renderer.
+ * At desktop display scaling (e.g. 150%), a 1px border can measure 0.666667px.
+ * The clone retains the original width/height, but rasterizing a real border
+ * steals text width and causes an extra line. Paint solid borders as inset
+ * shadows and reserve their original space with padding, only in the clone.
+ */
+function preserveBorderLayout(node: Node): void {
+  if (!(node instanceof HTMLElement)) return;
+  const style = node.style;
+  const sides = ['top', 'right', 'bottom', 'left'] as const;
+  const borders = sides.map(side => ({
+    side,
+    width: parseFloat(style.getPropertyValue(`border-${side}-width`)) || 0,
+    color: style.getPropertyValue(`border-${side}-color`),
+    type: style.getPropertyValue(`border-${side}-style`),
+  }));
+  if (!borders.some(b => b.width > 0 && !Number.isInteger(b.width)) || borders.some(b => b.width > 0 && b.type !== 'solid')) return;
+
+  const first = borders[0];
+  const uniform = borders.every(b => b.width === first.width && b.color === first.color);
+  const shadows = uniform ? [`inset 0 0 0 ${first.width}px ${first.color}`] : borders.filter(b => b.width > 0).map(b => {
+    const x = b.side === 'left' ? b.width : b.side === 'right' ? -b.width : 0;
+    const y = b.side === 'top' ? b.width : b.side === 'bottom' ? -b.width : 0;
+    return `inset ${x}px ${y}px 0 ${b.color}`;
+  });
+  if (style.boxShadow && style.boxShadow !== 'none') shadows.push(style.boxShadow);
+  for (const { side, width } of borders) {
+    if (!width) continue;
+    const padding = parseFloat(style.getPropertyValue(`padding-${side}`)) || 0;
+    style.setProperty(`border-${side}-width`, '0px');
+    style.setProperty(`padding-${side}`, `${padding + width}px`);
+  }
+  style.boxShadow = shadows.join(', ');
+}
+
 export async function exportRepoElementAsPng(root: HTMLElement, filename: string): Promise<void> {
+  await root.ownerDocument.fonts.ready;
   await waitForHtml2CanvasImages(root);
   const unmark = markExportRoot(root);
 
@@ -53,6 +89,7 @@ export async function exportRepoElementAsPng(root: HTMLElement, filename: string
       scale: EXPORT_PIXEL_RATIO,
       backgroundColor: '#ffffff',
       fixSvgXmlDecode: true,
+      onCloneEachNode: preserveBorderLayout,
     });
 
     // 下载：iOS 不支持 <a download>，用 Blob + URL.createObjectURL

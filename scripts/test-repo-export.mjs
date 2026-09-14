@@ -26,7 +26,9 @@ const server = await createServer({
   server: { host: '127.0.0.1', port: 0, fs: { allow: [root] } },
 });
 await server.listen();
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true,
+  args: process.env.REPO_TEST_DSF ? [`--force-device-scale-factor=${Number(process.env.REPO_TEST_DSF)}`] : [],
+});
 try {
   const page = await browser.newPage({ viewport: { width: 1000, height: 800 }, acceptDownloads: true });
   const errors = [];
@@ -53,7 +55,7 @@ try {
     assert(Math.abs(width - bounds.width * 3) <= 3);
     assert(Math.abs(height - bounds.height * 3) <= 3, `PNG height ${height}, expected ${bounds.height * 3}`);
     const pixel = (x, y) => [...png.data.subarray((Math.floor(y) * width + Math.floor(x)) * 4, (Math.floor(y) * width + Math.floor(x)) * 4 + 3)];
-    assert.deepEqual(pixel(width / 2, height - 2), [0, 255, 255], 'bottom marker must not be clipped');
+    assert.deepEqual(pixel(width / 2, height - 6), [0, 255, 255], 'bottom marker must not be clipped');
     let magenta = 0;
     for (let offset = 0; offset < png.data.length; offset += 4) {
       if (png.data[offset] === 255 && png.data[offset + 1] === 0 && png.data[offset + 2] === 255) magenta++;

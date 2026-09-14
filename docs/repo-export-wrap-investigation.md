@@ -1,22 +1,40 @@
-# Repo export overflow investigation (2026-09-14)
+# Repo PNG bubble overflow fix (2026-09-14)
 
-Status: **unresolved; no production code changed or deployment performed**.
+## Reproduction / cause
 
-User supplied a 1140×4373 PNG of the Meguri template. Several short member messages wrap their final characters below the outlined bubble (ありがとう！, うれしい こちらこそありがとう, 送ってくれたね 見たよ, うん あぁ uniがいる). The gray self bubbles do not show the same obvious overflow. The original draft, preview screenshot and browser/device are not yet available; fixture strings are transcribed, not original source data.
+User supplied a 1140×4373 Meguri PNG: several short member messages wrap their final characters below the outlined bubble; gray self bubbles remain correct. The reported device is a desktop computer; its exact OS/browser settings are unknown.
 
-Maintenance worktree: `.worktrees/repo-export-fix`, branch `fix/repo-export-wrap`, based on production `1ffd6ca`.
+**Reproduced the same failure in actual downloaded PNGs** with Chromium launched using `--force-device-scale-factor=1.5` (also test 1.25/1.75). This models desktop display scaling, not necessarily non-default page zoom. Playwright's context `deviceScaleFactor` alone is insufficient to reproduce physical border snapping.
 
-Relevant implementation: `src/utils/repo-image-export.ts` uses modern-screenshot 3x PNG; bubble markup is in `src/components/repo/templates/*Template.tsx`. No confirmed root cause yet. A line-wrap change with retained cloned height is consistent with the supplied image, but the responsible browser/layout behavior remains unconfirmed.
+At 150%, the member bubble's CSS 1px border computes to `0.666667px`, with total width `119.3333px` for `ありがとう！`. modern-screenshot retains computed width/height in its SVG clone. The SVG **image** renderer snaps the border to 1px, reducing the available text width. The last characters wrap while the cloned height remains one line. Gray bubbles have no border; long lines or lines with spare width need not fail. This explains partial rather than universal failure.
 
-## Diagnostic regression
+A live SVG, including an isolated iframe SVG, still uses the display scaling and does **not** reproduce this image-rasterization bug. Initial live-SVG checks missed it. The new regression checks pixels in the actual downloaded PNG; before the fix, the 150% case finds 358 dark pixels below `ありがとう！` where padding/empty space should be.
 
-`node scripts/test-repo-export-wrap.mjs`
+## Fix
 
-- Uses actual template markup, both speakers and six transcribed short strings, across all three templates.
-- Chromium and Playwright WebKit render the cloned foreignObject SVG in an isolated iframe with no inherited page styles.
-- Checks text wrapping and containment, plus a style-loaded assertion.
-- All six combinations pass: **this does not reproduce or fix the reported bug**. It is not an actual PNG/iOS-download validation.
-- Added explicit Tailwind `@source` to export fixture CSS: without it the new ignored worktree initially had unstyled full-width bubbles, making tests misleading. Other test runners were not audited or revalidated during this investigation.
-- Cloned fractional widths can differ by 1/64px in Chromium; no resulting wrap was seen for these fixtures.
+`src/utils/repo-image-export.ts`:
 
-Next: obtain user's OS/browser/version, zoom/display scaling, page preview and ideally original draft text/JSON (without credentials). Reproduce at the actual export-to-PNG stage, then add a failing regression before changing export behavior. Do not deploy an unverified padding/height workaround.
+- Wait for document fonts before capture.
+- In modern-screenshot's `onCloneEachNode` only, replace **fractional solid borders** with inset shadows and reserve their measured space as padding. Shadows do not change the content box during image rasterization.
+- Uniform rounded borders use an inset ring; single-side borders (nickname divider) use side-specific inset shadows.
+- Integer borders, non-solid borders and original preview DOM remain untouched; existing shadows are retained.
+- No changes to template text, stored drafts, account data, API, Workers, D1 or PM2. Download naming, 3x scale and iOS download code unchanged.
+
+## Tests
+
+```sh
+node scripts/test-repo-export-wrap.mjs
+REPO_TEST_DSF=1.5 REPO_TEST_FONTS=1 node scripts/test-repo-export-wrap.mjs
+node scripts/test-repo-export.mjs
+REPO_TEST_DSF=1.5 node scripts/test-repo-export.mjs
+npm run build
+```
+
+- Actual PNGs: 3 templates × Chromium display factors 1/1.25/1.5/1.75/2 plus WebKit desktop = 18 cases. Fixture includes both speakers, reported short strings, natural wrapping and explicit newlines. Tests assert no text in the bottom padding/overflow band, every avatar center present, unchanged canvas size, unchanged preview DOM and export marker cleanup.
+- Optional `REPO_TEST_FONTS=1` loads the production Noto font stylesheet; tested at 150% across all three templates.
+- Long colored exports (48 messages) at 100%/150% verify canvas bounds, bottom marker, inline images/avatars, and first/last narration colors. Max tested height 14743px. Backup-template comparisons use the **current exporter** on both old/new templates, not a claim of pixel-identical old exporter output.
+- Explicit Tailwind `@source` added to fixture CSS: ignored worktrees initially yielded unstyled full-width bubbles. Added style-loaded assertions. Marker sampling moved to the center of the 4px end marker rather than the interpolated image edge.
+- 45-page Astro build passes, with existing static `Astro.request.headers` warnings.
+- Desktop WebKit is not an actual iPhone/iOS native-download validation; no actual Windows machine was used. The original user's exact display settings remain unknown, but the supplied failure pattern is reproduced and fixed.
+
+Diagnostics/PNGs are outside the source tree under local `~/.cache/repo-export-wrap/`; no captures or test pages are added to production output. Worktree `.worktrees/repo-export-fix`, branch `fix/repo-export-wrap`.
