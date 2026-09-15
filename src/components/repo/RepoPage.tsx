@@ -257,8 +257,11 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
     return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`;
   });
   const [eventType, setEventType] = useState('ミーグリ');
-  const [slotNumber, setSlotNumber] = useState(1);
-  const [ticketCount, setTicketCount] = useState(1);
+  // Empty is an editing state, not Number('') === 0. Keep persisted data numeric.
+  const [slotNumberInput, setSlotNumber] = useState<number | ''>(1);
+  const [ticketCountInput, setTicketCount] = useState<number | ''>(1);
+  const slotNumber = slotNumberInput === '' ? 1 : slotNumberInput;
+  const ticketCount = ticketCountInput === '' ? 1 : ticketCountInput;
   const [nickname, setNickname] = useState('');
   const [messages, setMessages] = useState<Message[]>([
     { id: 'init_1', speaker: 'me', text: '' },
@@ -796,14 +799,14 @@ export default function RepoPage({ initialMode }: RepoPageProps) {
                     <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">场次</label>
                     <div className="flex items-center gap-2">
                       <span className="text-sm text-[var(--text-tertiary)]">第</span>
-                      <input type="number" min={1} max={20} value={slotNumber} onChange={e => setSlotNumber(Number(e.target.value))}
+                      <input type="number" aria-label="场次" min={1} max={20} value={slotNumberInput} onChange={e => setSlotNumber(e.target.value === '' ? '' : Number(e.target.value))}
                         className="flex-1 px-3 py-2 rounded-lg border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none" />
                       <span className="text-sm text-[var(--text-tertiary)]">部</span>
                     </div>
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-[var(--text-tertiary)] mb-1">券数</label>
-                    <input type="number" min={1} max={30} value={ticketCount} onChange={e => setTicketCount(Number(e.target.value))}
+                    <input type="number" aria-label="券数" min={1} max={30} value={ticketCountInput} onChange={e => setTicketCount(e.target.value === '' ? '' : Number(e.target.value))}
                       className="w-full px-3 py-2 rounded-lg border border-[var(--border-secondary)] bg-[var(--bg-primary)] text-sm outline-none" />
                   </div>
                 </div>

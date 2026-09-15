@@ -24,6 +24,8 @@ export default function LanguageSwitch() {
   return (
     <div ref={ref} className="relative">
       <button
+        type="button"
+        aria-expanded={open}
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 h-9 px-2 rounded-lg text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors text-sm"
         aria-label={t('nav.language', lang)}
@@ -33,12 +35,13 @@ export default function LanguageSwitch() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-1 w-32 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] shadow-lg py-1 z-50">
+        <div data-language-options className="absolute right-0 top-full mt-1 flex w-32 flex-col whitespace-normal rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] shadow-lg py-1 z-50">
           {LANGUAGES.map((l) => (
             <button
               key={l}
+              type="button"
               onClick={() => { setLanguage(l); setOpen(false); }}
-              className={`w-full text-left px-3 py-2 text-sm transition-colors ${
+              className={`block w-full text-left px-3 py-2 text-sm transition-colors ${
                 l === lang
                   ? 'text-[var(--color-brand-nogi)] font-medium bg-[var(--bg-secondary)]'
                   : 'text-[var(--text-secondary)] hover:bg-[var(--bg-tertiary)]'
