@@ -40356,13 +40356,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7650504,
-          35.6715697
+          139.765045,
+          35.6714651
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2e6aebbf8161e1959f0f",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2e6aebbf8161e1959f0f",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3fa0c4f87247cb94b932",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3fa0c4f87247cb94b932",
         "name": "セイコーハウス 時計塔",
         "category": "写真集関連",
         "subcategory": "写真集関連",
@@ -40378,7 +40378,7 @@
           "写真集関連"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5MRqDHW5a077XYVBX-aXvrAN5TT9FTPe2pWYszcg3Dq9IbC3O5A76vFgDGi3p-5OCKLa3LBDnVyQhvy1pId0-lWl5jzsQF4zHd4qp8I5zjgH4r5ust3420CQ98bONqOjFNtt-l93EETqiXpu4nNjViM8zIPTrwuMrjIdyRABVqnuox-gZP1nkau64U8k18p7mo2cW4d0Pw8Pc9cVKeA3U4Y0Gh0MgNn7MggLRsOqO2ZBcXLkhKCc7sP0k%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7GS5hr1LksZ7OJXKuM1MAz5s1yaMrzma_PhfbwQlKWW6mUZmn1Rur3FeNgD11kojoYeqnIscEUpQQgRHqZ72HTRCd1PU2_GAhkFwCKyW1wBphEehXfW-Ts142kRUyZvwJH9QLj8z0j3AEdroxnYg3nRthcyJ_jb5O7iKCucL1NeyN0n7dohDDCNqD2rvPrrxQq18pm20NXbP9iYo_RuLqVS2NCbpI9BjyaahMZSlNtLUCuw5kLZNCXE4E%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -225437,6 +225437,61 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "西都原81号墳",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7650147,
+          35.6710227
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7836f2262eae5668417b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7836f2262eae5668417b",
+        "name": "NISSAN CROSSING",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "NISSAN CROSSING",
+        "sceneNote": "高本彩花が銀座を訪れた際に写真を撮った場所 https://x.com/ayakatakamoto_/status/2099762088231215227",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ikG46LHzdGrUwgL2cVHyv0kMsstV4aQM1aLHJyMNzqoo5roOgyz3VPDYm6EVarXUGMYi-E8qe_TxecqDHtjf8tC8QEK0g80YhAfYwLg6Tp-CkNrm0duP0ZF8Hqe2heT6q5J3udcrkzCPPtkzelA85huYQi_oA3MpnnWguAgnw1qOADu5zFh5ICl3b08nvHlbC_-oXyWdqgeFhS2g8ZGXIE39_U3tTHmf44iX5Am8hiAwPinBoJltVulA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "NISSAN CROSSING",
           "group": "日向坂46"
         },
         "classification": {
