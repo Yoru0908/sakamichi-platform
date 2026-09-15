@@ -1,10 +1,13 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { Camera, FileText, Clock, Sparkles, Wrench, ArrowRight, Ticket, MapPin } from 'lucide-astro';
+import { Camera, FileText, Clock, Sparkles, Wrench, ArrowRight, Ticket, MapPin, MessageSquare } from 'lucide-astro';
 import { t, type TranslationKey } from '@/i18n';
 
 type Tool = { titleKey: TranslationKey; descKey: TranslationKey; href: string; color: string; iconIdx: number; external?: boolean };
 const categories: { key: TranslationKey; tools: Tool[] }[] = [
+  { key: 'tools.creative', tools: [
+    { titleKey: 'nav.tools.msg_generator', descKey: 'tools.msg.description', href: '/tools/msg-generator', color: 'var(--color-brand-hinata)', iconIdx: 8 },
+  ] },
   { key: 'tools.archive', tools: [
     { titleKey: 'nav.instagram', descKey: 'tools.instagram.description', href: '/instagram', color: 'var(--color-brand-nogi)', iconIdx: 7 },
   ] },
@@ -40,6 +43,7 @@ const categories: { key: TranslationKey; tools: Tool[] }[] = [
               class="group relative flex flex-col p-5 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--border-secondary)] transition-all duration-200">
               <div class="flex items-start justify-between mb-3">
                 <div class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={`background: color-mix(in srgb, ${tool.color} 12%, transparent); color: ${tool.color};`}>
+                  {tool.iconIdx === 8 && <MessageSquare size={18} />}
                   {tool.iconIdx === 7 && <Camera size={18} />}
                   {tool.iconIdx === 6 && <MapPin size={18} />}
                   {tool.iconIdx === 5 && <Ticket size={18} />}

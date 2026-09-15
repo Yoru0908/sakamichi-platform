@@ -43,6 +43,7 @@ export const NAV_ITEMS: NavItem[] = [
     href: '/tools',
     icon: 'Wrench',
     children: [
+      { labelKey: 'nav.tools.msg_generator', href: '/tools/msg-generator', icon: 'MessageSquare' },
       { labelKey: 'nav.instagram', href: '/instagram', icon: 'Camera' },
       { labelKey: 'nav.tools.subtitle_merge', href: '/tools/subtitle-merge', icon: 'FileText' },
       { labelKey: 'nav.tools.srt_fixer', href: '/tools/srt-fixer', icon: 'Clock' },
@@ -77,6 +78,7 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
   {
     groupKey: 'nav.group.tools',
     items: [
+      { labelKey: 'nav.tools.msg_generator', href: '/tools/msg-generator', icon: 'MessageSquare' },
       { labelKey: 'nav.instagram', href: '/instagram', icon: 'Camera' },
       { labelKey: 'nav.tools.subtitle_merge', href: '/tools/subtitle-merge', icon: 'FileText' },
       { labelKey: 'nav.tools.srt_fixer', href: '/tools/srt-fixer', icon: 'Clock' },
@@ -101,6 +103,7 @@ export const FOOTER_COMMUNITY_LINKS: NavItem[] = [
 ];
 
 export const FOOTER_TOOL_LINKS: NavItem[] = [
+  { labelKey: 'nav.tools.msg_generator', href: '/tools/msg-generator' },
   { labelKey: 'nav.instagram', href: '/instagram' },
   { labelKey: 'nav.tools.ticket_form', href: TICKET_FORM_TOOL_HREF, external: true },
 ];

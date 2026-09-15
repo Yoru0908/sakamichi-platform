@@ -1,5 +1,7 @@
 # MSG 站内功能下架（2026-09-13）
 
+> **当前范围更新（2026-09-16）**：用户明确确认只恢复 MSG 生成器，`/tools/msg-generator` 页面、更多/その他桌面与手机入口、目录及页脚已恢复。`/messages` 及子路径仍410，无归档、首页TrendingMSG或付费宣传恢复。详见 `docs/msg-generator-restored.md`。下文记录9月13日原下架范围，不代表生成器当前状态。
+
 按用户要求，MSG 相关内容暂不在 Sakamichi Platform 上线。
 
 ## 下架范围

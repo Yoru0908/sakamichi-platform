@@ -1,6 +1,8 @@
 // Shared labels for the static pages and archive UI. Keep all three locales in sync.
 export const extra = {
   zh: {
+    'nav.tools.msg_generator': 'MSG生成器', 'tools.creative': '创作工具',
+    'tools.msg.page_title': 'MSG生成器 - Sakamichi Tools', 'tools.msg.description': '用自填文字与图片制作 MSG 风格截图，不提供消息归档。',
     'nav.admin': '管理后台', 'nav.language': '切换语言', 'common.other': '其他', 'common.close': '关闭', 'ins.posts': '帖子', 'ins.stories': '限时动态',
     'nav.open_menu': '打开菜单', 'nav.close_menu': '关闭菜单', 'nav.birthdays': '生日贺卡',
     'footer.col.community': '社区与更多', 'footer.summary': 'Sakamichi Tools — 坂道系列博客翻译、广播与创作工具平台。',
@@ -20,6 +22,8 @@ export const extra = {
     'ins.favorites': '收藏', 'ins.copied': '已复制', 'ins.copy_link': '复制链接', 'ins.download': '下载',
   },
   en: {
+    'nav.tools.msg_generator': 'MSG Generator', 'tools.creative': 'Creative Tools',
+    'tools.msg.page_title': 'MSG Generator - Sakamichi Tools', 'tools.msg.description': 'Create MSG-style images with your own text and photos. No message archive is provided.',
     'nav.admin': 'Admin', 'nav.language': 'Switch language', 'common.other': 'Other', 'common.close': 'Close', 'ins.posts': 'Posts', 'ins.stories': 'Stories',
     'nav.open_menu': 'Open menu', 'nav.close_menu': 'Close menu', 'nav.birthdays': 'Birthday Cards',
     'footer.col.community': 'Community & More', 'footer.summary': 'Sakamichi Tools — Blog translations, radio and creative tools for Sakamichi fans.',
@@ -39,6 +43,8 @@ export const extra = {
     'ins.favorites': 'Favorites', 'ins.copied': 'Copied', 'ins.copy_link': 'Copy link', 'ins.download': 'Download',
   },
   ja: {
+    'nav.tools.msg_generator': 'MSGジェネレーター', 'tools.creative': '創作ツール',
+    'tools.msg.page_title': 'MSGジェネレーター - Sakamichi Tools', 'tools.msg.description': '自分で入力した文章や画像でMSG風の画像を作成。メッセージのアーカイブは提供しません。',
     'nav.admin': '管理画面', 'nav.language': '言語を切り替え', 'common.other': 'その他', 'common.close': '閉じる', 'ins.posts': '投稿', 'ins.stories': 'ストーリーズ',
     'nav.open_menu': 'メニューを開く', 'nav.close_menu': 'メニューを閉じる', 'nav.birthdays': 'バースデーカード',
     'footer.col.community': 'コミュニティ・その他', 'footer.summary': 'Sakamichi Tools — 坂道シリーズのブログ翻訳・ラジオ・創作ツールを提供するファンサイト。',
