@@ -18,3 +18,7 @@ BASE_URL=https://46log.com node scripts/test-msg-generator-restored.mjs
 ```
 
 浏览器测试覆盖1440/390px日语菜单与目录、选成员、编辑文字、上传图片及实际下载1000px宽PNG，验证图片区域与文本像素，不只检查DOM。所有账户API和成员头像资源模拟，不写真实用户数据；监控禁止归档API请求。正式域名模式额外检查四种 `/messages` 路径410/noindex。测试产物位于 `~/.cache/msg-generator-restored/`，不进Git或部署目录。保持此前Repo数字清空与语言弹层回归通过。
+
+## 生产结果
+
+Pages production `af78f4e2-24e4-46ca-a09e-c6e70c8622cc`，代码 `265d598`。正式域名1440/390px生成器全流程（模拟API）与实际PNG通过；四种归档URL均410/noindex。正式域名Repo数字与语言弹层两种宽度回归也通过。中央 `PROJECT_DEPLOYMENT_MAP.md` 已更新生成器恢复/归档持续下架边界。
