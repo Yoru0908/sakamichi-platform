@@ -29,6 +29,8 @@ try {
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     const folder = page.locator('[data-repo-member-folder="山川宇衣"]');
     await folder.waitFor({ timeout: 45000 });
+    // Separate Astro islands can hydrate at different times on the real site.
+    if (process.env.BASE_URL) await page.locator('astro-island[component-url*="LanguageSwitch"]:not([ssr])').waitFor({ timeout: 45000 });
     // Language menu lives inside navbar's whitespace-nowrap action container.
     await page.getByRole('button', { name: '切换语言', exact: true }).click();
     const menu = page.locator('[data-language-options]');
