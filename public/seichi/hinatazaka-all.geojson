@@ -137895,7 +137895,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "マツモトシェイブアイス",
-        "sceneNote": "2026年夏に佐々木美玲が訪れた、ハレイワのシャイブアイズの有名店。 題名:",
+        "sceneNote": "2026年夏に佐々木美玲が訪れた、ハレイワのシェイブアイズの有名店。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -137918,6 +137918,122 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "マツモトシェイブアイス",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.0889614,
+          35.5121291
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f0a4fe249f0d3f723ed1",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f0a4fe249f0d3f723ed1",
+        "name": "五井機関区",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "五井機関区",
+        "sceneNote": "2026年夏に石塚瑶季が訪れた小港鉄道の車両基地。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5kjEQvvmX0VWFLZ9JNNS9evS3aZBsD65g_3yO9F8XiV2mXap1mdYg3e-CGJA9gQlNnfA6wxmQxXhDJfKpCFbwKD7WdurX3mlfAP6SCKLKLzSFzL_ntl8hQnwOFnQuo0pdpKtX85B5v8bFxCJZdm88vir7lIZXb1aCWzDMSTh0mR3JyyyhL64ZdW6pwzLY6kdnuJ483n_s4q6zbKZYFP4c5mfCz4um8_vA5s2-g1ofxxf5Xe_EM6gkthSg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "五井機関区",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.8309512,
+          21.2799926
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5bb3ee8acb3e6cc97184",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5bb3ee8acb3e6cc97184",
+        "name": "アランチーノ オン ビーチウォーク",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "アランチーノ オン ビーチウォーク",
+        "sceneNote": "2026年夏に松田好花がハワイに家族旅行で行った際に訪れた有名なイタリアンのお店。（系列店が何店舗かあるので、注意） 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4c6TvfOfsHy4O2mt9Do4GwxBGNLy8E2fGmeAImRQA22aPyyNh6RRJ_VCQzsmAO2V9meUJWfCvqWQ_8b-wMiwtpL9Ch33csU7pbxRCxlpvCcICbo8WDCOvg5MPpXlWJ_f0OP3MKESgHT6re3nb5KjRfr59eGfu55iL_6qTj2qanDwxSvXkOoh6Gms9asiL57A1xRYga6pfTy3ZKYv7KvV8iFrwH6zDQ5ttvaWtfmAY4itlT1qUvBuM2IrY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR69MC96Sj4846poHQGTHfaMBpBkRwtY2Xv-u2fxAwEFhV5KmiOxptSp7SAoYVK91GqbQcq6Q6kTu4AV7OaU-gOd-Zo0VYZo3mbn_w6-_QQwvwMiqY7iDEzTSAwU12tJUxY1jTSPmh4tT9KM60I1dxMi0exzgT5EH6CJp-RkaOFdhPUDt4Eb43UlWg9WmWusDCcknSSaqgsfhJGJY1QdEUYahLrq982qorjJzjdiSB-gMArVizqG2ESPYok%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7PHUVLtfhP4NQP4pBJoJM5U3Py6MViUE00GiI6ukIJHoYL_wXeP8Ie-amp2RRFCcCwhpkKrkcNW-cLxNEprdklkAFDua01bIi4h2xABpwAoIrq8BltJSHOkM4s7wnlR1eUYlA9EDDJooqKGSzAuLQpLyKO9CTyqi3JqQASGat86VQto8SA_F5MggLMjxoxbEx7WE5Ja5KGr3RPcKQZwxxplvJeFCZE4qMCkCo5fdLUb-h8v5BYS8qK01M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5C-89FWD_5mP5s-2So24MgYhcbk_srhMPVYVCkcFRDru3mfuLUrvE39szQC3N9QCaFR1Jj2uaqmx2WkdzbE9UjmPuV7_LjHcS2SwbJBePrI7COg-Dl0LXhZ317B90QL-Z1oPQiKqfsxY7umnWOCHbH8sOOn-TD9VFh5rZceLfUMO0J0RhbokVqEelagcsQqyVtB_XckF4S5H0RQ_B1Ql_P10c3MercBhifrG547zw3NNBzDor9Gu7lIrA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7jTdczSWhZBcwnBjA6NKrOmmhW8nTSU0uM6g603mTmiVVFWtKEoSGo9zsURP581wF8fTyBugefedvIOPVJIUp8TC4cU0q2M0DtKZ2sI4IMVP8hJVmKV4rCoD3cxHbWEeVMRogInqN7bXNbx_Cl6vQGXomEtM5IKSWDmtE940wq925ixB_HF9bV-vqFf-JI-Dhz-2e5BrhvoGaWsR3rJWL9ib6azM6gGYuCLQKdQVVtJwfGxwG1M9EvKIY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ayul_gsNkqo3QupeG_Ff2CTZm3fNzhnBzNR35v_GEhM41YOiR9VtYjKtMDTOyY6Mt9NoQlwsF19lJ6o1RahDOFlQsVKdCbQsHrS75MXId7iByh48vq2WHhrDl9t3aoE0ewBjfqdpB7Nd-Xjwyg962km8-ooXOQ9s0VdH7q1dP8tdXvL-nOwoTjDwjnLkjNCXuyrfAx3KGhxvoPPkve35GzfUKNxRNtJUf5uFqQFpAx-U7RfcCcFDYpLk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR46SiOqxkszW2ExOgSYWsLkenkBVCNPCGASdhJo_FpV_cmypuG3CwNSTQEnWfkXDqWXHA9C3OR2SjNbaGyiBoGM8_wkQOlMhOG-yLOjEf0EDSNoYZgq7PdfW-T48OX1pH2p9ugU86jad8xMSrLFC6G9cO1Cxb_IxYh50K9JZ4ZOw-steNkoJE8wB_B5hZgC-43u6X3UiTZXbRd-tM9JWSgeoQXFbve1s8L_FziKu5EbHF1ndvyESWvk8Jo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "アランチーノ オン ビーチウォーク",
           "group": "日向坂46"
         },
         "classification": {
