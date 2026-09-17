@@ -1,6 +1,9 @@
-import { useEffect, useRef, useState, useMemo, type ReactNode } from 'react';
+import { Fragment, useEffect, useRef, useState, useMemo, type ReactNode } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import './seichi-markers.css';
+import { getMarkerKind, MARKER_STYLES, markerHtml } from './marker-style';
+import { getTimelineInfo, compareTimeline, type SortOrder } from './timeline';
 import { createPrefectureResolver, getFeaturePrefecture, PREFECTURES, UNCLASSIFIED, type BoundaryCollection } from './prefectures';
 import {
   Search,
@@ -60,6 +63,7 @@ interface Feature {
     images: string[];
     members?: string[];
     source?: {
+      group?: string;
       provider?: string;
       url?: string;
       mapId?: string;
@@ -330,6 +334,11 @@ export default function SeichiMap({
 
   // 大层级 (Category) & 小层级 (Subcategory)
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
+  const [timelineOrder, setTimelineOrder] = useState<SortOrder>('original');
+  const [musicOnly, setMusicOnly] = useState(false);
+  const [facetsCollapsed, setFacetsCollapsed] = useState(false);
+  const [selectedWork, setSelectedWork] = useState('ALL');
+  const locationListRef = useRef<HTMLDivElement>(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState<string>('ALL');
   const [selectedTag, setSelectedTag] = useState<string>('ALL');
   const [facetSearch, setFacetSearch] = useState('');
@@ -651,6 +660,13 @@ export default function SeichiMap({
       (!normalizedFacetSearch || tag.name.toLocaleLowerCase('ja').includes(normalizedFacetSearch))
   );
 
+  const timelineInfo = useMemo(() => new Map((data?.features || []).map(feature => [feature, getTimelineInfo(feature, groupLabel)])), [data, groupLabel]);
+  const workOptions = useMemo(() => Array.from(new Map(Array.from(timelineInfo.values())
+    .filter(info => info?.basis === 'cd-release').map(info => [info!.key, info!])).values())
+    .sort((a, b) => compareTimeline(a, b, 'newest')), [timelineInfo]);
+
+  useEffect(() => { locationListRef.current?.scrollTo({ top: 0 }); }, [timelineOrder, musicOnly, selectedWork]);
+
   // 4. 多层级与搜索过滤
   const filteredFeatures = useMemo(() => {
     const data = prefectureData;
@@ -659,6 +675,8 @@ export default function SeichiMap({
 
     return data.features.filter((f) => {
       const p = f.properties;
+      if (musicOnly && getMarkerKind(f) !== 'music') return false;
+      if (selectedWork !== 'ALL' && timelineInfo.get(f)?.key !== selectedWork) return false;
 
       if (selectedCategory !== 'ALL' && p.category !== selectedCategory) {
         return false;
@@ -693,11 +711,22 @@ export default function SeichiMap({
       }
 
       return true;
-    });
-  }, [prefectureData, selectedCategory, selectedSubcategory, selectedTag, search]);
+    }).sort((a, b) => compareTimeline(timelineInfo.get(a), timelineInfo.get(b), timelineOrder));
+  }, [prefectureData, selectedCategory, selectedSubcategory, selectedTag, search, musicOnly, selectedWork, timelineInfo, timelineOrder]);
 
   useEffect(() => {
-    if (selectedPrefecture === 'ALL' || selectedPrefecture === UNCLASSIFIED || !prefectureData?.features.length) return;
+    if (selectedWork === 'ALL' || !filteredFeatures.length) return;
+    const frame = requestAnimationFrame(() => {
+      const map = mapInstanceRef.current;
+      if (!map || !mapContainer.current?.offsetWidth) return;
+      map.invalidateSize();
+      map.fitBounds(L.latLngBounds(filteredFeatures.map(f => L.latLng(f.geometry.coordinates[1], f.geometry.coordinates[0]))), { padding: [36, 36], maxZoom: 14, animate: false });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [selectedWork, filteredFeatures, mobileView]);
+
+  useEffect(() => {
+    if (selectedWork !== 'ALL' || selectedPrefecture === 'ALL' || selectedPrefecture === UNCLASSIFIED || !prefectureData?.features.length) return;
     const frame = requestAnimationFrame(() => {
       const map = mapInstanceRef.current;
       if (!map || !mapContainer.current?.offsetWidth) return;
@@ -708,7 +737,7 @@ export default function SeichiMap({
       })), { padding: [24, 24], maxZoom: 13, animate: false });
     });
     return () => cancelAnimationFrame(frame);
-  }, [selectedPrefecture, prefectureData, mobileView]);
+  }, [selectedPrefecture, prefectureData, mobileView, selectedWork]);
 
   const resetRouteProgress = () => {
     setRouteActiveIndex(0);
@@ -860,35 +889,18 @@ export default function SeichiMap({
       const isVisited = isRouteStop && routeIndex < routeActiveIndex;
       const isActiveRouteStop = isRouteStop && routeStarted && routeIndex === routeActiveIndex;
       const isSelected = selectedFeature?.properties.id === p.id;
-      const size = isRouteStop ? 28 : isSelected ? 20 : 14;
-      const borderWidth = isRouteStop || isSelected ? 3 : 2;
-      const background = isVisited ? '#16a34a' : isActiveRouteStop ? '#f59e0b' : p.categoryColor;
-
+      const kind = getMarkerKind(f);
+      const size = isRouteStop || isSelected ? 34 : 28;
       const icon = L.divIcon({
         className: 'custom-seichi-marker',
-        html: `
-          <div style="
-            width: ${size}px;
-            height: ${size}px;
-            border-radius: 50%;
-            background-color: ${background};
-            border: ${borderWidth}px solid #ffffff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.35);
-            transition: transform 0.15s ease;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 800;
-          ">${isRouteStop ? (isVisited ? '✓' : getRouteLabel(routeIndex)) : ''}</div>
-        `,
+        html: markerHtml(kind, isSelected, isRouteStop ? getRouteLabel(routeIndex) : '', isVisited, isActiveRouteStop),
         iconSize: [size, size],
         iconAnchor: [size / 2, size / 2],
       });
-
-      const marker = L.marker([lat, lng], { icon, zIndexOffset: isRouteStop ? 500 : 0 });
+      const marker = L.marker([lat, lng], { icon, title: `${MARKER_STYLES[kind].label} · ${p.name}`, alt: p.name, zIndexOffset: isSelected ? 1000 : isRouteStop ? 500 : 0 });
+      const tooltip = document.createElement('span');
+      tooltip.textContent = `${MARKER_STYLES[kind].label} · ${p.name}`;
+      marker.bindTooltip(tooltip, { direction: 'top', offset: [0, -14], className: 'seichi-marker-tooltip' });
       marker.on('click', (e) => {
         L.DomEvent.stopPropagation(e);
         setSelectedFeature((prev) => (prev?.properties.id === p.id ? null : f));
@@ -1066,7 +1078,8 @@ export default function SeichiMap({
             </span>
           </div>
 
-          <div className="relative mt-2.5">
+          <div className="mt-2.5 grid grid-cols-2 gap-2">
+          <div className="relative">
             <MapIcon size={13} className="pointer-events-none absolute left-2.5 top-1/2 z-10 -translate-y-1/2 text-[var(--text-tertiary)]" />
             <select
               value={currentMapPath}
@@ -1082,7 +1095,7 @@ export default function SeichiMap({
             <ChevronDown size={13} className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
           </div>
 
-          <div className="relative mt-2">
+          <div className="relative">
             <Layers size={13} className="pointer-events-none absolute left-2.5 top-1/2 z-10 -translate-y-1/2 text-[var(--text-tertiary)]" />
             <select
               value={baseMapStyle}
@@ -1095,6 +1108,8 @@ export default function SeichiMap({
               ))}
             </select>
             <ChevronDown size={13} className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
+          </div>
+
           </div>
 
           <label className="mt-2 block text-[10px] text-[var(--text-tertiary)]">
@@ -1234,10 +1249,9 @@ export default function SeichiMap({
         {tagOptions.length > 0 && (
           <div className="border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 py-2">
             <div className="flex items-center justify-between gap-2 mb-1.5 px-0.5">
-              <div className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-tertiary)]">
-                <Tag size={11} />
-                <span>メンバー・作品</span>
-              </div>
+              <button type="button" aria-expanded={!facetsCollapsed} aria-label="メンバー・作品フィルターを開閉" onClick={() => setFacetsCollapsed(value => !value)} className="flex min-h-7 items-center gap-1 text-[10px] font-semibold text-[var(--text-tertiary)]">
+                <Tag size={11} /><span>メンバー・作品</span><ChevronDown size={12} className={facetsCollapsed ? '-rotate-90' : ''} />
+              </button>
               {selectedTag !== 'ALL' && (
                 <div className="flex min-w-0 items-center gap-1.5">
                   <span className="max-w-28 truncate text-[10px] text-[var(--text-secondary)]">
@@ -1264,6 +1278,7 @@ export default function SeichiMap({
                 </div>
               )}
             </div>
+            <div hidden={facetsCollapsed}>
             <div className="relative mb-1.5">
               <Search size={11} className="absolute left-2 top-1.5 text-[var(--text-tertiary)]" />
               <input
@@ -1288,7 +1303,7 @@ export default function SeichiMap({
                       : 'bg-[var(--bg-primary)] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                   }`}
                 >
-                  すべて ({data?.features.length || 0})
+                  すべて ({prefectureData?.features.length || 0})
                 </button>
                 {memberTagOptions.map((tag) => (
                   <button
@@ -1340,20 +1355,49 @@ export default function SeichiMap({
                 </p>
               )}
             </div>
+            </div>
           </div>
         )}
 
         {/* 地点列表（含缩略图预览） */}
-        <div className="flex-1 overflow-y-auto divide-y divide-[var(--border-primary)]">
-          {filteredFeatures.map((f) => {
+        <div ref={locationListRef} className="flex-1 overflow-y-auto divide-y divide-[var(--border-primary)]">
+          <div className="space-y-2 bg-[var(--bg-secondary)] p-3" data-timeline-controls>
+            <div className="flex items-center gap-2">
+              <select aria-label="地点の並び順" value={timelineOrder} onChange={event => { setTimelineOrder(event.target.value as SortOrder); setFacetsCollapsed(event.target.value !== 'original'); }} className="min-h-9 min-w-0 flex-1 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-2 text-xs text-[var(--text-primary)]">
+                <option value="original">通常の一覧</option>
+                <option value="newest">タイムライン：新しい順</option>
+                <option value="oldest">タイムライン：古い順</option>
+              </select>
+              <button type="button" aria-pressed={musicOnly} onClick={() => {
+                setMusicOnly(!musicOnly); setSelectedWork('ALL'); setSelectedFeature(null);
+                if (!musicOnly) { setTimelineOrder('newest'); setFacetsCollapsed(true); setSelectedCategory('ALL'); setSelectedSubcategory('ALL'); }
+              }} className={`min-h-9 shrink-0 rounded-lg border px-2 text-[10px] font-semibold ${musicOnly ? 'border-pink-700 bg-pink-700 text-white' : 'border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-secondary)]'}`}>MV・楽曲</button>
+            </div>
+            {(timelineOrder !== 'original' || musicOnly || selectedWork !== 'ALL') && <>
+              <select aria-label="作品で絞り込む" value={selectedWork} onChange={event => { setSelectedWork(event.target.value); setSelectedFeature(null); }} className="min-h-9 w-full min-w-0 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-2 text-xs text-[var(--text-primary)]">
+                <option value="ALL">すべての楽曲・作品</option>
+                {workOptions.map(work => <option key={work.key} value={work.key}>{work.date.replaceAll('-', '.')} · {work.title}</option>)}
+              </select>
+              <p className="text-[9px] leading-relaxed text-[var(--text-tertiary)]">楽曲はCD発売日順（MV公開日・撮影日ではありません）。その他は企画名に明記された日付。未確認は末尾。MV・楽曲にはジャケット撮影地も含みます。</p>
+            </>}
+            <p aria-live="polite" className="text-[10px] text-[var(--text-tertiary)]">{filteredFeatures.length}地点{timelineOrder !== 'original' && ` · 日付あり ${filteredFeatures.filter(f => timelineInfo.get(f)).length}地点`}</p>
+          </div>
+          {filteredFeatures.map((f, index) => {
             const fp = f.properties;
             const isSelected = selectedFeature?.properties.id === fp.id;
             const hasImg = fp.images && fp.images.length > 0;
             const isInRoute = routeStopKeys.includes(getRouteKey(f));
+            const dateInfo = timelineInfo.get(f);
+            const showDateHeading = timelineOrder !== 'original' && (index === 0 || dateInfo?.key !== timelineInfo.get(filteredFeatures[index - 1])?.key);
 
             return (
+              <Fragment key={fp.id}>
+              {showDateHeading && <div data-timeline-heading={dateInfo?.key || 'undated'} className="border-l-2 border-pink-400 bg-[var(--bg-secondary)] px-3 py-2">
+                <p className="text-[10px] font-semibold text-[var(--text-tertiary)]">{dateInfo ? `${dateInfo.date.replaceAll('-', '.')} · ${dateInfo.label}` : '日付未確認'}</p>
+                {dateInfo && <p className="mt-0.5 text-xs font-bold text-[var(--text-primary)]">{dateInfo.title}</p>}
+              </div>}
               <div
-                key={fp.id}
+                data-timeline-date={dateInfo?.date || ''}
                 data-seichi-feature={fp.id}
                 data-prefecture={prefectureLabels.get(f)}
                 data-category={fp.category}
@@ -1383,7 +1427,7 @@ export default function SeichiMap({
                       />
                     ) : (
                       <div className="text-[var(--text-tertiary)] flex flex-col items-center justify-center">
-                        {renderCategoryIcon(fp.category, 16)}
+                        <span style={{ color: MARKER_STYLES[getMarkerKind(f)].color }} dangerouslySetInnerHTML={{ __html: MARKER_STYLES[getMarkerKind(f)].svg }} />
                       </div>
                     )}
                     {hasImg && fp.images.length > 1 && (
@@ -1440,6 +1484,7 @@ export default function SeichiMap({
                   </div>
                 </div>
               </div>
+              </Fragment>
             );
           })}
 
@@ -1477,6 +1522,14 @@ export default function SeichiMap({
             <p className="text-xs font-medium text-[var(--text-secondary)]">マップデータを読み込み中...</p>
           </div>
         )}
+
+        <details className="absolute left-3 top-14 z-[999] max-w-[220px] rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)]/95 px-3 py-2 text-[10px] text-[var(--text-primary)] shadow-sm">
+          <summary className="cursor-pointer font-semibold">アイコンの見方</summary>
+          <div className="mt-2 grid grid-cols-2 gap-2">
+            {Object.entries(MARKER_STYLES).map(([kind, style]) => <span key={kind} className="flex items-center gap-1.5"><span style={{ color: style.color }} dangerouslySetInnerHTML={{ __html: style.svg }} />{style.label}</span>)}
+          </div>
+          <p className="mt-2 text-[var(--text-tertiary)]">文字付き：ルート順 · ✓：訪問済み<br />二重枠：選択中 · 外枠付き：次の目的地</p>
+        </details>
 
         {/* Leaflet 挂载容器 */}
         <div ref={mapContainer} className="w-full h-full" style={{ background: '#f3f4f6' }} />
