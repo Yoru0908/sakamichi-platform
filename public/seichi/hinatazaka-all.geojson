@@ -138173,6 +138173,120 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -157.829903,
+          21.2782408
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8e0f03b256c9ef702bf7",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8e0f03b256c9ef702bf7",
+        "name": "シェラトン ワイキキビーチリゾート",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "シェラトン ワイキキビーチリゾート",
+        "sceneNote": "2026年夏に松田好花がハワイに家族旅行で行った際に利用したホテル。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4lX4kZz5ljbqYjqmqA_4Ra-Km3SG7YXH3LzLcunw2e8PebgeUgqoltt4RNfhHJUFvzz8pAbzb8ME6VG0KryLWNmD4vDCY0p9BuCFC8EddKf7tGo8UlBx77CLJjlTnT4ky5gLAx6DM5Oum7nJrOIzSkOrAZsH3qR7MfFVWPDxlfvn67WG9EAGCslKmy7i2XqDbu2s33IyJZASVA9DXWBFhsa9lJwC63Gcrs8eUZuH-DqbdP_YfGJ3dyMNs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4MLdU5jF4K_yDh5grDYt0AlDUzWrgFzgtZ7jRhfEOVrX0GMs6DhWMoXjolh1lzheGLLJvDSQjoSf2FNwTKdZP7GWcEUQ2gZV-8rV6okFhvWOIrYXWm1J80zp6X0lBfpU2KjB-5rza0LJpTpVN0uOWs-omF4sgX5PpV48Cn6zyST-mGNfg_jq1MYoonlvNxLcBoI00iGBmIk5Yygx3uJul2mDewRhzA2yOfzIQ6DPh6Czz_HIUYgVjsfgU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5HbM3GVGUAw0X3BZ9rYmymi6PIJkka7IF9SUsEFgPGPwMSiMD_GlZmWQiZh3jlNlJp7OpqI4zNjaggWWveOWKpyj73rP1a85BgMnoILr4kCqSwCLjQYJKU0V-1OrZuVU0qH8MDX6MchgvHcsubmlP-pSpRGhorFO-4LQRVZYaaBBugKOmR4fotdrog2aUtWVrsAb52mySFVXQ8tufw8qGUVUiv7-UAricL5r818B8IuBlunpAcPX5I1Ro%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "シェラトン ワイキキビーチリゾート",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7320805,
+          35.5226605
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:15dc8ed3949976c4faa8",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:15dc8ed3949976c4faa8",
+        "name": "コストコホールセール 川崎倉庫店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "コストコホールセール 川崎倉庫店",
+        "sceneNote": "2026年夏に富田鈴花が訪れた大型量販店。https://www.instagram.com/p/DdTrXLlk7V_/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4SLMq2kl6JOjAYHM7fiVOUwCkHiHFIttlAcYzV8VG9EKYTeArEcACrNIPZLz0sfR-iVht7M23muOBqrSpZopHVmCJnWOP_SIwx90uqbU6QTmrxtbwgw2AiM9vSK37IkVCVtFaG7HjFwGdA9CgsHP_F15vmkcdBYgvMRaJJWc1oKpIDMnWDNtmPTtwYttS6YnPEFyK7h42k-7v-eH6R5SVIae4S8uin1lrdwU13NsZQAycpP6X1-nJac3I%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5PZ4ny9TVeeqjZ-R-FPhSJhjpRPK4ZNEDUHqjMb9GtTfjRL3cT7smLM2R85pgriiabVX-qAqSzcPojkXJ4UtkmEyy169oHnpDAmmqjjbK4H1O5RSIg4bv0rCu0p0TLSeN_g3ffeDc26nsWmVVSNUf5bPQeypz4PySfM-YM_EqkpRnQU0S3ocmhUBytr99HuCMyH_RUJ1ecpru-EWf1j_abIJERyAsuvEE0SAkGDJ9_OOYzQc5V4WzmtEA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4awg4KJnZ47WSjHWgNhvGuDVVNCxfxb0jQ2-QRRGnbyAHIOuGHWyhZfrVdYxDJmgbKHNC0ihtUGM3epR2D1HXG9P0JqzZm_WNMICr1sFEEAmELcmu-W-iF0xRaLVSQhdv6v1xvHucb6Lo5t1ByQJkepQ5yBpAHi534vDyO4vKVPIXbc_ir0RRQSFX0Aq4gAlz3BMy5eLIaTgcXuFtBHZiBrjZP0TRqAxyVKsOFe3soLkmCK1Zcem0d-3Q%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "コストコホールセール 川崎倉庫店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
