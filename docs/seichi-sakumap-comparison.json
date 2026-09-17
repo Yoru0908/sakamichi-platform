@@ -1,0 +1,4513 @@
+{
+  "source": "https://buddies46.stars.ne.jp/satellite/sakumap/",
+  "sourceCount": 407,
+  "comparisonCounts": {
+    "candidate": 153,
+    "existing-name": 84,
+    "near-existing-review": 83,
+    "nearby-review": 65,
+    "same-name-coordinate-review": 22
+  },
+  "warning": "Name/proximity matching is advisory, not verified duplication. Only reviewed public venues published; no source photos copied.",
+  "importedIds": [
+    58,
+    90,
+    100,
+    125,
+    132,
+    134,
+    162,
+    221,
+    243,
+    289,
+    306,
+    307,
+    319,
+    340,
+    341,
+    342,
+    343,
+    349,
+    351,
+    369
+  ],
+  "rows": [
+    {
+      "id": 454,
+      "name": "プラネアール木更津駅前スタジオ",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=454",
+      "nearest": {
+        "name": "JR内房線沿い",
+        "meters": 290
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 453,
+      "name": "獅子岩 展望台",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=453",
+      "nearest": {
+        "name": "嚴島神社",
+        "meters": 1981
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 452,
+      "name": "獅子岩駅",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=452",
+      "nearest": {
+        "name": "嚴島神社",
+        "meters": 1887
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 451,
+      "name": "盤浦漢江公園",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=451",
+      "nearest": {
+        "name": "Minute papillon",
+        "meters": 1036
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 450,
+      "name": "Panier de M.mooni",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=450",
+      "nearest": {
+        "name": "狎鴎亭ロデオ駅",
+        "meters": 106
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 449,
+      "name": "うぐいす歩道",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=449",
+      "nearest": {
+        "name": "嚴島神社",
+        "meters": 135
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 448,
+      "name": "「DEAD END」と書かれた看板",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=448",
+      "nearest": {
+        "name": "厳島神社 大鳥居",
+        "meters": 166
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 447,
+      "name": "ぺったらぽったら本舗",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=447",
+      "nearest": {
+        "name": "厳島神社 大鳥居",
+        "meters": 324
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 446,
+      "name": "日本三景碑（宮島）",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=446",
+      "nearest": {
+        "name": "厳島神社 大鳥居",
+        "meters": 520
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 445,
+      "name": "錦帯橋",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=445",
+      "nearest": {
+        "name": "錦帯橋付近",
+        "meters": 43
+      },
+      "prefecture": "山口県"
+    },
+    {
+      "id": 444,
+      "name": "宮島桟橋",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=444",
+      "nearest": {
+        "name": "厳島神社 大鳥居",
+        "meters": 614
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 443,
+      "name": "AYANA Resort Bali",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=443",
+      "nearest": {
+        "name": "Club Med Bali",
+        "meters": 9843
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 442,
+      "name": "ラーメン我馬 五日市店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=442",
+      "nearest": {
+        "name": "八占易学研究会",
+        "meters": 1853
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 441,
+      "name": "宮島お砂焼 対厳堂",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=441",
+      "nearest": {
+        "name": "島田水産",
+        "meters": 696
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 440,
+      "name": "やまだ屋 宮島本店(コロコロもみじ)",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=440",
+      "nearest": {
+        "name": "厳島神社 大鳥居",
+        "meters": 398
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 439,
+      "name": "宮島 あなごめし まめたぬき",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=439",
+      "nearest": {
+        "name": "厳島神社 大鳥居",
+        "meters": 294
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 438,
+      "name": "宮島ロープウエー",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=438",
+      "nearest": {
+        "name": "嚴島神社",
+        "meters": 703
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 437,
+      "name": "宮島口フェリー乗り場",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=437",
+      "nearest": {
+        "name": "島田水産",
+        "meters": 841
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 436,
+      "name": "KINTEX",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=436",
+      "nearest": {
+        "name": "원마운트 (ONEMOUNT)",
+        "meters": 472
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 435,
+      "name": "ONEMOUNT",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=435",
+      "nearest": {
+        "name": "원마운트 (ONEMOUNT)",
+        "meters": 1596
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 434,
+      "name": "Red Road",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=434",
+      "nearest": {
+        "name": "Where they started the vlog",
+        "meters": 83
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 433,
+      "name": "トジョッ 弘大本店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=433",
+      "nearest": {
+        "name": "Where they started the vlog",
+        "meters": 26
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 432,
+      "name": "LOTTEWORLD",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=432",
+      "nearest": {
+        "name": "PANDA EXPRESS",
+        "meters": 125
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 431,
+      "name": "SGC HALL ARIAKE",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=431",
+      "nearest": {
+        "name": "つどい橋",
+        "meters": 75
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 430,
+      "name": "TOKYO DREAM PARK",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=430",
+      "nearest": {
+        "name": "つどい橋",
+        "meters": 132
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 429,
+      "name": "so far",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=429",
+      "nearest": {
+        "name": "ソムンナン聖水(ソンス)カムジャタン",
+        "meters": 49
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 428,
+      "name": "Marylebone",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=428",
+      "nearest": {
+        "name": "laxxa",
+        "meters": 118
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 427,
+      "name": "手打ちうどん ひさ枝",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=427",
+      "nearest": {
+        "name": "キャッスルプロムナード",
+        "meters": 3714
+      },
+      "prefecture": "香川県"
+    },
+    {
+      "id": 426,
+      "name": "ポケモンセンターメガトウキョー",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=426",
+      "nearest": {
+        "name": "Marché de Bleuet plus サンシャインシティアルパ店",
+        "meters": 12
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 425,
+      "name": "Ten. コーヒーとチャイの店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=425",
+      "nearest": {
+        "name": "ラ・ファミーユ 高松本店",
+        "meters": 4561
+      },
+      "prefecture": "香川県"
+    },
+    {
+      "id": 424,
+      "name": "金沢百番街 あんと",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=424",
+      "nearest": {
+        "name": "金沢駅",
+        "meters": 46
+      },
+      "prefecture": "石川県"
+    },
+    {
+      "id": 423,
+      "name": "彦三緑地",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=423",
+      "nearest": {
+        "name": "30分お二人様 8,000円",
+        "meters": 28
+      },
+      "prefecture": "石川県"
+    },
+    {
+      "id": 422,
+      "name": "金沢観光人力車【浪漫屋】",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=422",
+      "nearest": {
+        "name": "RITSUKA",
+        "meters": 3
+      },
+      "prefecture": "石川県"
+    },
+    {
+      "id": 421,
+      "name": "コーヒーハウスかこ花車本店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=421",
+      "nearest": {
+        "name": "コーヒーハウス かこ 花車本店",
+        "meters": 64
+      },
+      "prefecture": "愛知県"
+    },
+    {
+      "id": 417,
+      "name": "ひがし茶屋街",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=417",
+      "nearest": {
+        "name": "炭火焼鶏Ryo ひがし茶屋街店 / 城北大通り",
+        "meters": 9
+      },
+      "prefecture": "石川県"
+    },
+    {
+      "id": 416,
+      "name": "近江町市場",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=416",
+      "nearest": {
+        "name": "上近江町通り",
+        "meters": 7
+      },
+      "prefecture": "石川県"
+    },
+    {
+      "id": 415,
+      "name": "近江町コロッケ 金沢駅店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=415",
+      "nearest": {
+        "name": "金沢駅",
+        "meters": 91
+      },
+      "prefecture": "石川県"
+    },
+    {
+      "id": 414,
+      "name": "金沢駅",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=414",
+      "nearest": {
+        "name": "村山美羽プランニングでプライベート金沢旅行をお届け🚅",
+        "meters": 12
+      },
+      "prefecture": "石川県"
+    },
+    {
+      "id": 413,
+      "name": "R I T S U K A",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=413",
+      "nearest": {
+        "name": "能登牛 ましば",
+        "meters": 157
+      },
+      "prefecture": "石川県"
+    },
+    {
+      "id": 412,
+      "name": "能登牛 ましば",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=412",
+      "nearest": {
+        "name": "能登牛 ましば",
+        "meters": 10
+      },
+      "prefecture": "石川県"
+    },
+    {
+      "id": 411,
+      "name": "牛屋 たん兵衛",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=411",
+      "nearest": {
+        "name": "TOWERminiアリオ仙台泉店",
+        "meters": 2749
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 410,
+      "name": "前田食品 BIG FLAG",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=410",
+      "nearest": {
+        "name": "ある日、恋した",
+        "meters": 175
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 409,
+      "name": "仙台うみの杜水族館",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=409",
+      "nearest": {
+        "name": "多賀城駅",
+        "meters": 3181
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 408,
+      "name": "牛タン焼専門店 司 本店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=408",
+      "nearest": {
+        "name": "SENDAI光のページェント（定禅寺通）",
+        "meters": 168
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 407,
+      "name": "Shama Central Hong Kong",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=407",
+      "nearest": {
+        "name": "Karin on IG reel",
+        "meters": 59
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 406,
+      "name": "樓下火鍋飯店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=406",
+      "nearest": {
+        "name": "Cameron Road",
+        "meters": 250
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 404,
+      "name": "成田ゆめ牧場 オートキャンプ場（Ａサイト）",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=404",
+      "nearest": {
+        "name": "成田ゆめ牧場",
+        "meters": 677
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 403,
+      "name": "ホワイト餃子 野田本店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=403",
+      "nearest": {
+        "name": "櫻木神社",
+        "meters": 1866
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 399,
+      "name": "ブルーベリー農園 森の畑",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=399",
+      "nearest": {
+        "name": "ブルーベリー農園 森の畑",
+        "meters": 1299
+      },
+      "prefecture": "長野県"
+    },
+    {
+      "id": 398,
+      "name": "中島屋旅館",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=398",
+      "nearest": {
+        "name": "中島屋旅館",
+        "meters": 457
+      },
+      "prefecture": "長野県"
+    },
+    {
+      "id": 397,
+      "name": "えんとつ",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=397",
+      "nearest": {
+        "name": "竹風堂 小布施本店",
+        "meters": 1372
+      },
+      "prefecture": "長野県"
+    },
+    {
+      "id": 396,
+      "name": "galerie蓮(ギャルリ･れん)",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=396",
+      "nearest": {
+        "name": "善光寺参道",
+        "meters": 61
+      },
+      "prefecture": "長野県"
+    },
+    {
+      "id": 395,
+      "name": "あづみ堂",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=395",
+      "nearest": {
+        "name": "丸八たきや",
+        "meters": 35
+      },
+      "prefecture": "長野県"
+    },
+    {
+      "id": 394,
+      "name": "かどの大丸",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=394",
+      "nearest": {
+        "name": "善光寺参道",
+        "meters": 24
+      },
+      "prefecture": "長野県"
+    },
+    {
+      "id": 393,
+      "name": "善光寺",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=393",
+      "nearest": {
+        "name": "善光寺 大香炉",
+        "meters": 20
+      },
+      "prefecture": "長野県"
+    },
+    {
+      "id": 392,
+      "name": "Suntec Singapore Convention & Exhibition Centere",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=392",
+      "nearest": {
+        "name": "ペトロナスツインタワー",
+        "meters": 315881
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 391,
+      "name": "鮨処 たち吉",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=391",
+      "nearest": {
+        "name": "合計40,080円",
+        "meters": 8
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 390,
+      "name": "3204 bread&gelato",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=390",
+      "nearest": {
+        "name": "3204 bread&gelato",
+        "meters": 6
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 389,
+      "name": "紀の代",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=389",
+      "nearest": {
+        "name": "紀の代",
+        "meters": 4
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 388,
+      "name": "エジソン046",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=388",
+      "nearest": {
+        "name": "菓子の老舗 嶋清",
+        "meters": 73
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 387,
+      "name": "さざえや うらり店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=387",
+      "nearest": {
+        "name": "うらりマルシェ",
+        "meters": 10
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 386,
+      "name": "くろば亭 本店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=386",
+      "nearest": {
+        "name": "紀の代",
+        "meters": 6
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 385,
+      "name": "EIGHT SPACE",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=385",
+      "nearest": {
+        "name": "The Little shop of Flowers ATELIER",
+        "meters": 28
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 384,
+      "name": "みはま食堂",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=384",
+      "nearest": {
+        "name": "Smoothie Boo",
+        "meters": 882
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 383,
+      "name": "ホテル日航アリビラ",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=383",
+      "nearest": {
+        "name": "宮城防潮堤",
+        "meters": 10757
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 382,
+      "name": "サーターアンダギー専門店 南星 北谷アメリカンビレッジ店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=382",
+      "nearest": {
+        "name": "Smoothie Boo",
+        "meters": 32
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 381,
+      "name": "うちなー茶屋 ぶくぶく",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=381",
+      "nearest": {
+        "name": "琉球ハイボール酒場 万次郎",
+        "meters": 440
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 380,
+      "name": "シーサー工房 不羈",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=380",
+      "nearest": {
+        "name": "琉球ハイボール酒場 万次郎",
+        "meters": 360
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 379,
+      "name": "Philly king rolls",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=379",
+      "nearest": {
+        "name": "MARCY'S OKINAWA",
+        "meters": 925
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 378,
+      "name": "ウミカジテラス",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=378",
+      "nearest": {
+        "name": "MARCY'S OKINAWA",
+        "meters": 923
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 377,
+      "name": "サンセット広場",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=377",
+      "nearest": {
+        "name": "MARCY'S OKINAWA",
+        "meters": 931
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 376,
+      "name": "東武動物公園",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=376",
+      "nearest": {
+        "name": "東武動物公園",
+        "meters": 353
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 375,
+      "name": "松島海岸レストハウス",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=375",
+      "nearest": {
+        "name": "松島海岸駅周辺の通り",
+        "meters": 99
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 374,
+      "name": "HADO ARENA ところざわサクラタウン",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=374",
+      "nearest": {
+        "name": "角川武蔵野ミュージアム",
+        "meters": 50
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 373,
+      "name": "つけもの小江戸",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=373",
+      "nearest": {
+        "name": "川越パターテ",
+        "meters": 16
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 372,
+      "name": "山田うどん食堂 本店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=372",
+      "nearest": {
+        "name": "けゐとく苑 所沢店",
+        "meters": 576
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 371,
+      "name": "cocoro 川越店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=371",
+      "nearest": {
+        "name": "新井武平商店 ヤマブ川越時の鐘店",
+        "meters": 31
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 370,
+      "name": "熊野神社",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=370",
+      "nearest": {
+        "name": "熊野神社",
+        "meters": 14
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 369,
+      "name": "金笛しょうゆパーク",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=369",
+      "nearest": {
+        "name": "川越氷川神社 縁むすび風鈴",
+        "meters": 5009
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 368,
+      "name": "富士急ハイランド コニファーフォレスト",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=368",
+      "nearest": {
+        "name": "富士急ハイランド・コニファーフォレスト",
+        "meters": 7
+      },
+      "prefecture": "山梨県"
+    },
+    {
+      "id": 367,
+      "name": "ハウステンボス",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=367",
+      "nearest": {
+        "name": "白い観覧車",
+        "meters": 26
+      },
+      "prefecture": "長崎県"
+    },
+    {
+      "id": 366,
+      "name": "Zepp New Taipei",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=366",
+      "nearest": {
+        "name": "平安街",
+        "meters": 4990
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 365,
+      "name": "TAIPEI ARENA",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=365",
+      "nearest": {
+        "name": "YouBike 2.0",
+        "meters": 675
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 364,
+      "name": "花丸軒 難波・法善寺店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=364",
+      "nearest": {
+        "name": "サロン・ド・テ アルション 法善寺本店",
+        "meters": 113
+      },
+      "prefecture": "大阪府"
+    },
+    {
+      "id": 363,
+      "name": "神戸風月堂 元町本店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=363",
+      "nearest": {
+        "name": "神戸風月堂 元町本店",
+        "meters": 5
+      },
+      "prefecture": "兵庫県"
+    },
+    {
+      "id": 362,
+      "name": "三嶋大社",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=362",
+      "nearest": {
+        "name": "三嶋大社 本殿",
+        "meters": 74
+      },
+      "prefecture": "静岡県"
+    },
+    {
+      "id": 361,
+      "name": "リラックマストア 原宿店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=361",
+      "nearest": {
+        "name": "montoak",
+        "meters": 9
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 360,
+      "name": "MOOOSH SQUISHY 原宿店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=360",
+      "nearest": {
+        "name": "Bowls #",
+        "meters": 17
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 359,
+      "name": "日本へそ公園",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=359",
+      "nearest": {
+        "name": "神姫バス（株）社営業所",
+        "meters": 9904
+      },
+      "prefecture": "兵庫県"
+    },
+    {
+      "id": 358,
+      "name": "あべのHoop",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=358",
+      "nearest": {
+        "name": "タワーレコードあべのHoop店",
+        "meters": 32
+      },
+      "prefecture": "大阪府"
+    },
+    {
+      "id": 357,
+      "name": "広島グリーンアリーナ",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=357",
+      "nearest": {
+        "name": "広島県立総合体育館(広島グリーンアリーナ)",
+        "meters": 46
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 356,
+      "name": "舞洲スポーツアイランド",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=356",
+      "nearest": {
+        "name": "舞洲スポーツアイランド WHITE MASSIVE",
+        "meters": 857
+      },
+      "prefecture": "大阪府"
+    },
+    {
+      "id": 355,
+      "name": "神戸ワールド記念ホール",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=355",
+      "nearest": {
+        "name": "ワールド記念ホール",
+        "meters": 5
+      },
+      "prefecture": "兵庫県"
+    },
+    {
+      "id": 354,
+      "name": "千葉市蘇我スポーツ公園",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=354",
+      "nearest": {
+        "name": "タワーレコードアリオモール蘇我店",
+        "meters": 1559
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 353,
+      "name": "国営ひたち海浜公園",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=353",
+      "nearest": {
+        "name": "国営ひたち海浜公園",
+        "meters": 19
+      },
+      "prefecture": "茨城県"
+    },
+    {
+      "id": 352,
+      "name": "ユニバーサル・スタジオ・ジャパン",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=352",
+      "nearest": {
+        "name": "ジョーズ",
+        "meters": 75
+      },
+      "prefecture": "大阪府"
+    },
+    {
+      "id": 351,
+      "name": "佐渡乳業直売所 みるく・ぽっと",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=351",
+      "nearest": {
+        "name": "両津港南埠頭7号岸壁",
+        "meters": 9853
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 350,
+      "name": "あめやの桟橋",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=350",
+      "nearest": {
+        "name": "大間港",
+        "meters": 8496
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 349,
+      "name": "佐渡西三川ゴールドパーク",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=349",
+      "nearest": {
+        "name": "大間港",
+        "meters": 16509
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 348,
+      "name": "宿根木 はんぎり",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=348",
+      "nearest": {
+        "name": "大間港",
+        "meters": 25889
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 347,
+      "name": "高尾山",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=347",
+      "nearest": {
+        "name": "高尾山山頂",
+        "meters": 19
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 346,
+      "name": "寿司民宿・長浜荘",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=346",
+      "nearest": {
+        "name": "大間港",
+        "meters": 12594
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 345,
+      "name": "両津港 佐渡汽船ターミナル",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=345",
+      "nearest": {
+        "name": "両津港南埠頭7号岸壁",
+        "meters": 684
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 344,
+      "name": "新潟港 佐渡汽船ターミナル",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=344",
+      "nearest": {
+        "name": "朱鷺メッセ 新潟コンベンションセンター",
+        "meters": 352
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 343,
+      "name": "あしゆ湯足美",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=343",
+      "nearest": {
+        "name": "タワーレコード新潟店",
+        "meters": 20023
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 342,
+      "name": "月岡ドーナツ",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=342",
+      "nearest": {
+        "name": "タワーレコード新潟店",
+        "meters": 20232
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 341,
+      "name": "源泉の杜",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=341",
+      "nearest": {
+        "name": "タワーレコード新潟店",
+        "meters": 20216
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 340,
+      "name": "新潟月岡温泉 白玉の湯 華鳳",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=340",
+      "nearest": {
+        "name": "タワーレコード新潟店",
+        "meters": 20502
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 338,
+      "name": "豊洲ぐるり公園",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=338",
+      "nearest": {
+        "name": "都道484号線",
+        "meters": 243
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 337,
+      "name": "佐渡 廻転寿司 弁慶 ピア万代店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=337",
+      "nearest": {
+        "name": "万代島鮮魚センター",
+        "meters": 61
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 336,
+      "name": "みなとのマルシェ ピアBandai",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=336",
+      "nearest": {
+        "name": "万代島鮮魚センター",
+        "meters": 58
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 335,
+      "name": "新潟駅",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=335",
+      "nearest": {
+        "name": "NGT48劇場",
+        "meters": 644
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 334,
+      "name": "ルッカの森",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=334",
+      "nearest": {
+        "name": "彫刻の森美術館 (THE HAKONE OPEN-AIR MUSEUM)",
+        "meters": 98
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 333,
+      "name": "箱根湯本駅前商店街",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=333",
+      "nearest": {
+        "name": "箱根湯本駅",
+        "meters": 13
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 332,
+      "name": "箱根ガラスの森美術館",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=332",
+      "nearest": {
+        "name": "箱根ガラスの森美術館",
+        "meters": 6
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 331,
+      "name": "谷のマルシェ",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=331",
+      "nearest": {
+        "name": "谷のマルシェ",
+        "meters": 9
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 330,
+      "name": "大涌谷",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=330",
+      "nearest": {
+        "name": "谷のマルシェ",
+        "meters": 42
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 329,
+      "name": "桃源台港",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=329",
+      "nearest": {
+        "name": "桃源台港",
+        "meters": 15
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 328,
+      "name": "箱根町港",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=328",
+      "nearest": {
+        "name": "箱根海賊船 箱根町港",
+        "meters": 2
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 321,
+      "name": "十人十色",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=321",
+      "nearest": {
+        "name": "元町2丁目3",
+        "meters": 11
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 320,
+      "name": "宿ぽっぽや",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=320",
+      "nearest": {
+        "name": "都留市立 谷村第一小学校ことばと発達のサポートルーム",
+        "meters": 285
+      },
+      "prefecture": "山梨県"
+    },
+    {
+      "id": 319,
+      "name": "岩下の新生姜ミュージアム",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=319",
+      "nearest": {
+        "name": "TSUTAYA栃木城内店",
+        "meters": 411
+      },
+      "prefecture": "栃木県"
+    },
+    {
+      "id": 318,
+      "name": "Tokyo Shave Ice アンカードレ",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=318",
+      "nearest": {
+        "name": "さばめしの鯖匠",
+        "meters": 155
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 317,
+      "name": "朝鮮飯店 高崎駅西口店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=317",
+      "nearest": {
+        "name": "タワーレコード高崎オーパ店",
+        "meters": 63
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 316,
+      "name": "シャンゴ 問屋町本店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=316",
+      "nearest": {
+        "name": "WonderGOO高崎店",
+        "meters": 422
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 315,
+      "name": "スパゲッティー専科 はらっぱ 本店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=315",
+      "nearest": {
+        "name": "エテルナ高崎",
+        "meters": 1222
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 314,
+      "name": "高崎市少年科学館",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=314",
+      "nearest": {
+        "name": "高崎市少年科学館",
+        "meters": 19
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 313,
+      "name": "伊香保おもちゃと人形自動車博物館",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=313",
+      "nearest": {
+        "name": "伊香保おもちゃと人形自動車博物館",
+        "meters": 278
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 312,
+      "name": "Gunma Flower Park +",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=312",
+      "nearest": {
+        "name": "Gunma Flower Park + (ぐんまフラワーパークプラス)",
+        "meters": 29
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 311,
+      "name": "前橋市中央児童遊園 るなぱあく",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=311",
+      "nearest": {
+        "name": "前橋市中央児童遊園 るなぱあく",
+        "meters": 51
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 310,
+      "name": "馬場FLAT",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=310",
+      "nearest": {
+        "name": "馬場FLAT",
+        "meters": 9
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 309,
+      "name": "Aubrey House 渋谷青山店",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=309",
+      "nearest": {
+        "name": "ラウンドクロス渋谷前",
+        "meters": 63
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 308,
+      "name": "Vivra Vivre",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=308",
+      "nearest": {
+        "name": "TSUTAYA藤枝瀬戸新屋店",
+        "meters": 2965
+      },
+      "prefecture": "静岡県"
+    },
+    {
+      "id": 307,
+      "name": "三島スカイウォーク",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=307",
+      "nearest": {
+        "name": "富士食堂",
+        "meters": 2841
+      },
+      "prefecture": "静岡県"
+    },
+    {
+      "id": 306,
+      "name": "宗像大社辺津宮",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=306",
+      "nearest": {
+        "name": "Sea Blue",
+        "meters": 2533
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 305,
+      "name": "白子町役場 アクア健康センター",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=305",
+      "nearest": {
+        "name": "白子町アクア健康センター (旧白子インドアフィールド)",
+        "meters": 55
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 304,
+      "name": "九州佐賀国際空港",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=304",
+      "nearest": {
+        "name": "展望デッキ",
+        "meters": 85
+      },
+      "prefecture": "佐賀県"
+    },
+    {
+      "id": 303,
+      "name": "渋谷1号踏切",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=303",
+      "nearest": {
+        "name": "京王電鉄 京王井の頭線 渋谷1号踏切",
+        "meters": 2
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 302,
+      "name": "原岡桟橋",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=302",
+      "nearest": {
+        "name": "原岡桟橋 (岡本桟橋)",
+        "meters": 51
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 301,
+      "name": "微笑庵",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=301",
+      "nearest": {
+        "name": "微笑庵",
+        "meters": 89
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 300,
+      "name": "菓子工房 大とろ牛乳",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=300",
+      "nearest": {
+        "name": "菓子工房 大とろ牛乳",
+        "meters": 107
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 298,
+      "name": "高松空港",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=298",
+      "nearest": {
+        "name": "NEWレオマワールド",
+        "meters": 12842
+      },
+      "prefecture": "香川県"
+    },
+    {
+      "id": 297,
+      "name": "瀬戸大橋記念公園",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=297",
+      "nearest": {
+        "name": "TSUTAYA宇多津店",
+        "meters": 4678
+      },
+      "prefecture": "香川県"
+    },
+    {
+      "id": 296,
+      "name": "ジェラテリア スプンティーノ",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=296",
+      "nearest": {
+        "name": "紀伊国屋書店ゆめタウン徳島店",
+        "meters": 7477
+      },
+      "prefecture": "徳島県"
+    },
+    {
+      "id": 295,
+      "name": "藍染工芸館",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=295",
+      "nearest": {
+        "name": "紀伊国屋書店ゆめタウン徳島店",
+        "meters": 1625
+      },
+      "prefecture": "徳島県"
+    },
+    {
+      "id": 294,
+      "name": "堂の浦 徳島大学前店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=294",
+      "nearest": {
+        "name": "紀伊国屋書店ゆめタウン徳島店",
+        "meters": 7138
+      },
+      "prefecture": "徳島県"
+    },
+    {
+      "id": 293,
+      "name": "日の出製麺所",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=293",
+      "nearest": {
+        "name": "TSUTAYA宇多津店",
+        "meters": 3425
+      },
+      "prefecture": "香川県"
+    },
+    {
+      "id": 292,
+      "name": "スープカリーイエロー",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=292",
+      "nearest": {
+        "name": "北海道みやげ たぬきや",
+        "meters": 174
+      },
+      "prefecture": "北海道"
+    },
+    {
+      "id": 291,
+      "name": "TOYOTA ARENA TOKYO",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=291",
+      "nearest": {
+        "name": "ROOK Cafe",
+        "meters": 19
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 290,
+      "name": "富岡八幡宮",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=290",
+      "nearest": {
+        "name": "イシイの甘栗 深川店",
+        "meters": 12
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 289,
+      "name": "秋吉台自然動物公園サファリランド",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=289",
+      "nearest": {
+        "name": "香山公園",
+        "meters": 16849
+      },
+      "prefecture": "山口県"
+    },
+    {
+      "id": 288,
+      "name": "角島大橋",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=288",
+      "nearest": {
+        "name": "角島大橋",
+        "meters": 171
+      },
+      "prefecture": "山口県"
+    },
+    {
+      "id": 287,
+      "name": "ホテル西長門リゾート",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=287",
+      "nearest": {
+        "name": "角島大橋展望所",
+        "meters": 548
+      },
+      "prefecture": "山口県"
+    },
+    {
+      "id": 286,
+      "name": "ZOZOマリンスタジアム",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=286",
+      "nearest": {
+        "name": "幕張メッセ 国際展示場3ホール",
+        "meters": 355
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 285,
+      "name": "アメリカヤビル",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=285",
+      "nearest": {
+        "name": "アメリカヤ",
+        "meters": 17
+      },
+      "prefecture": "山梨県"
+    },
+    {
+      "id": 284,
+      "name": "草津温泉 中村屋旅館",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=284",
+      "nearest": {
+        "name": "草津温泉",
+        "meters": 184
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 283,
+      "name": "わたの湯源泉 足湯",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=283",
+      "nearest": {
+        "name": "草津温泉",
+        "meters": 187
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 282,
+      "name": "又来屋",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=282",
+      "nearest": {
+        "name": "草津温泉",
+        "meters": 422
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 281,
+      "name": "草津ガラス蔵",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=281",
+      "nearest": {
+        "name": "草津温泉",
+        "meters": 394
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 280,
+      "name": "射的茶屋まつりや",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=280",
+      "nearest": {
+        "name": "草津温泉",
+        "meters": 378
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 279,
+      "name": "遊膳 草津店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=279",
+      "nearest": {
+        "name": "草津温泉",
+        "meters": 341
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 278,
+      "name": "四万川ダム",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=278",
+      "nearest": {
+        "name": "奥平温泉 遊神館",
+        "meters": 8456
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 277,
+      "name": "積善館",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=277",
+      "nearest": {
+        "name": "奥平温泉 遊神館",
+        "meters": 8883
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 276,
+      "name": "やすらぎ亭",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=276",
+      "nearest": {
+        "name": "草津温泉",
+        "meters": 350
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 275,
+      "name": "草津温泉おさるの湯もみ処",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=275",
+      "nearest": {
+        "name": "草津温泉",
+        "meters": 345
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 274,
+      "name": "もち焼せんべい",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=274",
+      "nearest": {
+        "name": "草津温泉",
+        "meters": 358
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 273,
+      "name": "草津温泉 湯畑",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=273",
+      "nearest": {
+        "name": "草津温泉",
+        "meters": 271
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 272,
+      "name": "うさんちゅカフェ",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=272",
+      "nearest": {
+        "name": "81号",
+        "meters": 8001
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 271,
+      "name": "大久野島",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=271",
+      "nearest": {
+        "name": "81号",
+        "meters": 7429
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 270,
+      "name": "忠海港",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=270",
+      "nearest": {
+        "name": "81号",
+        "meters": 9160
+      },
+      "prefecture": "広島県"
+    },
+    {
+      "id": 269,
+      "name": "モリタウン B駐輪場",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=269",
+      "nearest": {
+        "name": "モリタウン B駐輪場",
+        "meters": 94
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 268,
+      "name": "柏農高校前駅",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=268",
+      "nearest": {
+        "name": "弘南鉄道弘南線 柏農高校前駅",
+        "meters": 84
+      },
+      "prefecture": "青森県"
+    },
+    {
+      "id": 267,
+      "name": "蔦沼",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=267",
+      "nearest": {
+        "name": "蔦温泉旅館 久安の湯",
+        "meters": 365
+      },
+      "prefecture": "青森県"
+    },
+    {
+      "id": 266,
+      "name": "蔦温泉旅館",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=266",
+      "nearest": {
+        "name": "蔦温泉旅館 久安の湯",
+        "meters": 27
+      },
+      "prefecture": "青森県"
+    },
+    {
+      "id": 265,
+      "name": "手作り雑貨体験工房 IRODORI",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=265",
+      "nearest": {
+        "name": "手作り雑貨体験工房IRODORI",
+        "meters": 20
+      },
+      "prefecture": "青森県"
+    },
+    {
+      "id": 264,
+      "name": "すずのや",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=264",
+      "nearest": {
+        "name": "すずのや",
+        "meters": 3
+      },
+      "prefecture": "青森県"
+    },
+    {
+      "id": 263,
+      "name": "鯖石駅",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=263",
+      "nearest": {
+        "name": "弘南鉄道大鰐線 鯖石駅",
+        "meters": 11
+      },
+      "prefecture": "青森県"
+    },
+    {
+      "id": 262,
+      "name": "義塾高校前駅",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=262",
+      "nearest": {
+        "name": "弘南鉄道大鰐線 義塾高校前駅",
+        "meters": 127
+      },
+      "prefecture": "青森県"
+    },
+    {
+      "id": 261,
+      "name": "蘭蝶",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=261",
+      "nearest": {
+        "name": "蘭蝶",
+        "meters": 4
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 260,
+      "name": "高浜岸壁（神戸市）",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=260",
+      "nearest": {
+        "name": "Eggs 'n Things 神戸ハーバーランド店",
+        "meters": 129
+      },
+      "prefecture": "兵庫県"
+    },
+    {
+      "id": 259,
+      "name": "Dancing Fountain at The Grove",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=259",
+      "nearest": {
+        "name": "イースト・フラミンゴ・ロード",
+        "meters": 368356
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 258,
+      "name": "In-N-Out Burger",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=258",
+      "nearest": {
+        "name": "イースト・フラミンゴ・ロード",
+        "meters": 374166
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 244,
+      "name": "あつた蓬莱軒 松坂屋店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=244",
+      "nearest": {
+        "name": "あつた蓬莱軒 松坂屋店",
+        "meters": 6
+      },
+      "prefecture": "愛知県"
+    },
+    {
+      "id": 243,
+      "name": "岩魚の里　永源寺グリーンランド",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=243",
+      "nearest": {
+        "name": "鈴鹿 PA (下り)",
+        "meters": 15591
+      },
+      "prefecture": "滋賀県"
+    },
+    {
+      "id": 242,
+      "name": "近江茶丸吉",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=242",
+      "nearest": {
+        "name": "鈴鹿 PA (下り)",
+        "meters": 22417
+      },
+      "prefecture": "滋賀県"
+    },
+    {
+      "id": 241,
+      "name": "中華そば　カドヤ食堂　総本店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=241",
+      "nearest": {
+        "name": "Hi!SandWich",
+        "meters": 398
+      },
+      "prefecture": "大阪府"
+    },
+    {
+      "id": 240,
+      "name": "鶴橋風月 OCAT店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=240",
+      "nearest": {
+        "name": "鶴橋風月 OCAT店",
+        "meters": 32
+      },
+      "prefecture": "大阪府"
+    },
+    {
+      "id": 239,
+      "name": "宇治園「喫茶去」阪急三番街店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=239",
+      "nearest": {
+        "name": "紀伊國屋書店梅田本店",
+        "meters": 55
+      },
+      "prefecture": "大阪府"
+    },
+    {
+      "id": 234,
+      "name": "サープラ横浜あそびタウン",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=234",
+      "nearest": {
+        "name": "サープラ横浜あそびタウン",
+        "meters": 31
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 233,
+      "name": "アゴーディア・ガーデン東京ベイ",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=233",
+      "nearest": {
+        "name": "STUDIO PODBASE平和島",
+        "meters": 577
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 232,
+      "name": "本とさや",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=232",
+      "nearest": {
+        "name": "浅草ビューホテル",
+        "meters": 122
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 231,
+      "name": "日本橋海鮮丼 つじ半 日本橋本店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=231",
+      "nearest": {
+        "name": "かき氷コレクション·バトン",
+        "meters": 286
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 230,
+      "name": "群馬県立自然史博物館",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=230",
+      "nearest": {
+        "name": "群馬県立自然史博物館",
+        "meters": 758
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 229,
+      "name": "横須賀市文化会館",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=229",
+      "nearest": {
+        "name": "小田倉麗奈: 横須賀市文化会館",
+        "meters": 20
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 228,
+      "name": "横須賀グリーンゴルフ",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=228",
+      "nearest": {
+        "name": "小田倉麗奈: 横須賀グリーンゴルフ",
+        "meters": 34
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 227,
+      "name": "古河橋",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=227",
+      "nearest": {
+        "name": "通洞駅",
+        "meters": 3168
+      },
+      "prefecture": "栃木県"
+    },
+    {
+      "id": 226,
+      "name": "自由図書",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=226",
+      "nearest": {
+        "name": "通洞駅",
+        "meters": 2316
+      },
+      "prefecture": "栃木県"
+    },
+    {
+      "id": 225,
+      "name": "足尾銅山観光",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=225",
+      "nearest": {
+        "name": "足尾銅山観光",
+        "meters": 22
+      },
+      "prefecture": "栃木県"
+    },
+    {
+      "id": 224,
+      "name": "銘菓処 舟定",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=224",
+      "nearest": {
+        "name": "桐生駅",
+        "meters": 531
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 223,
+      "name": "ル・ポンポネット",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=223",
+      "nearest": {
+        "name": "WonderGOO高崎店",
+        "meters": 808
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 222,
+      "name": "県立ぐんま天文台",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=222",
+      "nearest": {
+        "name": "ぐんま天文台",
+        "meters": 138
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 221,
+      "name": "群馬サファリパーク",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=221",
+      "nearest": {
+        "name": "こんにゃくパーク",
+        "meters": 3730
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 220,
+      "name": "稲佐山公園（稲佐山山頂展望台）",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=220",
+      "nearest": {
+        "name": "稲佐山公園",
+        "meters": 946
+      },
+      "prefecture": "長崎県"
+    },
+    {
+      "id": 219,
+      "name": "長崎バイオパーク",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=219",
+      "nearest": {
+        "name": "長崎バイオパーク",
+        "meters": 805
+      },
+      "prefecture": "長崎県"
+    },
+    {
+      "id": 218,
+      "name": "うのき水辺の楽校",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=218",
+      "nearest": {
+        "name": "うのき水辺の楽校",
+        "meters": 10
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 217,
+      "name": "焼肉三ちゃん",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=217",
+      "nearest": {
+        "name": "本郷通り / 京阪大手町ビル",
+        "meters": 209
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 216,
+      "name": "東京競馬場",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=216",
+      "nearest": {
+        "name": "黄金の馬(アハルテケ)像",
+        "meters": 489
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 215,
+      "name": "ストライク軒 大阪天満総本店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=215",
+      "nearest": {
+        "name": "Pelcola",
+        "meters": 1122
+      },
+      "prefecture": "大阪府"
+    },
+    {
+      "id": 214,
+      "name": "にっしんカメラ",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=214",
+      "nearest": {
+        "name": "フジヤマドラゴンカレー 秋葉原店",
+        "meters": 0
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 213,
+      "name": "ハンズ渋谷店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=213",
+      "nearest": {
+        "name": "鈴本美愉: STAR LOUNGE",
+        "meters": 46
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 212,
+      "name": "THE FLAVOR DESIGN STORE \"KAMAKURA\"",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=212",
+      "nearest": {
+        "name": "鎌倉駅西口駅前時計台広場",
+        "meters": 181
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 211,
+      "name": "新江ノ島水族館",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=211",
+      "nearest": {
+        "name": "新江ノ島水族館(3)",
+        "meters": 1
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 210,
+      "name": "海老名サービスエリア(下り)",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=210",
+      "nearest": {
+        "name": "海老名運動公園 陸上競技場",
+        "meters": 1941
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 209,
+      "name": "名曲喫茶 柳月堂",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=209",
+      "nearest": {
+        "name": "賀茂川沿い、出町橋の北側 / 鴨川ジョギングロード",
+        "meters": 274
+      },
+      "prefecture": "京都府"
+    },
+    {
+      "id": 208,
+      "name": "La Parisienne",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=208",
+      "nearest": {
+        "name": "BOULANGERIE LA PARISIENNE ODESSA",
+        "meters": 7
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 207,
+      "name": "Crêperie du Manoir Breton",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=207",
+      "nearest": {
+        "name": "Crêperie Manoir Breton",
+        "meters": 5
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 206,
+      "name": "Mayo Restaurant",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=206",
+      "nearest": {
+        "name": "之后一起吃的第二家餐厅",
+        "meters": 7
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 205,
+      "name": "Place du Trocadero",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=205",
+      "nearest": {
+        "name": "铁塔观景平台\n鐵塔觀景平台",
+        "meters": 71
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 204,
+      "name": "Parc des Expositions de Villepinte",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=204",
+      "nearest": {
+        "name": "Parc des expositions Paris Nord Villepinte",
+        "meters": 373
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 203,
+      "name": "Pavilion Bukit Jalil",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=203",
+      "nearest": {
+        "name": "ペトロナスツインタワー",
+        "meters": 12728
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 202,
+      "name": "오다리집 간장게장(烏達里家)",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=202",
+      "nearest": {
+        "name": "明洞8ガキル",
+        "meters": 134
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 201,
+      "name": "Cafe Onion Anguk",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=201",
+      "nearest": {
+        "name": "ロンドンベーグルミュージアム 安国店",
+        "meters": 193
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 200,
+      "name": "Dotori Garden Anguk",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=200",
+      "nearest": {
+        "name": "ロンドンベーグルミュージアム 安国店",
+        "meters": 119
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 199,
+      "name": "LONDON BAGEL MUSEUM （倫敦貝果博物館 安國店/ロンドンベーグルミュージアム）",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=199",
+      "nearest": {
+        "name": "ロンドンベーグルミュージアム 安国店",
+        "meters": 7
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 198,
+      "name": "Yo-Chi",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=198",
+      "nearest": {
+        "name": "シドニー大学四面時計塔",
+        "meters": 2000
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 197,
+      "name": "Cafe Sydney Restaurant",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=197",
+      "nearest": {
+        "name": "シドニーオペラハウス対岸",
+        "meters": 527
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 196,
+      "name": "Circular Quay",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=196",
+      "nearest": {
+        "name": "シドニーオペラハウス対岸",
+        "meters": 357
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 195,
+      "name": "Hartley's Crocodile Adventures",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=195",
+      "nearest": {
+        "name": "George St とAdelaide Stの交差点東側",
+        "meters": 1425436
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 194,
+      "name": "별마당 도서관（星空圖書館）",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=194",
+      "nearest": {
+        "name": "スターフィールド コエックスモール",
+        "meters": 202
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 193,
+      "name": "矢場とん 名古屋城金シャチ横丁店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=193",
+      "nearest": {
+        "name": "西之丸",
+        "meters": 149
+      },
+      "prefecture": "愛知県"
+    },
+    {
+      "id": 192,
+      "name": "名古屋城 天守礎石",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=192",
+      "nearest": {
+        "name": "不明門から出て、天守閣の北西側へ",
+        "meters": 52
+      },
+      "prefecture": "愛知県"
+    },
+    {
+      "id": 191,
+      "name": "垂玉温泉 瀧日和",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=191",
+      "nearest": {
+        "name": "和牛焼肉LIEBE 大津本店(Wagyu Yakiniku LIEBE)",
+        "meters": 16469
+      },
+      "prefecture": "熊本県"
+    },
+    {
+      "id": 190,
+      "name": "京都VIVA廣場（梅小路公園）",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=190",
+      "nearest": {
+        "name": "大垣書店イオンモールKYOTO店",
+        "meters": 1256
+      },
+      "prefecture": "京都府"
+    },
+    {
+      "id": 189,
+      "name": "地獄蒸し工房 鉄輪",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=189",
+      "nearest": {
+        "name": "ドコモショップ別府店",
+        "meters": 2725
+      },
+      "prefecture": "大分県"
+    },
+    {
+      "id": 188,
+      "name": "地獄蒸布丁 岡本屋",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=188",
+      "nearest": {
+        "name": "ドコモショップ別府店",
+        "meters": 4826
+      },
+      "prefecture": "大分県"
+    },
+    {
+      "id": 187,
+      "name": "スターバックス コーヒー 福岡大濠公園店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=187",
+      "nearest": {
+        "name": "舞鶴公園 入口",
+        "meters": 364
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 186,
+      "name": "FairPrice Tanjong Pagar Plaza",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=186",
+      "nearest": {
+        "name": "ペトロナスツインタワー",
+        "meters": 316003
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 185,
+      "name": "One Fullerton",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=185",
+      "nearest": {
+        "name": "ペトロナスツインタワー",
+        "meters": 316230
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 184,
+      "name": "Asia Grand Restaurant",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=184",
+      "nearest": {
+        "name": "ペトロナスツインタワー",
+        "meters": 315591
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 183,
+      "name": "Chatter box",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=183",
+      "nearest": {
+        "name": "ペトロナスツインタワー",
+        "meters": 313586
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 182,
+      "name": "Gardens by the Bay（濱海灣花園/ガーデンズ・バイ・ザ・ベイ）",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=182",
+      "nearest": {
+        "name": "ペトロナスツインタワー",
+        "meters": 317300
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 181,
+      "name": "Merlion",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=181",
+      "nearest": {
+        "name": "ペトロナスツインタワー",
+        "meters": 316163
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 180,
+      "name": "De Dam(ダム広場)",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=180",
+      "nearest": {
+        "name": "アムステルダム国立美術館",
+        "meters": 1674
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 179,
+      "name": "Sint Nicolaasbrug & Stationplein Canal Bridge",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=179",
+      "nearest": {
+        "name": "アムステルダム国立美術館",
+        "meters": 2311
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 178,
+      "name": "Spaklerweg station",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=178",
+      "nearest": {
+        "name": "アムステルダム国立美術館",
+        "meters": 3214
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 177,
+      "name": "Exhibition Building/Rathdowne St",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=177",
+      "nearest": {
+        "name": "カールトン庭園",
+        "meters": 204
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 176,
+      "name": "State Library Victoria",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=176",
+      "nearest": {
+        "name": "Pinned Coffee",
+        "meters": 531
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 175,
+      "name": "Lune Croissanterie Melbourne CBD on Russell",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=175",
+      "nearest": {
+        "name": "Pinned Coffee",
+        "meters": 654
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 174,
+      "name": "焼肉三旨 慶州 石部本店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=174",
+      "nearest": {
+        "name": "JEUGIA草津A・SQUARE店",
+        "meters": 7609
+      },
+      "prefecture": "滋賀県"
+    },
+    {
+      "id": 173,
+      "name": "アドベンチャーワールド（動物遊樂園 冒險大世界）",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=173",
+      "nearest": {
+        "name": "アドベンチャーワールド",
+        "meters": 205
+      },
+      "prefecture": "和歌山県"
+    },
+    {
+      "id": 172,
+      "name": "沖縄アート体験 美ら風｜那覇国際通り｜",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=172",
+      "nearest": {
+        "name": "ツバメ食堂",
+        "meters": 96
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 171,
+      "name": "Naminoue Beach(波の上ビーチ)",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=171",
+      "nearest": {
+        "name": "タワーレコード那覇リウボウ店",
+        "meters": 1135
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 170,
+      "name": "Christmas Land",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=170",
+      "nearest": {
+        "name": "デポアイランドシーサイド",
+        "meters": 12
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 169,
+      "name": "MARCY’S OKINAWA",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=169",
+      "nearest": {
+        "name": "MARCY'S OKINAWA",
+        "meters": 932
+      },
+      "prefecture": "沖縄県"
+    },
+    {
+      "id": 168,
+      "name": "nijntje museum(迪克·布魯納故居)",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=168",
+      "nearest": {
+        "name": "ゴッホ美術館",
+        "meters": 34739
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 167,
+      "name": "あなぶきアリーナ香川",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=167",
+      "nearest": {
+        "name": "キャッスルプロムナード",
+        "meters": 551
+      },
+      "prefecture": "香川県"
+    },
+    {
+      "id": 166,
+      "name": "毛無峠",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=166",
+      "nearest": {
+        "name": "毛無峠",
+        "meters": 1137
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 165,
+      "name": "大日影トンネル遊歩道",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=165",
+      "nearest": {
+        "name": "甲州古民家ほうとう 完熟屋",
+        "meters": 3570
+      },
+      "prefecture": "山梨県"
+    },
+    {
+      "id": 164,
+      "name": "印度料理シタール",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=164",
+      "nearest": {
+        "name": "印度料理シタール",
+        "meters": 2
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 163,
+      "name": "旧三田川中学校",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=163",
+      "nearest": {
+        "name": "旧三田川中学校",
+        "meters": 42
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 162,
+      "name": "四国水族館",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=162",
+      "nearest": {
+        "name": "TSUTAYA宇多津店",
+        "meters": 482
+      },
+      "prefecture": "香川県"
+    },
+    {
+      "id": 161,
+      "name": "日本大学文理学部一号館",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=161",
+      "nearest": {
+        "name": "美麗（MEILI）",
+        "meters": 626
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 160,
+      "name": "TOKYO FMホール",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=160",
+      "nearest": {
+        "name": "TOKYO FM HALL",
+        "meters": 24
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 159,
+      "name": "ラ・クラリエールin 三橋の森",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=159",
+      "nearest": {
+        "name": "三橋の森 ラ・クラリエール",
+        "meters": 17
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 158,
+      "name": "Club eX（クラブ エックス）",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=158",
+      "nearest": {
+        "name": "T・ジョイ PRINCE 品川",
+        "meters": 24
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 156,
+      "name": "ＪＦＥ条鋼(株) 鹿島製造所",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=156",
+      "nearest": {
+        "name": "JFE条鋼 鹿島製造所 - ダンスシーン",
+        "meters": 214
+      },
+      "prefecture": "茨城県"
+    },
+    {
+      "id": 155,
+      "name": "京都パルスプラザ",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=155",
+      "nearest": {
+        "name": "京都パルスプラザ 大展示場",
+        "meters": 45
+      },
+      "prefecture": "京都府"
+    },
+    {
+      "id": 154,
+      "name": "嵐山 りらっくま茶房",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=154",
+      "nearest": {
+        "name": "リラックマのハニーレモネード(ICE) 346円(税込み)",
+        "meters": 41
+      },
+      "prefecture": "京都府"
+    },
+    {
+      "id": 153,
+      "name": "嵐山温泉　絶景の足湯",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=153",
+      "nearest": {
+        "name": "桂川沿い",
+        "meters": 20
+      },
+      "prefecture": "京都府"
+    },
+    {
+      "id": 152,
+      "name": "肉の隠れ家 おあがり 嵐山本店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=152",
+      "nearest": {
+        "name": "桂川沿い",
+        "meters": 170
+      },
+      "prefecture": "京都府"
+    },
+    {
+      "id": 151,
+      "name": "GREEN SPRINGS",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=151",
+      "nearest": {
+        "name": "サンサンロード",
+        "meters": 52
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 150,
+      "name": "TBS",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=150",
+      "nearest": {
+        "name": "TBS放送センター",
+        "meters": 45
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 149,
+      "name": "廚 くろぎ",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=149",
+      "nearest": {
+        "name": "廚 くろぎ",
+        "meters": 2
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 148,
+      "name": "SUNNY DAYS pudding cafe",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=148",
+      "nearest": {
+        "name": "SUNNY DAYS Pudding Cafe",
+        "meters": 4
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 147,
+      "name": "しゃぶ藤",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=147",
+      "nearest": {
+        "name": "ルラシオンデュクールアミエル",
+        "meters": 4764
+      },
+      "prefecture": ""
+    },
+    {
+      "id": 146,
+      "name": "渋谷スペイン坂及びペンギン通り",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=146",
+      "nearest": {
+        "name": "スペイン坂",
+        "meters": 1
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 145,
+      "name": "九頭龍神社",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=145",
+      "nearest": {
+        "name": "桃源台港",
+        "meters": 1564
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 144,
+      "name": "新御茶ノ水 萬龍",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=144",
+      "nearest": {
+        "name": "本郷通り",
+        "meters": 48
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 143,
+      "name": "SHIBUYA TSUTAYA",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=143",
+      "nearest": {
+        "name": "SHIBUYA TSUTAYA",
+        "meters": 4
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 142,
+      "name": "味仙 JR名古屋店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=142",
+      "nearest": {
+        "name": "新星堂名古屋店",
+        "meters": 224
+      },
+      "prefecture": "愛知県"
+    },
+    {
+      "id": 141,
+      "name": "豊田スタジアム",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=141",
+      "nearest": {
+        "name": "豊田スタジアム",
+        "meters": 32
+      },
+      "prefecture": "愛知県"
+    },
+    {
+      "id": 140,
+      "name": "名古屋城",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=140",
+      "nearest": {
+        "name": "二之丸の「清正公石曳きの像」、加藤清正の銅像",
+        "meters": 78
+      },
+      "prefecture": "愛知県"
+    },
+    {
+      "id": 139,
+      "name": "豊田市美術館",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=139",
+      "nearest": {
+        "name": "豊田市美術館",
+        "meters": 11
+      },
+      "prefecture": "愛知県"
+    },
+    {
+      "id": 138,
+      "name": "艪(カイ)",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=138",
+      "nearest": {
+        "name": "ムギハナ",
+        "meters": 55
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 137,
+      "name": "恵比寿 鮨 藤",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=137",
+      "nearest": {
+        "name": "viaton",
+        "meters": 86
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 136,
+      "name": "和食と和酒　おがた",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=136",
+      "nearest": {
+        "name": "森田ひかる: 名倉堂ビル B101",
+        "meters": 322
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 135,
+      "name": "エムベイポイント幕張",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=135",
+      "nearest": {
+        "name": "エム・ベイポイント幕張 (旧NTT幕張ビル)",
+        "meters": 19
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 134,
+      "name": "大鳴門橋遊歩道 渦の道",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=134",
+      "nearest": {
+        "name": "紀伊国屋書店ゆめタウン徳島店",
+        "meters": 18360
+      },
+      "prefecture": "徳島県"
+    },
+    {
+      "id": 133,
+      "name": "大塚国際美術館 専用駐車場",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=133",
+      "nearest": {
+        "name": "紀伊国屋書店ゆめタウン徳島店",
+        "meters": 17385
+      },
+      "prefecture": "徳島県"
+    },
+    {
+      "id": 132,
+      "name": "大塚国際美術館",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=132",
+      "nearest": {
+        "name": "紀伊国屋書店ゆめタウン徳島店",
+        "meters": 17656
+      },
+      "prefecture": "徳島県"
+    },
+    {
+      "id": 131,
+      "name": "徳島阿波踊り空港",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=131",
+      "nearest": {
+        "name": "紀伊国屋書店ゆめタウン徳島店",
+        "meters": 10885
+      },
+      "prefecture": "徳島県"
+    },
+    {
+      "id": 130,
+      "name": "新町橋東公園ステージ",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=130",
+      "nearest": {
+        "name": "紀伊国屋書店ゆめタウン徳島店",
+        "meters": 6900
+      },
+      "prefecture": "徳島県"
+    },
+    {
+      "id": 129,
+      "name": "亀甲堂",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=129",
+      "nearest": {
+        "name": "伊能忠敬旧宅",
+        "meters": 2481
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 128,
+      "name": "丸八たきや",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=128",
+      "nearest": {
+        "name": "丸八たきや",
+        "meters": 7
+      },
+      "prefecture": "長野県"
+    },
+    {
+      "id": 127,
+      "name": "犀川河川敷公園",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=127",
+      "nearest": {
+        "name": "犀川河川敷公園",
+        "meters": 86
+      },
+      "prefecture": "長野県"
+    },
+    {
+      "id": 126,
+      "name": "博多シーフードうお田",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=126",
+      "nearest": {
+        "name": "福博であい橋 / 天神中央公園",
+        "meters": 47
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 125,
+      "name": "大分マリーンパレス水族館「うみたまご」",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=125",
+      "nearest": {
+        "name": "別府タワー",
+        "meters": 3737
+      },
+      "prefecture": "大分県"
+    },
+    {
+      "id": 124,
+      "name": "白丸ダム 魚道管理棟",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=124",
+      "nearest": {
+        "name": "白丸ダム魚道",
+        "meters": 3
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 123,
+      "name": "清澄白河駅",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=123",
+      "nearest": {
+        "name": "都営地下鉄大江戸線 清澄白河駅",
+        "meters": 15
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 122,
+      "name": "能登　本店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=122",
+      "nearest": {
+        "name": "路地裏もんじゃ こぼれや 結付近",
+        "meters": 24
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 121,
+      "name": "一体感",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=121",
+      "nearest": {
+        "name": "喫茶YOU",
+        "meters": 68
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 120,
+      "name": "銀座ソニー通り",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=120",
+      "nearest": {
+        "name": "大園玲: ソニー通り",
+        "meters": 5
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 119,
+      "name": "鹿島海軍航空隊跡",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=119",
+      "nearest": {
+        "name": "鹿島海軍航空隊跡(大山湖畔公園)",
+        "meters": 442
+      },
+      "prefecture": "茨城県"
+    },
+    {
+      "id": 118,
+      "name": "MUJI BASE OIKAWA（旧老川小学校）",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=118",
+      "nearest": {
+        "name": "旧老川小学校",
+        "meters": 8
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 117,
+      "name": "ラーメン☆ビリー仙台ヨドバシ店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=117",
+      "nearest": {
+        "name": "ラーメン☆ビリー仙台ヨドバシ店",
+        "meters": 54
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 116,
+      "name": "仙台駅",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=116",
+      "nearest": {
+        "name": "フレッシュネスバーガー仙台駅店",
+        "meters": 59
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 115,
+      "name": "牛たん炭焼 利久 松島五大堂店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=115",
+      "nearest": {
+        "name": "牛たん炭焼 利久 松島五大堂店",
+        "meters": 5
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 114,
+      "name": "白衣観音展望台",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=114",
+      "nearest": {
+        "name": "西行戻しの松公園 白衣観音前の広場",
+        "meters": 9
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 113,
+      "name": "松島海岸駅",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=113",
+      "nearest": {
+        "name": "松島海岸駅",
+        "meters": 9
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 112,
+      "name": "福浦橋",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=112",
+      "nearest": {
+        "name": "福浦橋",
+        "meters": 40
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 111,
+      "name": "松島駅",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=111",
+      "nearest": {
+        "name": "牛たん炭焼 利久 松島五大堂店",
+        "meters": 999
+      },
+      "prefecture": "宮城県"
+    },
+    {
+      "id": 110,
+      "name": "豊洲大橋",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=110",
+      "nearest": {
+        "name": "豊洲大橋",
+        "meters": 21
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 109,
+      "name": "渋谷スクランブル交差点",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=109",
+      "nearest": {
+        "name": "渋谷駅前交差点",
+        "meters": 2
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 108,
+      "name": "渋谷 さくら坂",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=108",
+      "nearest": {
+        "name": "さくら通り (さくら坂)",
+        "meters": 3
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 107,
+      "name": "夢の大橋",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=107",
+      "nearest": {
+        "name": "夢の大橋",
+        "meters": 106
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 106,
+      "name": "森の光教会",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=106",
+      "nearest": {
+        "name": "エテルナ高崎",
+        "meters": 40
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 105,
+      "name": "ロイヤルチェスター前橋・アルフォンソ",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=105",
+      "nearest": {
+        "name": "ロイヤルチェスター前橋アルフォンソ",
+        "meters": 29
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 104,
+      "name": "#C-pla Aqua City Odaiba",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=104",
+      "nearest": {
+        "name": "ユナイテッド・シネマ アクアシティお台場",
+        "meters": 28
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 103,
+      "name": "山下本気うどん  デックス東京ビーチ",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=103",
+      "nearest": {
+        "name": "Frame cafe",
+        "meters": 14
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 102,
+      "name": "中島神社",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=102",
+      "nearest": {
+        "name": "宝物殿前の高台で、右後ろには本殿回廊の南東隅",
+        "meters": 30
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 101,
+      "name": "ヤシの木ブランコ",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=101",
+      "nearest": {
+        "name": "ヤシの木のブランコ",
+        "meters": 20
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 100,
+      "name": "一蘭 一蘭之森 糸島店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=100",
+      "nearest": {
+        "name": "いちごや cafe TANNAL 糸島本店",
+        "meters": 1838
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 99,
+      "name": "大濠公園の日本庭園側、湖辺り",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=99",
+      "nearest": {
+        "name": "舞鶴公園 福岡城 古時打櫓跡",
+        "meters": 442
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 98,
+      "name": "小倉城",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=98",
+      "nearest": {
+        "name": "小倉城",
+        "meters": 3
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 97,
+      "name": "北九州市立大學",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=97",
+      "nearest": {
+        "name": "3月25日の学位授与式",
+        "meters": 2
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 96,
+      "name": "品川神社",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=96",
+      "nearest": {
+        "name": "品川神社 神楽殿",
+        "meters": 9
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 95,
+      "name": "桜神宮",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=95",
+      "nearest": {
+        "name": "新富鮨",
+        "meters": 203
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 94,
+      "name": "隅田川テラス",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=94",
+      "nearest": {
+        "name": "首都高速6号向島線",
+        "meters": 239
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 93,
+      "name": "スペイン坂(六本木)",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=93",
+      "nearest": {
+        "name": "スペイン坂",
+        "meters": 36
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 92,
+      "name": "ジョナサン水道橋店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=92",
+      "nearest": {
+        "name": "東京ドームシティ店",
+        "meters": 118
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 91,
+      "name": "目白橋",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=91",
+      "nearest": {
+        "name": "東京音楽大学付属 民族音楽研究所",
+        "meters": 520
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 90,
+      "name": "掛川花鳥園",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=90",
+      "nearest": {
+        "name": "つま恋乗馬倶楽部",
+        "meters": 3153
+      },
+      "prefecture": "静岡県"
+    },
+    {
+      "id": 89,
+      "name": "赤城大沼",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=89",
+      "nearest": {
+        "name": "大野工業 赤城事業所",
+        "meters": 6518
+      },
+      "prefecture": "群馬県"
+    },
+    {
+      "id": 88,
+      "name": "Moff animal cafe CUTE CUBE 原宿店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=88",
+      "nearest": {
+        "name": "ザクザク 原宿店",
+        "meters": 10
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 87,
+      "name": "大野亀",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=87",
+      "nearest": {
+        "name": "大野亀",
+        "meters": 261
+      },
+      "prefecture": "新潟県"
+    },
+    {
+      "id": 86,
+      "name": "上総鶴舞駅",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=86",
+      "nearest": {
+        "name": "山﨑天: 上総鶴舞駅",
+        "meters": 7
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 85,
+      "name": "久留米市中央公園",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=85",
+      "nearest": {
+        "name": "西日本鉄道天神大牟田線 大善寺駅",
+        "meters": 6118
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 84,
+      "name": "西鉄久留米駅",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=84",
+      "nearest": {
+        "name": "西日本鉄道天神大牟田線 大善寺駅",
+        "meters": 5324
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 83,
+      "name": "筑後川看板",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=83",
+      "nearest": {
+        "name": "西日本鉄道天神大牟田線 大善寺駅",
+        "meters": 7175
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 82,
+      "name": "太宰府天滿宮",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=82",
+      "nearest": {
+        "name": "宝物殿前の高台で、右後ろには本殿回廊の南東隅",
+        "meters": 54
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 81,
+      "name": "toffee 太宰府",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=81",
+      "nearest": {
+        "name": "味の明太子ふくや 太宰府店",
+        "meters": 12
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 80,
+      "name": "ふくちゃんラーメン",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=80",
+      "nearest": {
+        "name": "シロダモ",
+        "meters": 3567
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 79,
+      "name": "一蘭 本社総本店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=79",
+      "nearest": {
+        "name": "那珂川プロムナード",
+        "meters": 101
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 78,
+      "name": "太宰府駅",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=78",
+      "nearest": {
+        "name": "天山太宰府本店",
+        "meters": 165
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 77,
+      "name": "西鉄 福岡 (天神) 駅 三越口",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=77",
+      "nearest": {
+        "name": "LOVE FM",
+        "meters": 57
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 76,
+      "name": "西鉄 福岡 (天神) 駅 北口",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=76",
+      "nearest": {
+        "name": "ONE FUKUOKA BLDG.",
+        "meters": 11
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 75,
+      "name": "「新天町」という商店街",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=75",
+      "nearest": {
+        "name": "タワーレコード福岡パルコ店",
+        "meters": 28
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 74,
+      "name": "三崎漁港(本港)",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=74",
+      "nearest": {
+        "name": "三崎公園(三浦市)",
+        "meters": 38
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 73,
+      "name": "small planet CAMP&GRILL",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=73",
+      "nearest": {
+        "name": "高円宮記念JFA夢フィールド Bピッチ",
+        "meters": 3537
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 72,
+      "name": "旨辛ダイニング赤い壺 表参道店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=72",
+      "nearest": {
+        "name": "青山の路地",
+        "meters": 85
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 71,
+      "name": "西鉄柳川駅",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=71",
+      "nearest": {
+        "name": "西日本鉄道天神大牟田線 西鉄柳川駅",
+        "meters": 239
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 70,
+      "name": "大善寺駅",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=70",
+      "nearest": {
+        "name": "むしぱんと珈琲 橙",
+        "meters": 582
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 69,
+      "name": "久留米らーめん道 麺志 本店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=69",
+      "nearest": {
+        "name": "西日本鉄道天神大牟田線 大善寺駅",
+        "meters": 5242
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 68,
+      "name": "むしぱんと珈琲 橙",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=68",
+      "nearest": {
+        "name": "むしぱんと珈琲 橙",
+        "meters": 63
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 67,
+      "name": "若松屋",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=67",
+      "nearest": {
+        "name": "柳川川下りの名物「低い橋」",
+        "meters": 113
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 66,
+      "name": "soil select farm",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=66",
+      "nearest": {
+        "name": "御花西洋館",
+        "meters": 12
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 65,
+      "name": "叙々苑　游玄亭",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=65",
+      "nearest": {
+        "name": "TUXEDO BEAR",
+        "meters": 9
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 64,
+      "name": "三輪神社",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=64",
+      "nearest": {
+        "name": "三輪神社",
+        "meters": 19
+      },
+      "prefecture": "愛知県"
+    },
+    {
+      "id": 63,
+      "name": "メイフラワーゴルフクラブ",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=63",
+      "nearest": {
+        "name": "メイフラワーゴルフクラブ",
+        "meters": 181
+      },
+      "prefecture": "栃木県"
+    },
+    {
+      "id": 62,
+      "name": "おたる水族館",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=62",
+      "nearest": {
+        "name": "(写真転載先",
+        "meters": 117
+      },
+      "prefecture": "北海道"
+    },
+    {
+      "id": 61,
+      "name": "ALPEN TOKYO GOLF5 FLAGSHIP STORE",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=61",
+      "nearest": {
+        "name": "ゴルフ５フラッグシップストア新宿店",
+        "meters": 7
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 60,
+      "name": "新宿ヨドバシカメラマルチメディア北館前",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=60",
+      "nearest": {
+        "name": "ヨドバシカメラ新宿西口本店マルチメディア館東館",
+        "meters": 8
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 59,
+      "name": "ぎをん徳屋",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=59",
+      "nearest": {
+        "name": "ぎをん徳屋",
+        "meters": 3
+      },
+      "prefecture": "京都府"
+    },
+    {
+      "id": 58,
+      "name": "金櫻神社",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=58",
+      "nearest": {
+        "name": "武田神社",
+        "meters": 9385
+      },
+      "prefecture": "山梨県"
+    },
+    {
+      "id": 57,
+      "name": "日枝神社",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=57",
+      "nearest": {
+        "name": "日枝神社 社務所横",
+        "meters": 4
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 56,
+      "name": "横浜市の住宅街に位置する階段",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=56",
+      "nearest": {
+        "name": "寺尾高札 愛宕坂上",
+        "meters": 1
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 55,
+      "name": "ウェスレアン・ホーリネス教団 淀橋教会",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=55",
+      "nearest": {
+        "name": "ホーリネス教団淀橋教会",
+        "meters": 17
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 54,
+      "name": "千代田区大手町 大手町プレイス前の高架下",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=54",
+      "nearest": {
+        "name": "JR中央線高架下",
+        "meters": 28
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 53,
+      "name": "内浦漁協直営 いけすや",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=53",
+      "nearest": {
+        "name": "いけすや",
+        "meters": 12
+      },
+      "prefecture": "静岡県"
+    },
+    {
+      "id": 52,
+      "name": "茅乃舎　お椀や",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=52",
+      "nearest": {
+        "name": "東京駅丸の内駅前広場(3)",
+        "meters": 139
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 51,
+      "name": "博多豚骨らぁ麺 一絆 上野御徒町本店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=51",
+      "nearest": {
+        "name": "博多豚骨らぁ麺 一絆 御徒町本店",
+        "meters": 4
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 50,
+      "name": "元祖ニュータンタンメン本舗 京町店",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=50",
+      "nearest": {
+        "name": "アミューズメントパークウェアハウス川崎店 (電脳九龍城)",
+        "meters": 1081
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 49,
+      "name": "花園ビル付近",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=49",
+      "nearest": {
+        "name": "櫻坂46 勝又春「蜃気楼」PV撮影場所",
+        "meters": 21
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 48,
+      "name": "アソビル",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=48",
+      "nearest": {
+        "name": "たべっ子どうぶつLAND(1)",
+        "meters": 35
+      },
+      "prefecture": "神奈川県"
+    },
+    {
+      "id": 47,
+      "name": "太陽と星が輝く宿 季楽～KIRA～",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=47",
+      "nearest": {
+        "name": "太東海水浴場",
+        "meters": 2701
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 46,
+      "name": "桜坂",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=46",
+      "nearest": {
+        "name": "六本木けやき坂通り",
+        "meters": 107
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 45,
+      "name": "伊豆山橋",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=45",
+      "nearest": {
+        "name": "伊豆山橋",
+        "meters": 42
+      },
+      "prefecture": "静岡県"
+    },
+    {
+      "id": 44,
+      "name": "MIYASHITA PARK",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=44",
+      "nearest": {
+        "name": "櫻坂46 四期生ティザームービー撮影場所",
+        "meters": 7
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 43,
+      "name": "猫カフェ MOCHA（モカ） ラウンジ渋谷公園通り店",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=43",
+      "nearest": {
+        "name": "SHE WOLF DINER",
+        "meters": 52
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 42,
+      "name": "不忍池",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=42",
+      "nearest": {
+        "name": "不忍池、ボート池の親水デッキ",
+        "meters": 37
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 41,
+      "name": "皇居前の丁字路",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=41",
+      "nearest": {
+        "name": "内堀通りの横断歩道 (東京都道301号線)",
+        "meters": 11
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 40,
+      "name": "釜めしビクトリア",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=40",
+      "nearest": {
+        "name": "釜めしビクトリア",
+        "meters": 66
+      },
+      "prefecture": "福岡県"
+    },
+    {
+      "id": 39,
+      "name": "関東鉄道常総線 守谷駅",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=39",
+      "nearest": {
+        "name": "関東鉄道守谷駅",
+        "meters": 47
+      },
+      "prefecture": "茨城県"
+    },
+    {
+      "id": 38,
+      "name": "幕張イベントホール",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=38",
+      "nearest": {
+        "name": "幕張イベントホール",
+        "meters": 5
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 37,
+      "name": "なまえのない店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=37",
+      "nearest": {
+        "name": "なまえのない店",
+        "meters": 9
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 36,
+      "name": "平和台公園",
+      "status": "same-name-coordinate-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=36",
+      "nearest": {
+        "name": "平和台公園",
+        "meters": 515
+      },
+      "prefecture": "宮崎県"
+    },
+    {
+      "id": 35,
+      "name": "おぐら　本店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=35",
+      "nearest": {
+        "name": "おぐら 本店",
+        "meters": 4
+      },
+      "prefecture": "宮崎県"
+    },
+    {
+      "id": 34,
+      "name": "辛麺屋　桝元　宮崎本店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=34",
+      "nearest": {
+        "name": "元祖桝元辛麺 宮崎本店",
+        "meters": 2
+      },
+      "prefecture": "宮崎県"
+    },
+    {
+      "id": 33,
+      "name": "cafe & garally LUPOPO",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=33",
+      "nearest": {
+        "name": "緒駕多",
+        "meters": 11
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 32,
+      "name": "まり屋",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=32",
+      "nearest": {
+        "name": "緒駕多",
+        "meters": 87
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 31,
+      "name": "お山のすぎの子",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=31",
+      "nearest": {
+        "name": "緒駕多",
+        "meters": 114
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 30,
+      "name": "とり小町　旗の台店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=30",
+      "nearest": {
+        "name": "お会計は4310円(税込、2円切り捨て)",
+        "meters": 4
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 29,
+      "name": "カレーハウスCoCo壱番屋　中目黒山手通店",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=29",
+      "nearest": {
+        "name": "カレーハウスCoCo壱番屋 中目黒山手通店",
+        "meters": 8
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 28,
+      "name": "いちごランド",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=28",
+      "nearest": {
+        "name": "ATEM",
+        "meters": 1301
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 27,
+      "name": "LaLa arena TOKYO-BAY",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=27",
+      "nearest": {
+        "name": "LaLa arena TOKYO-BAY (ららアリーナ 東京ベイ)",
+        "meters": 246
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 26,
+      "name": "レストラン「ステラ」跡地",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=26",
+      "nearest": {
+        "name": "旧レストランステラ",
+        "meters": 28
+      },
+      "prefecture": "千葉県"
+    },
+    {
+      "id": 25,
+      "name": "淡路夢舞台",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=25",
+      "nearest": {
+        "name": "淡路夢舞台国際会議場",
+        "meters": 1
+      },
+      "prefecture": "兵庫県"
+    },
+    {
+      "id": 24,
+      "name": "西久保公園",
+      "status": "candidate",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=24",
+      "nearest": {
+        "name": "上村莉菜: 三鷹ユメノギャラリー",
+        "meters": 1158
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 23,
+      "name": "ホテル雅叙園東京",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=23",
+      "nearest": {
+        "name": "New American Grill “KANADE TERRACE”",
+        "meters": 113
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 22,
+      "name": "アネアカフェ松見坂",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=22",
+      "nearest": {
+        "name": "松見坂下バス停",
+        "meters": 16
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 21,
+      "name": "力蔵ビル",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=21",
+      "nearest": {
+        "name": "第一力蔵ビル",
+        "meters": 12
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 20,
+      "name": "ところざわサクラタウン",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=20",
+      "nearest": {
+        "name": "角川武蔵野ミュージアム",
+        "meters": 33
+      },
+      "prefecture": "埼玉県"
+    },
+    {
+      "id": 19,
+      "name": "つくば国際会議場",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=19",
+      "nearest": {
+        "name": "つくば国際会議場",
+        "meters": 20
+      },
+      "prefecture": "茨城県"
+    },
+    {
+      "id": 18,
+      "name": "千里眼",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=18",
+      "nearest": {
+        "name": "千里眼",
+        "meters": 2
+      },
+      "prefecture": "東京都"
+    },
+    {
+      "id": 17,
+      "name": "モエレ沼公園 ガラスのピラミッド HIDAMARI",
+      "status": "existing-name",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=17",
+      "nearest": {
+        "name": "モエレ沼公園 ガラスのピラミッド \"HIDAMARI\"",
+        "meters": 23
+      },
+      "prefecture": "北海道"
+    },
+    {
+      "id": 16,
+      "name": "ラマイ 札幌中央店",
+      "status": "near-existing-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=16",
+      "nearest": {
+        "name": "Asian Bar RAMAI 札幌中央店",
+        "meters": 3
+      },
+      "prefecture": "北海道"
+    },
+    {
+      "id": 14,
+      "name": "MUFGスタジアム（国立競技場）",
+      "status": "nearby-review",
+      "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=14",
+      "nearest": {
+        "name": "国立競技場",
+        "meters": 191
+      },
+      "prefecture": "東京都"
+    }
+  ]
+}

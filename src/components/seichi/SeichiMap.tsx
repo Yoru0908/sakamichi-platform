@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useMemo, type ReactNode } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { createPrefectureResolver, getFeaturePrefecture, PREFECTURES, UNCLASSIFIED, type BoundaryCollection } from './prefectures';
 import {
   Search,
   X,
@@ -49,6 +50,7 @@ interface Feature {
     subcategory: string;
     categoryColor: string;
     address: string;
+    prefecture?: string;
     sceneTitle: string;
     sceneNote: string;
     sourceLabel: string;
@@ -87,6 +89,7 @@ interface GeoJSON {
 interface Props {
   geojsonUrl: string;
   fallbackGeojsonUrl?: string;
+  supplementalGeojsonUrl?: string;
   memberName: string;
   groupLabel?: string;
   groupColor?: string;
@@ -282,6 +285,7 @@ const buildDirectionsUrl = ({
 export default function SeichiMap({
   geojsonUrl,
   fallbackGeojsonUrl,
+  supplementalGeojsonUrl,
   memberName,
   groupLabel = '櫻坂46',
   groupColor = 'var(--color-brand-sakura)',
@@ -296,6 +300,33 @@ export default function SeichiMap({
   const [data, setData] = useState<GeoJSON | null>(null);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [selectedPrefecture, setSelectedPrefecture] = useState('ALL');
+  const [boundaries, setBoundaries] = useState<BoundaryCollection | null>(null);
+  const [boundaryStatus, setBoundaryStatus] = useState<'loading' | 'ready' | 'fallback'>('loading');
+  const [supplementFailed, setSupplementFailed] = useState(false);
+  useEffect(() => {
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15000);
+    let cancelled = false;
+    fetch('/seichi/boundaries/japan-prefectures.geojson', { signal: controller.signal })
+      .then(async response => {
+        if (!response.ok) throw new Error('Boundary request failed');
+        const collection = await response.json() as BoundaryCollection;
+        if (collection.type !== 'FeatureCollection' || collection.features?.length !== 47 || !collection.features.every(feature => /^JP-\d{2}$/.test(feature.properties?.shapeISO || '') && ['Polygon', 'MultiPolygon'].includes(feature.geometry?.type) && Array.isArray(feature.geometry.coordinates))) throw new Error('Invalid prefecture boundaries');
+        if (!cancelled) { setBoundaries(collection); setBoundaryStatus('ready'); }
+      })
+      .catch(() => { if (!cancelled) setBoundaryStatus('fallback'); })
+      .finally(() => window.clearTimeout(timeout));
+    return () => { cancelled = true; controller.abort(); window.clearTimeout(timeout); };
+  }, []);
+  const resolvePrefecture = useMemo(() => boundaries ? createPrefectureResolver(boundaries) : undefined, [boundaries]);
+  const prefectureLabels = useMemo(() => new Map(data?.features.map(feature => [feature, getFeaturePrefecture(feature, resolvePrefecture)])), [data, resolvePrefecture]);
+  const prefectureOptions = useMemo(() => {
+    const counts = new Map<string, number>();
+    prefectureLabels.forEach(name => counts.set(name, (counts.get(name) || 0) + 1));
+    return [...PREFECTURES, UNCLASSIFIED].filter(name => counts.has(name)).map(name => ({ name, count: counts.get(name)! }));
+  }, [prefectureLabels]);
+  const prefectureData = useMemo(() => data && ({ ...data, features: selectedPrefecture === 'ALL' ? data.features : data.features.filter(feature => prefectureLabels.get(feature) === selectedPrefecture) }), [data, selectedPrefecture, prefectureLabels]);
 
   // 大层级 (Category) & 小层级 (Subcategory)
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
@@ -367,6 +398,21 @@ export default function SeichiMap({
           if (next.type !== 'FeatureCollection' || !Array.isArray(next.features)) {
             throw new Error(`${url}: invalid FeatureCollection`);
           }
+          // Supplements are separate from nightly managed data; failures must
+          // never hide the primary map or its built-in static fallback.
+          if (supplementalGeojsonUrl) {
+            try {
+              const response = await fetch(supplementalGeojsonUrl, { signal: AbortSignal.timeout(8000) });
+              if (!response.ok) throw new Error('Supplement request failed');
+              const extra = await response.json() as GeoJSON;
+              if (extra.type !== 'FeatureCollection' || !Array.isArray(extra.features) || extra.features.length > 500 || !extra.features.every(feature => feature.geometry?.type === 'Point' && feature.geometry.coordinates?.length === 2 && feature.geometry.coordinates.every(Number.isFinite) && typeof feature.properties?.id === 'string' && typeof feature.properties.name === 'string' && typeof feature.properties.category === 'string')) throw new Error('Invalid supplement');
+              const ids = new Set(next.features.map(feature => feature.properties.sourceKey || feature.properties.id));
+              next.features = [...next.features, ...extra.features.filter(feature => !ids.has(feature.properties.sourceKey || feature.properties.id))];
+              if (!cancelled) setSupplementFailed(false);
+            } catch {
+              if (!cancelled) setSupplementFailed(true);
+            }
+          }
           if (!cancelled) setData(next);
           return;
         } catch (error) {
@@ -384,7 +430,7 @@ export default function SeichiMap({
     return () => {
       cancelled = true;
     };
-  }, [geojsonUrl, fallbackGeojsonUrl]);
+  }, [geojsonUrl, fallbackGeojsonUrl, supplementalGeojsonUrl]);
 
   // 地图数据就绪后恢复本地路线。只保存稳定地点键，不保存完整地点或当前位置。
   useEffect(() => {
@@ -514,6 +560,7 @@ export default function SeichiMap({
 
   // 3. 大层级与小层级聚合
   const categories = useMemo(() => {
+    const data = prefectureData;
     if (!data) return [];
     const pool =
       selectedTag === 'ALL'
@@ -532,16 +579,18 @@ export default function SeichiMap({
         data.features.find((f) => f.properties.category === name)?.properties.categoryColor ||
         '#666',
     }));
-  }, [data, selectedTag]);
+  }, [prefectureData, selectedTag]);
 
   const categoryScopeCount = useMemo(() => {
+    const data = prefectureData;
     if (!data) return 0;
     return selectedTag === 'ALL'
       ? data.features.length
       : data.features.filter((feature) => hasFacetTag(feature, selectedTag)).length;
-  }, [data, selectedTag]);
+  }, [prefectureData, selectedTag]);
 
   const subcategories = useMemo(() => {
+    const data = prefectureData;
     if (!data || selectedCategory === 'ALL') return [];
     const pool = data.features.filter(
       (feature) =>
@@ -560,18 +609,20 @@ export default function SeichiMap({
     return Array.from(map.entries())
       .map(([name, count]) => ({ name, count }))
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ja'));
-  }, [data, selectedCategory, selectedTag]);
+  }, [prefectureData, selectedCategory, selectedTag]);
 
   const subcategoryScopeCount = useMemo(() => {
+    const data = prefectureData;
     if (!data) return 0;
     return data.features.filter(
       (feature) =>
         (selectedCategory === 'ALL' || feature.properties.category === selectedCategory) &&
         (selectedTag === 'ALL' || hasFacetTag(feature, selectedTag))
     ).length;
-  }, [data, selectedCategory, selectedTag]);
+  }, [prefectureData, selectedCategory, selectedTag]);
 
   const tagOptions = useMemo(() => {
+    const data = prefectureData;
     if (!data) return [];
     const map = new Map<string, { count: number; kind: FacetTagKind }>();
     data.features.forEach((feature) => {
@@ -586,7 +637,7 @@ export default function SeichiMap({
     return Array.from(map.entries())
       .map(([name, option]) => ({ name, ...option }))
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ja'));
-  }, [data]);
+  }, [prefectureData]);
 
   const normalizedFacetSearch = facetSearch.toLocaleLowerCase('ja').trim();
   const memberTagOptions = tagOptions.filter(
@@ -602,6 +653,7 @@ export default function SeichiMap({
 
   // 4. 多层级与搜索过滤
   const filteredFeatures = useMemo(() => {
+    const data = prefectureData;
     if (!data) return [];
     const q = search.toLowerCase().trim();
 
@@ -642,7 +694,21 @@ export default function SeichiMap({
 
       return true;
     });
-  }, [data, selectedCategory, selectedSubcategory, selectedTag, search]);
+  }, [prefectureData, selectedCategory, selectedSubcategory, selectedTag, search]);
+
+  useEffect(() => {
+    if (selectedPrefecture === 'ALL' || selectedPrefecture === UNCLASSIFIED || !prefectureData?.features.length) return;
+    const frame = requestAnimationFrame(() => {
+      const map = mapInstanceRef.current;
+      if (!map || !mapContainer.current?.offsetWidth) return;
+      map.invalidateSize();
+      map.fitBounds(L.latLngBounds(prefectureData.features.map(feature => {
+        const [lng, lat] = feature.geometry.coordinates;
+        return L.latLng(lat, lng);
+      })), { padding: [24, 24], maxZoom: 13, animate: false });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [selectedPrefecture, prefectureData, mobileView]);
 
   const resetRouteProgress = () => {
     setRouteActiveIndex(0);
@@ -1031,6 +1097,25 @@ export default function SeichiMap({
             <ChevronDown size={13} className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
           </div>
 
+          <label className="mt-2 block text-[10px] text-[var(--text-tertiary)]">
+            都道府県
+            <select
+              aria-label="都道府県で絞り込む"
+              disabled={boundaryStatus === 'loading' || loading}
+              value={selectedPrefecture}
+              onChange={event => { setSelectedPrefecture(event.target.value); setSelectedFeature(null); }}
+              className="mt-1 min-h-9 w-full rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-2 text-xs text-[var(--text-primary)]"
+            >
+              <option value="ALL">すべての地域 ({data?.features.length || 0})</option>
+              {prefectureOptions.map(option => <option key={option.name} value={option.name}>{option.name} ({option.count})</option>)}
+            </select>
+          </label>
+          <p data-prefecture-status={boundaryStatus} className="mt-1 text-[9px] text-[var(--text-tertiary)]">
+            {boundaryStatus === 'loading' ? '都道府県を判定中…' : boundaryStatus === 'fallback' ? '境界データを取得できません。住所で判定できる地点のみ分類。' : '座標・住所による分類（境界付近は参考）'}
+            {' · '}<a href="/seichi/boundaries/README.txt" target="_blank" rel="noopener noreferrer" className="underline">地理データ出典</a>
+          </p>
+          {supplementFailed && <p role="status" className="mt-1 text-[10px] text-amber-600">SakuMap 補足は読込失敗。既存マップを表示しています。</p>}
+
           {/* 全局搜索框 */}
           <div className="relative mt-2">
             <Search size={14} className="absolute left-2.5 top-2.5 text-[var(--text-tertiary)]" />
@@ -1269,6 +1354,8 @@ export default function SeichiMap({
             return (
               <div
                 key={fp.id}
+                data-seichi-feature={fp.id}
+                data-prefecture={prefectureLabels.get(f)}
                 onClick={() => handleSelectFeature(f)}
                 className={`p-3 cursor-pointer transition-colors ${
                   isSelected
@@ -1285,6 +1372,8 @@ export default function SeichiMap({
                     {hasImg ? (
                       <img
                         src={fp.images[0]}
+                        loading="lazy"
+                        decoding="async"
                         alt={fp.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {

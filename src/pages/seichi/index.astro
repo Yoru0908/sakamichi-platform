@@ -8,7 +8,7 @@ const featureCount = (filename: string) => {
   const data = JSON.parse(readFileSync(path, 'utf-8')) as { features?: unknown[] };
   return Array.isArray(data.features) ? data.features.length : 0;
 };
-const sakurazakaSpotCount = featureCount('sakurazaka-all.geojson');
+const sakurazakaSpotCount = featureCount('sakurazaka-all.geojson') + featureCount('sakumap-supplement.geojson');
 const overseaSpotCount = featureCount('oversea.geojson');
 const hinatazakaSpotCount = featureCount('hinatazaka-all.geojson');
 
@@ -33,7 +33,7 @@ const maps = [
     group: 'sakura',
     title: '櫻坂46 ロケ地マップ (総合版)',
     subtitle: '歴代シングルMV・雑誌・番組・サイン会店舗',
-    author: 'fumi Diary 2号店',
+    author: 'fumi Diary 2号店 / SakuMap',
     authorType: '转载参考',
     authorUrl: 'http://blog.livedoor.jp/fumichen2/',
     spotCount: sakurazakaSpotCount,
