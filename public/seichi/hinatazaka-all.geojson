@@ -137955,7 +137955,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "五井機関区",
-        "sceneNote": "2026年夏に石塚瑶季が訪れた小港鉄道の車両基地。 題名:",
+        "sceneNote": "2026年夏に石塚瑶季が訪れた小湊鉄道の車両基地。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -138210,6 +138210,119 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "シェラトン ワイキキビーチリゾート",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7110457,
+          35.6675526
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0dbe4daf207c22079b8b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0dbe4daf207c22079b8b",
+        "name": "キャスキッドソン 表参道店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "キャスキッドソン 表参道店",
+        "sceneNote": "2026年初夏に東村芽依が織田奈那さん(ex.欅坂46)と訪れたお店。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6zfo7ZEImjpYHrEk5glaX90MMRygMzYFwtRUwIe6KmdB3T_C6ZVdjGlDNwtdi_kGFIMymt4JHP4niOBAzdQVXbFFWJSanK4D344UUsWjSFpx7jaY8-Or8o8uOX6wgWGagMi3spN_gfbe6U1hf6NXERuVDIJq4Jsd8lkJVSDk9BTbFTvVpZOuHSsQaxJPGLXg058ogyjvOIxEWo1_2VBDV8rgMsMqGac6Yxhm9TJpL2SfEYP8vpbhidu1E%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4czkJRH9YfOm1JJpBoTpD9_Rve3-WEJ0FL_D_kS3cbiIKA0kzun486MlqeAhYxq5tvTxN3AcDlBOsbc6WIOiD40iYp8B5xEt7Dfph8iJjc1b4fRvUCY0msUwKomkRrrsR3W7J9pDoKmsYaVTpWx4zBcfD3pM5KatDKJyqWz61n7okLOI_myRfpjo9Xg4SHZdGkomb7W4afbkxQjZyLOw07rG1lMtdizya1mPRk-_6YudhglrvC6dlS49Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6pQ-ZakhdDviZsuAVn0IVhPOzaz1CUSeGqYgZO-OwpMpDo0d6d_ImGnRCBjJ-H7yPhJrNXWIpTWnCpfXD5LipyVnldk1UeW6dFhtOkI0LUf13rY_cs4K0VSFfZ4HFrYArp-fOyNGA7t6qaa6qiI-m7IDvEhusvAD9TSye9_nM86GXCuv2iHgtP5l6YXmgjVmLtfE7ciV8sTrV53Zv1WTz6jeDuUYhQoaBDpQFl8jcf_q0b099p1J3ATDw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5iU-l-kYlga7IsQNz62ThI38jCgIOxOPUYxOu0bDphzqH-dgqxiafgxVt43YwJQReB2esPq0XnlVSD-EF7mHh_sDQrN6TGJJfc7TU2VZIG_fwZEPuldMj9Z8bDpW-yM0Wi9mJ20YPgnYETRpy8Hy19mbykUGJJIJV2Bk8BsJ5DVX67938KFSzj3h9UqhkSlOnAl5ZDXuqB3DfSjr1Azr6IbGzUJLtsjy_8RfOFe2DKkvDTs1gdTzfWndY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "キャスキッドソン 表参道店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.4801108,
+          37.7653639
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bbdb10ba3221a691d472",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bbdb10ba3221a691d472",
+        "name": "福島競馬場",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "福島競馬場",
+        "sceneNote": "2026.07.12福島競馬11R「七夕賞」(GⅢ）のプレゼンターとして富田鈴花が訪れた競馬場。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7-JtNueNiHfCGK9b2hCfAwkjyOa8LcJmyWTHmGi6zAvFjJ2SzZJ1-lB-v-R1dc_U-ZbWLt8DEwcUWuT_jHkkXu4-OzGc2ujyxpURLzvQS-EZNBtXRvZQwK2i860lwaWJXqg6v1gtI9yYCukunvXhr-7_RKgNzDSaPzUxk_fHfidfDroA7y-7hj3yxLR6RWr35Tb1q2pBjW0C7C-ruHCcBe4zMbbbFlt7xjaCP7a8MXWqT7O4SaPoZtub0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "福島競馬場",
           "group": "日向坂46"
         },
         "classification": {
