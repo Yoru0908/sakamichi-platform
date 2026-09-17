@@ -14,16 +14,16 @@
         "id": "sakumap:100",
         "sourceKey": "sakumap:100",
         "name": "一蘭 一蘭之森 糸島店",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "【一蘭の森】的野・山下の日本ラーメン旅 一蘭の本拠地に潜入 福岡編【第5弾】",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "福岡県糸島市",
         "prefecture": "福岡県",
         "sceneTitle": "【一蘭の森】的野・山下の日本ラーメン旅 一蘭の本拠地に潜入 福岡編【第5弾】",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=100",
-        "referenceUrl": "https://www.youtube.com/watch?v=Mm_1ib8hRJA",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "櫻坂チャンネル",
           "的野美青",
@@ -34,18 +34,8 @@
           "山下瞳月"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=100",
-          "name": "一蘭 一蘭之森 糸島店",
-          "tags": [
-            "櫻坂チャンネル",
-            "的野美青",
-            "山下瞳月"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -64,27 +54,21 @@
         "id": "sakumap:125",
         "sourceKey": "sakumap:125",
         "name": "大分マリーンパレス水族館「うみたまご」",
-        "category": "SakuMap 補足",
+        "category": "番組・イベント",
         "subcategory": "「ラヴィット！」で森田ひかるが訪れた場所",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#f59e0b",
         "address": "大分県大分市神崎3078番地の22",
         "prefecture": "大分県",
         "sceneTitle": "「ラヴィット！」で森田ひかるが訪れた場所",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=125",
-        "referenceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=125",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [],
         "members": [],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=125",
-          "name": "大分マリーンパレス水族館「うみたまご」",
-          "tags": []
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "番組・イベント",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -103,16 +87,16 @@
         "id": "sakumap:132",
         "sourceKey": "sakumap:132",
         "name": "大塚国際美術館",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "櫻坂チャンネル 【Vlog】なぎあいりが初上陸の徳島でデート気分！",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "徳島県鳴門市福池鳴門公園線",
         "prefecture": "徳島県",
         "sceneTitle": "櫻坂チャンネル 【Vlog】なぎあいりが初上陸の徳島でデート気分！",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=132",
-        "referenceUrl": "https://www.youtube.com/watch?v=9TIk-XUw4Ps",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "小島凪紗",
           "谷口愛季",
@@ -125,19 +109,8 @@
           "田村保乃"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=132",
-          "name": "大塚国際美術館",
-          "tags": [
-            "小島凪紗",
-            "谷口愛季",
-            "田村保乃",
-            "櫻坂チャンネル"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -156,16 +129,16 @@
         "id": "sakumap:134",
         "sourceKey": "sakumap:134",
         "name": "大鳴門橋遊歩道 渦の道",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "櫻坂チャンネル 【Vlog】なぎあいりが初上陸の徳島でデート気分！",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "徳島県鳴門市",
         "prefecture": "徳島県",
         "sceneTitle": "櫻坂チャンネル 【Vlog】なぎあいりが初上陸の徳島でデート気分！",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=134",
-        "referenceUrl": "https://www.youtube.com/watch?v=9TIk-XUw4Ps",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "小島凪紗",
           "谷口愛季",
@@ -176,18 +149,8 @@
           "谷口愛季"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=134",
-          "name": "大鳴門橋遊歩道 渦の道",
-          "tags": [
-            "小島凪紗",
-            "谷口愛季",
-            "櫻坂チャンネル"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -206,16 +169,16 @@
         "id": "sakumap:162",
         "sourceKey": "sakumap:162",
         "name": "四国水族館",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "櫻坂チャンネル【帰省】櫻坂46の2026年始の過ごし方Vlog！【PART2】",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "香川県宇多津町",
         "prefecture": "香川県",
         "sceneTitle": "櫻坂チャンネル【帰省】櫻坂46の2026年始の過ごし方Vlog！【PART2】",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=162",
-        "referenceUrl": "https://www.youtube.com/watch?v=HdDom_iHFUE",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "向井純葉",
           "櫻坂チャンネル"
@@ -224,17 +187,8 @@
           "向井純葉"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=162",
-          "name": "四国水族館",
-          "tags": [
-            "向井純葉",
-            "櫻坂チャンネル"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -253,16 +207,16 @@
         "id": "sakumap:221",
         "sourceKey": "sakumap:221",
         "name": "群馬サファリパーク",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "【ワニ食す】きら＆ひかるのサファリパークデート",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "群馬県富岡市岡本１",
         "prefecture": "群馬県",
         "sceneTitle": "【ワニ食す】きら＆ひかるのサファリパークデート",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=221",
-        "referenceUrl": "https://www.youtube.com/watch?v=EoRVXW7xXeU",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "櫻坂チャンネル",
           "森田ひかる",
@@ -273,18 +227,8 @@
           "増本綺良"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=221",
-          "name": "群馬サファリパーク",
-          "tags": [
-            "櫻坂チャンネル",
-            "森田ひかる",
-            "増本綺良"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -303,27 +247,21 @@
         "id": "sakumap:243",
         "sourceKey": "sakumap:243",
         "name": "岩魚の里　永源寺グリーンランド",
-        "category": "SakuMap 補足",
+        "category": "番組・イベント",
         "subcategory": "そこ曲がったら櫻坂?　武元プレゼンツ！滋賀大満喫ツアー！",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#f59e0b",
         "address": "〒527-0214 滋賀県東近江市甲津畑町６７",
         "prefecture": "滋賀県",
         "sceneTitle": "そこ曲がったら櫻坂?　武元プレゼンツ！滋賀大満喫ツアー！",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=243",
-        "referenceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=243",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [],
         "members": [],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=243",
-          "name": "岩魚の里　永源寺グリーンランド",
-          "tags": []
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "番組・イベント",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -342,16 +280,16 @@
         "id": "sakumap:289",
         "sourceKey": "sakumap:289",
         "name": "秋吉台自然動物公園サファリランド",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "2026年お正月Vlogでの訪問地",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "山口県美祢市佐山銭屋美祢線",
         "prefecture": "山口県",
         "sceneTitle": "2026年お正月Vlogでの訪問地",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=289",
-        "referenceUrl": "https://www.youtube.com/watch?v=HdDom_iHFUE",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "森田ひかる"
         ],
@@ -359,16 +297,8 @@
           "森田ひかる"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=289",
-          "name": "秋吉台自然動物公園サファリランド",
-          "tags": [
-            "森田ひかる"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -387,31 +317,23 @@
         "id": "sakumap:306",
         "sourceKey": "sakumap:306",
         "name": "宗像大社辺津宮",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "2026年年始vlogロケ地",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "福岡県宗像市宗像玄海線",
         "prefecture": "福岡県",
         "sceneTitle": "2026年年始vlogロケ地",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=306",
-        "referenceUrl": "https://www.youtube.com/watch?v=HdDom_iHFUE",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "vlog"
         ],
         "members": [],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=306",
-          "name": "宗像大社辺津宮",
-          "tags": [
-            "vlog"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -430,16 +352,16 @@
         "id": "sakumap:307",
         "sourceKey": "sakumap:307",
         "name": "三島スカイウォーク",
-        "category": "SakuMap 補足",
+        "category": "番組・イベント",
         "subcategory": "満天☆青空レストラン",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#f59e0b",
         "address": "静岡県三島市",
         "prefecture": "静岡県",
         "sceneTitle": "満天☆青空レストラン",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=307",
-        "referenceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=307",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "田村保乃",
           "大園玲",
@@ -452,20 +374,8 @@
           "大園玲"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=307",
-          "name": "三島スカイウォーク",
-          "tags": [
-            "田村保乃",
-            "大園玲",
-            "ビール",
-            "お酒",
-            "満天☆青空レストラン"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "番組・イベント",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -484,16 +394,16 @@
         "id": "sakumap:319",
         "sourceKey": "sakumap:319",
         "name": "岩下の新生姜ミュージアム",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "櫻坂チャンネル「岩下の新生姜ミュージアムで松田とイワシカちゃんが初対面！」",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "栃木県栃木市本町1-25",
         "prefecture": "栃木県",
         "sceneTitle": "櫻坂チャンネル「岩下の新生姜ミュージアムで松田とイワシカちゃんが初対面！」",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=319",
-        "referenceUrl": "https://www.youtube.com/watch?v=0rOddNgUDQU",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "櫻坂チャンネル",
           "松田里奈"
@@ -502,17 +412,8 @@
           "松田里奈"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=319",
-          "name": "岩下の新生姜ミュージアム",
-          "tags": [
-            "櫻坂チャンネル",
-            "松田里奈"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -531,16 +432,16 @@
         "id": "sakumap:340",
         "sourceKey": "sakumap:340",
         "name": "新潟月岡温泉 白玉の湯 華鳳",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "【櫻旅】田村保乃・中嶋優月と、鉄道で旅しよう。【新潟編】",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "新潟県新発田市月岡温泉神明橋",
         "prefecture": "新潟県",
         "sceneTitle": "【櫻旅】田村保乃・中嶋優月と、鉄道で旅しよう。【新潟編】",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=340",
-        "referenceUrl": "https://www.youtube.com/watch?v=9srP51koR-s",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "田村 保乃",
           "中嶋 優月",
@@ -554,21 +455,8 @@
           "中嶋優月"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=340",
-          "name": "新潟月岡温泉 白玉の湯 華鳳",
-          "tags": [
-            "田村 保乃",
-            "中嶋 優月",
-            "櫻坂チャンネル",
-            "櫻旅",
-            "JR東日本",
-            "コラボ"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -587,16 +475,16 @@
         "id": "sakumap:341",
         "sourceKey": "sakumap:341",
         "name": "源泉の杜",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "【櫻旅】田村保乃・中嶋優月と、鉄道で旅しよう。【新潟編】",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "新潟県新発田市月岡温泉小唄橋",
         "prefecture": "新潟県",
         "sceneTitle": "【櫻旅】田村保乃・中嶋優月と、鉄道で旅しよう。【新潟編】",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=341",
-        "referenceUrl": "https://www.youtube.com/watch?v=9srP51koR-s",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "田村 保乃",
           "中嶋 優月",
@@ -610,21 +498,8 @@
           "中嶋優月"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=341",
-          "name": "源泉の杜",
-          "tags": [
-            "田村 保乃",
-            "中嶋 優月",
-            "櫻坂チャンネル",
-            "櫻旅",
-            "JR東日本",
-            "コラボ"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -643,16 +518,16 @@
         "id": "sakumap:342",
         "sourceKey": "sakumap:342",
         "name": "月岡ドーナツ",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "【櫻旅】田村保乃・中嶋優月と、鉄道で旅しよう。【新潟編】",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "新潟県新発田市月岡温泉小唄橋",
         "prefecture": "新潟県",
         "sceneTitle": "【櫻旅】田村保乃・中嶋優月と、鉄道で旅しよう。【新潟編】",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=342",
-        "referenceUrl": "https://www.youtube.com/watch?v=9srP51koR-s",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "田村 保乃",
           "中嶋 優月",
@@ -666,21 +541,8 @@
           "中嶋優月"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=342",
-          "name": "月岡ドーナツ",
-          "tags": [
-            "田村 保乃",
-            "中嶋 優月",
-            "櫻坂チャンネル",
-            "櫻旅",
-            "JR東日本",
-            "コラボ"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -699,16 +561,16 @@
         "id": "sakumap:343",
         "sourceKey": "sakumap:343",
         "name": "あしゆ湯足美",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "【櫻旅】田村保乃・中嶋優月と、鉄道で旅しよう。【新潟編】",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "新潟県新発田市月岡温泉",
         "prefecture": "新潟県",
         "sceneTitle": "【櫻旅】田村保乃・中嶋優月と、鉄道で旅しよう。【新潟編】",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=343",
-        "referenceUrl": "https://www.youtube.com/watch?v=9srP51koR-s",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "田村 保乃",
           "中嶋 優月",
@@ -722,21 +584,8 @@
           "中嶋優月"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=343",
-          "name": "あしゆ湯足美",
-          "tags": [
-            "田村 保乃",
-            "中嶋 優月",
-            "櫻坂チャンネル",
-            "櫻旅",
-            "JR東日本",
-            "コラボ"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -755,16 +604,16 @@
         "id": "sakumap:349",
         "sourceKey": "sakumap:349",
         "name": "佐渡西三川ゴールドパーク",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "【櫻旅】田村保乃・中嶋優月と、鉄道で旅しよう。【新潟編】",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "新潟県佐渡市西三川静平西三川線",
         "prefecture": "新潟県",
         "sceneTitle": "【櫻旅】田村保乃・中嶋優月と、鉄道で旅しよう。【新潟編】",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=349",
-        "referenceUrl": "https://www.youtube.com/watch?v=9srP51koR-s",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "田村 保乃",
           "中嶋 優月",
@@ -778,21 +627,8 @@
           "中嶋優月"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=349",
-          "name": "佐渡西三川ゴールドパーク",
-          "tags": [
-            "田村 保乃",
-            "中嶋 優月",
-            "櫻坂チャンネル",
-            "櫻旅",
-            "JR東日本",
-            "コラボ"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -811,16 +647,16 @@
         "id": "sakumap:351",
         "sourceKey": "sakumap:351",
         "name": "佐渡乳業直売所 みるく・ぽっと",
-        "category": "SakuMap 補足",
+        "category": "Blog・MSG",
         "subcategory": "櫻旅（新潟編）オフショット",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#8b5cf6",
         "address": "新潟県佐渡市",
         "prefecture": "新潟県",
         "sceneTitle": "櫻旅（新潟編）オフショット",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=351",
-        "referenceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=351",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "田村 保乃",
           "中嶋 優月",
@@ -837,24 +673,8 @@
           "中嶋優月"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=351",
-          "name": "佐渡乳業直売所 みるく・ぽっと",
-          "tags": [
-            "田村 保乃",
-            "中嶋 優月",
-            "櫻坂チャンネル",
-            "櫻旅",
-            "JR東日本",
-            "コラボ",
-            "オフショット",
-            "honogram",
-            "ゆづのいんすた"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Blog・MSG",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -873,16 +693,16 @@
         "id": "sakumap:369",
         "sourceKey": "sakumap:369",
         "name": "金笛しょうゆパーク",
-        "category": "SakuMap 補足",
+        "category": "番組・イベント",
         "subcategory": "2026.8.9 そこさく「エグいね埼玉」",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#f59e0b",
         "address": "埼玉県川島町上伊草坂戸線",
         "prefecture": "埼玉県",
         "sceneTitle": "2026.8.9 そこさく「エグいね埼玉」",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=369",
-        "referenceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=369",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "村山 美羽",
           "そこさく",
@@ -892,18 +712,8 @@
           "村山美羽"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=369",
-          "name": "金笛しょうゆパーク",
-          "tags": [
-            "村山 美羽",
-            "そこさく",
-            "そこ曲がったら櫻坂"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "番組・イベント",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -922,27 +732,21 @@
         "id": "sakumap:58",
         "sourceKey": "sakumap:58",
         "name": "金櫻神社",
-        "category": "SakuMap 補足",
+        "category": "番組・イベント",
         "subcategory": "1st Single ヒット祈願で訪れた神社",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#f59e0b",
         "address": "山梨県甲府市御岳町2347",
         "prefecture": "山梨県",
         "sceneTitle": "1st Single ヒット祈願で訪れた神社",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=58",
-        "referenceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=58",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [],
         "members": [],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=58",
-          "name": "金櫻神社",
-          "tags": []
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "番組・イベント",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }
@@ -961,16 +765,16 @@
         "id": "sakumap:90",
         "sourceKey": "sakumap:90",
         "name": "掛川花鳥園",
-        "category": "SakuMap 補足",
+        "category": "Vlog・企画",
         "subcategory": "【天国】鳥マニア浅井が掛川花鳥園で鳥まみれ！櫻坂46にも遭遇！？",
-        "categoryColor": "#a855f7",
+        "categoryColor": "#3b82f6",
         "address": "静岡県掛川市杉谷一丁目東名高速道路",
         "prefecture": "静岡県",
         "sceneTitle": "【天国】鳥マニア浅井が掛川花鳥園で鳥まみれ！櫻坂46にも遭遇！？",
-        "sceneNote": "SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。",
-        "sourceLabel": "SakuMap（ひろまめ。／公開投稿）",
-        "sourceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=90",
-        "referenceUrl": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=90",
+        "sceneNote": "公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。",
+        "sourceLabel": "",
+        "sourceUrl": "",
+        "referenceUrl": "",
         "tags": [
           "櫻坂チャンネル",
           "浅井恋乃未"
@@ -979,17 +783,8 @@
           "浅井恋乃未"
         ],
         "images": [],
-        "source": {
-          "provider": "SakuMap",
-          "url": "https://buddies46.stars.ne.jp/satellite/sakumap/?spot=90",
-          "name": "掛川花鳥園",
-          "tags": [
-            "櫻坂チャンネル",
-            "浅井恋乃未"
-          ]
-        },
         "classification": {
-          "category": "SakuMap 補足",
+          "category": "Vlog・企画",
           "method": "public-source-reviewed-location",
           "status": "source-referenced"
         }

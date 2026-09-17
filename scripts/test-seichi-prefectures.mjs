@@ -38,17 +38,25 @@ try {
   await page.getByPlaceholder('地点名・住所・番組名で検索...').fill('群馬サファリパーク');
   assert.equal(await page.locator('[data-seichi-feature]').count(), 1);
   await page.locator('[data-seichi-feature="sakumap:221"]').getByRole('button', { name: /をルートに追加$/ }).click();
-  await page.getByPlaceholder('地点名・住所・番組名で検索...').fill('');
-  await page.getByRole('button', { name: /^SakuMap 補足/ }).click();
+  await page.getByRole('button', { name: /^Vlog・企画/ }).click();
   assert.equal(await page.locator('[data-seichi-feature]').count(), 1);
   await select.selectOption('東京都');
   assert.equal(await page.locator('[data-seichi-feature]').count(), 0, 'county and category must intersect');
+  await page.getByPlaceholder('地点名・住所・番組名で検索...').fill('');
+  assert(await page.locator('[data-seichi-feature]').evaluateAll(es => es.every(el => el.dataset.prefecture === '東京都' && el.dataset.category === 'Vlog・企画')));
   await page.getByRole('button', { name: /^すべて \(/ }).first().click();
   assert(await page.locator('[data-seichi-feature]').count() > 0);
   assert(await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('seichi-route:')).some(k => localStorage.getItem(k).includes('sakumap:221'))));
   await select.selectOption('ALL');
   assert.equal(await page.locator('[data-seichi-feature]').count(), total);
-  console.log('PASS 20 supplement venues, county/search/category intersection, count restoration and route preservation');
+  assert.equal(await page.getByRole('button', { name: /SakuMap/ }).count(), 0);
+  await page.getByPlaceholder('地点名・住所・番組名で検索...').fill('群馬サファリパーク');
+  await page.locator('[data-seichi-feature="sakumap:221"] h4').click();
+  assert.equal(await page.locator('a[href*="buddies46.stars.ne.jp"]').count(), 0);
+  assert(!(await page.locator('body').innerText()).includes('SakuMap'));
+  await page.keyboard.press('Escape');
+  await page.getByPlaceholder('地点名・住所・番組名で検索...').fill('');
+  console.log('PASS 20 venues integrated into normal categories, no SakuMap category/source links, county/search intersection and route preservation');
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole('button', { name: /^リストを表示/ }).click();

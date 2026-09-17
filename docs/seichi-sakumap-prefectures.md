@@ -32,11 +32,11 @@
 - 福冈：宗像大社辺津宮、一蘭 一蘭之森 糸島店
 - 滋贺：岩魚の里 永源寺グリーンランド
 
-只核对公开场所、现有名称/距离和坐标县归属；**未逐帧独立核验全部节目或视频**。地点说明保留这一限制，每条保留 SakuMap 原帖与原始关联视频链接，`classification.status=source-referenced`，不标为 verified。
+只核对公开场所、现有名称/距离和坐标县归属；**未逐帧独立核验全部节目或视频**。地点说明保留这一限制，`classification.status=source-referenced`，不标为 verified。按用户后续要求，前台不再单列 SakuMap 分类，也不显示这20点的来源标签/链接；public GeoJSON 的 sourceLabel/sourceUrl/referenceUrl 置空、source 对象移除。溯源仅留在维护比对报告中，其他既有地点的来源信息不动。
 
 ## 数据部署与同步保护
 
-`public/seichi/sakumap-supplement.geojson` 独立补充层，稳定 ID `sakumap:<id>`。只在 `/seichi/sakurazaka` 加载，与已有动态图合并；大分类「SakuMap 補足」可单独筛选。未改写现有 sakurazaka/hinatazaka/oversea managed 数据，不会被 fumi/My Maps 六小时 cron 覆盖。
+`public/seichi/sakumap-supplement.geojson` 独立补充层，稳定 ID `sakumap:<id>`。只在 `/seichi/sakurazaka` 加载，与已有动态图合并；按实际内容并入「Vlog・企画」「番組・イベント」「Blog・MSG」，不按采集来源分组。未改写现有 sakurazaka/hinatazaka/oversea managed 数据，不会被 fumi/My Maps 六小时 cron 覆盖。
 
 补充层请求失败只显示提示，仍显示原图。主数据请求失败继续回退原静态快照。只新增前端静态资源，无新 Worker、数据库、cron 或 Homeserver 部署。
 

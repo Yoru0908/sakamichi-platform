@@ -28,14 +28,18 @@ test('polygon holes and islands are handled, not just rectangular prefecture box
  const custom = createPrefectureResolver({ type:'FeatureCollection',features:[{properties:{shapeISO:'JP-13'},geometry:{type:'MultiPolygon',coordinates:[[[[0,0],[10,0],[10,10],[0,10],[0,0]],[[4,4],[6,4],[6,6],[4,6],[4,4]]],[[[20,20],[21,20],[21,21],[20,21],[20,20]]]]}}]});
  assert.equal(custom([2,2]),'東京都'); assert.equal(custom([5,5]),undefined); assert.equal(custom([20.5,20.5]),'東京都');
 });
-test('20 supplemental public venues have distinct IDs, valid reference county, attribution and no copied photos', () => {
+test('20 supplemental public venues have distinct IDs, valid county, normal categories and no public source links', () => {
  const { features } = JSON.parse(readFileSync(new URL('sakumap-supplement.geojson', publicRoot), 'utf8'));
  assert.equal(features.length,20);
  assert.equal(new Set(features.map(f => f.properties.id)).size,20);
  for (const f of features) {
    assert(PREFECTURES.includes(f.properties.prefecture));
    assert.equal(resolve(f.geometry.coordinates), f.properties.prefecture, f.properties.name);
-   assert.match(f.properties.sourceUrl, /^https:\/\/buddies46\.stars\.ne\.jp\/satellite\/sakumap\/\?spot=\d+$/);
+   assert(['Vlog・企画', '番組・イベント', 'Blog・MSG'].includes(f.properties.category));
+   assert.equal(f.properties.sourceUrl, '');
+   assert.equal(f.properties.sourceLabel, '');
+   assert.equal(f.properties.referenceUrl, '');
+   assert.equal(f.properties.source, undefined);
    assert.deepEqual(f.properties.images, []);
  }
 });

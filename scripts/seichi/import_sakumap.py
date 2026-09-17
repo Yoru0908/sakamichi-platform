@@ -47,20 +47,22 @@ def compare(spots, existing):
 
 def feature(spot, member_names):
     key = 'sakumap:' + str(spot['id'])
-    videos = [video for video in spot.get('youtube_video_ids', []) if re.fullmatch(r'[\w-]{11}', video)]
     tags = [str(tag) for tag in spot.get('tags', [])]
     summary = str(spot.get('summary', ''))
-    category = 'SakuMap 補足'
+    if 'オフショット' in summary:
+        category, color = 'Blog・MSG', '#8b5cf6'
+    elif any(term in summary for term in ['ラヴィット', 'そこ曲', 'そこさく', '青空レストラン', 'ヒット祈願']):
+        category, color = '番組・イベント', '#f59e0b'
+    else:
+        category, color = 'Vlog・企画', '#3b82f6'
     return {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [float(spot['lng']), float(spot['lat'])]},
             'properties': {'id': key, 'sourceKey': key, 'name': spot['title'],
-                'category': category, 'subcategory': summary or '公開スポット', 'categoryColor': '#a855f7',
+                'category': category, 'subcategory': summary or '公開スポット', 'categoryColor': color,
                 'address': spot.get('address', ''), 'prefecture': spot.get('prefecture', ''),
-                'sceneTitle': summary, 'sceneNote': 'SakuMap の公開投稿を参考に補足。撮影・訪問の関係は出典参照（独立した映像検証は未実施）。',
-                'sourceLabel': 'SakuMap（ひろまめ。／公開投稿）', 'sourceUrl': SOURCE + '?spot=' + str(spot['id']),
-                'referenceUrl': 'https://www.youtube.com/watch?v=' + videos[0] if videos else SOURCE + '?spot=' + str(spot['id']),
+                'sceneTitle': summary, 'sceneNote': '公開情報に基づく地点情報。撮影・訪問関係の独立した映像検証は未実施。',
+                'sourceLabel': '', 'sourceUrl': '', 'referenceUrl': '',
                 'tags': tags, 'members': [tag.replace(' ', '').replace('　', '') for tag in tags if normalized(tag) in member_names],
                 'images': [],
-                'source': {'provider': 'SakuMap', 'url': SOURCE + '?spot=' + str(spot['id']), 'name': spot['title'], 'tags': tags},
                 'classification': {'category': category, 'method': 'public-source-reviewed-location', 'status': 'source-referenced'}}}
 
 def main():

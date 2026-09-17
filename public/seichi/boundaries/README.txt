@@ -19,5 +19,3 @@ https://media.githubusercontent.com/media/wmgeolab/geoBoundaries/9469f09/release
 Original SHA-256: f18eeeb978d992a7147f636642932913731c231f298cb514bf7a3bd41a1aacc0
 
 Map attribution remains OpenStreetMap/Esri as displayed in the map.
-SakuMap supplemental venue facts: https://buddies46.stars.ne.jp/satellite/sakumap/
-Each supplemental venue links to its original public SakuMap post. No SakuMap photos, source code, accounts or visit records are redistributed.

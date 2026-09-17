@@ -1114,7 +1114,7 @@ export default function SeichiMap({
             {boundaryStatus === 'loading' ? '都道府県を判定中…' : boundaryStatus === 'fallback' ? '境界データを取得できません。住所で判定できる地点のみ分類。' : '座標・住所による分類（境界付近は参考）'}
             {' · '}<a href="/seichi/boundaries/README.txt" target="_blank" rel="noopener noreferrer" className="underline">地理データ出典</a>
           </p>
-          {supplementFailed && <p role="status" className="mt-1 text-[10px] text-amber-600">SakuMap 補足は読込失敗。既存マップを表示しています。</p>}
+          {supplementFailed && <p role="status" className="mt-1 text-[10px] text-amber-600">追加地点の読込に失敗しました。既存マップを表示しています。</p>}
 
           {/* 全局搜索框 */}
           <div className="relative mt-2">
@@ -1356,6 +1356,7 @@ export default function SeichiMap({
                 key={fp.id}
                 data-seichi-feature={fp.id}
                 data-prefecture={prefectureLabels.get(f)}
+                data-category={fp.category}
                 onClick={() => handleSelectFeature(f)}
                 className={`p-3 cursor-pointer transition-colors ${
                   isSelected
