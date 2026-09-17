@@ -28,6 +28,21 @@ const MEETS_GROUPS = [
 const DASHBOARD_URL = "https://46log.com/miguri";
 const IMPORT_URL = "https://api.46log.com/api/miguri/entries/import";
 const REFRESH_URL = "https://api.46log.com/api/auth/refresh";
+const SAKA_DASHBOARD_URL = "https://saka46log.com/import";
+function dashboardTarget(sender) {
+  if (sender.frameId !== undefined && sender.frameId !== 0) return null;
+  try {
+    const url = new URL(sender.url || "");
+    if (url.origin === "https://46log.com" && /^\/miguri(?:\/|$)/.test(url.pathname)) return "46log";
+    if (url.origin === "https://saka46log.com" && /^\/import\/?$/.test(url.pathname)) return "saka46log";
+  } catch {}
+  return null;
+}
+function canReadResult(result, sender) {
+  const target = dashboardTarget(sender);
+  return !!target && (result?.target || "46log") === target &&
+    (target !== "saka46log" || (result.returnTabId === sender.tab?.id && Date.now() - Date.parse(result.completedAt) >= 0 && Date.now() - Date.parse(result.completedAt) <= 30 * 60 * 1000));
+}
 
 const defaultAutoState = () => ({
   enabled: false,
@@ -47,7 +62,12 @@ async function loadJob() {
 
 async function loadPendingResult() {
   const stored = await chrome.storage.session.get(RESULT_KEY);
-  return stored[RESULT_KEY] || null;
+  const result = stored[RESULT_KEY] || null;
+  if (result?.target === "saka46log" && Date.now() - Date.parse(result.completedAt) > 30 * 60 * 1000) {
+    await chrome.storage.session.remove(RESULT_KEY);
+    return null;
+  }
+  return result;
 }
 
 async function loadAutoState() {
@@ -152,6 +172,7 @@ async function startJob(source, returnTabId, options = {}) {
   const job = {
     id: crypto.randomUUID(),
     source,
+    target: options.target === "saka46log" ? "saka46log" : "46log",
     returnTabId: returnTabId || null,
     auto: options.auto === true,
     chainId: options.chainId || crypto.randomUUID(),
@@ -179,6 +200,8 @@ async function startJob(source, returnTabId, options = {}) {
 async function relayToDashboard(job, payload) {
   if (!job?.returnTabId) return;
   try {
+    const tab = await chrome.tabs.get(job.returnTabId);
+    if (dashboardTarget({ url: tab.url, frameId: 0 }) !== (job.target || "46log")) return;
     await chrome.tabs.sendMessage(job.returnTabId, payload);
   } catch {}
 }
@@ -373,10 +396,15 @@ chrome.tabs.onRemoved.addListener((tabId) => {
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  const dashboardMessages = new Set(["MIGURI46LOG_START", "MIGURI46LOG_TAKE_RESULT", "MIGURI46LOG_ACK_RESULT", "MIGURI46LOG_DISCARD_RESULT", "MIGURI46LOG_GET_AUTO_STATE", "MIGURI46LOG_SET_AUTO_ENABLED", "MIGURI46LOG_RUN_AUTO"]);
+  const target = dashboardTarget(sender);
+  if (dashboardMessages.has(message?.type) && !target) { sendResponse({ ok: false, error: "送信元を確認できません。" }); return; }
+  if (target === "saka46log" && ["MIGURI46LOG_GET_AUTO_STATE", "MIGURI46LOG_SET_AUTO_ENABLED", "MIGURI46LOG_RUN_AUTO"].includes(message?.type)) { sendResponse({ ok: false, error: "坂ログへの自動送信は無効です。" }); return; }
   if (message?.type === "MIGURI46LOG_START") {
+    if (target === "saka46log" && message.source !== "fortunemusic") { sendResponse({ ok: false, error: "坂ログでは個別ミーグリのMusic履歴のみ対応しています。" }); return; }
     const source =
       message.source === "fortunemeets" ? "fortunemeets" : "fortunemusic";
-    startJob(source, sender.tab?.id)
+    startJob(source, sender.tab?.id, { target })
       .then((job) => sendResponse({ ok: true, jobId: job.id }))
       .catch((error) => sendResponse({ ok: false, error: error.message }));
     return true;
@@ -455,13 +483,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 
   if (message?.type === "MIGURI46LOG_PROGRESS") {
-    loadJob().then((job) =>
-      relayToDashboard(job, {
+    loadJob().then((job) => {
+      if (!job || job.tabId !== sender.tab?.id) return;
+      return relayToDashboard(job, {
         type: "MIGURI46LOG_EXTENSION_PROGRESS",
-        title: message.title || "同步中",
-        detail: message.detail || "",
-      }),
-    );
+        title: job.target === "saka46log" ? "履歴を読み込んでいます" : (message.title || "同步中"),
+        detail: job.target === "saka46log" ? "公式サイトの画面で進行状況を確認してください。" : (message.detail || ""),
+      });
+    });
     sendResponse({ ok: true });
     return;
   }
@@ -542,20 +571,35 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           }
           return;
         }
+        const isSaka = job.target === "saka46log";
         const result = {
-          version: 1,
+          version: isSaka ? 2 : 1,
+          target: job.target || "46log",
+          returnTabId: job.returnTabId,
           source: job.source,
-          next: job.source === "fortunemusic" ? "meets" : "done",
-          autoContinue: job.source === "fortunemusic",
-          records,
+          next: !isSaka && job.source === "fortunemusic" ? "meets" : "done",
+          autoContinue: !isSaka && job.source === "fortunemusic",
+          records: isSaka ? records.filter(r => r.group === "sakurazaka").map(r => ({
+            key: r.sourceKey, member: r.member, date: r.date, slot: r.slot,
+            round: r.applicationRound, applied: r.lotteryApplied ?? null, won: r.lotteryWon ?? null,
+            pending: r.resultStatus === "pending", reviewRequired: r.lotteryReviewRequired === true,
+            title: r.title,
+          })) : records,
           completedAt: new Date().toISOString(),
         };
         await chrome.storage.session.set({ [RESULT_KEY]: result });
         await removeStoredJob(job);
+        const destination = isSaka ? SAKA_DASHBOARD_URL : DASHBOARD_URL;
         if (job.returnTabId) {
+          const tab = await chrome.tabs.get(job.returnTabId).catch(() => null);
+          if (isSaka && (!tab || dashboardTarget({url:tab.url,frameId:0}) !== "saka46log")) {
+            await chrome.storage.session.remove(RESULT_KEY);
+            sendResponse({ ok: false, error: "坂ログの読み込み画面が閉じられました。履歴は送信せず破棄しました。" });
+            return;
+          }
           await chrome.tabs.update(job.returnTabId, {
             active: true,
-            url: `${DASHBOARD_URL}?extensionImport=1`,
+            url: `${destination}?extensionImport=1`,
           });
         } else {
           await chrome.tabs.create({
@@ -573,9 +617,18 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     chrome.storage.session
       .get(RESULT_KEY)
       .then((stored) => {
-        sendResponse({ result: stored[RESULT_KEY] || null });
+        const result = stored[RESULT_KEY] || null;
+        sendResponse({ result: result && canReadResult(result, sender) ? result : null });
       })
       .catch(() => sendResponse({ result: null }));
+    return true;
+  }
+
+  if (message?.type === "MIGURI46LOG_DISCARD_RESULT") {
+    loadPendingResult().then(async result => {
+      if (result?.target === "saka46log" && canReadResult(result, sender)) await chrome.storage.session.remove(RESULT_KEY);
+      sendResponse({ ok: true });
+    }).catch(() => sendResponse({ ok: false }));
     return true;
   }
 
@@ -586,6 +639,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         const result = stored[RESULT_KEY] || null;
         if (
           !result
+          || !canReadResult(result, sender)
+          || (result.target === "saka46log" && message.completedAt !== result.completedAt)
           || (message.completedAt && result.completedAt !== message.completedAt)
         ) {
           sendResponse({ ok: true, continued: false });
@@ -596,6 +651,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         // then continues directly into Meets, so first-time users cannot stop
         // after writing only half of their history to D1.
         await chrome.storage.session.remove(RESULT_KEY);
+        if (result.target === "saka46log") { sendResponse({ ok: true, continued: false }); return; }
         if (result.autoContinue && result.next === "meets") {
           const returnTabId = sender.tab?.id || null;
           await relayToDashboard(

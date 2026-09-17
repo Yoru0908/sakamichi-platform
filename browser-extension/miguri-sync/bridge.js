@@ -1,5 +1,7 @@
-const PAGE_SOURCE = "46log-miguri-page";
-const EXTENSION_SOURCE = "46log-miguri-extension";
+const IS_SAKA = window.location.origin === "https://saka46log.com";
+const PAGE_SOURCE = IS_SAKA ? "saka46log-miguri-page" : "46log-miguri-page";
+const EXTENSION_SOURCE = IS_SAKA ? "saka46log-miguri-extension" : "46log-miguri-extension";
+const capabilities = IS_SAKA ? ["saka-lottery-v2", "manual-confirmation"] : [];
 
 function post(type, payload = {}) {
   window.postMessage(
@@ -9,6 +11,7 @@ function post(type, payload = {}) {
 }
 
 async function postAutoState() {
+  if (IS_SAKA) return;
   const response = await chrome.runtime.sendMessage({
     type: "MIGURI46LOG_GET_AUTO_STATE",
   });
@@ -22,7 +25,7 @@ window.addEventListener("message", (event) => {
   if (!message || message.source !== PAGE_SOURCE) return;
 
   if (message.type === "PING") {
-    post("PONG", { version: chrome.runtime.getManifest().version });
+    post("PONG", { version: chrome.runtime.getManifest().version, capabilities });
     postAutoState().catch(() => {});
     return;
   }
@@ -34,6 +37,11 @@ window.addEventListener("message", (event) => {
         if (response?.result) post("RESULT", { payload: response.result });
       })
       .catch(() => post("ERROR", { message: "同步结果读取失败，请刷新页面重试" }));
+    return;
+  }
+
+  if (IS_SAKA && message.type === "DISCARD_RESULT") {
+    chrome.runtime.sendMessage({ type: "MIGURI46LOG_DISCARD_RESULT" }).then(() => post("DISCARDED")).catch(() => {});
     return;
   }
 
@@ -110,5 +118,5 @@ chrome.runtime.onMessage.addListener((message) => {
   }
 });
 
-post("PONG", { version: chrome.runtime.getManifest().version });
+post("PONG", { version: chrome.runtime.getManifest().version, capabilities });
 postAutoState().catch(() => {});

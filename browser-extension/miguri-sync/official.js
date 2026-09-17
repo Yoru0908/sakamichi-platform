@@ -28,6 +28,11 @@
       .match(new RegExp(`(\\d+)\\s*${unit}`));
     return match ? Number(match[1]) : 0;
   };
+  // New-site lottery contract: missing/pending is null, never implicit zero.
+  const knownCount = (value) => {
+    const match = digits(value).replace(/,/g, "").match(/(\d+)\s*(?:個|枚)/);
+    return match ? Number(match[1]) : null;
+  };
   const hash = (value) => {
     let first = 2166136261;
     let second = 2246822519;
@@ -176,7 +181,10 @@
           /当選数/.test(header.textContent || ""),
         ),
     );
-    if (!table) return [];
+    if (!table) {
+      if (job.target === "saka46log" && !application.pending) throw new Error("応募結果の表を確認できません。一部だけの集計を避けるため、読み込みを停止しました。");
+      return [];
+    }
     const invalid = /失効|手続き期限切れ|当選は無効/.test(
       documentNode.body?.textContent || "",
     );
@@ -196,7 +204,7 @@
       const appliedTickets = count(quantities[0]?.textContent, "個");
       const wonTickets = invalid ? 0 : count(quantities[1]?.textContent, "個");
       const unitPriceYen = MUSIC_UNIT_PRICE_YEN;
-      if (!member || !date || appliedTickets <= 0) return;
+      if (!member || !date || (appliedTickets <= 0 && job.target !== "saka46log")) return;
       records.push({
         source: "fortunemusic",
         sourceKey: sourceKey(application.id, member, date, slot),
@@ -206,6 +214,9 @@
         slot,
         appliedTickets,
         wonTickets,
+        lotteryApplied: knownCount(quantities[0]?.textContent),
+        lotteryWon: application.pending ? null : knownCount(quantities[1]?.textContent),
+        lotteryReviewRequired: invalid,
         paidTickets: 0,
         unitPriceYen,
         spendYen: wonTickets * unitPriceYen,
@@ -260,7 +271,8 @@
       show("正在读取 Music", `申请列表第 ${page} 页`);
       html = await requestText(nextUrl);
     }
-    const list = Array.from(applications.values());
+    if (job.target === "saka46log" && nextUrl && page > 100) throw new Error("履歴が100ページを超えました。一部だけの合計を避けるため、手入力・CSVをご利用ください。");
+    const list = Array.from(applications.values()).filter(application => job.target !== "saka46log" || groupFromText(application.title) === "sakurazaka");
     const records = [];
     for (let index = 0; index < list.length; index += 1) {
       show("正在读取 Music", `申请详情 ${index + 1} / ${list.length}`);
