@@ -531,6 +531,8 @@
     group,
     campaignSlug,
     userId,
+    authMode,
+    accessToken,
     sourceSyncedAt,
   }) => {
     const configUrl = `https://${MEETS_HOST}/data/${encodeURIComponent(groupSlug)}/${encodeURIComponent(campaignSlug)}/config.json`;
@@ -538,9 +540,13 @@
     if (!config?.eventId) return [];
     const history = await (
       await request(API_URL, {
+        // Credentials must never follow a redirect to another endpoint.
+        redirect: "error",
         headers: {
           "x-artist-event": config.eventId,
-          "x-user-id": userId,
+          ...(authMode === "bearer"
+            ? { Authorization: `Bearer ${accessToken}` }
+            : { "x-user-id": userId }),
         },
       })
     ).json();
@@ -587,10 +593,14 @@
 
   const sync = async ({
     userId,
+    authMode = "legacy",
+    accessToken,
     campaignsByGroup,
     onProgress = async () => {},
   }) => {
-    if (!compact(userId)) {
+    // No bearer-to-legacy fallback after auth failure. API validation is final.
+    if (!compact(userId) || !["legacy", "bearer"].includes(authMode) ||
+        (authMode === "bearer" && (typeof accessToken !== "string" || !/^[\x21-\x7e]{1,16384}$/.test(accessToken) || /^(?:null|undefined)$/i.test(accessToken)))) {
       throw errorWithCode("请重新登录 forTUNE meets", "LOGIN_REQUIRED");
     }
     const sourceSyncedAt = new Date().toISOString();
@@ -623,6 +633,8 @@
               group,
               campaignSlug,
               userId,
+              authMode,
+              accessToken,
               sourceSyncedAt,
             });
           } catch (error) {

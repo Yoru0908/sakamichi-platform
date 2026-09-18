@@ -284,13 +284,48 @@
   };
 
   const readMeetsUserId = () => {
-    const raw = localStorage.getItem("lscache-id");
-    if (!raw) return "";
     try {
-      return compact(JSON.parse(raw));
+      // Current Meets pages use userId; older sessions may only have id.
+      // A present current key is authoritative, even when invalid/expired:
+      // never fall back to a potentially different account's stale legacy ID.
+      const current = localStorage.getItem("lscache-userId");
+      const key = current !== null ? "lscache-userId" : "lscache-id";
+      const raw = current !== null ? current : localStorage.getItem(key);
+      if (!raw || raw.length > 1024) return "";
+      const expiry = localStorage.getItem(`${key}-cacheexpiration`);
+      if (expiry !== null) {
+        // lscache stores expiration as integer minutes since the epoch.
+        const minutes = /^\d+$/.test(expiry) ? Number(expiry) : NaN;
+        if (!Number.isSafeInteger(minutes) || minutes <= Math.floor(Date.now() / 60_000)) return "";
+      }
+      let value;
+      try { value = JSON.parse(raw); } catch { value = raw; }
+      if (typeof value === "number" && Number.isSafeInteger(value) && value > 0) return String(value);
+      if (typeof value !== "string") return "";
+      const id = value.trim();
+      return id && id.length <= 512 && !/[\s\u0000-\u001f\u007f{}\[\]"]/.test(id) && !/^(?:null|undefined)$/i.test(id) ? id : "";
     } catch {
-      return compact(raw);
+      // Storage unavailable is not proof of a usable official session.
+      return "";
     }
+  };
+  const readMeetsAuth = () => {
+    try {
+      const userId = readMeetsUserId();
+      if (!userId || localStorage.getItem("lscache-loggedInFlg") === "false") return null;
+      const raw = localStorage.getItem("lscache-accessToken");
+      const modern = localStorage.getItem("lscache-userId") !== null || raw !== null;
+      if (!modern) return { authMode: "legacy", userId };
+      // Match the current official frontend, not a guessed x-user-id alias.
+      // This credential stays in extension memory and goes only to Meets API.
+      if (!raw || raw.length > 20_000) return null;
+      let accessToken;
+      try { accessToken = JSON.parse(raw); } catch { accessToken = raw; }
+      if (typeof accessToken !== "string" || !/^[\x21-\x7e]{1,16384}$/.test(accessToken) || /^(?:null|undefined)$/i.test(accessToken)) return null;
+      const expiry = localStorage.getItem("lscache-accessToken-cacheexpiration");
+      if (expiry !== null && (!/^\d+$/.test(expiry) || !Number.isSafeInteger(Number(expiry)) || Number(expiry) <= Math.floor(Date.now() / 60_000))) return null;
+      return { authMode: "bearer", userId, accessToken };
+    } catch { return null; }
   };
   const onMeetsGroupLanding = () =>
     location.pathname.split("/").filter(Boolean).length <= 1;
@@ -324,12 +359,12 @@
     const deadline = Date.now() + 10 * 60 * 1_000;
     while (Date.now() < deadline) {
       await sleep(retrySync ? 5_000 : 1_000);
-      const userId = readMeetsUserId();
-      if (userId) {
-        if (!retrySync) return userId;
-        // Logging back into the same account need not change its ID.
+      const auth = readMeetsAuth();
+      if (auth) {
+        if (!retrySync) return auth;
+        // Re-read the token too: re-login can refresh it without changing ID.
         // Only the official API response can confirm that syncing may resume.
-        const response = await retrySync(userId);
+        const response = await retrySync(auth);
         if (response?.code !== "LOGIN_REQUIRED") return response;
         show("等待官方登录", "登录状态尚未恢复；登录后每 5 秒自动重试。");
       }
@@ -413,25 +448,31 @@
     }
     return campaignsByGroup;
   };
-  const requestMeetsApiSync = (userId, campaignsByGroup) =>
+  const requestMeetsApiSync = (auth, campaignsByGroup) =>
     chrome.runtime.sendMessage({
       type: "MIGURI46LOG_MEETS_API_SYNC",
       jobId: job.id,
-      userId,
+      ...auth,
       campaignsByGroup,
     });
   const importMeets = async () => {
     show("正在连接 Meets", "后台准备检查乃木坂、櫻坂与日向坂…");
-    let userId = readMeetsUserId();
-    if (!userId) {
-      userId = await waitForMeetsLogin();
-      if (!userId) return;
+    let auth = readMeetsAuth();
+    if (!auth) {
+      auth = await waitForMeetsLogin();
+      if (!auth) return;
     }
     const campaignsByGroup = await discoverMeetsCampaigns();
-    let response = await requestMeetsApiSync(userId, campaignsByGroup);
+    auth = readMeetsAuth();
+    if (!auth) {
+      auth = await waitForMeetsLogin();
+      if (!auth) return;
+    }
+    let response = await requestMeetsApiSync(auth, campaignsByGroup);
+    auth = null;
     if (response?.code === "LOGIN_REQUIRED") {
-      response = await waitForMeetsLogin((currentUserId) =>
-        requestMeetsApiSync(currentUserId, campaignsByGroup),
+      response = await waitForMeetsLogin((currentAuth) =>
+        requestMeetsApiSync(currentAuth, campaignsByGroup),
       );
       if (!response) return;
     }

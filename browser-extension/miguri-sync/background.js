@@ -450,6 +450,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         if (
           !job
           || job.source !== "fortunemeets"
+          || sender.frameId !== 0
+          || !/^https:\/\/ticket\.fortunemeets\.app\//.test(sender.url || "")
           || job.id !== message.jobId
           || (job.tabId && job.tabId !== sender.tab?.id)
         ) {
@@ -459,6 +461,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         try {
           const result = await globalThis.MiguriMeetsApi.sync({
             userId: message.userId,
+            authMode: message.authMode,
+            accessToken: message.accessToken,
             campaignsByGroup: message.campaignsByGroup,
             onProgress: (title, detail) =>
               reportOfficialProgress(job, title, detail),
@@ -680,14 +684,22 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-chrome.action.onClicked.addListener(async () => {
-  const tabs = await chrome.tabs.query({ url: `${DASHBOARD_URL}*` });
-  if (tabs[0]?.id) {
-    await chrome.tabs.update(tabs[0].id, { active: true });
-    if (tabs[0].windowId)
-      await chrome.windows.update(tabs[0].windowId, { focused: true });
+chrome.action.onClicked.addListener(async (activeTab) => {
+  // Same routing in both language editions: follow the user's current site,
+  // not the package title. Keep the established 46log default elsewhere.
+  let destination = DASHBOARD_URL;
+  try {
+    if (new URL(activeTab?.url || "").origin === new URL(SAKA_DASHBOARD_URL).origin) destination = SAKA_DASHBOARD_URL;
+  } catch {}
+  const target = destination === SAKA_DASHBOARD_URL ? "saka46log" : "46log";
+  const tabs = await chrome.tabs.query({ url: `${destination}*` });
+  const existing = tabs.find(tab => dashboardTarget({ url: tab.url, frameId: 0 }) === target);
+  if (existing?.id) {
+    await chrome.tabs.update(existing.id, { active: true });
+    if (existing.windowId) await chrome.windows.update(existing.windowId, { focused: true });
   } else {
-    await chrome.tabs.create({ url: DASHBOARD_URL, active: true });
+    // Never replace an active editor/results document with a forced reload.
+    await chrome.tabs.create({ url: destination, active: true });
   }
 });
 
