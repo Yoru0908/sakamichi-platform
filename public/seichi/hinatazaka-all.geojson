@@ -27272,7 +27272,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "体感型動物園 iZoo",
-        "sceneNote": "四期生ドキュメンタリー「岸帆夏」の撮影地 https://youtu.be/Yoi8AldKJ9U 題名: 岸帆夏 四期生ドキュメンタリー",
+        "sceneNote": "https://www.youtube.com/embed/Yoi8AldKJ9U 四期生ドキュメンタリー「岸帆夏」の撮影地 https://youtu.be/Yoi8AldKJ9U 題名: 岸帆夏 四期生ドキュメンタリー",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -27280,7 +27280,9 @@
           "日向坂46",
           "CD特典映像"
         ],
-        "images": [],
+        "images": [
+          "https://img.youtube.com/vi/Yoi8AldKJ9U/hqdefault.jpg"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -27325,7 +27327,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "フランス広場",
-        "sceneNote": "四期生ドキュメンタリー「岸帆夏」の撮影地 https://youtu.be/Yoi8AldKJ9U 題名: 岸帆夏 四期生ドキュメンタリー",
+        "sceneNote": "https://www.youtube.com/embed/Yoi8AldKJ9U 四期生ドキュメンタリー「岸帆夏」の撮影地 https://youtu.be/Yoi8AldKJ9U 題名: 岸帆夏 四期生ドキュメンタリー",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -27333,7 +27335,9 @@
           "日向坂46",
           "CD特典映像"
         ],
-        "images": [],
+        "images": [
+          "https://img.youtube.com/vi/Yoi8AldKJ9U/hqdefault.jpg"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -27378,7 +27382,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "河津浜海水浴場",
-        "sceneNote": "四期生ドキュメンタリー「岸帆夏」の撮影地 https://youtu.be/Yoi8AldKJ9U 題名: 岸帆夏 四期生ドキュメンタリー",
+        "sceneNote": "https://www.youtube.com/embed/Yoi8AldKJ9U 四期生ドキュメンタリー「岸帆夏」の撮影地 https://youtu.be/Yoi8AldKJ9U 題名: 岸帆夏 四期生ドキュメンタリー",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -27386,7 +27390,9 @@
           "日向坂46",
           "CD特典映像"
         ],
-        "images": [],
+        "images": [
+          "https://img.youtube.com/vi/Yoi8AldKJ9U/hqdefault.jpg"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -59687,20 +59693,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.7923932,
-          47.9147731
+          13.792581,
+          47.9148504
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a2f58d2b0e58cd654324",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a2f58d2b0e58cd654324",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3188485aa387c808f3f4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3188485aa387c808f3f4",
         "name": "エスプラナーデ",
         "category": "写真集関連",
         "subcategory": "写真集関連",
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "エスプラナーデ",
-        "sceneNote": "金村美玖2nd写真集『機微』 #みくさんぽ の撮影地 https://x.com/miku_2ndbook/status/2093858998667886631",
+        "sceneNote": "金村美玖2nd写真集『機微』 #みくさんぽ の撮影地 https://x.com/miku_2ndbook/status/2093858998667886631 SonyMusicShop限定カバー撮影地",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -59709,7 +59715,12 @@
           "写真集関連"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5jTlETp8WNf0_kY0i2HBOz-FHemU1sGNWq8dWcduHJJrZOBLg4W_1S_B70HTZ9FuwP6LDlr-l40dK63efsyod1ojwGt2BGP_kwifCvhEDAEiuVVjMJwqmT9Ld_7YOPICIJXz_KModJfDqnsaTt6ykJSZn_AnHIvUi7QdQEahij8HwIIS91Ws0JA8vkdWDgMOAw1b3T4y4yqikgjgeKhOf0Rwha2fOQiX9wjg5v3_rr3ruty5dzPLHXKSs%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4e_P0BYfGbd_kchrdkOc0u3cSR5Bky3jNDJo1PoZX-dVaR0H0oeFMb5zFYtfFE9sRzotCr_abkivhP5Qs66wdo0nGj7jBVwlUK-nxpSvtU8mNoyCiKoiIL-87H7NpAowEjeM_9gW94rLN4_FCmPDNqtmrCtQpPb3M99LZAd5AjZr1F_v7cyZbxPeZz9xBUk4RJIaeSPdeIUMth9cAnj5ELWCrAcwz3fqAeL1TafzO84d_4b6DPXphpvLo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5H0J7NsOFcJL1Y7H7ojM2TAc0cLi8gA9rtuWqq3fMF1MR7Tel4iHb1YeMUAQyKfKhgJManSJSWJ8jA4_A__7YMYK1yX5TeONRcZMvYJRdiKjtPA1sVpPO0dJVr4Ywe_LtH4pbM4T_8mv0D9ScoiYK2WrvA8uODDbBOyiIgAfN8eoPsHKH2wMHHL5F8c4Ochfwzp5d8FRVkssgwLLUmGV_d9zgGzjelKKW9YNLIOn9N8I5jVuTe7GZyUKE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR46PtLm3zWFNDmMFTBKSmSkFlvBe6nsvkqBV-eqiPRDNySTrGc6yrUE6ehmNm2rnQWcFCJn7LNIfGnA8UDYaIrrasgKxLZrmqL3KxSlzLDqqTELWLUo2YN1kBMDSanSmwJC2AuLEseWlJrU7hV_Wtyebw15otH7ou5Zzn1b9dxUc80QcOP-2-TATD9KBILqukAQeWjGVzOcrgGtFFP9vpm7Yvr04w-Nx3hEJVt4BCfGw_y72oUjZXnAEg8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6Pm8mGbnSOsnxrnwD-ySlcjfBxIckrMohtTvZf8W-8b8Mlex-PXh8j5yHuSI-HbwXDnt1ck74H9RC-2Xl5V5A5EN-N84fCFPECq6Cy8i2fqEbgpKQaa_Lo3VOUtBnndYl7Zxl1PLSh4uq3B2x5Kce5O9PYGhnXuZyMkUDsx-EB8STmYoBYADppwn-mD9ZyNw4MUdqhcb7V4MeF-YKNIY_8Q6eFI-Jhk9WoR7U4ggD25faOxqsCV72XlB8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6Taul0AqL_f1EosK8VCfSypMQBI2X86hXt37IDi3bigmwrksJMQH17slhBply3e9wuTyGe-AKk9Fy-EmpCzgtC9Yqd2X-wSIY79AqswYAzKsBi5wcFtigtBnTKz0sPj-y_UTBRsU52N-XgLToAXHgJJG8KwFWnkP10nSVT87r1JevIDo4UVv0uJ2HC-B4czFKed03HZbKWkJ-rU0-Gfr_91ne9-228-BKRudEyuoe4Eb8a6K2ukPePYys%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7kW4nSDCciw4sL36z3KS3UQVqrk0fgy4Czhm8JOI0PI3y11QgbhyVlXYyzpTPjWd_1RBpSZ6WHzAja1PfdvZ9Om-mSeXW22Od43uklg3FMqppyW_GTQpVH-NpLHha0dYsBDcAP_TKLpTn0_nxGMzVOJM3-ZW6KmEBwibU3coKV3CAVUuF4bW1VugoK5ggOrKoPzaA5fbZNu-qdb5O1-MQIiNH4ELT_a9UzBjvtDJgeVIaC9fxobsdmId0%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -113593,13 +113604,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.599562,
-          36.3979222
+          140.5995218,
+          36.3979459
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:514fa2fa6eeb4435065e",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:514fa2fa6eeb4435065e",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:059251498eba26c7ceaf",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:059251498eba26c7ceaf",
         "name": "国営ひたち海浜公園　大草原フラワーガーデン",
         "category": "メンバーブログ・SNS・その他",
         "subcategory": "メンバーブログ・SNS・その他",
@@ -113615,12 +113626,12 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ygdRPG8kLep1fGIDaanG0XH2I6P4CAjzNJNEQ9eqd31-4HKY83eTW2RZvwAQh6OJkIRC-bTp4iQIBB6QgnD_a58Ma3q_wdDcdto4WIL6PYcAMwicRStg93pvj3gLqirFkOA6yUfoSUnn9vgrChHWyKE4_1_LBCDs8_92xrmdTbuCexh8u_X4_LVGz6y6kAXmsbfpk-sviqLhqNK9UfQJOYPDG40yg6KMEF5Apis2UCcGiRnURUR-NA8Y%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6OIyx4l_kc0Vxk_BKeicIIlryFhwMNuoI9C2TeTHcYAFJ8_m2Omt8JKio4gYfMLEsQWO5ZZcfLh10dCalEbEesAFbJslmgMNXeP70mJ9Z5TrrZUAd7TKoDe6xa4O6Gb_WWUZjGK-183ECWG-zSe6le66girX7VeEq52Od2mOSmrlG0mhjkDZhBkfTa47VaPm_TxlzvSEollNjJY9P-QF97d0Rl9ZAx3ZP_FkXlhKujfXPsmgquyefOlu8%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6goLuQNvVniR0qh17vDuwfKhhksOY74hBtJYobNyPPlO7eVlvYHXii6dOnULmDFMcC3uMKa6---ySb8pvh37o3UM9TApD7Jcn7KAkoYyj6YmCnBuxnf7YWObH3tCxsaWzy3SsDMD7mC4tufgcp19su6QWlGesl9TtvxO058YKxfugJ8LpnKN-ZExe0od4WK502TNl7g4s8j43CBfUEHbc9PZoQF0fKcHd616-PXMq5JPX3OdnIDspcuTI%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7z6yKgNyaW0vVpzX5Bde8P3zMNpJJ28Z1HTJDGhUi1r_hB58Rxr7bbV9BCooVQtjEfbQNlm1PzW8EYpTzf3tVs10rfYt9ckOku_pKkwNYsSxMbCyG1pltS4hG_PBHdY23cf4TghaKrYmPHwCkMnXWVGLwQrO3HxXRlURimbplgRbi--_-74TbbyBJnxXIuJiSDhGh7MitMPiIMfMw5xq1VQkwwQwZX7qenKFaR9XmDLj5zXIRvaorSVho%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6FlHptq5e4nh1fMGpXQnj_ODhAxYvaVeVfMyn_DrR-AGKCFl-A_xPuwwaVTvszAxPy3luw9Ha8zVAY95uS1s36tR_yE6CmeNhEHabpGAgGbqUB6NR8s7IN3RGR3Y3qXEmy2S-wBDY6UMNL8zrB1FvExiwxSpKVRMiKjV-6BDSic8f628N2BEJ8CTvcg_ZF36YtQkkszs7qNlIk-RgyS71-OhfXjhj09_OSRntSBMBu6GSlwWHdAuH2Wjk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR79OPEeFnNYK6pUypVf0SJ_V_rkCjwxsG9DfH_slCZNgOPijSynXhGm7UOjAAMw0JXcsZuNHyv3C7AqTqMW9kx9dCCg3upAAQFCho_0POOlIKdcdDLE7GZuZKbsbgEHSw0DwglvPpB9Sj_eWJqoJjLThQMCFDFwZHK8lsJGfkppj1wXkLimVTleQU9Vm5MD-Z33mxlVrLerJ5jFiDVHMrhjLkbgiaXwanjWlNPwnrQwiNnvt5OnZKbLtL8%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4a7kh21HVUuHHlymK3-9KJROmzak_Sjb39cG7tBTof5_XHxqAYWfRoo63XZ9Wo8cQ1rVNEV_I9amBIoT2NgtdIyjS1dzsW_HEaurH4j6Jf7Zs_p6P0s8VHoXCrYEagrhJQ1sm0PPSNx8M6-Ec_5qVEV98pS7V8U7A3J-LIhLHWWexNlfW5o1RsbgRsZk5W3Pd5CE_t6ow2VoDcGWm3D-TG9qLKm_Exru5PdbzQgOU-WKK7kftrjQzmKic%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR70X3-QwomqKu2gK8aUg9mR6agbIfAWbmhdg7shRRabi15TNPiUAFQArIbXGhrqysXhJ90tp-goK_hXPwXUPYhIw7-RWit8Qzr2gRT00NZll2V-fjBESUFodkDbD21E4LvWiiyEaXPY0ZYD5yLyLk2C7MC3BilD_HwE5AihqIG6xgHGojHo1LfYQvIMo8UnbNe99lehImBUGEX4ow02_GEJJ8y5YuheJkN9iutPjGeH-Nlj3Yfl80DReIA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5TS8fX2q98rFal57sWle8h0AYzYz00vwiot23dz8yd-qR-cLjb4_2sZYjuzH6wsimyeRhcJki8h0_Su7ajuvQZK52k25MUj6FDcJCwv_KgF3LW6Fzxfbt7Bf2i_J23ysKEl5Keax-b_ZQxvk5qpgqvTL2Vm5IrM4XFKvUluZtHW3gM8YEk6E-beFvYsgeCJCIOSpqnIS-P7SgYntxvfA8Toew750rWLYbpLbwn0ytkdADG2HnWE5Iz-SA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6XnuMy4PcKAGlhGlczXwAci9Yzt7HSYXT8E5I7JXT9us_SXfnlfzB_xA61mPkyUM4Pk3UtHs1J5tQn21n5JKcNNpN0VOaDomMznrY9ohmCqcFkK4Eew02MJtze90AVJSs_uZMaT6f-zSnxqn1FjgPsEMslxpFg4f9asVYspU4D3rJykBaJGLW4oO29cBOt2m8KpOGSp0cfG3ou48P8XdGFv9DqeDUXJILkDKCIkPYSTpQetYx9hZ4II0o%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4vV6zW92SzSr4N5C8hIudOhQtXvkv0UzhJdy5p5HhoIPA01H3WWmISBb_jOEaEA08aMIEUODaMJh5WnHJfZS7rC1J_SColTpFo1XWT-UJwpVqW6m3UBH8X3WbedE53-noXo3H04OzkHnESfptyxCO4gPysh3KW6R9NAJnsIKiWMb_cPzsJNuDzav9CctqwzxNP1KvHplu64vR8HdvrePyqKm_5R6Nynd5-9OLt2PAu7GcBtqaMRr27ML8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ICQtbwkPRv8dduX8PLWrPUAp6ITx6Wp_tFJaGfJQiYO-8703xEr8LpfZ0jlKY3X-2J7oIwEXYZ4M6AxTaw0ilpfBn6_CUWrW7Lo2jF3vJCyL_McfGMKE7dlaXrc5gEL38YVeQ0dJ7Q-mI8EwNuKIAp80cmwNezAMdZHa9jFHaQyTt-YbZo5Nz-zAElgkb1og3NGOx48shAHWyOMOm4egauz12mkl4iWSVWssVyClICiTdVaerhWMA7bo%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -138604,6 +138615,65 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "岡山後楽園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.599562,
+          36.3979222
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d82185752ee661d2bd15",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d82185752ee661d2bd15",
+        "name": "大草原フラワーガーデン",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "大草原フラワーガーデン",
+        "sceneNote": "2026春ごろに金村美玖が訪れたお花畑。https://www.instagram.com/p/DXmBby4kdr0/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR72kRhSuYe3KsDgIL81oNKxUd40SbEwfYaedFnIp3r-5bMb1BFA1WQ-5g5pExLAu9exRKlTi_q1GjDfhzAJEeiK7zluL64t7YTZhtes0nzPD-SjwaLTRn26dNbjzBQEmH7Ezp4w7Zrz_j9t4CR4EUv2Qwr957K6tto7_x2uxqES7RhTlHXQKzcAW5A8R0Y3K2U-m3p20X3C3BcI4bJ1U4rjDIVdJh0D-D1oJFk1W7f835KzCgwL47yO2r4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7aK_LMCEZPzPsnjdm2RcE0HZJDer8M8O2cUQJ2vtalSJAMJbMJxTrTctImEq0N4LwCwpWcNgsq_KDXAaI8EoN_MtRJpJUaXWrt_ul3IwxM-tEhjkNEgiXzQRzJAU4h3Yjx_R-SGzW6TzUyl4xgVTAiorHriTaDnt6OjJIaNjf163SfIyveCPNRu_JKcwEX4j_Q7OfZnEHrUGnfxS0hNdvPzxhCbnBMXEUKbj4wyXSa_VOFqN_EsLCVoBE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ly82crzos-jCuuMxD8ZyMw4r2yQ9nNrIurfrPeYuZmk5ARQCpwgl3ETdMTjr0DQvpLBC7Xahrnm9u4AQRf_cnktHjZF0mgDlwCQlHAKst-BtJDb4h3X31lhKYyJyLjsajXHntKO5kSxMT0KHW6Fvvi-IsJZdV3JLsBCjcD5VuLBkOdQkHHj3ifTs7zQg388F_7Zs0jf9cWQzEBu6m5PsIBvzbes0derQ39b-u4WY_rtxAa1ZQGdYyi48%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7nZKEtbIiTrReSJjM7KhRpDK-aBsvxCgds9ZJJu886WDH8bwPs6RyDfvqvqO1qUlhJWyKhEasGM4uXY9vikFQjlBy3_nOfB3t_iGokuCXWTDfnE8UWLv-ol3RYLkdHwbVH3s2c4BrXr6PN32pW2icKOYupmKdo5rJx54kVjLok1LNG9O3hi6qBKDU-zlshPDA32buiJfY8gMPRHKvJ2P_0rQIUrcrRbCTJWypNBhevYmef3UEVfKbfLgw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR63CbPyZ26_Wv4XX4EfkEKJ9BspQixFi2RxVGxreWv1KcPWNgp11wHcofJOZD9ed7NNqXIj-N-FXUM97BXlyUDWEWOXaKANCRMewx1g8qA1e97P6E8KatzxcD-o9qWY8aM501ViTlw7JXUGvJ6cbYx7iVoKnKTI-8pSUUR9KqzFojvwrEOe6M5jKnVLz-R0JjPoeiPF7JVUmlOyPABT0Ok0ExrCwSKyKMWQm7AbAMBdgqQk0TLJQiRoHMA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "大草原フラワーガーデン",
           "group": "日向坂46"
         },
         "classification": {
