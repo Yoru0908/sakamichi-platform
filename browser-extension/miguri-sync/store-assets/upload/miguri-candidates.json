@@ -2,7 +2,7 @@
   "packages": [
     {
       "locale": "zh-CN",
-      "file": "miguri-sync-zh-CN-candidate.zip",
+      "file": "miguri-sync-1.1.17-zh-CN.zip",
       "version": "1.1.17",
       "published": false,
       "bytes": 38323,
@@ -10,7 +10,7 @@
     },
     {
       "locale": "ja",
-      "file": "miguri-sync-ja-candidate.zip",
+      "file": "miguri-sync-1.1.17-ja.zip",
       "version": "1.1.17",
       "published": false,
       "bytes": 38352,

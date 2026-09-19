@@ -30,7 +30,7 @@ def build(output: Path, version: str):
         manifest.update(name=name, description=description, version=version)
         manifest['action']['default_title'] = name
         contents = {'manifest.json': (json.dumps(manifest, ensure_ascii=False, indent=2) + '\n').encode(), **files}
-        path = output / f'miguri-sync-{locale}-candidate.zip'
+        path = output / f'miguri-sync-{version}-{locale}.zip'
         with zipfile.ZipFile(path, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
             for filename, data in sorted(contents.items()):
                 info = zipfile.ZipInfo(filename, (2026, 9, 18, 0, 0, 0))

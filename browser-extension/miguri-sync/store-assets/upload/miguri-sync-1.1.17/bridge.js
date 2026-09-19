@@ -1,0 +1,131 @@
+const IS_SAKA = window.location.origin === "https://saka46log.com";
+const PAGE_SOURCE = IS_SAKA ? "saka46log-miguri-page" : "46log-miguri-page";
+const EXTENSION_SOURCE = IS_SAKA ? "saka46log-miguri-extension" : "46log-miguri-extension";
+const capabilities = IS_SAKA ? ["saka-lottery-v2", "manual-confirmation"] : [];
+
+function post(type, payload = {}) {
+  window.postMessage(
+    { source: EXTENSION_SOURCE, type, ...payload },
+    window.location.origin,
+  );
+}
+
+// An orphaned content script (extension reloaded after page load) throws
+// synchronously on sendMessage — convert to a rejection so callers' .catch
+// chains still surface an ERROR to the page instead of dying silently.
+function send(message) {
+  try {
+    return chrome.runtime.sendMessage(message);
+  } catch (error) {
+    return Promise.reject(error instanceof Error ? error : new Error(String(error)));
+  }
+}
+
+async function postAutoState() {
+  if (IS_SAKA) return;
+  const response = await send({
+    type: "MIGURI46LOG_GET_AUTO_STATE",
+  });
+  post("AUTO_STATE", { autoState: response?.state || null });
+}
+
+window.addEventListener("message", (event) => {
+  if (event.source !== window || event.origin !== window.location.origin)
+    return;
+  const message = event.data;
+  if (!message || message.source !== PAGE_SOURCE) return;
+
+  if (message.type === "PING") {
+    post("PONG", { version: chrome.runtime.getManifest().version, capabilities });
+    postAutoState().catch(() => {});
+    return;
+  }
+
+  if (message.type === "TAKE_RESULT") {
+    send({ type: "MIGURI46LOG_TAKE_RESULT" })
+      .then((response) => {
+        if (response?.result) post("RESULT", { payload: response.result });
+      })
+      .catch(() => post("ERROR", { message: "同步结果读取失败，请刷新页面重试" }));
+    return;
+  }
+
+  if (IS_SAKA && message.type === "DISCARD_RESULT") {
+    send({ type: "MIGURI46LOG_DISCARD_RESULT" }).then(() => post("DISCARDED")).catch(() => {});
+    return;
+  }
+
+  if (message.type === "ACK_RESULT") {
+    send({
+        type: "MIGURI46LOG_ACK_RESULT",
+        completedAt: message.completedAt || "",
+      })
+      .then((response) => {
+        if (!response?.ok) {
+          post("ERROR", {
+            message: response?.error || "履历已保存，但无法继续下一项同步",
+          });
+        }
+      })
+      .catch(() =>
+        post("ERROR", { message: "履历已保存，但无法继续下一项同步" }),
+      );
+    return;
+  }
+
+  if (
+    message.type === "START" &&
+    ["fortunemusic", "fortunemeets"].includes(message.syncSource)
+  ) {
+    send({
+        type: "MIGURI46LOG_START",
+        source: message.syncSource,
+      })
+      .then((response) => {
+        if (!response?.ok)
+          post("ERROR", { message: response?.error || "无法启动同步" });
+        else post("STARTED", { syncSource: message.syncSource });
+      })
+      .catch(() => post("ERROR", { message: "扩展连接失败，请重新加载页面" }));
+    return;
+  }
+
+  if (message.type === "SET_AUTO_ENABLED") {
+    send({
+        type: "MIGURI46LOG_SET_AUTO_ENABLED",
+        enabled: message.enabled === true,
+      })
+      .then((response) => {
+        if (!response?.ok)
+          post("ERROR", { message: response?.error || "无法更新自动同步" });
+        else post("AUTO_STATE", { autoState: response.state });
+      })
+      .catch(() => post("ERROR", { message: "扩展连接失败，请重新加载页面" }));
+    return;
+  }
+
+  if (message.type === "RUN_AUTO") {
+    send({ type: "MIGURI46LOG_RUN_AUTO" })
+      .then((response) => {
+        if (!response?.ok)
+          post("ERROR", { message: response?.error || "无法启动自动检查" });
+        else postAutoState().catch(() => {});
+      })
+      .catch(() => post("ERROR", { message: "扩展连接失败，请重新加载页面" }));
+  }
+});
+
+chrome.runtime.onMessage.addListener((message) => {
+  if (message?.type === "MIGURI46LOG_EXTENSION_PROGRESS") {
+    post("PROGRESS", { title: message.title, detail: message.detail });
+  }
+  if (message?.type === "MIGURI46LOG_EXTENSION_ERROR") {
+    post("ERROR", { message: message.message || "読み込みに失敗しました。" });
+  }
+  if (message?.type === "MIGURI46LOG_AUTO_STATE_CHANGED") {
+    post("AUTO_STATE", { autoState: message.state || null });
+  }
+});
+
+post("PONG", { version: chrome.runtime.getManifest().version, capabilities });
+postAutoState().catch(() => {});
