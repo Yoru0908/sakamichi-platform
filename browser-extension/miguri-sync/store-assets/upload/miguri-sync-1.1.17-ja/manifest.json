@@ -28,8 +28,8 @@
   "content_scripts": [
     {
       "matches": [
-        "https://46log.com/miguri*",
-        "https://saka46log.com/import*"
+        "https://46log.com/*",
+        "https://saka46log.com/*"
       ],
       "js": [
         "bridge.js"
