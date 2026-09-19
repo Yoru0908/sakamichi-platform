@@ -121475,7 +121475,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "七里ヶ浜海岸駐車場 江の島側",
-        "sceneNote": "すーじーがドライブで訪れたカレー屋さん近くの駐車場。 題名:",
+        "sceneNote": "富田鈴花がドライブで訪れたカレー屋さん近くの駐車場。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -121532,7 +121532,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "モアナマカイ珊瑚礁",
-        "sceneNote": "すーじーがドライブで訪れた七里ヶ浜のカレー屋さん。 題名:",
+        "sceneNote": "富田鈴花がドライブで訪れた七里ヶ浜のカレー屋さん。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -138007,6 +138007,63 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -157.829903,
+          21.2782408
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8e0f03b256c9ef702bf7",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8e0f03b256c9ef702bf7",
+        "name": "シェラトン ワイキキビーチリゾート",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "シェラトン ワイキキビーチリゾート",
+        "sceneNote": "2026年夏に松田好花がハワイに家族旅行で行った際に利用したホテル。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4lX4kZz5ljbqYjqmqA_4Ra-Km3SG7YXH3LzLcunw2e8PebgeUgqoltt4RNfhHJUFvzz8pAbzb8ME6VG0KryLWNmD4vDCY0p9BuCFC8EddKf7tGo8UlBx77CLJjlTnT4ky5gLAx6DM5Oum7nJrOIzSkOrAZsH3qR7MfFVWPDxlfvn67WG9EAGCslKmy7i2XqDbu2s33IyJZASVA9DXWBFhsa9lJwC63Gcrs8eUZuH-DqbdP_YfGJ3dyMNs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4MLdU5jF4K_yDh5grDYt0AlDUzWrgFzgtZ7jRhfEOVrX0GMs6DhWMoXjolh1lzheGLLJvDSQjoSf2FNwTKdZP7GWcEUQ2gZV-8rV6okFhvWOIrYXWm1J80zp6X0lBfpU2KjB-5rza0LJpTpVN0uOWs-omF4sgX5PpV48Cn6zyST-mGNfg_jq1MYoonlvNxLcBoI00iGBmIk5Yygx3uJul2mDewRhzA2yOfzIQ6DPh6Czz_HIUYgVjsfgU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5HbM3GVGUAw0X3BZ9rYmymi6PIJkka7IF9SUsEFgPGPwMSiMD_GlZmWQiZh3jlNlJp7OpqI4zNjaggWWveOWKpyj73rP1a85BgMnoILr4kCqSwCLjQYJKU0V-1OrZuVU0qH8MDX6MchgvHcsubmlP-pSpRGhorFO-4LQRVZYaaBBugKOmR4fotdrog2aUtWVrsAb52mySFVXQ8tufw8qGUVUiv7-UAricL5r818B8IuBlunpAcPX5I1Ro%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "シェラトン ワイキキビーチリゾート",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -157.8309512,
           21.2799926
         ]
@@ -138163,63 +138220,6 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "ひらみぱん",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -157.829903,
-          21.2782408
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8e0f03b256c9ef702bf7",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8e0f03b256c9ef702bf7",
-        "name": "シェラトン ワイキキビーチリゾート",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "シェラトン ワイキキビーチリゾート",
-        "sceneNote": "2026年夏に松田好花がハワイに家族旅行で行った際に利用したホテル。 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4lX4kZz5ljbqYjqmqA_4Ra-Km3SG7YXH3LzLcunw2e8PebgeUgqoltt4RNfhHJUFvzz8pAbzb8ME6VG0KryLWNmD4vDCY0p9BuCFC8EddKf7tGo8UlBx77CLJjlTnT4ky5gLAx6DM5Oum7nJrOIzSkOrAZsH3qR7MfFVWPDxlfvn67WG9EAGCslKmy7i2XqDbu2s33IyJZASVA9DXWBFhsa9lJwC63Gcrs8eUZuH-DqbdP_YfGJ3dyMNs%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4MLdU5jF4K_yDh5grDYt0AlDUzWrgFzgtZ7jRhfEOVrX0GMs6DhWMoXjolh1lzheGLLJvDSQjoSf2FNwTKdZP7GWcEUQ2gZV-8rV6okFhvWOIrYXWm1J80zp6X0lBfpU2KjB-5rza0LJpTpVN0uOWs-omF4sgX5PpV48Cn6zyST-mGNfg_jq1MYoonlvNxLcBoI00iGBmIk5Yygx3uJul2mDewRhzA2yOfzIQ6DPh6Czz_HIUYgVjsfgU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5HbM3GVGUAw0X3BZ9rYmymi6PIJkka7IF9SUsEFgPGPwMSiMD_GlZmWQiZh3jlNlJp7OpqI4zNjaggWWveOWKpyj73rP1a85BgMnoILr4kCqSwCLjQYJKU0V-1OrZuVU0qH8MDX6MchgvHcsubmlP-pSpRGhorFO-4LQRVZYaaBBugKOmR4fotdrog2aUtWVrsAb52mySFVXQ8tufw8qGUVUiv7-UAricL5r818B8IuBlunpAcPX5I1Ro%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "シェラトン ワイキキビーチリゾート",
           "group": "日向坂46"
         },
         "classification": {
@@ -138707,7 +138707,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "GOOFY Cafe & Dine",
-        "sceneNote": "題名:",
+        "sceneNote": "2026年夏に松田好花がハワイに家族旅行で行った際に訪れたカフェ。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -138715,7 +138715,15 @@
           "日向坂46",
           "メンバーブログ・SNS・その他"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5SSFCK-PmLuD89y6Xw9lUD9V97PmE6hKEPyU-9lpyglOFZ1kLxdogAm5Lsk_otALfGQHd134e2_E-lz2yL8ht6CPjG8s6finWtl1DBaLH2wtBab7W6Rg_jjx4ANkvfhpFhLLZAauSoGKibei4pnStb1yi5A8vNWKx5rIDot7NOtTs7tYXSwc3He-5d-l6sqUnIe14-bLbX056QQLyEPA671LH80GbD0knxZW3v2e6b35di-OXuQA-5las%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5slRfiLZBTcPXS534rLqB6tp0PcaNGGmgUnhv2v-q5e86rTCGL-Qk244N018jb8bg7hqRe6w2qfnCNi2ZsIqK0M3sSVgRhaYUQYkhPEXV2F0uMTYix51TfdAAejRCumm-ruWTUXLiAxHxfFLvL-bDvgaYzmcaDo1vCZmIj34YxhSK_AlVC6g4sHOp60pN9hzR4h7vepiP5zWepb0YiU6LrKdEDveEPBo01mzLpTnYw4GjYgtfiL0WFo-4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR67AE9abLOg73UGNhzu0BX2XRndok-KavICP0s5ipt7QZHcNTrFyQ2_mwqgo5sImzKgnFUEG786ANAF8H8CtBea0u73HnA3Ed6ZibqMjXtuAbpKob5zvoDpOXWgq4YkMupVxIKCzCSGS5Pm0_75RYac1Sloju8pOABbLHdepx_zns-f4xTzC6NAGgv2ajfxP-Ty3mmJpJQ2m_Qm1p4cr3j3WHL3sot15wVMcf5uHsK5YPmH6BAB65QMX5Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7N1Nrcl_fIKOkJahp_d04xwcDSlOB34LdWJhtnv4t5_SZUGYdmF3LN6sV9SEZ5fZy6tOoW699FLMXhs5CIiz5dnaTkcoKMcWWVeEcH3SPqFbDvOF6sfWYDeQJooUt3mOtdAEytEM-o6FDAzhLloxgH3rIv0D-GMraEikdP7oX8mDFxW24WIynwFqjI4h5QC3DKzFndoNcVMApS7_0j9mbpNL5jNu6ZXuYh7pl1s6UrSEukiayTcEbtziU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4txNzESaxZbtCy3oACPS2CFTLTz7Cr4kaSbdnb6YdjNDWqpxuictFuySRHwfPORwCbCYd_2H4fL-i4FBjJ57_5S04Wof_gauCxdJXCwWEnL30wim4nPPumxi03lAW9akDIH2NZCBSiRzcxMp7idZlv14CytppGINbMjR4pFuCk3LsgxnOFRO2racAL9SMBCsp4xcn2Otx7deefalXIKJhr3bLtEjfP_I6kF9Th_amBIIaA8drPNtDQK-Q%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7MIYBj7oOMG4kij_Xy0Hm0-kC96ywb-2NL1tbN0HZFaLI73wPBgTR9lKfO4CtLxmhomeZ3F1lU7KY-1D6Dli2k7CuoyJ37yfqneUvG6_hyydG4L7d9Pdp-WudfpDSLO-XjrQ5SB_8F-QtFAyZrZ4AZxaUCp3QTAhKSP0UjCx6mGrd0UmGJns_QjvRIDicV_iJRbHstSh_PCeLMnL-csO2a001hqFRziqkNGvuBH6VCXDm0GWQSgDQpPVU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR63O55LEqp166zzgEtLUJ_vLFPz4HvxwHNS7RqwLKuMqiToQrSsE7eZkFSeUNebN4cJLdxrECQxDmtcDH9ijDF8F3XMyw6JomHRtvGDuGNHfqBs8sQcVVE5DPuaCy7Zl6tiOwWXzBRHmY8Jsp6Br3TLE-PeHTsXWD2cFEz5Zuwus0heY8KLyX_UVMVo8fcxlja8UoOT-5HOpURggWDgkL5jlDw_PfOyK4DrcvEIY6JYRGR7r06QtkT2m4g%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -138727,6 +138735,119 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "GOOFY Cafe & Dine",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9865541,
+          37.5776235
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b367c90aecfc01d784ca",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b367c90aecfc01d784ca",
+        "name": "オニオン 安国店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "オニオン 安国店",
+        "sceneNote": "2026年夏に渡邉美穂がお母様と韓国旅行をした際に訪れたパン屋さん。https://www.instagram.com/p/Dc0zZ0MEolP/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7vZ_Bp88l4bGsj-yDv18VVuWLh2ZWkcd-N3fchy9N6DMa8hXBBQZ2slsoRUEZDZfA_P87Y2CLQ8QXNMt2ZO-oo5HPULGQ1NRFoCLoL5kegSKe7KW2flMaznTtIh00CUdfYLeqbqvQWKyTrAVNzDIAho3hR7NezWu5VHbulLshob1z79E9XNpcFJiQF8d5ku5wOQJmlflOwc8M7N0GtSIiNAMvtLz-DmmKy_WrNkEi48z97ES4uuiuwxP0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5whkxp8MkvE0bHgxlA2zjnxiF3QSWG5qOtMgVf5_qi_fVUMFL8M2yKBr_GhDIJFhbcANEdmh-tBpxr6zr0r9-RPud08T1JpsKtml-q3A7VR92g3ozAClj68nlp-vTCzJCWn0X9IV30n43yf0MFA2q6-OTHJrZtgRV-fTk57a9jf6p17PZGmrpAFvJCd4mNk7rq2M0euym3pbHGrPiKNSPiJZp25s7A0LhqC5r-obnGSOK0Mf9x-DV2loI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6CqlfKaR-YEBUPaUPd8Q8cBmChg13s3_79obYrc5UXQHZ9GZ6iEEF6A3CxVnCf6-_kFl9xWeFBjfZ_7Psdmbm_knzZMqcc0nSBYiGtQqAuyFC7k-l8UTEpBKlz2Tk1XS6YIgeXrkFWlgMpmqk6MiwRQFnbxQ-Rk712eoXhtHbIfTxvgaUR75gHhL0iceBtLlDzeLaZmNg213QMm6RzClhHbNA8s3TmZBzL3rxd55X2XQMoXRLDpkYtmCI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "オニオン 安国店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5689703,
+          35.2825866
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ccf6c1c2b4993c780918",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ccf6c1c2b4993c780918",
+        "name": "マーロウ 葉山マリーナ店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "マーロウ 葉山マリーナ店",
+        "sceneNote": "2026年夏に石塚瑶季が訪れたビーカープリンのお店。https://www.instagram.com/p/DcbQly7GBqs/?img_index=3 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7J-W9g3CS3UgqeJA9rL0QotOnkeqbqfLozn7vJ3QkWMoSCl77rFGNmyb155cuHetY8bDlMmikU9aIEX5qfmAdycEuCpIFwphOHnfiRDFhnE3fRSVpLoI4-NQh5Du-ASGkUl6nEXuaMjKjHp3owv7uUy_ctXGyVBRx5-HMKQarPt0M7tweSosf-Nve9C_K3RmtOyKPmWL6nOI_OY4IDYEuHHtcoPMdYQuKBhSxd7qFlYey8--BlbwASxls%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6jQw_ht9EWLgKQtCsbPttnD6FlRCiQH7zGnpixs41lLXFz_tOLELdOozCncF08LUZvZLVjV5tuRSMuKsBWulFepNFZ8q0WUO-0kkIKC2zBZWQX0j_BDlhM9QOKxsEuoRPVbtSW7E6tp6f4iMs7-fV9voKTSJN8meNUOFMQsOsKQ3_V6yLcsZPMK2cyb4-CZ3ydCr0JLWNf0CXEKzwr-ObRAgLo6H6BTsiHhh7s2qYLN92WcxP5tRN55Gs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "マーロウ 葉山マリーナ店",
           "group": "日向坂46"
         },
         "classification": {
@@ -210519,7 +210640,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "銅造阿弥陀如来坐像",
-        "sceneNote": "2023.8.7 O.A.の趣味どきっ!!で富田鈴花が訪れた鎌倉の大仏さま。",
+        "sceneNote": "2023.8.7 O.A.の「趣味どきっ!!」で富田鈴花が訪れた鎌倉の大仏さま。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -210639,7 +210760,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "愛染堂",
-        "sceneNote": "2023.8.7 O.A.の趣味どきっ!!で富田鈴花が訪れたお寺。",
+        "sceneNote": "2023.8.7 O.A.の「趣味どきっ!!」で富田鈴花が訪れたお寺。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -217685,7 +217806,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "江ノ島駅",
-        "sceneNote": "2022.01.15「土曜はナニする」で長濱ねるが訪れた場所。",
+        "sceneNote": "2022.01.15 O.A「土曜はナニする」で長濱ねるが訪れた場所。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
