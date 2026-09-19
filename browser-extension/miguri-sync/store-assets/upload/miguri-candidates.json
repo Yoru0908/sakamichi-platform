@@ -1,0 +1,21 @@
+{
+  "packages": [
+    {
+      "locale": "zh-CN",
+      "file": "miguri-sync-zh-CN-candidate.zip",
+      "version": "1.1.17",
+      "published": false,
+      "bytes": 38323,
+      "sha256": "101940f131034264d96c57de487802afb2dec94e41cec4e950c1bd0d884c1384"
+    },
+    {
+      "locale": "ja",
+      "file": "miguri-sync-ja-candidate.zip",
+      "version": "1.1.17",
+      "published": false,
+      "bytes": 38352,
+      "sha256": "57e33190fe19ec65338dd879ede603b9a86139311b1852ffe21abbae8eac2888"
+    }
+  ],
+  "runtimeIdentical": true
+}

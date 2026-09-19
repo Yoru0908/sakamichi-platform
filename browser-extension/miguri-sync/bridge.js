@@ -10,9 +10,20 @@ function post(type, payload = {}) {
   );
 }
 
+// An orphaned content script (extension reloaded after page load) throws
+// synchronously on sendMessage — convert to a rejection so callers' .catch
+// chains still surface an ERROR to the page instead of dying silently.
+function send(message) {
+  try {
+    return chrome.runtime.sendMessage(message);
+  } catch (error) {
+    return Promise.reject(error instanceof Error ? error : new Error(String(error)));
+  }
+}
+
 async function postAutoState() {
   if (IS_SAKA) return;
-  const response = await chrome.runtime.sendMessage({
+  const response = await send({
     type: "MIGURI46LOG_GET_AUTO_STATE",
   });
   post("AUTO_STATE", { autoState: response?.state || null });
@@ -31,8 +42,7 @@ window.addEventListener("message", (event) => {
   }
 
   if (message.type === "TAKE_RESULT") {
-    chrome.runtime
-      .sendMessage({ type: "MIGURI46LOG_TAKE_RESULT" })
+    send({ type: "MIGURI46LOG_TAKE_RESULT" })
       .then((response) => {
         if (response?.result) post("RESULT", { payload: response.result });
       })
@@ -41,13 +51,12 @@ window.addEventListener("message", (event) => {
   }
 
   if (IS_SAKA && message.type === "DISCARD_RESULT") {
-    chrome.runtime.sendMessage({ type: "MIGURI46LOG_DISCARD_RESULT" }).then(() => post("DISCARDED")).catch(() => {});
+    send({ type: "MIGURI46LOG_DISCARD_RESULT" }).then(() => post("DISCARDED")).catch(() => {});
     return;
   }
 
   if (message.type === "ACK_RESULT") {
-    chrome.runtime
-      .sendMessage({
+    send({
         type: "MIGURI46LOG_ACK_RESULT",
         completedAt: message.completedAt || "",
       })
@@ -68,8 +77,7 @@ window.addEventListener("message", (event) => {
     message.type === "START" &&
     ["fortunemusic", "fortunemeets"].includes(message.syncSource)
   ) {
-    chrome.runtime
-      .sendMessage({
+    send({
         type: "MIGURI46LOG_START",
         source: message.syncSource,
       })
@@ -83,8 +91,7 @@ window.addEventListener("message", (event) => {
   }
 
   if (message.type === "SET_AUTO_ENABLED") {
-    chrome.runtime
-      .sendMessage({
+    send({
         type: "MIGURI46LOG_SET_AUTO_ENABLED",
         enabled: message.enabled === true,
       })
@@ -98,8 +105,7 @@ window.addEventListener("message", (event) => {
   }
 
   if (message.type === "RUN_AUTO") {
-    chrome.runtime
-      .sendMessage({ type: "MIGURI46LOG_RUN_AUTO" })
+    send({ type: "MIGURI46LOG_RUN_AUTO" })
       .then((response) => {
         if (!response?.ok)
           post("ERROR", { message: response?.error || "无法启动自动检查" });
@@ -112,6 +118,9 @@ window.addEventListener("message", (event) => {
 chrome.runtime.onMessage.addListener((message) => {
   if (message?.type === "MIGURI46LOG_EXTENSION_PROGRESS") {
     post("PROGRESS", { title: message.title, detail: message.detail });
+  }
+  if (message?.type === "MIGURI46LOG_EXTENSION_ERROR") {
+    post("ERROR", { message: message.message || "読み込みに失敗しました。" });
   }
   if (message?.type === "MIGURI46LOG_AUTO_STATE_CHANGED") {
     post("AUTO_STATE", { autoState: message.state || null });

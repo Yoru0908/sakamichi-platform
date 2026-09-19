@@ -27,7 +27,7 @@ def build(output: Path, version: str):
     reports = []
     for locale, (name, description) in BRANDS.items():
         manifest = json.loads(json.dumps(base))
-        manifest.update(name=name, description=description, version=version, version_name=version + ' candidate (unpublished)')
+        manifest.update(name=name, description=description, version=version)
         manifest['action']['default_title'] = name
         contents = {'manifest.json': (json.dumps(manifest, ensure_ascii=False, indent=2) + '\n').encode(), **files}
         path = output / f'miguri-sync-{locale}-candidate.zip'

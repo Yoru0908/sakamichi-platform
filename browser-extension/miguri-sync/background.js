@@ -97,7 +97,7 @@ async function discardSyncJob(job, closeTab = true) {
 }
 
 async function scheduleAutoJobTimeout(job) {
-  if (!job?.auto) return;
+  if (!job) return;
   const startedAt = Date.parse(job.startedAt || "");
   await chrome.alarms.create(AUTO_JOB_TIMEOUT_ALARM, {
     when:
@@ -341,9 +341,18 @@ async function startAutoCycle() {
 
 async function restartTimedOutAutoJob() {
   const job = await loadJob();
-  if (!job?.auto) return;
+  if (!job) return;
   if (!isJobStale(job)) {
     await scheduleAutoJobTimeout(job);
+    return;
+  }
+  // Manual jobs time out too: tell the waiting page instead of leaving it on 読み込み中 forever.
+  if (!job.auto) {
+    await relayToDashboard(job, {
+      type: "MIGURI46LOG_EXTENSION_ERROR",
+      message: "読み込みが10分を超えました。公式サイトのタブを確認して、もう一度お試しください。",
+    });
+    await discardSyncJob(job);
     return;
   }
   await discardSyncJob(job);
@@ -372,17 +381,16 @@ chrome.runtime.onStartup.addListener(() => {
   ensureAutoAlarm().catch(() => {});
 });
 
-chrome.alarms.onAlarm.addListener((alarm) => {
-  if (alarm.name === AUTO_ALARM) startAutoCycle().catch(() => {});
-  if (alarm.name === AUTO_JOB_TIMEOUT_ALARM) {
-    restartTimedOutAutoJob().catch(() => {});
-  }
-});
-
 chrome.tabs.onRemoved.addListener((tabId) => {
   loadJob()
     .then(async (job) => {
       if (!job || job.tabId !== tabId) return;
+      if (!job.auto) {
+        await relayToDashboard(job, {
+          type: "MIGURI46LOG_EXTENSION_ERROR",
+          message: "公式サイトのタブが閉じられました。もう一度読み込んでください。",
+        });
+      }
       await removeStoredJob(job);
       if (job.auto) {
         await updateAutoState({
@@ -608,7 +616,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         } else {
           await chrome.tabs.create({
             active: true,
-            url: `${DASHBOARD_URL}?extensionImport=1`,
+            url: `${destination}?extensionImport=1`,
           });
         }
         sendResponse({ ok: true });
