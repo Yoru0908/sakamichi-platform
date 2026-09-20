@@ -123853,7 +123853,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "由布院ステンドグラス美術館",
-        "sceneNote": "くみてん、なっちょ、めいめいが湯布院に旅行した際に訪れた場所。 題名:",
+        "sceneNote": "潮紗理菜、佐々木久美、東村芽依が湯布院に旅行した際に訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -139013,6 +139013,401 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "原宿さくら亭（さくらてい）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7292785,
+          35.6604621
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6b614bd2a1e77c687d5b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6b614bd2a1e77c687d5b",
+        "name": "森美術館",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "森美術館",
+        "sceneNote": "2026年7月頃に加藤史帆がロンミュエク展を鑑賞。ロンミュエク展は9/23まで！https://www.instagram.com/p/Dap8lnKE29r/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR72_YrqNKqj-zDvCAab2UZ0VFfd5_3MCDmzfmCqVbjRexs3pUz2hKvtGp9YNm0gZeJRhRgT3s6-Y3rEe_28l-R3JUZnkrX3ybo996_ujkSHxqo7X4gawwerlakqCN2PeH90ExigmhxoxHEznvxYGHmQhmmWMa71k_y5FY8wISqLNL1EcmBK0ONXnq41vlHkT-VcY3oSLKY4GHJyNZffy0lbs0--JwXOsrl033_tDiQztYgCc7daQAUnGHI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5lVRLdIAueDjX_GMsiTjHoPXlORG64A6GQjAEIWsdP5jpxnPslstEHN9NqINtAg91hch5C8S_FyO_nALWj5-jIquaZGjmR3Gnhr9kgqJxaJeUK8Ee3JLm6LbTsWq8H-x38f-WLXLsgLE-_XgxX9RsWwBq5uY7lX5d6T0iymk_468cdnkOpA2ztYpnJ5D_FytVRmF_Ij7zbcIdv5AE_0nSe-MAA_JfWHGUO2475JSB4a2Ql3J4bi2gzmzQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7xfiPWEQsnyy3i48e5_wlE7wr5K1poW_6L_qlkrU0SvW6Oe9Wnq6FCZFlckUBOV5UKTzAu2G0lrEfD4is7BW3TP7VGMrE-XlG84F9UavkFdwly__l4beQ-j6ViCJbQRsi8TwwiZVn22HvfCxGw8zjZjYUMoSrjd29sBnB48ZKemRU4SXheFpx23XODbrzgPYHhbV7zhI5NuWtIsRHAGIXti3fHyQ0fYeQ4XBZmrvQTb1ndNI2BNPfTHyE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "森美術館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.9423611,
+          33.9546189
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:91152bce85fe04b54030",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:91152bce85fe04b54030",
+        "name": "市立しものせき水族館 海響館",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "市立しものせき水族館 海響館",
+        "sceneNote": "2026年夏に加藤史帆が訪れた水族館。https://www.instagram.com/p/Dc0njREE6Ow/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4j9ntiOhYMgxIP76yI_LUGA4y4Zobc5ABsCsWbSv4VwekLfXk31HVU0w0ELi-riSwmpx9jtfip9fA0Cx_1wPEQPu9Al_a9HnuXdcogvJD6f6U28SMrvg4qAwhFNDTQcpCFcYAJJRMuLhDcCLLS8HQ7GnjQtdFDZioyvOGYItf1s_UmrwJG3rL9v1Fc0YC6vdYPzHQK2PgZllBUhV2dAKQ77ymSw5qDHmCUia88W4JouWatYHDgR5rFKws%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4unxRVPPal-HfwNVw72xt_-Fc1Yix6nL6HmZd-hfeD3WJ1BG0JxgXKH9xi-AAAikTJ2wJKrcdfL6cwPSsMZHeQNLiKknPy8TS-HeaCU87QwekDOHDkKMSGcvznAdnZblLNaduLLqoMSD-89qvXcRKBIH_yPuKTG2g7SveY1nsr4k1ZKz_WWoCnraofNOfjqoVpBinmCcEXlREAAjzwvgzdWWafVAgg3yBqZp2pmUvQUITHwT94H2NscrQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "市立しものせき水族館 海響館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.787721,
+          35.629295
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:18ed183609ae719a7411",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:18ed183609ae719a7411",
+        "name": "レーヴ・デ・リュミエール | RÊVE DES LUMIÈRES",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "レーヴ・デ・リュミエール | RÊVE DES LUMIÈRES",
+        "sceneNote": "齊藤京子が訪れた体感型デジタルアート展https://www.instagram.com/p/Dc03uGDD4Zw/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7rkYq1iLogR38CfKxxsBtorOm4zY9FyRL1l0v1P7Txr3VomLedWrVyM9DaVthZUVWBl3buNIZj3PZEs2C9_pCwNyiZn2uJvKSxBdjyETwjT8Tf9qnisBqHTpeYYhgJoPF7AZswTNZMrPP0ZU0coTsA-M1oHSfozwkFVncsJ2bTAtJn5B1TE19AxVjC6sEYpUGLDosuDzYzBiD3DFPaPcSYMcBZD9UPIE5LBACUzwcG91WahQNMAlDpD0Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5dfMEGarelc9bfMiv2Ff5AKtxT_2-MjnvM8vDGHLzcXf3QbKh3Pd2DY8uc7juj9RQKAxoXgia3RMjnZABn1r-lOzRLvzTmlNVmS1lznCNJ8B7IvkCr-PgI858n0tCeU20fMpQBRTZQ1ABwzV-RjLXG5WDnB2dtallWRYpMgs1_mPDHCW2fXSL3mPao8KiyuDtvvuf37yvydzXPXGR5uKxZxWdRMbGggJjDCYs8-huvSJc-TdA0_mfSTwU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR610jfYSebPZkEpAZ8gVWDtrCfsNaQn3mtNAijRoSEkEGymKWaTvj9zDukCD82YS8FI-bEP67k6WNvJE34AUP2hPeKwbXw_7MhOi2BUP5aCxKYP-DOPK8VNOEGwOaXxdcYqm5YtbED_CVlC1Fw7YRj-mWiuL29HnydU5h-0xo36ZGL9LJ6rjVTTIpWyGIZ6xM35wDty5L-a6eNlIYye8eoltFpLLHlrCqh3RxVzyRaqW8si46GJVmTA3xo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "レーヴ・デ・リュミエール | RÊVE DES LUMIÈRES",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5625411,
+          35.2925229
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a51459c5d02e675b544e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a51459c5d02e675b544e",
+        "name": "葛が浜海岸",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "葛が浜海岸",
+        "sceneNote": "2024年初夏に森本茉莉が訪れた海岸。https://www.instagram.com/p/C8PIXLEy6Xc/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5LUkJgzqdpg-TPbHNhizVe9BHulFfakMxxDagNwKlTYZa50VPgtMimESWkhM-TRomfTOZjhHj0zCCrda1wmnZIGya5I1zN3XBAUd8kirYBJA5sBDM0bRZunN2qCLzBMbX_36BjsOWpPcCbjyRBoDnYdzR_hMUBjjRt9RwK6wyWXmdwEGLWg6fwvFtQCyPBLwK2klJwruwYvmbi8DJlIJOeJYDKzK7ZeDKcwe5SvGkizsubtIx8UzVQlPs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR45nkyMH3AzJ7_jShNA7ldRQmmAxi5mfQ6yDVCezefevq8eFhNqTpQwCCH518D0ZeZ0QANBwKrRqZ0CYp92o11cC0xntnKPPRYWU4Qk2jXIL9k6y5FQhqhvPOzG8fMBxt3G8Rehj7T20ZhmOvIxsIKM2Fohj4C20zAiXPREgb6FMkHEYRFKcpjUkArLtVQjOwuq9CD7Oo805ixTwMdvQH-DHfZjBaJe0es2NMgAV3yvxftzkL2hLSRIp4Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7I3PeGsK3wWK2nJzGH3n-6h0moAgn_X3XpwuESkVzTWV87Ci0JjUSS_yp7uhBd0cf3-JWOcnMZrwDHlFIJafBNuzVIPSI2LjOKm4Lkgs0BsdWCAQyvtQNtf3gcYMORbHuLw4HbkKwJD0zqNXwJfn_pGCoU3H1rYWGv5v5nh0OzEt_9DhrSc8D4w45U3Ir-QREDWlYAJbgc_oLRJZaGEjJHHQpYp25f88qzPW_tfBM4ydl2voNdW7995AU%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "葛が浜海岸",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5636553,
+          35.2926701
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:20b08ac76653e5bf7f93",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:20b08ac76653e5bf7f93",
+        "name": "(旧)surfers ZUSHI",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "(旧)surfers ZUSHI",
+        "sceneNote": "2024年初夏に森本茉莉が訪れたお店。(閉店)https://www.instagram.com/p/C8PIXLEy6Xc/?img_index=4 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR69MZqCsl90uTy2y9vq2xYjkhBJZc5zn1GVu6938UQvjtXMXEf8zQ1kUp3Uh6zIaMHDzDVPQYmsZ3qUa58FZB_WlyYyvopawIBErPPnT2Xh-HfRq8EM6s4vaI89WwNHIHEOcG70n_dNYDKXei1-ZFQSiB40k2qsXYVjDxd-Vu-Q7vL8MgAEeJB5ROQDowEvSiJ8Gg5cfycHpEsNmELTGWqI4lMGH2KpYyofF2YHi3ZMQjecaxefBT8Ftfo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6AetsEveLaWB_M91v0SqMR7a5fwxm0s0qBJT_ttew4xN4YrcXmau-AIE5HAEWGZp1_xOQiBUFkthzH0VQcsRaNoXywCkXCfNsmMjz6VhB9D8RFX66OYgyubCQ1Z7PK1Wji30EXZaU8IeQ4ldooJEN1Jre2xdX417cq7_3v1hyt58qJTX4eOEPuflYA4KlzCWO-NrC-_di0APLEnjN8HfBJJJePh-FkYemkSH-WK3M5mhWatRpE7jgfeLE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6HIibVH0e6ccf2koD6XtpXEb-UrgBW-QCTiOBPx5kMKD9FjwUbppUyLLoKsxz52TJb_vtuR4qq8NGvkP8LB3jtab-uIZkvsF3pXzFioapIwQ17rkqeBL3wMH77HdJT3a8ecRz4uiSC2sFobjKzbUvbbc8esCM8GhOOfVWWZr2C6i45_ElOLaR2Ocmezrm65AyZcJhMHKlpzT_Y9fWIwvg-F06acF21M_cb1widLCL_MnLrU3zPkTsj4qg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ZIizR-OvRhQfZcWbNvClZCCVJZhK0Mg6MgJQLtzVume8AhyGmayYN-kIwIu1K_cMdl1j7Py3IhOfwm3BY7rMYSLrf2URy1irEACQFE20t2dtzo1zHnplhTG5rT1-ItnsbEBKCsuR95pyWP3G5tLeLuAoLTGOe_h11h8-Mr5vPSkuVSj5IwCdo7T1_7blpztyPJ49mN4-lGSmijoXsAO1I6lci4FmXeeWMj5gdSUBS1y-bGlNMlsYZgzs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "(旧)surfers ZUSHI",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.7962819,
+          37.3706588
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5b483e552c84ecbe524c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5b483e552c84ecbe524c",
+        "name": "Stonecreek",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Stonecreek",
+        "sceneNote": "「今日いく？韓国！～新山千春と濱岸ひよりの韓国リフレッシュ旅～」で濱岸ひよりが訪れたカフェ。https://www.instagram.com/p/DVqTEYWCQ-p/?img_index=4 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5v2IVzQVoMguyJtzYMFrs3JahuqGoeW17TmEnzZsZTAiToyWFJ5O3iWV8_5gaNlirVPzIAkQwp_or2fJiSkBgbYPp46fkrlN5TWbzNLOF0Mc4QusVdLNpHQbnR-EBMzKH4iCyFPR9j4kP0ajYciWQKEHA59ELXZgze_Z0Vb0tlyVZILQad_XlKIQ7OuwuM8KrFfV9MbEhj3BAN9qRC3RfVQfyoaB6tgHAL_LmYUM14rhV4iY89YIwulac%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "Stonecreek",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          127.0348247,
+          37.5215411
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3482315e475e1002e736",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3482315e475e1002e736",
+        "name": "鳥山大路(トサンデロ)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "鳥山大路(トサンデロ)",
+        "sceneNote": "「今日いく？韓国！～新山千春と濱岸ひよりの韓国リフレッシュ旅～」で濱岸ひよりが訪れた場所。https://www.instagram.com/p/DVqTEYWCQ-p/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5O9KeJy2SXyrkKHijXsIslQmIcv8lQREVTZmxxx0CJqxSl5L2lfbm5Ta98YIh5ETQw4hPAF_KL-7KXkHt54Ol3zsE4ygqBCjqYEMXDX5klEnct-q_04582E3S5SL9RMrRtGkR5x5rf2YKUFmT590mt3YAsAflArjz00G-eT1ECTTw75ZUcs10_OT86fr-FI-KsPckeAKgSx6quJo6QBBjHP9pMb3FwDaIu135OTSPH-ObYYy8-YfCDi0k%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "鳥山大路(トサンデロ)",
           "group": "日向坂46"
         },
         "classification": {
