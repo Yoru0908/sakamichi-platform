@@ -139551,7 +139551,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "俺の金の焼き芋・足湯カフェ",
-        "sceneNote": "https://www.instagram.com/p/DOYalALEznO/?img_index=1 題名:",
+        "sceneNote": "2025年夏頃に山下葉留花が大須テレビの収録で常滑市を訪れた際立ち寄ったスポット。https://www.instagram.com/p/DOYalALEznO/?img_index=1 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -139607,7 +139607,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ギャラリー敏",
-        "sceneNote": "https://www.instagram.com/p/DOYalALEznO/?img_index=5 題名:",
+        "sceneNote": "2025年夏頃に山下葉留花が大須テレビの収録で常滑市を訪れた際立ち寄ったスポット。https://www.instagram.com/p/DOYalALEznO/?img_index=5 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -139662,7 +139662,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "SoN DINING",
-        "sceneNote": "https://www.instagram.com/p/DN3EOLf5nUx/?img_index=1 題名:",
+        "sceneNote": "2025年夏頃に山下葉留花が訪れた古民家カフェ。https://www.instagram.com/p/DN3EOLf5nUx/?img_index=1 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -139775,7 +139775,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "港鐵香港站",
-        "sceneNote": "https://www.instagram.com/p/DXRXInwj1Am/?img_index=3 題名:",
+        "sceneNote": "2026年春に加藤史帆と佐々木久美が香港旅行をした際に訪れたスポット。https://www.instagram.com/p/DXRXInwj1Am/?img_index=3 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -227747,7 +227747,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "旧三崎中学校",
-        "sceneNote": "佐々木美玲が出演したAimer「花びらたちのマーチ」PV撮影地。",
+        "sceneNote": "https://www.youtube.com/embed/YMxsicN1R0M 佐々木美玲が出演したAimer「花びらたちのマーチ」PV撮影地。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -227755,7 +227755,9 @@
           "日向坂46",
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
-        "images": [],
+        "images": [
+          "https://img.youtube.com/vi/YMxsicN1R0M/hqdefault.jpg"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -227767,6 +227769,67 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "旧三崎中学校",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.492164,
+          42.9789928
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4e6fab6e6ad871a75979",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4e6fab6e6ad871a75979",
+        "name": "くるるの杜",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "くるるの杜",
+        "sceneNote": "「JA全農COUNTDOWN JAPAN」youtubeチャンネル収録のため、潮紗理菜が訪れた農場。https://www.youtube.com/watch?v=EYHgdltuco4 https://www.youtube.com/embed/EYHgdltuco4",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "https://img.youtube.com/vi/EYHgdltuco4/hqdefault.jpg",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4e4ytwKOLSW7EMSzf_Bk8IQTO0FL2or6wi6U3eMDORua-3BkJaqt2s-Jb4NRx7igFUauNzZKDAYSUhuElB_pmv6nKHgrxr-9cHvJ4VBDy53MpYHFA3Tjc2LoA5PTpX3igBXKwxfZu54Rm_A7jsxyXGu8SDvkv4ukMP91Jvgs1fnmN-FsgxXvqA_ou8VVQuP1DzA5VNj5tFx7Vhdhe2f_3RX7FsTSWPJUjQhpBiGkg1x8fHxiz_AUJftMk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7qz5STKCSoWLi3vRYu99Jv6oIbKbZrddhV_s0L9FyEj2SnsYz1CRqLiPee6Q0qgxEKFmzTiRt1t_thyrJwFiwTyF1-gKIq2FVEx_uyXOG9zTwUm9BEtfFnFCOxcPNmxZMTH8en8xr_LU8EhT11s6TlDSXEDQwzHUtZrtgUmJp7kLLvrf3reDY74FiziI1TuQ6MKkCST4X_FeNUi20vqubi_ryuDBzD20gr02vq94lVtfbJ9bo7AXl2lD8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6CsnzVmIh2mjO8V_4ik-e_9PN24bhXlZiCTC-osVgYDIsjylDfNy0LnE6gBgA7MVMwlo39Dt2gdZM-yY9-03rTzHO9ppi9jEZyjoTOguDsAdDy-uMr4ln0NkOd4BwbGytkN5SzteyPqGdCPiVyIp6Yzwz_HKzFzg1Xg4CfDpHLjUPtaBYSo6_Zw_0O_CykdMvjyIhxRiIxRMX8XFvcPO9ONoLDc33B75UVdY2u3QvUaSTLwiqJl57vOkw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4J09-jhYG6x47ugLOlqqYtrcOAby6Vbld1dROQIlrdsooE2WoevfOwA8TKUxlU_GFFbsHsBZ1ensxBB0KydOEUjfr1r42paBoH9QcsrydnepEU0WE4a2ydEu7J07enYgkHyFzqYdKa1Py3kT1T92HWx9S-oxs7w3RD4R10giPWeiE0E4sST9B-1lUlFqlUZ32bZj-5iDyR4PivioXzeZqp9Ulv3CYv7Mh7EZwO7vz6A5fFeGqlJzc-b0k%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7knLwGmLleFtysHDRg1s1HKn460dZw4NQ6k7UZISarXwtnH2gy6_SLDl9oFDaWWvEdJmTbPxoaePzOHeYtNU8qL079olKPl9ePseRl0_fEC-14-TLGoHhCESPWsUKGqn-tIm-9bzszGnxjDdBTGADz85cPGHYI-NXZyDDLkjnvSj8KEyj_JF4cvs8glJIPOIBxmZ9TI72gBJvY3Y41P5tSHWGtvRYAeUVFd0Mr_S7oqd-WFJoccrVY3Cg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5eWVzgHnQJXKsklUQiSotKQ-3F32O1t_u7qi2BW9pOADtEh-QhwVDxTZH4zxFbOP27Eag9zWss7gpUzRfsvfpIc4nLYp-TAGpzdfgqYtQ7_-WPuPmALCSkTK5rAIyS9cfPZtYtvvA_loXJNheifBbOujQA9U7mnV-QA_qxsq1I9XVJLOSh_xOX-hdZ3vik1DNYres9z-_lUtwrASLhPZhRNFpgxwf5FnIjhlQgr34f3XEPjB0AlxQTgs8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "くるるの杜",
           "group": "日向坂46"
         },
         "classification": {
