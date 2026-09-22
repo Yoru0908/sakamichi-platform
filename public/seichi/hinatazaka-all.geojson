@@ -139505,7 +139505,8 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4mgVc_ZSAhJMMTicLIhl4Cfkuv-895v3LedB6CFLt6MLYh-TxS59y3BgcpA9tTf6vuJY3AXkKUJKWavRva_qdSSdDxlZPp1HexL3XLNP3X63qOA-DzHXDkuMXOzxcD-fQz6txVK0NAeLoauACSDezyzw8O78GXEedCVekUenIXH3u2jDCd8kOudGyXt_udMiXpsWqz0t4X8pGaZDNsTmtbTVpwdBzMV1KENWZvW5rotYNIXsqGZrEVyLY%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4mgVc_ZSAhJMMTicLIhl4Cfkuv-895v3LedB6CFLt6MLYh-TxS59y3BgcpA9tTf6vuJY3AXkKUJKWavRva_qdSSdDxlZPp1HexL3XLNP3X63qOA-DzHXDkuMXOzxcD-fQz6txVK0NAeLoauACSDezyzw8O78GXEedCVekUenIXH3u2jDCd8kOudGyXt_udMiXpsWqz0t4X8pGaZDNsTmtbTVpwdBzMV1KENWZvW5rotYNIXsqGZrEVyLY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4YdIGpf24SzCTr16S4i9mfULpi4TX4C1S1VUt2YP8dhFDJiaPjz1zJZ5BAfZqyLo56FNHfaWdNI9Kfy6PHz8HtdSf5KUC_fOZb7uXju5SRiDWd1OZWxvcwVoqGVkyV0Qd2Pk3DNhduo2dDS0Os5xq_Jv7kviiux0W7anOwni9K5mPislddS0CmzbjZtX39UUz1s_5LfhvkRxclqN94RJJ6Y7_nnbluFDBhzNzqUxPyU-Ba_Mq6iUtAF_U%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -139797,6 +139798,174 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "港鐵香港站",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.6803413,
+          36.5488021
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f0c3113aae8f67c15933",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f0c3113aae8f67c15933",
+        "name": "石川県立図書館(2)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "石川県立図書館(2)",
+        "sceneNote": "2026年の夏の終わりに宮地すみれが金沢旅行で訪れた図書館。https://www.instagram.com/p/DdOTEf8nW6s/?img_index=5 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7eYsgEYwdIYiMh7tQhJ0Mm5eki8yc6yI5pJKVnfmax2AqsahDCAkdm39P3QlbQ2P5ehxbddRuM27d5KxMLGMKGdGVOzSYRFAqzLjfgpjMX06ySmbYiXPvXDzAoEMnqedCu3qO5by7SGNHuWlCHiFs0pr4XfwfJ7tjLbSRlo4pNquXkms4m26HP2XDgstpVOdFDz6HGxJCnfynDh-CtjSriOj0BY3ccql4X0Lzxd6KpMMyIge3yI8ClX2o%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "石川県立図書館(2)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.6667228,
+          36.5722924
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c95bad8995cdd45a1928",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c95bad8995cdd45a1928",
+        "name": "たばねのし 金沢ひがし茶屋街店｜和クレープ専門店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "たばねのし 金沢ひがし茶屋街店｜和クレープ専門店",
+        "sceneNote": "2026年の夏の終わりに宮地すみれが金沢旅行で訪れた路地。（入店したかは不明） 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7hpAU0Gi0NlJRwZW612FHj6v4bo5AlkN1QR47s72S6OMllHCrCUXbHZXwaFqGeWrBdTKhvK7eOvuxTqhWEo8Flm-_vzZSwe2sYkbzc46915hx2SiRN9m3pI4BzEO64Mn0f1EqWwH_ymTv5DI4Xcpl_tYl7Tk4W-NZy1jQgQ1CM1xN30fx_0e5hD5cszFkmzmxENe0K76N58KyD4KLHVzOF_iwoY-00pbIN9s6ZDebiJo-DvM73SOM5Z1A%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "たばねのし 金沢ひがし茶屋街店｜和クレープ専門店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.6670247,
+          36.5721875
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:54983b339e69a99895db",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:54983b339e69a99895db",
+        "name": "金沢夢二館",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "金沢夢二館",
+        "sceneNote": "題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7PR35NyEzgQg0wlBuUsrwX38pYT7hMHP63g4yM6ELFDaooKcEucwBlN9Omn_DXu1lum4Q_RsK2kDHAHOQFkO8or7IY5K9lOfOXoPoDrsN0mBWzHAAfcV4w-dC_KZNJRRjJZ-ZBckMgv5gcUOuckgke8RBVcgGmrJ0Yi8tJzMN3j_N2DhbMu5JJdiC94iPDPbz973rfQC8ksm0oqiwtXTGDiLk4XjJYlSPXtQr_nz-Xh1dvQOxzTE4vm24%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR63eaMKuPxFFc9FSGIyQLU8tMxhEgp6l7IYKzV9Z5lK1mrFseAZ8m7ZFg3wQvWGzroQKOuPLvhG0F5sqDKZ5FjtcURi0pWam5ShIp2i-iQTUPsK9uHed51XvJCdh2PBtN911Ghbh1cn2JBApnMQkb8-Q9h8fRhb6rck6C5tKY7KdOv4wp1prMoOrQtunD06PDUmyb9dyS-qtM3Lm-oEaxA8_Z2HJ9YqgtCvKgz3iHyIAQ-fwGfBoJcruFQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7INKSVi2aFU4ybUdmIhdPsrmWw_Gg3Z8Vgcr5hY_P_xuH_xqk0TjinprsgHeD2w81HDmCuCQ6dk7_GJsnrSQgUXSasXST2M6niBaP55q5qVpv0Zk8-zSuXpy4AKlGqX7QY0j14F6f4KuvFDNtIY9X8P_yThjUl1VQkGigMJ_SwE6PFkcNozjp0CJhxIqA7Ztcw2Age-HsjHo71T6N4gKKUoPOnN5LKzfLW7D5oWvqJUfLP4W05keuBLJU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5mQibGcLV5FVNGjFZjBUQg3WlTpLw4X3p_iNuqOQveFaKdb5FDysMvNOpUY6Q8ZWpH7R6bP6tm8h6UQXw00K5yK9NQ1H6Jq-Q9ojuCJFFaKMLmVq_x2I3szihaT7UElup1My-EQ7XLPe92jhZnV4sQ90iaxHsUOwXT4wULmw3EO4VCCLYTmvYHxGXxxRs-wJxKvTrodMhepM9ZJ7CZGehIfHuepiaZ3TaGdGXj66bE5A_uoenwxQhbsHQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "金沢夢二館",
           "group": "日向坂46"
         },
         "classification": {
@@ -228075,6 +228244,61 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "九谷陶芸村",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4316816,
+          31.9152016
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:326d7e951c696fd7dd7c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:326d7e951c696fd7dd7c",
+        "name": "アミュひろば",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "アミュひろば",
+        "sceneNote": "ひなたフェス2026開催に際し、藤嶌果歩による「暑い夏 日向と一緒に アツいフェス」の三連懸垂幕が飾られた場所。台風24号接近による開催中止決定後、9/6,9/7の両日非公式イベント「おひさま勉強会で会いましょう #ついでにフェスめしたべようや」が急遽開催され、両日で延べ約3500人のおひさまが参加した。https://x.com/ohisama_benkyou/status/2100398318086193340",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR70bOPAMcLiL4tvvFADbXFoR09e-yKtMr9Hk_3_up_2QCioqMcjt_X7ctX27rJYkiQ_953_IvtWil4SgRNggcoFQvhqtp-n4KE0MqnWi-oekCAwil9e7F5TPQJhqtKiCxNCnJN8hbjJUWE4Iz2sMtDEWzFMuBY65py_pijeOLOTInL6q0N76PrlAat-_5zypBGhAB6gecdU0WxARLItzPjgls7UAiYQW5BD99AuY4K5xjd56ZQfTXlGrlk%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "アミュひろば",
           "group": "日向坂46"
         },
         "classification": {
