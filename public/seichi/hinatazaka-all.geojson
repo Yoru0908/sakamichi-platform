@@ -227844,6 +227844,251 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.4528676,
+          36.4027078
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9b8099612148bd3b4be7",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9b8099612148bd3b4be7",
+        "name": "JR小松駅",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "JR小松駅",
+        "sceneNote": "2026.09.19 O.A加藤史帆出演のドラマ「今日もこりない私たち」のドラマ冒頭シーンhttps://tver.jp/episodes/ep71dbg2p9",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6kUz5ct4LzGckzxXF_gQ3q1TlkHiKqN9UF2LDa8qouXf7mRMDtk9W3hi90zG-Bmc-Z2mceTA7FpvqhgY6P_m26oNSNkWs56_nAii-O-7oRrchziJFvVyV3OGD9m9COaEpePsHacnzW5liEc9Q1ezXVBo2maWK__2ZH-yC5D1yHPgcDKdbOxAIhI1Wc5PM4jSbDNvL7-hLW4mZ-pJ_Dd2HuyRGrn4RMYblJvfvgCnAqTSy_bRWBDP5cXyI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4F6oQn29ylXec69FWl75dUcPkLFu5HGowdeM63RnXW5A6nPS-gK5rVHwqoVIhbCcj1BRco0rpLgAoNBVyf53RjfLNa4-_LYdQwznAxXHKlpd7MNsov3HIigFRoaRLQKSFZD820SFWp69f6Vj0xNv3ggCZJVrJc2Pm8-p6V9VWpKCnmSS5Bo0URtYp_MilhRInW0O_lM61YvB0JkzsZmhS9NcF6_pJQmHF1z8LMQDLFEi1yYlUOwhJpmM8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR774P_Jv4QmWo3bPfs1OHVb_DS3DJph0trDYvFOv00vtDKM_vRlh33nfDBlkekhMpIrKPiSR2hk3eIjkPhTNouw9CvVxLuth1TvgbmG6NzggAZnlBYWi7Jn2vHZvWBi6cOLZ69179DdC6JFgdxKiJteU7Ha-r9ML_3tejZ8zaMK5z4HrFt6psTxMvBctJW-1JZ1kaOqB9R67oTmloa_YODQU6RYfIe_bB196BnXvSqUaqOpnf8RVuX30Ks%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5XLGO1nYF7V6Hcf0tHRgqCNZMYKJAZthajJc_7Q-jz4bO7tXEqmu1rHRXo2VjmOX-eGsBTPIWQex0ta9HpE5o-3Xoo2rIdT6qJeYVw2RTEVJrbKgjMIELC-xuSCUYV2LKXuERm8gAqPZoNwsXTAt7TGv28W3HhslPiMLmecoFQML82oyqhkc_9jUNX4zHf7Tpcos2tRaZKVpETLqx0C_rt-oYcnlrsxd_3K3LhWOJ1yeEvQXM5sXsx2yA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5rFXalDenltAyV5KYgp8o0ZMilUiOg7I5B_Cw_80JXkDFi2M9bxFLBBetTk4PnYXTr82ytozYll5-VghRAw6A3TiLQyV5FtucTsLS6r3c9uN4vO4jP3H6PxyvkMs-mNd2FwniXLdkrthjHXczjX1Bm8E4N4mIcWcM81abjdGzx5FGV5ZNUltkwPrKra1d7WaOcSbkj-qFHUGjvwS39nQxrzcHU-fbcfmJmdxAZ8MAi-D-Xdy7DGCN01aU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Ak5hbqYIbRzHmAqenY5fRH7Thkr6Jjp9uoFo-obhxGS6X7EYvvkRNUazrhT1bv5YGjWB_22ukBwfYIuG7ZUq28httev-VlqmB5scpQSoMn4EcX8pRwdPDRL_Ql1lDSFJYCd1OXd3JviiEAiTDKTQ9jC4CKbi44_FqzZsYViWPhS1ESBO0-jjhYDGzFkLxR6wFfZ9U3UHcPJolRhMhhzwXWISN_g4C6IOVv3ArdHXJWMaq7gMQzCcUnzY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5-S6lmfWbKhuYiNoBJo7DOgc0ramkOYy-qGFYL-2PVuevufRdHRHJWPDTaca_RWYpQBlcAFnbgt9KhnRSWqn-HJtffagRbNIv_48ZYecGMjmix8mViGfkLWYWEtkUfVyb6y5cIUPRoKRk7SW0DJPYjPvdWmFXFFMhh-gCkuW5l2l1W1P-mzn7hOKriJBRpCNWG8GogOWW8kae7_zx4Ehul_FRB6qDVYAnhsZpotSZDTuWhhgjYVHdElPE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "JR小松駅",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.4527636,
+          36.4035039
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b21498466b794a417c3e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b21498466b794a417c3e",
+        "name": "ニッポンレンタカー 小松駅前 営業所",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ニッポンレンタカー 小松駅前 営業所",
+        "sceneNote": "2026.09.19 O.A加藤史帆出演のドラマ「今日もこりない私たち」で３人がレンタカーをC.O.したお店。https://tver.jp/episodes/ep71dbg2p9",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR44qaY5sM8TByEsa4F8srfDI0yXpnvjxitgRxZNHKUOYKq1snMm4l8P3toXWEML7xoDcDvrnMBN2NMJii_3OvQzlD8De9YypV2lfnp1-jFrS7bbiY8cfr9RSdSpAhxZqQHpYbVjFJ6DzdcaoNa_v9m-8cyozMdHVlY2Cfq77vooE0e5oMwoSo4hCu0vfk7hCF7hoGjcysmgmPsFBES7W3Oj1uvILCl5r5Crl8IrkBBzTX1WsWlDIpPBI24%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5anS8-ycHFsM8m0Dfd5G3aE4bCDr-am-Y1kVQEXET9Eo8Op7z6mNUYvAiSeKXzzejZYwq4azv-fQnncyVe09fWrlTJU4gMNxmdKj54ZKEUIRRyuFvI4BRLlpmkEKVxv5y74L8jVpyyi3iv7oODWo41jX-BsIBjX0ge4nrJsTRcVfejOiseVXTr2_t0MoaYPPBL3CMPLNj7FaVQZ_JW-WwCihfDFiGwq7sw1Cahi2C1pyjuTmjbg1wICH8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6yf_8IhSa0qqF6iiWXq8AEZkzCnXOHiJZtQ8-sfQdPTMYGJljZGDMsxlYt2XPZXoeGnjBddKDjRJuO_5O4jDIlfYJaLOCuWswXzQwyd7ajk7nj0s7ILj7hj5ZUtniEVXzvpVpxJ7dXunvqgY-uj38lr5TpjynQ08oxJufV_CgVT-2knxsZhNM4jgTjjcirxi3hbpzGfKW4VgSmvaEZCy4EUnAtNDNAiJ95yGeKLUDG3zGhRJ3SnoM_oCw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR54r7x74NrKtlz5wDpPrESwWNlFcNsXTsY3buwWBms6fIYS0nSus8HSdpeOZOCMYlcOVBBMzqZoYKONFInzLZoWPwU_Qhc1pmenaVcNuM0wJBUXGgG5BDWjbsMLgoM0WnY5gZ4aSivbbt4ewCvNUmePipR-T-Mg__F9rkLeWLHWOZzNbo3-jvri8r0ta1r5qYpBByl-69hdEYlKeZ2B0KiMPdz4IFPtg5d1GpS8ZHp5SN0quULsKNNrMc8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR68LeSoHIMqDxOiE724bNxI_chBKbZf4YbPvPjjbkuPw2p2QsJ6UUq503uHRuIyP99_2tlstr1lY68Po1C5jL7P4pdhIXX10dX2Kbs9XITL6fUa-jAG1CaPX2qNFWTl_YsjE00MPlbHv2ROK_zGomKcp8kIFis7NxmqRY_L7lGJj8eg-pw_RHgJgHrkSH53wUrnQ9rpnxxY9fAjX6vdNkYiMq89DrPW8eHK3KTm7S99gC_zALK0iOAMcJQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6cppeFR2AyQCFALirTkSysz1CrKMn4I1jMiL0fMtlyq83us2ADRkUJyLjclhAYtOn8RhTDJooraAJfKrrF0WC2bE7TEJbz3Df4z4ciTq2F9GPwQvwNgc6uTM1MhVysDsKtszm3qap32m4pnUGCtPHu8bGFmT2qzf3BDcxKA8xL3f12qhXjberr_MNo5F8Cka9YepoOopnh_8K7F2r2-dLQ8kZa1PHgj1DJYVoTaZmW6yHcc8jfHT_i4KA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ニッポンレンタカー 小松駅前 営業所",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.6364553,
+          36.4348594
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:239eadfa251c8e1cadad",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:239eadfa251c8e1cadad",
+        "name": "白山比咩神社",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "白山比咩神社",
+        "sceneNote": "2026.09.19 O.A加藤史帆出演のドラマ「今日もこりない私たち」で旅の最初にお参りした神社。https://tver.jp/episodes/ep71dbg2p9",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR52ruFRhFdCLxWKTtzOaqzBuD6Gnuxcuhj4gTncRELibJ4jFPbuJWEFihG8j_nO1F083qVrQXZ5Pv-Z7gF3v01xShzlaJIfbVqgJk4TtmYLoBceFomBwXCwilLAziIbDRKxr2f1SyFqgoEJxigtxNXNirxp-4CqD-iVYFNrTjqQsgxmA55NukYs8Y-YH6SSyNcCra7nylj9VLILMCMcTZiYZ0rA6dS4ux4cJalMbbw_UZXAUjDpw4Lc2Tw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7h2bqIR5HL_ngSA81OU3xkg-ljHEKmBf0mWAUYF_Yg5zGB9RGGEdUFnvNQTAqLOmCkS8YTVQx7pAG9ekgh6vajoD7CtVg7DX0Wm11MddtpQ_erLa8gthrOsiiS9j3uKwDmCpKLXLhsPEcEyVfmNBiaTM5Iyi6HHCyW54xsslVw0DEGitugwuOBc0qfWRwuJw2XxMYqSm0QQAdN7vqeA7u-UIE77BzuWoQf1sBruouJAoWys6DUdwwjVdE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6GitA-eBJnRHxTOkwcmPGBStz_gfplrkc4CIBly03BsLuV4KIP0mIkG_Tt4R_uGm3TDtn3mTTP__9gZIcIYVelD-c7CntPntExWfLMMgo3g3jDg-1Bjt4jrIEtHVaQJTZQrzlES5cxvXNKcZZiIejh4kGdms9hrQIHK-dssEFwnbk2C7Afq18blRbP_ItGLC31YC5pwtm15wN9DbG7yBNh-mlSYgNX7QXlqrwGYPxU0FdFmb7Nu4YX7R8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7IPr5hT7YR8abwdZMUwQEt-v0Q_uo-9Zdh43beuM0dhGO7dig8OlmLMX_oRArzyFz53zN7fAP_U3HA2y6YondRtdtWDVNl4A9PzM28zlW3wx3Ub9hEpcplA3uXW-BvGn4YVNlf1Ka5RZbepts2DJY7jqeywRnWRj0fzRcDjWd4eDwXnVnmEN01VO8d28Mgfwd3QpJiPgV-Tsf2-h1L_XsO0E3K3nLAx1hZcakdJPi5EfOSLoh9xnmtkyk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7HwdKtc2KHtbsZX0TjlnLj2SGPP9jC1Pkb4b9JpSrJ8uBYzqACqwIMowtqWLF01pfdBHagvsv7W16I1uA0EAfIsq7f26NAIq3pFruetIUNkI4JFAkxbc21Q9bFiOwS7PtFZ0qpnGOUMS9Y9I6J9TEJk0ixS2U270Hx91AUvAr2_7iVCl-HLcjky3-X9psjRU1ofqKSysJN_y0gxlKRAF_fDpvYmtCuWto2f-Lg6S3pRse3wYL6Np0B1is%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5m0VM2ek_fJGa-5S4vUpw1eo93dibTibSYqd67O3PxENNRhFjmZ1_19-YtJzkOZlNCZiwgF_msZuUseIAe50HN1KIbB7dMH3Pqdfda2tVIbF0l2sdbY5t53Hd9IUHIup6QVb1zv1x3TpbKJgB-wHEJeqUTQbh55Tx_Ytakkj2GJQsD6KfCz4eg8hcKDGZRPoN-2Mi1WgZ-UxFfcRHTAgQbGoCOGxew12mqtVAvdSThGMPzjdMWMcaheRY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6JOV36gJTKRL9EMJ6ArPk0pGq3DjC0A_cBzC5BHy5BQN_JmJimjrfpnqIZwpfuf-BnWhODQ3s5vIUa_-0121AvVITLufvEJU_AQwTasrJgF7caOCUVQc9ZQCH5cM_d_NgaIftNXLDHjlyIwpna2xrVPN7wqudS6F0NzWASZLefNgHfBt6OyVORzB6-ASf8IiFAz0wZ9JV_djpRIHoqoOXwGsP7QhvpLzHfxV1g0GMTnzT0crpKEhZv3BM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ddnXIKc8Uldo1eZBOBpOU9ZhV8hO944Jc8g8qJnQgHs8RgVN6FOg3kn3EssWs0gtVLoUnX_rwFkWcmp5whLZDPnXLRHTQlskKWMP3B1m6hZpfuaZQUA1dlFJin4ioiN0vC8YYjSvJu-nkOFA3_dbMxqMWD8nL6sr0I_JYK2dUhbVKzVOoFm65jv9-Rh4ywWh5_kY7mWgI8B_e1Yq7lnf7hiQvSTZETkTvATVFB81uWkdtXJUawpvc5Ko%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR73mb1i2N4mosP_aOxtn0ppos-rU1_pzyqFOCI-tOcVlzbkzu1LGpEb_ggm8URCw8LXyC3gsSXpxmSubjKf2FOH2g2W-Be3-F-TryuMA9vqoIhhF3ZLllBf7Y7HxGSnfALFNqWhLxvzUV-zwbXFYh-dilg7PPYuVmBLPUe_L0SaNMC04pRBZuQMPQ1ovZLomNsUNEDQGKOS6A0oRTEu8UxgwqBP80LEubb1sO37YYvzzBhrxoD9BAaQz_E%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "白山比咩神社",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.5187419,
+          36.4284321
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ab720042731277874842",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ab720042731277874842",
+        "name": "九谷陶芸村",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "九谷陶芸村",
+        "sceneNote": "2026.09.19 O.A加藤史帆出演のドラマ「今日もこりない私たち」でお皿の絵付け体験をした施設。https://tver.jp/episodes/ep71dbg2p9",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6yw4z8-_GWy1GU1d0KYd045L1tiNm9rkb0hjeda_-pUv7tV8-fNef48Ewk6s7oF7rMLRP__6QbOCzgjIdKUbEw1L9IQsH0jkgXuPJnL9gLGi8MdHHvESqAL179ipm8S5X8MzqGsHplfOew5h3smZ4qCgAJ4hj6_mpeLCQnOgWmWcVCTQDQNtbDfWurBS7UHbQ9c8kih_MVRHnJP146lwDwPXBtAZLPgPWz5QP7x493ZeSIqMESie7GDRY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6DwVWxZoOPPbkiGpz4Tx_-0v3OlmfC7tOy90Z5QqM5dvLMHE2s6h2soO-k0iinxbjYUMNsOooCi2t83cRgh-wICO5_iUqfkHaMcHm2eb_SACTWlx5J0FzJqxpYiLWRusJwHWQ59dnm8VyfI6qEMiNwnXsinwwhvge4JJ6Vbk24vcWei0-wSXPPPLQ_-mxipWnnKo94fFlcNOTy1GyqZTDAXLMm_x2tc1JjOcL5bKp9fGASWw_oC3-A65k%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6cYcSuuKprCroug4HC1Arts0FiSpkkOflEKkIQw-CzTalSvjVgnYOVSMYzkbfAVwjH7-ftv09_LOTLfTR1J5qV0uaNY5wdIwnm3dpM9LhMNHOiZKQR0qSc8J7dcOlmXX9-6XVcwwxaSh5ievsQjO-1CXQvtv6Mx5YaJgirCvAzSEkNOH800aMNoHbSjuEkRh28BceR9ZCHnnJNJnO-Cg6hiGxK6INZgr4js8zOoBWEk7a6LsseY1xgouw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7OD0_nsTg6nQD7sHSdO1FltiWH6J9g-vthUbuZAmW957WU6O9dJQNQ-e_XiP-qv2uEng-qJ86UpI3y_uYNVEjAFDjDuedxhdWNOiD2lDNCASAj-XM4A_HQnqAl_8NtnxzTmciMJQGpR5l1P9cd87FknwKH66Gt-8K7EsF1zRK-SMrlRlIxNgg-IMhOCMiXH9-xy17Dljli0lhnAHZQcMxrv4Vs3prcL-aBM6UZBnqI61dex5C9YTZc9hM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4e2l5QU3nrJZfOm3Nr3arpKkX4eEvOdDMPAWFvBlRKUwfUFOcYZ9urwLmuKXNUSMzI0VKbLEZppQwg5CcUZXmI5HW-cAH0Z6ipWUJ9Y720L0a-tofGpyIyJl7oS1bNYTGE3DURnRa8sIW5keo6_Hk08ikKq2Wgxk7P6ADXj2mx2838QfW_ll6nB2unCc1bZUpEILOnAOy2yOuq6nOQonykKpl7m5_LkUK140KGR4c1j7KQ2yjHZ2UhPA8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7x3m46fe_Cb5eIp9pxhP3VYUMHAvHnSCeyo8xjpwaXjiNv7i9KfivzHxfMpyb8bUnFijPPBpFxc5rs8rTgkDI9okwxjxFFHjy9zYb7UZ4GPsqYuN-oRHs0FCYKjsYv3zWhmczwNfcUu3puk3baQhvHQAC_cfKxZUPk5JY7pxZ6RBeGC6wYT4pDnxtxCfGhY4MuMVOjLclBQCn6w_Ld8cwwqUwFyPM3ydjLgTrHKNNxpsSG-fFa1K1ny0c%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR51fNu9mAEKqFLnEOFNRsMKKNT80esSa_ZLPTUdO-a_YaF9zyzEYg-mcySUJDBqHg8zQEauW50dFQ240CgG4QUuAmbUsrppdZ6leU0DD-ZPA78u9QvfaqEkjjDizWy0iLHt4WkaJwFcG0zd2_l40EBp_cDET4_movNqeFcX6lhLmcZCcyRD2Aim2WsAfw5efdsHvMgar9KFDBhvAJZqHHX2zeiZPyoKMjg8O9p06zHgnvw1xzAWMsErGns%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "九谷陶芸村",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
