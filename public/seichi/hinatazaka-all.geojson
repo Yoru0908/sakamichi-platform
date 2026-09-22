@@ -139941,7 +139941,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "金沢夢二館",
-        "sceneNote": "題名:",
+        "sceneNote": "2026年の夏の終わりに宮地すみれが金沢旅行で訪れた路地。（背景の白い建物が金沢夢二館。） 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -139966,6 +139966,62 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "金沢夢二館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1468927,
+          22.2875238
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1564c098363d31da6d76",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1564c098363d31da6d76",
+        "name": "Luk On Kui",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Luk On Kui",
+        "sceneNote": "2026年春に加藤史帆と佐々木久美が香港旅行をした際に訪れたお店。https://www.instagram.com/p/DXRXInwj1Am/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR79su3xN3lyEUVwK3yy0pnMId23ka1tzfGwsLoAeDBFUe4dmKWmkHe9emskd9yzP1hi-T1IFVAgifX047Imh6seg6TKYtWUiMvzLCYDaSG8rLuzZflbl_vnq-zTDE4MURYSg0ATVFFKBJeQixtzTPzxLbz4gLJG1FqXCNUkpxiO_sSeUqUEC2_Qb0-8x3xHIMHPCiUM7XYtaSjE-M4Prek_J7ZpAqLj4W-RZ4ryJIrf65v078OL2YQtRpg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6B0aBwEEJOlQ46VqKWVBoIBkyLXyjzPviSjh-fKzeCpf7jad0i9ThuZFaD_sqvvNbsGsCmYG4cVh6EJpQsfeON6t84E3lRL27HihhnJGL6Ch4jvDa4r1UA4WeFR9kBUFyjz47KN5ZiSFazZQV9v_D9AfvUyHSWjjozx3pkA1LMGn7z8ra3RRs5gifCHA7ePtXn4QuElTep3B2Af1CUCajLcpUIPfShIypeoHr8LBXVryxUvMbytow9RG4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "Luk On Kui",
           "group": "日向坂46"
         },
         "classification": {
@@ -228299,6 +228355,67 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "アミュひろば",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7434806,
+          35.6179434
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f768ab670ea917c1cdd2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f768ab670ea917c1cdd2",
+        "name": "レバニラや金太郎 東京出張所",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "レバニラや金太郎 東京出張所",
+        "sceneNote": "かまいまちで松田好花が訪れたレバニラ専門店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR77WedzqGgqA7ij3hSibRK22ozT459lC-OIXXAnSp_ovZlltoBWyxuIuex-VXJXta5YKxx4-VJN4GB_8OjAevScXXtUvqaHz8b2Zo1FNHvv4-WikROynC9MuRiZiY0-uh_Ss8AXcKCLDm7srH96P23ZC0xFJrhS2dTKpgxTpol7440wqc_nXdS8rkzBSCi8gIQienwoecDrwKOS2rYgr4cB95vSsiF-MSssanK5QdFRh634mTLm-LKt5jE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7PbW8xk7U1UFoskRKemTpF_4eVzztoaKJblOieX2JBPY-tQqHrwMoTkHIul2M1e73zPC-CATr5HaUgJM7MaOXRQkb4pH1YjprsrB6kGVX9K-8DkrOGXVKc_yYuTEBcQsPjbtwfc_rEl0V6VAWhJ4JfkefKWKB798ku2nTDhM433l8L9P6r4Ih9tRJVenBLRKcyBGleeBRZRb-IaOpFgJFsKOIFHtK6GEorts3SlJw5XWC2t1UC_3QA3Es%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wMFxeEAb_G2qj0y8kqQgATypeXbBkruXmIUFkAFVlE4KUt3X4bbrpen6yk7gBy_uZUffc0TxclvESBAzf2yJo93Uf2hXHpNLrWj9hGPKwczZ0XqrhV0M-LcYNdaFbk2wR8piC6QkMcfJAN6bcUEZgLlLP8dDtbbdtwvFQvwgDa6VlP5ze8GkBfPHlBeyT25qdQLtd0x75uAbkw-68c5WXdO-jTKCJHUKEcT65RZA7ln0KLg0B9vNzovM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5oxM6DAvtsejb9rzTHgAjEHJBo2qmB_NcDoPgXK3JGV8hvU1cVnEw_eLuJVFJxLp_LUTD11fvVO3Fon6dRTX_I--CmCFsvb_S5GeOn9mEBdemv78mGGu_o5O-OnnwpXHHBsHAN5ktNDBuo1NF34zt0S7tmJ6kPEJB5HIiQRM6GOtHdkFe57t9SIbYQbBI2f8kWjeoMot32czxdkPFpQmjzRy93IC1RknqLw6ydbabR8mRPgEmoNJpa7So%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7K3EQf7pGLqBO1fjIuz3keKftnFBqIo3hzVQyxV5y53LCQSDtHJlM0lnljbj3SpLYNBW7Q7FGkswd_P1NRA2jMyddKMJAtjO073_C9rZBw35D7Ih4d9b74o1wOys8P5M6E2TFJrkxPElUu22mu2vvI_2K1pLP50pNT4i4sC-1eKvU0NettM5qiQwGRbKMY4i9hZUJ9Rvn00PBal2u_jGy3Trp1xpHrb09u6TDsq-clS8kDt7F9LatZ40k%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7282r_EzWlhFwjxXLA9p3_J8JHBQUDs-Gd81UPNa7nikq5X-asVU8f8Z2z5IRYFknpVMmc4LERIup9S4h-w7_JZ6AGeISTjDALuIN81Ddrb5ztiG0A8xxJjd1EX4i7JjCW6hjoopGuZesEz0K3S6xqfO7JrqHmhUDy5X5W54G010byFZBkLlz3QdmGKc6XszonfUFMiRwQL_83g2854m3MjAUTvPqrbhjNe2T2qwy7M2OHbdk5Dpcc5Go%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4_yyXTWJ3eZvincHINf81mzMZzXjwKYRjQ3g2g-fZWl3PDkW8nvM6o7njhhAx5_Geg6RjyhWJ3Zhx1Hc_IzjBnYvL8YoPmo0Ivp6XqtNwC8jF0zRLt2xgETQ3YqJFV-KDBqEBt1SW0q7Bixk3odZVchxqidht8J4Kn8i_vMY-fRYtM7BXW2IHCzyAzqGo1o2zrtKkb5FG4XAExjeamcaBhQ7dNGfeUv0MzBBK8WWqkJ9ndEQuKbZoZL98%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "レバニラや金太郎 東京出張所",
           "group": "日向坂46"
         },
         "classification": {
