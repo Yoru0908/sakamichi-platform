@@ -35019,6 +35019,277 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          129.8732092,
+          32.7379381
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:df31d0d09c36a572d086",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:df31d0d09c36a572d086",
+        "name": "オランダ坂(昭和会病院付近)",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "オランダ坂(昭和会病院付近)",
+        "sceneNote": "長濱ねる1st.写真集「ここから」の冒頭で長濱ねるが駆け下っていた空撮カットの撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "オランダ坂(昭和会病院付近)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.8728355,
+          32.7383789
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6dbe033afcbbfca52332",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6dbe033afcbbfca52332",
+        "name": "オランダ坂（石標）",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "オランダ坂（石標）",
+        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。https://x.com/neru_nagasaki/status/918751234646982656",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5eePH4Oe4lWMT0ZT5daYgBb0j48dEmFH559ssBSs9ph6WggvhZR03ZjV-Bv5fKvpRvKcKyuNuGrsRA7sZELWRsKhs8B93CHq1dHKcRMsARX0FqUNotdlUtTeoQYfwC_V-wk7hg62Kuem75jr2-r1DOfHLhdZ-Y9IOCZhWqxTbHmqOsXwHeXJ8CxwxGLIdZAL3dEpypRvhr6I9D5guCalbyLzSb5TINvswd60IBTzsIfMih8ho4uW4ALxQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "オランダ坂（石標）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.8795074,
+          32.7463819
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bbd29d11561841074730",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bbd29d11561841074730",
+        "name": "(旧)きっちんせいじ",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "(旧)きっちんせいじ",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で長濱ねるが立っていた、路面電車を模した外観の洋食店。2017年12月閉店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "(旧)きっちんせいじ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.8758029,
+          32.7412178
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:134ed0de5833a2d9bfc0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:134ed0de5833a2d9bfc0",
+        "name": "江山楼 長崎中華街新館",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "江山楼 長崎中華街新館",
+        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ta0wJVULZKHs80uczQT2K4ZUpOeU8GmbnPbrXiiJiYlu7-euAu6-T5-P5rgnu1OHQrTWSivi4WCew5CGVwCEqvmuL5gXI-JJVH4QVFDBGusBxCOuk-aLuth5Cx2HRHmHY4FrxRZApxGE136s9y9oHoSwha9ak7QEmhURdaACgdHKjBxcH56UvoN17I2zp3lqpp9IyRt8uRFNf3Y01562WmcK4m7WM6MhNu0yl853ted25Kqn3e1iqseY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7IidDZjXIMiRRKgXtN5WSBYA3ATZRld_c4lwXhs9bYPK5s7RGHBCiFMXkg741jl2xMe48EZozrkAPtyWukZpM6wFoMjRfTWouIOwO9yMXgntOcG5KNFG8HAtG_edZ5-0d-RrS2C4bEp35A_zY7gpzjRE-eTvChfvIZVB0gX11c3P87JERI-qkpvnHvP1JCJkpghEx2QSlN0UA783vZ4ZzyHVyrRMk2_yHmtmWKhD-gZ0ISS3eVA8XJ1Gk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR71AaPuzaJESr_3BFNQkLn4u3pNfNeYD8ljGo6V200JQ1-kzJECmDudSREECMrXVoUijAtQFBoyCZe-1CBGKHC-nlW2X286U6YbxiMHtEuxNlw00g6jmRoxd9TLteR4DaVTf3Hd3_A7SaUlQVn6a0LUA5PF-bqN00NcYFCC4zUF5tvF-EtZVhdzSi613sFA52ccFN6ix8vIBHaz43Do2iT4MKF4VDuhGPo3IlzCftTNAWGE9tYbDCFlgTg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "江山楼 長崎中華街新館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.066999,
+          32.981853
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a5a184a62ad7bee577ac",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a5a184a62ad7bee577ac",
+        "name": "パンランドかんちゃん",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "パンランドかんちゃん",
+        "sceneNote": "長濱ねる1st.写真集「ここから」撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "パンランドかんちゃん",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           129.0681178,
           32.8635588
         ]
@@ -59808,127 +60079,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          129.8732092,
-          32.7379381
+          129.8801059,
+          32.7470474
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:df31d0d09c36a572d086",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:df31d0d09c36a572d086",
-        "name": "オランダ坂(昭和会病院付近)",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ad5b9f0399b18df2d563",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ad5b9f0399b18df2d563",
+        "name": "眼鏡橋",
         "category": "写真集関連",
         "subcategory": "写真集関連",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "オランダ坂(昭和会病院付近)",
-        "sceneNote": "長濱ねる1st.写真集「ここから」の冒頭で長濱ねるが駆け下っていた空撮カットの撮影場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "オランダ坂(昭和会病院付近)",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          129.8728355,
-          32.7383789
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6dbe033afcbbfca52332",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6dbe033afcbbfca52332",
-        "name": "オランダ坂（石標）",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "オランダ坂（石標）",
-        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。https://x.com/neru_nagasaki/status/918751234646982656",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5eePH4Oe4lWMT0ZT5daYgBb0j48dEmFH559ssBSs9ph6WggvhZR03ZjV-Bv5fKvpRvKcKyuNuGrsRA7sZELWRsKhs8B93CHq1dHKcRMsARX0FqUNotdlUtTeoQYfwC_V-wk7hg62Kuem75jr2-r1DOfHLhdZ-Y9IOCZhWqxTbHmqOsXwHeXJ8CxwxGLIdZAL3dEpypRvhr6I9D5guCalbyLzSb5TINvswd60IBTzsIfMih8ho4uW4ALxQ%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "オランダ坂（石標）",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          129.8758029,
-          32.7412178
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:134ed0de5833a2d9bfc0",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:134ed0de5833a2d9bfc0",
-        "name": "江山楼 長崎中華街新館",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "江山楼 長崎中華街新館",
+        "sceneTitle": "眼鏡橋",
         "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -59938,8 +60101,7 @@
           "写真集関連"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ta0wJVULZKHs80uczQT2K4ZUpOeU8GmbnPbrXiiJiYlu7-euAu6-T5-P5rgnu1OHQrTWSivi4WCew5CGVwCEqvmuL5gXI-JJVH4QVFDBGusBxCOuk-aLuth5Cx2HRHmHY4FrxRZApxGE136s9y9oHoSwha9ak7QEmhURdaACgdHKjBxcH56UvoN17I2zp3lqpp9IyRt8uRFNf3Y01562WmcK4m7WM6MhNu0yl853ted25Kqn3e1iqseY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7IidDZjXIMiRRKgXtN5WSBYA3ATZRld_c4lwXhs9bYPK5s7RGHBCiFMXkg741jl2xMe48EZozrkAPtyWukZpM6wFoMjRfTWouIOwO9yMXgntOcG5KNFG8HAtG_edZ5-0d-RrS2C4bEp35A_zY7gpzjRE-eTvChfvIZVB0gX11c3P87JERI-qkpvnHvP1JCJkpghEx2QSlN0UA783vZ4ZzyHVyrRMk2_yHmtmWKhD-gZ0ISS3eVA8XJ1Gk%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6zoHapR91WhLoAcyXb43f0eAcqXp2M27RGx2O2QzRM7vhjaH8HegMnWj2sFMndW_Zigi-l9iosWrNzJmbHmmBEMwQodXrJEOTab2hGDfVOmSM_OrvtKNQPBGD3XU0fbZz8eyqBsicp68-BlQS7u6EEjj1X6hBrSfCP-IihXwHI9fhuH68akJqfxrjRIWDI2a5XyWvl8-DzHiPLI0Bpzl1esMT6_XVK68OExQI5HGZjK2MbUxEghN3v1KY%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -59951,113 +60113,7 @@
             "日向坂46",
             "写真集関連"
           ],
-          "name": "江山楼 長崎中華街新館",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          129.8795074,
-          32.7463819
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bbd29d11561841074730",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bbd29d11561841074730",
-        "name": "(旧)きっちんせいじ",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "(旧)きっちんせいじ",
-        "sceneNote": "長濱ねる1st.写真集「ここから」で長濱ねるが立っていた、路面電車を模した外観の洋食店。2017年12月閉店。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "(旧)きっちんせいじ",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          129.066999,
-          32.981853
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a5a184a62ad7bee577ac",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a5a184a62ad7bee577ac",
-        "name": "パンランドかんちゃん",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "パンランドかんちゃん",
-        "sceneNote": "長濱ねる1st.写真集「ここから」撮影場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "パンランドかんちゃん",
+          "name": "眼鏡橋",
           "group": "日向坂46"
         },
         "classification": {
@@ -91448,7 +91504,8 @@
         ],
         "images": [
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR55lEEhIaiJDPHoqVwqcV4Kcit4GKzua1QkTvZnWwDEi3GiMx-uxVhSTTM_cZPpW_8ivF6J8tz0AguH6M1eNvF6Y66AVogIwUPHx550GB8YSYCZC695UhAUMtZANV3oIpeCpPYhInWAu0C1IuQqpu23LgtmEauxmeyAb3qTH7thb6kB3k4hgv1lI1lVzTCKxG_R96c1hihMhd8hABMyJ2qsiHTLEYOWRKpoWXAlwnYTImGCeDEgshe-j44%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6V6xGARfDPxccMK8SWPDEKQ35ys22ZVuZHC3nJSUMhXHxzuPMLbdFNaRNQFN_8QQY5kuQBDNf2zmohnUgIbPxnfNJrxNmZerMvBoEy82S3EWmdc2E0WSifynDuDqfXP83EaHE5UQE0DF2RnJQt_HWW2KodIJ_A5ktmnPFym82gGtda6qWYF6l1_hJ0tiJL_k7q-b_cUhILZofha8WJspB3DZCZ41sVpzL1Cw6EjQoHDliJ0-ZQshTb3fw%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6V6xGARfDPxccMK8SWPDEKQ35ys22ZVuZHC3nJSUMhXHxzuPMLbdFNaRNQFN_8QQY5kuQBDNf2zmohnUgIbPxnfNJrxNmZerMvBoEy82S3EWmdc2E0WSifynDuDqfXP83EaHE5UQE0DF2RnJQt_HWW2KodIJ_A5ktmnPFym82gGtda6qWYF6l1_hJ0tiJL_k7q-b_cUhILZofha8WJspB3DZCZ41sVpzL1Cw6EjQoHDliJ0-ZQshTb3fw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7NbQY6kp34eSFArUyqI1y-V9NrqoLoCWGu8l7Qcb5IiL9xseGU_9DCFBudD28uR020gZhEK9kjoU8I8Py-E9pfSPjWGH4jd7F3j5jGM4EYBZX3o2uqNNH7wzPB3GrezDcIFpB1hZin_c-J5EIfl94RCLxq_Bo_fKDH5t6bA2oFYbG5yByrk3mzJn075pgL80u-tWVL8bxq_9oQfDVvA-f5dVZkPUy3l6HBUDxIdI3l46QCaAH72Z-TYkQ%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -100913,7 +100970,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "鞆の浦",
-        "sceneNote": "メッセージビデオ『メッセージ to ひろしま』 竹内希来里 https://youtu.be/_01XL7QdAWw 題名:",
+        "sceneNote": "https://www.youtube.com/embed/_01XL7QdAWw メッセージビデオ『メッセージ to ひろしま』 竹内希来里 https://youtu.be/_01XL7QdAWw 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -100921,7 +100978,9 @@
           "日向坂46",
           "メンバーブログ・SNS・その他"
         ],
-        "images": [],
+        "images": [
+          "https://img.youtube.com/vi/_01XL7QdAWw/hqdefault.jpg"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -101178,7 +101237,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "未来心の丘",
-        "sceneNote": "メッセージビデオ『メッセージ to ひろしま』 竹内希来里 https://youtu.be/_01XL7QdAWw 題名:",
+        "sceneNote": "https://www.youtube.com/embed/_01XL7QdAWw メッセージビデオ『メッセージ to ひろしま』 竹内希来里 https://youtu.be/_01XL7QdAWw 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101186,7 +101245,9 @@
           "日向坂46",
           "メンバーブログ・SNS・その他"
         ],
-        "images": [],
+        "images": [
+          "https://img.youtube.com/vi/_01XL7QdAWw/hqdefault.jpg"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -140292,6 +140353,405 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "Luk On Kui",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6783722,
+          35.6752918
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:69f407cfb503e43054d1",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:69f407cfb503e43054d1",
+        "name": "餃子の店　您好",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "餃子の店　您好",
+        "sceneNote": "佐々木久美が初代アンバサダーとなった『おとなの週末』第一回「JAPAN餃子大賞」総合部門第一位のお店。https://www.instagram.com/p/DKvwv-7vAUx/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4xreM-rdlLT3ngnduoA2emTjaH5dDRQwEegMoTqHUiMkHPzdhGVqMnyeMa9CUL-VW1kV9kgSdHAaaANaYEe_7lQ2t-10klxL7FTLlyrk71Fn8GgpU4_cx2XrSoifcNPk-wwi_sGtX_OOXZi4UvMduukwOrapYW-fQ-eFF7iFGPAdoaBHThuHsgbtcllAhAj7fXfhSAYEGxh_dMcaAhO2fDG1H26dgQFLEzg7thj1KIZIiAiYlav-xNJow%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR68cwSorTYtR76yZHHJrvYmh4yEDf7hswfLcctqMQ77VOwBC7Lck9M-POiZaTUUPDnAEvMuqnhu3JsPQzH2KTV_VK7ioGAwFrtx5EPWWGG8MuJNIstXViMw-Orv211gDUXlU8OMj5g8PkL4BTXFStCvoE0NBjWds51ulpbwm7Df-G_PEmwy6RYG0IzAMed4_PiX-KYIe8-QK3t7FnarU1Gp2Jq3Hh9JqOkJ2G23Gr9pPgqgS4h3kFdf87w%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5ArDHu6VKdA-DPdD6BC9kceLX2ksFeQt-uDL33VGLRXZvv-xPCSdDeDVfTtpW2peD0sF0ZFtnRv6_zOqWK9ze_A7SpVhUjXWPlVlSDOq887ofv749HoTPo5lKSDC-4NWjMk1i5zMGNDsIKlkspAZvbacuQ8sEk55XamJp_5CCeA747KWkI-va2SANXoDxyqw-RBGOUSDTJLXl6Ew4quYXg9E0y3wvMAkzxx0N8AbZIUSA3ZphmlCf7cKw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "餃子の店　您好",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7149822,
+          35.220405
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4dffee673b953aa0ac2d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4dffee673b953aa0ac2d",
+        "name": "久里浜港",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "久里浜港",
+        "sceneNote": "B.L.T.2025年3月号に佐々木久美、佐々木美玲登場。https://www.instagram.com/p/DF-PMBKvSCg/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6Ya2YyCEu-xaHxCzzvi-V1FX7Fmbg4fNiMVDhmG0dJQHntNBIVTiVqEwBemTgoaOc4bQHjUYqmWjkLh7VWfMAnnbz5kv_QY0cx5x4xvzySkiDmtXoO5cMwdlDYafBIKMO2cKbR6Xz3ouLwyLnfyhBN2gw7yH-cJIW-fF3WmX_NKKeLYA7QagJsA8cV0oo6DkbJG6HuMPX6Gzi8RUZjBh-1QMtBQRkb4hvVHBcR9cm87bfzCMEnGMdxKis%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4047KCSLXpBba2oEBcwLhIBfS_tgJmOd4cWb-Wa3PzNgXJ_RfDJ_FzszTI_LmoCKtMpuvIBpPp077ww93mdbXOtFLnSA9-zh8OAOomuT9tgPwxBnnKIufd7wPnj_Jxeq3Q3xusi7_6zh-u4g3M8Z9zNXmPa5rZlb9hmJPRaibgb4VLkcUHqPfchvqb7c3hjp5P6-WlB-WG3-tZJmGKuGPEf64YnLLLbnTOEYFdiwPPyQmjlHARPmorIlM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wR5_P9F0y6habNmhiq9lnotmLiElsuyzAMcdprJjaQ8jFlwUOP3tdoYLIKXiiyE-w3__4ZEcs9hNy-wPH7Tk1WUO9BTP9ee0X1advlbZPzQOB9hYN1xGFfIcRFqqCP_faOc7ODnD0cYxXaE6MgkcHCaGTL_d30jZWXquKZ2oSsUVNVtZrvrC4cIYF3ezALal4biGPwvdz43pZRBP8pR_ZnS0eG7SyscwDemhhPZXpcgyGRfI9G7jrqCU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6SNrKVkO9SONQmQp0UeQKRNWZ1RuGLYaNldcgh2EMmYocSXsMp_AUG-HbQVfs_HvtsOzRFwJYiuPSg5t0abtMAWMmYb420aWwO_1VcSibtWdzoY7REqqANNtGfgPhS-ubJQB4zHZBL4j3cS4-wkHC3kKqPSiFlzAClUuFx4bZk8lSsItLQUTr7WBZ_OePzOuy0M1Cg3W4GTPE3fv06t3mD9h0Yv6dNcP6SUGswYzgC6dVFJO5xAwldt2U%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "久里浜港",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.71336,
+          35.2198495
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fe3533076cb25de47a08",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fe3533076cb25de47a08",
+        "name": "ファミリーマート 久里浜港前店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ファミリーマート 久里浜港前店",
+        "sceneNote": "B.L.T.2025年3月号に佐々木久美、佐々木美玲登場。https://www.instagram.com/p/DF-PMBKvSCg/?img_index=5 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5RPFDC5gPpBgOdTsEKIjfiNRuoljBmgdTVhUcIKH94cmjqJM8Pmzlo4uqEGSR7LIwj6_-TKvreQyu8Ic0LNNbnFhool-3X1Q7gZEIFd6Mvn_L2IMooCvLZEQ40EW2TboVvoprnj08X9-9SFzjxdgamh2RG44zZ0FjZflhXjSBqxcF-iAojEgt2394i1WyEOdHl-3bFYmKJhevCZCCM4Z5FgCJfmZL0tgfoqXpln_kGPdL2cVYLlcv7BZ0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5jA0IjyKQA_QQeU0I8bST_MekMqaIql8z1NhHlVCjUq9DvxNrYoZ01nUgo5ZnCqdV9Woz5vHWQgJArw06LKMGMeKBBw3MvILhbpKfhwLHTiFuZZj7i9IjnlpxyALKKdC4m7ep5Cm8odAHvk1AYDU-Wl_m_7fPhvsfMZEOOHCCy2YAbOaYKfvJkDuah4aVMsANHNXQuPjk45ni_mSnkm53WtLLW9DSo5lmTsSZt1RU7CA6L7qFLw4VLYss%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "ファミリーマート 久里浜港前店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7140749,
+          35.2194759
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b44045e836e31d51c0d0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b44045e836e31d51c0d0",
+        "name": "(旧)パチンコ入兆会館 駐車場跡地",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "(旧)パチンコ入兆会館 駐車場跡地",
+        "sceneNote": "B.L.T.2025年3月号に佐々木久美、佐々木美玲登場。https://www.instagram.com/p/DF-PMBKvSCg/?img_index=7 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Knrd1reugwpGwbiJD9emEeL7A4VxPvNFhue-7kz05wy7OlxEDNQd5F8MWo-1hdaVGrS1BzLC0soAqLmCMyEpbiZjdvfXCZebgAu-g0b_3urmavVT8fcv-ptriDgqQVi1hEoWPH-wwrEbHfPOZqb9iqCNmDFI40-LJJVBWYsJiaZuMrKCy7_CS1_hUY8-vd8l0wX1HMmO-xJ5sc-mBuEluLiaAms1vVreZ4Mu933a9RPQSa-h3Smi1ljs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5_kjbYXRbZYK3BfbqmJcavw-_vX1I6CVgB8lnbJKb0vsJExkaVZBP-MaPhijTYwoy5R6KsTPdtxLLumF22e-2G4wnlEfhWr8OdWGEZ45BkPde_0hPYW7bu5QKzC1cqth4dxBsE11nWdAsK-v_N_zL2_D5nSd5MvNrJTnlaIBLE1XIk93bt4AcJ94_WndCZ4ZXnyzGrU7GOoF3rZs_pZ-3rLXQwA_-1CStzL--dribfduCRU8evxCdZxNY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "(旧)パチンコ入兆会館 駐車場跡地",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7151755,
+          35.2187373
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:629b11ed711ab12b9dd5",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:629b11ed711ab12b9dd5",
+        "name": "ラブリハイツ久里浜前",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ラブリハイツ久里浜前",
+        "sceneNote": "B.L.T.2025年3月号に佐々木久美、佐々木美玲登場。https://www.instagram.com/p/DF-PMBKvSCg/?img_index=9 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7z2lwTE_ae8ZZQokUHnuWfTJC4jzeb3QkKQXfultcr0x5te8LARMAqhL1WXpofaQi8lRxrPTkKN-hPyVuucliDz4RhOFvxg6XLuKynLUGZ5Xag77PFmdp_JmtzdPHCR3440x6ZXzujIPoF3-lwyCm7GMTRORNPi_ax2uaGQub-P_TLNMuCDBNRFNR4huRfdp69L0fuhyFbkxiSuiZrRbnApOsE8e1oYzSWw0UngnhpX0Feh415sAqcMyw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "ラブリハイツ久里浜前",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7147397,
+          35.2198504
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7c86497fad69fea68b33",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7c86497fad69fea68b33",
+        "name": "久里浜港有料駐車場",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "久里浜港有料駐車場",
+        "sceneNote": "B.L.T.2025年3月号に佐々木久美、佐々木美玲登場。https://www.instagram.com/p/DF-PMBKvSCg/?img_index=10 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4jOKWpFaxRkRfuZzlwXVD2Xu94G9NgjhfPPRDlPNnPCW9Th4DzalESgTX3zIOvR-hZR0wLnRJs9V1SrlMJoDkIaHZBijzTIPQPlQKuPgezUaaHC0FXS--6TdP18dVhg_ZOT_BxPGXMT3Cog8Fc0hpqW1AXAS6Apd0dTqCyYLMHZ1XN3316bcbbAYAGVlqNXCGCRWfpexwia4RE1XYFZoWceljzgRCo2q2Fmy8uxkWbpWUoD-nlBVgFAh0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "久里浜港有料駐車場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7463191,
+          35.7176075
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:be47ed8062dd06a8c5a9",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:be47ed8062dd06a8c5a9",
+        "name": "小石川植物園",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "小石川植物園",
+        "sceneNote": "2023年2月頃に丹生明里が訪れた植物園。https://www.instagram.com/p/CowuCM3vxZZ/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7r6ayW-94FFCp2SWCCeETDuBlAbtOkF7qGNxYqMaR7ZS-fhPb6sPztpUy13SUuqtiGnw-euwH_OI2s9RrodRMPqvfaChN-xldxH-cZraxVKH8LDx2KMIBXUvryJDJRqMxQNPGIevxxKloQuv4cuoyx_ywITGpRG-3WeX4pQTc70T7fDUqa7r5l3QVc5yIE97RsMOBKmP0IsrAtxLEDCo1jRATnjduROxw1i0V4nLvh4JlMoR3O9P-jPao%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5412_kHXwnOy7tga8ksGUPp2VvttXzCaJ0fzNzlp92JPc0zR0eyBij20oqrxkkmklEMH256IB7gpMADppkBgYsKj80npvjn-_Qhy-FZRp-WgQAjNG8ZAGfrtl0USCKX0koU3qjxzooQyTPhgdrnRH1qqato2buUXrIhL6t9-y6LvfZRWP7SzfZl7TGVJD-uSWOGfYS53IJzCHZu2o0kskN9lHtQcPpwldh3zTzxlS1hdM-SVzNBhSo7A8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6Zkv5GzIBgWPiXiMxD8nJ5HPAT8oPAutR_uHNgcO8_VDlJXc7tjNbiv3SwOPg8LDywqigeQJKZW3oBZbFxk1SfIhYLve9S44iXkXFA0NP7FGyDNxLktKrsUSfBOqPNbjTq-oj56TqCjnrj1tzqB95220EB5kCDlc2BAE1A1nBfqs15PYu60JpWb0Hnsp6xb6h_pTk3hmRxgJ5oRpFOs4ocpiGb_unmLPOTtx0YujU79w51w9le9_sgn-Q%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ITOtLOsA_t4iZw3s72D2DXYQxgiwKsQCDefMCp4HaerqSDP8bUv5wVNMFMr_9UroTN60Rpkf9d1kGZTlUmSNzimKsLELo7Dchsd2-VyobKdOpvBBaFmPL1cAywxOTX4Y_wQ557463XG0zbuSXebImteMefi6JCZCy0EZHAyX8JaUwQWmipZXSf8PYHugqVQTVK3Ulgw-a21CJkaCMPcKLWC4jFGj28trMMbmkNc6h89Tb0BAhsdaHIkk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5VLyeDPPu7gtDu8lDesrac0sitvCdHBIh0XqB_Kqm7Jozw_5TzF-vas1hN3tmr05x5YAERiKxsaLC0clXHwhJi58cyclIkWLqwcCy44diKdqakoYwT_lUgh8GC_Zn8Zto61i8MtP84mxtWKix7GRbwWdF6ADX8kpCx-vghGvVPh19LuANtKV0RqKlgufvma9vsQU-zBibUxKdzN6fr36mdte284UYyNo0qa1jU_DR8KfZvubOlAkOgSv8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7h9gIUweFS6aRBP3xpxZrRoPt-3FZt9UnhARnWVfYwbQ3tda3U9A4GYaoRt29hoUOhGi3xJeoT_GiXPiY8Ol0YE2_p5brEvhY4mTbcarD4DSW_AjhNyogjNfBZx25fnxF4-EkfkXsaoxgRqpMQnc3plBkstD5p0vOcTSrg-91DrEikssCX2SyzFlYL5ci_a2WQNZ6HgboH3Wt4CZm8xabkPVzdZFr2iqfJOu2Pn_D6FgCy0-lKRgiFrQY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4bxrUIScNC4kigVsA9M6d8DqEQTlfb_uZGA1KXaUn3OaxEVGnkW6QynxS8BKks50G2FUG-Kv8llgNBSxw7MXaeGnVvcHcuvJcmxHjj14K57jLQtulRQ7Pvht3m_4g5-aYFMCxLJpwPFPLUZgIzGhZSjEf7ueFNfePslttqZeggwnFeo0EBWuuCCjHvRHkMME661IehDzAK2jXlLKF2AyiD2fPgxnARFguZjPDEG74-Y4U9I7qUe_prKKw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5-RSgb6PXgLRMvuJ6EZ04IIu4LMJqkR-TfNe5gfEwXJeEN1s1ykDl8_CnY5-lBOjjoieAKJQs9MxTohSr9jBcQZZC3C2SwCTymjVAjE4X1ABaKwJ_f5JLuxh_xpUPkXmexl6T3lJwNczHhKcjARrxddO8gWXj4MtkUXshs5a5OtICfQD8_eS7wSyI_wkpLfkylRKbgbwp6yMXhgMAGiiLD6gxxyiZI3BKu7XirWZsLZzpYpTr5BiExkOY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "小石川植物園",
           "group": "日向坂46"
         },
         "classification": {
