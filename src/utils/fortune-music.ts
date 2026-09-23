@@ -236,12 +236,16 @@ function parseMembers(text: string): string[] {
   return Array.from(new Set(
     section
       .split(/\n+/)
+      // 「※○○は…の参加となります」等备注行整行丢弃：
+      // 备注内可能含顿号，若先 split 再判 ※ 前缀会让后半段漏网成伪成员
+      .filter((line) => !line.trimStart().startsWith('※'))
       .flatMap((line) => line.split(/[、,\/]/))
       .map((member) => normalizeJapaneseText(member))
       .map((member) => member.replace(/\s+/g, ' ').trim())
       .map((member) => member.replace(/\s+/g, ''))
       .filter((member) => member
-        && !member.startsWith('※')
+        && !member.includes('※')
+        && !member.includes('。')
         && !member.includes('詳しくは')
         && !member.includes('参加メンバーは都合')
         && !member.includes('スケジュールの都合')

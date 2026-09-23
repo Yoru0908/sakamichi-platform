@@ -126,6 +126,32 @@ test('parseEventDetailHtml supports colon end times and slash-delimited member l
   assert.deepEqual(detail.members, ['遠藤光莉', '大園玲', '山田桃実']);
 });
 
+test('parseEventDetailHtml drops a ※ participation note containing a comma as one line', () => {
+  // Real sakurazaka_202610 layout: slash-delimited members followed by a ※ note
+  // whose text contains 、 — the note must not be fragmented into a fake member.
+  const html = `
+    <section>
+      <h2>イベント概要</h2>
+      <p>【日程】2026年10月18日（日）、2026年12月13日（日）</p>
+      <p>【オンラインミート＆グリート（個別トーク会）スケジュール】<br>
+        ＜第１部＞ 受付開始 10:45 / イベント開始 11:00 / 受付終了 11:45 （12:00 終了予定）<br>
+        ＜第２部＞ 受付開始 12:15 / イベント開始 12:30 / 受付終了 13:15 （13:30 終了予定）
+      </p>
+      <p>【参加メンバー】<br>
+        遠藤 光莉/<br>
+        大園 玲/<br>
+        山田 桃実<br>
+        <br>
+        ※藤吉 夏鈴は10月18日(日)、12月13日(日)の2日程のみの参加となります。
+      </p>
+    </section>
+  `;
+
+  const detail = parseEventDetailHtml(html);
+
+  assert.deepEqual(detail.members, ['遠藤光莉', '大園玲', '山田桃実']);
+});
+
 test('parseEventDetailHtml extracts dates slots and members from Fortune Music detail page', () => {
   const html = `
     <section>
