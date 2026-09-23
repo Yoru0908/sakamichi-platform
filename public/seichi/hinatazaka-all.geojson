@@ -59808,6 +59808,276 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          129.8732092,
+          32.7379381
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:df31d0d09c36a572d086",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:df31d0d09c36a572d086",
+        "name": "オランダ坂(昭和会病院付近)",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "オランダ坂(昭和会病院付近)",
+        "sceneNote": "長濱ねる1st.写真集「ここから」の冒頭で長濱ねるが駆け下っていた空撮カットの撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "オランダ坂(昭和会病院付近)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.8728355,
+          32.7383789
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6dbe033afcbbfca52332",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6dbe033afcbbfca52332",
+        "name": "オランダ坂（石標）",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "オランダ坂（石標）",
+        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。https://x.com/neru_nagasaki/status/918751234646982656",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5eePH4Oe4lWMT0ZT5daYgBb0j48dEmFH559ssBSs9ph6WggvhZR03ZjV-Bv5fKvpRvKcKyuNuGrsRA7sZELWRsKhs8B93CHq1dHKcRMsARX0FqUNotdlUtTeoQYfwC_V-wk7hg62Kuem75jr2-r1DOfHLhdZ-Y9IOCZhWqxTbHmqOsXwHeXJ8CxwxGLIdZAL3dEpypRvhr6I9D5guCalbyLzSb5TINvswd60IBTzsIfMih8ho4uW4ALxQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "オランダ坂（石標）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.8758029,
+          32.7412178
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:134ed0de5833a2d9bfc0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:134ed0de5833a2d9bfc0",
+        "name": "江山楼 長崎中華街新館",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "江山楼 長崎中華街新館",
+        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ta0wJVULZKHs80uczQT2K4ZUpOeU8GmbnPbrXiiJiYlu7-euAu6-T5-P5rgnu1OHQrTWSivi4WCew5CGVwCEqvmuL5gXI-JJVH4QVFDBGusBxCOuk-aLuth5Cx2HRHmHY4FrxRZApxGE136s9y9oHoSwha9ak7QEmhURdaACgdHKjBxcH56UvoN17I2zp3lqpp9IyRt8uRFNf3Y01562WmcK4m7WM6MhNu0yl853ted25Kqn3e1iqseY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7IidDZjXIMiRRKgXtN5WSBYA3ATZRld_c4lwXhs9bYPK5s7RGHBCiFMXkg741jl2xMe48EZozrkAPtyWukZpM6wFoMjRfTWouIOwO9yMXgntOcG5KNFG8HAtG_edZ5-0d-RrS2C4bEp35A_zY7gpzjRE-eTvChfvIZVB0gX11c3P87JERI-qkpvnHvP1JCJkpghEx2QSlN0UA783vZ4ZzyHVyrRMk2_yHmtmWKhD-gZ0ISS3eVA8XJ1Gk%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "江山楼 長崎中華街新館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.8795074,
+          32.7463819
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bbd29d11561841074730",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bbd29d11561841074730",
+        "name": "(旧)きっちんせいじ",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "(旧)きっちんせいじ",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で長濱ねるが立っていた、路面電車を模した外観の洋食店。2017年12月閉店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "(旧)きっちんせいじ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.066999,
+          32.981853
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a5a184a62ad7bee577ac",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a5a184a62ad7bee577ac",
+        "name": "パンランドかんちゃん",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "パンランドかんちゃん",
+        "sceneNote": "長濱ねる1st.写真集「ここから」撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "パンランドかんちゃん",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7353357,
           35.6725476
         ]
