@@ -1403,7 +1403,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "久里浜港",
-        "sceneNote": "1st ときめき草 https://www.youtube.com/watch?v=bgCR9HlsSPY 題名: 1st",
+        "sceneNote": "1st.Single「キュン」Type-Cカップリング曲「 ときめき草」MVタイトルバック他撮影地。 https://www.youtube.com/watch?v=bgCR9HlsSPY 題名: 1st",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -1458,7 +1458,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "新宿コズミック通り",
-        "sceneNote": "1stシングル ときめき草 こさかながバス乗るシーンやみーぱんがサビで歩いてるところ https://www.youtube.com/watch?v=bgCR9HlsSPY 題名: 1st",
+        "sceneNote": "1st.Single「キュン」Type-Cカップリング曲「 ときめき草」MV収録地。小坂菜緒がバスに乗るシーンや佐々木美玲がサビで歩いてるところ https://www.youtube.com/watch?v=bgCR9HlsSPY 題名: 1st",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -1513,7 +1513,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "原宿シカゴ 表参道店",
-        "sceneNote": "1st ときめき草 荒ぶる松田、他 https://www.youtube.com/watch?v=bgCR9HlsSPY 題名:",
+        "sceneNote": "1st.Single「キュン」Type-Cカップリング曲「 ときめき草」MV収録地。 荒ぶる松田好花他 https://www.youtube.com/watch?v=bgCR9HlsSPY 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -1568,7 +1568,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Ginza Sony Park",
-        "sceneNote": "1st ときめき草 久美と加藤のシーン https://www.youtube.com/watch?v=bgCR9HlsSPY 題名:",
+        "sceneNote": "1st.Single「キュン」Type-Cカップリング曲「 ときめき草」MV収録地。 佐々木久美と加藤史帆のシーン https://www.youtube.com/watch?v=bgCR9HlsSPY 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -1623,7 +1623,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "北新宿スタジオ",
-        "sceneNote": "1st ときめき草 https://www.youtube.com/watch?v=bgCR9HlsSPY 題名: 1stAL",
+        "sceneNote": "1st.Single「キュン」Type-Cカップリング曲「 ときめき草」MV収録地。 https://www.youtube.com/watch?v=bgCR9HlsSPY 題名: 1stAL",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -35180,6 +35180,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          129.876117,
+          32.7437662
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:015354d5e79640933d9b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:015354d5e79640933d9b",
+        "name": "西浜町駅",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "西浜町駅",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6z2tkub4i17nyADSZ92mri3dUERHgmXi2zQgpN7qDNrH18BeH9BGbLQoQuuf5dtFEFbQ3lFR60uubtbdKMCqjsz1mpiiP3P_6KBu3wWRsKLruuKlTHWKU74T7MqtPyb_puaIynkjEs0EXfdTsbieLj3f-jX09fK7O15An4KzTjWkhVMYqRThhASEr0OIW137T96T0C-xTLM42DIcI9iBtw-KPbVosz3yixAjmdEKraI0i0tw7VAnY8eU8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "西浜町駅",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           129.8758029,
           32.7412178
         ]
@@ -35217,6 +35272,62 @@
             "写真集関連"
           ],
           "name": "江山楼 長崎中華街新館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.8801059,
+          32.7470474
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ad5b9f0399b18df2d563",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ad5b9f0399b18df2d563",
+        "name": "眼鏡橋",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "眼鏡橋",
+        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。https://x.com/neru_nagasaki/status/918755994410217472",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6zoHapR91WhLoAcyXb43f0eAcqXp2M27RGx2O2QzRM7vhjaH8HegMnWj2sFMndW_Zigi-l9iosWrNzJmbHmmBEMwQodXrJEOTab2hGDfVOmSM_OrvtKNQPBGD3XU0fbZz8eyqBsicp68-BlQS7u6EEjj1X6hBrSfCP-IihXwHI9fhuH68akJqfxrjRIWDI2a5XyWvl8-DzHiPLI0Bpzl1esMT6_XVK68OExQI5HGZjK2MbUxEghN3v1KY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5GdiR6MUmO8XNSCio-0zFArS1Wsp6-Q6W9s5_a3pAf9zv_DGSCR-h5cgPdM68L8oOBnxlkcPzTsHRvYAUUx0oVtIS_Onfbfrnn-rWw161fSFuWR91IuO74v5JQ7oMGTva0WsPXUlba_cf3_JZoe2dshNqJTQIxglpA4A49U8d4F0m3svZ_7zX0N-NdVzyRlO-zXwQYliiHjbC3CRci0jqBoMiwHUAyYOQBYke_p5yHNONKt6_4ucRJV7U%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "眼鏡橋",
           "group": "日向坂46"
         },
         "classification": {
@@ -35614,61 +35725,6 @@
             "写真集関連"
           ],
           "name": "永田旅館",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          129.876117,
-          32.7437662
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:015354d5e79640933d9b",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:015354d5e79640933d9b",
-        "name": "西浜町駅",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "西浜町駅",
-        "sceneNote": "",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6z2tkub4i17nyADSZ92mri3dUERHgmXi2zQgpN7qDNrH18BeH9BGbLQoQuuf5dtFEFbQ3lFR60uubtbdKMCqjsz1mpiiP3P_6KBu3wWRsKLruuKlTHWKU74T7MqtPyb_puaIynkjEs0EXfdTsbieLj3f-jX09fK7O15An4KzTjWkhVMYqRThhASEr0OIW137T96T0C-xTLM42DIcI9iBtw-KPbVosz3yixAjmdEKraI0i0tw7VAnY8eU8%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "西浜町駅",
           "group": "日向坂46"
         },
         "classification": {
@@ -60081,20 +60137,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          129.8801059,
-          32.7470474
+          129.8701372,
+          32.7341535
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ad5b9f0399b18df2d563",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ad5b9f0399b18df2d563",
-        "name": "眼鏡橋",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:65b00d0b409ec1d33576",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:65b00d0b409ec1d33576",
+        "name": "大浦天主堂",
         "category": "写真集関連",
         "subcategory": "写真集関連",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "眼鏡橋",
-        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。",
+        "sceneTitle": "大浦天主堂",
+        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。https://x.com/neru_nagasaki/status/926976902249644032",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -60103,7 +60159,8 @@
           "写真集関連"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6zoHapR91WhLoAcyXb43f0eAcqXp2M27RGx2O2QzRM7vhjaH8HegMnWj2sFMndW_Zigi-l9iosWrNzJmbHmmBEMwQodXrJEOTab2hGDfVOmSM_OrvtKNQPBGD3XU0fbZz8eyqBsicp68-BlQS7u6EEjj1X6hBrSfCP-IihXwHI9fhuH68akJqfxrjRIWDI2a5XyWvl8-DzHiPLI0Bpzl1esMT6_XVK68OExQI5HGZjK2MbUxEghN3v1KY%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6r9DDX-39SvLo5HyOLutef0zrx8Zy8NYichmzMx3LDdEBF-2rpHeBoD6HtFjVG3pmzU8UnHw0_KivGBjPWmgqKng6WKYz7fOegTUnmEhpnrSOypk0T5wDhE8U5S0s5mbhly3D0nI1GfWeJoRYt9KI-L6wYhtznXyaOv_zwIHl6tIV1II5vs-QFrCLjgAnLfLrUuuvlUn-fx0tQwotD30PJ9fXHpxhdDDWyqx3IVv1dArqWRDfgS3nYuYk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7nidFVVNEj6XYJkK-_rlONhYZvM9svekqElwJTjOGl2O7UKviUJU8VS0JZjW4G9RC0bWv7iHyGYfk1t9ExMOxQUkdm8v4tlpR17_aLUj6r_yEnLTrXZmQzwHYDPnolvgiDvGcqpL0RXH6L_Z_bijY6l1Sf2RREgLKm4E6t1Wv6heOw1dnlsvtcCMqClcgyoQgmXn4ReDXiXSu9HI4ebPHEn7QkiPbdy4CYqssswu3pXsdqWPixiWG2HTI%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -60115,7 +60172,62 @@
             "日向坂46",
             "写真集関連"
           ],
-          "name": "眼鏡橋",
+          "name": "大浦天主堂",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.8679673,
+          32.7409406
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:20b4bed50ae85003c9b0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:20b4bed50ae85003c9b0",
+        "name": "水辺の森公園前着岸壁",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "水辺の森公園前着岸壁",
+        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。左下端のボラードと金属ハシゴが目印。https://x.com/neru_nagasaki/status/923132432731140097",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7NEZUD_a9d9y4SlMyeeG4nRFRs92rrYpxBWnPVTn_mX8xyqkPclbBT21ep_xUv1ra0TLHrwU8hip89OTrt0V2i3Hh29f9A2rbCSa7uXvoMUrlU6CmmadJo7HZKT2Gi2UianVoCApOdtNFsBBUL-q5pTolYgMV04PIcSMA_XmHL2I7edM6wYP73DNcdLRjs_uqMpgjPBz1Sdl_JBC-BYJGR9RsTdlCAS7EFxgyUPBgm8rQ6-0IEdGnaU7w%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "水辺の森公園前着岸壁",
           "group": "日向坂46"
         },
         "classification": {
@@ -229204,6 +229316,59 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "平石配水池",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.4558983,
+          34.3544022
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5540e43fe755dfa312a2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5540e43fe755dfa312a2",
+        "name": "広島みなと公園",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "広島みなと公園",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "広島みなと公園",
           "group": "日向坂46"
         },
         "classification": {
