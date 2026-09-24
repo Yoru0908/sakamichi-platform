@@ -52,19 +52,26 @@ for(const locale of ['zh-CN','ja']){
   async function start(page,source){const born=context.waitForEvent('page');await send(page,'START',{syncSource:source});const tab=await born;await page.waitForFunction(()=>window.__extensionMessages.some(m=>m.type==='STARTED'));const created=await worker.evaluate(()=>globalThis.__fixtureCreated.at(-1));assert(created);await tab.goto(created.url);}
   async function connect(page,url){await page.goto(url);await send(page,'PING');await page.waitForFunction(()=>window.__extensionMessages.some(m=>m.type==='PONG'));return page.evaluate(()=>window.__extensionMessages.find(m=>m.type==='PONG'));}
   async function receive(page,url){await page.waitForURL(url,{timeout:20000});await send(page,'TAKE_RESULT');await page.waitForFunction(()=>window.__extensionMessages.some(m=>m.type==='RESULT'));return page.evaluate(()=>window.__extensionMessages.find(m=>m.type==='RESULT').payload);}
-  const old=await context.newPage();const pong=await connect(old,'https://46log.com/miguri');assert.equal(pong.version,'1.1.16');await start(old,'fortunemeets');
-  const meets=await receive(old,'https://46log.com/miguri?extensionImport=1');assert.equal(meets.version,1);assert.equal(meets.records.length,3);assert.equal(JSON.stringify(meets).includes('fixture-token'),false);
+  const other=await context.newPage();await other.goto(locale==='zh-CN'?'https://saka46log.com/import':'https://46log.com/miguri');await send(other,'PING');
+  await other.waitForTimeout(300);assert.equal(await other.evaluate(()=>window.__extensionMessages.length),0,'opposite site must not get a bridge');
+  const own=await context.newPage();
+  if(locale==='zh-CN'){
+   const pong=await connect(own,'https://46log.com/miguri');assert.equal(pong.version,'1.1.18');await start(own,'fortunemeets');
+   const meets=await receive(own,'https://46log.com/miguri?extensionImport=1');assert.equal(meets.version,1);assert.equal(meets.records.length,3);assert.equal(JSON.stringify(meets).includes('fixture-token'),false);
+   const official=context.pages().find(page=>page.url().startsWith('https://ticket.fortunemeets.app/'));
+   await official.evaluate(()=>{localStorage.removeItem('lscache-userId');localStorage.removeItem('lscache-accessToken');localStorage.setItem('lscache-id',JSON.stringify('fixture-legacy'));});
+   await worker.evaluate(()=>chrome.storage.session.clear());await own.goto('https://46log.com/miguri');await start(own,'fortunemeets');
+   const legacy=await receive(own,'https://46log.com/miguri?extensionImport=1');assert.equal(legacy.records.length,3);
+  }else{
+   const pong=await connect(own,'https://saka46log.com/import');assert.equal(pong.version,'1.1.18');assert(pong.capabilities.includes('saka-lottery-v2'));await start(own,'fortunemusic');
+   const music=await receive(own,'https://saka46log.com/import?extensionImport=1');assert.equal(music.target,'saka46log');assert.equal(music.version,2);assert.equal(music.records.length,1);assert.equal(music.records[0].won,2);assert.equal(music.autoContinue,false);
+   await send(own,'ACK_RESULT',{completedAt:music.completedAt});
+  }
   const safe=await worker.evaluate(async()=>{const session=await chrome.storage.session.get(null),local=await chrome.storage.local.get(null);return !JSON.stringify({session,local}).includes('fixture-token');});assert(safe);
-  await worker.evaluate(()=>chrome.storage.session.clear());
-  const saka=await context.newPage();const spong=await connect(saka,'https://saka46log.com/import');assert(spong.capabilities.includes('saka-lottery-v2'));await start(saka,'fortunemusic');
-  const music=await receive(saka,'https://saka46log.com/import?extensionImport=1');assert.equal(music.target,'saka46log');assert.equal(music.version,2);assert.equal(music.records.length,1);assert.equal(music.records[0].won,2);assert.equal(music.autoContinue,false);
-  await send(saka,'ACK_RESULT',{completedAt:music.completedAt});await worker.evaluate(()=>chrome.storage.session.clear());
-  const official=context.pages().find(page=>page.url().startsWith('https://ticket.fortunemeets.app/'));
-  await official.evaluate(()=>{localStorage.removeItem('lscache-userId');localStorage.removeItem('lscache-accessToken');localStorage.setItem('lscache-id',JSON.stringify('fixture-legacy'));});
-  await old.goto('https://46log.com/miguri');await start(old,'fortunemeets');const legacy=await receive(old,'https://46log.com/miguri?extensionImport=1');assert.equal(legacy.records.length,3);
-  const audit=await worker.evaluate(()=>globalThis.__apiAudit);assert.equal(audit.filter(r=>r.bearer).length,3);assert.equal(audit.filter(r=>r.legacy).length,3);assert(audit.every(r=>r.redirect==='error'));
+  const audit=await worker.evaluate(()=>globalThis.__apiAudit);
+  if(locale==='zh-CN'){assert.equal(audit.filter(r=>r.bearer).length,3);assert.equal(audit.filter(r=>r.legacy).length,3);assert(audit.every(r=>r.redirect==='error'));}else assert.equal(audit.length,0);
   assert.deepEqual(unexpected,[]);
-  report.editions.push({locale,version:pong.version,oldSiteMeetsBearer:true,oldSiteMeetsLegacy:true,newSiteMusic:true,receiptsAndCapabilities:true,credentialsNotPersistedOrInResult:safe,apiCalls:audit.length,realAccountAccess:false});
+  report.editions.push({locale,version:'1.1.18',ownSiteOnly:true,credentialsNotPersistedOrInResult:safe,apiCalls:audit.length,realAccountAccess:false});
  }finally{await context?.close();await rm(profile,{recursive:true,force:true});}
 }
 await writeFile(path.join(root,'artifacts/extension-browser-check.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));

@@ -1,4 +1,6 @@
 importScripts("meets-api.js");
+// Replaced by the candidate builder for the Japanese edition. Unpacked source is 46log-only.
+const EDITION_TARGET = "46log";
 
 const JOB_KEY = "miguriSyncJob";
 const RESULT_KEY = "miguriSyncResult";
@@ -33,8 +35,8 @@ function dashboardTarget(sender) {
   if (sender.frameId !== undefined && sender.frameId !== 0) return null;
   try {
     const url = new URL(sender.url || "");
-    if (url.origin === "https://46log.com" && /^\/miguri(?:\/|$)/.test(url.pathname)) return "46log";
-    if (url.origin === "https://saka46log.com" && /^\/import\/?$/.test(url.pathname)) return "saka46log";
+    if (EDITION_TARGET === "46log" && url.origin === "https://46log.com" && /^\/miguri(?:\/|$)/.test(url.pathname)) return "46log";
+    if (EDITION_TARGET === "saka46log" && url.origin === "https://saka46log.com" && /^\/import\/?$/.test(url.pathname)) return "saka46log";
   } catch {}
   return null;
 }
@@ -131,6 +133,10 @@ async function updateAutoState(patch) {
 }
 
 async function ensureAutoAlarm() {
+  if (EDITION_TARGET === "saka46log") {
+    await chrome.alarms.clear(AUTO_ALARM);
+    return;
+  }
   const state = await loadAutoState();
   if (!state.enabled) {
     await chrome.alarms.clear(AUTO_ALARM);
@@ -309,6 +315,7 @@ async function finishAutoSource(job, records, sender) {
 }
 
 async function startAutoCycle() {
+  if (EDITION_TARGET === "saka46log") return false;
   const state = await loadAutoState();
   if (!state.enabled) return false;
   // A manual source result remains in session storage until the Dashboard has
@@ -693,12 +700,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 chrome.action.onClicked.addListener(async (activeTab) => {
-  // Same routing in both language editions: follow the user's current site,
-  // not the package title. Keep the established 46log default elsewhere.
-  let destination = DASHBOARD_URL;
-  try {
-    if (new URL(activeTab?.url || "").origin === new URL(SAKA_DASHBOARD_URL).origin) destination = SAKA_DASHBOARD_URL;
-  } catch {}
+  // Store editions have isolated destinations. A package never opens the other site.
+  let destination = EDITION_TARGET === "saka46log" ? SAKA_DASHBOARD_URL : DASHBOARD_URL;
   const target = destination === SAKA_DASHBOARD_URL ? "saka46log" : "46log";
   const tabs = await chrome.tabs.query({ url: `${destination}*` });
   const existing = tabs.find(tab => dashboardTarget({ url: tab.url, frameId: 0 }) === target);
