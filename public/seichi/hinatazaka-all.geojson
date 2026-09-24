@@ -224368,6 +224368,67 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7434806,
+          35.6179434
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f768ab670ea917c1cdd2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f768ab670ea917c1cdd2",
+        "name": "レバニラや金太郎 東京出張所",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "レバニラや金太郎 東京出張所",
+        "sceneNote": "かまいまちで松田好花が訪れたレバニラ専門店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR77WedzqGgqA7ij3hSibRK22ozT459lC-OIXXAnSp_ovZlltoBWyxuIuex-VXJXta5YKxx4-VJN4GB_8OjAevScXXtUvqaHz8b2Zo1FNHvv4-WikROynC9MuRiZiY0-uh_Ss8AXcKCLDm7srH96P23ZC0xFJrhS2dTKpgxTpol7440wqc_nXdS8rkzBSCi8gIQienwoecDrwKOS2rYgr4cB95vSsiF-MSssanK5QdFRh634mTLm-LKt5jE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7PbW8xk7U1UFoskRKemTpF_4eVzztoaKJblOieX2JBPY-tQqHrwMoTkHIul2M1e73zPC-CATr5HaUgJM7MaOXRQkb4pH1YjprsrB6kGVX9K-8DkrOGXVKc_yYuTEBcQsPjbtwfc_rEl0V6VAWhJ4JfkefKWKB798ku2nTDhM433l8L9P6r4Ih9tRJVenBLRKcyBGleeBRZRb-IaOpFgJFsKOIFHtK6GEorts3SlJw5XWC2t1UC_3QA3Es%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wMFxeEAb_G2qj0y8kqQgATypeXbBkruXmIUFkAFVlE4KUt3X4bbrpen6yk7gBy_uZUffc0TxclvESBAzf2yJo93Uf2hXHpNLrWj9hGPKwczZ0XqrhV0M-LcYNdaFbk2wR8piC6QkMcfJAN6bcUEZgLlLP8dDtbbdtwvFQvwgDa6VlP5ze8GkBfPHlBeyT25qdQLtd0x75uAbkw-68c5WXdO-jTKCJHUKEcT65RZA7ln0KLg0B9vNzovM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5oxM6DAvtsejb9rzTHgAjEHJBo2qmB_NcDoPgXK3JGV8hvU1cVnEw_eLuJVFJxLp_LUTD11fvVO3Fon6dRTX_I--CmCFsvb_S5GeOn9mEBdemv78mGGu_o5O-OnnwpXHHBsHAN5ktNDBuo1NF34zt0S7tmJ6kPEJB5HIiQRM6GOtHdkFe57t9SIbYQbBI2f8kWjeoMot32czxdkPFpQmjzRy93IC1RknqLw6ydbabR8mRPgEmoNJpa7So%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7K3EQf7pGLqBO1fjIuz3keKftnFBqIo3hzVQyxV5y53LCQSDtHJlM0lnljbj3SpLYNBW7Q7FGkswd_P1NRA2jMyddKMJAtjO073_C9rZBw35D7Ih4d9b74o1wOys8P5M6E2TFJrkxPElUu22mu2vvI_2K1pLP50pNT4i4sC-1eKvU0NettM5qiQwGRbKMY4i9hZUJ9Rvn00PBal2u_jGy3Trp1xpHrb09u6TDsq-clS8kDt7F9LatZ40k%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7282r_EzWlhFwjxXLA9p3_J8JHBQUDs-Gd81UPNa7nikq5X-asVU8f8Z2z5IRYFknpVMmc4LERIup9S4h-w7_JZ6AGeISTjDALuIN81Ddrb5ztiG0A8xxJjd1EX4i7JjCW6hjoopGuZesEz0K3S6xqfO7JrqHmhUDy5X5W54G010byFZBkLlz3QdmGKc6XszonfUFMiRwQL_83g2854m3MjAUTvPqrbhjNe2T2qwy7M2OHbdk5Dpcc5Go%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4_yyXTWJ3eZvincHINf81mzMZzXjwKYRjQ3g2g-fZWl3PDkW8nvM6o7njhhAx5_Geg6RjyhWJ3Zhx1Hc_IzjBnYvL8YoPmo0Ivp6XqtNwC8jF0zRLt2xgETQ3YqJFV-KDBqEBt1SW0q7Bixk3odZVchxqidht8J4Kn8i_vMY-fRYtM7BXW2IHCzyAzqGo1o2zrtKkb5FG4XAExjeamcaBhQ7dNGfeUv0MzBBK8WWqkJ9ndEQuKbZoZL98%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "レバニラや金太郎 東京出張所",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           132.3854112,
           34.3928532
         ]
@@ -228532,61 +228593,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7650147,
-          35.6710227
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7836f2262eae5668417b",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7836f2262eae5668417b",
-        "name": "NISSAN CROSSING",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "NISSAN CROSSING",
-        "sceneNote": "高本彩花が銀座を訪れた際に写真を撮った場所 https://x.com/ayakatakamoto_/status/2099762088231215227",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ikG46LHzdGrUwgL2cVHyv0kMsstV4aQM1aLHJyMNzqoo5roOgyz3VPDYm6EVarXUGMYi-E8qe_TxecqDHtjf8tC8QEK0g80YhAfYwLg6Tp-CkNrm0duP0ZF8Hqe2heT6q5J3udcrkzCPPtkzelA85huYQi_oA3MpnnWguAgnw1qOADu5zFh5ICl3b08nvHlbC_-oXyWdqgeFhS2g8ZGXIE39_U3tTHmf44iX5Am8hiAwPinBoJltVulA%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "NISSAN CROSSING",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           133.0927603,
           34.3056511
         ]
@@ -229220,67 +229226,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7434806,
-          35.6179434
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f768ab670ea917c1cdd2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f768ab670ea917c1cdd2",
-        "name": "レバニラや金太郎 東京出張所",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "レバニラや金太郎 東京出張所",
-        "sceneNote": "かまいまちで松田好花が訪れたレバニラ専門店。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR77WedzqGgqA7ij3hSibRK22ozT459lC-OIXXAnSp_ovZlltoBWyxuIuex-VXJXta5YKxx4-VJN4GB_8OjAevScXXtUvqaHz8b2Zo1FNHvv4-WikROynC9MuRiZiY0-uh_Ss8AXcKCLDm7srH96P23ZC0xFJrhS2dTKpgxTpol7440wqc_nXdS8rkzBSCi8gIQienwoecDrwKOS2rYgr4cB95vSsiF-MSssanK5QdFRh634mTLm-LKt5jE%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7PbW8xk7U1UFoskRKemTpF_4eVzztoaKJblOieX2JBPY-tQqHrwMoTkHIul2M1e73zPC-CATr5HaUgJM7MaOXRQkb4pH1YjprsrB6kGVX9K-8DkrOGXVKc_yYuTEBcQsPjbtwfc_rEl0V6VAWhJ4JfkefKWKB798ku2nTDhM433l8L9P6r4Ih9tRJVenBLRKcyBGleeBRZRb-IaOpFgJFsKOIFHtK6GEorts3SlJw5XWC2t1UC_3QA3Es%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wMFxeEAb_G2qj0y8kqQgATypeXbBkruXmIUFkAFVlE4KUt3X4bbrpen6yk7gBy_uZUffc0TxclvESBAzf2yJo93Uf2hXHpNLrWj9hGPKwczZ0XqrhV0M-LcYNdaFbk2wR8piC6QkMcfJAN6bcUEZgLlLP8dDtbbdtwvFQvwgDa6VlP5ze8GkBfPHlBeyT25qdQLtd0x75uAbkw-68c5WXdO-jTKCJHUKEcT65RZA7ln0KLg0B9vNzovM%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5oxM6DAvtsejb9rzTHgAjEHJBo2qmB_NcDoPgXK3JGV8hvU1cVnEw_eLuJVFJxLp_LUTD11fvVO3Fon6dRTX_I--CmCFsvb_S5GeOn9mEBdemv78mGGu_o5O-OnnwpXHHBsHAN5ktNDBuo1NF34zt0S7tmJ6kPEJB5HIiQRM6GOtHdkFe57t9SIbYQbBI2f8kWjeoMot32czxdkPFpQmjzRy93IC1RknqLw6ydbabR8mRPgEmoNJpa7So%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7K3EQf7pGLqBO1fjIuz3keKftnFBqIo3hzVQyxV5y53LCQSDtHJlM0lnljbj3SpLYNBW7Q7FGkswd_P1NRA2jMyddKMJAtjO073_C9rZBw35D7Ih4d9b74o1wOys8P5M6E2TFJrkxPElUu22mu2vvI_2K1pLP50pNT4i4sC-1eKvU0NettM5qiQwGRbKMY4i9hZUJ9Rvn00PBal2u_jGy3Trp1xpHrb09u6TDsq-clS8kDt7F9LatZ40k%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7282r_EzWlhFwjxXLA9p3_J8JHBQUDs-Gd81UPNa7nikq5X-asVU8f8Z2z5IRYFknpVMmc4LERIup9S4h-w7_JZ6AGeISTjDALuIN81Ddrb5ztiG0A8xxJjd1EX4i7JjCW6hjoopGuZesEz0K3S6xqfO7JrqHmhUDy5X5W54G010byFZBkLlz3QdmGKc6XszonfUFMiRwQL_83g2854m3MjAUTvPqrbhjNe2T2qwy7M2OHbdk5Dpcc5Go%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4_yyXTWJ3eZvincHINf81mzMZzXjwKYRjQ3g2g-fZWl3PDkW8nvM6o7njhhAx5_Geg6RjyhWJ3Zhx1Hc_IzjBnYvL8YoPmo0Ivp6XqtNwC8jF0zRLt2xgETQ3YqJFV-KDBqEBt1SW0q7Bixk3odZVchxqidht8J4Kn8i_vMY-fRYtM7BXW2IHCzyAzqGo1o2zrtKkb5FG4XAExjeamcaBhQ7dNGfeUv0MzBBK8WWqkJ9ndEQuKbZoZL98%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "レバニラや金太郎 東京出張所",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           133.6905332,
           34.5946487
         ]
@@ -229349,7 +229294,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "広島みなと公園",
-        "sceneNote": "",
+        "sceneNote": "2026.10.10-11「日向坂46竹内希来里の地元できらる」初の公開生収録イベント開催予定地。https://x.com/tss_jimokira/status/2101265058156232966",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -229369,6 +229314,178 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "広島みなと公園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.635165,
+          35.456854
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ecced9e88c1013c67888",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ecced9e88c1013c67888",
+        "name": "横浜ベイホテル東急",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "横浜ベイホテル東急",
+        "sceneNote": "東京カレンダーの正源司陽子の撮影地 https://x.com/tokyo_calendar/status/2098320724192882925",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5hik4V_eJAoN-u1yVKVgpzxVbDLtcLH3qfGv6o1ImPP9uVAumYkp_ME1Kq59l-83nJnA7XesRp6eF56KLUrM5liZK1JOldrExIvvXNDa8K_gsQlbv3pwdP_G-o4QIoTj27A1AY61Ouz4Oy8NnKEWIy8bQBVYoYq7ZSm9rBvYGqQwP8LLZlbhBP1SBy-nP_6IcyGxrPZbXFHSFEDiJtO_dnoVR_iZjw8QN9ymYa7QutBy8aAPKID0YAw18%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4e0XyXHau-cLM3tPytA1RtjBYjzrj65WzKbLkD4-DKjFpUZzJygv1KST0KvxGGxWFoq-9FfincAiGHohdhHbhZrjoeTWnLE4IW6ZpCwwlea9Tg9W6nmhPATIcA3vRdCR_ZKCNaRSX74ASlNKxKM-khZ4rQcll8uBRw4nvyNM7v13keoP_sjBFCBwA_3Dk_kRl1RSvQgAF7nPHofKfGE2nV8iiKWXfBu0QAzsLUi9VihlCE3uXqpyPZKaE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "横浜ベイホテル東急",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7650147,
+          35.6710227
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7836f2262eae5668417b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7836f2262eae5668417b",
+        "name": "NISSAN CROSSING",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "NISSAN CROSSING",
+        "sceneNote": "高本彩花が銀座を訪れた際に写真を撮った場所 https://x.com/ayakatakamoto_/status/2099762088231215227",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ikG46LHzdGrUwgL2cVHyv0kMsstV4aQM1aLHJyMNzqoo5roOgyz3VPDYm6EVarXUGMYi-E8qe_TxecqDHtjf8tC8QEK0g80YhAfYwLg6Tp-CkNrm0duP0ZF8Hqe2heT6q5J3udcrkzCPPtkzelA85huYQi_oA3MpnnWguAgnw1qOADu5zFh5ICl3b08nvHlbC_-oXyWdqgeFhS2g8ZGXIE39_U3tTHmf44iX5Am8hiAwPinBoJltVulA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "NISSAN CROSSING",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7373153,
+          35.6268146
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2a0f526fc48e348be16a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2a0f526fc48e348be16a",
+        "name": "餃子マニア 品川本店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "餃子マニア 品川本店",
+        "sceneNote": "かまいまちで松田好花が訪れた餃子のお店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6-DIqL4toj7XAIacqgtRe_ITtKHjgudFR7yHuZ8aji_l88EIy5KhB-38QngN4gZEB4Nq32aPciTBg2je88ct17VU6d-DHMS-fCzTnaal53n7Oa9noza9zZIz-wy8GmGUXg2XZEJ3l2ysJ_2sCRZUvpGE4WwG5jNIPyBQhI7CSLrS6yGGmnISXRCm4RR8d15k_yWbx54QUmUOQ3SxEVylVK2YZ7YVGqTBSh-REs-s01tKkFap3mnNTxOks%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wX1c05MmHu7QrVZ5MTLffXac8dK-mCZPlUDycSNbHxdirYinx-bFfapGB-hAegHKiGqS9O6VavH1so2v0vgFKGKo-FRnpkO6AiX0fQnPxsbeRfSvOkfuO_ynAREfSAAOs3IJ_jt1_dXsckUowZ-ixriScQllAl8_MCaPMTPQQpMimfGmhlLH_wCIdqSrkL56AMtwWxaEVWA5FCHuVzSXLsWg4RdwBiD7H4SfezGJapNfKiYMTSp-qRWM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5I28mr7xMRYaOap4MoHBDIZgkKPHY14PT0OzFwOBm7t-SrG43OYN9dBuU9QslW4Xczu4EgkdQbORqwYUPar1IwMyLYcwwuSqksLCfMHTi8FBKsOKFDVpc8fxvFAseGuZZgwl4GFkdCm-H2aKmYDuZu-PO9mzOgVpLcQlTRT8aPt2UNOLIUvGIWnVC9jmiKfO9MbeTpZ9uQ0jh1f67U9MhNZDaTvC4S-j02mmW91AxkOj3sTj0sjRrv-f8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7XSo0MpEP1tz4QnI-Tv2DmoeMgR7zUZi6h9nFgGK00psPfc4Fn-6GLWG_2wGBVSfoSWEDVbIvmXmaP1kwju4qJHwv14vi2k4gBwhgNFfMLzU0K8hTE_uVgwpqYbZsKHUART2Jptv3yYb4coNU3pHTO1U9WBo6TC9MIz39PrYc6EUAJ_Outi7qSqL-xcrsEYlAzFwT9E4N0MohhQqxPc_TBnI4UW0TaZbYtqJDq-EN0TKnNzVmW-oncBf0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5EtK_k91C23KM0mcH0FIrrQpYyy9Jp1q24h5xGQnV9zBYReI_024wBhakDDsNaFkWv75NFMuYauhs2HSjpvFespsr1Xfxh4qUt2T9ZfWHd-ltPgtOtbcT5R41Gc9WfFH46jlcybfsCqiNHHtHbo8slVdhry8Jb-3E4lTsZZ3zGfc7E0NT640RbJk4vf67IJzYBYCvbFB1EtK5rsJlLMqJhThuJlRgFhIV9forC0W7o5iFGHIKU8ZWwz_4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ln5fwlwTCBI1GO4DlSe1pRptpWhIUuPsC9ODgSTNMDO7Cex18NGL2gDaX_zI07wJ8Q7K2oxmG6HXfenS0KEPMRXwnMrxp8vxfMVK3WzTP3vERtB-OmVra0D_KCfJfK48TFFJ0n912jl4kbTGe7nncDcGgZvxPucVNlUMHNEnvgajdAMyMjEkOJcxm1Ee7Qw6GCPgS2I5sIxEoGN_n2COlAQnfBrp5GbOKHMSdYN7BSfOo1H1317-CPmU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4axIPRnWAVyLWzcmSNlvaxhSsP-gyvHycr3_vkw12KnxixFK7jJWNoULZ7SqxlpRKAA0kU2Q6pjrdzhxdCC8S0ixBtg3xKpGR84Lb7dXgQ1UOkNUZZywJblMqDpUiBubHP5cZUSuU31xHyO8kmAGSQZWyl8etn8BWwBiA4u34OIk0DQmIU0Pwzl-I304tDiRkjppGRKtGfDCh5Q7Jhoh7tQ2BtUfkkOln7eNqqxqXMgJVpHXmgG1-jpuA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "餃子マニア 品川本店",
           "group": "日向坂46"
         },
         "classification": {
