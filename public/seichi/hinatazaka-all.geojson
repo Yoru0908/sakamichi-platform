@@ -35348,6 +35348,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          129.8701372,
+          32.7341535
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:65b00d0b409ec1d33576",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:65b00d0b409ec1d33576",
+        "name": "大浦天主堂",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "大浦天主堂",
+        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。https://x.com/neru_nagasaki/status/926976902249644032",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6r9DDX-39SvLo5HyOLutef0zrx8Zy8NYichmzMx3LDdEBF-2rpHeBoD6HtFjVG3pmzU8UnHw0_KivGBjPWmgqKng6WKYz7fOegTUnmEhpnrSOypk0T5wDhE8U5S0s5mbhly3D0nI1GfWeJoRYt9KI-L6wYhtznXyaOv_zwIHl6tIV1II5vs-QFrCLjgAnLfLrUuuvlUn-fx0tQwotD30PJ9fXHpxhdDDWyqx3IVv1dArqWRDfgS3nYuYk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7nidFVVNEj6XYJkK-_rlONhYZvM9svekqElwJTjOGl2O7UKviUJU8VS0JZjW4G9RC0bWv7iHyGYfk1t9ExMOxQUkdm8v4tlpR17_aLUj6r_yEnLTrXZmQzwHYDPnolvgiDvGcqpL0RXH6L_Z_bijY6l1Sf2RREgLKm4E6t1Wv6heOw1dnlsvtcCMqClcgyoQgmXn4ReDXiXSu9HI4ebPHEn7QkiPbdy4CYqssswu3pXsdqWPixiWG2HTI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "大浦天主堂",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           129.066999,
           32.981853
         ]
@@ -60137,62 +60193,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          129.8701372,
-          32.7341535
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:65b00d0b409ec1d33576",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:65b00d0b409ec1d33576",
-        "name": "大浦天主堂",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "大浦天主堂",
-        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。https://x.com/neru_nagasaki/status/926976902249644032",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6r9DDX-39SvLo5HyOLutef0zrx8Zy8NYichmzMx3LDdEBF-2rpHeBoD6HtFjVG3pmzU8UnHw0_KivGBjPWmgqKng6WKYz7fOegTUnmEhpnrSOypk0T5wDhE8U5S0s5mbhly3D0nI1GfWeJoRYt9KI-L6wYhtznXyaOv_zwIHl6tIV1II5vs-QFrCLjgAnLfLrUuuvlUn-fx0tQwotD30PJ9fXHpxhdDDWyqx3IVv1dArqWRDfgS3nYuYk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7nidFVVNEj6XYJkK-_rlONhYZvM9svekqElwJTjOGl2O7UKviUJU8VS0JZjW4G9RC0bWv7iHyGYfk1t9ExMOxQUkdm8v4tlpR17_aLUj6r_yEnLTrXZmQzwHYDPnolvgiDvGcqpL0RXH6L_Z_bijY6l1Sf2RREgLKm4E6t1Wv6heOw1dnlsvtcCMqClcgyoQgmXn4ReDXiXSu9HI4ebPHEn7QkiPbdy4CYqssswu3pXsdqWPixiWG2HTI%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "大浦天主堂",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           129.8679673,
           32.7409406
         ]
@@ -60228,6 +60228,115 @@
             "写真集関連"
           ],
           "name": "水辺の森公園前着岸壁",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.8691188,
+          32.7365506
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3ea6b69166409274a8a0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3ea6b69166409274a8a0",
+        "name": "旧香港上海銀行 長崎支店 記念館前",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "旧香港上海銀行 長崎支店 記念館前",
+        "sceneNote": "長濱ねる1st.写真集「ここから」冒頭のクルーズ客船をバックにしたシーンの撮影場所。停泊している船舶は2017年７月の撮影時期から、おそらくロイヤル・カリビアンの「オベーション・オブ・ザ・シーズ」か「クァンタム・オブ・ザ・シーズ」と思われる。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "旧香港上海銀行 長崎支店 記念館前",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.8806787,
+          32.7431389
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4e4f0f8ac418cc635a93",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4e4f0f8ac418cc635a93",
+        "name": "ツル茶ん 本店",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ツル茶ん 本店",
+        "sceneNote": "長濱ねる1st.写真集「ここから」オフショットhttps://x.com/neru_nagasaki/status/924149334060417024",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5kJibTvz2c8rizPjy0wYkkqXVlF2slBHWKHC5lF2PFEjcxFAZOSDzduBi1ljcBNET8CJQVdhrqK9i_IE2fW_3DlIkPDM1mA8pbkCd1WTaqJphnXWcx2T8nqIfhV9632MHxcawYCJ_bt7gg39OxRJGDsIgtk3RSBvpzYFKjskZ-Rz1rq0dvVFEt4OBF8ZmFqZdEJ_gIrX6JEAVexNHA7TeOCraHJSmpaNdAHyl5-Gra8ZKlXsuaEIJdjzs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Aqc5p5XuQS94PwGK0jwHkvXfthognG-hoonCPapEAK8oAr8D-1FwzyUqGjrjADz-f0uxlng-sjNaGmXVHvrlGvIYqM5BdloEPO9Rap-7c0QFHSUxS5etB30bJdQjzg2YPH0xsgNVYqbpqryrAjLv_FNiBA64buOZtA9iqPZ7sQKgQPMgR-fQQar82Ow79Bm150HBLf8WLoQ3jIgJdtaDmiXT09PJxicRszd4AA1bY5Jk9sXK6GAGaSC0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "ツル茶ん 本店",
           "group": "日向坂46"
         },
         "classification": {
@@ -111289,7 +111398,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Southernmost Point of the United States",
-        "sceneNote": "丹生明里が訪れた場所 https://www.instagram.com/p/DOfjhTRj2Lb/?img_index=8 題名:",
+        "sceneNote": "2025年夏に丹生明里が訪れた場所 https://www.instagram.com/p/DOfjhTRj2Lb/?img_index=8 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -111344,7 +111453,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ハワイ火山国立公園(サーストンラヴァチューブ)",
-        "sceneNote": "丹生明里が訪れた場所 https://www.instagram.com/p/DOfjhTRj2Lb/?img_index=5 題名:",
+        "sceneNote": "2025年夏に丹生明里が訪れた場所 https://www.instagram.com/p/DOfjhTRj2Lb/?img_index=5 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -111399,7 +111508,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ヒルトン・ワイコロア・ビレッジ",
-        "sceneNote": "丹生明里が訪れた場所 https://www.instagram.com/p/DOfjhTRj2Lb/?img_index=9 題名:",
+        "sceneNote": "2025年夏に丹生明里が訪れた場所 https://www.instagram.com/p/DOfjhTRj2Lb/?img_index=9 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -111455,7 +111564,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ヒルトン・ワイコロア・ビレッジ",
-        "sceneNote": "丹生明里が訪れた場所 https://www.instagram.com/p/DOfjhTRj2Lb/?img_index=1 題名:",
+        "sceneNote": "2025年夏に丹生明里が訪れた場所 https://www.instagram.com/p/DOfjhTRj2Lb/?img_index=1 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -111510,7 +111619,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "プナルウ ベイク ショップ",
-        "sceneNote": "丹生明里が訪れた場所 https://www.instagram.com/p/DOfjhTRj2Lb/?img_index=6 題名:",
+        "sceneNote": "2025年夏に丹生明里が訪れたアメリカ合衆国最南端のパン屋さん。 https://www.instagram.com/p/DOfjhTRj2Lb/?img_index=6 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
