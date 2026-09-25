@@ -68,14 +68,14 @@ window.addEventListener("message", (event) => {
         }
       })
       .catch(() =>
-        post("ERROR", { message: "履历已保存，但无法继续下一项同步" }),
+        post("ERROR", { message: "无法确认 Music 同步结果，请重试" }),
       );
     return;
   }
 
   if (
     message.type === "START" &&
-    ["fortunemusic", "fortunemeets"].includes(message.syncSource)
+    message.syncSource === "fortunemusic"
   ) {
     send({
         type: "MIGURI46LOG_START",

@@ -1,6 +1,4 @@
-importScripts("meets-api.js");
-// Replaced by the candidate builder for the Japanese edition. Unpacked source is 46log-only.
-const EDITION_TARGET = "46log";
+// Both language editions share this same Music-only runtime and support both sites.
 
 const JOB_KEY = "miguriSyncJob";
 const RESULT_KEY = "miguriSyncResult";
@@ -10,23 +8,6 @@ const AUTO_JOB_TIMEOUT_ALARM = "miguriAutoSyncJobTimeout";
 const AUTO_INTERVAL_MINUTES = 30;
 const JOB_TIMEOUT_MS = 10 * 60 * 1000;
 const MUSIC_URL = "https://fortunemusic.jp/mypage/apply_list/";
-const MEETS_GROUPS = [
-  {
-    slug: "nogizaka46",
-    label: "乃木坂46",
-    url: "https://ticket.fortunemeets.app/nogizaka46/",
-  },
-  {
-    slug: "sakurazaka46",
-    label: "櫻坂46",
-    url: "https://ticket.fortunemeets.app/sakurazaka46/",
-  },
-  {
-    slug: "hinatazaka46",
-    label: "日向坂46",
-    url: "https://ticket.fortunemeets.app/hinatazaka46/",
-  },
-];
 const DASHBOARD_URL = "https://46log.com/miguri";
 const IMPORT_URL = "https://api.46log.com/api/miguri/entries/import";
 const REFRESH_URL = "https://api.46log.com/api/auth/refresh";
@@ -35,8 +16,8 @@ function dashboardTarget(sender) {
   if (sender.frameId !== undefined && sender.frameId !== 0) return null;
   try {
     const url = new URL(sender.url || "");
-    if (EDITION_TARGET === "46log" && url.origin === "https://46log.com" && /^\/miguri(?:\/|$)/.test(url.pathname)) return "46log";
-    if (EDITION_TARGET === "saka46log" && url.origin === "https://saka46log.com" && /^\/import\/?$/.test(url.pathname)) return "saka46log";
+    if (url.origin === "https://46log.com" && /^\/miguri(?:\/|$)/.test(url.pathname)) return "46log";
+    if (url.origin === "https://saka46log.com" && /^\/import\/?$/.test(url.pathname)) return "saka46log";
   } catch {}
   return null;
 }
@@ -133,10 +114,6 @@ async function updateAutoState(patch) {
 }
 
 async function ensureAutoAlarm() {
-  if (EDITION_TARGET === "saka46log") {
-    await chrome.alarms.clear(AUTO_ALARM);
-    return;
-  }
   const state = await loadAutoState();
   if (!state.enabled) {
     await chrome.alarms.clear(AUTO_ALARM);
@@ -167,6 +144,7 @@ async function setAutoEnabled(enabled) {
 }
 
 async function startJob(source, returnTabId, options = {}) {
+  if (source !== "fortunemusic") throw new Error("仅支持 forTUNE music");
   if (await loadPendingResult()) {
     throw new Error("上一项履历正在保存，请稍候");
   }
@@ -187,10 +165,7 @@ async function startJob(source, returnTabId, options = {}) {
   await chrome.storage.session.set({ [JOB_KEY]: job });
   try {
     const tab = await chrome.tabs.create({
-      url:
-        source === "fortunemusic"
-          ? MUSIC_URL
-          : MEETS_GROUPS[0].url,
+      url: MUSIC_URL,
       active: !job.auto,
     });
     const storedJob = { ...job, tabId: tab.id || null };
@@ -285,23 +260,11 @@ async function failAutoJob(job, sender, error, needsLogin = "") {
 }
 
 async function finishAutoSource(job, records, sender) {
+  if (job.source !== "fortunemusic") throw new Error("仅支持 forTUNE music");
   const imported = await writeRecords(records);
   await discardSyncJob(job);
   if (sender.tab?.id && sender.tab.id !== job.tabId) {
     await chrome.tabs.remove(sender.tab.id).catch(() => {});
-  }
-  if (job.source === "fortunemusic") {
-    await updateAutoState({
-      status: "syncing",
-      lastError: "",
-      needsLogin: "",
-      imported,
-    });
-    await startJob("fortunemeets", null, {
-      auto: true,
-      chainId: job.chainId,
-    });
-    return;
   }
   await chrome.action.setBadgeText({ text: "" });
   await chrome.action.setTitle({ title: "46log 咪咕力同步" });
@@ -310,12 +273,11 @@ async function finishAutoSource(job, records, sender) {
     lastSuccessAt: new Date().toISOString(),
     lastError: "",
     needsLogin: "",
-    imported: (await loadAutoState()).imported + imported,
+    imported,
   });
 }
 
 async function startAutoCycle() {
-  if (EDITION_TARGET === "saka46log") return false;
   const state = await loadAutoState();
   if (!state.enabled) return false;
   // A manual source result remains in session storage until the Dashboard has
@@ -416,10 +378,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (dashboardMessages.has(message?.type) && !target) { sendResponse({ ok: false, error: "送信元を確認できません。" }); return; }
   if (target === "saka46log" && ["MIGURI46LOG_GET_AUTO_STATE", "MIGURI46LOG_SET_AUTO_ENABLED", "MIGURI46LOG_RUN_AUTO"].includes(message?.type)) { sendResponse({ ok: false, error: "坂ログへの自動送信は無効です。" }); return; }
   if (message?.type === "MIGURI46LOG_START") {
-    if (target === "saka46log" && message.source !== "fortunemusic") { sendResponse({ ok: false, error: "坂ログでは個別ミーグリのMusic履歴のみ対応しています。" }); return; }
-    const source =
-      message.source === "fortunemeets" ? "fortunemeets" : "fortunemusic";
-    startJob(source, sender.tab?.id, { target })
+    if (message.source !== "fortunemusic") { sendResponse({ ok: false, error: "仅支持 forTUNE music" }); return; }
+    startJob("fortunemusic", sender.tab?.id, { target })
       .then((job) => sendResponse({ ok: true, jobId: job.id }))
       .catch((error) => sendResponse({ ok: false, error: error.message }));
     return true;
@@ -431,7 +391,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         const senderTabId = sender.tab?.id || null;
         sendResponse({
           job:
-            job && senderTabId && job.tabId === senderTabId ? job : null,
+            job?.source === "fortunemusic" && senderTabId && job.tabId === senderTabId ? job : null,
         });
       })
       .catch(() => sendResponse({ job: null }));
@@ -460,45 +420,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 
   if (message?.type === "MIGURI46LOG_MEETS_API_SYNC") {
-    loadJob()
-      .then(async (job) => {
-        if (
-          !job
-          || job.source !== "fortunemeets"
-          || sender.frameId !== 0
-          || !/^https:\/\/ticket\.fortunemeets\.app\//.test(sender.url || "")
-          || job.id !== message.jobId
-          || (job.tabId && job.tabId !== sender.tab?.id)
-        ) {
-          sendResponse({ ok: false, error: "同步任务已过期" });
-          return;
-        }
-        try {
-          const result = await globalThis.MiguriMeetsApi.sync({
-            userId: message.userId,
-            authMode: message.authMode,
-            accessToken: message.accessToken,
-            campaignsByGroup: message.campaignsByGroup,
-            onProgress: (title, detail) =>
-              reportOfficialProgress(job, title, detail),
-          });
-          sendResponse({ ok: true, ...result });
-        } catch (error) {
-          sendResponse({
-            ok: false,
-            error: error?.message || "官方履历读取失败",
-            code: error?.code || "",
-          });
-        }
-      })
-      .catch((error) =>
-        sendResponse({
-          ok: false,
-          error: error?.message || "官方履历读取失败",
-          code: error?.code || "",
-        }),
-      );
-    return true;
+    sendResponse({ ok: false, error: "仅支持 forTUNE music" });
+    return;
   }
 
   if (message?.type === "MIGURI46LOG_PROGRESS") {
@@ -526,8 +449,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           await failAutoJob(
             job,
             sender,
-            `请重新登录 ${job.source === "fortunemusic" ? "forTUNE music" : "forTUNE meets"}`,
-            job.source === "fortunemusic" ? "forTUNE music" : "forTUNE meets",
+            "请重新登录 forTUNE music",
+            "forTUNE music",
           );
         }
       })
@@ -568,6 +491,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       .then(async (job) => {
         if (
           !job
+          || job.source !== "fortunemusic"
+          || sender.frameId !== 0
+          || !/^https:\/\/fortunemusic\.jp\//.test(sender.url || "")
           || job.id !== message.jobId
           || (job.tabId && job.tabId !== sender.tab?.id)
         ) {
@@ -596,8 +522,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           target: job.target || "46log",
           returnTabId: job.returnTabId,
           source: job.source,
-          next: !isSaka && job.source === "fortunemusic" ? "meets" : "done",
-          autoContinue: !isSaka && job.source === "fortunemusic",
+          next: "done",
+          autoContinue: false,
           records: isSaka ? records.filter(r => r.group === "sakurazaka").map(r => ({
             key: r.sourceKey, member: r.member, date: r.date, slot: r.slot,
             round: r.applicationRound, applied: r.lotteryApplied ?? null, won: r.lotteryWon ?? null,
@@ -666,26 +592,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           return;
         }
 
-        // Acknowledge only after the Dashboard has persisted the result. Music
-        // then continues directly into Meets, so first-time users cannot stop
-        // after writing only half of their history to D1.
+        // Acknowledge only after persistence. Never follow stale pre-upgrade Meets hints.
         await chrome.storage.session.remove(RESULT_KEY);
         if (result.target === "saka46log") { sendResponse({ ok: true, continued: false }); return; }
-        if (result.autoContinue && result.next === "meets") {
-          const returnTabId = sender.tab?.id || null;
-          await relayToDashboard(
-            { returnTabId },
-            {
-              type: "MIGURI46LOG_EXTENSION_PROGRESS",
-              title: "Music 已保存",
-              detail: "正在自动继续同步 Meets（三坂）…",
-            },
-          );
-          await startJob("fortunemeets", returnTabId);
-          sendResponse({ ok: true, continued: true });
-          return;
-        }
-
         await setAutoEnabled(true);
         sendResponse({ ok: true, continued: false });
       })
@@ -700,8 +609,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 chrome.action.onClicked.addListener(async (activeTab) => {
-  // Store editions have isolated destinations. A package never opens the other site.
-  let destination = EDITION_TARGET === "saka46log" ? SAKA_DASHBOARD_URL : DASHBOARD_URL;
+  // Both language variants choose the destination by the active site's trusted origin.
+  let destination = DASHBOARD_URL;
+  try {
+    if (new URL(activeTab?.url || "").origin === new URL(SAKA_DASHBOARD_URL).origin) destination = SAKA_DASHBOARD_URL;
+  } catch {}
   const target = destination === SAKA_DASHBOARD_URL ? "saka46log" : "46log";
   const tabs = await chrome.tabs.query({ url: `${destination}*` });
   const existing = tabs.find(tab => dashboardTarget({ url: tab.url, frameId: 0 }) === target);

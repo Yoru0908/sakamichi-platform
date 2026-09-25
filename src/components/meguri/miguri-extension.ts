@@ -22,7 +22,7 @@ export type MiguriExtensionAutoState = {
 
 export type MiguriExtensionEvent =
   | { type: "PONG"; version: string }
-  | { type: "STARTED"; syncSource: "fortunemusic" | "fortunemeets" }
+  | { type: "STARTED"; syncSource: "fortunemusic" }
   | { type: "PROGRESS"; title: string; detail: string }
   | { type: "RESULT"; payload: MiguriImportHandoff }
   | { type: "AUTO_STATE"; state: MiguriExtensionAutoState }
@@ -48,7 +48,7 @@ export function acknowledgeMiguriExtensionResult(completedAt?: string) {
 }
 
 export function startMiguriExtensionSync(
-  syncSource: "fortunemusic" | "fortunemeets",
+  syncSource: "fortunemusic",
 ) {
   post("START", { syncSource });
 }
@@ -79,8 +79,7 @@ export function subscribeMiguriExtension(
       listener({ type: "PONG", version: message.version });
     } else if (
       message.type === "STARTED" &&
-      (message.syncSource === "fortunemusic" ||
-        message.syncSource === "fortunemeets")
+      message.syncSource === "fortunemusic"
     ) {
       listener({ type: "STARTED", syncSource: message.syncSource });
     } else if (message.type === "PROGRESS") {

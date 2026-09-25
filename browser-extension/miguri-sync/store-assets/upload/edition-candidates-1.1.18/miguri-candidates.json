@@ -5,17 +5,17 @@
       "file": "miguri-sync-1.1.18-zh-CN.zip",
       "version": "1.1.18",
       "published": false,
-      "bytes": 38283,
-      "sha256": "6cd194b76c4995fcb09639e57d10c10b0333c1e6371d46c47d3b216975cfe8fd"
+      "bytes": 28201,
+      "sha256": "e612221e9855c0741fb80f144266041e7c15d5a6aeb0ac9d2145e9ecdb0b7cd4"
     },
     {
       "locale": "ja",
       "file": "miguri-sync-1.1.18-ja.zip",
       "version": "1.1.18",
       "published": false,
-      "bytes": 31552,
-      "sha256": "3d0403be05d486a1369650090de178da79162121db9d10fdebe7f3a7e5df8eb2"
+      "bytes": 28240,
+      "sha256": "9860ba4dfea17f31e5062723085dd5db96641646a02cf6d7b89462d09588fd64"
     }
   ],
-  "runtimeIdentical": false
+  "runtimeIdentical": true
 }

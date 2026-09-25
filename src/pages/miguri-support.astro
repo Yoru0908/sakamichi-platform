@@ -12,47 +12,30 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         咪咕力同步扩展支持
       </h1>
       <p class="mt-4 leading-7 text-[var(--text-secondary)]">
-        扩展用于把您自己的 forTUNE music / meets 应募履历同步到 46log
-        私人咪咕力面板，并在浏览器运行期间定时检查更新。
+        扩展读取您自己的 forTUNE music 应募履历：中日两版均可用于 46log 和坂ログ。
+        46log 支持浏览器运行时自动检查；坂ログ须确认记录后手动保存。Meets 不在本版同步范围。
       </p>
 
       <section class="mt-8 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5">
         <p class="text-xs font-bold uppercase tracking-[0.14em] text-emerald-800">
-          Chrome Web Store · v1.1.15
+          候选 ZIP · v1.1.18 · 未上架
         </p>
         <h2 class="mt-2 text-lg font-bold text-[var(--text-primary)]">
-          最新版已上线
+          Music 专用双站候选版
         </h2>
         <p class="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-          v1.1.15 会在 Music 保存成功后自动继续同步 Meets，即使某一来源没有履历也不会中断。
-          推荐通过 Chrome Web Store 安装或更新，以便后续自动获取新版。
+          中日包功能一致，均只同步 Music；候选版尚未公开下载。商店旧版仍可能含 Meets；请停用旧版，并等候候选版验收后再安装。勿同时启用两个语言包。
         </p>
-        <div class="mt-4 flex flex-wrap gap-3">
-          <a
-            href="https://chromewebstore.google.com/detail/46log-%E5%92%AA%E5%92%95%E5%8A%9B%E5%90%8C%E6%AD%A5/kdfpdlijajcjianjpffgnmodnmigckdh?authuser=0&hl=ja"
-            target="_blank"
-            rel="noreferrer"
-            class="inline-flex min-h-11 items-center justify-center rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-          >
-            从 Chrome Web Store 安装
-          </a>
-          <a
-            href="/downloads/46log-miguri-sync.zip"
-            download
-            class="inline-flex min-h-11 items-center justify-center rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-indigo-500/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-          >
-            备用下载 v1.1.15 ZIP
-          </a>
-        </div>
+
       </section>
 
       <section class="mt-10">
         <h2 class="text-lg font-bold text-[var(--text-primary)]">使用方式</h2>
         <ol class="mt-4 list-decimal space-y-3 pl-5 leading-7 text-[var(--text-secondary)]">
-          <li>点击上方 Chrome Web Store 按钮安装或更新扩展，并确认版本为 v1.1.15。</li>
-          <li>登录 46log 并打开咪咕力面板，重新加载后确认显示“扩展已连接”。</li>
-          <li>点击“一键同步 Music + Meets”；Music 保存后会自动打开 Meets，并依次检查乃木坂、櫻坂与日向坂。</li>
-          <li>首次同步成功后可开启每 30 分钟自动检查。</li>
+          <li>候选包验收并提供后，在 chrome://extensions 加载已解压的扩展；先停用旧版及另一语言包。</li>
+          <li>登录 46log 打开咪咕力面板，或登录坂ログ进入 /import，刷新页面并确认扩展已连接。</li>
+          <li>只在 forTUNE music 官方页面登录。46log 同步 Music；坂ログ先确认每条当落，再自行保存。</li>
+          <li>46log 可选浏览器运行时每 30 分钟自动检查；坂ログ不自动写入。</li>
         </ol>
       </section>
 

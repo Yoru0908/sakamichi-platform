@@ -1,16 +1,6 @@
 (async () => {
   const MUSIC_HOST = "fortunemusic.jp";
   const MUSIC_UNIT_PRICE_YEN = 1_200;
-  const MEETS_HOST = "ticket.fortunemeets.app";
-  const MEETS_GROUPS = ["nogizaka46", "sakurazaka46", "hinatazaka46"];
-  const EXCLUDED_MEETS_SLUGS = new Set([
-    "contact",
-    "m",
-    "page",
-    "default",
-    "faq",
-    "guide",
-  ]);
   const compact = (value) =>
     `${value || ""}`.replace(/[\s\u3000]+/g, " ").trim();
   const digits = (value) =>
@@ -79,7 +69,7 @@
   }
   if (!job) return;
   const onMusic = location.hostname === MUSIC_HOST;
-  if ((job.source === "fortunemusic") !== onMusic) return;
+  if (job.source !== "fortunemusic" || !onMusic) return;
 
   let panel;
   const show = (title, detail = "") => {
@@ -114,14 +104,8 @@
   };
   const finish = async (records) => {
     if (records.length === 0) {
-      show(
-        job.source === "fortunemeets" ? "三坂没有找到履历" : "Music 没有找到履历",
-        job.source === "fortunemeets"
-          ? "已检查乃木坂、櫻坂与日向坂，本次没有可保存的记录。"
-          : "Music 检查完成，将继续检查 Meets。",
-      );
-      // Empty is still a successful source check. Deliver it so the Dashboard
-      // can acknowledge the result and the extension can continue the chain.
+      show("Music 没有找到履历", "Music 检查完成，本次没有可保存的记录。");
+      // An empty Music check is still successful; deliver it for acknowledgement.
       await chrome.runtime.sendMessage({
         type: "MIGURI46LOG_RESULT",
         jobId: job.id,
@@ -130,7 +114,7 @@
       return;
     }
     show(
-      job.source === "fortunemeets" ? "三坂读取完成" : "同步完成",
+      "Music 读取完成",
       `正在把 ${records.length} 条履历带回 46log…`,
     );
     await chrome.runtime.sendMessage({
@@ -283,222 +267,8 @@
     await finish(records);
   };
 
-  const readMeetsUserId = () => {
-    try {
-      // Current Meets pages use userId; older sessions may only have id.
-      // A present current key is authoritative, even when invalid/expired:
-      // never fall back to a potentially different account's stale legacy ID.
-      const current = localStorage.getItem("lscache-userId");
-      const key = current !== null ? "lscache-userId" : "lscache-id";
-      const raw = current !== null ? current : localStorage.getItem(key);
-      if (!raw || raw.length > 1024) return "";
-      const expiry = localStorage.getItem(`${key}-cacheexpiration`);
-      if (expiry !== null) {
-        // lscache stores expiration as integer minutes since the epoch.
-        const minutes = /^\d+$/.test(expiry) ? Number(expiry) : NaN;
-        if (!Number.isSafeInteger(minutes) || minutes <= Math.floor(Date.now() / 60_000)) return "";
-      }
-      let value;
-      try { value = JSON.parse(raw); } catch { value = raw; }
-      if (typeof value === "number" && Number.isSafeInteger(value) && value > 0) return String(value);
-      if (typeof value !== "string") return "";
-      const id = value.trim();
-      return id && id.length <= 512 && !/[\s\u0000-\u001f\u007f{}\[\]"]/.test(id) && !/^(?:null|undefined)$/i.test(id) ? id : "";
-    } catch {
-      // Storage unavailable is not proof of a usable official session.
-      return "";
-    }
-  };
-  const readMeetsAuth = () => {
-    try {
-      const userId = readMeetsUserId();
-      if (!userId || localStorage.getItem("lscache-loggedInFlg") === "false") return null;
-      const raw = localStorage.getItem("lscache-accessToken");
-      const modern = localStorage.getItem("lscache-userId") !== null || raw !== null;
-      if (!modern) return { authMode: "legacy", userId };
-      // Match the current official frontend, not a guessed x-user-id alias.
-      // This credential stays in extension memory and goes only to Meets API.
-      if (!raw || raw.length > 20_000) return null;
-      let accessToken;
-      try { accessToken = JSON.parse(raw); } catch { accessToken = raw; }
-      if (typeof accessToken !== "string" || !/^[\x21-\x7e]{1,16384}$/.test(accessToken) || /^(?:null|undefined)$/i.test(accessToken)) return null;
-      const expiry = localStorage.getItem("lscache-accessToken-cacheexpiration");
-      if (expiry !== null && (!/^\d+$/.test(expiry) || !Number.isSafeInteger(Number(expiry)) || Number(expiry) <= Math.floor(Date.now() / 60_000))) return null;
-      return { authMode: "bearer", userId, accessToken };
-    } catch { return null; }
-  };
-  const onMeetsGroupLanding = () =>
-    location.pathname.split("/").filter(Boolean).length <= 1;
-  const firstMeetsCampaignUrl = () => {
-    const link = Array.from(
-      document.querySelectorAll('a[href*="/nogizaka46/"]'),
-    ).find((candidate) => {
-      try {
-        const url = new URL(candidate.href, location.href);
-        return (
-          url.hostname === MEETS_HOST &&
-          url.pathname.split("/").filter(Boolean).length >= 2
-        );
-      } catch {
-        return false;
-      }
-    });
-    return link?.href || "";
-  };
-  const waitForMeetsLogin = async (retrySync = null) => {
-    // Landing-page links and login state may appear after document_idle.
-    if (onMeetsGroupLanding()) {
-      const campaignUrl = firstMeetsCampaignUrl();
-      if (campaignUrl) {
-        location.assign(campaignUrl);
-        return null;
-      }
-    }
-    await requireLogin();
-    if (job.auto) return null;
-    const deadline = Date.now() + 10 * 60 * 1_000;
-    while (Date.now() < deadline) {
-      await sleep(retrySync ? 5_000 : 1_000);
-      const auth = readMeetsAuth();
-      if (auth) {
-        if (!retrySync) return auth;
-        // Re-read the token too: re-login can refresh it without changing ID.
-        // Only the official API response can confirm that syncing may resume.
-        const response = await retrySync(auth);
-        if (response?.code !== "LOGIN_REQUIRED") return response;
-        show("等待官方登录", "登录状态尚未恢复；登录后每 5 秒自动重试。");
-      }
-      if (onMeetsGroupLanding()) {
-        const campaignUrl = firstMeetsCampaignUrl();
-        if (campaignUrl) {
-          location.assign(campaignUrl);
-          return null;
-        }
-      }
-    }
-    throw new Error("等待 Meets 登录超过 10 分钟，请确认官方登录后返回 Dashboard 重新同步。");
-  };
-  const discoverMeetsCampaigns = async () => {
-    const originalUrl = location.href;
-    const campaignsByGroup = {};
-    try {
-      for (let index = 0; index < MEETS_GROUPS.length; index += 1) {
-        const groupSlug = MEETS_GROUPS[index];
-        show("正在确认三坂活动入口", `${index + 1} / ${MEETS_GROUPS.length}`);
-        history.replaceState(null, "", `/${groupSlug}/`);
-        let html = "";
-        let lastError;
-        for (let attempt = 1; attempt <= 2; attempt += 1) {
-          const controller = new AbortController();
-          const timer = setTimeout(() => controller.abort(), 10_000);
-          try {
-            const response = await fetch(
-              `https://${MEETS_HOST}/${groupSlug}/`,
-              {
-                credentials: "include",
-                cache: "no-store",
-                signal: controller.signal,
-              },
-            );
-            if (!response.ok) {
-              throw new Error(`活动入口读取失败（${response.status}）`);
-            }
-            html = await response.text();
-            lastError = null;
-            break;
-          } catch (error) {
-            lastError = error;
-            if (attempt < 2) await sleep(700);
-          } finally {
-            clearTimeout(timer);
-          }
-        }
-        if (lastError) throw lastError;
-        const documentNode = parseHtml(html);
-        const slugs = Array.from(
-          documentNode.querySelectorAll(`a[href*="/${groupSlug}/"]`),
-        )
-          .map((link) => {
-            try {
-              const url = new URL(
-                link.getAttribute("href") || "",
-                location.href,
-              );
-              const parts = url.pathname.split("/").filter(Boolean);
-              return url.hostname === MEETS_HOST &&
-                parts[0] === groupSlug &&
-                parts.length >= 2
-                ? parts[1]
-                : "";
-            } catch {
-              return "";
-            }
-          })
-          .filter((slug) => slug && !EXCLUDED_MEETS_SLUGS.has(slug));
-        campaignsByGroup[groupSlug] = Array.from(new Set(slugs));
-        if (
-          campaignsByGroup[groupSlug].length === 0 &&
-          /遷移したいページを選択してください/.test(html)
-        ) {
-          throw new Error(`${groupSlug} 活动入口暂时无法读取，请稍后重试`);
-        }
-      }
-    } finally {
-      history.replaceState(null, "", originalUrl);
-    }
-    return campaignsByGroup;
-  };
-  const requestMeetsApiSync = (auth, campaignsByGroup) =>
-    chrome.runtime.sendMessage({
-      type: "MIGURI46LOG_MEETS_API_SYNC",
-      jobId: job.id,
-      ...auth,
-      campaignsByGroup,
-    });
-  const importMeets = async () => {
-    show("正在连接 Meets", "后台准备检查乃木坂、櫻坂与日向坂…");
-    let auth = readMeetsAuth();
-    if (!auth) {
-      auth = await waitForMeetsLogin();
-      if (!auth) return;
-    }
-    const campaignsByGroup = await discoverMeetsCampaigns();
-    auth = readMeetsAuth();
-    if (!auth) {
-      auth = await waitForMeetsLogin();
-      if (!auth) return;
-    }
-    let response = await requestMeetsApiSync(auth, campaignsByGroup);
-    auth = null;
-    if (response?.code === "LOGIN_REQUIRED") {
-      response = await waitForMeetsLogin((currentAuth) =>
-        requestMeetsApiSync(currentAuth, campaignsByGroup),
-      );
-      if (!response) return;
-    }
-    if (!response?.ok) {
-      throw new Error(response?.error || "官方履历读取失败");
-    }
-    if (response.temporarilyUnavailable?.length > 0) {
-      show(
-        "部分团体入口临时切换",
-        `${response.temporarilyUnavailable.join("、")} 当前由官方显示活动跳转页；其他团体已完成。`,
-      );
-      await sleep(1_800);
-    }
-    if (response.warnings?.length > 0) {
-      show(
-        "部分活动已跳过",
-        `${response.warnings.length} 个活动读取超时或异常，其余履历已完成。`,
-      );
-      await sleep(1_800);
-    }
-    await finish(Array.isArray(response.records) ? response.records : []);
-  };
-
   try {
-    if (onMusic) await importMusic();
-    else if (location.hostname === MEETS_HOST) await importMeets();
+    await importMusic();
   } catch (error) {
     await chrome.runtime
       .sendMessage({

@@ -5,7 +5,6 @@ import {
   CalendarDays,
   CheckCircle2,
   CircleDollarSign,
-  Download,
   LoaderCircle,
   Puzzle,
   RefreshCw,
@@ -64,7 +63,7 @@ const GROUP_LABELS: Record<MiguriGroupId, string> = {
 };
 const MEETS_DISCOUNT_STORAGE_KEY =
   "46log:miguri:limited-edition-discount-pct";
-const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 15] as const;
+const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 18] as const;
 
 function extensionNeedsUpdate(version: string) {
   const current = version.split(".").map((part) => Number(part) || 0);
@@ -113,13 +112,7 @@ function relativeSyncTime(value: string | null) {
   return `${Math.floor(hours / 24)} 天前`;
 }
 
-function ImportStatus({
-  state,
-  onSyncMeets,
-}: {
-  state: MiguriAutoImportState;
-  onSyncMeets: () => void;
-}) {
+function ImportStatus({ state }: { state: MiguriAutoImportState }) {
   if (state.status === "idle") return null;
   const isSaving = state.status === "saving";
   const isSuccess = state.status === "success";
@@ -155,15 +148,6 @@ function ImportStatus({
           </p>
         </div>
       </div>
-      {state.next === "meets" && state.status === "success" ? (
-        <button
-          type="button"
-          onClick={onSyncMeets}
-          className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--text-primary)] px-4 text-sm font-semibold text-[var(--bg-primary)] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
-        >
-          继续同步 Meets <ArrowRight size={15} />
-        </button>
-      ) : null}
     </div>
   );
 }
@@ -180,7 +164,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
         if (event.type === "PONG") setExtensionVersion(event.version);
         if (event.type === "STARTED") {
           setExtensionMessage(
-            `已启动 ${event.syncSource === "fortunemusic" ? "Music" : "Meets"} 同步`,
+            "已启动 forTUNE music 同步",
           );
         }
         if (event.type === "PROGRESS")
@@ -207,13 +191,13 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
   const needsUpdate =
     extensionVersion !== "" && extensionNeedsUpdate(extensionVersion);
 
-  const startSync = (source: "fortunemusic" | "fortunemeets") => {
+  const startSync = () => {
     if (!extensionVersion) {
       setExtensionMessage("请先安装扩展并重新加载页面。");
       return;
     }
     setExtensionMessage("正在打开官方页面…");
-    startMiguriExtensionSync(source);
+    startMiguriExtensionSync("fortunemusic");
   };
 
   return (
@@ -224,7 +208,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
             <RefreshCw size={14} /> 应募履历同步
           </div>
           <h2 className="mt-2 text-xl font-bold tracking-tight text-[var(--text-primary)] sm:text-2xl">
-            一键更新 Music 与 Meets
+            同步 forTUNE music 履历
           </h2>
         </div>
         <div
@@ -251,20 +235,14 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
 
       {extensionVersion ? (
         <div className="mt-5 space-y-3">
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-3">
             <button
               type="button"
-              onClick={() => startSync("fortunemusic")}
-              className="flex min-h-14 items-center justify-between rounded-2xl bg-indigo-600 px-5 text-left text-sm font-bold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+              onClick={startSync}
+              disabled={needsUpdate}
+              className="flex min-h-14 items-center justify-between rounded-2xl bg-indigo-600 px-5 text-left text-sm font-bold text-white shadow-sm transition-colors hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
             >
-              {needsUpdate ? "同步 Music（需手动继续 Meets）" : "一键同步 Music + Meets"} <ArrowRight size={18} />
-            </button>
-            <button
-              type="button"
-              onClick={() => startSync("fortunemeets")}
-              className="flex min-h-14 items-center justify-between rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-5 text-left text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-pink-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
-            >
-              仅同步 Meets（三坂） <ArrowRight size={18} />
+              仅同步 Music <ArrowRight size={18} />
             </button>
           </div>
           {needsUpdate ? (
@@ -277,7 +255,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   当前版本需要更新
                 </div>
                 <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                  v1.1.15 会在 Music 保存成功后自动继续 Meets，并正确处理某一来源没有履历的情况。请先关闭旧版自动同步，再更新扩展。
+                  v1.1.18 候选包中日两版均支持 46log 和坂ログ，仅同步 Music，尚未发布。旧版可能仍会打开 Meets；请停用旧版并等待候选包验收后提供。
                 </p>
               </div>
               <div className="flex shrink-0 flex-wrap gap-2">
@@ -290,13 +268,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                     关闭旧版自动同步
                   </button>
                 ) : null}
-                <a
-                  href="/downloads/46log-miguri-sync.zip"
-                  download
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-xs font-bold text-white hover:bg-indigo-700"
-                >
-                  <Download size={15} /> 下载 v1.1.15 ZIP
-                </a>
+
               </div>
             </div>
           ) : (
@@ -354,13 +326,13 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 text-xs font-bold text-emerald-800">
-                <Puzzle size={14} /> Chrome Web Store · v1.1.15
+                <Puzzle size={14} /> 双站 Music 专用 · 1.1.18 候选
               </div>
               <div className="mt-3 text-sm font-bold text-[var(--text-primary)]">
-                安装最新版同步扩展
+                候选版等待验收
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
-                v1.1.15 将 Music 与 Meets 改为一次连续同步，避免只写入 Music。推荐从 Chrome Web Store 安装并自动获取后续更新。
+                v1.1.18 中日候选包只读取 Music，均支持 46log 和坂ログ；尚未公开下载。商店旧版可能包含 Meets，暂勿将其当作本候选版。
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
@@ -370,21 +342,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
               >
                 查看安装说明
               </a>
-              <a
-                href="https://chromewebstore.google.com/detail/46log-%E5%92%AA%E5%92%95%E5%8A%9B%E5%90%8C%E6%AD%A5/kdfpdlijajcjianjpffgnmodnmigckdh?authuser=0&hl=ja"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-              >
-                从 Chrome Web Store 安装 <ArrowRight size={16} />
-              </a>
-              <a
-                href="/downloads/46log-miguri-sync.zip"
-                download
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-indigo-500/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-              >
-                <Download size={16} /> 备用下载 ZIP
-              </a>
+
             </div>
           </div>
         </div>
@@ -399,10 +357,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
           {extensionMessage}
         </p>
       ) : null}
-      <ImportStatus
-        state={state}
-        onSyncMeets={() => startSync("fortunemeets")}
-      />
+      <ImportStatus state={state} />
     </section>
   );
 }

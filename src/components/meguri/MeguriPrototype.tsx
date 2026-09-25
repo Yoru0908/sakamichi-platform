@@ -321,7 +321,7 @@ export default function MeguriPrototype() {
         setActiveTab('dashboard');
         setAutoImportState({
           status: 'saving',
-          message: `已从 ${handoff.source === 'fortunemusic' ? 'forTUNE music' : 'forTUNE meets'} 带回 ${handoff.records.length} 条履历，正在自动保存…`,
+          message: `已从 forTUNE music 带回 ${handoff.records.length} 条履历，正在保存…`,
           next: handoff.next,
         });
 
@@ -376,7 +376,7 @@ export default function MeguriPrototype() {
     const unsubscribe = subscribeMiguriExtension((extensionEvent) => {
       if (extensionEvent.type !== 'RESULT') return;
       const handoff = extensionEvent.payload;
-      if (handoff.version !== 1 || !Array.isArray(handoff.records)) {
+      if (handoff.version !== 1 || handoff.source !== 'fortunemusic' || !Array.isArray(handoff.records)) {
         setAutoImportState({
           status: 'error',
           message: '扩展返回的同步结果无效。',
@@ -407,16 +407,13 @@ export default function MeguriPrototype() {
             updated += result.data.updated;
             setEntries((current) => mergeEntries(current, result.data!.entries));
           }
-          const willAutoContinue = handoff.autoContinue === true && handoff.next === 'meets';
           acknowledgeMiguriExtensionResult(handoff.completedAt);
           setAutoImportState({
             status: 'success',
-            message: willAutoContinue
-              ? `${imported > 0 ? `已保存 ${imported} 条 Music 履历` : 'Music 没有发现履历'}，正在自动继续同步 Meets（三坂）。`
-              : imported > 0
-                ? `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），Dashboard 已刷新。`
-                : '三坂 Meets 检查完成，本次没有发现可保存的履历。',
-            next: willAutoContinue ? null : handoff.next,
+            message: imported > 0
+              ? `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），Dashboard 已刷新。`
+              : 'Music 检查完成，本次没有发现可保存的履历。',
+            next: null,
           });
         } catch (extensionError) {
           setAutoImportState({
@@ -969,7 +966,7 @@ export default function MeguriPrototype() {
                       </>
                     ) : (
                       <span className="text-xs leading-5 text-[var(--text-tertiary)]">
-                        自动汇总 Music / Meets 履历、下一站与每一部口数
+                        Music 履历同步与已有记录汇总、下一站与每一部口数
                       </span>
                     )}
                     <button
