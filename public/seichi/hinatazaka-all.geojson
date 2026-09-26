@@ -14985,13 +14985,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.5396523,
-          35.644843
+          139.5396335,
+          35.6449738
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9a3ecb9d5951e7ddf7a2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9a3ecb9d5951e7ddf7a2",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7036bae0da211e73bde4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7036bae0da211e73bde4",
         "name": "角川大映スタジオ",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
@@ -15075,6 +15075,69 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "芝浦ヘリポート",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5399312,
+          35.6448495
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e330b392fd05b3ff58eb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e330b392fd05b3ff58eb",
+        "name": "角川大映スタジオ",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "角川大映スタジオ",
+        "sceneNote": "坂道AKB『初恋ドア』の撮影地 https://youtu.be/FW2r76NPcPY 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4z3kKA5p6UCk0Vmu7sLlMpL2oslhyD3HlLhwkpZOlUPl918V8x9T4Cx5NqstNQ0NEnDwI25Y_Y5B0WhwmGZMqufUzr5TDzYTuAcULKr-dVIqbVZCg2xMGxjh5K0rksn-fgBNAwiZJQGe-O3nT4RRf9hy0pjZUOdIizyBy4n4fOGCZwQ4qQcl4DVZSgJhGIFLblCAHCFaFuB7H4_erSye34ZX9GQIraGeo_0Ugv3eS4kxAdYeogrICBCDo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7nogI1zXgG6jdBc3nZ9Gp2IpPlWEqGsMGT-FpjLQ1uAOdu6ciL7_RsOsOMfkqPQFsXrq7j6U4T4IYXb7Zrmg6YAi-rczZF3Ed4xYrSDSDmDDQOCEbq64Fkk2m82BReAwyAA4DKqvGImDSf8r5EaMd0lubakHR7A_9jz0mDNIjE19AH728XM1T8dZhOnv_KgxDNemNm8GyU79BFkyAb-JF0XUAHD-PvxdJbAjCF_eJRzeOR9Zi_76UrXcY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4XTzxuvAnDgi851YBJ2ARVpN93nC9wb6BOGgwgzZuBpzwgQVPVL8RG_HyXCLx929dQq5Q1LYF0UOs9MFIjsWiUzgaDa-3Z_RFNgRbjrqfMyhtZD823EyPboWjmpo_Al8Zxi_5vyAwsWRWOiY51InRHfI1bB4dYRpw01F3SrTMw2ptYcvmqDjwvxUdvoT8Fc63uArJ7R3Atj6NeYyuLfeb_uLu0oz5PJ14NbelHiXdPBa7hUewmVSCiVb0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5LB4F2JoYAlgZaoOBSBo3CofKupTi5Wc3MDwL-YcWuMHTgsaapxLss3xhORbWb1njG_pV9l5ZAPY8RSyl93H2WhCRvMY0V157X24uU0ZSxOWP9MgeLFOO7CXMTiQUjwvpZmKmWiTndsT7ur-O9v4iMNeN4ovKxH3OTOuOhB0AP9hyb4e81ztQeppOLs0JQey9IBF2u6Qubz-ppjADHfgr6RK7Q8Biba9l4lfhTvSvdf0MxjwtgI2hMb4M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5DcK1rfA7bhwEwKAuBwTyv8HtUYl9DoTDow7A5sKyAoaQfdIcIJwb1zcuixmzXy9j04bhccXU78NCLDiiNxU1ZTMrBxt8kp5aiYi16ySNDzFRZLOvzQ7w6X-oDMsYLhJkCFbUc5wbGMbbrbeHFQVShHKXWgoxlfKLFOB_iBnqegWfbwMSVBn-6HmS-tLWPn75hYYc0mKDcPLZmI_XpnufY1w6d_8vj1kC7AmqU1GPudEg40SRmYHlkjXY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR62PgkzdgJjNcGO0Nx0scFFXLZUb3AwVzXPtKIGo_EGx92sBx9g_fmMxbkzRmyohzSVlW-uysBfw_EjJc1E2Dw5EVo-uUpuoHTsG4NlcU-1u7TIYNQLd8Hmkmm_6Rg-2yV-dGe556SDHR8T13-BePOvCQn5O3U-GGNbHze3mABwzmAvTzWQyzYGRj6NyKRMPAS48lwcNcYbpVV3CWTsmjq0fX8e7LRY9JEWLgEk65NYOU20eK2E-3HYRIA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7HHX4EH_Vc3oOaxP5WJ_bgIQAKjB1qJJoUswERDRWknSwstfnNLc-dFxTzpTDChFtfObJj6nYFX9g9e4N9vzpVikahEBq7PZUKafcHFHUQlp6QTBgUwQdhl5rX2vproqOUXiYRGWXUHL_W8qUIR_355SZs7s7KHtnhHGX8YasJdOuq1Af25E7k_eZjRR9rvr-7uJNS0BRwyNoYfa0nD5uWe3ysynwddlK-ekyIIAS61jC0kj_ZSMZlGNk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR54yLGNyFhYlfIvVZsXIv4-SpeA9Iq45odmt_lgPwGFbZJG-QV06pxb0zzkYm2i2HCSwQAqiorXEvjNw0FlhpOjs85dOjg54X9Lwu1FFXkbmL-XYtaljUVzVY0adYo5LhztCp3X65wiPSc6NTG6VB0C16Ln9ADEorvr9sS1dEHYe61PtTVEXwt4WIiIFrUeKZtaSp2P1gBgpwy_gD4KIYKD2fa57UgOnR8f0J7E7C6C1OXa_2uPKZ7voiw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7FYJLCLqlI3QlM_fKwaVH7iwZTUXqVIRHEN4Dh4ai1S8BU_gYXv8x00pbeqoXZRG3BUKDRylsXUG_Co_LjHr17uo-9eLKD20Ndkq7qR7el4amnbBsW0B-g96lWiXtwUiGYvd-S6VxtQ_L7eI7ZU2SoI_zSjLyCunkkt54tBfwitjhhTYIBLzJZmV_bzsT2z3Y7adwHdsRCa114i7m6j1wZlJqHx9A27EhLxxM8rvb8Lx_FTvJlkbsyujA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "角川大映スタジオ",
           "group": "日向坂46"
         },
         "classification": {
