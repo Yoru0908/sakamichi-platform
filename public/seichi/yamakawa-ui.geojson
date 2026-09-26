@@ -6265,6 +6265,96 @@
           ]
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.8963237,
+          38.250416
+        ]
+      },
+      "properties": {
+        "id": "tv-260926-arakashi-brewster",
+        "name": "Brewster（ブリュースター）",
+        "category": "番組・テレビ",
+        "subcategory": "あらあらかしこ",
+        "categoryColor": "#6d28d9",
+        "address": "宮城県仙台市若林区木ノ下1-16-29",
+        "sceneTitle": "あらあらかしこ / 紅茶専門カフェ",
+        "sceneNote": "番組内で山川宇衣が訪れた、2026年7月11日オープンの紅茶専門カフェ。老舗青果店「いたがき」の旬フルーツを使った季節のフルーツサンドウィッチと、アッサム茶葉を牛乳だけで抽出した濃厚煮出しミルクティーを紹介。地元でよく食べるという「いたがき」の2色のぶどうタルト（5号 4,050円）も話題に。",
+        "sourceLabel": "仙台放送「あらあらかしこ」",
+        "sourceUrl": "https://www.ox-tv.jp/arakashi/",
+        "referenceUrl": "https://kahoku.news/articles/20260831khn000035.html",
+        "tags": [
+          "山川宇衣",
+          "あらあらかしこ",
+          "仙台放送",
+          "テレビ番組",
+          "仙台",
+          "木ノ下",
+          "カフェ",
+          "紅茶",
+          "フルーツサンド",
+          "いたがき",
+          "ぶどうタルト"
+        ],
+        "images": [
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/yamakawa-ui/manual/arakashi-brewster/01_original.jpg",
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/yamakawa-ui/manual/arakashi-brewster/02_original.png",
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/yamakawa-ui/manual/arakashi-brewster/03_original.png",
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/yamakawa-ui/manual/arakashi-brewster/04_original.png"
+        ],
+        "members": [
+          "山川宇衣",
+          "あらあらかしこ",
+          "仙台放送",
+          "テレビ番組",
+          "仙台",
+          "木ノ下",
+          "カフェ",
+          "紅茶",
+          "フルーツサンド",
+          "いたがき",
+          "ぶどうタルト"
+        ],
+        "source": {
+          "provider": "仙台放送「あらあらかしこ」",
+          "url": "https://www.ox-tv.jp/arakashi/",
+          "mapId": "",
+          "layer": "番組・テレビ",
+          "tags": [
+            "山川宇衣",
+            "あらあらかしこ",
+            "仙台放送",
+            "テレビ番組",
+            "仙台",
+            "木ノ下",
+            "カフェ",
+            "紅茶",
+            "フルーツサンド",
+            "いたがき",
+            "ぶどうタルト"
+          ],
+          "name": "Brewster（ブリュースター）"
+        },
+        "classification": {
+          "category": "番組・テレビ",
+          "subcategory": "あらあらかしこ",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "テレビ番組"
+          ]
+        }
+      }
     }
   ]
 }
