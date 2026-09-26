@@ -15053,7 +15053,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "芝浦ヘリポート",
-        "sceneNote": "欅坂46 4th Single「不協和音」Type-Dジャケット撮影地。(床面の構造と潮紗理菜と加藤史帆の間に見えるビル端の金属網状構造物よりの推定) 題名:",
+        "sceneNote": "欅坂46 4th Single「不協和音」Type-Dジャケット撮影地。(床面の構造と潮紗理菜と加藤史帆の間に見えるビル端の金属網状構造物よりの推定)。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -60316,7 +60316,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "水辺の森公園前着岸壁",
-        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。左下端のボラードと金属ハシゴが目印。https://x.com/neru_nagasaki/status/923132432731140097",
+        "sceneNote": "長濱ねる1st.写真集「ここから」オフショット。左下端のボラードと金属ハシゴが目印。(最終的にはこの衣装でのカットは収録されていない。)https://x.com/neru_nagasaki/status/923132432731140097",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -60503,6 +60503,119 @@
             "写真集関連"
           ],
           "name": "幸本",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7398077,
+          35.7018871
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8d1653a4b076d94c5a1c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8d1653a4b076d94c5a1c",
+        "name": "伊勢藤",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "伊勢藤",
+        "sceneNote": "長濱ねる1st.写真集「ここから」撮影に先立ち、都内でテストシュートした際の撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6CEo0Gv4ZzFUyTB6w2Xe2u2LXZrnt8I-H_Sn9XuymGc6DedG4ksnmbOl-jJpxG_tGSlzyL-TBrvDEXfgVmQARvr3-aUGsrmhcX8d3nrO-7laDAdEiSpM0vtStAE69rCzRsNDVXYSAtZjSYPIfuoaeSJvEBTixGFFUmEVHuuWC-aMMR44WnpQsN2IxCWtDcM-yxaDHPtqPLngaBEhOELo9QEs42mgmZSpAxnei3HUiro_oLn1sa8MjhhLs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "伊勢藤",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7406063,
+          35.7004743
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:71abc11703ae99b6b716",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:71abc11703ae99b6b716",
+        "name": "平井商店",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "平井商店",
+        "sceneNote": "長濱ねる1st.写真集「ここから」撮影に先立ち、都内でテストシュートした際の撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR67GSdH4NwANxKf_fJ2HnvqYcmd3MB35t5x8BGvkGLZdek_5VXkfIpVHFHt74jqG1IwtsRxmj-M8jKyXC7xSdYCPux4y7gYFI_1FC3RG16pdTjvZJLjbSNFeD8jBPujbDttuz-yAPnMiB04MXS4fLhDBsgSoxz8V2sxOByGNiTqfrtDZJpdBBkalgcg74uMQTUp4su0FO_HdC-FedQParWbdNlFvR0NDkCbC0Z7ognxLJBtbON6_G50_T0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7am4gb3pPtRmLcB400Sz6wG_mVIW1y8U8BFgvxT3vImSyNAc1vl072LD6YZTPWCFF0-CAakc5whpv0PqsSATI0QsLcyyyiru-XPpPgNbq3v8Ha1CV7U73y-tpifBXLQgNIflBa8dA-1jcKfOpx1K_6MnarrhzzFvk7ubjVEb7MlHVJiylD-QDlFiV6pHIk-OSKf9XoTDz4N4rhsarg_8QsyvMXj1JjX2-IrpsJsCgw64CRrdzz9T4xLIw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6mCWgrG6Z0SlU7egeSgdIqyrYhWr-5AWrp78pUfsdLsftT6wum803feHsWirq6Jb2jpTGStgudh5zkkeaszEk-NUZLjakiGahySwu6qaInxedhQSPY_lBE9B3kZeP0q1Q-ZDeEI2mJL22HHfpdDENQsFFw2IwXJHG2DtT8nnMLJb2lJNeB60v3w5_yWTPOwektsGQHDk809RQmy1DAlJHntzU2CrD98vI7g3CyW0WMXlbt48HcJIw66GY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6Cc2zUDoIS7Hnn4narmbXorkbWjMjMCxrvpADa5-qRAf727HwRQmM9n_sqAEQfjHnk8_75Y8P7ozP6TnOA8eow5f1eNGnOIiOs6qLEetK5c1GnMe4GOwd2JCV3oeUKD7XAlf0w3myQ7Q3P9guhDeNoEqGqroGrl9lNcOtm2dtGtnDm8f59c9AVqXp1LJ6h5WDv5itB_AcpyWjqX4Hyj6-rtN5jhcOzoQi_JnOyqSXH4SNwBHU2wpFfK4M%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "平井商店",
           "group": "日向坂46"
         },
         "classification": {
@@ -119215,7 +119328,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "林百貨店",
-        "sceneNote": "2025年年末にひよたんが訪れた場所。 題名:",
+        "sceneNote": "2025年年末に濱岸ひよりが訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -119270,7 +119383,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Tainan Lòng Story",
-        "sceneNote": "2025年年末にひよたんが訪れた場所。 題名:",
+        "sceneNote": "2025年年末に濱岸ひよりが訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -119383,7 +119496,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "大港倉410対岸のベンチ",
-        "sceneNote": "ひよたんが訪れた観光スポット。 題名:",
+        "sceneNote": "濱岸ひよりが訪れた観光スポット。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -119438,7 +119551,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "六合夜市",
-        "sceneNote": "ひよたんが訪れた台南のナイトマーケット。 題名:",
+        "sceneNote": "濱岸ひよりが訪れた台南のナイトマーケット。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -119497,7 +119610,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Dragon and Tiger Pagodas",
-        "sceneNote": "ひよたんが台湾旅行で訪れた観光スポット。 題名:",
+        "sceneNote": "濱岸ひよりが台湾旅行で訪れた観光スポット。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -158185,70 +158298,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.6499597,
-          35.5860722
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:57a0b2ddea30085406c0",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:57a0b2ddea30085406c0",
-        "name": "等々力球場",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "等々力球場",
-        "sceneNote": "『けやき坂46＆日向坂46 BEST MUSIC VIDEO COLLECTION 2015-2024』CMの撮影地 https://youtu.be/Z4rfoxNZZvc https://youtu.be/3DkGBgPjmEQ",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Rofw8tCXudsmJUPZHS3Rvlx9DW0sY-tG2OcvRPRiRPigLJ7UBZ9McwSJez5I3FZ1dM0h2cq11fTjFY50Ug_hArsweDMpSKh9yqSWC4uKkSUG9TRGHc3w0kEIXm-xknzY2Civ2swrcCtN0IpMVu4cgdLC2e9Rtt9q-MOss2tjJ_C8tCaqAO_HrTlWXY6hfyKkygH-QV7fv_cZA9XjvMXSntMETWzXWkdCWcyxO_Z8jGf91maCdz6S6OXM%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4yunpzeBptTPsKkBfJ9UoeUBf4-POPkEAXpY-YueIVXWJAHMfZOWBtEfZVSuUKYmTHMV16zQCeMhJHWEQv18Sxsz2otnjH_FLe78P_05CNgv4dNryOFiPSCrmaXqGJkvvfiIry4f1GCWktF8zoiHLwDiPMdbc_zuLSaNY7SYZEcuiehJ5zND5FOgtVrcteJ1icpPOgoyeYc1leo6m1w_4PgQ8AlEklzrOScbLhinnIBKULzzl0zzELe2M%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7YyuPKV-6wctJ67b3dxMMREuZL_m3sL_SGhtkkOj9xr2urqbMu_p_Se_z0je5m7dl9uB0cHg3W6BADlokuWXTT_giv9LAqEfTcdvb-VuqJr_SNldwQye3x5Z8N7KNzAwOm2bDfyOs1-pKvcAbZaz01gr387gQjaOE8CCInEd5xwewNNQ5aQMTfcKWeMSKKyofLrTahYyeMx_4Bx95Mrsu5i10v0MdOwqH1PIfo18JQsEUjkA9JpXOC8Z4%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7jaZl7wN_4lbCF-mxla7Gyniif90dDwoEIfNT7OpGB0H4u6rkVGac3ffuYCjdgupjyFdmSEYxdKlqVFXDlPVD1Y-fbeCt_-PH0DIEotr7JZGVQTo5p0p8QDBfmIi7oYX9MSqvyTIeqrkPPmvS_W0O6qqpjuyDAsjeqbEXlQZCN47SJuvd_3BwBfx4jzEGWNawc-DEkoyalkxeQLm4YMs68BaUNlJ0lFc7R-rK6plx_PMYlSECLMElMaS4%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5aeqcOmVLnt60e6Ulg6kX7i-vnVxXFs9bDPaI-uOoFNRquoUwvxWbqTojh1t0f915Aqk4ofnqdNxXBH2iueLVe7GbtaYjfgVGFcPyErNnsKzjzfJFgBOvOdnU9OpqsCcI6LJmC82NzPoDlveensln4u1ByusRCiqntD3uPqzoxELZqU2sMFiljwvGUqGrj-fjt0yFI7QUpvU5GSOex8bJ9gHG47lz3DnWC07RIZpZ-IZrFqaHBgE6epdU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6vwb8TAtnKUeEpBxr5eGBXGWb0-C-n1M-VGpR2zwVEN1k5Z6BOM63pCZWl1YJEEXJe0HHcEX0iqKy7l00Vty0ZGwW-cGT_ucfv2WGOqC-Ya5jGC4hllXJFBxNnFtKlGOCKaUGaQhDZQgfmz-GzzVXlj87g0ff189YN00-vhggrtoZy-lNUDWx3lWCDa9Ql743cK280mlhcQaLPhBeSRzWyvtWU8pJgPYCXnXkkfEjR3RLYeMEgJqJZabw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Kgx1SDaOBfLjlDMPaan_HvfnTKNpgo0HljJdDZRu-_jXyurOat18rIHSlRX3D3aWRTElDE4S6lejZ6rDd7WfNUvU_DWvS2hyEsO81sqv0UP1OA9K43zFYPmLdQvuvkcgWOk4X3bVLBfv1nuvUEcslT3yLJwGQEYnjc_wkbfzVE1jlH_VuF71OWffq_sVV8WeFNvGhcg_YygCTwk04ldfIsWDdSzzXo2pd7af_PriKse6lqQaqwk9tTMc%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ZPkR1ohV_aNUbwC-o6fBg2uVDEFx5khIgg3s7pFWgnedyjWaK7zpvg4E3P_DGlnfHhY46Zeow7eORg7gSa9H1kwNUO8HzjpDHm-994yiiua5Ha0j1Y2PcWs_LM7JJ8fMzgYvQWKXtA13KJNurvo91V26eeiyPhRVX5X4fVBh-g-pj-IvHvP5mql47ZOGaqwIDpCXOnAlFNRWy4BaWx6S6S3JDRdi4Hi4uBxvvbtqxVY_icTXfkfVj8bo%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4cluZC8H2z7mMhP9feHKrXPjihK3xuysdsBnKNfhxF6A91AnSGLx7hNrSrpjZXqskOIVvz2TN0RcNr6JtnAjGZK1qfONOO-mF6yHpyOB_FGaKZCftTGnBoUOvlDxA6Atnv8PKhPflYsERtlkyN9fs0iyHCLeobggxYqD_lAlq7Hs2bA5RTF3LaGqTGt38xCGrTXdlSHwVrQxspQ0TWMqioUVvI0kAiDRPPxwJqqDdd-8RYKByckoAHBZg%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5tUC4boYHghIVf0LTZz4LvX8s7SMOXBks52FkENymPkH9qdQNyGfh607i8-Ry4VBY5pg32S9IqyhQqOU0XEkwr1cjnZT6EF6ZKGv5uFZ23IEns0dZcXyc5IXvxtZ_OS52kr0WK_b3FYPrghG-5XJLSNB-cqSMujuq7MsH8j7S0D1E73Y_ADZEZ9TxEt8es9sGLDkd-M2eY20uxLCeW0BFMswAO_mVIevPppB88WcdISRbK7GyA-9Sp1uY%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "等々力球場",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.7055394,
           35.6538136
         ]
@@ -158795,6 +158844,128 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "釣船茶屋ざうお 渋谷店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7159902,
+          35.7304467
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bf508c7ebd1f31badef2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bf508c7ebd1f31badef2",
+        "name": "はかた地どり屋 福栄組合 池袋店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "はかた地どり屋 福栄組合 池袋店",
+        "sceneNote": "2021.9.6 O.A.の有吉ゼミで齊藤京子が激辛チャレンジしたお店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4QBB2QULITduNeqzeRLzSYSy7z0gl1IP0hXD4KsYEQfIOoykuWotKLTmjpYqFYjgEjWIgQRCnalzO_NmlMspf6C8gjFGVGIwDRxpdB7R-kpueiynCf8GjyvFBpuXbT-DoE_ORIk2IgcuUmHXT0zqF7xcAB7XZXysKmZS5F2jZimstdaAgKal0nptxhPugD7dBtBTTGCroiLDaVBwBMHbFhkkJnP69jWwo9ayFCV4WCACnefLh-nyzMfmM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4pQDKcyXvXhCwM-yWNqrVzeUAvuwgWzlTP3yF_NaWEc7AqU86sJAfbMUn6sj0VRvwJMa2ZrEJbXL9qaynR9syE64fKZ9IRItprNrZjqxWTfVEeZHAFjJDAtmpOfL81_zfdiW6WCc4te0KmYhQgsA_Ru8wrjDIyJOdtz1iaKvgBbh83Gi_rDHdlV8ypwE8Y1063jNPTxPWANaQTAD1gI1iSE_l7eZ-9Cu9s2365aFXV4kPsL-dtxY-wNpU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR54B3bqsIOfJ3fkseqxictYXkasTGQhjv8AbsAIQanb52RwZqbh-_oTeBh0YN8V9Ki-iNLHtc_LmE1OCrBgXKV8pO8nes00pHSx28f82S8x9RBY-1C9GNJzGgkJ9-dP9nrIj02fawlY41JWOrcWQzF9X1AJrVjgte52E0tg2-z6GvsAUkC6jcXGtpglJlSBb6_avM7AuTz3Gmd37inMhh6jGcx4hHIJzK93M15nTTCxuwd7dtlWcHoGPk8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR40RXWE1HCZ2Wd0FgZBLvONJOMoH0sOdilBRzqZ_RTElBXnFouOy7G_NaBCAXLfQRX-pSCBBlXWw8zsXo8WinUThdS7hJYHNxunRk1lz3F7EtoaiGtbOSBMFoIVlrYQ36yNhMAkgz34_BCtMmeFBFBhQmpJQEvYx1npie9RtE3g0zU1fSThD68p7J7wZR4xHe4vR_2HkW21GTJ7FG9H9moIDaI-mszoGiccWjPISvvwoY74pLOteKExPYY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "はかた地どり屋 福栄組合 池袋店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6499597,
+          35.5860722
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:57a0b2ddea30085406c0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:57a0b2ddea30085406c0",
+        "name": "等々力球場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "等々力球場",
+        "sceneNote": "『けやき坂46＆日向坂46 BEST MUSIC VIDEO COLLECTION 2015-2024』CMの撮影地 https://youtu.be/Z4rfoxNZZvc https://youtu.be/3DkGBgPjmEQ",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Rofw8tCXudsmJUPZHS3Rvlx9DW0sY-tG2OcvRPRiRPigLJ7UBZ9McwSJez5I3FZ1dM0h2cq11fTjFY50Ug_hArsweDMpSKh9yqSWC4uKkSUG9TRGHc3w0kEIXm-xknzY2Civ2swrcCtN0IpMVu4cgdLC2e9Rtt9q-MOss2tjJ_C8tCaqAO_HrTlWXY6hfyKkygH-QV7fv_cZA9XjvMXSntMETWzXWkdCWcyxO_Z8jGf91maCdz6S6OXM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4yunpzeBptTPsKkBfJ9UoeUBf4-POPkEAXpY-YueIVXWJAHMfZOWBtEfZVSuUKYmTHMV16zQCeMhJHWEQv18Sxsz2otnjH_FLe78P_05CNgv4dNryOFiPSCrmaXqGJkvvfiIry4f1GCWktF8zoiHLwDiPMdbc_zuLSaNY7SYZEcuiehJ5zND5FOgtVrcteJ1icpPOgoyeYc1leo6m1w_4PgQ8AlEklzrOScbLhinnIBKULzzl0zzELe2M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7YyuPKV-6wctJ67b3dxMMREuZL_m3sL_SGhtkkOj9xr2urqbMu_p_Se_z0je5m7dl9uB0cHg3W6BADlokuWXTT_giv9LAqEfTcdvb-VuqJr_SNldwQye3x5Z8N7KNzAwOm2bDfyOs1-pKvcAbZaz01gr387gQjaOE8CCInEd5xwewNNQ5aQMTfcKWeMSKKyofLrTahYyeMx_4Bx95Mrsu5i10v0MdOwqH1PIfo18JQsEUjkA9JpXOC8Z4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7jaZl7wN_4lbCF-mxla7Gyniif90dDwoEIfNT7OpGB0H4u6rkVGac3ffuYCjdgupjyFdmSEYxdKlqVFXDlPVD1Y-fbeCt_-PH0DIEotr7JZGVQTo5p0p8QDBfmIi7oYX9MSqvyTIeqrkPPmvS_W0O6qqpjuyDAsjeqbEXlQZCN47SJuvd_3BwBfx4jzEGWNawc-DEkoyalkxeQLm4YMs68BaUNlJ0lFc7R-rK6plx_PMYlSECLMElMaS4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5aeqcOmVLnt60e6Ulg6kX7i-vnVxXFs9bDPaI-uOoFNRquoUwvxWbqTojh1t0f915Aqk4ofnqdNxXBH2iueLVe7GbtaYjfgVGFcPyErNnsKzjzfJFgBOvOdnU9OpqsCcI6LJmC82NzPoDlveensln4u1ByusRCiqntD3uPqzoxELZqU2sMFiljwvGUqGrj-fjt0yFI7QUpvU5GSOex8bJ9gHG47lz3DnWC07RIZpZ-IZrFqaHBgE6epdU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6vwb8TAtnKUeEpBxr5eGBXGWb0-C-n1M-VGpR2zwVEN1k5Z6BOM63pCZWl1YJEEXJe0HHcEX0iqKy7l00Vty0ZGwW-cGT_ucfv2WGOqC-Ya5jGC4hllXJFBxNnFtKlGOCKaUGaQhDZQgfmz-GzzVXlj87g0ff189YN00-vhggrtoZy-lNUDWx3lWCDa9Ql743cK280mlhcQaLPhBeSRzWyvtWU8pJgPYCXnXkkfEjR3RLYeMEgJqJZabw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Kgx1SDaOBfLjlDMPaan_HvfnTKNpgo0HljJdDZRu-_jXyurOat18rIHSlRX3D3aWRTElDE4S6lejZ6rDd7WfNUvU_DWvS2hyEsO81sqv0UP1OA9K43zFYPmLdQvuvkcgWOk4X3bVLBfv1nuvUEcslT3yLJwGQEYnjc_wkbfzVE1jlH_VuF71OWffq_sVV8WeFNvGhcg_YygCTwk04ldfIsWDdSzzXo2pd7af_PriKse6lqQaqwk9tTMc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ZPkR1ohV_aNUbwC-o6fBg2uVDEFx5khIgg3s7pFWgnedyjWaK7zpvg4E3P_DGlnfHhY46Zeow7eORg7gSa9H1kwNUO8HzjpDHm-994yiiua5Ha0j1Y2PcWs_LM7JJ8fMzgYvQWKXtA13KJNurvo91V26eeiyPhRVX5X4fVBh-g-pj-IvHvP5mql47ZOGaqwIDpCXOnAlFNRWy4BaWx6S6S3JDRdi4Hi4uBxvvbtqxVY_icTXfkfVj8bo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4cluZC8H2z7mMhP9feHKrXPjihK3xuysdsBnKNfhxF6A91AnSGLx7hNrSrpjZXqskOIVvz2TN0RcNr6JtnAjGZK1qfONOO-mF6yHpyOB_FGaKZCftTGnBoUOvlDxA6Atnv8PKhPflYsERtlkyN9fs0iyHCLeobggxYqD_lAlq7Hs2bA5RTF3LaGqTGt38xCGrTXdlSHwVrQxspQ0TWMqioUVvI0kAiDRPPxwJqqDdd-8RYKByckoAHBZg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5tUC4boYHghIVf0LTZz4LvX8s7SMOXBks52FkENymPkH9qdQNyGfh607i8-Ry4VBY5pg32S9IqyhQqOU0XEkwr1cjnZT6EF6ZKGv5uFZ23IEns0dZcXyc5IXvxtZ_OS52kr0WK_b3FYPrghG-5XJLSNB-cqSMujuq7MsH8j7S0D1E73Y_ADZEZ9TxEt8es9sGLDkd-M2eY20uxLCeW0BFMswAO_mVIevPppB88WcdISRbK7GyA-9Sp1uY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "等々力球場",
           "group": "日向坂46"
         },
         "classification": {
@@ -210838,64 +211009,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7159902,
-          35.7304467
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bf508c7ebd1f31badef2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bf508c7ebd1f31badef2",
-        "name": "はかた地どり屋 福栄組合 池袋店",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "はかた地どり屋 福栄組合 池袋店",
-        "sceneNote": "2021.9.6 O.A.の有吉ゼミで齊藤京子が激辛チャレンジしたお店。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4QBB2QULITduNeqzeRLzSYSy7z0gl1IP0hXD4KsYEQfIOoykuWotKLTmjpYqFYjgEjWIgQRCnalzO_NmlMspf6C8gjFGVGIwDRxpdB7R-kpueiynCf8GjyvFBpuXbT-DoE_ORIk2IgcuUmHXT0zqF7xcAB7XZXysKmZS5F2jZimstdaAgKal0nptxhPugD7dBtBTTGCroiLDaVBwBMHbFhkkJnP69jWwo9ayFCV4WCACnefLh-nyzMfmM%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4pQDKcyXvXhCwM-yWNqrVzeUAvuwgWzlTP3yF_NaWEc7AqU86sJAfbMUn6sj0VRvwJMa2ZrEJbXL9qaynR9syE64fKZ9IRItprNrZjqxWTfVEeZHAFjJDAtmpOfL81_zfdiW6WCc4te0KmYhQgsA_Ru8wrjDIyJOdtz1iaKvgBbh83Gi_rDHdlV8ypwE8Y1063jNPTxPWANaQTAD1gI1iSE_l7eZ-9Cu9s2365aFXV4kPsL-dtxY-wNpU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR54B3bqsIOfJ3fkseqxictYXkasTGQhjv8AbsAIQanb52RwZqbh-_oTeBh0YN8V9Ki-iNLHtc_LmE1OCrBgXKV8pO8nes00pHSx28f82S8x9RBY-1C9GNJzGgkJ9-dP9nrIj02fawlY41JWOrcWQzF9X1AJrVjgte52E0tg2-z6GvsAUkC6jcXGtpglJlSBb6_avM7AuTz3Gmd37inMhh6jGcx4hHIJzK93M15nTTCxuwd7dtlWcHoGPk8%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR40RXWE1HCZ2Wd0FgZBLvONJOMoH0sOdilBRzqZ_RTElBXnFouOy7G_NaBCAXLfQRX-pSCBBlXWw8zsXo8WinUThdS7hJYHNxunRk1lz3F7EtoaiGtbOSBMFoIVlrYQ36yNhMAkgz34_BCtMmeFBFBhQmpJQEvYx1npie9RtE3g0zU1fSThD68p7J7wZR4xHe4vR_2HkW21GTJ7FG9H9moIDaI-mszoGiccWjPISvvwoY74pLOteKExPYY%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "はかた地どり屋 福栄組合 池袋店",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.713518,
           35.7278458
         ]
@@ -230114,6 +230227,695 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          131.448578,
+          31.9418072
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:afee51d7381f99abfe85",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:afee51d7381f99abfe85",
+        "name": "宮崎地鶏屋嵐坊本店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "宮崎地鶏屋嵐坊本店",
+        "sceneNote": "ひなたフェス2026 佐藤優羽コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "宮崎地鶏屋嵐坊本店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.427021,
+          31.907225
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1876ee6744b3882e0068",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1876ee6744b3882e0068",
+        "name": "グリルハウス 松山本店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "グリルハウス 松山本店",
+        "sceneNote": "ひなたフェス2026 下田衣珠季コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "グリルハウス 松山本店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4209424,
+          31.9154671
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:78c5e2c74bad6551453f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:78c5e2c74bad6551453f",
+        "name": "居酒屋 初代商店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "居酒屋 初代商店",
+        "sceneNote": "ひなたフェス2026 髙橋未来虹コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "居酒屋 初代商店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.0932459,
+          31.7267076
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:aa9dbe863857fe498c47",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:aa9dbe863857fe498c47",
+        "name": "かけだれ からあげカラキチ【都城市/弁当/テイクアウト】",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "かけだれ からあげカラキチ【都城市/弁当/テイクアウト】",
+        "sceneNote": "ひなたフェス2026 森本茉莉コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "かけだれ からあげカラキチ【都城市/弁当/テイクアウト】",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4010572,
+          31.8291864
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ba6b3fffa5879f9bdbda",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ba6b3fffa5879f9bdbda",
+        "name": "かがみず商店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "かがみず商店",
+        "sceneNote": "ひなたフェス2026 上村ひなのコラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "かがみず商店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4164179,
+          31.9294137
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9a762420c87c02d35393",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9a762420c87c02d35393",
+        "name": "宮崎牛鉄板焼 なか窪",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "宮崎牛鉄板焼 なか窪",
+        "sceneNote": "ひなたフェス2026 松尾桜コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "宮崎牛鉄板焼 なか窪",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.426039,
+          31.915232
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:185a6ec576ddf6f6fa7a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:185a6ec576ddf6f6fa7a",
+        "name": "ぽらべあドーナツ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ぽらべあドーナツ",
+        "sceneNote": "ひなたフェス2026 藤嶌果歩コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ぽらべあドーナツ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.0633131,
+          31.7278439
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:edffc792c984b9adf85a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:edffc792c984b9adf85a",
+        "name": "ぶえん海鮮・焼肉",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ぶえん海鮮・焼肉",
+        "sceneNote": "ひなたフェス2026 平岡海月コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ぶえん海鮮・焼肉",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4214423,
+          31.9142794
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b36b409bfa8875ec46aa",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b36b409bfa8875ec46aa",
+        "name": "辛麺屋 輪 宮崎店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "辛麺屋 輪 宮崎店",
+        "sceneNote": "ひなたフェス2026 正源司陽子コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "辛麺屋 輪 宮崎店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4285836,
+          31.9151149
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bb801f8ab500e4eebf51",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bb801f8ab500e4eebf51",
+        "name": "Ammy",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Ammy",
+        "sceneNote": "ひなたフェス2026 金村美玖コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "Ammy",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4243368,
+          31.9150458
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e25b2b4023d09350ea92",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e25b2b4023d09350ea92",
+        "name": "みつをこぼせ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "みつをこぼせ",
+        "sceneNote": "ひなたフェス2026 森本茉莉コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "みつをこぼせ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4203466,
+          31.9152577
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9a156cdb4af09244f394",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9a156cdb4af09244f394",
+        "name": "ギョーザ専門店 黒兵衛",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ギョーザ専門店 黒兵衛",
+        "sceneNote": "ひなたフェス2026 正源司陽子コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ギョーザ専門店 黒兵衛",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4231823,
+          31.9149625
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e0a2e0901205d10891b8",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e0a2e0901205d10891b8",
+        "name": "南国プリン",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "南国プリン",
+        "sceneNote": "ひなたフェス2026 竹内希来里、平岡海月コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "南国プリン",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           131.4246439,
           31.9350798
         ]
@@ -230152,6 +230954,748 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "PARIS CINQ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4321923,
+          31.8608658
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4ed7cba8b3f6bf078b3a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4ed7cba8b3f6bf078b3a",
+        "name": "章ん家",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "章ん家",
+        "sceneNote": "ひなたフェス2026 コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "章ん家",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4316952,
+          32.0498515
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53d7986c97ea00c26819",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53d7986c97ea00c26819",
+        "name": "なな かふぇ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "なな かふぇ",
+        "sceneNote": "ひなたフェス2026 片山紗希コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "なな かふぇ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4239881,
+          31.9156222
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b5627fca26decc47e26e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b5627fca26decc47e26e",
+        "name": "cafe&grocery HITOKIWA",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "cafe&grocery HITOKIWA",
+        "sceneNote": "ひなたフェス2026 山下葉留花コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "cafe&grocery HITOKIWA",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4205782,
+          31.9136822
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:664dc60b300104c5d13c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:664dc60b300104c5d13c",
+        "name": "ぐんけい本店隠蔵",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ぐんけい本店隠蔵",
+        "sceneNote": "ひなたフェス2026 コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ぐんけい本店隠蔵",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0590411,
+          36.4055398
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:049b763e0e56e3456f27",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:049b763e0e56e3456f27",
+        "name": "食匠 なる花",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "食匠 なる花",
+        "sceneNote": "ひなたフェス2026 渡辺莉奈コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "食匠 なる花",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.0617799,
+          31.7259511
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:45dfbeddebaf80f485b4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:45dfbeddebaf80f485b4",
+        "name": "ダバズキッチン（ DABA's KITCHEN）カジュアルショットバー",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ダバズキッチン（ DABA's KITCHEN）カジュアルショットバー",
+        "sceneNote": "ひなたフェス2026 鶴崎仁香コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ダバズキッチン（ DABA's KITCHEN）カジュアルショットバー",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4119171,
+          32.0752619
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4ba856faf269d1cfec04",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4ba856faf269d1cfec04",
+        "name": "Ohana食堂",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Ohana食堂",
+        "sceneNote": "ひなたフェス2026 小坂菜緒コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "Ohana食堂",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4473789,
+          31.8812023
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bc87c7bcedf136c19171",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bc87c7bcedf136c19171",
+        "name": "本家宮崎肉巻きおにぎり",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "本家宮崎肉巻きおにぎり",
+        "sceneNote": "ひなたフェス2026 コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "本家宮崎肉巻きおにぎり",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.065481,
+          31.7215621
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:035e9d2289590e39a24a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:035e9d2289590e39a24a",
+        "name": "とりまる",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "とりまる",
+        "sceneNote": "ひなたフェス2026 コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "とりまる",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.5570868,
+          32.2579945
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:978430c1e7256ebe8293",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:978430c1e7256ebe8293",
+        "name": "真心 むっちゃん",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "真心 むっちゃん",
+        "sceneNote": "ひなたフェス2026 坂井新奈コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "真心 むっちゃん",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4616103,
+          31.805241
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e2b6672025256520ce88",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e2b6672025256520ce88",
+        "name": "cafe&french :Re/Do",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "cafe&french :Re/Do",
+        "sceneNote": "ひなたフェス2026 金村美玖コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "cafe&french :Re/Do",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4314686,
+          31.9150202
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cae3803f0e37a2664376",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cae3803f0e37a2664376",
+        "name": "ステーキ&焼肉 齋藤牧場アミュプラザ宮崎店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ステーキ&焼肉 齋藤牧場アミュプラザ宮崎店",
+        "sceneNote": "ひなたフェス2026 高井俐香コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ステーキ&焼肉 齋藤牧場アミュプラザ宮崎店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4549206,
+          31.9325492
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0d1614fdb93c4f70d302",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0d1614fdb93c4f70d302",
+        "name": "ローストチキン コオロギ 宮崎本店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ローストチキン コオロギ 宮崎本店",
+        "sceneNote": "ひなたフェス2026 平尾帆夏コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ローストチキン コオロギ 宮崎本店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3861772,
+          31.5962966
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3e8b7b81e3facc15cd35",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3e8b7b81e3facc15cd35",
+        "name": "ひだか焼肉",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ひだか焼肉",
+        "sceneNote": "ひなたフェス2026 髙橋未来虹コラボフード提供店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ひだか焼肉",
           "group": "日向坂46"
         },
         "classification": {
