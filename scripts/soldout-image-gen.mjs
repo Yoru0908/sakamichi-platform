@@ -408,9 +408,10 @@ async function renderImage(tree, width, height) {
  * @param {string} eventSlug
  * @param {'sakurazaka'|'hinatazaka'|'nogizaka'} group
  * @param {'soldout'|'generation'} sortMode
- * @param {'grouped'|'flat'} layout - grouped: 日期→部次两级表头; flat: 1..N 平铺编号
+ * @param {'grouped'|'flat'} [layout] - grouped: 日期→部次两级表头; flat: 1..N 平铺编号。未传时读 SOLDOUT_IMAGE_LAYOUT，默认 grouped
  */
-export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sortMode = 'soldout', layout = 'grouped') {
+export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sortMode = 'soldout', layout) {
+  const resolvedLayout = layout || process.env.SOLDOUT_IMAGE_LAYOUT || 'grouped';
   const data = await fetchSoldOutData(eventSlug);
   const genMap = loadGenerationMap([
     join(__dirname, '..', 'public', 'data', 'member-images.json'),
@@ -464,7 +465,7 @@ export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sort
   // summary card: padding(14*2) + signature(12) + gap(8) + title(20) + gap(8) + numbers(34) + gap(8) + bar(6)
   const SUMMARY_H = 104 + 14; // include marginBottom
   const DATE_H = ROW_H;
-  const SLOT_H = layout === 'flat' ? 0 : 20;
+  const SLOT_H = resolvedLayout === 'flat' ? 0 : 20;
   const BODY_H = rowCount * CELL_H + separatorCount * 28;
   const FOOTER_H = 30;
   const HEIGHT = PAD + SUMMARY_H + DATE_H + SLOT_H + BODY_H + FOOTER_H + PAD;
@@ -491,7 +492,7 @@ export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sort
         border: `1px solid ${theme.accentBg}`,
       },
     },
-      layout === 'flat'
+      resolvedLayout === 'flat'
         ? flatHeaderRow({ dates, slotNumbers, theme, showLeftLabel: sortMode === 'soldout' })
         : [
           dateHeaderRow({ dates, slotNumbers, theme, showLeftLabel: sortMode === 'soldout' }),
@@ -515,7 +516,7 @@ export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sort
 }
 
 /** 生成两张：完売顺 + 期別顺。layout: grouped(两级表头) | flat(平铺) */
-export async function generateBothImages(eventSlug, group = 'sakurazaka', layout = 'grouped') {
+export async function generateBothImages(eventSlug, group = 'sakurazaka', layout) {
   const [soldout, generation] = await Promise.all([
     generateSoldOutImage(eventSlug, group, 'soldout', layout),
     generateSoldOutImage(eventSlug, group, 'generation', layout),
