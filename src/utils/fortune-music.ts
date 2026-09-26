@@ -255,6 +255,56 @@ function parseMembers(text: string): string[] {
   ));
 }
 
+/**
+ * 「※Xは10月18日(日)、12月13日(日)の2日程のみの参加」/「※Xですが、…3月22日(日)を不参加」
+ * 等の備考行から成员ごとの除外日程を抽出する。
+ * 名前は実メンバー一覧との前方一致で判定（いろは等「は」を含む名前の誤切断を防ぐ）。
+ * 日程が開催日に対応付けられない・メンバー一覧にない場合は安全側で無視する。
+ */
+function parseParticipationRestrictions(
+  section: string,
+  allDates: string[],
+  members: string[],
+): Map<string, Set<string>> {
+  const exclusions = new Map<string, Set<string>>();
+  const noteDates = (text: string) =>
+    new Set(
+      [...text.matchAll(/(\d{1,2})月(\d{1,2})日/g)]
+        .map((m) => allDates.find((d) => d.slice(5) === `${m[1].padStart(2, '0')}-${m[2].padStart(2, '0')}`))
+        .filter((d): d is string => Boolean(d)),
+    );
+
+  for (const rawLine of section.split(/\n+/)) {
+    const line = rawLine.trim();
+    if (!line.startsWith('※')) continue;
+    const body = line.replace(/^※\s*/, '');
+    for (const member of members) {
+      const namePattern = member.split('').join('\\s*');
+      const match = body.match(new RegExp(`^${namePattern}(?:は|が|ですが)[、,]?(.*)$`));
+      if (!match) continue;
+      const rest = match[1];
+      const only = rest.match(/(.+?)の\d+日程のみの参加/);
+      const absent = rest.match(/(?:スケジュールの都合により)?(.+?)を不参加/);
+      if (only) {
+        const allowed = noteDates(only[1]);
+        if (!allowed.size) continue;
+        for (const date of allDates) {
+          if (allowed.has(date)) continue;
+          if (!exclusions.has(member)) exclusions.set(member, new Set());
+          exclusions.get(member)!.add(date);
+        }
+      } else if (absent) {
+        const dates = noteDates(absent[1]);
+        if (!dates.size) continue;
+        if (!exclusions.has(member)) exclusions.set(member, new Set());
+        for (const date of dates) exclusions.get(member)!.add(date);
+      }
+      break;
+    }
+  }
+  return exclusions;
+}
+
 export function parseEventDetailHtml(html: string): FortuneEventDetail {
   const text = htmlToText(html);
   const dates = parseDates(text);
@@ -289,8 +339,21 @@ export function parseEventDetailHtml(html: string): FortuneEventDetail {
   if (blocks.slice(1).some((block) => !usedBlocks.has(block.index))) {
     throw new Error('日付に対応付けられない複数の時間帯があります');
   }
+
+  const allDates = [...new Set([...dates, ...dateSchedules.map((schedule) => schedule.date)])].sort();
+  // 「のみの参加」「を不参加」備考 → 該当日程のメンバーから除外（dateSchedules で表現）
+  for (const [name, excludedDates] of parseParticipationRestrictions(
+    extractSectionRaw(text, '【参加メンバー】'), allDates, members,
+  )) {
+    for (const date of excludedDates) {
+      const existing = dateSchedules.find((schedule) => schedule.date === date);
+      if (existing) existing.members = existing.members.filter((member) => member !== name);
+      else dateSchedules.push({ date, slots, members: members.filter((member) => member !== name) });
+    }
+  }
+
   return {
-    dates: [...new Set([...dates, ...dateSchedules.map((schedule) => schedule.date)])].sort(),
+    dates: allDates,
     slots,
     members,
     ...(dateSchedules.length ? { dateSchedules } : {}),

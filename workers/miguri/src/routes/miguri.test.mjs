@@ -7,7 +7,7 @@ import * as miguriRoutes from './miguri.ts';
 import * as manageMiguriRoutes from './manage-miguri.ts';
 import { buildGoogleCalendarUrl, buildIcsCalendar, normalizeMiguriPayload } from './miguri.ts';
 import { decodeHtmlEntities, normalizeCalendarDate } from '../utils/ics.ts';
-import { diffArchivedEventSlugs, handleMiguriSync } from './manage-miguri.ts';
+import { diffArchivedEventSlugs, handleMiguriSync, assertNormalizedStructureComplete } from './manage-miguri.ts';
 
 test('normalizeMiguriPayload expands dates slots and members into syncable records', () => {
   const normalized = normalizeMiguriPayload({
@@ -1167,3 +1167,27 @@ test('syncMiguriFromSource fetches fortune events and persists them without requ
    assert.match(json.error, /保护|保護|anomal/i);
    assert.equal(db.runCalls.length, 0);
  });
+
+test('assertNormalizedStructureComplete rejects events whose normalized structure is empty', () => {
+  const good = normalizeMiguriPayload({
+    events: [{
+      slug: 'sakurazaka_209901', group: 'sakurazaka', title: 't', sourceUrl: 'u', saleType: '抽選販売',
+      windows: [],
+      dates: ['2099-01-01'],
+      slots: [{ slotNumber: 1, receptionStart: '10:00', startTime: '10:15', receptionEnd: '11:00', endTime: '11:15' }],
+      members: ['山田桃実'],
+    }],
+  });
+  assert.doesNotThrow(() => assertNormalizedStructureComplete(good));
+
+  const empty = normalizeMiguriPayload({ events: [{ slug: 'bad_1', windows: [], dates: ['2099-01-01'], slots: [], members: [] }] });
+  assert.throws(() => assertNormalizedStructureComplete(empty), /归一化后/);
+
+  const partial = {
+    events: [{ slug: 'bad_2', dates: ['2099-01-01'], slots: [{ slotNumber: 1 }], members: ['x'] }],
+    windows: [],
+    slots: [{ eventSlug: 'bad_2', eventDate: '2099-01-01', slotNumber: 1 }],
+    slotMembers: [],
+  };
+  assert.throws(() => assertNormalizedStructureComplete(partial), /成员枠为空/);
+});

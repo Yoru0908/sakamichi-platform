@@ -152,6 +152,65 @@ test('parseEventDetailHtml drops a ※ participation note containing a comma as 
   assert.deepEqual(detail.members, ['遠藤光莉', '大園玲', '山田桃実']);
 });
 
+test('※のみの参加 note restricts the member to the listed dates via dateSchedules', () => {
+  // 藤吉夏鈴 only attends 10/18 and 12/13 → she must be removed from the other dates' rosters.
+  const html = `
+    <section>
+      <h2>イベント概要</h2>
+      <p>【日程】2026年10月18日（日）、2026年10月31日（土）、2026年11月21日（土）、2026年12月13日（日）</p>
+      <p>【オンラインミート＆グリート（個別トーク会）スケジュール】<br>
+        ＜第１部＞ 受付開始 10:45 / イベント開始 11:00 / 受付終了 11:45 （12:00 終了予定）<br>
+        ＜第２部＞ 受付開始 12:15 / イベント開始 12:30 / 受付終了 13:15 （13:30 終了予定）
+      </p>
+      <p>【参加メンバー】<br>
+        遠藤 光莉/<br>
+        大園 玲/<br>
+        藤吉 夏鈴/<br>
+        山田 桃実<br>
+        <br>
+        ※藤吉 夏鈴は10月18日(日)、12月13日(日)の2日程のみの参加となります。
+      </p>
+    </section>
+  `;
+
+  const detail = parseEventDetailHtml(html);
+
+  assert.deepEqual(detail.members, ['遠藤光莉', '大園玲', '藤吉夏鈴', '山田桃実']);
+  assert.equal(detail.dateSchedules.length, 2);
+  const excluded = Object.fromEntries(detail.dateSchedules.map((s) => [s.date, s.members]));
+  assert.deepEqual(excluded['2026-10-31'], ['遠藤光莉', '大園玲', '山田桃実']);
+  assert.deepEqual(excluded['2026-11-21'], ['遠藤光莉', '大園玲', '山田桃実']);
+  // The two attended dates keep the default roster (no schedule entry)
+  assert.equal(detail.dateSchedules.some((s) => s.date === '2026-10-18'), false);
+  assert.equal(detail.dateSchedules.some((s) => s.date === '2026-12-13'), false);
+});
+
+test('※を不参加 note excludes the member only on the listed dates', () => {
+  const html = `
+    <section>
+      <h2>イベント概要</h2>
+      <p>【日程】2026年3月20日（金・祝）、2026年3月22日（日）、2026年4月5日（日）</p>
+      <p>【オンラインミート＆グリート（個別トーク会）スケジュール】<br>
+        ＜第１部＞ 受付開始 10:45 / イベント開始 11:00 / 受付終了 11:45 （12:00 終了予定）
+      </p>
+      <p>【参加メンバー】<br>
+        奥田いろは<br>
+        小津玲奈<br>
+        <br>
+        ※奥田いろはですが、スケジュールの都合により3月22日(日)・4月5日(日)を不参加とさせていただきます。
+      </p>
+    </section>
+  `;
+
+  const detail = parseEventDetailHtml(html);
+
+  assert.deepEqual(detail.members, ['奥田いろは', '小津玲奈']);
+  assert.equal(detail.dateSchedules.length, 2);
+  const excluded = Object.fromEntries(detail.dateSchedules.map((s) => [s.date, s.members]));
+  assert.deepEqual(excluded['2026-03-22'], ['小津玲奈']);
+  assert.deepEqual(excluded['2026-04-05'], ['小津玲奈']);
+});
+
 test('parseEventDetailHtml extracts dates slots and members from Fortune Music detail page', () => {
   const html = `
     <section>

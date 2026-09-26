@@ -396,9 +396,31 @@ export type MiguriSyncResult = {
   newWindows?: { eventSlug: string; label: string }[];
 };
 
+// 归一化后的结构完整性兜底：任何路径（fetch 异常、payload 畸形、normalize bug）
+// 产生空结构都在写入前拦下，保证 delete+insert 批次永远不会把表清空。
+export function assertNormalizedStructureComplete(normalized: ReturnType<typeof normalizeMiguriPayload>) {
+  const anomalies: string[] = [];
+  for (const event of normalized.events) {
+    const slotCount = normalized.slots.filter((slot) => slot.eventSlug === event.slug).length;
+    const memberRowCount = normalized.slotMembers.filter((row) => row.eventSlug === event.slug).length;
+    if (event.dates.length > 0 && slotCount === 0) {
+      anomalies.push(`${event.slug} 归一化后日程部次为空`);
+    }
+    if (memberRowCount === 0) {
+      anomalies.push(`${event.slug} 归一化后成员枠为空`);
+    } else if (memberRowCount < slotCount) {
+      anomalies.push(`${event.slug} 成员枠 ${memberRowCount} 少于部次数 ${slotCount}`);
+    }
+  }
+  if (anomalies.length > 0) {
+    throw new MiguriSyncProtectionError(Array.from(new Set(anomalies)));
+  }
+}
+
 export async function persistMiguriSyncPayload(env: Env, body: MiguriSyncPayload): Promise<MiguriSyncResult> {
   await assertMiguriSyncPayloadSafe(env, body);
   const normalized = normalizeMiguriPayload(body);
+  assertNormalizedStructureComplete(normalized);
   const now = new Date().toISOString();
   const incomingSlugs = normalized.events.map((event) => event.slug);
   const { slugs: archivedSlugs, statement: archiveStatement } = await prepareArchivedEvents(env, incomingSlugs);

@@ -108,7 +108,7 @@ function h(type, props, ...children) {
 
 // ── pieces ────────────────────────────────────────────────────
 
-function summaryHeader({ title, modeLabel, totalSoldOut, totalCells, pct, theme, memberCount, dateCount, slotCount }) {
+function summaryHeader({ title, modeLabel, totalSoldOut, totalCells, totalDelta, pct, theme, memberCount, dateCount, slotCount }) {
   return h('div', {
     style: {
       display: 'flex', flexDirection: 'column', gap: '8px',
@@ -118,6 +118,8 @@ function summaryHeader({ title, modeLabel, totalSoldOut, totalCells, pct, theme,
       marginBottom: '14px',
     },
   },
+    // 署名行
+    h('div', { style: { display: 'flex', fontSize: '10px', color: '#bbb' } }, 'Yoru'),
     // 标题行：标题 + 模式标签
     h('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } },
       h('div', { style: { display: 'flex', fontSize: '16px', fontWeight: 700, color: '#222' } }, title),
@@ -134,6 +136,7 @@ function summaryHeader({ title, modeLabel, totalSoldOut, totalCells, pct, theme,
     h('div', { style: { display: 'flex', alignItems: 'baseline', gap: '8px' } },
       h('div', { style: { display: 'flex', fontSize: '28px', fontWeight: 800, color: theme.accent } }, String(totalSoldOut)),
       h('div', { style: { display: 'flex', fontSize: '12px', color: '#999' } }, `/ ${totalCells} 枠`),
+      h('div', { style: { display: 'flex', fontSize: '12px', fontWeight: 700, color: theme.accent } }, `(+${totalDelta})`),
       h('div', {
         style: {
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -201,6 +204,50 @@ function dateHeaderRow({ dates, slotNumbers, theme, showLeftLabel }) {
   );
 }
 
+// 平铺表头：全部枠按日期顺序 1..N 连续编号，日期间的边界用细线分隔
+function flatHeaderRow({ dates, slotNumbers, theme, showLeftLabel }) {
+  const cells = [];
+  let col = 0;
+  for (let di = 0; di < dates.length; di++) {
+    for (let si = 0; si < slotNumbers.length; si++) {
+      col++;
+      cells.push(h('div', {
+        key: `${di}-${si}`,
+        style: {
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          width: `${CELL_W}px`, height: `${ROW_H}px`, flexShrink: 0,
+          fontSize: '10px', fontWeight: 700, color: '#fff',
+          backgroundColor: theme.headerBg,
+          borderLeft: si === 0 && di > 0 ? '1px solid rgba(255,255,255,0.6)' : 'none',
+        },
+      }, String(col)));
+    }
+  }
+  return h('div', {
+    style: { display: 'flex', alignItems: 'stretch', height: `${ROW_H}px` },
+  },
+    h('div', {
+      style: {
+        display: 'flex', alignItems: 'center', paddingLeft: '10px',
+        width: `${NAME_W}px`, flexShrink: 0,
+        backgroundColor: theme.headerBg, color: '#fff',
+        fontSize: '11px', fontWeight: 700,
+        borderTopLeftRadius: '8px',
+      },
+    }, showLeftLabel ? 'メンバー' : ''),
+    ...cells,
+    h('div', {
+      style: {
+        display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
+        paddingRight: '10px', width: `${STAT_W}px`, flexShrink: 0,
+        backgroundColor: theme.headerBg, color: '#fff',
+        fontSize: '11px', fontWeight: 700,
+        borderTopRightRadius: '8px',
+      },
+    }, '完売／枠'),
+  );
+}
+
 function slotHeaderRow({ dates, slotNumbers, theme }) {
   const slotCells = [];
   for (const date of dates) {
@@ -233,7 +280,10 @@ function memberCells({ member, dates, slotNumbers, theme, maxRound }) {
   const cells = [];
   for (const date of dates) {
     for (const slot of slotNumbers) {
-      const round = member.cells.get(`${date}::${slot}`);
+      const key = `${date}::${slot}`;
+      const round = member.cells.get(key);
+      // 未安排参加（slotKeys 已知且不含该枠）→ 灰色 '-'
+      const notScheduled = member.slotKeys != null && !member.slotKeys.has(key);
       const bg = round ? hexAlpha(theme.cellSolid, cellAlpha(round, maxRound)) : '#fff';
       cells.push(h('div', {
         key: `${date}-${slot}`,
@@ -244,9 +294,9 @@ function memberCells({ member, dates, slotNumbers, theme, maxRound }) {
           borderRight: '1px solid #f0f0f0',
           borderBottom: '1px solid #f0f0f0',
           fontSize: '10px', fontWeight: 700,
-          color: round ? '#fff' : 'transparent',
+          color: round ? '#fff' : (notScheduled ? '#ccc' : 'transparent'),
         },
-      }, round ? String(round) : ''));
+      }, round ? String(round) : (notScheduled ? '-' : '')));
     }
   }
   return cells;
@@ -308,6 +358,7 @@ function memberRow({ member, idx, dates, slotNumbers, theme, maxRound, showRank,
     },
       h('div', { style: { display: 'flex', fontWeight: 700, color: '#222' } }, String(member.soldOutCount)),
       h('div', { style: { display: 'flex', color: '#999' } }, `/${member.totalCount}`),
+      h('div', { style: { display: 'flex', color: theme.accent, fontWeight: 700, marginLeft: '3px' } }, `(+${member.deltaCount})`),
     ),
   );
 }
@@ -327,6 +378,8 @@ function generationRow({ genGroup, totalCols, theme }) {
     h('div', { style: { display: 'flex', marginLeft: 'auto', alignItems: 'center', gap: '6px' } },
       h('div', { style: { display: 'flex', fontSize: '11px', fontWeight: 700, color: '#444' } },
         `${genGroup.soldOutCount}/${genGroup.totalCount}`),
+      h('div', { style: { display: 'flex', fontSize: '10px', fontWeight: 700, color: theme.accent } },
+        `(+${genGroup.deltaCount})`),
       h('div', {
         style: {
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -355,8 +408,9 @@ async function renderImage(tree, width, height) {
  * @param {string} eventSlug
  * @param {'sakurazaka'|'hinatazaka'|'nogizaka'} group
  * @param {'soldout'|'generation'} sortMode
+ * @param {'grouped'|'flat'} layout - grouped: 日期→部次两级表头; flat: 1..N 平铺编号
  */
-export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sortMode = 'soldout') {
+export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sortMode = 'soldout', layout = 'grouped') {
   const data = await fetchSoldOutData(eventSlug);
   const genMap = loadGenerationMap([
     join(__dirname, '..', 'public', 'data', 'member-images.json'),
@@ -365,7 +419,7 @@ export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sort
 
   const analysis = computeAnalysis(data, group, genMap);
   const theme = THEME[group] || THEME.sakurazaka;
-  const { members, dates, slotNumbers, totalSoldOut, totalCells, maxRound } = analysis;
+  const { members, dates, slotNumbers, totalSoldOut, totalCells, totalDelta, maxRound } = analysis;
   const totalCols = dates.length * slotNumbers.length;
   const pct = totalCells > 0 ? Math.round((totalSoldOut / totalCells) * 100) : 0;
   const rawTitle = formatEventTitleForImage(data.event.title);
@@ -407,10 +461,10 @@ export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sort
   }
 
   const WIDTH = NAME_W + totalCols * CELL_W + STAT_W + PAD * 2;
-  // summary card: padding(14*2) + title(20) + gap(8) + numbers(34) + gap(8) + bar(6) = 90
-  const SUMMARY_H = 90 + 14; // include marginBottom
+  // summary card: padding(14*2) + signature(12) + gap(8) + title(20) + gap(8) + numbers(34) + gap(8) + bar(6)
+  const SUMMARY_H = 104 + 14; // include marginBottom
   const DATE_H = ROW_H;
-  const SLOT_H = 20;
+  const SLOT_H = layout === 'flat' ? 0 : 20;
   const BODY_H = rowCount * CELL_H + separatorCount * 28;
   const FOOTER_H = 30;
   const HEIGHT = PAD + SUMMARY_H + DATE_H + SLOT_H + BODY_H + FOOTER_H + PAD;
@@ -424,7 +478,7 @@ export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sort
   },
     summaryHeader({
       title: rawTitle, modeLabel,
-      totalSoldOut, totalCells, pct, theme,
+      totalSoldOut, totalCells, totalDelta, pct, theme,
       memberCount: members.length,
       dateCount: dates.length,
       slotCount: slotNumbers.length,
@@ -437,8 +491,12 @@ export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sort
         border: `1px solid ${theme.accentBg}`,
       },
     },
-      dateHeaderRow({ dates, slotNumbers, theme, showLeftLabel: sortMode === 'soldout' }),
-      slotHeaderRow({ dates, slotNumbers, theme }),
+      layout === 'flat'
+        ? flatHeaderRow({ dates, slotNumbers, theme, showLeftLabel: sortMode === 'soldout' })
+        : [
+          dateHeaderRow({ dates, slotNumbers, theme, showLeftLabel: sortMode === 'soldout' }),
+          slotHeaderRow({ dates, slotNumbers, theme }),
+        ],
       ...bodyRows,
     ),
     // Footer
@@ -456,33 +514,35 @@ export async function generateSoldOutImage(eventSlug, group = 'sakurazaka', sort
   return renderImage(tree, WIDTH, HEIGHT);
 }
 
-/** 生成两张：完売顺 + 期別顺 */
-export async function generateBothImages(eventSlug, group = 'sakurazaka') {
+/** 生成两张：完売顺 + 期別顺。layout: grouped(两级表头) | flat(平铺) */
+export async function generateBothImages(eventSlug, group = 'sakurazaka', layout = 'grouped') {
   const [soldout, generation] = await Promise.all([
-    generateSoldOutImage(eventSlug, group, 'soldout'),
-    generateSoldOutImage(eventSlug, group, 'generation'),
+    generateSoldOutImage(eventSlug, group, 'soldout', layout),
+    generateSoldOutImage(eventSlug, group, 'generation', layout),
   ]);
   return { soldout, generation };
 }
 
 // ── CLI ────────────────────────────────────────────────────────
+// usage: node soldout-image-gen.mjs <eventSlug> [group] [soldout|generation|both] [grouped|flat|both]
 if (process.argv[1] && basename(process.argv[1]) === 'soldout-image-gen.mjs') {
   const eventSlug = process.argv[2] || 'sakurazaka_202606';
   const group = process.argv[3] || eventSlug.split('_')[0];
   const mode = process.argv[4] || 'both';
+  const layout = process.argv[5] || process.env.SOLDOUT_IMAGE_LAYOUT || 'grouped';
   const { writeFileSync } = await import('fs');
 
-  if (mode === 'both') {
-    console.log(`Generating both images for ${eventSlug} (${group})...`);
-    const imgs = await generateBothImages(eventSlug, group);
-    writeFileSync(`/tmp/soldout-${eventSlug}-soldout.png`, imgs.soldout);
-    writeFileSync(`/tmp/soldout-${eventSlug}-generation.png`, imgs.generation);
-    console.log(`OK soldout=${Math.round(imgs.soldout.length / 1024)}KB generation=${Math.round(imgs.generation.length / 1024)}KB`);
-  } else {
-    const out = `/tmp/soldout-${eventSlug}-${mode}.png`;
-    console.log(`Generating ${mode} image for ${eventSlug} (${group})...`);
-    const buf = await generateSoldOutImage(eventSlug, group, mode);
-    writeFileSync(out, buf);
-    console.log(`OK ${out} (${Math.round(buf.length / 1024)}KB)`);
+  const genOne = async (m, l) => {
+    const buf = await generateSoldOutImage(eventSlug, group, m, l);
+    writeFileSync(`/tmp/soldout-${eventSlug}-${m}${l === 'flat' ? '-flat' : ''}.png`, buf);
+    return buf;
+  };
+  const modes = mode === 'both' ? ['soldout', 'generation'] : [mode];
+  const layouts = layout === 'both' ? ['grouped', 'flat'] : [layout];
+  for (const l of layouts) {
+    for (const m of modes) {
+      const buf = await genOne(m, l);
+      console.log(`OK ${m}/${l} ${Math.round(buf.length / 1024)}KB`);
+    }
   }
 }
