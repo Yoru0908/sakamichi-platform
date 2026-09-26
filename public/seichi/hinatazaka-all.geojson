@@ -74,7 +74,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "御殿場市体育館",
-        "sceneNote": "欅坂3rd 「二人セゾン」収録「誰よりも高く跳べ」 https://www.youtube.com/watch?v=TEZa21jPDeY 題名: 欅坂3rd",
+        "sceneNote": "欅坂 3rd Single「二人セゾン」Type-B収録「誰よりも高く跳べ」MV撮影場所。けやき46として初のMV撮影。 https://www.youtube.com/watch?v=TEZa21jPDeY 題名: 欅坂3rd",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -14965,6 +14965,116 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "霧ヶ峰 蛙原",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5396523,
+          35.644843
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9a3ecb9d5951e7ddf7a2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9a3ecb9d5951e7ddf7a2",
+        "name": "角川大映スタジオ",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "角川大映スタジオ",
+        "sceneNote": "https://www.youtube.com/embed/qjsOs4Kjr5Q 坂道選抜(乃木坂46×櫻坂46×日向坂46)「Audition」MV撮影スタジオ。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "https://img.youtube.com/vi/qjsOs4Kjr5Q/hqdefault.jpg"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "角川大映スタジオ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7518159,
+          35.637035
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec311b8408fd2c9c3384",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec311b8408fd2c9c3384",
+        "name": "芝浦ヘリポート",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "芝浦ヘリポート",
+        "sceneNote": "欅坂46 4th Single「不協和音」Type-Dジャケット撮影地。(床面の構造と潮紗理菜と加藤史帆の間に見えるビル端の金属網状構造物よりの推定) 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR66D2u3AB0grA6GQTWJIfwGUN4126TgOLMcYPkcbPgN51phwof9XY6u97B5rWa9vPRkoiXk7LLfvzt03bDonA1lw8w0KGA_jy8zhXNmAHxC7HqMFuiO-QDoS67dj42-NYOWFkmMeRbptAY0d_9X2uZymDDTmCVqg_2aGYZVzMwA9S7jek-MHZLjCX6z4J9Sdx9D4gjtHX_ttWmHAC2uWmCBdQgAEheaBp7HA4BeWPkPgn62p8j1vQgxo9g%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "芝浦ヘリポート",
           "group": "日向坂46"
         },
         "classification": {
@@ -119941,7 +120051,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "仙石原すすき草原",
-        "sceneNote": "2025年秋になっちょ、くみてん、めいめい が訪れた場所。 題名:",
+        "sceneNote": "2025年秋に潮紗理菜、佐々木久美、東村芽依 が訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130159,7 +130269,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "「弓を引くヘラクレス」エミール=アントワーヌ・ブールデル",
-        "sceneNote": "小西夏菜実と山下葉留花が訪れた場所 https://www.instagram.com/p/DX6oWu4D2XT/?img_index=7&igsh=MXNrcmp0NHNqYnkxYg%3D%3D 題名:",
+        "sceneNote": "2026年春に小西夏菜実と山下葉留花が訪れた場所 https://www.instagram.com/p/DX6oWu4D2XT/?img_index=7&igsh=MXNrcmp0NHNqYnkxYg%3D%3D https://www.instagram.com/p/DYR5K3eHZeA/?hl=ja&img_index=1 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130168,7 +130278,10 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5BQDJHNUPTJ-OqIkMqySER5pSXUcJ9rmiftfX9NCln0m7oHcZQLXQJlU-RcKbToDyoyPTbcXXjCj94WYp3bOE7n70SkrBlB7z__w68uzyimvvAgKN83pvbnsIVxSS7a1VZhb8kwJ65FhncmUoTz0xJEszIkQ1iS9OexjerMoV8LgcVTiGmDgSOh6MUcbsv6SYA2l1F-_h6ZHWi-U45WtiIn96_MIrzBNYt3hRwPxCA6V-wYVO08yOwBrI%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5BQDJHNUPTJ-OqIkMqySER5pSXUcJ9rmiftfX9NCln0m7oHcZQLXQJlU-RcKbToDyoyPTbcXXjCj94WYp3bOE7n70SkrBlB7z__w68uzyimvvAgKN83pvbnsIVxSS7a1VZhb8kwJ65FhncmUoTz0xJEszIkQ1iS9OexjerMoV8LgcVTiGmDgSOh6MUcbsv6SYA2l1F-_h6ZHWi-U45WtiIn96_MIrzBNYt3hRwPxCA6V-wYVO08yOwBrI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5MnPG4PJGHuJOYh6Yu6tpqAYt2AobTYwpEATcJDb1Bm8-JW2smJ70HCgog5S-BAS15rbFQdAnTFIxAkBF-EjuFVvWLXUBrqghmRfCxpNArgL876tVzp6Keas8doITy5RwP8Ow4dQZpk1dUAYblmEnRPx5Sg0zdcvRWJtxwwhzjiTn72Vf2ndpOBfBRxtxxfuqC4CkjZfOIRoIN5gbt3rnWdFP5v-zNAsxI_liNWtSKvR5xtj8Hq3Nnfow%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4lyg0Yd4ZR3rogaKKNV-Mbo8D6tTNSJGSBP_UCnyCzAGIQZ-PSyXpvzWiAFo8Ik8TP4LgJ9Tgqe1hyRei1OCD1LYY0jgVZ2VKmvjf8c07PGTHBfpI6xVdpQMBF_yPr3f2t1WM-nTOoNsnPeof0M9-4XR5YHnwxr4Trtu8YtznRsuAsH-eossP4Knhxp5OCN4Tc2FjnwTD-CLnqQ1WNc9F-yMu8eFdLoU1i57rTpdNwOPSJnEzGvF9Kt50%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5eVrqowlKeDSqar3ajqJaffU58jznba-ku_MLR649J_u2GbKx1Q6wunwn-vwRjqJy8DJ0Irsk9ioOLhAI6SY00OjAts5sX7LpViA2LHsuROqQhlarIkIEIDiowSao0f1LMIEbG8GEFlFkvSvL-yWOvJHXtHR3CKvEOFott0IAH6YsR4v6TRX4YIl-p-Bw4rkI-g4kpdepT7qnNRKULroeqVNxfjo5ap1BKtgyJX_tgRsm40pDHD0TeRG0%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -141064,7 +141177,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "「星の大時計」五十嵐威暢",
-        "sceneNote": "2026.09.25 O.A.のSTV「どさんこワイド」に藤嶌果歩出演。https://www.instagram.com/p/DdtAw7eR2VA/?hl=ja 題名:",
+        "sceneNote": "2026.09.25 O.A.のSTV「どさんこワイド」に藤嶌果歩とが乃木坂46六期生長嶋凛桜さんとともに青葉坂46オーディションの宣伝で出演。 https://www.instagram.com/p/DdtAw7eR2VA/?hl=ja 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -176930,7 +177043,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "TRUNK BY SHOTO GALLERY",
-        "sceneNote": "芽実、かとし、きょんこ別冊カドカワグラビア撮影場所。なお雑誌発売時期が芽実の骨折時期と重なるため、ブログへのオフショットは掲載されなかった。http://soulplanet.jp/lp/studio/trunk-by-shoto-gallery-1f/",
+        "sceneNote": "柿崎芽実、加藤史帆、齊藤京子が登場した2017.12.11発売 別冊カドカワDirecT 07グラビア撮影場所。なお雑誌発売時期が芽実の骨折時期と重なるため、ブログへのオフショットは掲載されなかった。http://soulplanet.jp/lp/studio/trunk-by-shoto-gallery-1f/",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -229816,6 +229929,229 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "トヨタレンタリース岡山 岡山空港店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.7635058,
+          34.6031158
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:236678850327a2a70c2d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:236678850327a2a70c2d",
+        "name": "OKAYAMA FM Ario 76.8",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "OKAYAMA FM Ario 76.8",
+        "sceneNote": "https://www.youtube.com/embed/x1Q6be9U0P0 2026.08.22「JA全農COUNTDOWN JAPAN」youtubeチャンネルのロケで倉敷訪問した潮紗理菜が出演した「ARIO HAPPY SATURDAY」生放送のスタジオ。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "https://img.youtube.com/vi/x1Q6be9U0P0/hqdefault.jpg"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "OKAYAMA FM Ario 76.8",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1861944,
+          39.5955563
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:997f2c25a5108940f129",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:997f2c25a5108940f129",
+        "name": "秋田市雄和観光交流館ヴィラ・フローラ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "秋田市雄和観光交流館ヴィラ・フローラ",
+        "sceneNote": "https://www.youtube.com/embed/Xv8_9rhGKu4 「JA全農COUNTDOWN JAPAN」youtubeチャンネルのロケで潮紗理菜が訪れた施設。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "https://img.youtube.com/vi/Xv8_9rhGKu4/hqdefault.jpg"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "秋田市雄和観光交流館ヴィラ・フローラ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.168308,
+          39.5939701
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7a377524bc4a23ba5390",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7a377524bc4a23ba5390",
+        "name": "平沢ファーム",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "平沢ファーム",
+        "sceneNote": "https://www.youtube.com/embed/Xv8_9rhGKu4 「JA全農COUNTDOWN JAPAN」youtubeチャンネルのロケで潮紗理菜が訪れた農場。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "https://img.youtube.com/vi/Xv8_9rhGKu4/hqdefault.jpg"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "平沢ファーム",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4246439,
+          31.9350798
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1fa90b355f519cb3bd7e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1fa90b355f519cb3bd7e",
+        "name": "PARIS CINQ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "PARIS CINQ",
+        "sceneNote": "ひなたフェス2026 髙橋未来虹、大野愛実コラボフード提供店。https://paris-cinq.jp",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7lUozX28Ah__XJ5ML4DIFkB6OTQQ5OUhsPsanSZcryi04xBgTRw8tRfA0hs8vTFdKFGunLpJlJ5sKpBcIt9Tv6RGC8VInguv1W3bNj5I5zmmb2k6hp5WtHpH4EcGzTZ9YmGCEbUzUrxyY8n-rUXvPgheytV7OQZWLOvhkfOs6hIEDPIiXlXWbRixlsdeouACDsTLi20b9jCmaKJ1gNEscdoFoxBfTaGoeiRQJEsDqWeRjsl3uA9ev-XqI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7jds26jJkAo9xE_whQxdLn8j7x1KfHowJpTz3X89n1JVF4s2H5iqv7_1vWSHzmBwkvjH-O5I2F2KBfVXdw9ehsodHk-db3rdQ4A2rAE3BkwNbj1sUeB4LM_CrlmcYaXCyg_K_ZbtBT7JOyCNaWXwPrM5rTdkDInXLmz5bEBD4WSY2Dv5PfTYy4IhDIJMAa7sncGU-5RiWWR6LdMAEL_41mBxwYaRyOKqeXpffqsaW79Dvcba_2AVJyaVE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4-jEvlGZ2BV5wFJgGtYVpi5VAmP2lq8AaEjBFsRfYifujUVD-dDtel36sepG9UaCwTxV673aEyYkPJbEQ0YUbGzRBvChbpl_dnoTHUZOTnk7Gi8OYr0lO4ly1y4xKiQSChdiv3qeHPMLtItN7Q_zsQFs6wAK-n2IlhsETpoMabVg1zrZN3v0lHF8Kz6cYkBqn93asamovVPIb2kS0lN_tt0MJRHNIQ7naDgI_lIk2wBokAANgDa_s31q0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7t_dAwmzhKRVpodz1UAK_I4QajL_BVe7vs6mWL6Z-bRnEXI653IjcA4yr73DIhxshJNClHdzTHAQXAEThkdD2UWYccc1VoYTlmPWkORmeheC0ulK60wnTXQzCMEkw0tZmi-8WtGKG6sZpce8Wukp765ATYDct5JjQyxu6YRR2zBcogfHD97u4roixFIqe6v6NScGR3-wUv7tTDYUhy4fUaqDYjh-e8Cs1axCqrtZKvCy8FbmLRnSXaBgg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "PARIS CINQ",
           "group": "日向坂46"
         },
         "classification": {
