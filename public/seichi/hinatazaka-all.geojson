@@ -15213,6 +15213,112 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7357443,
+          35.7764443
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b48f854d4802974abbe9",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b48f854d4802974abbe9",
+        "name": "ミント（スタジオバジル）",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ミント（スタジオバジル）",
+        "sceneNote": "5thシングル「君しか勝たん」ジャケット写真 題名: 5th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "ミント（スタジオバジル）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.736095,
+          35.776447
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e591a9f3a811833d74bf",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e591a9f3a811833d74bf",
+        "name": "バジル（スタジオバジル）",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "バジル（スタジオバジル）",
+        "sceneNote": "5thシングル「君しか勝たん」ジャケット写真 題名: 5th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "バジル（スタジオバジル）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           137.4590857,
           35.3996834
         ]
@@ -20229,20 +20335,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.1499614,
-          35.782833
+          139.0481454,
+          35.7921541
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53f2caa5ed6a77adec29",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53f2caa5ed6a77adec29",
-        "name": "武蔵御嶽神社",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bbc36509cc28620b292b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bbc36509cc28620b292b",
+        "name": "奥多摩湖記念碑",
         "category": "シングル・アルバム（ヒット祈願関連）",
         "subcategory": "シングル・アルバム（ヒット祈願関連）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "武蔵御嶽神社",
-        "sceneNote": "WKT: 18th.Single「イチャイチャ虫」ヒット祈願。",
+        "sceneTitle": "奥多摩湖記念碑",
+        "sceneNote": "18thシングルヒット祈願で正源司陽子と清水理央が登場した場所 WKT: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -20250,7 +20356,619 @@
           "日向坂46",
           "シングル・アルバム（ヒット祈願関連）"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5WHWfRHs9qFBqvFpO_JFAtDZq_fXXUYJ-WdH0wuV7xcqLq0RSd5x_W8KkO_uncUak6xT1HkLTB0312bOJ9gHgFnVV2XFxHn1Ui5KH4LScswkC3ZBpzxk1zzgP1TvGbc76uyMGcRgUOKzreoKuwHtp9xsUy77JeeNmwetdZqRZUy4Ac6yEU5Znc-d90oNaMxKsix2LmaTr3t7qieoxZrdlyC9PXw7RT-E3L8QhnKQAuN1Ub-ePlaczovK4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "奥多摩湖記念碑",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0484442,
+          35.7921708
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9716e6ebec284a9c3b4a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9716e6ebec284a9c3b4a",
+        "name": "人間日時計",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "人間日時計",
+        "sceneNote": "18thシングルヒット祈願で正源司陽子と清水理央が語っていた場所 WKT: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5mkNZPcoxSv8Eus8ma8LTzKy4FT9k9GM2QezvAUWbak8l_VV3vg_p9W4rmDb4EEgFgXwXryYuC3EVOZ4753_ZQE4GHUnGkkncAK8r-5tgEr_lRI2QYgM3Ibo3UeCXLXtbqwZYflnmugyulBOqnK40ytdUQoyVrd1xiMbLiJZqmiC-mq8a4i0lPuD8BAPijTiZtCztd9owYjmgVbhMfIz1qLbgst0GWc_J5ccW5PXxE8CEd4mglVVOoDs0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "人間日時計",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0482745,
+          35.7927711
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d1638a4466d1975da196",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d1638a4466d1975da196",
+        "name": "奥多摩 水と緑のふれあい館",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "奥多摩 水と緑のふれあい館",
+        "sceneNote": "18thヒット祈願スタート地点 WKT: 18th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Bu9A9A1h2FWpYzQqy2goYBnwrb8h2gfTo94rEaV6ynBvfK5_LPBHCbFuvDMw7MAn_WEkfr-oV5wgAm_5d90x4WBLIW-MZKqACz0xLGYk6ptdszNJ5znfl56RdyELy-L9FQ6QoLfDk7ZDO_8RNcVe90D6fAIetjJnL9mP3PkwWd74E4jPknYVJvv7ooq_TrAGTI5kGr_Wg3z1neDCAM06XI_NqFsiLqlT7V8PjWgB0AalOCJdnShXm8Bw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wqUhpfmD4ImDL7f9pvnoGI3SD-HxnadUCt8u4uvyakLRomC2vNbEu6UGi0QiathBqDYWh6UC3e2eXQBPv0Uw1sSOqc78WUvR5qjSH1G39B_b6tfSQOe7u2jc4q2poEbyt0quqpQAOUkzUloCOerU1qhXFrAgjWZU9rlcrPBQYS6C2Ht5LrZX8Yr9KVX4nnnN5CEP6g47j8nNWezMq1mvoukp3vXW_i66McEIKuG3OIs3z2tNJYPeRHc8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "奥多摩 水と緑のふれあい館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0761846,
+          35.7962268
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:96ed702f43970bc9d573",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:96ed702f43970bc9d573",
+        "name": "奥多摩むかし道",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "奥多摩むかし道",
+        "sceneNote": "18thシングルヒット祈願で通った道 WKT: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5TkKzrQnJmwQ3f-gW84g2CbBPP-jayc6tgd5vsir-lNcOkiiKua-KsdVkIcGozHxyhq7tMP5Mo9xQy1jL9hQpRxE5QHG_KaoRBhwFOs6LElC7t_xU40iC76kbblpCNU6k4ztUGUNkcbzlfdcz_70iFpAQsKcBUTK1UnZzdcdtIazDx-Lq78ma77RD1gqorK1NkA9uW3JNrFV8J0VEJ6nlJXxc1euLZjgJ73XDE6qfrYUiIsSz0SCpqUdI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4y1fDM1XPQvW-FeAlpx-BZfjeMWYfrAR9nYTYPcgz6lqrBG6TtpDCQdwkcP2FA8IOLp3t2JKQLbynDREmPsnLZIJ15v2XRuZh6etX47d_nedy-epiruoYu0r9xi-5jpSjffVp3U_VrToabw8k1Q6v-5rC5HHuSSxAVmwQcLmP1O-bPvXlumA7FrCBKSrGXplfN3qruMjHGX6brQAYWlQ8V20mU1rStXNpEc9AjCemFlj125QjOetBdup4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4PZ2KprmVBLtFuDCTs7YYJBhipUTe_XyHc_6rXV1JZGIc0V4CXVf-Jb4y8PhIeQgV2Wah3wL2mHzehvxW77u3hEE50CrsdDZzMLBfsEcus9l6RCiq-yDNFVoiLHlQsE-KEICs8km2KrRbaxYwXKlNbFGKfHkYrRvOTYETSHdUQcZrvoS5M8HpRgiXe5TAx_WfY9PaLuwQjmzsGqQV6VzZJoyJfPq6HNPcfH5AHZWbhadnT_P46en_-WH8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "奥多摩むかし道",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.096522,
+          35.8078862
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1d114eec93b89f9575ca",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1d114eec93b89f9575ca",
+        "name": "氷川大橋",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "氷川大橋",
+        "sceneNote": "18thシングルヒット祈願で、提灯が飾られていた橋 WKT: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7tJ_qSA_fyrTGr0r4qpMh_vqeiCVPHcDGVHTK0ETz2IRXBbsNpZ1yfF0w4oLv21LVrMgCwXCX7Bdq-LrM5kNk9eMswrRaxcmiNjUDr-rdc99HDHvH_7ZwJJ_v7zeUllgH7wByQPZczlsZpi4wvgAXOlfZpl2EaycFFOTI7itlHHVeLIKUn2-NWlrB6b9W8vvtzt6OnyYEf3kG_IqG4RxvJm9fmB9seBnC-W4ZoczmPZb_s8n2TltjGtMw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "氷川大橋",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.1829107,
+          35.8001302
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ae0b91fd7ea3cd8df4b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ae0b91fd7ea3cd8df4b",
+        "name": "井上商店",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "井上商店",
+        "sceneNote": "18thシングルヒット祈願で正源司陽子が1人で自転車を漕いでいた場所 WKT: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6eXzUFFZK-BxnDMMIxWbE6goDdP6lne17wmB7A6LqE2mGlNskodOeC-9YbjxWsJr_3JPFW3RoyyrCEmMOfezFC37b22mmpTXycJegk_tm-Xu-kM6b7tMrwYmWdkkfjSVWbgL_dlbrImVIJ86nM0GFY_lO2gojbX7mGVJTP2ViJwt3Ajgs3jSmEkpVwy2tyks-jdJRNh9Ou2aCktv7TIhy-pYeaWsq_CiBGjOuv-v-CZFMTGD3lwkpRlS4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "井上商店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.1830008,
+          35.8013665
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fcc7f6d92dfa512756ef",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fcc7f6d92dfa512756ef",
+        "name": "御嶽駅",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "御嶽駅",
+        "sceneNote": "18thシングル自転車ゴール地点 WKT: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4UVrFAE0szBUnuKphuArWoH8iW0Ex3-QbjCknu4az1zIHRICGmOWwmTey_yPvzVqnAxaoTCDAbbu3UiQBHldy4ZYqEOoL14kgYCiMEcn0g2g8ixoPfjaq9Zurl02kgnzemuEb6oEZcDEzNQ32iIkPP8AFqExmMjYCtSG9su6tQJCKK0OUj1tb84bDBMCa2gda1dhV8ezDzwjb2N0H0b25LR-QAlLGU_JBCqOlRNNtx7qes7WCX1fnPUm4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "御嶽駅",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.209205,
+          35.8062377
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7bf56eddfee591d6173d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7bf56eddfee591d6173d",
+        "name": "奥多摩ラフティング",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "奥多摩ラフティング",
+        "sceneNote": "18thシングルヒット祈願多摩川下りのスタート地点 WKT: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ro3qwXyMNaquIe-k_wWeDZtEdNnRjiys9R2HAalshs6-qm7zTbVEAarzvob-64wrImE0TMrfa95xlzF7VHDizZ5r75V43h4tSfYdV1q1_FLilzMo28zloJlOdhdjhoNEQ85wL5T7TZsYToMoKHbRuYbcNY1CqVfR_aJFuPYdGmOletJpqvkVI0YYVhv7PoVTQZC1tNnKkJ35QZK4czvA337jFwlvzXVB0fo-FKmOcnwnHxWrPunjMDvQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "奥多摩ラフティング",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.2178984,
+          35.7977105
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7eb3579b91bb93585a57",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7eb3579b91bb93585a57",
+        "name": "柚木の川原(山崎川原)",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "柚木の川原(山崎川原)",
+        "sceneNote": "18thシングルヒット祈願の川下りの到着地点 WKT: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6bjwYIUsF0bbj5DabLyHjs1JOiPSY0Pgz4Kk1YA6IorAVokw9nVFd9LZRt3BVihGsN0oRFhNp3hHlvhMQQ_BLxVu_T2c2L3sHYtcH_3eGRCxAU-q_mKh8He568s2RosAOs7-CZtQWAxQjvIBi9NluziumQ21lgsWJd-2Lyg9O7JzN_tnnePzOmNrWtM8xjStDStKWlol_3KN-KpW53h09S-boVGBLUBWKawTvNnZaeWDJ8d6yhi9Vv-aY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6CsnhYcQ2Njp0WpcslG2hFxl1asX6eFHMh_4IfQ5XKUkj1wMf4qRY6lVamsCDefIKmNpYphAIbwbkbYfHxJYtsYBrBBJ3oSWv3RSvgvYTJ91x6H2_F8rOkm0lCwTC88wps1Q0oJLiHDwCqtMd3ePfviVtlhtXPDkFePZ1gSglG7FtxQyyLN3duA3KSHw819_sPkAGi_L2FkLJNYcoQ_MXPkV4dwGTqpftT1nJ2x7oVa7tNMG7yKNP5p9k%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "柚木の川原(山崎川原)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.1533221,
+          35.7893917
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0d35220abab718ef030b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0d35220abab718ef030b",
+        "name": "武蔵御嶽神社 参道",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "武蔵御嶽神社 参道",
+        "sceneNote": "18thシングルヒット祈願の登山スタート地点 WKT: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6bfjYsLyXuTicu-DclLg4b-EOj4eF-T1KgPXUvM5lH5DIIJoxLugKiTh-rBb7ItzVC2ZbddlxvbvOt8WHWhhpCJkgwZnaT86N5h1bD_jEuxku4c8EpzKUux-PyLWj5vX9MSJFoSNRjkS9qrLoea_4gPgW7vHWhGH4muZ4v22wuA5ahgmREyf1h8khfak2If_Wc0ZcsXbx5tS4zZqw6rrAZCEam5NTwkMOY4wqOueTUXoaDZViEmOjrJOg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "武蔵御嶽神社 参道",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.1514487,
+          35.784018
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:08595565004db90ec7fb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:08595565004db90ec7fb",
+        "name": "龍之介の松",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "龍之介の松",
+        "sceneNote": "18thシングルヒット祈願で正源司陽子と清水理央が再開した場所 WKT: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6WezpqGDECxqKIWKLvP-RhXbAYEvRkpepKIZRxEMpmgTYv6JWSDa4wJGk0pWX3UJUdKUvdJCZfBEx0Ug9EsnBtLpKMPprDIilpcBIGfOwSyjg_bNHk5j0VDlOLb3B5uzxambRR6uC7BOk49gIDY_2jWuMkOQWc8Jvvp_gxsoRC-kT4aoe2GwCjsLVgscROCMycr6MPUpySt7Fc82JEaHbFrK-e2pxQU7wRqkvGMS7Vr_8Jrs7YvM00Byw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "龍之介の松",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.1500821,
+          35.7828025
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:37592a3ae78f046c96ea",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:37592a3ae78f046c96ea",
+        "name": "武蔵御嶽神社",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "武蔵御嶽神社",
+        "sceneNote": "18th.Single「イチャイチャ虫」ヒット祈願で正源司陽子と清水理央がお参りしていた神社 WKT: 18thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4uE_DvYGnE5m8T4X_zVfRDwrX-DRb2Km9vtW5MZ6zqqVSQxZbfwk4Rx0v7911QOdRR8u-iFykLFtnjOcrUAC1SjGQFf1Jm64K3MiRUytSbKi7EP-M_dvVzKqE5gpyhK98yVnjFX1kPnXPt6PYyOWdQDDZClfY9q5A-NR3I68ox_lcUTmQNeyIln30z8tRjbfPJU5hrYgI8l6Q6HghvIq08KWKL89LyOnpzVmXT_wvW4aYs9Cz-5koghO4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR45lFUvinxUyrqL1I7tnUSp7MmyMoPjzrtzCm_6AmIE4GjIIfXxDmOjIcqXPyJETEdK3ZHhVI_z6TQ-0YBi7_NXMt9GEYVgnNGrBn5_GP1qGy9vYX3BAKYoXwoOHNEBNBDrOKDF7jvQEmnFduu678t9lWpqwymJYAf5QTDz2mw4MoLvj47KT5rYehEFYNPZBEqYVuUSCBw14CKQye5b9FHLdJWhphhO1citIs0ZJuPF0VM5u6sFiGNTOCA%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -20262,6 +20980,62 @@
             "シングル・アルバム（ヒット祈願関連）"
           ],
           "name": "武蔵御嶽神社",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ヒット祈願関連）",
+          "subcategory": "シングル・アルバム（ヒット祈願関連）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.150188,
+          35.7826725
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a5c09d74c7ea05a60db1",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a5c09d74c7ea05a60db1",
+        "name": "神符授与所（武蔵御嶽神社）",
+        "category": "シングル・アルバム（ヒット祈願関連）",
+        "subcategory": "シングル・アルバム（ヒット祈願関連）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "神符授与所（武蔵御嶽神社）",
+        "sceneNote": "18thシングルヒット祈願の絵馬を奉納した場所 WKT: 18th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ヒット祈願関連）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5rw47sLdLJ9sJ4xo55xOI81DfNEqh-Omxt75DMvcij3I3T5FnfZsG24NxiHPpoFSi9x14_1MaSn8H6O3b8iu7gEOY_ze5QdqnoW9CuCfqvqGRI1FOz6PyDOFJT_OB5VMbQjhw6dY-z7p5Hq8-ab-xRHUwxpgenCjW9uLLjlQSQzSXltZIdePKxDoJa-1dfT5P-32jtlofoKHs8GXGzJSq6X0j1tMCKzQp-echTTaySi95EJlb82PycxYQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6Qzp9Y2tSvfLWSaF2V-LKwlDrz31aV3IZu0TFcJRCKR5vGfA9YdolLKgckCmtHBht00wMQFhnX9J3Xdp6qBM589hoYzG5Bd-J4HPH5Ty9ZWqLfEGc_yyQDgA8HGmEKxsEwvmLupueUkIFs6jKsnPEFKOq3c7FQtEawBeIT1SrJILVIHElgksd8iYml3NR3ewuMbgRB6W-uncnZt4S4pgfsN38mADEinE-p4EGCbCkcnXeZq7ccVxE-udI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ヒット祈願関連）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ヒット祈願関連）"
+          ],
+          "name": "神符授与所（武蔵御嶽神社）",
           "group": "日向坂46"
         },
         "classification": {
@@ -232373,20 +233147,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          136.7818364,
-          35.0529097
+          136.7886224,
+          35.0531381
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53d467df0d85e82ba8ff",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53d467df0d85e82ba8ff",
-        "name": "名古屋競馬場",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bcb71eb23d9224443e4f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bcb71eb23d9224443e4f",
+        "name": "名古屋競馬場(厩舎)",
         "category": "映画・ドラマ・TV番組・雑誌・新聞",
         "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "名古屋競馬場",
-        "sceneNote": "2026.09.26 O.A 「大須テレビ」#7で山下葉留花がダートコースを激走した競馬場。",
+        "sceneTitle": "名古屋競馬場(厩舎)",
+        "sceneNote": "",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -232405,7 +233179,130 @@
             "日向坂46",
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
-          "name": "名古屋競馬場",
+          "name": "名古屋競馬場(厩舎)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.7855861,
+          35.0514122
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c6b0d5ac57b6f1198a31",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c6b0d5ac57b6f1198a31",
+        "name": "名古屋競馬場(ゲート前)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "名古屋競馬場(ゲート前)",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "名古屋競馬場(ゲート前)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.7824774,
+          35.0529822
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5c8f6911b6e3a1aa87b3",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5c8f6911b6e3a1aa87b3",
+        "name": "名古屋競馬場(本コース)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "名古屋競馬場(本コース)",
+        "sceneNote": "2026.09.26 O.A 「大須テレビ」#7で山下葉留花がダートコースを激走した競馬場。ちなみに走った距離は約100m弱で、炎天下に足場の悪いダートコースの全力疾走はなかなかのハードワークである。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7iP3wf5InVIISNQzvsArjbZ_v435oiqYeuUUk8I2nkfdpDsq06yhtL5foFI16xGt6CcoNGnu9jCy-2j6yn7TC1LI3nBx1NIhvzlHgvcXM5a6gCmuq_Xv9kc4C4FwyC8tw4T5kFGFXGb_8bJEDxBS15hG17lW1LzLMsY17747FVhPM9yrJmoEFgueC0ROoorFQ5TUdLPgu2bZGI6B8CArIjgIeyNCRFmB8RhE5TfxFhOKCKnketSxIYv48%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR542L_5MVcbJk-g9riGszzXiNKzBpwCMLiRn_-v6DiDcxK9ZyI7MxtzEDnEZ69Njnmb10ceG8d04w0o67DwoXv62BSkGW3Sxqwky9160ixFonaZNLvnJIC8FcCmAWHV50Sg0K-EXXuuQJFWyDHm-rWzuJ07Sy9KiWxZxnXg-swfZN5ad4jMgbSMmG4zX406ywSXthSuaRLNolAXmjO6QF8Bo_FV9zBCO3V_xxJwB6cVjVKLliCs9-axHGE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5q6-h_CZbr2SL7Q7uiIM3WtBuUlwekzZdhAworRHokI--Xf9ypU0lzQirIsGyifuTqnIs4r5BYLw40heK3v0cX17hon9jqh0wAEpRIMO8iddFF9uL5jNmwipHXjntAThpAtu3dKbKZZNhsvjGZgpzRBKVlHRm_hoBZ7jEtoVpil7nyKFRMr3NuAnG01W4TZ2VV-qXhCeBBt5W7FkvB3BaMCnYoCpoMV9I4HzbR24eamAzo8W2RxyDxvF8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR77nhbmPjnjU5_iL63Adgtt_gyu1nJt8C5t-h2Y3Hqn0NwGTqQWDr0ZqNP7p6Ey-KXjVnWQ162fh3mzxj_P2T-qi009XGBLv0zocdaXJ55BZsD5hN1elzOWRWmzshWMcpXjGOSHLqKMTA1LVZk-8XeztLM3_cIwL_JF4kOwyBN1Nxex40nuPErGJBUpmmPxyEMX5LNcrFVCyh2_KYud0oIOa0LG9yyO4SnUG2I2tNqn7rit2YT_9Z7esw0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4_YXPFPbHPP9F_11ZuctuxJinbbQavg38uxnrM40ZmkTehfqlL29TaTS4SKIHMIj98x9Q1Zajh5jOm0Qu5MI1GqZwm8PqenY5wKmeUYPS_I0QPVjY2XHWnrCCEr72EMlLHMU2bNOAgMZTwciU3iSKo3kLyiLKU3Ny6lmsACbJaUS0J9wIoeL6GUXa1IdNYgRqJrT4qg0eFG0KPWGfctBRjuMAz9EHKDnst-Y2Y5XnAyJ5ab90KnGKWUrA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Bs40BJC3G6XG7MFo48gpJerwUk7lumdgfGx5Gs6-GIUwoT4QQTVLaK_BykuZrgoY-m0rKGJ4K0UML4lqGxruf1F-pzdNCjWa0SIy9WG0ZbJauMg656BcFbvMtKouCEQBnr27IurDRzBHgWTvIvzN16jwCaUBHxcv8VUKxx80Ia7iuk0eWXZdOr6s4E3g8Nm9mvRFZSO0PSOaEiz163lTPE2HMHEUGJU1dw5DS8IVPhBaRLHd3wwQqqVA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR49PC5filTyf5tJEx9N6at6ra07osULzxMhUOP-S0EjEYV4ApfAFPK0saR9serwLqOuit7YdJMH395a7wHwbmVncTvNI3plvpdKmxxGwdX9XQPZgC7_smtfZiEmTfdqLFD4QVDAzQPxQsFSnHZ0taXTPlHVw3ngQhRdbk5-jqD_9T5ZyDu7bFf7L36Vua-bCjUPcJ3wqkHQ1wvAhwZs1Kvc9C3saYWdoRrZRTg54VbU_1tsqyAS6ytckj0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6CsLt-_VeJ_x0U8ponktKsnwakmUKiYvk6HX-Olh_uzyboHSdzHKmagGyHNBKvUm0Oiq8PLC7kX8-MaUg1m2xYyb2qJ_JQjk1KtLkaDzUeJdbMzW1RLLdG1dS1JQQL5fMU5Eyg3pQkChdwFMXjsOGA9NJwjBcH2H1LrqkYVaOtFMOIyUzqCzVPsc96Y8HuodgHdSooJrY6VBKM6SqnYbXzp8yvhERh22_iQtgOcFkaAbXk4-SRgSbAUVw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7xn0AfKFYG_FMhPTzzIVxSkqnHXMTx60ebTv0aeedLuLzYzQ4cAtof2r0SMJHD5mLfUBnJsiAS3XAVdZGOQgluYsiqSC7mvDruwflsfAXuI83pfB9uoPzg_ZVD0iOvK0p1uieGau22nd6IcUKV3nsu0nNwFCqyA5y_2oqnxexnRc8y9pJGVRxjF5hp-tMhLVLdQ-uQ3rbU3vyzZug-_VHI3H0ULG11_sqePaYm9pQPLBP1xMjqjCyShRU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6gUTOBlCa0Asq19izYqN_bD33ti9ekJ5g9AbWA153Av0umvqL7NIktwfE7QebOGz618FNVwq4vL6nd8ig2kZ4iAT0kyc_MOy9HQ08gdskYWjYmf35LHUuNTUlCJBCW8flBH043pI1tcqNYQh4XeMVj6jXVBOd-DxMDMQaFS40yPZb-xrUlDj50oRQh7HqCXN-ZIuw-E5tMErEFOQVSUxfj_H6MOP5puqAbFzIbF9c7U4JsD4Tkl7SFsCQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5VAVHWy5U2X_sUW0uTUX8rq9afZCGOYmXVK3v9jq6AktPmVU1BrL6KZafh0huAaosZtCYgnQpHW0HbsMrQFrda4QtNaT5ZGGykjhtCqUGe8z1I3-GB139QVjGwWloks-bG4sTddKQ15ZEKH26wbVkwFN-MVKy5G_o9ailffaujxa95aDWlXtBn_XAbEHVjRGcR1BseFoMfzuTeITzCw8brxOev36AYx_KRz9yoFyboHfswKsp1ttdC-Vo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7LY59CS2efn4xf6rEE221VRNQuaH8STgAcjehCx0k9prQhI3ZDOWVqbxGDlgnsys02Z6fFxQGHJYPRlmEk7i4eX_K5RzkshvEOZ4S99YCNvtcezWOvd3cUaaY7eY9Cfva_wzWl4nK8LmBjk4IlGMVGLcSUL2OmyxBmvUaYRUW74Y8T0lO1hWpuv04F5g9Y69xlOkcMRtkqSd7MXSrmvB2OFq4OZAM6HXgzn0ZJphq5R-zCJUy5sXtc69w%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7XZuR34YDOVW1EVXrLT_j9Qo_J7H7kYGkG-FHqRkf4zFBEKN4PjWJfdQcOfljgMmRcvEt_W8VtIMa0EUWZgPsBK-HiKwbmsj5pu4IPeExVZAZhLsAsWYkD_B51BLaUeME5quPHlZDopyb3m7yTbKU1Gp8afmVFcf_HtIcLSWqobalB7x-8p36wa-R7ObzrQr86h1nZOaE1UnjEyluNiBJbXh2NN9zrSYWD_DJAhcMhA_ouIOJ-LYkoXTQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6QTpaqp_-l_7RmTeywUjrCd5hjFyuh9BXsV0157D2wKpPKZCc8pluD1ZsqfVCZWIVKSeEK_dOpsxKtkmM7x3T98P4XNtLETGkJ9VnA6laCtqze40MUIGxHkT71EsCPmKrv2I3oHvmasdsdb-NxGkTc2SN-6JTu69F49Rw69pBSBduA4eHvumICCQjuK9XFkHNnTWzitgaWxMVnMBYa9ZMLuasC-c8RI9VIBPdcwueG7WUuPc9gCavu2ME%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6UOjjfDnfRwILs6oPd4XQ99xmUxvdrWLB1aLq6alh5mQ6q2K69WzXZs3G9Kw7gUFrhwWNT9LxNea9MkMj1NQwMlNKDcGPj8kJgJIqEtRlKQOcxntkX3on7Hrr8PFyo74iuAjZ2orTOZeLCtMxDKrbQbc45OReoJ3ezcMzJIH7BERxMblOS6nQ8VQpwjVzr0YeINdMWqjf03KgNBnKLnZwG6zGqC8hbMzM1BK5BjSunXBqgZ3GL-8oWxnY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6nUnS98eV5y7YgLGC3fCWN0s5fNu27iUeptxwhwqQylEP9mUNkg_R07w6OcnLaX_Ds4LfxdSAzg2hpvsDCnRXzGUgW6YC6mnfvdDYmxcFTTEI82Sx16Ih9A6dvwF5jHCCL-FLczahDcl3EsGG7cODHKgadXhIu1jkico5LA6k__J0Ny1Y3syJdXUZkUwI0A4sXdihIIi5fdITACE84LTtKmbmQSD7Sm4B10gtT5_nRBtlTr4czcsYY2d4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "名古屋競馬場(本コース)",
           "group": "日向坂46"
         },
         "classification": {
