@@ -83479,7 +83479,9 @@
           "status": "confirmed"
         },
         "classificationCandidates": {
-          "members": [],
+          "members": [
+            "山川宇衣"
+          ],
           "projects": [],
           "contentTypes": []
         },
