@@ -112058,13 +112058,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.540978,
-          35.3113918
+          139.540974,
+          35.311354
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6085539a04ccb1c9bdb2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6085539a04ccb1c9bdb2",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:352f670dd9721d768e00",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:352f670dd9721d768e00",
         "name": "鎌倉松原庵",
         "category": "メンバーブログ・SNS・その他",
         "subcategory": "メンバーブログ・SNS・その他",
@@ -112080,7 +112080,7 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6fWCHkaywV0h4pyXa8NUwXMIOMb3SAT9v4LuskKmOxAKd6SbRj9Hxt0fXRLHCC_nEM9PI6RiuT5BkEFlpGGtzsJAcpFGYBpQffBXwXX256m4a7nFWCxQNAR3b1cFDN1FwblzA9EiC_tPfyLKS-tI0C6CxjQAdajF2va8fJdS2GdidqeVzoPdYJgqftUYzt9BXnaNsEME-2rX1grCoxfS_YMb_6ybFVT3mWNlqJIPPtk7aOxfmtm7X-8Tg%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4MCId7gBmECh-sEg_F5jj_vQ3EuA59I26fLEt_dsMyzmK8e4drmIDMXZS5R6ScpPzXR_5AgX6la4hie0Wd7pTU_WQmK7E6wCac2_GD1wXWMk4NbfHvXvsUtV843uVhECZL2wHIZbaruC8bIfCSGgytEZBUzp8_uAtPxwGz0uLyk8HzlTTP38JOrdL7a0U65ttI3JCjCvuqhh63mRi5mRBEhlie9ehfBEC2ev_jV1ReAFrlqfzPi4ppSYM%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -141375,6 +141375,63 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "「星の大時計」五十嵐威暢",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5409639,
+          35.3114148
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3133c6a93e5a64c52606",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3133c6a93e5a64c52606",
+        "name": "鎌倉松原庵",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "鎌倉松原庵",
+        "sceneNote": "鶴崎仁香・片山紗希訪問店。 いただいたもの： すだち鬼おろしそば（1,900円：税・サービス料別） 鶴崎仁香公式ブログ（2026.9.25.） https://www.hinatazaka46.com/s/official/diary/detail/71130 片山紗希公式ブログ（2026.9.26.） https://www.hinatazaka46.com/s/official/diary/detail/71135 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4-MP-8GnanfIOXGMfanUTOxkBGKWb5JhfVNUb94A54fZdrHkMeMt4L6xA_PWAoTaENu7O-78kayuDfs0ek0o4gUOiQcLrmUpR_ZxW2b704Gu-RTQmn-guyy23KgeGMSJi_EQ_DzMPNzjtFnN9KqvUpCW8GeetrTfQ1qF19VGLwJ-WM78UOUDRik4QEoPaAnUndjG_WAtcJqu8CYnhvTxfT7runKqj31hcV456icHjHO2wHFG1vnKyK5bo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4QqFeKeBQkMa-_Q8ROB2PZzYgSOqS8RWGvvU1EJWnomK3FcmaEipRLTM6JQ8uqzT56QubaX57L-mJmAHQ9YRyd_1Vi-LGpoamaA00u-A2kC9a-qa3_vhXST_DGpJqT8yHNBnsV_FTs7cSYFBH3IkXbjGpiyvqhxaRVBNCeKnhB3o2XDX6Byw0uHeqZMLz1-YqNAc16pDenqKoniL0yH3bzsi3cZXbEKsM5h0t4QmSrFMh-ca6Z9Mf1TmU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR64yHGL3Sn8de4aZu-AW22PPefakaf3TFOJ1kbzrvxpWQ03882oZwhwLvIKGl3KJ9TSe6jfaoWFTVKgG-DCgAq1rsBMqTd3RFVv818SMFoAeaKJgCLjBqtU9375rW4ptH7dH16a65uWHgUCVsDjMQRSv_N6NZ1JfYGZY9VP1ebWC0R0bJNba6lZIUxlHppxWvmpocSxsldCmUYdnVtYR3xPWEMRle4F72CCrwUDhhTL5NR7PUQSDKlNg_Q%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "鎌倉松原庵",
           "group": "日向坂46"
         },
         "classification": {
@@ -231759,6 +231816,313 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "ひだか焼肉",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.3525815,
+          43.0553162
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:66fcc8e6988adbff761e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:66fcc8e6988adbff761e",
+        "name": "MID.α STUDIO（ミッドアルファスタジオ）",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "MID.α STUDIO（ミッドアルファスタジオ）",
+        "sceneNote": "2026.09.25 O.A.の「発見！タカトシランド」で松田好花が登場した際のラジオブース。https://tver.jp/episodes/ep8xzk13rm",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6XrXJ8eeS6Uv8B4rIcC8G4KVwgR5ShdB9uF41ODVaFSB8rxiL9gpXDfZwu1tuD8CIjA8TVgvvOKOhID-mrrCpSK5Lij19IDnMN2u6PTSty4sEaxmZB1SlbUUqqyrIrlcTpEjwEi-YLaR9DeyoEQcgpRKRhonvo0GhgsCBJ30se4yzhY8PcACStqyeT68Uc5-iYSypz8_OBuAXeKKuPmrwQMbS78w-16Lm_kNnWZaGkkSP3wg_Ftl_0DcI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5vOqfVUZzy-fFChqWRw6TOiwFq3aZcZFCIF065rjgrmpghbJB5Ewn2T2c9i_bFEb6hSj6Rx_6V3Bj2yW_vEbn0b0ZRVsLmkDVTlAkhw39D0f2Kkawj5tbPGQTGSpaL8RUHSFnUVuI-fjCG8lrQSfLAn2yYCN_ngcXr99jfrjwDXpB3qU5RvKqMqnMqXv53My_f4wydRosU1BH8JZyQJMja5ausF9wzrntD5HByrNbDcA5BBiMjx-p0eJw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR72-56gywu2Xk2uqede3QEXkejktH35RkLPMLw_i--P9mJPKRQKCDzWsOadLleditAfuoaD7FhOo-WeEeVJ1evPZ2phkXacwl6omh5rGsNhIgRTZvGQHVOgFZVGX7BmpnpYBTXSzIicypTsIEvpmXm9quFo8C2aJ_ZRIyWOKUjW-1zYnTtJPNQ2HR0ZyfGejLN5r8juncN2xAwnfwtbVgOL1BQnguZYwie35IguHINqwiASW8ZLD3wvoa8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7acK9Z1FdZ5GsAOSKK-UJxPLyJtgPSnkH6iOYgq9tq17_w4pkMsiV5lWjrQcMBZv-j46DYRSVOONBbJpm9o7Bnb955_towlPU877Cb6jCrUUGo3AFKbAjLdaqNsksCzwPexopKdBeuGhSHSH4hhLTT4TECWbUMPjT1VwbAR8VM1uP4u1r95XZsojdLaPmfaYVsUvRLw8nKuavBpNgmkq4wI-iKka4WPxVDO4Gml2URYP3lNXcPv88V2FI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5GX8ChA1jw11yK68-2VpdECH7ne_NV8AKISgFEoSyIvFRwrf1AjP_E-v-Bj5qSc4IOQAC0NRQGDxexifHxVPp9r5bjFp0SM6M_SWiIrJIj12Sr1OkLnQzcpWJyW0OxPRmH8kWZDE9D5Nrsn8e43M6BkkJeFABARa-HtAPfY6jUCrJ73U-AQCxV0KQM2yqAb7OBIsQRiaW_waM5mIqafRBmWR7hrBT3sZ5RfxqRXLngWhmhCPZjJL4U894%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5v_QVOzl_AJ1zs9eJLYxcbAvxmW9stIX5FvbV1ALm1Gqxf2uM11hSQpVIZpI2Ohntk-y2Oio3fQbYzXHJXYyepmTkLYIygPPgp0_bi8pke19jZw3UH79dt3LaEEEHWhf_ZA0Y0Qu54MIPcJe4_v8P2B1Rqt-6HuRYd_2dLlmai6Tvf30upFK4RXozr-LlsljCOdFMvvDPRZz_5VaWj7x4s29lGAmk5P48sfWDp11TuQ1nB-v_oYOJtSQY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7xgkpSkkPpuGcTn5zojRZy9OR9j1vNEyUTlGbF2TaJVD0W6ykzkRc51P0oPSwKucv211Oi3ZHgW1YVLWUZfiDtsvcc3_h1iM-Vai0omGfm0wX3f_lW0UVjxIRqIbPx_uBZgK7BrK79mRRQMA5A--k-iVQTn4YUPAfanUExTmt0RcJ01b-SFWVkgzHnNsSIV6RA3nusLjrfDtATSuDU3L19zGIADqeqt4DXVk7FqDKbeiJ7nhjP5u3mdz4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "MID.α STUDIO（ミッドアルファスタジオ）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.3521972,
+          43.0553364
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c266c29353727232ae16",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c266c29353727232ae16",
+        "name": "月寒通",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "月寒通",
+        "sceneNote": "2026.09.25 O.A.の「発見！タカトシランド」で松田好花が定番の納豆トークをしながら歩いた歩道。https://tver.jp/episodes/ep8xzk13rm",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4S4aOy-Y3W_bcZHTLM1Rn6a_70Fib4HhAJr6VtKvn4L9FB3imqjv3JQj1la5gg6psdbJqLu7itIJiJ52BGiLcUfhTk_yvwZN00cGK-jPUWKRpmJuBSJhjYhkp3nBqR2ARNuOGMgAKtMkoJWxxpPtCejRwg86IIDsFsVi6ScIgNtavqHp3qyR91otxFkAqzw1S6XMkgKFKkWt4zsDC6-3RgN1qYbiXjYBp7wdBWB5gLLwdC7YNjIOK3S9g%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6hiCmboIVFmcwae2-wXB-9ZiegLbqJJYpjpRhIKokGtPEPZwyc-l_22FfspD8VolM84RrQJqLsPN-J2wz6e5EV-xrF-2h_9zgP2D72Yj8vbj4XEfGJT9iwX9xxt3hfG5s_W0N8h39Czf5j74Iojvsoz0Gnjy6ME80Q9BwTlVZvaxDUnYgIhFKvMOr1aeOHzScNc5Nn5giz29DdgVA02ts5IwpYGpt76-1dsubvmjzzhgz_NPa3hX_fl64%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR579PyBz2nRdU33tnvLe79nZjHVlclgZW8qP4yIr5geYajI32RGIfwWyiYlsAUilnBOVPlsWUFs7IX79wHVYLBtBDTgSA7He3edO8M-IyR4HCAeLM_lDXrC7wKZh3R8Vurt0kovNuSG7qLYm-RUABWIeco3h8xK4QsmHfMNzRmcLNCrgAb63V0aD6JX1fsoQGOtiU6y0VGhkKzrTsqq5Lr9QC0OWGDBN3IE8u5o_M6AaVdvE9gdtQVcPEs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5o7T4Iy6gLCGhdprN3P60ejtdWQR67q93UBamjnxrMfsXoLjJx5kt6jKvyzpSYcNVR3o2J5EwkBLXr9Ty9kT7s7Tc464B8pNxMi62LdsUaPERvwK1C53zz7esAdrQkxRAnxRH51FV9HNepdTFHC440SslXQEJfxNHrOIcXYEWguNmER51GYFLjqVlF1dXW4VIHDJp6RY46nL57Ix3DxgnTNhV7q6a-yiNWEkhIGdU_BCTs_zX48VAmOLM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "月寒通",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          142.4791319,
+          43.7689713
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:52e42cc8910d2c6f960b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:52e42cc8910d2c6f960b",
+        "name": "旭川市旭山動物園",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "旭川市旭山動物園",
+        "sceneNote": "松田好花が初めての一人旅で訪れた目的地。2026.09.25 O.A.の「発見！タカトシランド」でのトークより。（トークの中で「お仕事で北海道に来たことない」と語っているが、実際は「SUNNY TRAIN REVUE 2018」出演や「お願いバッハ」MV撮影などで何回も訪れてます...。）https://tver.jp/episodes/ep8xzk13rm",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6wMLn-swPRPx6-IqVsCF1mM_2DVvhC3OBRdJ6nnogE9TUppxImISoikMgUP29EncnyomH-NanQW3SHwpW14MJytVLYbtUtF4w-4enTFJq8s0GtVQViMwWsTBMrjFDpG1Wjx51F5ulWl0iw8TzthU1h4w-ddo7LmMogRhM-WFdTiqHTDyUqY0ZPVQ1XGnM9ffI5vPmTzo0REsijcI-YU7xn1rYyKtB_cjmUaLVZXdXipjjdFp3ovuSF9Ig%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6E1usgHEeq9fcCL5nUCPuLWYPRn78mp9ZKAO_46VAxuPg00w46I_KqiAhF25ffiZAHrRfzpwx3mbzE0qt_ujint_f3ebSnjAc6mePbVjpMc1PZ4J1XlE7xWoTDr29HeYM7zXDy6pF3DPqfs4NsQRxBNeE-sf-srAk6GA4hDiAXwqq5uWlAqaYCeVadXz4Q_8EichIL-ltDBV172za1Js4JiKpS_oaXov6DA1lF_eylkrWHxaLsRJDD4Mw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7aTXdiNN9qdehYGKXoKFJJiMPMUHNl61V0vnrmH5fv0NlEAoDiScVcQCqmLNdNaE9vMhAx-NAPt5rJ7vQFqxZXQNQ-ET9gpvFZBVkOcM9XPw-Bhvme6r9092XygPC51MD30wGb2RHK-x4RdfxJqPIe4-gyxcQbU7HWKdA4PWcHvbnaTFL0AOPQRYvzS-6ROCndoOavIHNETlqdJ4Cx7ho3oFgG5gC3bNoia-p3UYKiJGtrqldxqHdRu98%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Auw8oGeMNZzQhTeMpDVRgg_hzVMqiyZ8Kk2En-C_22oW3USausfO_03di5LnAPItO08KHobUKTtffx96tQdhn4XVduZdyrl1YaSXSugA8kN3Sy1bgtb6AhwwsSZzn70HefQHefCsHBId_ZXGcbl7oEK-BwYjEHyDaq0ae5au2O3ImwLPR7xN0qQPgbfl3V-vzUsxM2IYbZJABSpBkRm6qT4LoS0RiLYS2VodLYaWzJuLYw2cOzy94IGc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Py8EpYwDdr-98kYjguCo64hu8OQaCq7mF1IjjejQmEcKEw-rRTOINbcwpDnmNUzJEV2gz2C667Bj6hgg4S41aGtyM6kTGC68ECxlZY7NQGnUDTOAKV51XJGsaFQPY8z9e2Qh8eneNdDEKB1h2WhcMnc_NznJrnJO1zepid4TiJbasmyCblD5wIgqmQcld5lpElmwu1xCM9euhKid870l3r9rEgaOFHos_bw5a9sssuNEfSngqWWtO-n8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR47we2ZzNjXxef5rerqmVJTUznp7KrSj0xJhvW4liDK0Nh0GlVTThVm5Fl1UJDdHMsV2hNcJTYBZkwZK99zji6WKSpCzgjf_msHvtEf8eCdORuUnsepjUStOGIp6gjSkILdo1I3rlJEQ75AbphvGlEpaggWHgZ0FxXUaCxRHODb8VKRdqyuc7-_pw2pZdf1fxqdqoD5q5JyymiQd2kuIz9lZJMIvZ2vpV5yzCWC1Pk1FEY4ENIxW7NWfW0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4muMUwOJG1W5h-I5f2fp7Zabl2-BHHC4Y8dvHuaipfsdJSKqmkFksbbcuX_dDT_stnXJf3pgi2EpFrXrxO4GqNTvCBfIjQ3EjOWklWOxz_LCVlnOrDg0JSSwOiQoqrNA3wqYdXx0oHlAnaoMeWVc2LNh6ZbDNVVB3giGTEZLm93PA1llFAX39R_6bSa05UmYrookx5tl7g6q2XoruC89u-g5fxoP4UEaczGa7Ddn5nAe6c8sKAgeh0mo8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "旭川市旭山動物園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.3500761,
+          43.0557009
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:55afd747961689f53d54",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:55afd747961689f53d54",
+        "name": "西6丁目通",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "西6丁目通",
+        "sceneNote": "2026.09.25 O.A.の「発見！タカトシランド」で北海道愛を語る二人。https://tver.jp/episodes/ep8xzk13rm",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6f2TnOsjA4aw9CU98vJUXWjdLjZqNeUWjBAwLMM21_kxS3ZaRTFvEgLhoy_lt8_xOo5x73ee44MyLaA1G1hpwqP4LmwodqGST9yIaXzPkAhpUlqSlC8uys_WBYjLdhKEu5eLJffCH2AWoLbbA0BfJ-dKXWGFUboF4Qya9HL2kjM4pQLLBQBahbTxSrglcNH2pLgzeUwcwHaaNgUpFkzRZOyMdjF1DXsF_NI7FpQ0DpL16cE4eJZH1_HwU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5NG93C5IXoEWZPsA1TZvm4VXRnp5oUzhcantbJbFiR0p5X3tsfK32tNpERrhzd7FYFPmTBqZk-I4bhwcT3p4B4rSPDTvp2BpqPsek8NVx9SBX6-ExefkYg9-A3fctKU94c7CfGNdLgihjhJp6vpjJHzgHa2WErnXCnfDvU2OlVdYN7BTx1JRNKZHmpM8PQD8g1ndcwk24rlM-y6-e9OAljqUBmDU9Ul9XYeu2JA70eYqYj0hCa4sqTywY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7qCMI4ENm6o3xQIoDG5pOKLEe294FBZkjAhkt1ttYfSMkvPZcU3GTq7Z0PBRXVNJhxYoMBH02yDaCGtxdW5ZUeXl9ZKUcBFd4dFuKZEjtNQuY7jdV9KGsxzXqphJEVfqyB0fBdXHRQ3gqIiCpqpY2Q9Rw0GHvGhTVJ3NhaVvvBns2O8NwdviFzhdtJSRyjlb3vkocwRWZr92rIr7baEpFV-AOSqMO8q6RDq9vOSjYVtytt37OnSV4LHCE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4yntVE91ig0M5S7r_Cjct5iGAbaRXevQSoD2pYUDnJ_zREQPDziS7aj7X8A940XT8cC8AwxzXmGg6C5PsUIosLyjJxH_46c_oWDP5IUDJfDY2Y3RX2EJbSUsJnSU3qMVHbSMHW2Oja_AaSscLvjrbotFOzvTv4Yh4cTM_GyKPeSTDrjKWiWUep2Z7ZZ3LLcQ3yFC5VCiVNC2ZWg3pjAu15LGEHLAdDdupNgLZCktR-yl6E-2YsXhKMFbo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "西6丁目通",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.3494306,
+          43.0564885
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec4aba7f373e5d1b9d07",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec4aba7f373e5d1b9d07",
+        "name": "中国料理 もみぢ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "中国料理 もみぢ",
+        "sceneNote": "2026.09.25 O.A.の「発見！タカトシランド」で松田好花が訪れた中国料理のお店。松岡昌宏さん(ex.TOKIO)に可愛がってもらっているエピソードなどを披露。https://tver.jp/episodes/ep8xzk13rm",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6PaYzvLWOc0__nkB6bCTGWP6-NA7pWPbuyr15LsX22mdcV57xqy7OlVlh71tyWbwSd_37Y4m2jH6LGJF30x4JpCrcWM5oHc_iEUc9UP1syEVsGGaQpK8BoUqZwfX69ys6jk5st9ycn5JHhnVww9dSqwyeH5N1-p2UdNWLOLx-ei3IBQ3FzgEHaX_OcQSSRQ8IEBr0uUX-RS3kkWD_axWHt36t_VP1LqfIoZrjPsJPWMZEuObrC_RbvHSo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6kSHmIAG1ya00gjktso2Tp4uE1lCHcEueFUUHtqm8TBdJWtyt_TlYdkW8rHOpc3exbLHBiIVIRapVDLd_jMWqqivG5ovhBSAOloOw5cZFdDq79WKlbWfkqrmuKQqL5xZs0hBvtLjmCXZaCFGnGEQDI0Mbe1MN1bGTLnWQAt5Va62VjFjGOWXhev2OZ_Fw6gltYn8X3NkIcW873dwohbUJKCXc9hHFNJomrbkJXM6fTE2a7T6NmfnxxXaM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7I2qkuNX-D2qqkK9oioflTFDOzkqBBbjZNsnMQl1B0v7gY1Ya-DfqRPLQNzlImNUuzHodTCpZkdYmJacLK2077Hu4_T4V5967IppYsvYJmjq5mFhG7sqacJEaFr9fMTjBEOhJ6e-suiiQgKNm6FEOESaBIvA3zTjk58JBO-moC86Xrcxp9sTmRCXkq2ZffofAmf8RHRLgT8DUVg7uOExJYCsgCKSmWE6nxsNkSRdju8Ud3m0UUKA9AtQ4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7-wkibM2U2_sV7NoKPK_hrxhUGlZO7FyU3BFqz4myIS2Q6YJkNZiROzmXQQt6KmSvy3ynDc_D6mEPJTcduxDB3ORiuACNNPokFZEvViumUZMIHg8DZYZUWV6kVaB03UhKN-mPBFUIAAOIfcz-WsTUnhMql1w81TyFjAtiULrD_Ult0e19mrwL1x0PQg705_I3j25mu2KFSj8-Gr_Hp7hKGzuzF3Zgnpwgxw1uQC_akvmL0DgoG-5jB8AU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7jXVMpvfJViLFklk0_oPlqd5a2k-czgV5vBrknmnrujLY-vP6uPl4yaiXmOmqDtlQJ7Nw9lz821YX8T_a3izjTrUzecrmo-JADyTiFUFR-2UQepydf6iyiEi4Cg7Q805XzJyFeA3kn7D1Ke_iisG6XmAPKjzu0NLq0SkhnSM1_6ulB4BfpyOcM5y34TJkX-3YElgxHDFi3lYRvaj5U5VNq4ADmp9B5y5Ccu_79qHzj2LqTOeev9VrnaKo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5vK_QLniCZ-rNHr8ns7jKP1AHdX-sVkFghTyXIvLko6C6kM26aAe9RWUqOB6FD0Ed0gxFKdnVpJFvE5kYfiJqMwQXzfVNtTPbKBjosRnYEiykyc_vBJ5vDjd4sprC9_zGgZMkYuWA7-C7DlMhr6uuivmkPtGrXCLb9s6lGOlldSSkDjV9nr3h5yz0sLTV-xi5ipM8wk64_CrZD_XXoG78-aFyYAJID3bS5gm7Lm6cg-aQQj9Q5KWbSc-0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6uw--vt1zxYYWA5FzmxHlbrqL50mtIvQOSBvLsE2KNyoOHxQHwiyf091ozMr-ZPXYPP4FlWdQ8r4R3PwX81BJl_4eUzd9yo_d2WVY1CyDI2BcYyvAyjWsiof74jlawH-V4NOIcefPXWRIEY2GiOBGUq5sI1C4e5OM0Ku0T5ZKiUvRnB_i2gs1hdlu_u64RV1EosatGI7PsuTzJl5FaRxT75jl1m8V9j6Wc-0udJaK5iTRrhhECDD0aLuY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6kUSXAa23yzSWKOsWo_1urmYfxYZymYU7iC7D1pNlXrMVH826h-XsmXa5o1Jtzb_37UCh2oSLuQBu1E81WCGkEyfGCCLL3IpX97co0AiR-VQd6pr7ocsJItkvvuL9LPwdzHBToCi0oKnAhkciFVMpGFh2nfuyUSkc2nuGrunGQ6-y8AGIstGpwQUhfNYfcqaeOGCoXAz_QZL4qJrziIZd1pTUcq5l4Bsw9VMyirVckmx_5u8n6ajQ_RAA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Qa-aIgReo7L30YwrmUmho5DtyUuAIAZTllRKD4rsEQ3N82x9acaJbYFtHcKTiXVoCld4TuvMW1q-HpXC305CYvQocaFi1QEq11-L-9TnqsLxabtTg4PNDiLUF8oxFRtjLUEG-P-7OTFV5MNzQEbWzinJGjz1CLCUrzEms-9ZbxhnGtuKnpoBUqCuri3aj9n60F6fGu3xVJyt_W25co7GdHiSIEYfJqRtUlPj2fDoUZi2dU9bzBZd61P0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6aCQGYlOA5wdiUb7GBF2WJDkkDAbbQMQXgu9GlutO8ahxvTGXTDjwKsF28lspxsfHR152rABTEBs0vn7Lc4TGAf8pExdWi8JyNROFUZK2geGsXnRsaWB8LRrVAlDYRACAFjJwyJVFQ977r9aUniYaOkBsclQtyQr1vOb2buO2jN4JV0ymVb7mRG55vlA2dD7H8rrUA1_zJiyzUw6-Vwwh1JAjyzgiwh-hPWTZMOr5P-tkc0gwKW_66k9U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5M7gbLZF9cQkU5zDGvIQ3PhzG0szr3PcxLiBj9pyxIn1tFZgx7Ioh2lH68JPx2UwkTHO6kR1GIAFB4XBHd6izkVUBJRMBonN_M5dwo67i8RFyFR-shgoQ6Qi6l0FQ54aKLi_BxVKTYxp8hdOYXol_h1ojC1g2E8OKNDr27yJJcXugry2kk8fKF9P8UPcCvhoJNJpCwn1Vuqza25mtjHINxQhjQ1JsrU5Syegs6rpWTzOPFGkB3FCInAgs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7h_BTXKpGMxRgN5sftJU9TaRxzOviiVSFZMC15RWaDcbjpvhrqRSMjJSFXkXM59Y5qUTDi-mGc5e8yUmUPSiab5Wx-KBxHNN6Jr_qE2e5Tn5uHrSOUJPA7zKxRenWZC_nroLXKPAVO-wKsGt3ubdTVcFZ-jX8pZxY0qNcZSryb175DPvvPLJmGrZeE535rQgWebdVwwbInfh_TtENFkv5AH8r27Jr9_poHvIbCHjnBGH0L8fXHmzpiYeY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ikppAKBSp9UEFZ3VQ2fmSJh4rzmUVb-zGmIWlOpUgWF5mSzFOyNupeknZwGXtq67dcpiodAq_GIvFkgcAiyHc6newEIDB0cBnGJSHfpl4wJhykNQiMc1MOHccf1KREwFB2Y0CLjdIR102jG03oK5eheXoq3Xf9NQC-I0Z1IjANHFEOMUcHMXNukarSoPXzNXUDTNYrs5wXuCL_Y1pr1srbhGciXcRZ3QKOeLJrPwTlNEnc9tj26-0Haw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7P1YtQccbjGCQAj4HeTUbDz6ypRPCNrKx6YOoFBvsoXpbZRZCIoEC3XRbOBY3aVkJsGgjIjLCM845UhTMamvT77BuK0P5qXVEDGtgH-cc55DRzi5eQp2osCIc_jV6Gw7ZmXKpPaaohPCJFsA3Nyz26AzUlE8laBR1yxI6HcHRPgoXR4s50Uo76U0lP-cuWei1kuh3IYQsaY-7S--0OIbGgURPZWHZw8CNSMmqwOl2C3pRwVMuo3TQatNs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR68CHR3hYi29VTrPHMIqVXcbSWJvqPigyY4rXdkQnryHv_WX2pEwp0quEDJQMpmMquVKDkoUZlvZZ2ojga_KSYnliJi6VPhRmQvBsn2qu7NjE9C3M9H4Y0QF47088jyFulSzv6oHoL1wnOOIwWduAVaPcFeHcdlMQNux0V0HxlFSx7dQSgBZL7gySMoYg1d2zyrk_ydlFryHWEUvC22cLpD-jwe5l_1FKMrh_YBGvG0Z4Ff64WSvvE7Lh8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "中国料理 もみぢ",
           "group": "日向坂46"
         },
         "classification": {
