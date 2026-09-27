@@ -226,6 +226,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7518159,
+          35.637035
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec311b8408fd2c9c3384",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec311b8408fd2c9c3384",
+        "name": "芝浦ヘリポート",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "芝浦ヘリポート",
+        "sceneNote": "欅坂46 4th Single「不協和音」Type-Dジャケット撮影地。(床面の構造と潮紗理菜と加藤史帆の間に見えるビル端の金属網状構造物よりの推定)。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR66D2u3AB0grA6GQTWJIfwGUN4126TgOLMcYPkcbPgN51phwof9XY6u97B5rWa9vPRkoiXk7LLfvzt03bDonA1lw8w0KGA_jy8zhXNmAHxC7HqMFuiO-QDoS67dj42-NYOWFkmMeRbptAY0d_9X2uZymDDTmCVqg_2aGYZVzMwA9S7jek-MHZLjCX6z4J9Sdx9D4gjtHX_ttWmHAC2uWmCBdQgAEheaBp7HA4BeWPkPgn62p8j1vQgxo9g%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "芝浦ヘリポート",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.0959619,
           35.0443953
         ]
@@ -3581,19 +3636,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.539541,
-          35.644855
+          139.5396496,
+          35.6448921
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:35ecb7b4092aa4e4d031",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:35ecb7b4092aa4e4d031",
-        "name": "角川大映スタジオ",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:709c12f958be609512a2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:709c12f958be609512a2",
+        "name": "角川大映スタジオ(2)",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "角川大映スタジオ",
+        "sceneTitle": "角川大映スタジオ(2)",
         "sceneNote": "3rd ナゼー https://www.youtube.com/watch?v=H59N5gIuI34 10th am I ready 題名: 3rd",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -3603,7 +3658,7 @@
           "シングル・アルバム（ロケ地）"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4TmAqO-eW8jxKCtxVgUW9fs99Y7zbqtxjAGRn111eBDsEqMtWhjHJAZanOBBdrSMbJJVy5uiUohyEtiz6W1z-lKN6zAueSmhrcQzQOgBexknFS6hPlCwLCj3vvyOFPskal5V8EQf9YtzqFToHxnZo-hyzJ7RerDykly15ud1YbZdLSekcFwQh7KbHgOEXJo5E10QVlQKmjUVp8zQLVAslexrRXxq-mJDUkOE0VEv5CdypBISIerbb-hmQ%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5aOiq96AlHoW1zowquCj8lMWQd69JFwFdl6yDywqdcdxGjIbU6VJf9USSZgdNzVPeFYmJJu2RTgdrJvTaiIAO3yFgOAj716X3te2YVTkMW2bzHcLV9NNUWaeU6XT6uGzgKV7H8ull6i5KEWyOLqLMtXIhnUZjAoxxNMMj-Pr6SNKs19iTx24BflavGTzSBMCOlalaUXhpjzLk8lXhBBi5u-O3H5UqN-I71SPIyKVDsWGSQ17cdnVXoqbU%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -3615,7 +3670,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "角川大映スタジオ",
+          "name": "角川大映スタジオ(2)",
           "group": "日向坂46"
         },
         "classification": {
@@ -8091,19 +8146,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.5397059,
-          35.6447667
+          139.5396951,
+          35.6448953
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6d97d8618c23a76e9e28",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6d97d8618c23a76e9e28",
-        "name": "角川大映スタジオ",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c8512de1c05d33cbfbfa",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c8512de1c05d33cbfbfa",
+        "name": "角川大映スタジオ（3）",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "角川大映スタジオ",
+        "sceneTitle": "角川大映スタジオ（3）",
         "sceneNote": "10th am I ready? https://www.youtube.com/watch?v=vYKRIwJGRKk 題名: 10th",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -8113,7 +8168,7 @@
           "シングル・アルバム（ロケ地）"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR749dnQ7784LBDMy9CBH0djogFoOo-Tx47D6R-amnp7YJsnJR-kRqTuJX3NITssbBjDaCBcX75cISQLAA9pzG0KCjnZB1jleoUFU2Z_5jSS2_n6meSWGEd5SWbLdEb0QDm0VRPn2-Qhu4JbEe-asVkVEm_ywBAMeEXGyUep9SYQmPP7U_FqMx0TzdXGvkCCf2Hc0oYpHCwkfyKyFTzJ1VI8Ve4zLwZoToko8Q8XRyo5ZbBpbyC19y-wF_A%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6TL6JAqVpTrqaIoHfdDpXtBr-LqzEMb_tFwTv3ou6iC2AgwHrTMjHAb3WYpPd5p_OnJIc2SttT80fBFY6obWmQ80-SYZW_6EzlwIHsQvI_eV4mZuF_JaPrdu0xBej6Qcxolga8OFTk1Uh296QDFAiThYBDVoFPd1DaiXSVrIbEq4YjVndHWuhnjdXG3N0NvZKM5PpoD4g341gSu6RVz3fVA_evj0_RoEHp_4m1rshjQfvP-L0fjLGxzRE%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -8125,7 +8180,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "角川大映スタジオ",
+          "name": "角川大映スタジオ（3）",
           "group": "日向坂46"
         },
         "classification": {
@@ -11800,19 +11855,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.5399286,
-          35.6446163
+          139.5397462,
+          35.6448931
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8b2199991b878ccf0837",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8b2199991b878ccf0837",
-        "name": "角川大映スタジオ",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b540fe926ba53c03f4a4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b540fe926ba53c03f4a4",
+        "name": "角川大映スタジオ(4)",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "角川大映スタジオ",
+        "sceneTitle": "角川大映スタジオ(4)",
         "sceneNote": "14thシングル「Love yourself」の撮影地 https://www.youtube.com/watch?v=52cSFrjnImQ 題名: 14thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -11822,8 +11877,8 @@
           "シングル・アルバム（ロケ地）"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5RxXVIw8J5_K91ZwCP4ArpCDhZK7BJg6k1pycY3kql_hCw1QSTn-FD_mBgPti9Oomr7eAB7bh9eCpH6Tp4gq_YykMg-WrHU-7MfSNC9yLZIbB9CSxXa3cAtqqQSLDqMGZV3-mTABN4qeOaxrQ-o_yccwdGrnfHcrwpl50rKfRpxI_hJcYGgz8lyS7xK9NK_SZWjeBSq6L9m2x_C6Rt52KbYKHk_zhGAAvJwEHRJSTlPq3TlFUbnLugVb4%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6b2X06_7IIwBhNeZrSc3BNeyCGEAtoevJJAYDlxtaMqPA6yyS3OPs7inz2L87OGVipgGFb-IdQDeC7GUOQmS-O6fuOswQfPhGYChkXIwpKTXRpy5k_2nYxAmaN2HyqQ52Pn2XH6oqT_mlXHi39YYe6yHT5nBn2w_LnMW9OIC1K0mx5JvDII4ChMQLUpgn-3ZMMRj9vHMefgEtLgYda3iX3fKkZsdvH2J4y2by9vddHmd5DG2IinvjK9l0%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR45INkpbYKiY1Vm0Ips-rcQRgjQjaiYfBkhaL1OLzXy70uPRZxf8XiubZGzhsZZ3xPODF_NeK47HaA6rmXMYh6eYHbThFhTYoTMbiHMYoBwdQjoqMZZEs_ANaJDBUjggvsnL1GqTP1Zm4fMYYg3vtoiDmQ1124qWZ7zcb6tz3GahQHfFtzl3SgweRkwk5OPynfEbv-VMqNVHDTdvFH4JTLGlXCKE6FdruGNa71uzIb20AzJ1mucM2uNavo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR76SiaYSJIA4jShTVW5IORS3YvKf3MHK6jQo8w3qScZraIirL3UYWfdHOyzygL4g6CZyPSJjbljzs-gNYqN0XiQa89ea9GeGvMjbdBzqA4dFJXQZx0Dvu6po9dSxz7DuT_xOBdUyu1ORo8QsJLsiLBmRcuSdAVxAiiHYSUzii6VbrLK6ELGHYU_80G6EM61c75u81BtcaQQrWY-l08NPEjDB5BrAZnuOZ89VVg84Ut4rJEgE6DXETAESYA%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -11835,7 +11890,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "角川大映スタジオ",
+          "name": "角川大映スタジオ(4)",
           "group": "日向坂46"
         },
         "classification": {
@@ -13863,19 +13918,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.5399849,
-          35.64471
+          139.5397904,
+          35.6448953
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04508199b71505d6839f",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04508199b71505d6839f",
-        "name": "角川大映スタジオ",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9696f4b3a9df161331d5",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9696f4b3a9df161331d5",
+        "name": "角川大映スタジオ（5）",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "角川大映スタジオ",
+        "sceneTitle": "角川大映スタジオ（5）",
         "sceneNote": "『Empty』の撮影地 https://youtu.be/SileUBDdAqU 題名: 17thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -13885,8 +13940,8 @@
           "シングル・アルバム（ロケ地）"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7-7aciabEOvGNnQYGnr4nTTHdJEYiq1lIjyXkL16gK9EN_waSvK5wwktTWJYrUdoOjNncTv6cJgComuQYpdl9fGX46prvrGDPd7lrMyIltteUMYGtOiTQF27ePYMqxjcZ5IZE7uMWV6AV2mp5bbr03sgcOrNISiVp4nynLAzC9cAAfRSFW0ZOW4R0pf_iogeQ5WVwnjhEftbXMsmBsGaxACqr7NFxPozTRaQRWkBJN8C622t66KbGrl_k%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR53P2JeWex0AEp6IZD3YtXyY9Me4_XbvATyfnV_ItdBUeQoSytvwehGZHjZadBPXunAh-6LTUeFQwfOl1swJhhnmsy4oiFbdB4RLFNhw7YDoG_yf5SHiEUprPpket0g-rWWorBzhQrWs5RTLP6CfqsJQ6Y-YC-TX2TURze8Unrv260Jvwuw28S9pw2eY7AwWgI_c1KTUDwL3djVwnaUYYXeYVUv58FYv7gzpA9j5uCSpCiRdnOkYMuYF1U%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4PtAgOrK30AFSzXC2fgR3pFNHTPp9lgEY9KPVBp1tb8nSrrjLcGNulhZAGK-g77O3m4D9Y5q6jsP8eYFr9XheGb1Ndiv9MRf0chw6P9tnPw5PvbjKiyASyZcdoWxgEPTfzmagkZxsrEl6WuoJCll_LqxCU2Z6BwsXGs-qic3EClMfq4nwUka6CmuQ-jm7XAJS-hltEXUd_zh4tQNiPLc6LXLb6SDDZmxKAGWA8odeiKLIEYsWSWVQMNps%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4_lTmwCFac3Pk3h8DCkiZFrOr2TTAZ9OJgdF1_Wq8NTJWVn3WLIWDhvQvNE95F74S2T6Q0Zp5BRlFxuT5Q5sPHfX5YfKDujsRfDKrGOYZxtqAHCcgPggF3zdZx9j9hgHecgsk5BD3AeM8TX8S2RVXS9PPx1nVnS5PlPuubrdC7QZhuBwvdjx5nMPb6MOWxh0P5DfYg8JpQYFgZdp1HtvKkGgbzCi5nAWB-LACsmCmsLPRwt5ZSyqUJ6O4%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -13898,7 +13953,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "角川大映スタジオ",
+          "name": "角川大映スタジオ（5）",
           "group": "日向坂46"
         },
         "classification": {
@@ -14985,19 +15040,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.5396335,
-          35.6449738
+          139.5398856,
+          35.6448943
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7036bae0da211e73bde4",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7036bae0da211e73bde4",
-        "name": "角川大映スタジオ",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:345fbb1a29ad8e97483a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:345fbb1a29ad8e97483a",
+        "name": "角川大映スタジオ（7）",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "角川大映スタジオ",
+        "sceneTitle": "角川大映スタジオ（7）",
         "sceneNote": "https://www.youtube.com/embed/qjsOs4Kjr5Q 坂道選抜(乃木坂46×櫻坂46×日向坂46)「Audition」MV撮影スタジオ。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -15019,7 +15074,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "角川大映スタジオ",
+          "name": "角川大映スタジオ（7）",
           "group": "日向坂46"
         },
         "classification": {
@@ -15040,74 +15095,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7518159,
-          35.637035
+          139.5396067,
+          35.6448898
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec311b8408fd2c9c3384",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec311b8408fd2c9c3384",
-        "name": "芝浦ヘリポート",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:756798dd77601f3a125d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:756798dd77601f3a125d",
+        "name": "角川大映スタジオ(1)",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "芝浦ヘリポート",
-        "sceneNote": "欅坂46 4th Single「不協和音」Type-Dジャケット撮影地。(床面の構造と潮紗理菜と加藤史帆の間に見えるビル端の金属網状構造物よりの推定)。 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR66D2u3AB0grA6GQTWJIfwGUN4126TgOLMcYPkcbPgN51phwof9XY6u97B5rWa9vPRkoiXk7LLfvzt03bDonA1lw8w0KGA_jy8zhXNmAHxC7HqMFuiO-QDoS67dj42-NYOWFkmMeRbptAY0d_9X2uZymDDTmCVqg_2aGYZVzMwA9S7jek-MHZLjCX6z4J9Sdx9D4gjtHX_ttWmHAC2uWmCBdQgAEheaBp7HA4BeWPkPgn62p8j1vQgxo9g%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "芝浦ヘリポート",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.5399312,
-          35.6448495
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e330b392fd05b3ff58eb",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e330b392fd05b3ff58eb",
-        "name": "角川大映スタジオ",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "角川大映スタジオ",
+        "sceneTitle": "角川大映スタジオ(1)",
         "sceneNote": "坂道AKB『初恋ドア』の撮影地 https://youtu.be/FW2r76NPcPY 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -15117,15 +15117,15 @@
           "シングル・アルバム（ロケ地）"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4z3kKA5p6UCk0Vmu7sLlMpL2oslhyD3HlLhwkpZOlUPl918V8x9T4Cx5NqstNQ0NEnDwI25Y_Y5B0WhwmGZMqufUzr5TDzYTuAcULKr-dVIqbVZCg2xMGxjh5K0rksn-fgBNAwiZJQGe-O3nT4RRf9hy0pjZUOdIizyBy4n4fOGCZwQ4qQcl4DVZSgJhGIFLblCAHCFaFuB7H4_erSye34ZX9GQIraGeo_0Ugv3eS4kxAdYeogrICBCDo%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7nogI1zXgG6jdBc3nZ9Gp2IpPlWEqGsMGT-FpjLQ1uAOdu6ciL7_RsOsOMfkqPQFsXrq7j6U4T4IYXb7Zrmg6YAi-rczZF3Ed4xYrSDSDmDDQOCEbq64Fkk2m82BReAwyAA4DKqvGImDSf8r5EaMd0lubakHR7A_9jz0mDNIjE19AH728XM1T8dZhOnv_KgxDNemNm8GyU79BFkyAb-JF0XUAHD-PvxdJbAjCF_eJRzeOR9Zi_76UrXcY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4XTzxuvAnDgi851YBJ2ARVpN93nC9wb6BOGgwgzZuBpzwgQVPVL8RG_HyXCLx929dQq5Q1LYF0UOs9MFIjsWiUzgaDa-3Z_RFNgRbjrqfMyhtZD823EyPboWjmpo_Al8Zxi_5vyAwsWRWOiY51InRHfI1bB4dYRpw01F3SrTMw2ptYcvmqDjwvxUdvoT8Fc63uArJ7R3Atj6NeYyuLfeb_uLu0oz5PJ14NbelHiXdPBa7hUewmVSCiVb0%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5LB4F2JoYAlgZaoOBSBo3CofKupTi5Wc3MDwL-YcWuMHTgsaapxLss3xhORbWb1njG_pV9l5ZAPY8RSyl93H2WhCRvMY0V157X24uU0ZSxOWP9MgeLFOO7CXMTiQUjwvpZmKmWiTndsT7ur-O9v4iMNeN4ovKxH3OTOuOhB0AP9hyb4e81ztQeppOLs0JQey9IBF2u6Qubz-ppjADHfgr6RK7Q8Biba9l4lfhTvSvdf0MxjwtgI2hMb4M%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5DcK1rfA7bhwEwKAuBwTyv8HtUYl9DoTDow7A5sKyAoaQfdIcIJwb1zcuixmzXy9j04bhccXU78NCLDiiNxU1ZTMrBxt8kp5aiYi16ySNDzFRZLOvzQ7w6X-oDMsYLhJkCFbUc5wbGMbbrbeHFQVShHKXWgoxlfKLFOB_iBnqegWfbwMSVBn-6HmS-tLWPn75hYYc0mKDcPLZmI_XpnufY1w6d_8vj1kC7AmqU1GPudEg40SRmYHlkjXY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR62PgkzdgJjNcGO0Nx0scFFXLZUb3AwVzXPtKIGo_EGx92sBx9g_fmMxbkzRmyohzSVlW-uysBfw_EjJc1E2Dw5EVo-uUpuoHTsG4NlcU-1u7TIYNQLd8Hmkmm_6Rg-2yV-dGe556SDHR8T13-BePOvCQn5O3U-GGNbHze3mABwzmAvTzWQyzYGRj6NyKRMPAS48lwcNcYbpVV3CWTsmjq0fX8e7LRY9JEWLgEk65NYOU20eK2E-3HYRIA%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7HHX4EH_Vc3oOaxP5WJ_bgIQAKjB1qJJoUswERDRWknSwstfnNLc-dFxTzpTDChFtfObJj6nYFX9g9e4N9vzpVikahEBq7PZUKafcHFHUQlp6QTBgUwQdhl5rX2vproqOUXiYRGWXUHL_W8qUIR_355SZs7s7KHtnhHGX8YasJdOuq1Af25E7k_eZjRR9rvr-7uJNS0BRwyNoYfa0nD5uWe3ysynwddlK-ekyIIAS61jC0kj_ZSMZlGNk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR54yLGNyFhYlfIvVZsXIv4-SpeA9Iq45odmt_lgPwGFbZJG-QV06pxb0zzkYm2i2HCSwQAqiorXEvjNw0FlhpOjs85dOjg54X9Lwu1FFXkbmL-XYtaljUVzVY0adYo5LhztCp3X65wiPSc6NTG6VB0C16Ln9ADEorvr9sS1dEHYe61PtTVEXwt4WIiIFrUeKZtaSp2P1gBgpwy_gD4KIYKD2fa57UgOnR8f0J7E7C6C1OXa_2uPKZ7voiw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7FYJLCLqlI3QlM_fKwaVH7iwZTUXqVIRHEN4Dh4ai1S8BU_gYXv8x00pbeqoXZRG3BUKDRylsXUG_Co_LjHr17uo-9eLKD20Ndkq7qR7el4amnbBsW0B-g96lWiXtwUiGYvd-S6VxtQ_L7eI7ZU2SoI_zSjLyCunkkt54tBfwitjhhTYIBLzJZmV_bzsT2z3Y7adwHdsRCa114i7m6j1wZlJqHx9A27EhLxxM8rvb8Lx_FTvJlkbsyujA%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR48ONx8b7Er0hdIjVqwM__dCmMOXfehyoQ_cg31BAnExINQXCNjIF7uEa9npHJxQdPeaT9Avb-W-jrmkMPpg2JmOIBGl6SQmMabU9xq11mSXheGURSK_RNG_TyUXB9aGfCzMk3FzSDTM5LwRR-0mlwcwtxREla8wL444-DR-krON4t5e0or2heUTrIhiGgj2C26rDiFpbRCwRmR4DZqvj0GXbW-ImpdmEt_I0JlzyNkmody4zWR7Ebi6P4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7pVoW20SRw_8RKH1Ix4zgOnZabgJ4dvnnxx2CB7iZvI_gH39URDk4ifGVniD1ZnuA6cfC_5Xk6OkN3bN1igl676BVYK4mazMsojlffyTBlNd-xrzi2DfBbsp2ki3uco0h4S5veGtvrGPhSfr-tnh-VXYi9Nj__DbC_lrDQp7_NdNqjf7zPJDjYNulpVJ4Q6hkUBigImSS668g_vC7vZCAQkXn2IXdn5wWflX8mq08RNIH7gRy0LMKLQMI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5f-Lce-Yitdljvqo3MlopdfSLHRJP-tUAAeQzLiVtvcXbU3smhb2PmdvuAIss-Wfg_q1NeH277CCvLJ77ix1ZKF83fhGvcP1lvsCCvYTREiPkBm507A4_VdD-r1k3L9xODzZVBQnDmQA_m3uoQkB3ZXqYwpYyybWNUh5aY7Q1qS1PZRaMFe4yGm2rvibxq7lA-yDAUrmnVEkK0CWHJHLmdZg9VdRbqGHh5ukwq8zgmSVc1ZuMId-U1mb0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4CddnBuAcqwbeBEDgrV_YgLp-wG23oETSR-6oAg-D8uddQk-0a4IgXh3fR8xN1Cp8SZbbaAf1RhhVGsyQBdYwng5w0cis5sacZNfPbvndyBKluiZGGrAYtcxCH4Snv-gby0V8VlKPb9pagOIq71BNL0KXoF3ubqHy8JQOlhrKFmqY51FSKhm3hFFs6PV0-nAWqba6ukuB2IrNA2Zuu6eG0Fge_DncZSoPqIPhxqWsnKx1JkUUMx_wpBD4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4YgeAhzQWzkGa00Sxp9-HbuDpZu7owRkbbg-Z6L3qLW64KsPNXv4tqa6GRf4SfQ-oiRTcLJhxG1j7A4IhdOXgzEIkfAoCQiJV-UN1U7zsfdW0mHIN4hRBEZZNAkd2pXAApCr8Tm-kn8tPRGEv8ohmrBhQeHp6traRwJ9lOEJnXM4vA_w-_BWsQ-mWnd2FrOxyCae9skD66-STkCxiNkFaRwTdGZdBzySIIhWlELcgEvBXK1AbQC9ZjxZk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5E1042_VqzpCoZ1wlVwZp5AyeL7h1VV0WhSywz3AmJLmSnec0eWCV4qcgcr4lvtWkolEWHlmzs-UR-11YOLMCh7k4iGg2bn3mGzL7nQ-0bQJryCoFEwNsI_xRzb5W6Zn1Ndy7FN3dpNfTULMD76UkVaHD3EpMDxh9eTIzo8FdAZN2yQcI_sy9-UJ08FSoqV6oPDsR9oosIq2gD7OOzi0n4QgqsLkUg30d5h5_z_hdvzlZ1NOMDUDd9OIY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4gibXaXml6uqV9g6vra6fvr4Qef3vWCdtgJS80-NuJNu-KwCmvabuJ8rVB7LV5heJ1mjDhfsBxDQi8atFFWC3SKYy6pF9cTJ9mk9KkTj1zzqo1YSepg169I9DLGbS-Nc4p7zXzoPVS0Akx7ojx7xDHdMLQyl66s7GCogtXqBHfbm8jPcHfktp5ZeetNhI199kBsZNLYg6ez8DnLfmaqUWkQybsDitlx_qu1bqW1UBHfUBiLRfBDn2zY0o%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7YTWRJRnM6utOPUF1ZgEtS30NQPy34uLCUUfti41kO6jy332tyGf2cS0NSrJqghJufaIRbMqsNLhDayiZU_CehIhE0LqkJ1wAo4IEfH6FBFMJve-MK-oR70W_eixcaftGgRyspn-XzN29ifP2NTFMQNIuMTzT-lKR99H9i7DqR2RX-s-2ataInJM_LBeBfVSq1Zu71pG4ycwAqU_cWVIQcQ74N7lpq5uPL_pl-PTC5QN3tuZjjbJxyz4o%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5-Sp4t542BcmgG-wfv0cexM4-oq7gYhd78qgcJwtgsfVWO_I6Urkw6jQIrKdAYhGWkr_81_i6S8QD2RleckXlXjsP5CoInClh4w_ICNye-0ajIQ6ziT3ZZ8S6gWiIrzghl4z3tQSYvQ7qvdGBPvQMFfG5zkZKFH0KMOpVXWnRX73OwBy_2XarO_ehuDjIm5xO1Bm2RvBZum6hD9C3WeLSeifTjOPdFzGtr1W1Yh-pIxBtvQ2oeSHfeUjM%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -15137,7 +15137,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "角川大映スタジオ",
+          "name": "角川大映スタジオ(1)",
           "group": "日向坂46"
         },
         "classification": {
@@ -224400,19 +224400,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.5393532,
-          35.6449335
+          139.5398387,
+          35.6448931
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6937d738986e06adf098",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6937d738986e06adf098",
-        "name": "角川大映スタジオ",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:386dc76ed2ffc06dc85e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:386dc76ed2ffc06dc85e",
+        "name": "角川大映スタジオ(6)",
         "category": "映画・ドラマ・TV番組・雑誌・新聞",
         "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "角川大映スタジオ",
+        "sceneTitle": "角川大映スタジオ(6)",
         "sceneNote": "大野愛実出演 トクニナルド「Ms.トクニナルド登場」篇の撮影地 STAGE Gでの撮影",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -224422,12 +224422,12 @@
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5l_oTJUNCRbEquKLTNmXyRnt5XcUZS9sZMAfD35Oz_mJLw4mKtVH4wl56sL2WUIF56V44iLqPkNiIcaZ3m5sgOuf0wqKFhJtgg2jOb6Y2EguNtXNCvjpfyMtsLOyUvGX0q_NMob2lz2zDA-7GvR5V1Kfs8-STy6Rmn4kCvaKqyNOwt1IlfoHXxdfzJufe-jOFbjdrVNnp2PB5hI6AcWxG3G11TbxOFepEqSg4SNe-lYvBy3sNN0pdGtLw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5zep8jZ3jMSZfABnuZJan7vFg4eRYs80ZwxABBvM8hr3OobncbP3UoqvoXVPlC7L1woWOsSaNbgcsFUUWJ4y664d3EXsSNcaly1DB5sZ-zsLlUg7MmVHLjJi-EanOo0RPQ3z7bik4QmCVt0G2XX8ku4-6EvGac_JMEix8k6hDtFSxL6jU32g6rvqGz3wm_zfUHr8zpp8WJnzaNRd7rPSMM75KxlRxBf2JCndxh_y99UOK2JguMvsTemnU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7cubO6IFLsMfuRJ0pob3msg5kLQ3XlxZJt9E50JytNSmhe-qOdIZmgVU5yPcNCTd0ZeIyLuRZ-La_6rTZE0zgwnIx6H2OOKSAzdQ5jJKpRd99fpT-XMRWyrQA3U4Vi8vNHCJPGy15jBUckfwRxj7I_vq9suBuPg3pjGy_OOTvvOcP0HzX3ybYnP2-lp3GOMyO6HY_E8j-0kIpATeLxVwiRTEkBiNCshm6IG0IllYDesN8gv_nRmxMqPfE%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Q1wIrzIcSSRlEe0uNhMJRDfGO845Gfktx-OofbnQ4AuO4PkRv3tAZ2dvcDgpqzkAqnN2Rx4vcf_eO5WeSa7VZlp-0cN5lRgpxk9WNXpaydGZONgsxWF72vuWPCaLC_mzu_CHOFR7z39rBrNKLvGOiUjDBw0uAKb5gly0EzXozMn0l4Zmy3RZtXXF-k22ukAZnxZVOdhLrsQTeMt0CcMehntRdJfad4NPNy5jULuz17C0AJtNkRdxY0FI%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57RNrPi-HD0CnWHoMVheNdMggWGezgH40aU-rKB8JdwjEpZpCCfbVoGZttKARWg2UBQLdrem5AFS7YBaEIefKeoIFcfontKz9KdCTjXp39aH4vNsAyVdgEA1RUC-vtyMV_1CTerIK80LurMOsxybGqaKtBeaKZ4xG4bev3qTdpET3facggVwJ27VFbDO4cpqws2AxC3dBfJrQwqxrDFXr1aIujsqnv3yhQWaVOnNk7p0-jlR2n3EZT3T4%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6O473MZyctwoJO2k2sNpViXTyFIv4o5YeM6QZdliQe2LYfxnTG5QrJUXdWfBj4i-o8qyq9CWj3VJeZ5ddEsasXtDEL4Bx5bwbeV4FSQ55dvUTe1Ll_vHDjRaRlBfFrvb2zppZ_juF3YvV5n8t_Z33CeqkXr-1vZV2q_X-0xbiUYpT1BHtGKO4Ln7Q7OMRlW6FiDefPWKn8S7Mhs7yO3XkaYrZy54x51bD0DCeakCkh7BQpBSRu2AKaXA0%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5YpDOK5BzUCWALiSaNHDrtqCcDwJClnETfn052AwkkihKRBbS_MIRIzVkdNcRpKY4pFH_pM83wuT9GiMqcH8NbCxI9ed2mOBBSDBJnJPmu8RorTBJ9GqLMDrq9b8G78vMDMC_xup7VXAcbwNQ7KM4_3wX4gD2RyywRuGRO0WcBtnDnGH8eoJWdPi949YQewHKIeJXifytrGS8HP80kkhFvSAXJ9dYwfQR-BKST2biXqujc3CLWtr5BnQw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7IUJsMtiGhIsjPRivT8fm6FaqqkqhkyTmFZ6XiITlgV88-7yyLBV5D8SWGcn5vawd3v-Cy6CbOvB28Gsz1vFJiZJmo6OcVqAhmTgOAFR8rCZP6lFeymGaDp1hdyqFDzDJwfgTJCQP6UXKhIPQD0mwKMzzxb-8-sPB7AJQgZ5zBbx4wQEtXUQLbbJVzm1hzlFIWAbT4NqPPQ4sTkCnyPOnG0um4r0NpVXs3O57psUsDZqCcukwZL7FPXEs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6MA2hGhPYvrIznEL34etJoSAcJbzUaIga19t5jSpJxLg-_qfCxJQ_baeF_aPRRb0qrB8rSxZph3PrjAdPHwJNmSqqYSAH5Rw79BkPJBP05o1sDAGBHZYL0YH6RativnOwPKVXsI8yvb4aHmhuEBzKxVmXh-fAUo7ctV0oHJiZEipGc_GB5oKRdxOsyTk6pSKk9wDsRommmfzXnez1lAquAMS_1jgQRSnGl7mOTwjAgGFJbpSjFKIpY4oc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR67O22Pedzkzef2x9Y_s8sm6hsm6OMKmKukgW-dEmypnyxALxDpbw4H0I9JMp1WZIa2bRE9iU3dzfsB6YP7QYKZNYQhnZX51JFU4EZNlA0zcjRTdJdF-bnl9htEzZVkED_AGuWWQQuyBik-H5rTwbwIRS9CwoXPxMOo1_aWYzg5sPNTxz5FJwJZwZIgQ4O0H3-lvrtLbnn_yQaEZct0-QVBEKL21oX8fn5GD0fFMRom7JuwM6mTAYCfg64%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5zGEUOaJ7g9r8u6MWX1JasHT5YgjBX3j10Qt7xr2g_ccG9Hm0_Cugmlc-kJxQbAbc5latbmZcBRdZt9K5QzsxEGkw2GuUfWIYlGnps5gu1jCf1_q7WqN99rNjjcjzbZTrOP34WoFgoKMl4CRrnOOMyGHZ_c9YI97JNwEgjcTMt-ReLarzIKLRMzTNRqUy2Wz0RSLu7leupBP5FCGQzmBir0gBO6XV69Y96KfqzGyNcI_PM8dqmvEJHrUg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR54kW7_tf7F_GSBTAYet6Efhzevj-7zvJlASxjPe24CjM0BQa6AE0whbXyAwNh8lXymyuC316Cj4QwiZ8W2j3tUsWGn_2q0CGUr7tKbIVt4On63XHXbVlbsQPclhh3_-P9sUghO-TuPEl1SMAV3TkmapMAnWBhI-m-XjhKHJn4b75xo1HD0iqgdNtz3nOHeNrr9UwGrBoFIRKXAqt8Oaj2-cANXGh_d5-dmD74oIX10ONg-XKYK06vG5Oo%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -224439,7 +224439,7 @@
             "日向坂46",
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
-          "name": "角川大映スタジオ",
+          "name": "角川大映スタジオ(6)",
           "group": "日向坂46"
         },
         "classification": {
@@ -232123,6 +232123,218 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "中国料理 もみぢ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.3268357,
+          43.0590978
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:730badc9eff07e832202",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:730badc9eff07e832202",
+        "name": "蕎麦 心空",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "蕎麦 心空",
+        "sceneNote": "2026.09.25 O.A.の「発見！タカトシランド」で松田好花が訪れたお蕎麦屋さん。自ら蕎麦を打つ。https://tver.jp/episodes/ep8xzk13rm",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "蕎麦 心空",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.7818364,
+          35.0529097
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53d467df0d85e82ba8ff",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:53d467df0d85e82ba8ff",
+        "name": "名古屋競馬場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "名古屋競馬場",
+        "sceneNote": "2026.09.26 O.A 「大須テレビ」#7で山下葉留花がダートコースを激走した競馬場。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "名古屋競馬場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          137.0283993,
+          35.1952805
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e36389a0b8e7a817a572",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e36389a0b8e7a817a572",
+        "name": "カプサイメン 名古屋守山店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "カプサイメン 名古屋守山店",
+        "sceneNote": "2026.09.26 O.A 「大須テレビ」#7で山下葉留花が激辛に挑戦したお店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "カプサイメン 名古屋守山店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          137.1675709,
+          35.0691863
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:dcb23af5d34b591f24f2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:dcb23af5d34b591f24f2",
+        "name": "豊田市消防本部",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "豊田市消防本部",
+        "sceneNote": "2026.09.26 O.A 「大須テレビ」#7で山下葉留花が職場見学をした消防署。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "豊田市消防本部",
           "group": "日向坂46"
         },
         "classification": {
