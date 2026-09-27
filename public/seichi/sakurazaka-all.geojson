@@ -83420,6 +83420,68 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6476391,
+          35.6037425
+        ]
+      },
+      "properties": {
+        "id": "msg-260927-todoroki-fudoson",
+        "name": "等々力不動尊（瀧轟山明王院）",
+        "category": "番組・イベント",
+        "subcategory": "TALK ABOUT",
+        "categoryColor": "#2563eb",
+        "address": "東京都世田谷区等々力1-22-47",
+        "sceneTitle": "TALK ABOUT 紹介地 / 等々力不動尊",
+        "sceneNote": "TBSラジオ「TALK ABOUT」（2026-04-25、松田里奈・山川宇衣出演）で紹介された場所。山川宇衣が2026年9月に参拝し、絵馬「大切な人たちと笑顔で幸せにすごせますように」（落款：うい 2026.9.2）を奉納。",
+        "sourceLabel": "TBSラジオ「TALK ABOUT」",
+        "sourceUrl": "https://www.tbsradio.jp/talkabout/",
+        "referenceUrl": "https://www.tbsradio.jp/talkabout/",
+        "tags": [
+          "山川宇衣",
+          "TALK ABOUT",
+          "等々力不動尊",
+          "世田谷",
+          "等々力渓谷",
+          "絵馬",
+          "神社"
+        ],
+        "images": [
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/seichi/yamakawa-ui/todoroki-fudoson/01_original.png"
+        ],
+        "members": [
+          "山川宇衣"
+        ],
+        "source": {
+          "group": "櫻坂46",
+          "provider": "TBSラジオ「TALK ABOUT」",
+          "url": "https://www.tbsradio.jp/talkabout/",
+          "mapId": "",
+          "layer": "番組・イベント",
+          "tags": [
+            "山川宇衣",
+            "TALK ABOUT"
+          ],
+          "name": "等々力不動尊（瀧轟山明王院）"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "TALK ABOUT",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "sourceKey": "msg-260927-todoroki-fudoson"
+      }
     }
   ]
 }

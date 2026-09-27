@@ -6355,6 +6355,87 @@
           ]
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6476391,
+          35.6037425
+        ]
+      },
+      "properties": {
+        "id": "msg-260927-todoroki-fudoson",
+        "name": "等々力不動尊（瀧轟山明王院）",
+        "category": "Blog・MSG",
+        "subcategory": "ブログ写真・グリーティング",
+        "categoryColor": "#f59e0b",
+        "address": "東京都世田谷区等々力1-22-47",
+        "sceneTitle": "260927msg / 等々力不動尊の絵馬",
+        "sceneNote": "メッセージに添付された絵馬の写真。「大切な人たちと笑顔で幸せにすごせますように」と記し、落款は「うい 2026.9.2」。TBSラジオ「TALK ABOUT」（2026-04-25、松田里奈・山川宇衣出演）で紹介された行きたい場所の一つとして触れられていた等々力不動尊を実際に訪れたもの。",
+        "sourceLabel": "260927msg / user-provided",
+        "sourceUrl": "",
+        "referenceUrl": "https://www.tbsradio.jp/talkabout/",
+        "tags": [
+          "山川宇衣",
+          "MSG",
+          "260927msg",
+          "等々力不動尊",
+          "世田谷",
+          "等々力渓谷",
+          "絵馬",
+          "神社",
+          "TALK ABOUT"
+        ],
+        "images": [
+          "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/yamakawa-ui/manual/todoroki-fudoson/01_original.png"
+        ],
+        "members": [
+          "山川宇衣",
+          "MSG",
+          "260927msg",
+          "等々力不動尊",
+          "世田谷",
+          "等々力渓谷",
+          "絵馬",
+          "神社",
+          "TALK ABOUT"
+        ],
+        "source": {
+          "provider": "260927msg / user-provided",
+          "url": "https://www.tbsradio.jp/talkabout/",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "MSG",
+            "260927msg",
+            "等々力不動尊",
+            "世田谷",
+            "等々力渓谷",
+            "絵馬",
+            "神社",
+            "TALK ABOUT"
+          ],
+          "name": "等々力不動尊（瀧轟山明王院）"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "MSG"
+          ]
+        }
+      }
     }
   ]
 }
