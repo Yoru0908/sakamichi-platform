@@ -37,6 +37,8 @@ if ! flock -n 8; then
   exit 0
 fi
 
+# Alert once on the first failure and once on recovery (after the locks, so a skipped run is not a "success").
+trap 'python3 "$(dirname "${BASH_SOURCE[0]}")/job_alert.py" fumi "$?" "$LOG_FILE" || true' EXIT
 echo "[$(date -Is)] fumi sync started"
 vol1_percent=$(df -P /vol1 | awk 'NR==2 {gsub(/%/, "", $5); print $5}')
 if (( vol1_percent >= 85 )); then

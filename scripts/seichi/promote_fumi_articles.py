@@ -18,9 +18,13 @@ from typing import Any
 
 PREFIX = "fumi-article:"
 PROVIDER = "fumi Diary 2号店"
+# fumi's blog moved from blog.livedoor.jp/fumichen2 to fumichen2.livedoor.blog (old URLs 301 there) around
+# 2026-09-10; both forms are the same articles (ids come from the article number, so no duplicates).
 SOURCE_URL_PREFIXES = (
     "http://blog.livedoor.jp/fumichen2/archives/",
     "https://blog.livedoor.jp/fumichen2/archives/",
+    "http://fumichen2.livedoor.blog/archives/",
+    "https://fumichen2.livedoor.blog/archives/",
 )
 
 

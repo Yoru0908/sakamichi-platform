@@ -70,6 +70,21 @@ class PromoteFumiArticlesTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unmanaged"):
             self.promote([], [feature("youtube:one")])
 
+    def with_url(self, url):
+        f = feature("fumi-article:one")
+        f["properties"]["sourceUrl"] = url
+        return f
+
+    def test_accepts_new_livedoor_blog_domain(self):
+        # fumi's blog moved to fumichen2.livedoor.blog (~2026-09-10); the old check failed every run.
+        _, report = self.promote([], [self.with_url("https://fumichen2.livedoor.blog/archives/58503750.html")])
+        self.assertEqual(1, report["candidateFumiFeatures"])
+
+    def test_rejects_foreign_source_url(self):
+        for url in ("https://evil.livedoor.blog/archives/1.html", "https://fumichen2.livedoor.blog.evil.com/archives/1.html"):
+            with self.assertRaisesRegex(ValueError, "unexpected fumi source URL"):
+                self.promote([], [self.with_url(url)])
+
     def test_accepts_valid_overseas_coordinates(self):
         _, report = self.promote([], [feature("fumi-article:one", (121.519511, 25.054883))])
         self.assertEqual(1, report["candidateFumiFeatures"])
