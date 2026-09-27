@@ -6372,8 +6372,8 @@
         "subcategory": "ブログ写真・グリーティング",
         "categoryColor": "#f59e0b",
         "address": "東京都世田谷区等々力1-22-47",
-        "sceneTitle": "260927msg / 等々力不動尊の絵馬",
-        "sceneNote": "メッセージに添付された絵馬の写真。「大切な人たちと笑顔で幸せにすごせますように」と記し、落款は「うい 2026.9.2」。TBSラジオ「TALK ABOUT」（2026-04-25、松田里奈・山川宇衣出演）で紹介された行きたい場所の一つとして触れられていた等々力不動尊を実際に訪れたもの。",
+        "sceneTitle": "訪問済 / 260927msg 等々力渓谷と等々力不動尊",
+        "sceneNote": "全国ツアーが終わった頃（絵馬の落款 2026.9.2）に訪問。2026-09-27のメッセージで「ラジオで教えてもらったところ」として紹介：等々力渓谷でかき氷を食べ、少し登った先の等々力不動尊で絵馬（「大切な人たちと笑顔で幸せにすごせますように」）を書き、おみくじは大吉。TBSラジオ「TALK ABOUT」（2026-04-25、松田里奈・山川宇衣出演）で紹介された場所。",
         "sourceLabel": "260927msg / user-provided",
         "sourceUrl": "",
         "referenceUrl": "https://www.tbsradio.jp/talkabout/",
@@ -6386,7 +6386,10 @@
           "等々力渓谷",
           "絵馬",
           "神社",
-          "TALK ABOUT"
+          "TALK ABOUT",
+          "訪問済",
+          "かき氷",
+          "おみくじ"
         ],
         "images": [
           "https://pub-6d7574c4452b41519ab8adf1541d7f9e.r2.dev/yamakawa-ui/manual/todoroki-fudoson/01_original.png"
@@ -6400,7 +6403,10 @@
           "等々力渓谷",
           "絵馬",
           "神社",
-          "TALK ABOUT"
+          "TALK ABOUT",
+          "訪問済",
+          "かき氷",
+          "おみくじ"
         ],
         "source": {
           "provider": "260927msg / user-provided",
@@ -6416,7 +6422,10 @@
             "等々力渓谷",
             "絵馬",
             "神社",
-            "TALK ABOUT"
+            "TALK ABOUT",
+            "訪問済",
+            "かき氷",
+            "おみくじ"
           ],
           "name": "等々力不動尊（瀧轟山明王院）"
         },
@@ -6433,6 +6442,149 @@
           "projects": [],
           "contentTypes": [
             "MSG"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.789728,
+          35.64938
+        ]
+      },
+      "properties": {
+        "id": "talkabout-260425-teamlab-planets",
+        "name": "チームラボプラネッツ TOKYO DMM",
+        "category": "番組・テレビ",
+        "subcategory": "TALK ABOUT（ラジオ）",
+        "categoryColor": "#6d28d9",
+        "address": "東京都江東区豊洲6-1-16",
+        "sceneTitle": "行きたい場所 / TALK ABOUT 2026-04-25",
+        "sceneNote": "TBSラジオ「TALK ABOUT」（2026-04-25、松田里奈・山川宇衣出演）で、山川宇衣が行ってみたい場所として挙げたチームラボ。まだ訪問の記録はない「行きたい場所」。",
+        "sourceLabel": "TBSラジオ「TALK ABOUT」",
+        "sourceUrl": "https://www.tbsradio.jp/talkabout/",
+        "referenceUrl": "https://www.teamlab.art/jp/e/planets/",
+        "tags": [
+          "山川宇衣",
+          "TALK ABOUT",
+          "ラジオ",
+          "行きたい場所",
+          "チームラボ",
+          "豊洲"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "TALK ABOUT",
+          "ラジオ",
+          "行きたい場所",
+          "チームラボ",
+          "豊洲"
+        ],
+        "source": {
+          "provider": "TBSラジオ「TALK ABOUT」",
+          "url": "https://www.tbsradio.jp/talkabout/",
+          "mapId": "",
+          "layer": "番組・テレビ",
+          "tags": [
+            "山川宇衣",
+            "TALK ABOUT",
+            "ラジオ",
+            "行きたい場所",
+            "チームラボ",
+            "豊洲"
+          ],
+          "name": "チームラボプラネッツ TOKYO DMM"
+        },
+        "classification": {
+          "category": "番組・テレビ",
+          "subcategory": "TALK ABOUT（ラジオ）",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "ラジオ番組"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7759676,
+          35.7190448
+        ]
+      },
+      "properties": {
+        "id": "talkabout-260425-tokyo-national-museum",
+        "name": "東京国立博物館",
+        "category": "番組・テレビ",
+        "subcategory": "TALK ABOUT（ラジオ）",
+        "categoryColor": "#6d28d9",
+        "address": "東京都台東区上野公園13-9",
+        "sceneTitle": "訪問済 / TALK ABOUT 2026-04-25",
+        "sceneNote": "TBSラジオ「TALK ABOUT」（2026-04-25、松田里奈・山川宇衣出演）で、山川宇衣が訪れたことがあると話した上野の博物館。",
+        "sourceLabel": "TBSラジオ「TALK ABOUT」",
+        "sourceUrl": "https://www.tbsradio.jp/talkabout/",
+        "referenceUrl": "https://www.tnm.jp/",
+        "tags": [
+          "山川宇衣",
+          "TALK ABOUT",
+          "ラジオ",
+          "訪問済",
+          "上野",
+          "博物館",
+          "トーハク"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "TALK ABOUT",
+          "ラジオ",
+          "訪問済",
+          "上野",
+          "博物館",
+          "トーハク"
+        ],
+        "source": {
+          "provider": "TBSラジオ「TALK ABOUT」",
+          "url": "https://www.tbsradio.jp/talkabout/",
+          "mapId": "",
+          "layer": "番組・テレビ",
+          "tags": [
+            "山川宇衣",
+            "TALK ABOUT",
+            "ラジオ",
+            "訪問済",
+            "上野",
+            "博物館",
+            "トーハク"
+          ],
+          "name": "東京国立博物館"
+        },
+        "classification": {
+          "category": "番組・テレビ",
+          "subcategory": "TALK ABOUT（ラジオ）",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "ラジオ番組"
           ]
         }
       }
