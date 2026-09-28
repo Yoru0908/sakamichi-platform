@@ -1,4 +1,4 @@
-import { API_CONFIG } from './constants';
+import { API_CONFIG } from './constants.ts';
 
 // ── Types ──
 export interface AuthUser {

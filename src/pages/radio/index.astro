@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { Radio, Play, Clock, Calendar, Archive, Headphones, Disc3, ChevronDown } from 'lucide-astro';
+import { Radio, Play, Clock, Calendar, Archive, Headphones, Disc3, ChevronDown, Download } from 'lucide-astro';
 import SakumimiArchive from '@/components/radio/SakumimiArchive';
 import FourthLiveRadioArchive from '@/components/radio/FourthLiveRadioArchive';
 import LiveRadioPlayer from '@/components/radio/LiveRadioPlayer';
 import RecordingArchive from '@/components/radio/RecordingArchive';
 import RadikoPlayer from '@/components/radio/RadikoPlayer';
+import TimefreeDownloader from '@/components/radio/TimefreeDownloader';
 import GeoPassGate from '@/components/shared/GeoPassGate';
 
 const tabs = [
@@ -14,6 +15,7 @@ const tabs = [
   { id: 'sakumimi', label: 'さくみみ', icon: 'headphones' },
   { id: 'fourthlive', label: '四期生LIVE', icon: 'headphones' },
   { id: 'radiko', label: '日本電台', icon: 'disc' },
+  { id: 'download', label: '广播下载', icon: 'download' },
 ];
 ---
 
@@ -67,6 +69,7 @@ const tabs = [
           {tab.icon === 'archive' && <Archive size={13} />}
           {tab.icon === 'headphones' && <Headphones size={13} />}
           {tab.icon === 'disc' && <Disc3 size={13} />}
+          {tab.icon === 'download' && <Download size={13} />}
           {tab.label}
         </button>
       ))}
@@ -106,6 +109,11 @@ const tabs = [
     <!-- Tab: 日本電台 -->
     <div id="tab-radiko" class="radio-tab-content hidden">
       <RadikoPlayer client:visible />
+    </div>
+
+    <!-- Tab: 广播下载 -->
+    <div id="tab-download" class="radio-tab-content hidden">
+      <TimefreeDownloader client:visible />
     </div>
   </div>
 
