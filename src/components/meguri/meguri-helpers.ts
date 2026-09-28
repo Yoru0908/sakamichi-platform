@@ -18,6 +18,7 @@ export type DashboardEntryLike = EntryLike & Partial<Pick<
   | 'appliedTickets'
   | 'wonTickets'
   | 'paidTickets'
+  | 'lapsedTickets'
   | 'unitPriceYen'
   | 'spendYen'
   | 'signLots'
@@ -292,9 +293,10 @@ export function resolveMiguriEntrySpend(
           : 0
       ),
   );
+  // 失効的券没有付款，不计入金额。
   const countedTickets = entry.source === 'fortunemeets'
     ? wonTickets
-    : Math.max(0, entry.paidTickets || wonTickets);
+    : Math.max(0, (entry.paidTickets || wonTickets) - (entry.lapsedTickets || 0));
   if (entry.source === 'fortunemusic') {
     return {
       spendYen: countedTickets * 1200,
@@ -514,6 +516,7 @@ export function aggregateMiguriDashboard(
       entry.wonTickets || (entry.status === 'won' || entry.status === 'paid' ? entry.tickets : 0),
     )
   ), 0);
+  const totalLapsed = eligibleResults.reduce((sum, entry) => sum + Math.max(0, entry.lapsedTickets || 0), 0);
   const totalSpendYen = Array.from(categorySpend.values()).reduce((sum, value) => sum + value, 0);
   const memberBreakdown = buildBreakdown(memberTickets, memberSpend);
   const categoryBreakdown = buildBreakdown(categoryTickets, categorySpend);
@@ -548,6 +551,7 @@ export function aggregateMiguriDashboard(
     unpricedWonTickets,
     totalApplied,
     totalWon,
+    totalLapsed,
     winRate: totalApplied > 0 ? totalWon / totalApplied : 0,
     costPerWinYen: totalWon > 0 ? totalSpendYen / totalWon : 0,
     topMember: topMember
@@ -585,7 +589,7 @@ export function groupEntriesByDateAndSlot<T extends EntryLike>(entries: T[]) {
 
 type ReconciliableEntry = EntryLike & Partial<Pick<
   MiguriEntry,
-  'eventSlug' | 'source' | 'wonTickets'
+  'eventSlug' | 'source' | 'wonTickets' | 'lapsedTickets'
 >>;
 
 function reconciliationKey(entry: ReconciliableEntry) {
@@ -608,9 +612,9 @@ export function preferOfficialMusicEntries<T extends ReconciliableEntry>(entries
 export function prepareEntriesForCalendar<T extends ReconciliableEntry>(entries: T[]) {
   return preferOfficialMusicEntries(entries).flatMap((entry) => {
     if (entry.source !== 'fortunemusic') return [entry];
-    const wonTickets = Math.max(0, Number(entry.wonTickets || 0));
-    if (wonTickets === 0) return [];
-    return [{ ...entry, tickets: wonTickets } as T];
+    const heldTickets = Math.max(0, Number(entry.wonTickets || 0) - Number(entry.lapsedTickets || 0));
+    if (heldTickets === 0) return [];
+    return [{ ...entry, tickets: heldTickets } as T];
   });
 }
 

@@ -100,7 +100,7 @@ function chunk<T>(values: T[], size: number): T[][] {
 
 export function normalizeImportRecord(input: unknown): NormalizedImportRecord | null {
   if (!input || typeof input !== 'object') return null;
-  const raw = input as Record<string, unknown>;
+  let raw = input as Record<string, unknown>;
 
   if (!MIGURI_IMPORT_SOURCES.includes(raw.source as MiguriImportSource)) return null;
   const source = raw.source as MiguriImportSource;
@@ -122,11 +122,11 @@ export function normalizeImportRecord(input: unknown): NormalizedImportRecord | 
   if (!Number.isInteger(slot) || slot < 0 || slot > MAX_SLOT) return null;
 
   const appliedTickets = normalizeCount(raw.appliedTickets);
-  const wonTickets = normalizeCount(raw.wonTickets);
+  let wonTickets = normalizeCount(raw.wonTickets);
   const paidTickets = normalizeCount(raw.paidTickets);
   const signLots = normalizeCount(raw.signLots ?? 0);
   const unitPriceYen = normalizeMoney(raw.unitPriceYen ?? 0, MAX_UNIT_PRICE_YEN);
-  const spendYen = normalizeMoney(raw.spendYen ?? 0, MAX_SPEND_YEN);
+  let spendYen = normalizeMoney(raw.spendYen ?? 0, MAX_SPEND_YEN);
   if (
     appliedTickets === null
     || wonTickets === null
@@ -135,6 +135,17 @@ export function normalizeImportRecord(input: unknown): NormalizedImportRecord | 
     || unitPriceYen === null
     || spendYen === null
   ) return null;
+
+  // 失効 page (unpaid wins dropped): the extension sends wonTickets=0 for the whole page, but lotteryWon is the
+  // count still shown. Use it; the upsert then compares with the saved lottery result (see LAPSED_SQL).
+  if (source === 'fortunemusic' && raw.lotteryReviewRequired === true) {
+    const shown = normalizeCount(raw.lotteryWon);
+    if (shown !== null && shown <= appliedTickets) {
+      wonTickets = shown;
+      spendYen = shown * unitPriceYen;
+      raw = { ...raw, resultStatus: shown > 0 ? 'won' : 'lost' };
+    }
+  }
 
   const category = MIGURI_IMPORT_CATEGORIES.includes(raw.category as MiguriImportCategory)
     ? (raw.category as MiguriImportCategory)
@@ -340,7 +351,7 @@ async function loadImportedEntries(
     const rows = await env.MIGURI_DB.prepare(`
       SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.status,
              e.source, e.source_key, e.category, e.venue,
-             e.applied_tickets, e.won_tickets, e.paid_tickets,
+             e.applied_tickets, e.won_tickets, e.paid_tickets, e.lapsed_tickets,
              e.unit_price_yen, e.spend_yen, e.sign_lots,
              e.application_round, e.source_synced_at,
              COALESCE(m.title, e.import_title) AS event_title,
@@ -375,6 +386,7 @@ async function loadImportedEntries(
       appliedTickets: row.applied_tickets,
       wonTickets: row.won_tickets,
       paidTickets: row.paid_tickets,
+      lapsedTickets: row.lapsed_tickets ?? 0,
       unitPriceYen: row.unit_price_yen ?? 0,
       spendYen: row.spend_yen ?? 0,
       signLots: row.sign_lots ?? 0,
@@ -384,6 +396,46 @@ async function loadImportedEntries(
   }
   return entries;
 }
+
+// 失効: the official Music history drops unpaid wins, so re-reading the same application shows fewer won
+// tickets with the same applied count (a lottery result never shrinks). Keep won_tickets (the lottery result used
+// by 当選率) and record the difference as lapsed_tickets; held = won - lapsed. SQLite evaluates every SET
+// expression against the old row, so the CASEs all see the saved values.
+const LAPSED_SQL = `excluded.source = 'fortunemusic'
+      AND excluded.applied_tickets = miguri_user_entries.applied_tickets
+      AND excluded.won_tickets < miguri_user_entries.won_tickets`;
+export const UPSERT_ENTRY_SQL = `
+    INSERT INTO miguri_user_entries (
+      id, user_id, event_slug, member_name, event_date, slot_number, tickets, status,
+      source, source_key, category, venue, import_title, import_group,
+      applied_tickets, won_tickets, paid_tickets,
+      unit_price_yen, spend_yen, sign_lots, application_round, source_synced_at
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ON CONFLICT(user_id, source_key) WHERE source_key IS NOT NULL DO UPDATE SET
+      event_slug = excluded.event_slug,
+      member_name = excluded.member_name,
+      event_date = excluded.event_date,
+      slot_number = excluded.slot_number,
+      tickets = CASE WHEN ${LAPSED_SQL} THEN miguri_user_entries.tickets ELSE excluded.tickets END,
+      status = CASE WHEN ${LAPSED_SQL} THEN miguri_user_entries.status ELSE excluded.status END,
+      source = excluded.source,
+      category = excluded.category,
+      venue = excluded.venue,
+      import_title = excluded.import_title,
+      import_group = excluded.import_group,
+      applied_tickets = excluded.applied_tickets,
+      won_tickets = CASE WHEN ${LAPSED_SQL} THEN miguri_user_entries.won_tickets ELSE excluded.won_tickets END,
+      lapsed_tickets = CASE WHEN ${LAPSED_SQL} THEN miguri_user_entries.won_tickets - excluded.won_tickets ELSE 0 END,
+      paid_tickets = excluded.paid_tickets,
+      unit_price_yen = excluded.unit_price_yen,
+      spend_yen = excluded.spend_yen,
+      sign_lots = excluded.sign_lots,
+      application_round = excluded.application_round,
+      source_synced_at = excluded.source_synced_at,
+      updated_at = datetime('now')
+  `;
 
 export async function handleImportMiguriEntries(req: Request, env: Env): Promise<Response> {
   const userId = await getAuthUserId(req, env);
@@ -409,37 +461,7 @@ export async function handleImportMiguriEntries(req: Request, env: Env): Promise
   const existingKeys = await findExistingSourceKeys(env, userId, sourceKeys);
   const resolvedEventSlugs = await resolveImportEventSlugs(env, records);
 
-  const statements = records.map((record) => env.MIGURI_DB.prepare(`
-    INSERT INTO miguri_user_entries (
-      id, user_id, event_slug, member_name, event_date, slot_number, tickets, status,
-      source, source_key, category, venue, import_title, import_group,
-      applied_tickets, won_tickets, paid_tickets,
-      unit_price_yen, spend_yen, sign_lots, application_round, source_synced_at
-    )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    ON CONFLICT(user_id, source_key) WHERE source_key IS NOT NULL DO UPDATE SET
-      event_slug = excluded.event_slug,
-      member_name = excluded.member_name,
-      event_date = excluded.event_date,
-      slot_number = excluded.slot_number,
-      tickets = excluded.tickets,
-      status = excluded.status,
-      source = excluded.source,
-      category = excluded.category,
-      venue = excluded.venue,
-      import_title = excluded.import_title,
-      import_group = excluded.import_group,
-      applied_tickets = excluded.applied_tickets,
-      won_tickets = excluded.won_tickets,
-      paid_tickets = excluded.paid_tickets,
-      unit_price_yen = excluded.unit_price_yen,
-      spend_yen = excluded.spend_yen,
-      sign_lots = excluded.sign_lots,
-      application_round = excluded.application_round,
-      source_synced_at = excluded.source_synced_at,
-      updated_at = datetime('now')
-  `).bind(
+  const statements = records.map((record) => env.MIGURI_DB.prepare(UPSERT_ENTRY_SQL).bind(
     nanoid(),
     userId,
     resolvedEventSlugs.get(record.sourceKey) || '',

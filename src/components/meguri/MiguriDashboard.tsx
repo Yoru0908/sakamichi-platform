@@ -988,6 +988,11 @@ export default function MiguriDashboard({
                 <div className="mt-7 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
                   {dashboard.totalWon}
                 </div>
+                {dashboard.totalLapsed > 0 && (
+                  <div className="mt-1 text-xs text-[var(--text-tertiary)]">
+                    其中未付款失效 {dashboard.totalLapsed} 张
+                  </div>
+                )}
               </div>
             </div>
           </div>

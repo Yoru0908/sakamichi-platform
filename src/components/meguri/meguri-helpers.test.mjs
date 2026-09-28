@@ -694,3 +694,14 @@ test('countPendingDraftRecords sums slot counts across pending drafts', () => {
 
   assert.equal(total, 3);
 });
+
+test('失効 tickets keep 中签 and 中签率 but leave spend and calendar', async () => {
+  const { resolveMiguriEntrySpend, prepareEntriesForCalendar } = await import('./meguri-helpers.ts');
+  const entry = { id: 'x', eventSlug: 'e', member: '山川宇衣', date: '2026-10-18', slot: 1, tickets: 3, status: 'won', source: 'fortunemusic',
+    category: '個別ミーグリ', group: 'sakurazaka', appliedTickets: 5, wonTickets: 3, paidTickets: 0, lapsedTickets: 1, unitPriceYen: 1200, spendYen: 2400, signLots: 0 };
+  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 2400);
+  assert.equal(prepareEntriesForCalendar([entry])[0].tickets, 2);
+  assert.equal(prepareEntriesForCalendar([{ ...entry, lapsedTickets: 3 }]).length, 0);
+  const dashboard = aggregateMiguriDashboard([entry]);
+  assert.equal(dashboard.totalWon, 3); assert.equal(dashboard.totalLapsed, 1); assert.equal(dashboard.winRate, 3 / 5);
+});

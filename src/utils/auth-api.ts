@@ -99,6 +99,8 @@ export interface MiguriEntry {
   appliedTickets: number;
   wonTickets: number;
   paidTickets: number;
+  /** 失効：未付款而失效的中签张数；实际持有 = wonTickets - lapsedTickets */
+  lapsedTickets?: number;
   unitPriceYen: number;
   spendYen: number;
   signLots: number;
@@ -170,6 +172,8 @@ export interface MiguriImportRecord {
   appliedTickets: number;
   wonTickets: number;
   paidTickets: number;
+  /** 失効：未付款而失效的中签张数；实际持有 = wonTickets - lapsedTickets */
+  lapsedTickets?: number;
   unitPriceYen: number;
   spendYen: number;
   signLots: number;
