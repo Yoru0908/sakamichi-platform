@@ -3649,7 +3649,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "角川大映スタジオ(2)",
-        "sceneNote": "3rd ナゼー https://www.youtube.com/watch?v=H59N5gIuI34 10th am I ready 題名: 3rd",
+        "sceneNote": "3rd ナゼー https://www.youtube.com/watch?v=H59N5gIuI34 題名: 3rd",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -15299,6 +15299,112 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "バジル（スタジオバジル）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.525884,
+          35.6639708
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f06c9b3d29facf67a9d9",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f06c9b3d29facf67a9d9",
+        "name": "味の素スタジアム",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "味の素スタジアム",
+        "sceneNote": "16th『クリフハンガー』ジャケット写真 題名: 16thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "味の素スタジアム",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5498972,
+          35.6399388
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b299f6b34125e48edc17",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b299f6b34125e48edc17",
+        "name": "日活調布撮影所",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "日活調布撮影所",
+        "sceneNote": "アーティスト写真（個人・集合）、ジャケット写真の撮影でよく使われているスタジオ 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "日活調布撮影所",
           "group": "日向坂46"
         },
         "classification": {
@@ -234097,7 +234203,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "長池の碑（道標）",
-        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」に佐々木久美が登場した際のチェックポイント。",
+        "sceneNote": "佐々木久美(&オードリー春日さん)が出演した2025.06.24 O.A.「ザキヤマの街道歩き旅12」のチェックポイント。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -234105,7 +234211,9 @@
           "日向坂46",
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ttrAypvOzE4McADFXD5_GYMylxV514d8p8W95n522kB7KJpjw7e2oh9otabI_bUGD_hSpUfNUAA28oiHqtEs_Krw8csJ7k5-QgJYm01M6KfnqzyLX2G4C-4LDR6cqLZN_bq9NqjRpGooOBhnD7NHAlrvDTqWRV-143Ruy4uXSNmZEi282TzKhEM8fpzxjV9tGOIvEvc8WfL86X0Bfcop4raLpikEsM3BQWu4JGv04buwGVqt0PuSHs7Y%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -234150,7 +234258,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "麺屋たけ井 本店",
-        "sceneNote": "",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」に佐々木久美たちが朝からヘビーな食事をした長池発祥のつけ麺屋さん。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -234158,7 +234266,12 @@
           "日向坂46",
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6lPqMMKi974j0CHwXhTeL9j82wvWx2-zOk0e7ySHPqGWSkr71Rl3wA0pqeMZBeu9mowJPBdQ81buTbBh9-YsexCETPwsMiFIfIUSzJuzWDTU6dRzLK8W-WHPV7Ri3QXwKth7aogmrWthnG_e8sBHGJhaBKlf_hKyG1Y4knPnkl6JGosteGRrLCZE0v3rO94_65lQRLWA9IaurEIqXhTBnnB-67l-iP9BDBfO6ZunTRVPqRfS9SaefZMnE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Xfn_OdzeLhYLeJ_gAHgDXoA3rWGzond2NLbIrCaBt69mSJ2T9iK4Q_83zoRTJQ-TUehPX0nEduiApI5ra90yEJ8hKmVdi83FRz4Y8pwirp5OmC1-pg2XVj9rhklcUAdCHuB5BL4GT2arVDUKS-p1UntCEOGNNfqeuTahHg_A5OI8ZrfX_KRKmzgBfq1eg86ff0PDlgZPH0mDlOUF2VBp2KyXpWk_Si5DF3qs1YvwMk7UtMwnsJSfuPuI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6U1kA-dtEm5E2Z3G66Am11jWZcmIg53FY8_Yev2bvnkehUMN1h0XVJ73zy6CqbRyrVDOotU0gU2zVn7f_zANphHmhWWgTcZ6LxxhD8grB9oGfV6AB3dLZYIBuuNX2ZM8h2-Pcg1lr0rjitrUkLSYZDdIVdSAmlTTcVJc9WW5GGofe6EOir7HUcvcQP9YFR0T2-CsC6XiEAJtZx5doINGUWHi-w-f9Tpksb8jXgg0ApsrIeBpRdlSwYrBw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6nHtiWlYylrwOd1mff5boMmJ1z0plxLj_3cCbY8R6REMKBMLNK8lrG4fB8tLTdPmrjnf2Xo7flhtwlVin9XTlxwwHrd-ZU34mdFG7s50beIDxJ459ssZV-GP4YhIfvKY21gAmSF4Ws2lOaOb6Cq6VEXa5I4KsTDHgoPutsZTX712k0kBB673OzcnAM3dYYFctAJPeC6-PxaCrdcLvpPuCAHQlaofOfIe8VBwVYTNhCbTf_atqxSO4RPx8%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
