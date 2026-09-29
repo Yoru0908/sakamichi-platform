@@ -21008,7 +21008,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "龍之介の松",
-        "sceneNote": "WKT: 18thシングル 説明: 18thシングルヒット祈願で正源司陽子と清水理央が再開した場所",
+        "sceneNote": "WKT: 18thシングル 説明: 18thシングルヒット祈願で正源司陽子と清水理央が再会した場所。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -36676,6 +36676,112 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          129.0597911,
+          32.8416241
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3b691d3c679af6fd7b79",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3b691d3c679af6fd7b79",
+        "name": "ゆうちょ銀行ATM 奈良尾郵便局",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ゆうちょ銀行ATM 奈良尾郵便局",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で、長濱ねるが「五島のお母さん」と慕う女性と抱擁しているカットの撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "ゆうちょ銀行ATM 奈良尾郵便局",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.0598242,
+          32.8414883
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f47098c71c2fca569674",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f47098c71c2fca569674",
+        "name": "リカーズ三蔵",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "リカーズ三蔵",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で長濱ねるが訪れた奈良尾の雑貨屋さん。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "リカーズ三蔵",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           129.0681178,
           32.8635588
         ]
@@ -37757,7 +37863,10 @@
           "写真集関連"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6d4JIb1siDyGiOvFMFM8yC3zGr6MH9sTG5y0wYhbzepP7hBgRfDfXyQbkoR76rb_qqxiF6v2AVCmJK1aoBSMKx1KP-eOZmKxxomXMntqOfrDNkNn5QyorkFCANwR1l3eczs5272YcFk_K9THigqi7Va4Q44mJIA4SmeIdrtlmmms_n8XRvTRx4kX-_e9foCf_YoiTMWhBJc74JE2Z34U6_62h7Zh1RknVP_DtTyDd_Vr_eb8IXFm5-1no%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6d4JIb1siDyGiOvFMFM8yC3zGr6MH9sTG5y0wYhbzepP7hBgRfDfXyQbkoR76rb_qqxiF6v2AVCmJK1aoBSMKx1KP-eOZmKxxomXMntqOfrDNkNn5QyorkFCANwR1l3eczs5272YcFk_K9THigqi7Va4Q44mJIA4SmeIdrtlmmms_n8XRvTRx4kX-_e9foCf_YoiTMWhBJc74JE2Z34U6_62h7Zh1RknVP_DtTyDd_Vr_eb8IXFm5-1no%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7GkF45tbMj7i4vLibYf_an-gkZhmYxX6srVudjLQLouBssqlbwB92hwlGuLrIq5OzFKNHsOkFujIdrdBEXV61iTym1rCNzJh6qTI4JW4Zoe5QstgnVpPMJ_yz7hdWBCqgzhD0Kf1kEWpi1XnZXsA4QoywYAY712WcbKXEmqnweKYO1eHIMnOYed0E3wZK-Nb9C_aMdsubZS0rsXVEWPkCWbRE0CDmPpajJIdajZcv1mSfOhdbAq83K0p0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6050NAdRDz3th6oRwEujnN9SCnnswC8IfrbJCiZyduJ2B9n-64ej0k4XuKvNlyn0rO-S4oRViSwHSYqV3HNC71OUlFpg2K8eKsRi1H--Id01uq7XrSaPkkUxD7GURRHHHvaJqnPtBbgluLzZ0_2GA0q6DtrPUIaohJmaFrmuNIn_Fyi8OEOF_Yd0U9fsPHZ_SxNmgOx5PS65nz7nGL3yevuEWYI0R_3H0kgb_nYvacQH3MmkKiDuSTo5k%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7CJvBF6Dwz_vS86D4J7V-csCaDXFsOnYVchE1yikg4azNjdfclznzR_l-FMg31QDfLNkYWPJO28GMNkfY1BOHQGqvBRA0B37fMwTRZ8-jEEa6LQ52l8kfxo5j493Qy4FEvUnX87-FTwAgHs4Tm_AAL8WuId27RnRUL3b91X6QHx2wWtmnUCKyvcLiYa6X-rJQP-9jCZe_egBaX8XWdYs7TN7-mCnrEBS99u3tmSu53eKPDmwmWtNxo-ZM%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -61636,112 +61745,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          129.0597911,
-          32.8416241
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3b691d3c679af6fd7b79",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3b691d3c679af6fd7b79",
-        "name": "ゆうちょ銀行ATM 奈良尾郵便局",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "ゆうちょ銀行ATM 奈良尾郵便局",
-        "sceneNote": "長濱ねる1st.写真集「ここから」で、長濱ねるが「五島のお母さん」と慕う女性と抱擁しているカットの撮影場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "ゆうちょ銀行ATM 奈良尾郵便局",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          129.0598242,
-          32.8414883
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f47098c71c2fca569674",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f47098c71c2fca569674",
-        "name": "リカーズ三蔵",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "リカーズ三蔵",
-        "sceneNote": "長濱ねる1st.写真集「ここから」で長濱ねるが訪れた奈良尾の雑貨屋さん。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "リカーズ三蔵",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           129.8763613,
           32.7438734
         ]
@@ -61987,6 +61990,112 @@
             "写真集関連"
           ],
           "name": "(旧)ならお商店街看板",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.0616344,
+          32.8392077
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8cb117df080649741c97",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8cb117df080649741c97",
+        "name": "五島列島中通島 奈良尾-江川橋",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "五島列島中通島 奈良尾-江川橋",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で制服姿の長濱ねるが自転車に乗っているカットの撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "五島列島中通島 奈良尾-江川橋",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.0615983,
+          32.8396257
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d8fd60320721feb762c9",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d8fd60320721feb762c9",
+        "name": "奈良尾支所商工会館付近",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "奈良尾支所商工会館付近",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で制服姿の長濱ねるが自転車を押して振り向いているカットの撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "奈良尾支所商工会館付近",
           "group": "日向坂46"
         },
         "classification": {
@@ -141088,7 +141197,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "名古屋港水族館(2)",
-        "sceneNote": "2026年夏に山下留花が訪れた水族館。 題名:",
+        "sceneNote": "2026年夏に山下葉留花が訪れた水族館。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -141857,13 +141966,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          136.86717,
+          136.8671606,
           34.9639393
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:585fcb3dcc602de9b028",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:585fcb3dcc602de9b028",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:23a978e6c291f2279380",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:23a978e6c291f2279380",
         "name": "SoN DINING",
         "category": "メンバーブログ・SNS・その他",
         "subcategory": "メンバーブログ・SNS・その他",
@@ -141879,10 +141988,10 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6hs5f15PF0YQYfRI0JA6nac_FSkr-l4SzVomFKsEY0muz-fMtR6HgRq8q0q_jHzmvk9EV_BSfBkRaoiRe4q9tRxXIcqGwGWKlVytqimB1cA01QCNkTYQiK3RNzwy80EKmrGK1Q5-RdRsfkED-tekY4Co1sqc35TthitX5OcxxU-ebn3to5D49UBYXCgss2v3wvALmKNs2rLlgoLx5LW3GsXgmNh4eIOlt8LMZvtJA-Xuik_v4Ag9XF4Rw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5poEPLShC36t_Th1iUXsMTRUate9UOi6sWy_jHtECcCUAFX61hnfuyNvf3Cyn5rDPco-5PtA8Dx5khyK9V7l2jiQ14n3OxrKd3TffKP15HzPitc4UTeYUI-soCnzGu_bGlVYbBPEh39PA4FESHMr7Isz2qDjqP2_zsaoOWvVCFiN0Mm73_rSBrpusyHMjWIHELxEAruyn2AzzMpntNJ0nkOPNCqLukZoNE7yvZCzTcd3DA42Xrd22ZTgE%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR59FQ_SxXmoHMhv4aDCADu1XbAuTECwS9QEpgQ9f90sjT3DTj3OphA2ZrxCi3fq45CaWcZDmFWsVOp3q5XgFHAZT1wqqiB9cflYd8Vd5sjpJKOoaVtbGDt5BKuGSkkcYL9Oc5-8IXPFWhyDwoSoISpHMyiO4xdgzeOa9z4LtsryLuVtyzRApV4hNrOXc3UVebmaZrj7U_abapUG0BiaSiwRBvxqZWNaUtEQYFp7lSLKJnjgQKly1fmmf8g%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57oAm4UtyLNWGjVbuifg1tLNUnc6tYGW2ukTJIMN2--bByK3pSHAllkxyjh311NXY24J8pIVnHVUj2j_LDykuZrfKgg4eeJF4TMtOSUZPZAPmRvQYGRy2oWLW4FQiROBS4abKGr0iwAS_xQ2Mig5-mgerEQkMhs0BYzx4wBFJUF7aRs1UyxTY-DJu-Bu05pZbQtJz6T2_KuV4FUEslKOZcSvlq02nUFgbRidrFqJITpsVnSBFRsvKv8nA%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7sivS1t83VgRd8Yjzno4Cs7LHApivCyLaEcnRz9gpeQ-A4USdu9FVucfY9LwOQKizx313warDLes_LpWXtBBLuq5PCYXhhUxucTAg4oIwrcdJYrIUy-LIC8uis9qhazadxDrJCwH1LlZEJthAckNgRGBxBRsS_2j45YsomzYNlNKkqyMEY_6t28bHWZvttt1CinnIZc_qN0QfohMr6_uogdsGEsVUXNOkRcFM-qE6HprL_ti5xyN10AdU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR44cmownEm9lEWlrJjOzdf8DrnK_9vFjbH9uZZDTFtQaVz-AL1deCCDJDeLm88PFAjSjXGVG7yiC6k6i2j5X9SyyNX6POFDfX6FbR0M5zG0Jj9AFFw3Do0KpoIFPpHTuEIejX7kqL03sIa26fizVMLA0sm5ScizdrhPvsRejC4VCvgCcEq0rPM5-TfA4n_zViPgve3rCUt43zKuPV92b8F46aDQYe5G91rR5SblCIj_LNwvFMkdDfIR63I%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR62ItG7zMq0FNQTUZc-yEtDrw1_fySQD9eIPDqRiUt8lfH09zXc2ruhI3A-1Y8o6i1APmdvNiKxICP8aI6IV0suYuuy4NmI6TIJr6bsyeU8tfJFJlK0daY3cQ-qcPcLvVb_1MGMnUpCbKxG657LVkEbRuZYrQI_YowudOFhOAbGt9DdJE2LT25nbN7zk9L0gKmUvc5YblloHLS_qI1dDGq7UKxSQrWWBhIy9VJNeVPAPKgxlryKWOBLQh0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5KkMSsgXHNoFprmxEoyz_o-Pu9mHZHdnjlF6CyIUlMczs65-FOQvQj50vRAcn8OsI-ghAVsXz0WLgLC2QiRInpg1owRqbyH_ltdcrsU4YoaDi7-jqHg7gjbCUcfNlku-HDFeETvQX9lE1IIkuLoY0C_6tXr_Pu1eaWSJSSAGlPp0dIivmWzZUV9h-CUbG2Tue1czNThBeWcMpEXvFOWsptApPK7BrvTMjxw-SE9guPMEPyqsc48LPwTis%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -233936,7 +234045,14 @@
           "日向坂46",
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR65x5hkFpzCiewMIs2FhzAKZnPDRIS5s4WnD3k6V-SnFWD85mADjtZNRA2dnM1mA9MSsF0CLCMU8DqQTC7uJbnFntvIGKjGIgpiCse-9N9ttoJ6tZd9Icw1T3Cw-BuklUUkTarTrNek-d5Uuli-2CMplJbK7O2D8ORn88IoYw_VSrrVmcjmaxVGhgZKonSf9OlIYJMcbXQ9Ya_VRbPG6YWch6rMySXUJ5fXcNGYPPI50mrN_lREBJzO22Q%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5ohZ5OB6C4CIULoX6Y6gNu4bmRtkMeyQoyV-a0EjxMrC3B-e3RH4A1ei6YukM8WQ0f-FTCxzZsLhndnfZaHNLZxfjpkc4cNnBVbZgABCIv19lPvHJqySudNhPZwpduvGKl-JHTbvgStzs13Ut9TI0WgzEDFrNPKHz5IgIt026g3Tud21xMsKdnJTL_D4vEFWiWEh520XwsEoLNuMtkoMpdIZBlT-S_zokEIzIoQ6AC82RV31O64VU_BSk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4TzmrH_VZxRKVK9-YNa2ZfT56zFJFKF100zTGPC72Iz-pyV3AN_Djhge-4K6_O2m0_YkVP1HxrpEvA6vVahY3Tf7ch5vYiqsSChv_xmMOGNSIpjOaesLzvgSBaFgDSbQNUOWCSyZADeNlV4CB997yE9mpXbk8K6bb9hReQfeeSXg3YlOnLdEVAUw38Vk7Fm6vh52XKdlVDxnpnO72flErug1TiyFVW7pu4aH-FFhYUMoM7_tD6ixpGGJ8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5AX_B96-zJgCt9LsME3NpztQpBOModKhtpen4J04Pee0dyXjcmChdmWAQesgi4tdi5lifXNkA-pawZn-ahiCGUGkOYx78j_QICOMPAUweNpwI3vqb3Pfsz8JIikGFDb73FZtW-YMZ_-bf30zRUJSrtxqhfKdtYc7GfY7wRuwMvE_a92jUz4GCsfK4xdXppIlg1C3D9Wm0b_vfr1tHBZ6ApCc63opAP2yepVyu_WRnASNd2kmiSns7dRwk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7lENAxE4uTch-J8SEd-8ZPcWlgj2EDAYMngUd3UFXzbQXWqI2c6w1WYnGd30oj3Id-eDVEldtTv5jeNPfrilGiT5fbjITqWZCj817BESzrUUHYtyu1Ao9XLoBKNdCHtjui0YFAH6Nw9Xoc7GFmmqF6MJB3R7Z3zT2ce3dNyRC9bpeU4xSj40Fdx-giiobFAeHcvAOHMmHn2t90LhPpfNBp_t77W3CkNhsMPlMmwya70-Gtj-x3PEAGGK0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5epTOvNQaCUMB5gc7PuxiaTKBGL7o54O6AbmLnFSYULT50veUUQ48UN6u7_vv6nJoAlyaL6FonmrPCgfvASjUqRRd4AVoAp97NC83-_azZcLDrr9Emhe828-4mgqjm7a-Ukn-5CFzmrWNOZA4gPIhvdxV7og_E_lCWcxzkWDlnOdhcU52XNZl-edKEGaAu8jfA-nVvQtvRAirfuIad7mzfI9o_-hvGWz411Rb7R2dXKJZ_oZCDr6TzyK4%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -234001,6 +234117,59 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "長池の碑（道標）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7917943,
+          34.8355673
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0065823a5dc32283d75d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0065823a5dc32283d75d",
+        "name": "麺屋たけ井 本店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "麺屋たけ井 本店",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "麺屋たけ井 本店",
           "group": "日向坂46"
         },
         "classification": {
