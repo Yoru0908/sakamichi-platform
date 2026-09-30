@@ -62222,6 +62222,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          16.3684856,
+          48.2043482
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b053771120ad173c43f6",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b053771120ad173c43f6",
+        "name": "アルブレヒト大公騎馬像",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "アルブレヒト大公騎馬像",
+        "sceneNote": "金村美玖2nd写真集『機微』の撮影地https://www.instagram.com/p/Ddyj36NoNfy/?img_index=1",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5mKgOrRfPxIhCiLNjZbuwvqK6QtY7FruvQh8DYwRE4YEorsR6j2Lx80qGgviozU3A_hJ94oVbqdYtNk7JiyHi3ruvK2i7VTz5UYVArJI51yw-7YZCU6r6uo9VxFVwqYzFt3qvvokuAT-sChSKmq1NGm1j77Ecn--9utFwsSOr2YY41NbF2wpvWfwAe4J-uo2nYrCf9znyYE7PHcvo4LdXF3s-VFoJ9NpCfGHI8mkp3nujXpRza2M01cl8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7cN8BARZc39nCFBW4ztAh5KgZ9YK6CBeaOVx53mzkGKhZdCd32zHSSfy1LIysn-0RJ6GxdvGA8wpDlR4BsgENq37G1TVvPAG5KQN0Jk6o_rAuJgCjH_QlV-zCaZYC-d0jTTPXnuqduuD-aGHrIFtEGo4xn3oKelJ4PmGN2hxbRgMcgq3A8RqI1pKmvUk25ahVwYZTHe9Zgt63zZ8TS0RBCFre4hUTHdCxC_KTlf2drbUFzZ-exLsuXb1k%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "アルブレヒト大公騎馬像",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7353357,
           35.6725476
         ]
