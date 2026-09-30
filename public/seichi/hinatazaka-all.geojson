@@ -20730,7 +20730,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "琴浦橋",
-        "sceneNote": "WKT: 正源司陽子が「永遠の白泉」を歌ったはし。 説明:",
+        "sceneNote": "WKT: 正源司陽子が「永遠の白泉」を歌った橋 説明:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -142975,6 +142975,173 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          126.8856356,
+          26.3461106
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a2f0d4ed03c134c7f6f8",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a2f0d4ed03c134c7f6f8",
+        "name": "はての浜",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "はての浜",
+        "sceneNote": "加藤史帆が映画のロケで訪れた場所。https://www.instagram.com/p/Dds3VQVk8_6/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6HEOIOGKX0TLgesNCRk_plCuIUNwxDA6pbNIT-qqEmivLlHel5GcrE50WvlHi5dbxNMfxNLMxMdlUcIpPXCz4qzWrw6rt9RyEdICqpZDb6i8qhLnzxyNco2cr_FDxfVzIn8Z7q40p3pZNw8Np1G--hGn_6bLWNmU4FOGVdZerWeMlNt7T_5JE9tdle3EL5YF8KC3ByIc9qeHEKT4TFGUdURfQphMSR_IxFq2vhxvl4JmN6etNXG7uZ3K0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ZNYIG9FC2i02chnHq-vpI64-vBQtjOmD2QNCNTQWyBTxP9kSOoc_ofhWX174hNEiecpez32xrlR4F14B1OeAxxLgtHOmD1le3bsQeg2lmVZ-U2EsuiQAPjd2fqEkaiDUpzHl6DxICy4xqJZ_T5OjSJjJwN4hx6PQHHYAjYjnVKfGInfyvUe81Py4pmNwiTRge1iud0kPT0S0inkmEVFusbLC45AzCUOW2312v42oU9gFEtvzTna5E1qc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5ayALHdFYiBunvogzYEJUe-iRkIhw8905Y_kCNSPC1xCkjpqnuFw_HhQGSnSEFcFluroQWzxI85ZLG_zDmnlwiz6ggFQLiAnJGwICEfFJv80v5Auu3tqVYk_1JQqIjmLc7XiXXBn-IEs5e7RqzlWLaIN6lAdSYIAj6TCd5YnSOT8AoBe5NPtn-HjYMtFmp4eS3b0uG06j3p9fI6qSw3H6ur9aB5L3_4sXgNzYgYXfxPYIYO4R7_C3pKlo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "はての浜",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          137.5596961,
+          36.1771269
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:dac7ff50b4e41e15a8bb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:dac7ff50b4e41e15a8bb",
+        "name": "平湯大滝",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "平湯大滝",
+        "sceneNote": "加藤史帆が2026年の夏休みで訪れた場所。https://www.instagram.com/p/Dd3f0KAk1S2/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6_pKTwwIob-LQS4mNceLZz8Fnd8EFV2n_L4_n4CH866xpKXUm-jEpzeWUPZRSLhVIYDYpPY0lISyImgrroTsLH2-QR5q89MtKdBW1k3u9QOoMvx2yMe1LM56-zetRvQhFZhw7EH7kE_YDZlRFU2VgzwJGiR57qt6WkUrK0J2dPO9Z2tdCn0t4--cJV3E8pqLjAT0eHXVWUNfVZEusfpegScg3HcE0mycWwJ0CSlAQuYLHta93t8rOgDt8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "平湯大滝",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          137.5432924,
+          36.2195827
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f0fde5f17bf5982cb0cb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f0fde5f17bf5982cb0cb",
+        "name": "奥飛騨クマ牧場",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "奥飛騨クマ牧場",
+        "sceneNote": "加藤史帆が2026年の夏休みで訪れた場所。https://www.instagram.com/p/Dd3f0KAk1S2/?img_index=4 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR76YWk93aCm8_Gj7bshDsU62bGZUxjXcERt-G8jbirjCiFmV7XrwPVgIKpqXpELgvIIReGlDh1jQxh3AQsvVnM_NgLovFb-quj3r-5jZxsje0iP7aHwXTvoS2FUPJZPuoSaXdEiAo91ktOhHuHnTgMf6I6LMcDfFfsfal8fZiPUrnZoEbQdSr3rTtqudl2J6ui_wMbMteyUSXQAdmduIDmOajBLq0C_sq11KPeSnNT0ikIvBM2D3rNNDnE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "奥飛騨クマ牧場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
@@ -234258,7 +234425,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "麺屋たけ井 本店",
-        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」に佐々木久美たちが朝からヘビーな食事をした長池発祥のつけ麺屋さん。",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちが朝からヘビーな食事をした長池発祥のつけ麺屋さん。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -234283,6 +234450,63 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "麺屋たけ井 本店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.3494399,
+          43.0562618
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9e190728251a74006675",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9e190728251a74006675",
+        "name": "狸小路市場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "狸小路市場",
+        "sceneNote": "2026.09.25 O.A.の「発見！タカトシランド」で松田好花が訪れた場所。https://www.instagram.com/p/DdtZ7obExyK/?img_index=1",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6NGqDpDvzNqqMRASin7apuSbfHB4pkNHXO-7vda3TxpsBAPwnIXNjX0V0ObXQfEz1--ken3gDdZ2S52FgIs-AiRbU5JVNEwolcWbBgwR0-6Eow0xNlaSewnqic-7GJlBCcfUZjkXzM9VQyQOFRtRG7CaQFR01dcluaTV_jAquyyFNjnaodI0iOgqKj8194X4iXzWWoXMFE56WY3fqCrEMApcArgYTxqUWki3w8Tao_9KSt9GVUraFGYME%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR54195LTXQ_TNHBmD0pm5BwoMBy_uHKHdZWrq9KItiKb7GpIT99_H1UnmXoqE_NYnmnOTXETCvirHQ5LnFsHFCarIU8YGiCuOd2olrJ1OHP0BmRUxnXxr3v8fdPlBFCSUwdWep03K_Ze-4r0VWGPdMSutTU6LnySQBNJ6byb6ykqYMpFG0CxjjuyVr-bp9elZwzfaykJv_QUWlKVtDTfklulWx9pFluVTDYAUJwBMHmFagOufllbK_-iZo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7BPNW5rT9RY6_ZwyS88TmpdCZSdt2PlVoZfWuyu8KJ1BEUVEatjHsqHLNu_TivDEz51QQsBVaoVvqziJ93Sp2OlqY7fgGl9ZRwgigX9UbzIW9wHtocuh3x8tAekhL1JIM-GgY6p6XFaILDyvcaNRN858pBx-igia8aNOZy1lIZHEmdG2chQt88alI-dCEHTR-0JytCSv2tZa9CQJzEDrATW1412RaC7nbQXhritrb923UxLdW1yv1etxc%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "狸小路市場",
           "group": "日向坂46"
         },
         "classification": {
