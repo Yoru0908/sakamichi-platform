@@ -6,61 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7049909,
-          35.6561898
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04aae69e3849c07ad387",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04aae69e3849c07ad387",
-        "name": "渋谷川",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "渋谷川",
-        "sceneNote": "欅坂46 1stシングル「サイレントマジョリティー」type C裏ジャケットの長濱ねる撮影場所。（type Cには「乗り遅れたバス」が収録されている。）https://www.keyakizaka46.com/s/k46o/discography/SRCL-9039?ima=0000 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6y7KZONTGYSvQGz2FWvPQiwIlLQQpZcMlSDTztN05zwYfWEQK-h_zHHszYIk76V7DUfX_v9MJYmh4UL7TmE5LFJLd8C9MjOvTEl0zWpyzBkj64TQJjSmWWdDVcC5TwGoMk1z63MbD8ZCUew5KZvli2PdcHbdCdqbfG-sR9Q67oMNj4N7I2DPINeuQX-JXpKWkQTe-TJS9DF2WyEQU3cjfRa2ZBXFDr8Wqm-F7snMNPKxRmh25Z_of-K98%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "渋谷川",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           138.9125261,
           35.3147135
         ]
@@ -599,6 +544,61 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "立飛リアルエステート南地区",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7049909,
+          35.6561898
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04aae69e3849c07ad387",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04aae69e3849c07ad387",
+        "name": "渋谷川",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "渋谷川",
+        "sceneNote": "欅坂46 1stシングル「サイレントマジョリティー」type C裏ジャケットの長濱ねる撮影場所。（type Cには「乗り遅れたバス」が収録されている。）https://www.keyakizaka46.com/s/k46o/discography/SRCL-9039?ima=0000 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6y7KZONTGYSvQGz2FWvPQiwIlLQQpZcMlSDTztN05zwYfWEQK-h_zHHszYIk76V7DUfX_v9MJYmh4UL7TmE5LFJLd8C9MjOvTEl0zWpyzBkj64TQJjSmWWdDVcC5TwGoMk1z63MbD8ZCUew5KZvli2PdcHbdCdqbfG-sR9Q67oMNj4N7I2DPINeuQX-JXpKWkQTe-TJS9DF2WyEQU3cjfRa2ZBXFDr8Wqm-F7snMNPKxRmh25Z_of-K98%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "渋谷川",
           "group": "日向坂46"
         },
         "classification": {
@@ -234804,6 +234804,65 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "麺屋たけ井 本店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7446322,
+          35.5957999
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:758f6dd8ab035c536d2f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:758f6dd8ab035c536d2f",
+        "name": "大井競馬場北門",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "大井競馬場北門",
+        "sceneNote": "松田好花が出演した2026.08.01 O.A.「サタプラ」のロケスタート地点。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR76H4dgif6uaQaA863hGx3__DT_h8yhhKyTbPjfikMaPWiNXl339iarCqAiRaq_g2dkYsJB555H0lQy7K7FatIUfIvBTGuODQbswY_Gox-T0Nx1ipDWRAphH-82jIrIYlnwtHmNCAkw9H1i3a9Akcf0dfULy40SH4GpKt33forzpMZahK7iYjkSLXYwpelJULTvkMxh5b8MRNT3BAL6Er6wHAzBtjJeljIUTelCeLpg5Hikr98872QacG0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5-3MwMI045mwKaClEaoB0CaVs-NYmPgHPlBf4UFwvbaYxzKVHRc3x_8MJUrjHUMdst8CwAzuuW7eHh6C_5-aBJV7LUwD9VsRmE7S28867UCnGB7X1EMm87PkevVgds69Y9lLPEBm9_wRDFiMSbR_VYwbNWm-eEaj-Nd3wI-kMLxZ820Sg32DQ3Z9r6YiBfrN6ai7C09qHCsI2zbxJLlfO1-jd3kdTGptedsNUWG36Gqi6pbZCy6HBslRI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5wSpuU2j1ieE9GFJSwyB5d-8mDJcr0eqKyEBxp5LdQxDWXMD-2Ho-C4QkBltIOQFWYwMuE3EPz75wc_yuypd9ORp-NCwF50xsIgmkXZqz3YNYE0NtgHKK6-NpvCAFCPqX6uGVCJ10DDz2-NzQ7gGpqUtJFNoo29JYoDZlB9m-5rgOvgXgY0YZDJGt-sNTNCPeRU2g_z5Vzo9WRQ-yLgqcDuzuX5Qtj0hE-mxW2z_dpu0LWHSKDvBQ0Jps%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6LKNc4BBRYTLLGtJFT5n-3NFO4sFqFRkWJVQbunRQeupMpXQ-keDxCGz2Sg5rhUgmeb-wb7bpvihe6SidHMmHT35VaalTTGH6V0Fe17ypY6YyBUrsfgSlNNkbuzYqHj1jJ3tepkSPU_-ChWDMV4HAvIdRg08IQ_AvF-p9XA5PQur6OUf24Gdb9dz6976sxjai7ETLB4TbYMPemenHlGbb4M5fkSArh9w9gohhBX9wln6xJPy9XpHgs_uw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7pL8Ha09r970WynALyk7tF6ndVfax51k_TZSN7DNo2ThBj8QztDMuTOqmrHfijH48-ofuAfUl6dzEC7_pgjA4CedfImw5eqUG4kVue0De98Cq1rD39jk4e4I1sAuGW3LVwcxjZ0gj2GVcdmEMz70_1TbXBAF3HL9qCFBqUbDsr08BqlLQczclgJK1DaloSJW6h24dLPpG752AG8rlTuhtS2dYBkZRFP2bklWawn-DqEbnZd0tj_qwCy8Y%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "大井競馬場北門",
           "group": "日向坂46"
         },
         "classification": {
