@@ -86,19 +86,23 @@ export function loadGenerationMap(candidatePaths) {
  *   generation: string;
  *   soldOutCount: number;
  *   totalCount: number;
+ *   deltaCount: number;
  *   fullSoldOutRound: number | null;
  *   cells: Map<string, number>;
+ *   slotKeys: Set<string> | null;
  * }} MemberInfo
  */
 
 /**
- * @param {{ dates: string[]; slotNumbers: number[]; members?: string[]; memberTotals?: Record<string, number>; cells: Array<{ member: string; date: string; slot: number; round: number }> }} data
+ * @param {{ dates: string[]; slotNumbers: number[]; members?: string[]; memberTotals?: Record<string, number>; memberSlotKeys?: Record<string, string[]>; cells: Array<{ member: string; date: string; slot: number; round: number }> }} data
  * @param {string} group
  * @param {Record<string, Record<string, string>>} generationMap
  */
 export function computeAnalysis(data, group, generationMap) {
   const groupGens = generationMap[group] || {};
   const memberTotals = data.memberTotals || {};
+  const memberSlotKeys = data.memberSlotKeys || {};
+  const slotKeysOf = (name) => (memberSlotKeys[name] ? new Set(memberSlotKeys[name]) : null);
   /** @type {Map<string, MemberInfo>} */
   const memberMap = new Map();
 
@@ -108,13 +112,16 @@ export function computeAnalysis(data, group, generationMap) {
       generation: groupGens[name] || '不明',
       soldOutCount: 0,
       totalCount: memberTotals[name] || 0,
+      deltaCount: 0,
       fullSoldOutRound: null,
       cells: new Map(),
+      slotKeys: slotKeysOf(name),
     });
   }
 
   // 安全起見：保证按 round asc 处理，cell 取首次完売 round
   const cellsAsc = [...data.cells].sort((a, b) => a.round - b.round);
+  const maxRound = Math.max(1, ...cellsAsc.map((c) => c.round));
   for (const cell of cellsAsc) {
     if (!memberMap.has(cell.member)) {
       memberMap.set(cell.member, {
@@ -122,19 +129,24 @@ export function computeAnalysis(data, group, generationMap) {
         generation: groupGens[cell.member] || '不明',
         soldOutCount: 0,
         totalCount: memberTotals[cell.member] || 0,
+        deltaCount: 0,
         fullSoldOutRound: null,
         cells: new Map(),
+        slotKeys: slotKeysOf(cell.member),
       });
     }
     const m = memberMap.get(cell.member);
     const key = `${cell.date}::${cell.slot}`;
     if (!m.cells.has(key)) m.cells.set(key, cell.round);
+    if (cell.round === maxRound) m.deltaCount++;
   }
 
   const gridSize = data.dates.length * data.slotNumbers.length;
   for (const member of memberMap.values()) {
     member.soldOutCount = member.cells.size;
-    if (member.soldOutCount > 0 && member.soldOutCount >= gridSize) {
+    // 部分参加メンバー的分母是实际可参加枠（totalCount），不是全盘 gridSize
+    const denominator = member.totalCount > 0 ? member.totalCount : gridSize;
+    if (member.soldOutCount > 0 && member.soldOutCount >= denominator) {
       member.fullSoldOutRound = Math.max(...member.cells.values());
     }
   }
@@ -142,7 +154,7 @@ export function computeAnalysis(data, group, generationMap) {
   const members = [...memberMap.values()];
   const totalSoldOut = members.reduce((s, m) => s + m.soldOutCount, 0);
   const totalCells = members.reduce((s, m) => s + m.totalCount, 0);
-  const maxRound = Math.max(1, ...cellsAsc.map((c) => c.round));
+  const totalDelta = members.reduce((s, m) => s + m.deltaCount, 0);
 
   return {
     members,
@@ -151,6 +163,7 @@ export function computeAnalysis(data, group, generationMap) {
     gridSize,
     totalSoldOut,
     totalCells,
+    totalDelta,
     maxRound,
   };
 }
@@ -198,6 +211,7 @@ export function buildGenGroups(sortedMembers) {
         members: ms,
         soldOutCount: ms.reduce((s, m) => s + m.soldOutCount, 0),
         totalCount: ms.reduce((s, m) => s + m.totalCount, 0),
+        deltaCount: ms.reduce((s, m) => s + m.deltaCount, 0),
       };
     });
 }
