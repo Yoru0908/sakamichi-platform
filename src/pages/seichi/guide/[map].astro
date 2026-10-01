@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { readFileSync } from 'node:fs';
+export function getStaticPaths() {
+  const maps = [ ['sakurazaka','sakurazaka-all.geojson','櫻坂46'], ['hinatazaka','hinatazaka-all.geojson','日向坂46'], ['keyakizaka','keyakizaka-all.geojson','欅坂46'], ['keyaki-hiragana','keyaki-hiragana.geojson','けやき坂46'], ['yamakawa-ui','yamakawa-ui.geojson','山川宇衣'], ['oversea','oversea.geojson','櫻坂46 海外'], ['tokyo10sha','tokyo10sha.geojson','東京十社めぐり'], ['fumi-sakurazaka','fumi-sakurazaka.geojson','櫻坂46 fumi版'] ];
+  return maps.map(([map, file, name]) => {
+    const data = JSON.parse(readFileSync(`${process.cwd()}/public/seichi/${file}`, 'utf-8'));
+    return { params: { map }, props: { map, name, count: data.features.length, spots: data.features.slice(0, 30).map((f: any) => f.properties) } };
+  });
+}
+const { map, name, count, spots } = Astro.props;
+---
+<BaseLayout title={`${name} 聖地巡礼ガイド・ロケ地と出典｜46log`} description={`${name}の聖地巡礼マップの使い方と地点例。MV・番組・ブログなどの関連場所を出典付きで探し、Google Mapsで行き方を確認できます。`}>
+  <article class="mx-auto max-w-4xl px-4 py-10 text-[var(--text-primary)]">
+    <h1 class="text-3xl font-bold">{name} 聖地巡礼ガイド</h1>
+    <p class="mt-4 leading-relaxed">{name}に関連するMV・番組・ブログなどの場所を整理した非公式マップです。地図には{count.toLocaleString()}件の地点レコードがあり、同じ施設の複数場面を含む場合があります。各地点の説明と出典を確認して利用してください。</p>
+    <p class="mt-4"><a class="underline" href={`/seichi/${map}`}>インタラクティブマップを開く</a> · <a class="underline" href="/seichi">坂道 聖地巡礼マップ一覧</a></p>
+    <h2 class="mt-8 text-xl font-bold">Google Mapsで行き方を調べるには</h2><p class="mt-3 leading-relaxed">マップで作品・企画を絞り、地点を選んで詳細を開きます。Google Mapsへのリンクから目的地への経路を確認できます。Google My Mapsそのものではなく、出典を整理した独立の地図ビューアです。</p>
+    <h2 class="mt-8 text-xl font-bold">訪問前の確認</h2><p class="mt-3 leading-relaxed">出典の掲載時と現在では営業状況が異なる場合があります。訪問前に施設の公式案内で営業時間と立ち入り可否を確認し、住宅・学校・私有地への無断立ち入りや撮影は控えてください。地点情報は公式のロケ地認定を意味しません。</p>
+    {map === 'yamakawa-ui' && <p class="mt-4"><a class="underline" href="https://yamakawaui.com/seichi/guide">山川宇衣の仙台・松島など、全地点の場面と出典を見る</a></p>}
+    <h2 class="mt-8 text-xl font-bold">収録地点の例（先頭30件）</h2>
+    <ul class="mt-4 space-y-4">{spots.map((s: any) => <li class="rounded-xl border border-[var(--border-primary)] p-4"><h3 class="font-bold">{s.name || s.title}</h3>{s.sceneTitle && <p class="mt-2">{s.sceneTitle}</p>}{s.address && <p class="mt-2">所在地：{s.address}</p>}{s.sourceUrl && /^https?:\/\//.test(s.sourceUrl) && <p class="mt-2"><a class="underline" href={s.sourceUrl} target="_blank" rel="noopener">出典：{s.sourceLabel || '地点の参照元'}</a></p>}</li>)}</ul>
+  </article>
+</BaseLayout>

@@ -16,7 +16,7 @@ interface Props {
 }
 
 const {
-  title = 'Sakamichi Tools - 坂道系列综合工具平台',
+  title = '46log｜坂道博客翻译・日程・聖地巡礼マップ',
   description = '坂道系列综合粉丝平台 — 博客翻译、广播收听、创作工具',
   titleKey,
   descriptionKey,
@@ -26,18 +26,19 @@ const {
 } = Astro.props;
 
 const siteUrl = Astro.site || new URL('https://46log.com');
-const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', siteUrl);
+const privatePage = /^\/(auth|dashboard|user|instagram|video|messages|prototypes)(?:\/|$)/.test(Astro.url.pathname) || /^\/(repo|photocard)\/(create|user|work)(?:\/|$)/.test(Astro.url.pathname);
 const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toString();
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang={Astro.url.pathname.startsWith("/seichi") ? "ja" : "zh-CN"}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content={description} data-i18n-content={descriptionKey}>
   <meta name="theme-color" content="#742581">
-  <meta name="robots" content="noimageindex">
+  <meta name="robots" content={privatePage ? "noindex, follow, noimageindex" : "index, follow, noimageindex, max-snippet:-1"}>
 
   <title data-i18n={titleKey}>{title}</title>
   <link rel="canonical" href={canonicalURL} />
@@ -53,6 +54,7 @@ const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toStr
   <meta property="og:description" content={description} data-i18n-content={descriptionKey}>
   <meta property="og:image" content={ogImage}>
 
+  <meta property="og:site_name" content="46log · Sakamichi Tools">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={title} data-i18n-content={titleKey}>
@@ -83,6 +85,10 @@ const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toStr
     })();
   </script>
 
+  {!privatePage && <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebSite', '@id': 'https://46log.com/#website', url: 'https://46log.com/', name: '46log', alternateName: 'Sakamichi Tools', description: '坂道系列非官方粉丝工具平台' },
+    { '@type': 'WebPage', '@id': canonicalURL.href + '#webpage', url: canonicalURL.href, name: title, description, isPartOf: { '@id': 'https://46log.com/#website' } }
+  ] }).replace(/</g, '\\u003c')} />}
   <slot name="head" />
   <ClientRouter />
 </head>

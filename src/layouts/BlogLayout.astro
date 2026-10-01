@@ -15,7 +15,7 @@ const {
 } = Astro.props;
 
 const siteUrl = Astro.site || new URL('https://46log.com');
-const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', siteUrl);
 ---
 
 <!DOCTYPE html>

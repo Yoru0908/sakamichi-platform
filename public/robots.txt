@@ -16,13 +16,14 @@ Disallow: /auth/
 Disallow: /dashboard/
 Disallow: /msg/
 Disallow: /ins/
+Disallow: /instagram/
+Disallow: /messages/
+Disallow: /user/
 Disallow: /api/
 Disallow: /photocard/create
 Disallow: /repo/create
 
-# 禁止图片索引（所有爬虫）
-Noindex: /images/
-Noindex: /photocard/
+# 图片索引策略在 HTML robots meta 中配置，robots.txt 不支持 Noindex。
 
 # ── Google AI (Gemini) ──
 User-agent: Google-Extended
@@ -31,6 +32,9 @@ Allow: /tools
 Allow: /radio
 Disallow: /msg/
 Disallow: /ins/
+Disallow: /instagram/
+Disallow: /messages/
+Disallow: /user/
 Disallow: /auth/
 Disallow: /dashboard/
 Disallow: /api/
@@ -42,6 +46,9 @@ Allow: /tools
 Allow: /radio
 Disallow: /msg/
 Disallow: /ins/
+Disallow: /instagram/
+Disallow: /messages/
+Disallow: /user/
 Disallow: /auth/
 Disallow: /dashboard/
 Disallow: /api/
@@ -53,6 +60,9 @@ Allow: /tools
 Allow: /radio
 Disallow: /msg/
 Disallow: /ins/
+Disallow: /instagram/
+Disallow: /messages/
+Disallow: /user/
 Disallow: /auth/
 Disallow: /dashboard/
 Disallow: /api/
@@ -64,6 +74,9 @@ Allow: /tools
 Allow: /radio
 Disallow: /msg/
 Disallow: /ins/
+Disallow: /instagram/
+Disallow: /messages/
+Disallow: /user/
 Disallow: /auth/
 Disallow: /dashboard/
 Disallow: /api/
@@ -74,6 +87,9 @@ Allow: /tools
 Allow: /radio
 Disallow: /msg/
 Disallow: /ins/
+Disallow: /instagram/
+Disallow: /messages/
+Disallow: /user/
 Disallow: /auth/
 Disallow: /dashboard/
 Disallow: /api/
@@ -85,6 +101,9 @@ Allow: /tools
 Allow: /radio
 Disallow: /msg/
 Disallow: /ins/
+Disallow: /instagram/
+Disallow: /messages/
+Disallow: /user/
 Disallow: /auth/
 Disallow: /dashboard/
 Disallow: /api/
@@ -96,6 +115,9 @@ Allow: /tools
 Allow: /radio
 Disallow: /msg/
 Disallow: /ins/
+Disallow: /instagram/
+Disallow: /messages/
+Disallow: /user/
 Disallow: /auth/
 Disallow: /dashboard/
 Disallow: /api/
@@ -133,6 +155,19 @@ Disallow: /
 
 User-agent: DataForSeoBot
 Disallow: /
+
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+Disallow: /dashboard/
+Disallow: /user/
+Disallow: /instagram/
+Disallow: /messages/
+Disallow: /repo/create
+Disallow: /photocard/create
 
 # Sitemap
 Sitemap: https://46log.com/sitemap.xml
