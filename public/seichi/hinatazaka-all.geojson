@@ -143364,6 +143364,193 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7013642,
+          35.6158266
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d6cb08c92bc70093b9eb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d6cb08c92bc70093b9eb",
+        "name": "一軒家のハウススタジオ ムサコスタジオ",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "一軒家のハウススタジオ ムサコスタジオ",
+        "sceneNote": "イチャイチャ虫SNS企画 https://youtu.be/ckVFk8jYOI0 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4FXU-HF-TagKVeVKIL9CHhY3hoDo70mFejGqCyeO_6zqjCmnZTOlRIUjcpsgoyMlVmhN0Y5DLoZ4q-7-dQrIJGwCuEzlJqpg2A4iFWDuhuGyyUdL7ijXiznjuHMKfNgiPzkAGVSDJjv9NX89lawWE--jwY16MXTEdclhfJUBaXM89iIMIoydiM8sKpzFVf1i5D_ixRbgtV7h1khj91baq8qkdy2zeYqTLlQScuL2kPZtYX4uisTC_nFx4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7TdqVreF9UCX9RKPBtkUrHIxMtCorN0qLLWs3szFpYIWpctNWoAq3V_lA8ptc_XRZ7gRLc-DEvhuykEZctj_igaN-TaGXqZptsb_TzY-YlW5pJqFevWkwYAHnQX3QHKaldQSYKyEaU2MhWEzMB2YFCBBQChZi8XjIvb8POeZRYN_LvYBoKDKV8LnJpd7y4mgzH0Lzsb8idhErQT4YtRKBmswpW2GNdqpLjebjQPRos4P3V0Y61FfDvgeY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6UPnTnP9ua_Fs8QAJnDhSifMTtZlWnEyQ3GMZvWi569qsyJ3ayDdEcn1mALvL7bnw35QwZ1JT3C5MyKZBqBNE2erKyxCDwtE_1L5_MgEd_pCBNJzS357iYIU7TL1qeFTw-Y_cJqWUTaefsF7XLs4xJfjZUW6jTQvSVnkLgwfSrFFxMuErFp8aM_aVKu_3AY7lFbQH6qapRbhhHKywQFvc2BI1mbzml_HNSwiCYdJcTuXtIYmjrFW7rHN8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR71x1ut9oq_AF10qmjIBBdxlq-7KTSwA0UR8VnmxOgqrxQK7zAzcfmHZFaSZVH4PN74i18aCsxkH1Cr8K6RQV9U1mrrqfY6-oDCXtB5ZVGMGr2pRH3GDrY02dZ7iTOMFHwFmqofCDPUdvB3U0sF7krb83w9Mv_zAyl3a0tx56IU1pZUMNFqhg9xrpf3q3PXFVaCvk15t7ZsoQMM9TfTZUiN8OtLzK1f1X6gkqGApK5DOEewv8qqXHpo61U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7cjLidEVXph7ajxMaIeKFgWFZIejF8-aSmTyI6q4vRAK11aeSfZR4R3KnNyr2ThkmYBwcaCASLB5MyUcEI2C9398IOPmxCdBiiOn-MsJKYXI6670PHnY-4saIgo0Mp0AwYnIJ66_ebNcB_7Xy4pDNCP6v2hCGw5O4uiK09Pc7TV02Kd_MEk2GPcnDCeYH9ty9bYbLgCzl1uHSXpMx1GL7HyJvBuiBwpaivWtxUoFPQ-9RmsspfJhAV_n0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR67CdIloc-yp2qKB74eEQgzB3p6jUAe-0X8A2WSAv8oph8f3XOL4sAJJ87RbiMw1ZMO8LU6LkU0JMdB3O_85NpXruojmDsl-w-p90jcMsYpDqiXk3LI2fSDm25vxFwqOaynd_x2yQ5CImD_x9z5lHdRBDSQBDnzDUatCmps7LAzRO6tndh8EcejUNHOKXO7vCwmXwpSo8RLiUtSxW7onoitIH7p0Oax65icF9NiUkPl7dvGI_YkkK4CntE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4kZyr2DoT4AhHeO3Pxip14w41ThWj0arZzcPOcGPKULwPg97zq6sfc3den0uom0YgzkUn3iLSq4jEoLZV4bNz38prO45ZZAFqX-SZ1ZdFaD4zILJg6q7KQJz3Jmog5vIjG4k7T0e0sHubB5VdegtASGG-LG-aiKskL6mq_gyNx-_YToswL0sO3xo6Uty2bjKUEu9ORAU2y3FfZhTj8f1shzpMMhMNwyMMq-FIPOHwxR0MktY9kk1oUBEE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6_EBcmP6dlh9f_F4m0cwoC8j7aYnWqYhk5ulevjAvwB6kdTMCRpmHeogeanYU2paF0VfO53Y3YwsqMKI_sVQ8BXJWjptlQcX6tC7XchBLfB2ydCpnkc8Bq_LToUqj_nFY8IqpjKQ5BQOpYtF3C98EhUI8W8G8_UnaqJXle-XYY3WgPIyMgWPtmmZPH9QNuStRkzCS-PiEg5B9o5jSL1D0Tf5I6xCDffLRN-bcWhOO15VEZ6HVt5jOwKus%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR61EMZtJwDrUVlQM1GwdIfUfcc3Jqp3fwQ8qkf5bmGX1kKzkqSKo7WFO4rQEU4HuYosivlPOrAohPcakSyGn8pH2oWkO8NDcKeadZdNmHYMAozoHd_3AaIRNrtk-n4_Me-jJ7zDpiDuJAixV6ouZ7VpdfKur3RkQo2UusSSBM8NaFcVqxC7fiGF765OmrG_sbRV-gEskUwm4nR7kg2sppAIXjYXC4r92KiCYFAuPTdqNMsva1KVVrPebMU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4DYXUL9YIm-7GZoB7mykjY5aSqldWhtbgmAcvfiejDibradRjZlGd4hqgUp-eLRDFsFR1ysEO7_97g6jgzXbtHYid2mUI-sfzHRRFu74x80rSE6rjY7p4xtXJ3MjzfEVFwnyTOj2S359ytCJqPgUrG6Bb1fWundnNWJG5pr4XcrzintZylEw9tLnyjXOhfq2P5KbDc9794Pp0sBBUJCnT4yWqIpGCVniPpgCmdDXGKHg3_yYeG7G5uT9k%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "一軒家のハウススタジオ ムサコスタジオ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6410219,
+          35.6513969
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a95f74f9b1161aea31ad",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a95f74f9b1161aea31ad",
+        "name": "スタジオピノコ&デイジー(キッチン撮影スタジオ)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "スタジオピノコ&デイジー(キッチン撮影スタジオ)",
+        "sceneNote": "イチャイチャ虫SNS企画 https://youtu.be/VHmTowJoBjI 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5_8pLsq9uCDRaywW4b6qjtjXd3LOYDbKa48I-Y-6s0G4OMD-Q3eEcsAY9lBIkGUV-LB8Cx0jJFsk3ROVALtLifcvV9JfdmmE7tZ9dLkiIq7f7ms4_yoWct9IIUg79ktzZLA-SCnMIJIZHq3c3N2CTIy-ihwCDUUPXLMaAUyL4h6ebMSAtcU4A8KFs5xOJqQPsGoNkjqtvhY6TSQ6jvh2rKu2vsSnfrcz6VzN8cEKvkzAzp4zc0GdXtPrA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5SThpxTNm2_j7fVTNfqzoLGQhDD7fTX4TXXKYWtmpkdTj1RPvvCCFVUYSBwrwZJwMrWPTJN8r1Ho5xIuzv4B4LsOKNi19UccGvlQDRYBWAH9V2Rf_1ksHRD9RIqS94dkgx2dWF641UzoxOECZiJUOzRd1S7zJ7ba-fQGrWUBrN8Em-RzanfoK7FHx4BAh633Q6s5iTKO7nHI_zMlYlc-6PI3uQT79u66EkRx8jSaflUOwpG0RojaGEnv4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4iDp1sCzR91p8JmfvnXAI1K7RsLpzKjfSb-T3zM0z_qBlRXxV-JnP15D82Qap1E8g-GIfZz7aYTipDTBTkumICdjLa6VWmIrwSOGjZJWjGCQ7GslB_rgdb7VQMndgYtNiDuSlV_wFe5YS-6Z4H9qFBHJHDH-QHEy8I8Kb9PHVnk3Z1-kbzRj6whCZNCcCBwNdtmmR6N2pvIog1Bk3y68xUuEFkVI2Zq2jQUfgxvNaj8bk3CovlIAnlijs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7S86fbEhjg4TldcKXhXuk2B_Ars-FoszZW8SxlIIwaqS9HMO7XsSqW4_llDEetecAafDS198WPArD6dxHts3y21fZY_OJSOAwMtEnYFlKbKqerMZsY-EM5ZDwDIAfB8lWR2RiWoJnEH5geOzcsBd5WYO2a1j6dlrdwf6oPqOrWrUp3Ll3QK7VPlLE5UCKVO5SjQIF5PJF7EHKpDBAtN01Z4RqgKtjuDr0l4gMrOPLXl_CtNnTsLfHqQgo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7KBnO57IigN34vPdan9Oz0UvE7JN0uJ7H3si3Ez4pgeKfDi26ra-Q5E4RtQfsHjvy9XugufecoF3w0-xernu8vNkUUomuXjgL3mIYMIuOhLwhA1vmDQ7bn5Od0vBWOhF8LsM5Bxkg0QrmUDIXIW-9kdA0mV-l2JYgmlFuCdAo3EHOu55hCq42DVtj4DXqFQns1tMtQxNEU5SPmnGJW5WnKWnZuFKeKvycD-gIzQk-6Se8aQUMpx49_5M4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "スタジオピノコ&デイジー(キッチン撮影スタジオ)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6571186,
+          35.6481008
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f17b0384e72bdaba902f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f17b0384e72bdaba902f",
+        "name": "スタジオ・ネロリ(キッチン付レンタル撮影スタジオ)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "スタジオ・ネロリ(キッチン付レンタル撮影スタジオ)",
+        "sceneNote": "イチャイチャ虫SNS企画 https://youtu.be/LOO_1QJST2s 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6C61c3Mlw9v4hDJ8PKLKkdFh5W6ubGc7LWBbgRz4YEDtuIJkWsbHvpfWemE0w4PLsqB8MKGLSCtx6Z40yahTtae8OKa675-HuHbnhD0ZuHsOO-Jf78jCE2NwVUSwN6gy6iFOJWk1lXij2MYYPWAWGigLalT54pH2fUtRCwbgFT5A_jmTRH4_YBLx22ZXQbvbMZilgxe60EJ-REVaJtu9INea6aN6cxeMn4L1Ej8bidRHBVs2Zp6ZZmk_s%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4iRM4XamSl5VU-lKOXC73IaonCxUksxiLC9_bP9EoP10JRasrph27R4YPKODRS_6mrkN3L-an-Y99NAKwfCWPU8HWuuz592vyaeKCnr0AwMR6vJdS8qIFziN8qaNJfMhC3VlF48Ym0zUTzfs4mL-iC0oRpJtzcWTxprow2FhZ4muA7EC6JP1hloKMK6XE404G5xIA4pqpfPzOhQbe1nfID34lVWSIskFfLJrrHHKOqKY4nvSOXHtGrruM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6J3h2eYokdnQbBx-qccdEsCjvIM4E7R89MmNLJDao2IBNJaaK-zQ7xBdfhyezGzwosU5SoTOuRVy8m70-zw7i21mnJd-GEDP8kZO4hlfq_1_Xufyfde78xK5dCdchiMW_GxSPytkVX7L-1JY2wapAQqUhFP10wF2Zs0xUWRl-7-nLihIJEXxbAefLBzmIyiakhlmc8d2FKVBjMJNGnGBel12HtxZoG0fBO48sjGoCO6J27H-lHx1SFthM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5He9IysgA2ZgDrDVpzISAxrMpqhHpogRAG7j7cB2tEU3KBdP7nRXcS1wUgzkXQoOyCsEphBEUyHTHeKNcx6kn4opJNGpvsid8q4m6UrVR63sT0D4ibPeJMeTYgW4moCgezv_7G37LcSx-Z76EZ7CmTtJQjNcU01P51cTRfQPKqnlZKuV3deDh-RZ0CRZS6PV_3t-QLyNlURIyM-KUBumd7dkTjJyG8llhV7Uc5Kuw9O-SwgDXBDTVcogU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7E-DP4tE3qrmguW7vp9i9yzjNe_puTAwliAxD4rDHe2XFnNA0re_uqSSud63kVOmNjQ8N7wV8RivafK3B0FboybmKeBkgHM9Xmca6wCdYqq3pYn7gWWMQFEv96O3EGmwB_nJfZvI8rTfWAzzrffRF9nyojHf8QQFNQcELMkK5l0st319t4_cvoGazRQC2wpyYtNoiptx4LfjWLO3Ngx1WLoR-S5O96R8rVgTij5o7aTm7e29ncXEKSh20%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR68ruvzLR05Fh10AtZ1ci6tHPCPk1-HlyTi54DIIMJR3Dpb8FZemwpL7Wvyho3vAC19jHgZS7aafNyng5-5blDcPZYYEY3U7AstueBkidEchHJ_Zbk8ePuPd8LsUOV3yYdiZChDEyciFLf4qRNluQlhL3xXZF4nzqFxwrUsT_m8qkXXuKEdDjWJfUieLoHIVmdZMg04iPSHeJE9lOqrNqCBZM8Gk3ThxGozA-4ByMHSVxrvFDVHWUTChFg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4AQ636TylkaS1mJ_YFPcNIMzbrhG_QHinMzZONFZBR-L-r5mO_HYPR6NTp8VJ5OyU-ia1tvZJX5mRPhFLuDiPBTpT0LO0gX49DkwblzuhmB5QyWJf5LGFItbHyT-IDxyXoMQWVaGhcCYnK4DTIKRMnF7wNHW8uUeIkcWKTYdzaZjmj-TDhutM_RGpBKkDL33o-k9c4Z5oDVAuz7pZ36fpdP82BhBC-8zKy0gQG7xfVup479ZRgNBdfTco%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ARl9TQGb-Xxu8CZ-puue2fSGFCVY6-JCC23SCFyHS83r909zps2wVy-Uug1VqsUgTUiGq-HfD0wy1v3t4SCcXKEPajsbDkVy_3TaabI-WUZA_cTaikykE0ij_dv8nmUgT78DCk57uteiDA0rHys0WVGtmGgqICyP3RW-hJRFAKixZLK2HSQkXQzgWCZ-0zr_ojWWwcafipF8WoNMyagZWfDRFElyzA_gPoS34zZHFgA6PKbDZyDwdhHE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ORkQvmB9fdOCsrW0IjBgbtabCHMAI5DBrLW5pdtdxhJodJE6i68Am1LO9L9lJ4GECfHpBCHaSgtscnveLL4OSmH_8fq3wj_YutiTpInt3Jv5RUaXzcHWdRrVUi0izvTLM-4831zMVQCUoSh6MFiUtMvIhHN0RouHXvPP_qwVUYFcbEs3EzXdxaneNgDBEeBqI_Hy3pn-KvnvhAOw5jvBpz-xkrrQze-2Wus4YBlDqeamwa0GjVC5Kkr0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6aVHiZdCKtF8w85r4hFp-Jeh78-SncIts4pHiykVv-LdW2u4Hytk-UaGsI8vD-v26kFfkk1QAPOipN4JCN1HvlOlIPDyosM2u_rV0HOAHaLlTCWavwUydUX7AdKS72OrV4NOBI46x-5RPh_gcNwDhC_gLxyuW6bAHR6HqpUUZUKUZXK8eOUYAK9kygHrJXGIgOlyfpisj1jqTu-eDb6nkZ4_NyPtyS-kfMWoXCVZYkj15TGNr0x5Hn41Y%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "スタジオ・ネロリ(キッチン付レンタル撮影スタジオ)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
