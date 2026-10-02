@@ -83611,6 +83611,118 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.008377,
+          43.190796
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:212e057638bbf4effa68",
+        "sourceKey": "fumi-article:212e057638bbf4effa68",
+        "name": "OTARU CAFE×HELLO KITTY",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "北海道小樽市住吉町1-6",
+        "sceneTitle": "櫻坂46 遠藤理子 2026年10月グリーティングカード写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。北海道小樽市住吉町1-6",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60082467.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60082467.html",
+        "tags": [
+          "櫻坂46",
+          "遠藤理子"
+        ],
+        "images": [],
+        "members": [
+          "遠藤理子"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60082467.html",
+          "mapId": "",
+          "layer": "櫻坂46 遠藤理子 2026年10月グリーティングカード写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "遠藤理子"
+          ],
+          "name": "OTARU CAFE×HELLO KITTY",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.046143,
+          34.353642
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:ce05bd4c147e06842193",
+        "sourceKey": "fumi-article:ce05bd4c147e06842193",
+        "name": "あなぶきアリーナ香川 (香川県立アリーナ)",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "香川県高松市サンポート6-11",
+        "sceneTitle": "櫻坂46 稲熊ひな 2026年10月グリーティングカード写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。香川県高松市サンポート6-11",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60082559.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60082559.html",
+        "tags": [
+          "櫻坂46",
+          "稲熊ひな",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "稲熊ひな"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60082559.html",
+          "mapId": "",
+          "layer": "櫻坂46 稲熊ひな 2026年10月グリーティングカード写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "稲熊ひな",
+            "四期生"
+          ],
+          "name": "あなぶきアリーナ香川 (香川県立アリーナ)",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
