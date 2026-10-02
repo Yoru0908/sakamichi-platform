@@ -181,6 +181,14 @@ function dateHeaderRow({ dates, slotNumbers, theme, showLeftLabel }) {
         borderTopLeftRadius: '8px',
       },
     }, showLeftLabel ? 'メンバー' : ''),
+    h('div', {
+      style: {
+        display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
+        paddingRight: '10px', width: `${STAT_W}px`, flexShrink: 0,
+        backgroundColor: theme.headerBg, color: '#fff',
+        fontSize: '11px', fontWeight: 700,
+      },
+    }, '完売／枠'),
     ...dates.map((date, idx) =>
       h('div', {
         style: {
@@ -192,15 +200,7 @@ function dateHeaderRow({ dates, slotNumbers, theme, showLeftLabel }) {
         },
       }, formatDateShort(date)),
     ),
-    h('div', {
-      style: {
-        display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
-        paddingRight: '10px', width: `${STAT_W}px`, flexShrink: 0,
-        backgroundColor: theme.headerBg, color: '#fff',
-        fontSize: '11px', fontWeight: 700,
-        borderTopRightRadius: '8px',
-      },
-    }, '完売／枠'),
+
   );
 }
 
@@ -235,16 +235,15 @@ function flatHeaderRow({ dates, slotNumbers, theme, showLeftLabel }) {
         borderTopLeftRadius: '8px',
       },
     }, showLeftLabel ? 'メンバー' : ''),
-    ...cells,
     h('div', {
       style: {
         display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
         paddingRight: '10px', width: `${STAT_W}px`, flexShrink: 0,
         backgroundColor: theme.headerBg, color: '#fff',
         fontSize: '11px', fontWeight: 700,
-        borderTopRightRadius: '8px',
       },
     }, '完売／枠'),
+    ...cells,
   );
 }
 
@@ -269,10 +268,10 @@ function slotHeaderRow({ dates, slotNumbers, theme }) {
     h('div', {
       style: { display: 'flex', width: `${NAME_W}px`, flexShrink: 0, backgroundColor: theme.accentBg },
     }),
-    ...slotCells,
     h('div', {
       style: { display: 'flex', width: `${STAT_W}px`, flexShrink: 0, backgroundColor: theme.accentBg },
     }),
+    ...slotCells,
   );
 }
 
@@ -345,13 +344,11 @@ function memberRow({ member, idx, dates, slotNumbers, theme, maxRound, showRank,
         },
       }, member.name),
     ),
-    // 单元格
-    ...memberCells({ member, dates, slotNumbers, theme, maxRound }),
     // 统计
     h('div', {
       style: {
         display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
-        width: `${STAT_W}px`, flexShrink: 0, paddingRight: '10px',
+        width: `${STAT_W}px`, flexShrink: 0,  paddingRight: '10px',
         borderBottom: '1px solid #f0f0f0',
         fontSize: '11px', color: '#555',
       },
@@ -360,6 +357,9 @@ function memberRow({ member, idx, dates, slotNumbers, theme, maxRound, showRank,
       h('div', { style: { display: 'flex', color: '#999' } }, `/${member.totalCount}`),
       h('div', { style: { display: 'flex', color: theme.accent, fontWeight: 700, marginLeft: '3px' } }, `(+${member.deltaCount})`),
     ),
+    // 单元格
+    ...memberCells({ member, dates, slotNumbers, theme, maxRound }),
+
   );
 }
 
@@ -375,7 +375,7 @@ function generationRow({ genGroup, totalCols, theme }) {
     },
   },
     h('div', { style: { display: 'flex', fontSize: '12px', fontWeight: 800, color: theme.accent } }, genGroup.generation),
-    h('div', { style: { display: 'flex', marginLeft: 'auto', alignItems: 'center', gap: '6px' } },
+    h('div', { style: { display: 'flex', marginLeft: '18px', alignItems: 'center', gap: '6px' } },
       h('div', { style: { display: 'flex', fontSize: '11px', fontWeight: 700, color: '#444' } },
         `${genGroup.soldOutCount}/${genGroup.totalCount}`),
       h('div', { style: { display: 'flex', fontSize: '10px', fontWeight: 700, color: theme.accent } },
