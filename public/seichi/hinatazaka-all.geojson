@@ -143727,6 +143727,66 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.777692,
+          35.6407754
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6d5591b6b83274f3da10",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6d5591b6b83274f3da10",
+        "name": "豊洲ぐるり公園",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "豊洲ぐるり公園",
+        "sceneNote": "2026年7月頃、山口陽世が花火をしたスポット。https://www.instagram.com/p/Da4h9Avj09Y/?hl=ja&img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4PuK5g3BnZjeNaOYxOSthbEXzfiYHNkCMBfW1H3kpiuHN16M2LZM5mM5_0b_m6puYFEqxsY1lEWcSsFkvB8YJn4QuIrFbXxI6VCmS8ApzajxE3jcvK8qLjp2t67AN--4e_dbrZvAKgBEfS9mjkf1bNdOqNYuDuz8zcnlGRy1wGvtArdmVVK3IjGt9vCFKX4g8cIhvB55rQcUrQ-4fpMi-xNKgKXcAUzRYbDRjR02M9P9g9nJKCdRlfQF8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7jTjFfb9tutMqvPcdlZxLuAWX8219b29UKz0MorCA8zmh7NDn7P-9sRkr9IOD188HhEpS_bvt1sjeS-FD8XkDkoiwjCQ0vgtBJZ_yrTGSok-Q1m18tJxc00nA7Eid9_Pzb8sSJOtWcOMgT7bn1n4AEi0ROcVOMibfNl7BYkxeu8TX7ZXYJHXqApEwb7JNL1ysvqtSFUPJftTPQAJQxQY-2PCmMImkNi7Qz0Nmeh03ALXBesCTfYMK20U4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4pBeWlNqLDv_bqOerFrrBFWx22EAWezCdARc4MNOFT1fZSUl0B0iMc36fDANVqouZ5SMxBKPp2XIlI0KioOaCQSCTz7KVeSycngPBBBdfpAofnvWqQYFq-2q-Iptx9nivVYcu7nacKyOb3SfYppkpgkqs1YLSDSum4cPMTYDfzh1qnWDmkp827FYRbBJV9EhSrUUVSeCe2KSFo6oMKL2-N5KaxTOUnSueg3PEVpjVuY4P9hzy7eH6fiOg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6NuGXZXr5t9j_cYhm83BwGb27WODx9ZWiomSxguewfx6HONbyivrUICeh7CaWQj5MkWcjw3j9CVmt1Cay3QW9Ka-HuUx0RBqs3pcf7jabby4x4xYswqlKjE5qhXVSQjI-h-1Yl1KaDbgl7Uz7n07FfC8uHTvuJhp7yKBDTF64P7XWkmi22-qSD9mHu84poFTZN9NnW1TQwlccDo1qp1x5oQVcLNq4U8L9aWJX-5zxuKRoOOOEU7svA0tY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR63UEukNFk552R7N2KGOqucjYVH94hA202-lt4r6K2tzxvhw7aE_5qGIeKaE72sdvzVC3u-HpJC7QNIgPL14t5sapdP_7QKM2rH3IDq7ahkCHnkb_8dfEHWpHPqH3i98GDkEtIAzvA-dIB8Cj23uuAkOKWTbw4LcPsghymj7LlvijfNZNAegHtO69W0Ng5vt4u-zb26cSvswYZrgVFgIv_wAtS3RfdexXPqvqFSqv7sdKRb8uNe8j7nFmM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR58VIzDC-9JnRcqeDCcra25YKoyi7904v76sgw-9VYlyUJqNq1qFzoTYdvpV1GZPACi-jK_kepACb6AV4BMTjAIjFHjerzGdhdYRYwkDQZQw-al93KjiTXczHRI_8dzxNSHAJMQ27Kaew_mWVpFC6dw_yo-w8odU-7GClzrtpzfWTvjj2GcphPQvr9XP_IY4md990EBquRYkZjLqvbOH2sgaTk5_-7jg7b7BqwNq-cdhJ8MY1Ngi9WCQzk%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "豊洲ぐるり公園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
