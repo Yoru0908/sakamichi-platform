@@ -66,4 +66,14 @@
 
 私有发布证据在工作区忽略目录 `.tmp/verification-before/` 和 `.tmp/verification-*.log`。证据中不保存实际密钥。
 
-上线版本及生产验收会在发布完成后记录于本文件和部署 Map。
+## 上线记录
+
+- 源码 `97e035c`，已推送 `sakamichi-platform` 生产分支和 `fix/admin-verification-times`。
+- Auth Worker `15aefe2a-4559-4994-b881-48f5693aab34`；线上 bundle 已确认新字段和路由，数据库、变量、secret bindings 与发布前逐项一致。
+- Pages production `40c5da9c-0c04-42b1-9ac4-400ca2bf6e94`；控制面板确认生产分支及源码 hash；46log.com 后台 JS 与本地构建逐字节一致。
+- 迁移前后状态人数均为已批准 28、已拒绝 1、未申请 131；两个新字段没有历史默认值，存量提交/处理时间均为 NULL。
+- 生产匿名审核列表/统计/处理接口 403，提交申请 401；未使用真实管理员会话或修改真实申请。
+- 正式域名页面 fixture 回归 Chrome/WebKit × 320/390/1440px 共 6 组通过。旧 Navbar 的 WebKit #418 已单独记录，没有其他 JS 错误；测试中所有账号/API数据均模拟。
+- 浏览器实测后台、博客、圣巡页面 HTTP 200。Node 直接请求部分页面收到既有 Cloudflare challenge 403，使用正常浏览器完成验证，没有修改 WAF。
+
+独立组件、本地整页、线上整页共 18 组浏览器上下文验证了日期和交互。真实生产申请写入链路由本地全 Worker/D1 测试覆盖；本次没有为了验收创建或审批生产申请。
