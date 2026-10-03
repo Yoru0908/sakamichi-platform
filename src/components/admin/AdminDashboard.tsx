@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useStore } from '@nanostores/react';
 import {
   BarChart3, Users, CreditCard, Ticket, AlertTriangle, Shield,
@@ -6,6 +6,7 @@ import {
   Mail, Clock, ExternalLink,
 } from 'lucide-react';
 import { $auth, initAuth } from '@/stores/auth';
+import { formatVerificationTime } from '@/utils/admin-verification-time';
 import {
   getAdminStats, getAdminVerifications, resolveVerification,
   getAdminSubscriptions, getAdminInviteCodes, createInviteCode,
@@ -48,7 +49,7 @@ function StatsOverview({ stats, loading }: { stats: AdminStats | null; loading: 
   const cards = [
     { label: '总用户', value: stats.total_users, icon: Users, color: '#2563eb' },
     { label: '付费用户', value: stats.paid_users, icon: CreditCard, color: '#059669' },
-    { label: '待审核', value: stats.unmatched_pending, icon: AlertTriangle, color: '#d97706', highlight: stats.unmatched_pending > 0 },
+    { label: 'GeoPass 待审核', value: stats.pending_users, icon: AlertTriangle, color: '#d97706', highlight: stats.pending_users > 0 },
     { label: '有效邀请码', value: stats.active_codes, icon: Ticket, color: '#7c3aed' },
   ];
 
@@ -79,27 +80,45 @@ function StatsOverview({ stats, loading }: { stats: AdminStats | null; loading: 
 }
 
 // ── Verifications Tab ──
-function VerificationsTab() {
+function VerificationsTab({ onResolved }: { onResolved: () => void }) {
   const [users, setUsers] = useState<AdminUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'pending' | 'approved' | 'rejected' | 'all'>('pending');
   const [acting, setActing] = useState<string | null>(null);
+  const [loadError, setLoadError] = useState('');
+  const [actionError, setActionError] = useState('');
+  const requestId = useRef(0);
+  const actionInFlight = useRef(false);
 
-  const load = async () => {
+  const load = useCallback(async () => {
+    const id = ++requestId.current;
     setLoading(true);
+    setLoadError('');
     const res = await getAdminVerifications(filter);
+    if (id !== requestId.current) return;
     if (res.success && res.data) setUsers(res.data.users);
+    else { setUsers([]); setLoadError(res.message || '加载失败，请重试'); }
     setLoading(false);
-  };
+  }, [filter]);
+  const currentLoad = useRef(load); currentLoad.current = load;
 
-  useEffect(() => { load(); }, [filter]);
+  useEffect(() => {
+    setActionError('');
+    void load();
+    return () => { requestId.current++; };
+  }, [load]);
 
   const handleAction = async (userId: string, action: 'approve' | 'reject') => {
+    if (actionInFlight.current) return;
+    actionInFlight.current = true;
     setActing(userId);
+    setActionError('');
     const res = await resolveVerification(userId, action);
     if (res.success) {
-      setUsers(users.filter(u => u.id !== userId));
-    }
+      await currentLoad.current();
+      onResolved();
+    } else setActionError(res.message || '审批失败，请重试');
+    actionInFlight.current = false;
     setActing(null);
   };
 
@@ -112,13 +131,13 @@ function VerificationsTab() {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div className="flex gap-1">
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex flex-wrap gap-1 min-w-0">
           {filters.map(f => (
             <button
               key={f.key}
               onClick={() => setFilter(f.key)}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors cursor-pointer ${
+              className={`min-h-11 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors cursor-pointer ${
                 filter === f.key
                   ? 'bg-[var(--color-brand-nogi)] text-white'
                   : 'text-[var(--text-tertiary)] hover:bg-[var(--bg-tertiary)]'
@@ -128,13 +147,21 @@ function VerificationsTab() {
             </button>
           ))}
         </div>
-        <button onClick={load} className="p-1.5 rounded-lg text-[var(--text-tertiary)] hover:bg-[var(--bg-tertiary)] cursor-pointer">
+        <button onClick={load} aria-label="刷新审核列表" className="h-11 w-11 shrink-0 flex items-center justify-center rounded-lg text-[var(--text-tertiary)] hover:bg-[var(--bg-tertiary)] cursor-pointer">
           <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
         </button>
       </div>
 
+      <p className="text-xs text-[var(--text-tertiary)] leading-relaxed">
+        {filter === 'all' ? '待审核优先，其余按处理时间从新到旧显示。' : filter === 'pending' ? '按申请提交时间从新到旧显示。' : '按审核处理时间从新到旧显示。'}
+        {' '}时间未记录的历史申请排在末尾。时间统一为日本时间（JST）。
+      </p>
+      {actionError && <p role="alert" className="text-xs text-red-600">{actionError}</p>}
+
       {loading ? (
         <div className="py-8 text-center"><Loader2 size={20} className="animate-spin mx-auto text-[var(--text-tertiary)]" /></div>
+      ) : loadError ? (
+        <p role="alert" className="py-8 text-center text-xs text-red-600">{loadError}</p>
       ) : users.length === 0 ? (
         <p className="py-8 text-center text-xs text-[var(--text-tertiary)]">
           {filter === 'pending' ? '没有待审核的验证请求' : '无数据'}
@@ -142,7 +169,7 @@ function VerificationsTab() {
       ) : (
         <div className="space-y-2">
           {users.map(u => (
-            <div key={u.id} className="p-3 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] space-y-2">
+            <div key={u.id} data-verification-user={u.id} className="p-3 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] space-y-3">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full overflow-hidden bg-[var(--bg-tertiary)] flex-shrink-0">
                   {u.avatar_url ? (
@@ -165,16 +192,18 @@ function VerificationsTab() {
                       <span className="text-[10px] text-amber-500 mr-1">待审核</span>
                       <button
                         onClick={() => handleAction(u.id, 'approve')}
-                        disabled={acting === u.id}
-                        className="p-1.5 rounded-lg text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20 cursor-pointer disabled:opacity-50"
+                        disabled={acting !== null}
+                        className="h-11 w-11 flex items-center justify-center rounded-lg text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20 cursor-pointer disabled:opacity-50"
+                        aria-label={`批准 ${u.display_name || u.email}`}
                         title="批准"
                       >
                         {acting === u.id ? <Loader2 size={14} className="animate-spin" /> : <Check size={14} />}
                       </button>
                       <button
                         onClick={() => handleAction(u.id, 'reject')}
-                        disabled={acting === u.id}
-                        className="p-1.5 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 cursor-pointer disabled:opacity-50"
+                        disabled={acting !== null}
+                        className="h-11 w-11 flex items-center justify-center rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 cursor-pointer disabled:opacity-50"
+                        aria-label={`拒绝 ${u.display_name || u.email}`}
                         title="拒绝"
                       >
                         <X size={14} />
@@ -190,12 +219,16 @@ function VerificationsTab() {
                     </span>
                   )}
                 </div>
-                <span className="text-[10px] text-[var(--text-tertiary)] flex-shrink-0 hidden sm:block">{fmt(u.created_at)}</span>
               </div>
+              <dl className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs ml-11" data-verification-times>
+                <div><dt className="text-[var(--text-tertiary)]">申请提交</dt><dd className="mt-0.5 text-[var(--text-primary)]">{u.verification_requested_at ? formatVerificationTime(u.verification_requested_at) : '未记录（历史申请）'}</dd></div>
+                <div><dt className="text-[var(--text-tertiary)]">审核处理</dt><dd className="mt-0.5 text-[var(--text-primary)]">{u.verification_status === 'pending' ? '待处理' : u.verification_resolved_at ? formatVerificationTime(u.verification_resolved_at) : '未记录（历史审核）'}</dd></div>
+                <div><dt className="text-[var(--text-tertiary)]">账号注册</dt><dd className="mt-0.5 text-[var(--text-secondary)]">{formatVerificationTime(u.created_at)}</dd></div>
+              </dl>
               {u.verification_reason && (
                 <div className="ml-11 p-2 rounded-md bg-[var(--bg-tertiary)] border border-[var(--border-primary)]">
                   <p className="text-[10px] text-[var(--text-tertiary)] mb-0.5">申请说明：</p>
-                  <p className="text-xs text-[var(--text-secondary)] whitespace-pre-wrap leading-relaxed">{u.verification_reason}</p>
+                  <p className="text-xs text-[var(--text-secondary)] whitespace-pre-wrap break-words leading-relaxed">{u.verification_reason}</p>
                 </div>
               )}
             </div>
@@ -568,15 +601,18 @@ export default function AdminDashboard() {
 
   useEffect(() => { initAuth(); }, []);
 
+  const loadStats = useCallback(async () => {
+    setStatsLoading(true);
+    const res = await getAdminStats();
+    if (res.success && res.data) setStats(res.data.stats);
+    setStatsLoading(false);
+  }, []);
+
   useEffect(() => {
     if (auth.isLoggedIn && auth.role === 'admin') {
-      setStatsLoading(true);
-      getAdminStats().then(res => {
-        if (res.success && res.data) setStats(res.data.stats);
-        setStatsLoading(false);
-      });
+      void loadStats();
     }
-  }, [auth.isLoggedIn, auth.role]);
+  }, [auth.isLoggedIn, auth.role, loadStats]);
 
   // Loading
   if (auth.loading) {
@@ -604,7 +640,7 @@ export default function AdminDashboard() {
 
   const tabs: { key: AdminTab; label: string; icon: typeof BarChart3; badge?: number }[] = [
     { key: 'overview', label: '概览', icon: BarChart3 },
-    { key: 'verifications', label: 'GeoPass 审核', icon: Shield, badge: stats?.unmatched_pending },
+    { key: 'verifications', label: 'GeoPass 审核', icon: Shield, badge: stats?.pending_users },
     { key: 'invites', label: '邀请码', icon: Ticket },
     { key: 'subscriptions', label: '订阅', icon: CreditCard },
     { key: 'payments', label: '未匹配付款', icon: AlertTriangle, badge: stats?.unmatched_pending },
@@ -683,7 +719,7 @@ export default function AdminDashboard() {
         </div>
       )}
 
-      {tab === 'verifications' && <VerificationsTab />}
+      {tab === 'verifications' && <VerificationsTab onResolved={loadStats} />}
       {tab === 'invites' && <InviteCodesTab />}
       {tab === 'subscriptions' && <SubscriptionsTab />}
       {tab === 'payments' && <UnmatchedPaymentsTab />}

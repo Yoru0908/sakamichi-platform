@@ -769,6 +769,8 @@ export interface AdminUser {
   geo_status: string | null;
   payment_status: string | null;
   verification_reason: string | null;
+  verification_requested_at: string | null;
+  verification_resolved_at: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -818,7 +820,7 @@ export async function getAdminStats(): Promise<ApiResponse<{ stats: AdminStats }
 }
 
 export async function getAdminVerifications(status = 'pending'): Promise<ApiResponse<{ users: AdminUser[] }>> {
-  return adminFetch<{ users: AdminUser[] }>(`/verifications?status=${status}`);
+  return adminFetch<{ users: AdminUser[] }>(`/verifications?status=${status}`, { cache: 'no-store' });
 }
 
 export async function resolveVerification(userId: string, action: 'approve' | 'reject'): Promise<ApiResponse> {

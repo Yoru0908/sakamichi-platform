@@ -36,6 +36,8 @@ export interface UserRow {
   payment_status: string | null;
   oshi_member: string | null;
   verification_reason: string | null;
+  verification_requested_at: string | null;
+  verification_resolved_at: string | null;
   created_at: string;
   updated_at: string;
   last_login_at: string | null;

@@ -26,21 +26,22 @@ export async function handleListVerifications(req: Request, env: Env): Promise<R
 
   const url = new URL(req.url);
   const status = url.searchParams.get('status') || 'pending';
+  if (!['pending', 'approved', 'rejected', 'all'].includes(status)) return error('Invalid verification status', 400);
 
-  let query: string;
-  if (status === 'all') {
-    query = `SELECT id, email, display_name, avatar_url, role, verification_status, geo_status, payment_status, verification_reason, created_at, updated_at
-             FROM users WHERE verification_status != 'none'
-             ORDER BY CASE verification_status WHEN 'pending' THEN 0 WHEN 'approved' THEN 1 WHEN 'rejected' THEN 2 END, updated_at DESC
-             LIMIT 200`;
-  } else {
-    query = `SELECT id, email, display_name, avatar_url, role, verification_status, geo_status, payment_status, verification_reason, created_at, updated_at
-             FROM users WHERE verification_status = '${status}'
-             ORDER BY updated_at DESC LIMIT 200`;
-  }
-
-  const users = await env.DB.prepare(query).all();
-  return success({ data: { users: users.results } });
+  // Account updates must never reorder the review queue. Unknown historical
+  // timestamps sort last, using registration/id only to make that section stable.
+  const actionTime = `CASE WHEN verification_status = 'pending' THEN verification_requested_at ELSE verification_resolved_at END`;
+  const query = `SELECT id, email, display_name, avatar_url, role, verification_status, geo_status, payment_status,
+      verification_reason, verification_requested_at, verification_resolved_at, created_at, updated_at
+    FROM users WHERE ${status === 'all' ? "verification_status IN ('pending', 'approved', 'rejected')" : 'verification_status = ?'}
+    ORDER BY ${status === 'all' ? "CASE WHEN verification_status = 'pending' THEN 0 ELSE 1 END," : ''}
+      (${actionTime}) IS NULL, ${actionTime} DESC, created_at DESC, id
+    LIMIT 200`;
+  const statement = env.DB.prepare(query);
+  const users = await (status === 'all' ? statement : statement.bind(status)).all();
+  const response = success({ data: { users: users.results } });
+  response.headers.set('Cache-Control', 'private, no-store');
+  return response;
 }
 
 // POST /api/admin/verifications/resolve — Approve or reject a verification request
@@ -63,17 +64,17 @@ export async function handleResolveVerification(req: Request, env: Env): Promise
   const targetUser = await env.DB.prepare('SELECT * FROM users WHERE id = ?').bind(body.userId).first<UserRow>();
   if (!targetUser) return error('User not found', 404);
 
-  if (body.action === 'approve') {
-    await env.DB.prepare(
-      `UPDATE users SET verification_status = 'approved', geo_status = 'approved', updated_at = datetime('now')
-       WHERE id = ?`
-    ).bind(body.userId).run();
-  } else {
-    await env.DB.prepare(
-      `UPDATE users SET verification_status = 'rejected', updated_at = datetime('now')
-       WHERE id = ?`
-    ).bind(body.userId).run();
-  }
+  // A stale/repeated review must not overwrite another admin's decision/time.
+  if (targetUser.verification_status !== 'pending') return error('该申请已处理，请刷新列表', 409);
+  const result = await env.DB.prepare(body.action === 'approve'
+    ? `UPDATE users SET verification_status = 'approved', geo_status = 'approved',
+        verification_resolved_at = datetime('now'), updated_at = datetime('now')
+       WHERE id = ? AND verification_status = 'pending'`
+    : `UPDATE users SET verification_status = 'rejected',
+        verification_resolved_at = datetime('now'), updated_at = datetime('now')
+       WHERE id = ? AND verification_status = 'pending'`
+  ).bind(body.userId).run();
+  if (!result.meta.changes) return error('该申请已处理，请刷新列表', 409);
 
   console.log(`[Admin] Verification ${body.action}d for user ${body.userId} by admin ${admin.id}`);
   return success({ data: { message: `Verification ${body.action}d` } });
@@ -114,10 +115,12 @@ export async function handleRequestVerification(req: Request, env: Env): Promise
   }
 
   // Set to pending with reason
-  await env.DB.prepare(
-    `UPDATE users SET verification_status = 'pending', verification_reason = ?, updated_at = datetime('now')
-     WHERE id = ?`
+  const result = await env.DB.prepare(
+    `UPDATE users SET verification_status = 'pending', verification_reason = ?,
+       verification_requested_at = datetime('now'), verification_resolved_at = NULL, updated_at = datetime('now')
+     WHERE id = ? AND verification_status IN ('none', 'rejected')`
   ).bind(reason, user.id).run();
+  if (!result.meta.changes) return error('申请状态已更新，请刷新后重试', 409);
 
   return success({ data: { message: 'Verification request submitted', status: 'pending' } });
 }

@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS users (
   payment_status TEXT NOT NULL DEFAULT 'none',
   oshi_member TEXT,
   verification_reason TEXT,
+  verification_requested_at TEXT,
+  verification_resolved_at TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now')),
   updated_at TEXT NOT NULL DEFAULT (datetime('now')),
   last_login_at TEXT
@@ -275,6 +277,8 @@ CREATE TABLE IF NOT EXISTS community_stamps (
 -- 索引
 CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
 CREATE INDEX IF NOT EXISTS idx_users_verification ON users(verification_status);
+CREATE INDEX IF NOT EXISTS idx_users_verification_requested ON users(verification_status, verification_requested_at DESC);
+CREATE INDEX IF NOT EXISTS idx_users_verification_resolved ON users(verification_status, verification_resolved_at DESC);
 CREATE INDEX IF NOT EXISTS idx_user_oauth_provider ON user_oauth(provider, provider_id);
 CREATE INDEX IF NOT EXISTS idx_refresh_tokens_user ON refresh_tokens(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_favorites_user ON user_favorites(user_id);
