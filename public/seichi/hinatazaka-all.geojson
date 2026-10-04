@@ -6,6 +6,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7049909,
+          35.6561898
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04aae69e3849c07ad387",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04aae69e3849c07ad387",
+        "name": "渋谷川",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "渋谷川",
+        "sceneNote": "欅坂46 1stシングル「サイレントマジョリティー」type C裏ジャケットの長濱ねる撮影場所。（type Cには「乗り遅れたバス」が収録されている。）https://www.keyakizaka46.com/s/k46o/discography/SRCL-9039?ima=0000 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6y7KZONTGYSvQGz2FWvPQiwIlLQQpZcMlSDTztN05zwYfWEQK-h_zHHszYIk76V7DUfX_v9MJYmh4UL7TmE5LFJLd8C9MjOvTEl0zWpyzBkj64TQJjSmWWdDVcC5TwGoMk1z63MbD8ZCUew5KZvli2PdcHbdCdqbfG-sR9Q67oMNj4N7I2DPINeuQX-JXpKWkQTe-TJS9DF2WyEQU3cjfRa2ZBXFDr8Wqm-F7snMNPKxRmh25Z_of-K98%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "渋谷川",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           138.9125261,
           35.3147135
         ]
@@ -19,7 +74,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "御殿場市体育館",
-        "sceneNote": "欅坂 3rd Single「二人セゾン」Type-B収録「誰よりも高く跳べ」MV撮影場所。けやき46として初のMV撮影。 https://www.youtube.com/watch?v=TEZa21jPDeY 題名: 欅坂3rd",
+        "sceneNote": "欅坂 3rd Single「二人セゾン」Type-B収録「誰よりも高く跳べ」MV撮影場所。けやき46として初のMV撮影。 https://www.youtube.com/watch?v=TEZa21jPDeY 題名: 欅坂3rd https://www.youtube.com/embed/TEZa21jPDeY",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -28,6 +83,7 @@
           "シングル・アルバム（ロケ地）"
         ],
         "images": [
+          "https://img.youtube.com/vi/TEZa21jPDeY/hqdefault.jpg",
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5w3V4qOhzGYqtVQ7rOTvI8anhKdHVaKKlcec1owpE99PLXg43Q0fyZ962x1qZXLNwUiJL39S4PRPrQm0H9bdmnn-0XCoMTG154aIzm9OWB_xzmWO-L8fljmC3DgmGThQETeyVIkww_h4dNqhqV1I1DLnDnPYz9DAyWDgRwlU-6A-Hyia1j0IN_pysAvX4jbHye47n4JCOD1rgdIwE_qhH98llGdhHP7RXep8Ztb1zDllCwUafacVWncIc%3Ffife%3Ds16383"
         ],
         "members": [],
@@ -294,15 +350,15 @@
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e6c55e36575080b5e0e2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e6c55e36575080b5e0e2",
-        "name": "YUKUIDO/ゆくい堂株式会社",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bcd5766b2f055eb5bbb2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bcd5766b2f055eb5bbb2",
+        "name": "YUKUIDO KOBO(旧 ROUTE COMMON FACTORY)",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "YUKUIDO/ゆくい堂株式会社",
-        "sceneNote": "それでも歩いてるのMV撮影地 https://youtu.be/svldLXix7pw 題名: 欅坂46 5th",
+        "sceneTitle": "YUKUIDO KOBO(旧 ROUTE COMMON FACTORY)",
+        "sceneNote": "欅坂46 5thシングル共通カップリング曲「それでも歩いてる」のMV撮影地 https://youtu.be/svldLXix7pw 題名: 欅坂46 5th",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -311,7 +367,7 @@
           "シングル・アルバム（ロケ地）"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4wjAP5a5KgNFgjQpDwZTJFIihIKexaWke611TG3qd-F2j-fsDm9qtdP2NW8Mg1VrqrSZ_v3gXrsVZR4ibtF4q-csmPoN-rSxZr2S6qd3QCHSuOeUQYdaOuE5E6sc7g226IN1rtfDu1ZjCyaeY6vB97drMwxIxUaccFbZvjVtjBdA_NQqXl-GYkKHeY75AopuXObO9J3PzJzAMhcMPPz_1V_QiLfAhj9pFlNxIarTNQIbK71oZ4JdOJRJQ%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4sbDozeM_UI6qdxZdBbmk4q7FjXciXqSYfeu9YvfaigOK0iylCSbXZkNz7L6powIaYrUlzaN6eZlOiHoHLyJgO8HWlhzlkdDurQA_Dl5SCPT3Cq7wEwIy_gurrjPK5f_FOsZDv7DanMjVSSlY50Nyl2MpxN7TiU22Bw1iGQM6QLwwFeaYZnmBp-5vH8ZfcHLMa1XZJMjOtw7tzg_oYUitMSlwxfq8V4nPxqNBKLeiKAi-L04oyrDjODsw%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -323,7 +379,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "YUKUIDO/ゆくい堂株式会社",
+          "name": "YUKUIDO KOBO(旧 ROUTE COMMON FACTORY)",
           "group": "日向坂46"
         },
         "classification": {
@@ -544,61 +600,6 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "立飛リアルエステート南地区",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7049909,
-          35.6561898
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04aae69e3849c07ad387",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04aae69e3849c07ad387",
-        "name": "渋谷川",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "渋谷川",
-        "sceneNote": "欅坂46 1stシングル「サイレントマジョリティー」type C裏ジャケットの長濱ねる撮影場所。（type Cには「乗り遅れたバス」が収録されている。）https://www.keyakizaka46.com/s/k46o/discography/SRCL-9039?ima=0000 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6y7KZONTGYSvQGz2FWvPQiwIlLQQpZcMlSDTztN05zwYfWEQK-h_zHHszYIk76V7DUfX_v9MJYmh4UL7TmE5LFJLd8C9MjOvTEl0zWpyzBkj64TQJjSmWWdDVcC5TwGoMk1z63MbD8ZCUew5KZvli2PdcHbdCdqbfG-sR9Q67oMNj4N7I2DPINeuQX-JXpKWkQTe-TJS9DF2WyEQU3cjfRa2ZBXFDr8Wqm-F7snMNPKxRmh25Z_of-K98%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "渋谷川",
           "group": "日向坂46"
         },
         "classification": {
@@ -144349,6 +144350,59 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "SELCA STUDIO 渋谷店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6415964,
+          35.6532086
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1ccf9d49404fcaaa1c34",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1ccf9d49404fcaaa1c34",
+        "name": "世田谷区立山下公園",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "世田谷区立山下公園",
+        "sceneNote": "題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "世田谷区立山下公園",
           "group": "日向坂46"
         },
         "classification": {
