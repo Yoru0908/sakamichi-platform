@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# The whole job is one function: bash reads it completely before running it, so the `git merge` below can replace
+# this file mid-run without bash executing the new file from the old byte offset (2026-10-05: that skipped --baseline).
+main() {
+
 REPO_DIR="${SEICHI_REPO_DIR:-/vol1/sakamichi-platform}"
 RUNTIME_DIR="${SEICHI_RUNTIME_DIR:-/vol1/seichi-sync}"
 JOB_DIR="$RUNTIME_DIR/fumi"
@@ -114,3 +118,6 @@ git -c user.name="Sakamichi Seichi Sync" \
 # A concurrent human push is never overwritten; a non-fast-forward push fails.
 git push origin HEAD:sakamichi-platform
 echo "[$(date -Is)] fumi sync committed and pushed"
+}
+
+main "$@"

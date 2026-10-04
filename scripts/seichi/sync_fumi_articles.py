@@ -343,7 +343,11 @@ def main() -> int:
         if not args.no_geocode:
             geocoded, geocode_failed = geocode(spots, args.cache_dir / "gsi-geocode.json", args.geocode_delay)
             resolved = resolve(spots, args.cache_dir / "place-locate.json")
-        features = [feature for spot in spots if (feature := to_feature(spot)) is not None]
+        # Two spots of one article looked up to the same place get the same key; publish it once.
+        unique_features: dict[str, dict[str, Any]] = {}
+        for feature in filter(None, map(to_feature, spots)):
+            unique_features.setdefault(feature["properties"]["id"], feature)
+        features = list(unique_features.values())
         output = {"type": "FeatureCollection", "features": features}
         atomic_write(args.output, output)
         if args.merge_target:
