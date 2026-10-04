@@ -69211,8 +69211,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          138.431839,
-          35.741184
+          138.437743,
+          35.74793
         ]
       },
       "properties": {
@@ -69264,7 +69264,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "curated",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -73822,7 +73824,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "curated",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -75469,8 +75473,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.528641,
-          40.554951
+          140.527739,
+          40.555739
         ]
       },
       "properties": {
@@ -75518,7 +75522,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "curated",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -75526,8 +75532,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.552719,
-          40.536682
+          140.552803,
+          40.535766
         ]
       },
       "properties": {
@@ -75575,7 +75581,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "curated",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -75583,8 +75591,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          141.03363,
-          40.571651
+          140.957222,
+          40.5925
         ]
       },
       "properties": {
@@ -75632,7 +75640,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "curated",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -75640,8 +75650,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          141.03363,
-          40.571651
+          140.953075,
+          40.59681
         ]
       },
       "properties": {
@@ -75689,7 +75699,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "curated",
+        "coordPrecision": "exact"
       }
     },
     {

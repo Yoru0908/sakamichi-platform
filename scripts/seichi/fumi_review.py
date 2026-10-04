@@ -8,7 +8,10 @@ Runs between sync_fumi_articles.py (candidate) and promote_fumi_articles.py. A c
                 another spot of the same article. Neighbouring shops in one article and other articles at the same
                 place (one pin per article) are normal: a leave-one-out run over the latest 40 articles held 28% / 30%
                 of genuinely new spots when those counted as duplicates too.
-Jev (TypeSafe) adds a second opinion — same place? / which category? — to the notice; it never decides alone.
+  - changed     its article already has published points but not this key (keys hash article|address|coordinate, so
+                a parser change would otherwise re-add a published article as new pins next to the old ones)
+Jev (TypeSafe) adds a second opinion — same place? / which category? — to the notice. It decides only one thing: an
+article the rules could not classify (fallback Vlog・企画 / その他企画, ~1 in 368) takes Jev's category at ≥ JEV_SURE.
 fumi_overrides.json (in git) is how a held spot is released or dropped:
   {"fumi-article:…": {"action": "publish", "name": "…", "lat": 35.1, "lng": 139.1}}   name/lat/lng optional
   {"fumi-article:…": {"action": "skip"}}
@@ -31,10 +34,12 @@ from pathlib import Path
 from typing import Any
 
 from job_alert import send
+from sync_fumi_articles import CATEGORY_COLORS
 
 DUP_M = 150.0
 JEV_URL = "https://api.typesafe.ai/v1/systemone"
 JEV_SURE = 0.8
+FALLBACK = ("Vlog・企画", "その他企画")
 RUNTIME_DIR = Path(os.environ.get("SEICHI_RUNTIME_DIR", "/vol1/seichi-sync"))
 JEV_ENV = Path(os.environ.get("SEICHI_TYPESAFE_ENV", str(RUNTIME_DIR / "secrets" / "typesafe.env")))
 CATEGORIES = {
@@ -123,6 +128,12 @@ def jev(questions: dict[str, dict]) -> dict[str, dict]:
         return {}
 
 
+def reclassify(feature: dict, category: str) -> None:
+    props = feature["properties"]
+    props.update(category=category, subcategory=category, categoryColor=CATEGORY_COLORS[category])
+    props["classification"].update(category=category, subcategory=category, method="jev")
+
+
 def second_opinions(held: list[dict], candidates: list[dict]) -> list[dict]:
     """Attach Jev's P(same place) to held duplicates; return articles whose rule category Jev confidently disputes."""
     questions: dict[str, dict] = {}
@@ -143,9 +154,15 @@ def second_opinions(held: list[dict], candidates: list[dict]) -> list[dict]:
     doubts = []
     for j, (url, props) in enumerate(articles):
         answer = answers.get(f"c{j}") or {}
-        if answer.get("choice") not in (None, props["category"]) and answer.get("confidence", 0) >= JEV_SURE:
-            doubts.append({"key": f"category:{url}", "url": url, "title": props["sceneTitle"], "rule": props["category"],
-                           "jev": answer["choice"], "confidence": round(answer["confidence"], 2)})
+        if answer.get("choice") not in CATEGORIES or answer["choice"] == props["category"] or answer.get("confidence", 0) < JEV_SURE:
+            continue
+        if (props["category"], props["subcategory"]) == FALLBACK:
+            for feature in candidates:
+                if feature["properties"]["sourceUrl"] == url:
+                    reclassify(feature, answer["choice"])
+            continue
+        doubts.append({"key": f"category:{url}", "url": url, "title": props["sceneTitle"], "rule": props["category"],
+                       "jev": answer["choice"], "confidence": round(answer["confidence"], 2)})
     return doubts
 
 
@@ -159,8 +176,17 @@ def unresolved(crawl_report: dict) -> list[dict]:
     return rows
 
 
+def article_of(feature: dict) -> str:
+    match = re.search(r"archives/(\d+)", str(feature["properties"].get("sourceUrl") or ""))
+    return match.group(1) if match else ""
+
+
 def review(candidate: dict, current: dict, curated: dict, overrides: dict) -> tuple[dict, list[dict], list[dict]]:
-    """`current` is accepted for the CLI's sake; revisits of places already in the combined map are not held."""
+    """Revisits of places from other articles in the combined map are not held; re-parsed published articles are."""
+    published: dict[str, set[str]] = {}
+    for feature in current["features"]:
+        if str(feature["properties"].get("id", "")).startswith("fumi-article:"):
+            published.setdefault(article_of(feature), set()).add(feature["properties"]["id"])
     keep, held = [], []
     for feature in candidate["features"]:
         key = feature["properties"]["id"]
@@ -172,6 +198,11 @@ def review(candidate: dict, current: dict, curated: dict, overrides: dict) -> tu
         same_name = [f for f in keep if name and f["properties"].get("sourceUrl") == feature["properties"].get("sourceUrl")
                      and compact(f["properties"].get("name")) == name]
         reasons, dup = reasons_for(feature, curated.get("features", []), same_name)
+        if key in published.get(article_of(feature), ()):
+            keep.append(feature)
+            continue
+        if article_of(feature) in published:
+            reasons.append("changed")
         if override.get("action") == "publish" or not reasons:
             keep.append(feature)
             continue
@@ -183,7 +214,7 @@ def review(candidate: dict, current: dict, curated: dict, overrides: dict) -> tu
     return {"type": "FeatureCollection", "features": keep}, held, doubts
 
 
-LABELS = {"no-name": "取不到地名", "coarse": "坐标只到町名", "duplicate": "疑似重复", "no-coordinate": "查不到坐标"}
+LABELS = {"no-name": "取不到地名", "coarse": "坐标只到町名", "duplicate": "疑似重复", "no-coordinate": "查不到坐标", "changed": "已发布文章解析结果变化"}
 
 
 def notice(items: list[dict], doubts: list[dict]) -> str:

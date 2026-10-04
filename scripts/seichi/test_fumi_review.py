@@ -22,7 +22,8 @@ def feature(key, lng=139.70, lat=35.66, name="新しい場所", address="東京�
     return {"type": "Feature", "geometry": {"type": "Point", "coordinates": [lng, lat]},
             "properties": {"id": key, "sourceKey": key, "name": name, "address": address, "sourceUrl": URL,
                            "sceneTitle": "櫻坂46 山川宇衣 Vlog撮影場所", "category": "Vlog・企画",
-                           "coordPrecision": precision, "source": {"name": name}}}
+                           "subcategory": "Vlog", "coordPrecision": precision, "source": {"name": name},
+                           "classification": {"category": "Vlog・企画", "subcategory": "Vlog"}}}
 
 
 def collection(*features):
@@ -52,6 +53,22 @@ class FumiReviewTest(unittest.TestCase):
         other = feature("fumi-article:old", lng=139.7001)
         other["properties"]["sourceUrl"] = "https://fumichen2.livedoor.blog/archives/59000000.html"
         self.assertEqual((["fumi-article:a"], {}), self.run_review([feature("fumi-article:a")], current=[other]))
+
+    def test_reparsed_published_article_is_held_not_appended(self):
+        old = feature("fumi-article:old", lng=139.9)
+        kept, held = self.run_review([feature("fumi-article:old", lng=139.9), feature("fumi-article:rekeyed", name="再解析")], current=[old])
+        self.assertEqual((["fumi-article:old"], {"fumi-article:rekeyed": ["changed"]}), (kept, held))
+
+    def test_jev_decides_only_the_rule_fallback_and_otherwise_just_notes_a_doubt(self):
+        fallback, ruled = feature("fumi-article:a"), feature("fumi-article:b", lng=135.0)
+        fallback["properties"]["subcategory"] = "その他企画"
+        ruled["properties"]["sourceUrl"] = URL.replace("60100000", "60100001")
+        answer = {"choice": "番組・イベント", "confidence": 0.9}
+        with unittest.mock.patch.object(fumi_review, "jev", return_value={"c0": answer, "c1": answer}):
+            kept, _, doubts = fumi_review.review(collection(fallback, ruled), collection(), collection(), {})
+        self.assertEqual(["番組・イベント", "Vlog・企画"], [f["properties"]["category"] for f in kept["features"]])
+        self.assertEqual("jev", kept["features"][0]["properties"]["classification"]["method"])
+        self.assertEqual([ruled["properties"]["sourceUrl"]], [d["url"] for d in doubts])
 
     def test_curated_map_counts_as_published(self):
         curated = feature("mag2026-rokugo-park", lng=139.70005)
