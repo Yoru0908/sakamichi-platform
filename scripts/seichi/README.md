@@ -84,6 +84,7 @@ fumi public tag/article pages
        fumi_locate.py    town-level → OpenPOI / OSM / Wikidata / official site; unnamed → position name
   -> fumi_review.py (automatic publish/skip decisions; one private FYI per spot)
   -> promote_fumi_articles.py (append-only: published points are never changed or removed)
+  -> append_member_spots.py (山川宇衣's new spots also appended to yamakawa-ui.geojson)
   -> public/seichi/sakurazaka-all.geojson
   -> tests + git commit/push to sakamichi-platform
   -> /api/seichi-data/sakurazaka (GitHub Raw proxy; static snapshot fallback)

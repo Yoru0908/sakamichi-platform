@@ -101,6 +101,7 @@ python3 scripts/seichi/test_place_extract.py
 python3 scripts/seichi/test_fumi_locate.py
 python3 scripts/seichi/test_promote_fumi_articles.py
 python3 scripts/seichi/test_fumi_review.py
+python3 scripts/seichi/test_append_member_spots.py
 
 if cmp -s "$CURRENT" "$PROMOTED"; then
   echo "[$(date -Is)] no production data changes"
@@ -109,8 +110,13 @@ fi
 
 cp "$PROMOTED" "${CURRENT}.tmp.sync"
 mv -f "${CURRENT}.tmp.sync" "$CURRENT"
-git diff --check -- public/seichi/sakurazaka-all.geojson
-git add public/seichi/sakurazaka-all.geojson
+# Her new spots also go into the curated 山川宇衣 map, so every page reading it stays in step with the combined map.
+python3 scripts/seichi/append_member_spots.py \
+  --combined "$CURRENT" \
+  --curated public/seichi/yamakawa-ui.geojson \
+  --baseline scripts/seichi/fumi_baseline.json
+git diff --check -- public/seichi/sakurazaka-all.geojson public/seichi/yamakawa-ui.geojson
+git add public/seichi/sakurazaka-all.geojson public/seichi/yamakawa-ui.geojson
 git -c user.name="Sakamichi Seichi Sync" \
     -c user.email="seichi-sync@46log.com" \
     commit -m "data: 自动同步 fumi 圣巡地图"
