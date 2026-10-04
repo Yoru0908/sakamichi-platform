@@ -69,6 +69,13 @@ python3 scripts/seichi/sync_fumi_articles.py \
   --output "$CANDIDATE" \
   --report "$CRAWL_REPORT"
 
+# Names chosen while Jev was down, or town-level points whose lookup hit an outage, would be published for good
+# (append-only, keys include the coordinate). Skip this run; the next cycle retries from cache.
+if python3 -c 'import json,sys; r=json.load(open(sys.argv[1])); sys.exit(0 if r.get("jevFailed") or r.get("locateDeferred") else 1)' "$CRAWL_REPORT"; then
+  echo "[$(date -Is)] Jev or a lookup service was unavailable; not publishing this run"
+  exit 0
+fi
+
 # Held spots (no name / town-level coordinate / suspected duplicate) are reported to QQ once and left out.
 python3 scripts/seichi/fumi_review.py \
   --candidate "$CANDIDATE" \
@@ -86,6 +93,8 @@ python3 scripts/seichi/promote_fumi_articles.py \
   --report "$PROMOTE_REPORT"
 
 python3 scripts/seichi/test_sync_fumi_articles.py
+python3 scripts/seichi/test_place_extract.py
+python3 scripts/seichi/test_fumi_locate.py
 python3 scripts/seichi/test_promote_fumi_articles.py
 python3 scripts/seichi/test_fumi_review.py
 

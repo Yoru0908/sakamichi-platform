@@ -34,7 +34,6 @@ NOT_NAME_RE = re.compile(
 CONTINUATION_PREFIXES = ("前", "横", "裏", "付近", "沿い", "/", "／")
 NOT_NAME_MARKS = ("。", "！", "？", "!", "?", "：", ":")
 # Narration that the author moved on to another place: a coordinate after it is not the address above it.
-ARRIVAL_RE = re.compile(r"(?:に|へ)(?:到着|着きました|来ました|来ています|やってきました|やって来ました|移動)")
 TITLE_LIKE_RE = re.compile(r"撮影場所$|を撮影$|収録場所$|^\d{4}[.年]|^episode\b|^(?:blog|vlog)$|\d+歳$", re.I)
 # A name cut out of a sentence must end like a noun (「交差点を渡したら」「何故ここ」 do not).
 NOUN_END_RE = re.compile(r"[一-龯々〆ァ-ヶーA-Za-z0-9)）」』]$")
@@ -75,38 +74,6 @@ def derived_name_ok(value: str, title: str) -> bool:
     return name_like(value, title) and bool(NOUN_END_RE.search(value))
 
 
-def meaningful_name(lines: list[str], index: int, title: str, at_address: bool = False) -> str:
-    """The nearest place-like line above `index`; "" when there is none (the review step holds such spots).
-    The scan stops at a coordinate or address line: everything above it belongs to the previous spot."""
-    for offset, candidate in enumerate(reversed(lines[max(0, index - 7):index])):
-        value = candidate.strip(" ：:・")
-        if COORD_RE.search(value) or value.startswith("〒") or clean_address(value):
-            break
-        if name_like(value, title):
-            previous = lines[index - offset - 2].strip(" ：:・") if index - offset - 2 >= 0 else ""
-            # 「橫濱媽祖廟 / 前 / 南門シルクロード」: a link split one name over two lines.
-            if value.startswith(CONTINUATION_PREFIXES) and name_like(previous, title):
-                return f"{previous}{value}"
-            return value
-        # 「六郷水門付近の建築物、Google Mapで情報がありません。」: the name slot right above, followed by a remark.
-        head = re.split(r"[、，]", value, maxsplit=1)[0]
-        if at_address and offset == 0 and head != value and len(head) <= 30 and derived_name_ok(head, title):
-            return head
-        arrival = ARRIVAL_PLACE_RE.search(value)
-        if arrival and derived_name_ok(arrival.group(1), title):
-            return arrival.group(1)
-    return ""
-
-
 def mentions_member(value: str) -> bool:
     compact = re.sub(r"\s+", "", value)
     return any(member in compact for member in SAKURAZAKA_MEMBERS)
-
-
-def owns_coordinate(lines: list[str], address_index: int, coord_line: int, title: str) -> bool:
-    """The first coordinate after an address belongs to it unless a place-like line sits in between: fumi writes
-    「店 / 〒住所 / 別の場所名 / 座標」 when the photo spot differs from the shop, and「場所 / 〒住所 / 感想… / 座標」 when not."""
-    if coord_line == address_index:
-        return True
-    between = [line.strip(" ：:・") for line in lines[address_index + 1:coord_line]]
-    return not any(name_like(value, title) or ARRIVAL_RE.search(value) for value in between)

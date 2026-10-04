@@ -1,23 +1,18 @@
 #!/usr/bin/env python3
-"""Hold back new fumi spots that need a human, notify once, publish the rest.
+"""Decide every new fumi spot automatically, publish the rest, and send the owner a once-per-spot FYI.
 
-Runs between sync_fumi_articles.py (candidate) and promote_fumi_articles.py. A candidate spot is held when:
-  - no-name     the crawler found no line that names it (it never publishes a sentence or title as a label)
-  - coarse      its coordinate is a town-level GSI fallback (「奥瀬」 for 蔦温泉: 7 km off)
-  - duplicate   within DUP_M of, or at the same address as, a point of the 山川宇衣 curated map; or the same name as
-                another spot of the same article. Neighbouring shops in one article and other articles at the same
-                place (one pin per article) are normal: a leave-one-out run over the latest 40 articles held 28% / 30%
-                of genuinely new spots when those counted as duplicates too.
-  - changed     its article already has published points but not this key (keys hash article|address|coordinate, so
-                a parser change would otherwise re-add a published article as new pins next to the old ones)
-Jev (TypeSafe) adds a second opinion — same place? / which category? — to the notice. It decides only one thing: an
-article the rules could not classify (fallback Vlog・企画 / その他企画, ~1 in 368) takes Jev's category at ≥ JEV_SURE.
-fumi_overrides.json (in git) is how a held spot is released or dropped:
-  {"fumi-article:…": {"action": "publish", "name": "…", "lat": 35.1, "lng": 139.1}}   name/lat/lng optional
-  {"fumi-article:…": {"action": "skip"}}
-Spots the crawler could not place at all (no coordinate, GSI no match) are listed from the crawl report as
-"no-coordinate" (notice only — key unresolved:<article id>:<address>; GSI network errors are retried next run).
-Each held key is notified once (state under SEICHI_RUNTIME_DIR), so the 6-hourly cron does not repeat itself.
+Runs between sync_fumi_articles.py (candidate) and promote_fumi_articles.py. Names and coordinates are already as good
+as the crawler can make them (place_extract + fumi_locate: Jev-ranked names, OpenPOI/OSM/Wikidata/official-site
+coordinates, municipality anchors, position names for unnamed spots). Decisions, no human step:
+  - same place as a 山川宇衣 curated point (within DUP_M or same lot address) → skipped when Jev says it is the same
+    place (≥ JEV_SAME) or one name contains the other; published otherwise. Jev down → the spot waits for the next run.
+  - same name as a nearer-than-DUP_M spot of the same article → skipped (one pin per place; a road crossing several
+    entries, e.g. 第一京浜国道 ×5, is several places).
+  - its article already has published points but not this key → skipped silently (keys hash
+    article|address|coordinate; a parser change must not re-add a published article as new pins).
+  - everything else, including town-level coordinates the lookup could not improve, is published.
+Jev also classifies articles the rules could not (fallback Vlog・企画 / その他企画) at ≥ JEV_SURE.
+fumi_overrides.json still applies first ({"<key>": {"action": "skip"}} or "publish" with optional name/lat/lng).
 """
 
 from __future__ import annotations
@@ -39,8 +34,9 @@ from sync_fumi_articles import CATEGORY_COLORS
 DUP_M = 150.0
 JEV_URL = "https://api.typesafe.ai/v1/systemone"
 JEV_SURE = 0.8
+JEV_SAME = 0.5
 FALLBACK = ("Vlog・企画", "その他企画")
-# Held-spot notices go to the owner privately, not to the shared alert group (2026-10-05).
+# FYI notices go to the owner privately, not to the shared alert group (2026-10-05).
 REVIEW_QQ = os.environ.get("SEICHI_REVIEW_QQ", "314389463")
 RUNTIME_DIR = Path(os.environ.get("SEICHI_RUNTIME_DIR", "/vol1/seichi-sync"))
 JEV_ENV = Path(os.environ.get("SEICHI_TYPESAFE_ENV", str(RUNTIME_DIR / "secrets" / "typesafe.env")))
@@ -76,31 +72,20 @@ def compact(text: Any) -> str:
     return re.sub(r"[\s・/\-()（）「」]+", "", unicodedata.normalize("NFKC", str(text or ""))).lower()
 
 
-def nearest_published(feature: dict, published: list[dict], same_name: list[dict]) -> tuple[float, dict] | None:
+def near_curated(feature: dict, curated: list[dict]) -> tuple[float, dict] | None:
     here, address = feature["geometry"]["coordinates"], compact(feature["properties"].get("address"))
     best = None
-    for other in published:
+    for other in curated:
         dist = metres(here, other["geometry"]["coordinates"])
         same_address = address and re.search(r"\d", address) and address == compact(other["properties"].get("address"))
         if (dist <= DUP_M or same_address) and (best is None or dist < best[0]):
             best = (dist, other)
-    for other in same_name:
-        dist = metres(here, other["geometry"]["coordinates"])
-        if best is None or dist < best[0]:
-            best = (dist, other)
     return best
 
 
-def reasons_for(feature: dict, published: list[dict], same_name: list[dict] = ()) -> tuple[list[str], dict | None]:
-    props, reasons = feature["properties"], []
-    if not str(props.get("name") or "").strip():
-        reasons.append("no-name")
-    if props.get("coordPrecision") == "town":
-        reasons.append("coarse")
-    dup = nearest_published(feature, published, list(same_name))
-    if dup:
-        reasons.append("duplicate")
-    return reasons, ({"distance": round(dup[0]), "name": dup[1]["properties"].get("name"), "id": dup[1]["properties"].get("id")} if dup else None)
+def contains(a: Any, b: Any) -> bool:
+    a, b = compact(a), compact(b)
+    return bool(a and b and (a in b or b in a))
 
 
 def apply_override(feature: dict, override: dict) -> None:
@@ -112,8 +97,8 @@ def apply_override(feature: dict, override: dict) -> None:
         props.update(coordSource="override", coordPrecision="exact")
 
 
-def jev(questions: dict[str, dict]) -> dict[str, dict]:
-    """One batched TypeSafe call; any failure → no opinions (the notice goes out without them)."""
+def jev(questions: dict[str, dict]) -> dict[str, dict] | None:
+    """One batched TypeSafe call. No key → {} (rules only); API failure → None (the caller defers what needs it)."""
     key = os.environ.get("TYPESAFE_API_KEY") or next(
         (line.split("=", 1)[1].strip() for line in (JEV_ENV.read_text().splitlines() if JEV_ENV.exists() else []) if line.startswith("TYPESAFE_API_KEY=")),
         "",
@@ -125,9 +110,9 @@ def jev(questions: dict[str, dict]) -> dict[str, dict]:
     try:
         with urllib.request.urlopen(request, timeout=60) as response:
             return json.load(response).get("answers", {})
-    except Exception as exc:  # the review must not fail because the second opinion is unavailable
+    except Exception as exc:
         print(f"fumi_review: Jev call failed: {exc}", file=sys.stderr)
-        return {}
+        return None
 
 
 def reclassify(feature: dict, category: str) -> None:
@@ -136,45 +121,38 @@ def reclassify(feature: dict, category: str) -> None:
     props["classification"].update(category=category, subcategory=category, method="jev")
 
 
-def second_opinions(held: list[dict], candidates: list[dict]) -> list[dict]:
-    """Attach Jev's P(same place) to held duplicates; return articles whose rule category Jev confidently disputes."""
+def ask_jev(dups: list[tuple[dict, dict]], candidates: list[dict]) -> tuple[dict, list]:
     questions: dict[str, dict] = {}
-    for i, item in enumerate(held):
-        if item["duplicate"]:
-            questions[f"d{i}"] = {"type": "noul", "instructions": {
-                "new_spot": {"name": item["name"], "address": item["address"]},
-                "existing_spot": {"name": item["duplicate"]["name"]}, "distance_m": item["duplicate"]["distance"],
-                "question": "Do `new_spot` and `existing_spot` refer to the same real-world place?"}}
+    for i, (feature, other) in enumerate(dups):
+        questions[f"d{i}"] = {"type": "noul", "instructions": {
+            "new_spot": {"name": feature["properties"].get("name"), "address": feature["properties"].get("address")},
+            "existing_spot": {"name": other["properties"].get("name"), "address": other["properties"].get("address")},
+            "distance_m": round(metres(feature["geometry"]["coordinates"], other["geometry"]["coordinates"])),
+            "question": "Do `new_spot` and `existing_spot` refer to the same real-world place?"}}
     articles = list({f["properties"]["sourceUrl"]: f["properties"] for f in candidates}.items())
     for j, (_, props) in enumerate(articles):
         questions[f"c{j}"] = {"type": "choice", "criteria": CATEGORIES, "instructions": {
             "article_title": props["sceneTitle"], "question": "What kind of content are the locations in this article from?"}}
-    answers = jev(questions)
-    for i, item in enumerate(held):
-        if f"d{i}" in answers:
-            item["duplicate"]["jevSame"] = round(answers[f"d{i}"].get("noul", 0), 2)
-    doubts = []
+    return jev(questions), articles
+
+
+def classify_fallbacks(answers: dict, articles: list, candidates: list[dict]) -> None:
     for j, (url, props) in enumerate(articles):
         answer = answers.get(f"c{j}") or {}
-        if answer.get("choice") not in CATEGORIES or answer["choice"] == props["category"] or answer.get("confidence", 0) < JEV_SURE:
+        if (props["category"], props["subcategory"]) != FALLBACK or answer.get("choice") not in CATEGORIES:
             continue
-        if (props["category"], props["subcategory"]) == FALLBACK:
+        if answer["choice"] != props["category"] and answer.get("confidence", 0) >= JEV_SURE:
             for feature in candidates:
                 if feature["properties"]["sourceUrl"] == url:
                     reclassify(feature, answer["choice"])
-            continue
-        doubts.append({"key": f"category:{url}", "url": url, "title": props["sceneTitle"], "rule": props["category"],
-                       "jev": answer["choice"], "confidence": round(answer["confidence"], 2)})
-    return doubts
 
 
 def unresolved(crawl_report: dict) -> list[dict]:
     rows = []
     for spot in crawl_report.get("unresolvedSpots", []):
         article = re.search(r"archives/(\d+)", spot.get("articleUrl", ""))
-        rows.append({"key": f"unresolved:{article.group(1) if article else '?'}:{spot.get('address', '')}", "reasons": ["no-coordinate"],
-                     "name": spot.get("name", ""), "address": spot.get("address", ""), "lat": None, "lng": None,
-                     "url": spot.get("articleUrl"), "title": spot.get("title"), "duplicate": None})
+        rows.append({"key": f"unresolved:{article.group(1) if article else '?'}:{spot.get('address', '')}", "decision": "no-coordinate",
+                     "name": spot.get("name", ""), "address": spot.get("address", ""), "url": spot.get("articleUrl")})
     return rows
 
 
@@ -183,64 +161,77 @@ def article_of(feature: dict) -> str:
     return match.group(1) if match else ""
 
 
-def review(candidate: dict, current: dict, curated: dict, overrides: dict) -> tuple[dict, list[dict], list[dict]]:
-    """Revisits of places from other articles in the combined map are not held; re-parsed published articles are."""
+def row(feature: dict, decision: str, note: str = "") -> dict:
+    props = feature["properties"]
+    return {"key": props["id"], "decision": decision, "note": note, "name": props.get("name") or "", "address": props.get("address") or "",
+            "precision": props.get("coordPrecision"), "named": props.get("nameSource") == "position", "url": props.get("sourceUrl")}
+
+
+def review(candidate: dict, current: dict, curated: dict, overrides: dict) -> tuple[dict, list[dict]]:
+    """→ (features to publish, decision rows for every new key). Already-published keys pass through silently."""
     published: dict[str, set[str]] = {}
     for feature in current["features"]:
         if str(feature["properties"].get("id", "")).startswith("fumi-article:"):
             published.setdefault(article_of(feature), set()).add(feature["properties"]["id"])
-    keep, held = [], []
+    fresh, keep, rows = [], [], []
     for feature in candidate["features"]:
-        key = feature["properties"]["id"]
-        override = overrides.get(key) or {}
+        key, override = feature["properties"]["id"], overrides.get(feature["properties"]["id"]) or {}
         if override.get("action") == "skip":
             continue
         apply_override(feature, override)
-        name = compact(feature["properties"].get("name"))
-        same_name = [f for f in keep if name and f["properties"].get("sourceUrl") == feature["properties"].get("sourceUrl")
-                     and compact(f["properties"].get("name")) == name]
-        reasons, dup = reasons_for(feature, curated.get("features", []), same_name)
-        if key in published.get(article_of(feature), ()):
+        if key in published.get(article_of(feature), ()) or override.get("action") == "publish":
             keep.append(feature)
-            continue
-        if article_of(feature) in published:
-            reasons.append("changed")
-        if override.get("action") == "publish" or not reasons:
+        elif article_of(feature) not in published:  # else: a re-keyed spot of a published article, dropped silently
+            fresh.append(feature)
+    dups = [(f, hit[1]) for f in fresh if (hit := near_curated(f, curated.get("features", [])))]
+    answers, articles = ask_jev(dups, fresh) if fresh else ({}, [])
+    classify_fallbacks(answers or {}, articles, fresh)
+    same = {id(f): (other, (answers or {}).get(f"d{i}", {}).get("noul")) for i, (f, other) in enumerate(dups)}
+    for feature in fresh:
+        decision, note = decide(feature, same.get(id(feature)), keep, answers is None)
+        rows.append(row(feature, decision, note))
+        if decision == "published":
             keep.append(feature)
-            continue
-        props = feature["properties"]
-        held.append({"key": key, "reasons": reasons, "name": props.get("name") or "", "address": props.get("address") or "",
-                     "lat": feature["geometry"]["coordinates"][1], "lng": feature["geometry"]["coordinates"][0],
-                     "url": props.get("sourceUrl"), "title": props.get("sceneTitle"), "duplicate": dup})
-    doubts = second_opinions(held, candidate["features"])
-    return {"type": "FeatureCollection", "features": keep}, held, doubts
+    return {"type": "FeatureCollection", "features": keep}, rows
 
 
-LABELS = {"no-name": "取不到地名", "coarse": "坐标只到町名", "duplicate": "疑似重复", "no-coordinate": "查不到坐标", "changed": "已发布文章解析结果变化"}
+def decide(feature: dict, curated_hit: tuple[dict, float | None] | None, kept: list[dict], jev_down: bool) -> tuple[str, str]:
+    props = feature["properties"]
+    twin = next((f for f in kept if f["properties"].get("sourceUrl") == props.get("sourceUrl") and props.get("name")
+                 and compact(f["properties"].get("name")) == compact(props.get("name"))
+                 and metres(f["geometry"]["coordinates"], feature["geometry"]["coordinates"]) <= DUP_M), None)
+    if twin:
+        return "skipped", "同一文章同名同地"
+    if not curated_hit:
+        return "published", ""
+    other, p_same = curated_hit
+    label = f"手工图「{other['properties'].get('name')}」"
+    if contains(props.get("name"), other["properties"].get("name")) or (p_same or 0) >= JEV_SAME:
+        return "skipped", f"与{label}是同一地点"
+    if p_same is None and jev_down:
+        return "deferred", f"靠近{label}，Jev 暂不可用，下轮再判"
+    return "published", f"靠近{label}但不是同一地点"
 
 
-def notice(items: list[dict], doubts: list[dict]) -> str:
-    lines = [f"【fumi 新地点待确认】{len(items)} 件未发布" + (f"，{len(doubts)} 篇分类存疑" if doubts else "")]
-    for n, item in enumerate(items[:15], 1):
-        why = "・".join(LABELS[r] for r in item["reasons"])
-        where = f"{item['lat']:.6f},{item['lng']:.6f}" if item["lat"] is not None else "-"
-        line = f"{n}. [{why}] {item['name'] or '(无名)'} | {item['address'] or '-'} | {where}"
-        if item.get("duplicate"):
-            dup = item["duplicate"]
-            same = f"，Jev 同一地点 {dup['jevSame']}" if "jevSame" in dup else ""
-            line += f"\n   与已有「{dup['name']}」相距 {dup['distance']}m{same}"
-        lines.append(f"{line}\n   {item['url']}\n   key: {item['key']}")
-    if len(items) > 15:
-        lines.append(f"…另 {len(items) - 15} 件见 reports/fumi-review-latest.json")
-    for doubt in doubts:
-        lines.append(f"分类存疑：{doubt['title']}\n   规则 {doubt['rule']} / Jev {doubt['jev']} {doubt['confidence']}（已按规则发布）\n   {doubt['url']}")
-    if items:
-        lines.append("放行/跳过：scripts/seichi/fumi_overrides.json 写 {\"<key>\": {\"action\": \"publish\"}}（可附 name/lat/lng）或 \"skip\"")
+LABELS = {"published": "已发布", "skipped": "已跳过", "deferred": "待下轮", "no-coordinate": "查不到坐标"}
+
+
+def notice(rows: list[dict]) -> str:
+    count = {d: sum(r["decision"] == d for r in rows) for d in LABELS}
+    head = "，".join(f"{LABELS[d]} {n}" for d, n in count.items() if n)
+    lines = [f"【fumi 新地点】{head}"]
+    for n, item in enumerate(rows[:20], 1):
+        flags = [f for f, on in (("町名级坐标", item.get("precision") == "town"), ("按位置命名", item.get("named"))) if on]
+        extra = "；".join(filter(None, [item.get("note"), *flags]))
+        lines.append(f"{n}. [{LABELS[item['decision']]}] {item['name'] or '(无名)'} | {item['address'] or '-'}"
+                     + (f"\n   {extra}" if extra else "") + f"\n   {item['url']}")
+    if len(rows) > 20:
+        lines.append(f"…另 {len(rows) - 20} 件见 reports/fumi-review-latest.json")
     return "\n".join(lines)
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="扣下需人工确认的 fumi 新地点并通知")
+    parser = argparse.ArgumentParser(description="自动判定 fumi 新地点（发布/跳过）并私聊通知")
     parser.add_argument("--candidate", type=Path, required=True)
     parser.add_argument("--current", type=Path, required=True)
     parser.add_argument("--curated", type=Path, required=True, help="山川宇衣 手工图 yamakawa-ui.geojson")
@@ -253,17 +244,16 @@ def main() -> int:
 
     candidate = load(args.candidate, {"features": []})
     overrides = load(args.overrides, {})
-    kept, held, doubts = review(candidate, load(args.current, {"features": []}), load(args.curated, {"features": []}), overrides)
-    held += [row for row in unresolved(load(args.crawl_report, {}) if args.crawl_report else {}) if row["key"] not in overrides]
+    kept, rows = review(candidate, load(args.current, {"features": []}), load(args.curated, {"features": []}), overrides)
+    rows += [r for r in unresolved(load(args.crawl_report, {}) if args.crawl_report else {}) if r["key"] not in overrides]
     write(args.output, kept)
-    write(args.report, {"candidate": len(candidate["features"]), "kept": len(kept["features"]), "held": held, "categoryDoubts": doubts})
+    write(args.report, {"candidate": len(candidate["features"]), "kept": len(kept["features"]), "decisions": rows})
     notified = set(load(args.state, []))
-    fresh = [item for item in held if item["key"] not in notified]
-    fresh_doubts = [doubt for doubt in doubts if doubt["key"] not in notified]
-    if (fresh or fresh_doubts) and send(notice(fresh, fresh_doubts), user_id=REVIEW_QQ):
-        write(args.state, sorted(notified | {item["key"] for item in fresh + fresh_doubts}))
-    print(json.dumps({"candidate": len(candidate["features"]), "kept": len(kept["features"]), "held": len(held),
-                      "notified": len(fresh) + len(fresh_doubts)}, ensure_ascii=False))
+    fresh = [r for r in rows if r["key"] not in notified and r["decision"] != "deferred"]
+    if fresh and send(notice(fresh), user_id=REVIEW_QQ):
+        write(args.state, sorted(notified | {r["key"] for r in fresh}))
+    print(json.dumps({"candidate": len(candidate["features"]), "kept": len(kept["features"]),
+                      "decisions": {d: sum(r["decision"] == d for r in rows) for d in LABELS}, "notified": len(fresh)}, ensure_ascii=False))
     return 0
 
 

@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import sys
 import tempfile
@@ -28,7 +29,8 @@ from bs4 import BeautifulSoup
 from fumi_classify import classify
 from fumi_members import FOURTH_MEMBERS, SAKURAZAKA_MEMBERS
 from fumi_geo import geocode
-from fumi_names import COORD_RE, clean_address, inline_place_name, meaningful_name, owns_coordinate
+from fumi_locate import resolve
+from place_extract import JevScorer, extract
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE_URL = "http://blog.livedoor.jp/fumichen2"
@@ -152,7 +154,7 @@ def source_tags(soup: BeautifulSoup, discovered: Iterable[str]) -> list[str]:
     return unique((*metadata, *discovered))
 
 
-def parse_locations(article: Article, html: str) -> list[dict[str, Any]]:
+def parse_locations(article: Article, html: str, scorer: JevScorer | None = None) -> list[dict[str, Any]]:
     soup = BeautifulSoup(html, "html.parser")
     body = soup.select_one(".article-body-inner") or soup.select_one(".article-body")
     if body is None:
@@ -172,57 +174,13 @@ def parse_locations(article: Article, html: str) -> list[dict[str, Any]]:
     tags = unique((*tags, *generation_tags, *members))
     category, subcategory = classify(title, tags)
 
-    addresses: list[dict[str, Any]] = []
-    coordinates: list[tuple[int, float, float]] = []
-    for index, line in enumerate(lines):
-        address = clean_address(line)
-        if address:
-            addresses.append({"index": index, "address": address})
-        for match in COORD_RE.finditer(line):
-            coordinates.append((index, float(match.group(1)), float(match.group(2))))
-
     spots: list[dict[str, Any]] = []
-    consumed_coordinates: set[int] = set()
-    for item in addresses:
-        start = item["index"]
-        end = next((other["index"] for other in addresses if other["index"] > start), len(lines))
-        coord_index = next(
-            (i for i, coord in enumerate(coordinates) if i not in consumed_coordinates and start <= coord[0] < end),
-            None,
-        )
-        if coord_index is not None and not owns_coordinate(lines, start, coordinates[coord_index][0], title):
-            coord_index = None
-        lat = lng = None
-        if coord_index is not None:
-            consumed_coordinates.add(coord_index)
-            _, lat, lng = coordinates[coord_index]
-        context = " ".join(lines[max(0, start - 3):min(len(lines), end)])[:400]
-        if any(term in context for term in PRIVATE_TERMS):
+    for spot in extract(lines, title, scorer.score(lines, title) if scorer else {}):
+        at, text = spot.pop("anchor"), spot.pop("lines")
+        if any(term in " ".join(text[max(0, at - 3):at + 3])[:400] for term in PRIVATE_TERMS):
             continue
-        spots.append({
-            "name": inline_place_name(lines[start], item["address"]) or meaningful_name(lines, start, title, at_address=True),
-            "address": item["address"],
-            "lat": lat,
-            "lng": lng,
-            "coordSource": "article" if lat is not None else "",
-            "coordPrecision": "exact" if lat is not None else "",
-        })
-
-    for index, (_, lat, lng) in enumerate(coordinates):
-        if index in consumed_coordinates:
-            continue
-        line_index = coordinates[index][0]
-        context = " ".join(lines[max(0, line_index - 3):line_index + 2])[:400]
-        if any(term in context for term in PRIVATE_TERMS):
-            continue
-        spots.append({
-            "name": meaningful_name(lines, line_index, title),
-            "address": "",
-            "lat": lat,
-            "lng": lng,
-            "coordSource": "article",
-            "coordPrecision": "exact",
-        })
+        exact = spot["lat"] is not None
+        spots.append({**spot, "coordSource": "article" if exact else "", "coordPrecision": "exact" if exact else ""})
 
     deduped: dict[tuple[Any, ...], dict[str, Any]] = {}
     for spot in spots:
@@ -304,6 +262,7 @@ def to_feature(spot: dict[str, Any]) -> dict[str, Any] | None:
         "classificationCandidates": {"members": [], "projects": [], "contentTypes": []},
         "coordSource": spot.get("coordSource", ""),
         "coordPrecision": spot.get("coordPrecision", ""),
+        **({"nameSource": spot["nameSource"]} if spot.get("nameSource") else {}),
     }
     return {
         "type": "Feature",
@@ -349,6 +308,8 @@ def main() -> int:
     parser.add_argument("--request-delay", type=float, default=0.35)
     parser.add_argument("--geocode-delay", type=float, default=0.15)
     parser.add_argument("--no-geocode", action="store_true")
+    parser.add_argument("--jev-env", type=Path, default=Path(os.environ.get("SEICHI_TYPESAFE_ENV", "/vol1/seichi-sync/secrets/typesafe.env")),
+                        help="TYPESAFE_API_KEY env file；没有则地名按版面规则选（不调用 Jev）")
     parser.add_argument("--refresh", action="store_true")
     parser.add_argument("--output", type=Path, default=ROOT / ".tmp/fumi-supplement.geojson")
     parser.add_argument("--report", type=Path, default=ROOT / ".tmp/fumi-supplement-report.json")
@@ -364,20 +325,24 @@ def main() -> int:
         if args.max_articles:
             articles = articles[-args.max_articles:]
         print(f"unique articles: {len(articles)}", flush=True)
+        scorer = JevScorer(args.cache_dir / "jev-place-names.json", args.jev_env)
         spots: list[dict[str, Any]] = []
         failures: list[dict[str, str]] = []
         for index, article in enumerate(articles, 1):
             try:
                 html = fetcher.get(article.url, f"articles/{article.article_id}.html")
-                spots.extend(parse_locations(article, html))
+                spots.extend(parse_locations(article, html, scorer))
             except RuntimeError as error:
                 failures.append({"url": article.url, "error": str(error)})
             if index % 25 == 0 or index == len(articles):
                 print(f"parsed {index}/{len(articles)} articles -> {len(spots)} location candidates", flush=True)
 
+        scorer.save()
         geocoded = geocode_failed = 0
+        resolved = {"anchored": 0, "located": 0, "named": 0, "deferred": 0}
         if not args.no_geocode:
             geocoded, geocode_failed = geocode(spots, args.cache_dir / "gsi-geocode.json", args.geocode_delay)
+            resolved = resolve(spots, args.cache_dir / "place-locate.json")
         features = [feature for spot in spots if (feature := to_feature(spot)) is not None]
         output = {"type": "FeatureCollection", "features": features}
         atomic_write(args.output, output)
@@ -395,6 +360,10 @@ def main() -> int:
             "unresolved": len(spots) - len(features),
             "geocoded": geocoded,
             "geocodeFailed": geocode_failed,
+            "resolved": resolved,
+            # Either one means this run's names/coordinates are provisional; the cron does not publish it.
+            "locateDeferred": resolved["deferred"],
+            "jevFailed": scorer.failed,
             "fetchFailures": failures,
             "unresolvedSpots": [
                 {"name": spot["name"], "address": spot["address"], "articleUrl": spot["articleUrl"], "title": spot.get("articleTitle", "")}

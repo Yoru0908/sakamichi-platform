@@ -10,6 +10,7 @@ MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC and SPEC.loader
 sys.modules[SPEC.name] = MODULE
 SPEC.loader.exec_module(MODULE)
+from fumi_names import clean_address  # noqa: E402  (module dir is on sys.path once MODULE is loaded)
 
 
 class SyncFumiArticlesTest(unittest.TestCase):
@@ -57,13 +58,13 @@ class SyncFumiArticlesTest(unittest.TestCase):
         self.assertEqual("東京電力パワーグリッド株式会社行徳変電所", rows[1]["name"])
 
     def test_address_parser_rejects_prefecture_words_in_sentences(self):
-        self.assertIsNone(MODULE.clean_address("クイズに正解して栃木県クイズへ"))
-        self.assertIsNone(MODULE.clean_address("滋賀県、セーフ"))
+        self.assertIsNone(clean_address("クイズに正解して栃木県クイズへ"))
+        self.assertIsNone(clean_address("滋賀県、セーフ"))
         self.assertEqual(
             "神奈川県三浦市三崎3-12-10",
-            MODULE.clean_address("3204 bread&gelato 神奈川県三浦市三崎3-12-10"),
+            clean_address("3204 bread&gelato 神奈川県三浦市三崎3-12-10"),
         )
-        self.assertEqual("熱海市田原本町5-5", MODULE.clean_address("〒4130011 熱海市田原本町5-5"))
+        self.assertEqual("熱海市田原本町5-5", clean_address("〒4130011 熱海市田原本町5-5"))
 
     def test_classification_uses_source_channel_and_normalizes_publication(self):
         self.assertEqual(
