@@ -83723,6 +83723,198 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.004517,
+          36.337036
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:1c7f9d60543f3ada30bb",
+        "sourceKey": "fumi-article:1c7f9d60543f3ada30bb",
+        "name": "新島学園短期大学",
+        "category": "MV・楽曲",
+        "subcategory": "自称バレエダンサー",
+        "categoryColor": "#e11d48",
+        "address": "群馬県高崎市昭和町53",
+        "sceneTitle": "櫻坂46「自称バレエダンサー」PV撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。群馬県高崎市昭和町53",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60086133.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60086133.html",
+        "tags": [
+          "櫻坂46",
+          "四期生",
+          "大沼晶保",
+          "幸阪茉里乃",
+          "遠藤光莉",
+          "小島凪紗",
+          "遠藤理子",
+          "小田倉麗奈",
+          "石森璃花",
+          "佐藤愛桜",
+          "稲熊ひな",
+          "勝又春",
+          "中川智尋",
+          "松本和子",
+          "目黒陽色",
+          "山田桃実"
+        ],
+        "images": [],
+        "members": [
+          "大沼晶保",
+          "幸阪茉里乃",
+          "遠藤光莉",
+          "小島凪紗",
+          "遠藤理子",
+          "小田倉麗奈",
+          "石森璃花",
+          "佐藤愛桜",
+          "稲熊ひな",
+          "勝又春",
+          "中川智尋",
+          "松本和子",
+          "目黒陽色",
+          "山田桃実"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60086133.html",
+          "mapId": "",
+          "layer": "櫻坂46「自称バレエダンサー」PV撮影場所",
+          "tags": [
+            "櫻坂46",
+            "四期生",
+            "大沼晶保",
+            "幸阪茉里乃",
+            "遠藤光莉",
+            "小島凪紗",
+            "遠藤理子",
+            "小田倉麗奈",
+            "石森璃花",
+            "佐藤愛桜",
+            "稲熊ひな",
+            "勝又春",
+            "中川智尋",
+            "松本和子",
+            "目黒陽色",
+            "山田桃実"
+          ],
+          "name": "新島学園短期大学",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "自称バレエダンサー",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.870544,
+          36.275826
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:0af84ef27c8ecf3c9408",
+        "sourceKey": "fumi-article:0af84ef27c8ecf3c9408",
+        "name": "群馬県立自然史博物館 かぶら文化ホール",
+        "category": "MV・楽曲",
+        "subcategory": "自称バレエダンサー",
+        "categoryColor": "#e11d48",
+        "address": "群馬県富岡市上黒岩1674-1",
+        "sceneTitle": "櫻坂46「自称バレエダンサー」PV撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。群馬県富岡市上黒岩1674-1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60086133.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60086133.html",
+        "tags": [
+          "櫻坂46",
+          "四期生",
+          "大沼晶保",
+          "幸阪茉里乃",
+          "遠藤光莉",
+          "小島凪紗",
+          "遠藤理子",
+          "小田倉麗奈",
+          "石森璃花",
+          "佐藤愛桜",
+          "稲熊ひな",
+          "勝又春",
+          "中川智尋",
+          "松本和子",
+          "目黒陽色",
+          "山田桃実"
+        ],
+        "images": [],
+        "members": [
+          "大沼晶保",
+          "幸阪茉里乃",
+          "遠藤光莉",
+          "小島凪紗",
+          "遠藤理子",
+          "小田倉麗奈",
+          "石森璃花",
+          "佐藤愛桜",
+          "稲熊ひな",
+          "勝又春",
+          "中川智尋",
+          "松本和子",
+          "目黒陽色",
+          "山田桃実"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60086133.html",
+          "mapId": "",
+          "layer": "櫻坂46「自称バレエダンサー」PV撮影場所",
+          "tags": [
+            "櫻坂46",
+            "四期生",
+            "大沼晶保",
+            "幸阪茉里乃",
+            "遠藤光莉",
+            "小島凪紗",
+            "遠藤理子",
+            "小田倉麗奈",
+            "石森璃花",
+            "佐藤愛桜",
+            "稲熊ひな",
+            "勝又春",
+            "中川智尋",
+            "松本和子",
+            "目黒陽色",
+            "山田桃実"
+          ],
+          "name": "群馬県立自然史博物館 かぶら文化ホール",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "自称バレエダンサー",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
