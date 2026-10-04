@@ -30151,8 +30151,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          130.398041,
-          33.58939
+          130.400942,
+          33.588141
         ]
       },
       "properties": {
@@ -30198,7 +30198,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -43672,8 +43674,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.675278,
-          35.648579
+          139.673813,
+          35.648697
         ]
       },
       "properties": {
@@ -43722,7 +43724,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -48995,8 +48999,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.164047,
-          35.571507
+          139.173014,
+          35.588315
         ]
       },
       "properties": {
@@ -49042,7 +49046,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -56706,8 +56712,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.675278,
-          35.648579
+          139.673813,
+          35.648697
         ]
       },
       "properties": {
@@ -56755,7 +56761,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -61996,8 +62004,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.164047,
-          35.571507
+          139.173014,
+          35.588315
         ]
       },
       "properties": {
@@ -62045,7 +62053,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -64771,8 +64781,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          141.695938,
-          42.783916
+          141.680907,
+          42.787608
         ]
       },
       "properties": {
@@ -64826,7 +64836,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -65411,8 +65423,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          138.779053,
-          35.543289
+          138.762736,
+          35.52481
         ]
       },
       "properties": {
@@ -65460,7 +65472,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -72872,8 +72886,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.321472,
-          35.741077
+          139.336911,
+          35.747535
         ]
       },
       "properties": {
@@ -72919,7 +72933,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
       }
     },
     {
@@ -75026,8 +75042,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.595947,
-          35.25005
+          139.587563,
+          35.25034
         ]
       },
       "properties": {
@@ -75075,7 +75091,9 @@
           "members": [],
           "projects": [],
           "contentTypes": []
-        }
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
       }
     },
     {
