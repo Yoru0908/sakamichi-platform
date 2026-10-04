@@ -68066,61 +68066,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          131.624405,
-          32.422485
-        ]
-      },
-      "properties": {
-        "id": "fumi-article:73d780c161c866e97daa",
-        "sourceKey": "fumi-article:73d780c161c866e97daa",
-        "name": "天領うどんは",
-        "category": "番組・イベント",
-        "subcategory": "有吉の深掘り大調査",
-        "categoryColor": "#2563eb",
-        "address": "宮崎県日向市発祥のうどん屋さん、延岡市内に3",
-        "sceneTitle": "2026.01.22 櫻坂46 松田里奈「有吉の深掘り大調査」",
-        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。宮崎県日向市発祥のうどん屋さん、延岡市内に3",
-        "sourceLabel": "fumi Diary 2号店",
-        "sourceUrl": "https://fumichen2.livedoor.blog/archives/59653680.html",
-        "referenceUrl": "https://fumichen2.livedoor.blog/archives/59653680.html",
-        "tags": [
-          "櫻坂46",
-          "松田里奈"
-        ],
-        "images": [],
-        "members": [
-          "松田里奈"
-        ],
-        "source": {
-          "provider": "fumi Diary 2号店",
-          "url": "https://fumichen2.livedoor.blog/archives/59653680.html",
-          "mapId": "",
-          "layer": "2026.01.22 櫻坂46 松田里奈「有吉の深掘り大調査」",
-          "tags": [
-            "櫻坂46",
-            "松田里奈"
-          ],
-          "name": "天領うどんは",
-          "group": "櫻坂46"
-        },
-        "classification": {
-          "category": "番組・イベント",
-          "subcategory": "有吉の深掘り大調査",
-          "method": "source-article",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.831924,
           35.633389
         ]
