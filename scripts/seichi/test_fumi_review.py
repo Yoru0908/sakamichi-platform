@@ -97,6 +97,7 @@ class FumiReviewTest(unittest.TestCase):
             second = subprocess.run(cmd, capture_output=True, text=True, check=True).stdout
             self.assertIn("【fumi 新地点待确认】1 件未发布", first)
             self.assertIn("fumi-article:noname", first)
+            self.assertIn("→ 314389463", first)
             self.assertNotIn("dry-run alert", second)
             self.assertEqual([], json.loads((d / "out.json").read_text())["features"])
 

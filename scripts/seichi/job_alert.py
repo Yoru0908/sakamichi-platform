@@ -59,29 +59,31 @@ def message(kind: str, job: str, entry: dict, log_file: str | None) -> str:
     return f"【圣巡同步已恢复】{job}（此前连续失败 {entry['failures']} 次）"
 
 
-def send(text: str) -> bool:
+def send(text: str, user_id: str | None = None) -> bool:
+    """Group alert by default; with user_id, a private message to that QQ only."""
     if os.environ.get("SEICHI_ALERT_DRY_RUN"):
-        print(f"[dry-run alert] {text}")
+        print(f"[dry-run alert{' → ' + user_id if user_id else ''}] {text}")
         return True
     env = load_env(ENV_PATH)
     api = (env.get("NAPCAT_API") or "").rstrip("/")
     groups = env.get("SEICHI_ALERT_GROUPS") or env.get("DISK_GUARD_GROUPS") or env.get("BLOG_PUSH_DEFAULT_GROUPS") or ""
-    group_ids = [g.strip() for g in groups.split(",") if g.strip()]
-    if not api or not group_ids:
-        print(f"job_alert: NapCat not configured (api={bool(api)}, groups={group_ids}); alert not sent", file=sys.stderr)
+    targets = [("send_private_msg", "user_id", user_id)] if user_id else \
+        [("send_group_msg", "group_id", g.strip()) for g in groups.split(",") if g.strip()]
+    if not api or not targets:
+        print(f"job_alert: NapCat not configured (api={bool(api)}, targets={targets}); alert not sent", file=sys.stderr)
         return False
     headers = {"Content-Type": "application/json"}
     if env.get("NAPCAT_TOKEN"):
         headers["Authorization"] = f"Bearer {env['NAPCAT_TOKEN']}"
     ok = True
-    for gid in group_ids:
-        req = urllib.request.Request(f"{api}/send_group_msg", data=json.dumps({"group_id": int(gid), "message": text}).encode(), headers=headers)
+    for endpoint, key, target in targets:
+        req = urllib.request.Request(f"{api}/{endpoint}", data=json.dumps({key: int(target), "message": text}).encode(), headers=headers)
         try:
             with urllib.request.urlopen(req, timeout=15) as res:
                 body = json.loads(res.read() or b"{}")
                 ok = ok and res.status == 200 and body.get("retcode") == 0
         except Exception as exc:  # alerting must never break the job itself
-            print(f"job_alert: sending to group {gid} failed: {exc}", file=sys.stderr)
+            print(f"job_alert: {endpoint} to {target} failed: {exc}", file=sys.stderr)
             ok = False
     return ok
 

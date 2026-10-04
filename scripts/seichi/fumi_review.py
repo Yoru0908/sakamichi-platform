@@ -40,6 +40,8 @@ DUP_M = 150.0
 JEV_URL = "https://api.typesafe.ai/v1/systemone"
 JEV_SURE = 0.8
 FALLBACK = ("Vlog・企画", "その他企画")
+# Held-spot notices go to the owner privately, not to the shared alert group (2026-10-05).
+REVIEW_QQ = os.environ.get("SEICHI_REVIEW_QQ", "314389463")
 RUNTIME_DIR = Path(os.environ.get("SEICHI_RUNTIME_DIR", "/vol1/seichi-sync"))
 JEV_ENV = Path(os.environ.get("SEICHI_TYPESAFE_ENV", str(RUNTIME_DIR / "secrets" / "typesafe.env")))
 CATEGORIES = {
@@ -258,7 +260,7 @@ def main() -> int:
     notified = set(load(args.state, []))
     fresh = [item for item in held if item["key"] not in notified]
     fresh_doubts = [doubt for doubt in doubts if doubt["key"] not in notified]
-    if (fresh or fresh_doubts) and send(notice(fresh, fresh_doubts)):
+    if (fresh or fresh_doubts) and send(notice(fresh, fresh_doubts), user_id=REVIEW_QQ):
         write(args.state, sorted(notified | {item["key"] for item in fresh + fresh_doubts}))
     print(json.dumps({"candidate": len(candidate["features"]), "kept": len(kept["features"]), "held": len(held),
                       "notified": len(fresh) + len(fresh_doubts)}, ensure_ascii=False))
