@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Validate and promote the staged fumi article supplement.
+"""Validate and append newly reviewed fumi article points to the combined map.
 
-The crawler emits a complete snapshot of all fumi article features after the
-configured cutoff. This promoter replaces only that managed subset while
-preserving every My Maps and manually curated feature in the target GeoJSON.
+The crawler only emits articles newer than fumi_baseline.json, fumi_review.py holds
+back spots that need a human, and this promoter appends the remaining new keys.
+Published points (every My Maps, curated and earlier fumi feature) are never changed.
 """
 
 from __future__ import annotations
@@ -87,58 +87,45 @@ def promote(
     *,
     min_features: int,
     max_additions: int,
-    max_removals: int,
+    max_removals: int = 0,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Append-only: published fumi points are history and are never replaced or removed (2026-10-04 decision —
+    articles up to fumi_baseline.json are final; later fixes go through fumi_overrides.json). Only candidate keys
+    that are not published yet are added. `max_removals` is kept for CLI compatibility; nothing is removed."""
     current_features = current["features"]
     current_managed = [feature for feature in current_features if is_managed(feature)]
-    base = [feature for feature in current_features if not is_managed(feature)]
-    candidate_features = candidate["features"]
-
-    if len(candidate_features) < min_features:
+    if len(current_managed) < min_features:
         raise ValueError(
-            f"fumi candidate has only {len(candidate_features)} features; minimum is {min_features}"
+            f"current fumi subset has only {len(current_managed)} features; minimum is {min_features}"
         )
 
     candidate_keys: list[str] = []
-    for feature in candidate_features:
+    for feature in candidate["features"]:
         validate_candidate(feature)
         candidate_keys.append(source_key(feature))
     if len(candidate_keys) != len(set(candidate_keys)):
         raise ValueError("fumi candidate contains duplicate sourceKey values")
 
-    current_by_key = {source_key(feature): feature for feature in current_managed}
-    if len(current_by_key) != len(current_managed):
+    current_keys = {source_key(feature) for feature in current_managed}
+    if len(current_keys) != len(current_managed):
         raise ValueError("current fumi subset contains duplicate sourceKey values")
-    candidate_by_key = dict(zip(candidate_keys, candidate_features))
+    additions = [feature for feature in candidate["features"] if source_key(feature) not in current_keys]
+    if len(additions) > max_additions:
+        raise ValueError(f"refusing {len(additions)} fumi additions; maximum is {max_additions}")
 
-    current_keys = set(current_by_key)
-    staged_keys = set(candidate_by_key)
-    additions = len(staged_keys - current_keys)
-    removals = len(current_keys - staged_keys)
-    changed = sum(
-        current_by_key[key] != candidate_by_key[key]
-        for key in current_keys & staged_keys
-    )
-    if additions > max_additions:
-        raise ValueError(f"refusing {additions} fumi additions; maximum is {max_additions}")
-    if removals > max_removals:
-        raise ValueError(f"refusing {removals} fumi removals; maximum is {max_removals}")
-
-    output_features = [*base, *candidate_features]
-    all_keys = [source_key(feature) for feature in output_features]
-    nonempty_keys = [key for key in all_keys if key]
+    output_features = [*current_features, *additions]
+    nonempty_keys = [key for key in map(source_key, output_features) if key]
     if len(nonempty_keys) != len(set(nonempty_keys)):
         raise ValueError("promoted GeoJSON would contain duplicate feature IDs")
 
     result = {"type": "FeatureCollection", "features": output_features}
     report = {
         "currentFeatures": len(current_features),
-        "preservedNonFumiFeatures": len(base),
         "currentFumiFeatures": len(current_managed),
-        "candidateFumiFeatures": len(candidate_features),
-        "added": additions,
-        "removed": removals,
-        "changed": changed,
+        "candidateFumiFeatures": len(candidate["features"]),
+        "added": len(additions),
+        "removed": 0,
+        "alreadyPublished": len(candidate["features"]) - len(additions),
         "promotedFeatures": len(output_features),
         "status": "validated",
     }

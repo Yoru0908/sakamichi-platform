@@ -78,8 +78,9 @@ are cached under `/vol1/seichi-sync/fumi/cache/`.
 
 ```text
 fumi public tag/article pages
-  -> sync_fumi_articles.py (complete managed supplement after the fixed cutoff)
-  -> promote_fumi_articles.py (quality gate; preserve every non-fumi feature)
+  -> sync_fumi_articles.py (only articles newer than fumi_baseline.json)
+  -> fumi_review.py (hold no-name / town-level / suspected duplicates; QQ notice once; Jev second opinion)
+  -> promote_fumi_articles.py (append-only: published points are never changed or removed)
   -> public/seichi/sakurazaka-all.geojson
   -> tests + git commit/push to sakamichi-platform
   -> /api/seichi-data/sakurazaka (GitHub Raw proxy; static snapshot fallback)
@@ -100,9 +101,19 @@ SEICHI_RUNTIME_DIR=/vol1/seichi-sync \
 /vol1/sakamichi-platform/scripts/seichi/run_fumi_sync.sh
 ```
 
-The fumi promoter requires at least 700 managed features, permits at most 50
-additions or 10 removals in one run, validates stable unique IDs and WGS84
-coordinates, and replaces only features whose ID starts with `fumi-article:`.
+History is frozen since 2026-10-04: articles up to `fumi_baseline.json`
+(`articleId` 60086133) are final, and the promoter only appends new
+`fumi-article:` keys (at most 50 per run; the current map must still hold at
+least 700 of them). Held spots are released or dropped in
+`fumi_overrides.json` — `{"<key>": {"action": "publish", "name"?, "lat"?, "lng"?}}`
+or `{"<key>": {"action": "skip"}}` — then pushed; the next run applies it.
+A spot is held when it has no name, only a town-level GSI coordinate, is within
+150 m (or at the same lot address) of a 山川宇衣 curated point, or repeats a name
+within its own article. Revisits of places from other articles publish normally.
+Jev (TypeSafe) is optional: put `TYPESAFE_API_KEY=…` in
+`/vol1/seichi-sync/secrets/typesafe.env` (0600); without it notices go out
+without the second opinion. Notified keys: `/vol1/seichi-sync/state/fumi-review-notified.json`;
+latest held list: `/vol1/seichi-sync/reports/fumi-review-latest.json`.
 My Maps imports and manually curated records remain untouched. The fumi and
 overseas runners share a Git publication lock so they cannot commit concurrently.
 Both stop at 85% `/vol1` usage and rotate their individual logs at 5 MiB.

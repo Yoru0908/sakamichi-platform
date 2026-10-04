@@ -1,0 +1,5 @@
+{
+  "articleId": 60086133,
+  "decidedAt": "2026-10-04",
+  "note": "fumi articles up to this id are final history (combined map as of this date; 山川宇衣 points follow the curated yamakawa-ui map). The crawler only reads newer articles; corrections go through fumi_overrides.json."
+}

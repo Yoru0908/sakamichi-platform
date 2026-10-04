@@ -28,7 +28,7 @@ def feature(key, coordinates=(139.0, 35.0), *, name="spot"):
 
 class PromoteFumiArticlesTest(unittest.TestCase):
     def promote(self, current, candidate, **overrides):
-        options = {"min_features": 1, "max_additions": 50, "max_removals": 10}
+        options = {"min_features": 0, "max_additions": 50}
         options.update(overrides)
         return MODULE.promote(
             {"type": "FeatureCollection", "features": current},
@@ -36,30 +36,31 @@ class PromoteFumiArticlesTest(unittest.TestCase):
             **options,
         )
 
-    def test_replaces_only_managed_subset_and_reports_changes(self):
+    def test_appends_new_keys_and_never_changes_published_points(self):
         base = feature("manual:1")
-        unchanged = feature("fumi-article:one")
-        old = feature("fumi-article:two", name="old")
-        changed = feature("fumi-article:two", name="new")
+        published = feature("fumi-article:two", name="published")
+        reparsed = feature("fumi-article:two", name="reparsed")
         added = feature("fumi-article:three")
 
-        result, report = self.promote([base, unchanged, old], [unchanged, changed, added])
+        result, report = self.promote([base, published], [reparsed, added])
 
         self.assertEqual(
-            ["manual:1", "fumi-article:one", "fumi-article:two", "fumi-article:three"],
+            ["manual:1", "fumi-article:two", "fumi-article:three"],
             [row["properties"]["sourceKey"] for row in result["features"]],
         )
-        self.assertEqual(1, report["added"])
-        self.assertEqual(0, report["removed"])
-        self.assertEqual(1, report["changed"])
+        self.assertEqual("published", result["features"][1]["properties"]["name"])
+        self.assertEqual((1, 0, 1), (report["added"], report["removed"], report["alreadyPublished"]))
 
-    def test_rejects_large_addition_or_removal(self):
-        one = feature("fumi-article:one")
-        two = feature("fumi-article:two")
+    def test_never_removes_published_points(self):
+        one, two = feature("fumi-article:one"), feature("fumi-article:two")
+        result, report = self.promote([one, two], [])
+        self.assertEqual(2, len(result["features"]))
+        self.assertEqual(0, report["removed"])
+
+    def test_rejects_large_addition(self):
+        one, two = feature("fumi-article:one"), feature("fumi-article:two")
         with self.assertRaisesRegex(ValueError, "additions"):
             self.promote([], [one, two], max_additions=1)
-        with self.assertRaisesRegex(ValueError, "removals"):
-            self.promote([one, two], [one], max_removals=0)
 
     def test_rejects_duplicate_source_keys(self):
         row = feature("fumi-article:one")
@@ -93,9 +94,9 @@ class PromoteFumiArticlesTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "outside WGS84"):
             self.promote([], [feature("fumi-article:one", (181, 91))])
 
-    def test_rejects_too_small_snapshot(self):
+    def test_rejects_a_truncated_current_map(self):
         with self.assertRaisesRegex(ValueError, "minimum"):
-            self.promote([], [feature("fumi-article:one")], min_features=2)
+            self.promote([feature("fumi-article:one")], [], min_features=2)
 
 
 if __name__ == "__main__":

@@ -99,5 +99,49 @@ class SyncFumiArticlesTest(unittest.TestCase):
         self.assertEqual(["legacy", "fumi-article:fresh"], [x["properties"]["id"] for x in merged["features"]])
 
 
+    def parse_body(self, body):
+        html = f'<h2 class="article-title">櫻坂46 山川宇衣 Vlog撮影場所</h2><div class="article-body"><div class="article-body-inner">{body}</div></div>'
+        return [(row["name"], row["address"], row["lat"]) for row in MODULE.parse_locations(self.article(), html)]
+
+    # Layouts below are taken from real fumi articles (full-corpus run over ~370 articles, 2026-10-04).
+    def test_a_place_line_between_address_and_coordinate_owns_the_coordinate(self):
+        rows = self.parse_body("ビックカメラ有楽町店<br>https://www.biccamera.com/<br>〒100-0006 東京都千代田区有楽町1-11-1<br>"
+                               "そして、恵比寿ガーデンプレイスに来ました。<br>YEBISU BAR STAND前<br>座標: 35.643007, 139.712809")
+        self.assertEqual([("ビックカメラ有楽町店", "東京都千代田区有楽町1-11-1", None), ("YEBISU BAR STAND前", "", 35.643007)], rows)
+
+    def test_arrival_narration_moves_the_coordinate_to_the_new_place(self):
+        rows = self.parse_body("AUBREY HOUSE 渋谷青山店<br>〒150-0002 東京都渋谷区渋谷2-11-14<br>10:00 AM<br>"
+                               "代々木公園に到着しました。<br>座標: 35.672120, 139.693177")
+        self.assertEqual([("AUBREY HOUSE 渋谷青山店", "東京都渋谷区渋谷2-11-14", None), ("代々木公園", "", 35.67212)], rows)
+
+    def test_remarks_between_address_and_coordinate_keep_the_pair(self):
+        rows = self.parse_body("福浦橋<br>〒981-0213 宮城県宮城郡松島町松島字仙随39-1<br>渡った先にもちょっと島があります。<br>座標: 38.369864, 141.068364")
+        self.assertEqual([("福浦橋", "宮城県宮城郡松島町松島字仙随39-1", 38.369864)], rows)
+
+    def test_name_with_a_remark_after_the_comma(self):
+        rows = self.parse_body("六郷水門付近の建築物、Google Mapで情報がありません。<br>〒144-0045 東京都大田区南六郷2丁目35<br>座標: 35.544353, 139.723105")
+        self.assertEqual("六郷水門付近の建築物", rows[0][0])
+
+    def test_no_title_fallback_and_no_sentence_or_profile_names(self):
+        rows = self.parse_body("立教大学2年生、19歳<br>今日は友達とご飯を食べました。<br>座標: 38.260646, 140.881072")
+        self.assertEqual([("", "", 38.260646)], rows)
+
+    def test_overseas_address_line_is_not_a_name(self):
+        rows = self.parse_body("建成公園<br>103 台北市大同區承德路二段35號<br>座標: 25.054883, 121.519511")
+        self.assertEqual("建成公園", rows[0][0])
+
+    def test_link_split_name_is_joined(self):
+        rows = self.parse_body("橫濱媽祖廟<br>前 / 南門シルクロード<br>https://www.yokohama-masobyo.jp/<br>〒231-0023 神奈川県横浜市中区山下町136<br>座標: 35.442152, 139.647910")
+        self.assertEqual("橫濱媽祖廟前 / 南門シルクロード", rows[0][0])
+
+    def test_repeated_lines_keep_their_own_coordinates(self):
+        rows = self.parse_body("道標<br>座標: 38.368249, 141.059300<br>道標<br>座標: 38.368408, 141.059567")
+        self.assertEqual([("道標", "", 38.368249), ("道標", "", 38.368408)], rows)
+
+    def test_gsi_precision(self):
+        geo = importlib.import_module("fumi_geo")
+        self.assertEqual("town", geo.precision("青森県十和田市奥瀬"))
+        self.assertEqual("lot", geo.precision("千葉県富津市上６４８番地"))
+
 if __name__ == "__main__":
     unittest.main()

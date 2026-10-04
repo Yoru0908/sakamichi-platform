@@ -25,38 +25,16 @@ from typing import Any, Iterable
 
 from bs4 import BeautifulSoup
 
+from fumi_classify import classify
+from fumi_members import FOURTH_MEMBERS, SAKURAZAKA_MEMBERS
+from fumi_geo import geocode
+from fumi_names import COORD_RE, clean_address, inline_place_name, meaningful_name, owns_coordinate
+
 ROOT = Path(__file__).resolve().parents[2]
 BASE_URL = "http://blog.livedoor.jp/fumichen2"
 PROVIDER = "fumi Diary 2号店"
-FOURTH_MEMBERS = (
-    "山川宇衣", "佐藤愛桜", "浅井恋乃未", "稲熊ひな", "勝又春",
-    "中川智尋", "松本和子", "目黒陽色", "山田桃実",
-)
 DEFAULT_TAGS = ["櫻坂46", *FOURTH_MEMBERS]
-# Keep this ordered: member/tag arrays are persisted in GeoJSON and must not
-# change between processes merely because Python randomizes set iteration.
-SAKURAZAKA_MEMBERS = (
-    "森田ひかる", "田村保乃", "藤吉夏鈴", "守屋麗奈", "山﨑天", "大園玲",
-    "武元唯衣", "松田里奈", "井上梨名", "増本綺良", "大沼晶保", "幸阪茉里乃",
-    "小池美波", "遠藤光莉",
-    "的野美青", "山下瞳月", "谷口愛季", "村井優", "中嶋優月", "小島凪紗",
-    "村山美羽", "遠藤理子", "小田倉麗奈", "石森璃花", "向井純葉",
-    *FOURTH_MEMBERS,
-)
 ARTICLE_RE = re.compile(r"/archives/(\d+)\.html(?:$|[?#])")
-PREFECTURES = (
-    "北海道|青森県|岩手県|宮城県|秋田県|山形県|福島県|茨城県|栃木県|群馬県|埼玉県|"
-    "千葉県|東京都|神奈川県|新潟県|富山県|石川県|福井県|山梨県|長野県|岐阜県|静岡県|"
-    "愛知県|三重県|滋賀県|京都府|大阪府|兵庫県|奈良県|和歌山県|鳥取県|島根県|岡山県|"
-    "広島県|山口県|徳島県|香川県|愛媛県|高知県|福岡県|佐賀県|長崎県|熊本県|大分県|"
-    "宮崎県|鹿児島県|沖縄県"
-)
-POSTAL_RE = re.compile(r"(?:住所\s*[:：]\s*)?〒\s*\d{3}-?\d{4}\s*(.+)")
-PREFECTURE_ADDRESS_RE = re.compile(
-    rf"((?:{PREFECTURES}).{{0,40}}(?:市|区|町|村|郡).*[0-9０-９一二三四五六七八九十])"
-)
-COORD_RE = re.compile(r"(?:座標\s*[:：]?\s*)?([2-4]\d(?:\.\d+)?)\s*[,，、\s]\s*(1[2-5]\d(?:\.\d+)?)")
-URL_RE = re.compile(r"^(?:https?://|www\.)", re.I)
 PRIVATE_TERMS = ("個人宅", "自宅", "実家", "住宅のため非公開", "住所非公開")
 CATEGORY_COLORS = {
     "MV・楽曲": "#e11d48",
@@ -174,79 +152,6 @@ def source_tags(soup: BeautifulSoup, discovered: Iterable[str]) -> list[str]:
     return unique((*metadata, *discovered))
 
 
-def clean_address(line: str) -> str | None:
-    text = re.sub(r"\s+", " ", line).strip()
-    match = POSTAL_RE.search(text) or PREFECTURE_ADDRESS_RE.search(text)
-    if not match:
-        return None
-    value = match.group(1).strip()
-    value = re.split(r"\s+(?:座標|※|https?://)", value, maxsplit=1)[0].strip()
-    return value.rstrip("。") or None
-
-
-def inline_place_name(line: str, address: str) -> str | None:
-    prefix = line.split(address, 1)[0]
-    prefix = re.sub(r"(?:住所\s*[:：]\s*)?〒\s*\d{3}-?\d{4}\s*$", "", prefix).strip(" ：:")
-    return prefix if 1 < len(prefix) <= 80 and not URL_RE.match(prefix) else None
-
-
-def meaningful_name(lines: list[str], index: int, title: str) -> str:
-    for candidate in reversed(lines[max(0, index - 7):index]):
-        value = candidate.strip(" ：:・")
-        if not value or value.startswith("〒") or URL_RE.match(value) or clean_address(value) or COORD_RE.search(value):
-            continue
-        if value in SAKURAZAKA_MEMBERS or value in {"住所", "撮影場所", "不明", "私道", "ダンスシーン", "他"}:
-            continue
-        if value.startswith(("説明", "※", "歌唱メンバー", "ちなみに")):
-            continue
-        if any(mark in value for mark in ("。", "！", "？", "!", "?", "：", ":")):
-            continue
-        if len(value) <= 60 and re.search(r"[A-Za-z0-9ぁ-んァ-ヶ一-龯]", value):
-            return value
-    return title
-
-
-def clean_content_title(title: str) -> str:
-    value = re.sub(r"^\d{4}[.年]\d{1,2}[.月]\d{1,2}日?\s*", "", title).strip()
-    value = value.replace("櫻坂46", "", 1).strip()
-    for member in SAKURAZAKA_MEMBERS:
-        value = value.replace(member, "")
-    return value.strip(" 、,&　")
-
-
-def classify(title: str, tags: Iterable[str] = ()) -> tuple[str, str]:
-    quoted = re.search(r"[「『](.+?)[」』]", title)
-    project = quoted.group(1).strip() if quoted else ""
-    source_tags_value = set(tags)
-    if "個人PV" in title:
-        return "個人PV", project or "個人PV"
-    if any(word in title for word in ("PV撮影", "MV撮影", "ジャケット写真")):
-        return "MV・楽曲", project or "MV・楽曲"
-    if any(word in title for word in ("blog", "ブログ", "グリーティングカード")):
-        return "Blog・MSG", "公式Blog・写真"
-    if any(word in title for word in (
-        "週刊", "B.L.T", "BLT", "BOMB", "FLASH", "CanCam", "non-no", "ViVi",
-        "EX大衆", "アップトゥボーイ", "グラビア", "IDOL AND READ", "Top Yell",
-        "20±SWEET", "blt graph", "写真撮影場所",
-    )):
-        publication = clean_content_title(title).split("写真撮影場所", 1)[0].strip()
-        return "雑誌・グラビア", publication[:60] or "雑誌・グラビア"
-    if "Vlog" in title:
-        return "Vlog・企画", "四期生Vlog" if "四期生Vlog" in title else "Vlog"
-    if "四期生合宿" in title:
-        return "Vlog・企画", "四期生合宿"
-    if "ソロキャンプ" in title:
-        return "Vlog・企画", "ソロキャンプ"
-    if "櫻坂チャンネル" in source_tags_value or "櫻坂チャンネル" in title:
-        return "Vlog・企画", project or "櫻坂チャンネル"
-    if any(word in title for word in (
-        "テレビ", "番組", "生配信", "イベント", "サクコイ", "そこ曲がったら", "ちょこさく",
-        "ラヴィット", "ロケ地", "撮影場所", "収録場所", "出張リポート",
-    )) or project:
-        return "番組・イベント", project or "番組・イベント"
-    return "Vlog・企画", "その他企画"
-
-
 def parse_locations(article: Article, html: str) -> list[dict[str, Any]]:
     soup = BeautifulSoup(html, "html.parser")
     body = soup.select_one(".article-body-inner") or soup.select_one(".article-body")
@@ -254,7 +159,8 @@ def parse_locations(article: Article, html: str) -> list[dict[str, Any]]:
         return []
     title_node = soup.select_one("h2.article-title")
     title = title_node.get_text(" ", strip=True) if title_node else article.title
-    lines = unique(part.strip() for part in body.get_text("\n", strip=True).splitlines())
+    # Keep repeated lines: dropping them shifts which coordinate follows which address.
+    lines = [part.strip() for part in body.get_text("\n", strip=True).splitlines() if part.strip()]
     body_text = " ".join(lines)
     tags = source_tags(soup, article.discovered_tags)
     members = [tag for tag in tags if tag in SAKURAZAKA_MEMBERS]
@@ -277,18 +183,15 @@ def parse_locations(article: Article, html: str) -> list[dict[str, Any]]:
 
     spots: list[dict[str, Any]] = []
     consumed_coordinates: set[int] = set()
-    for position, item in enumerate(addresses):
+    for item in addresses:
         start = item["index"]
-        end = addresses[position + 1]["index"] if position + 1 < len(addresses) else len(lines)
+        end = next((other["index"] for other in addresses if other["index"] > start), len(lines))
         coord_index = next(
             (i for i, coord in enumerate(coordinates) if i not in consumed_coordinates and start <= coord[0] < end),
             None,
         )
-        if coord_index is None:
-            coord_index = next(
-                (i for i, coord in enumerate(coordinates) if i not in consumed_coordinates and 0 <= start - coord[0] <= 2),
-                None,
-            )
+        if coord_index is not None and not owns_coordinate(lines, start, coordinates[coord_index][0], title):
+            coord_index = None
         lat = lng = None
         if coord_index is not None:
             consumed_coordinates.add(coord_index)
@@ -297,10 +200,12 @@ def parse_locations(article: Article, html: str) -> list[dict[str, Any]]:
         if any(term in context for term in PRIVATE_TERMS):
             continue
         spots.append({
-            "name": inline_place_name(lines[start], item["address"]) or meaningful_name(lines, start, title),
+            "name": inline_place_name(lines[start], item["address"]) or meaningful_name(lines, start, title, at_address=True),
             "address": item["address"],
             "lat": lat,
             "lng": lng,
+            "coordSource": "article" if lat is not None else "",
+            "coordPrecision": "exact" if lat is not None else "",
         })
 
     for index, (_, lat, lng) in enumerate(coordinates):
@@ -315,11 +220,13 @@ def parse_locations(article: Article, html: str) -> list[dict[str, Any]]:
             "address": "",
             "lat": lat,
             "lng": lng,
+            "coordSource": "article",
+            "coordPrecision": "exact",
         })
 
-    deduped: dict[str, dict[str, Any]] = {}
+    deduped: dict[tuple[Any, ...], dict[str, Any]] = {}
     for spot in spots:
-        key = spot["address"] or f"{spot['lat']:.6f},{spot['lng']:.6f}"
+        key = (spot["name"], spot["address"], spot["lat"], spot["lng"])
         if key not in deduped:
             deduped[key] = spot
     date_node = soup.select_one(".article-date")
@@ -355,38 +262,6 @@ def atomic_write(path: Path, value: Any) -> None:
         handle.write("\n")
         temporary = Path(handle.name)
     temporary.replace(path)
-
-
-def geocode(spots: list[dict[str, Any]], cache_path: Path, delay: float) -> tuple[int, int]:
-    cache: dict[str, Any] = load_json(cache_path, {})
-    resolved = failed = 0
-    last_request = 0.0
-    for spot in spots:
-        if spot["lat"] is not None and spot["lng"] is not None:
-            continue
-        address = spot["address"]
-        cached = cache.get(address)
-        if cached is None:
-            wait = max(0.0, delay - (time.monotonic() - last_request))
-            if wait:
-                time.sleep(wait)
-            url = "https://msearch.gsi.go.jp/address-search/AddressSearch?q=" + urllib.parse.quote(address)
-            try:
-                request = urllib.request.Request(url, headers={"User-Agent": "SakamichiTools fumi sync/1.0"})
-                with urllib.request.urlopen(request, timeout=20) as response:
-                    data = json.load(response)
-                last_request = time.monotonic()
-                cached = data[0]["geometry"]["coordinates"] if data else False
-            except (OSError, urllib.error.URLError, KeyError, ValueError, json.JSONDecodeError):
-                cached = False
-            cache[address] = cached
-        if cached:
-            spot["lng"], spot["lat"] = float(cached[0]), float(cached[1])
-            resolved += 1
-        else:
-            failed += 1
-    atomic_write(cache_path, cache)
-    return resolved, failed
 
 
 def to_feature(spot: dict[str, Any]) -> dict[str, Any] | None:
@@ -427,6 +302,8 @@ def to_feature(spot: dict[str, Any]) -> dict[str, Any] | None:
             "status": "source",
         },
         "classificationCandidates": {"members": [], "projects": [], "contentTypes": []},
+        "coordSource": spot.get("coordSource", ""),
+        "coordPrecision": spot.get("coordPrecision", ""),
     }
     return {
         "type": "Feature",
@@ -465,6 +342,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="增量同步 fumi Diary 的櫻坂46公开ロケ地")
     parser.add_argument("--tag", action="append", dest="tags", help="抓取标签，可重复")
     parser.add_argument("--cutoff-article-id", type=int, default=58499744, help="仅抓取更大的文章 ID；0=全量")
+    parser.add_argument("--baseline", type=Path, help="fumi_baseline.json：其 articleId 及以前的文章是已定稿的历史，不再抓取")
     parser.add_argument("--max-pages", type=int, default=100)
     parser.add_argument("--max-articles", type=int, default=0, help="调试上限；0=不限")
     parser.add_argument("--cache-dir", type=Path, default=ROOT / ".tmp/fumi-cache")
@@ -479,6 +357,8 @@ def main() -> int:
 
     try:
         tags = args.tags or DEFAULT_TAGS
+        if args.baseline:
+            args.cutoff_article_id = max(args.cutoff_article_id, int(load_json(args.baseline, {}).get("articleId", 0)))
         fetcher = Fetcher(args.cache_dir, args.request_delay, args.refresh)
         articles = crawl_articles(fetcher, tags, args.cutoff_article_id, args.max_pages)
         if args.max_articles:
@@ -516,6 +396,10 @@ def main() -> int:
             "geocoded": geocoded,
             "geocodeFailed": geocode_failed,
             "fetchFailures": failures,
+            "unresolvedSpots": [
+                {"name": spot["name"], "address": spot["address"], "articleUrl": spot["articleUrl"], "title": spot.get("articleTitle", "")}
+                for spot in spots if spot["lat"] is None or spot["lng"] is None
+            ],
         }
         atomic_write(args.report, report)
         print(json.dumps(report, ensure_ascii=False, indent=2))

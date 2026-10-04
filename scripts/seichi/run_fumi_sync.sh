@@ -13,6 +13,8 @@ LOCK_FILE="$RUNTIME_DIR/fumi-sync.lock"
 PUBLISH_LOCK_FILE="$RUNTIME_DIR/git-publish.lock"
 CANDIDATE="$JOB_DIR/fumi-articles.geojson"
 PROMOTED="$JOB_DIR/sakurazaka-all-promoted.geojson"
+REVIEWED="$JOB_DIR/fumi-articles-reviewed.geojson"
+REVIEW_REPORT="$REPORT_DIR/fumi-review-latest.json"
 CRAWL_REPORT="$REPORT_DIR/fumi-crawl-latest.json"
 PROMOTE_REPORT="$REPORT_DIR/fumi-latest.json"
 CURRENT="$REPO_DIR/public/seichi/sakurazaka-all.geojson"
@@ -62,18 +64,30 @@ if (( $(git rev-list --count origin/sakamichi-platform..HEAD) > 0 )); then
 fi
 
 python3 scripts/seichi/sync_fumi_articles.py \
+  --baseline scripts/seichi/fumi_baseline.json \
   --cache-dir "$CACHE_DIR" \
   --output "$CANDIDATE" \
   --report "$CRAWL_REPORT"
 
+# Held spots (no name / town-level coordinate / suspected duplicate) are reported to QQ once and left out.
+python3 scripts/seichi/fumi_review.py \
+  --candidate "$CANDIDATE" \
+  --current "$CURRENT" \
+  --curated public/seichi/yamakawa-ui.geojson \
+  --overrides scripts/seichi/fumi_overrides.json \
+  --crawl-report "$CRAWL_REPORT" \
+  --output "$REVIEWED" \
+  --report "$REVIEW_REPORT"
+
 python3 scripts/seichi/promote_fumi_articles.py \
   --current "$CURRENT" \
-  --candidate "$CANDIDATE" \
+  --candidate "$REVIEWED" \
   --output "$PROMOTED" \
   --report "$PROMOTE_REPORT"
 
 python3 scripts/seichi/test_sync_fumi_articles.py
 python3 scripts/seichi/test_promote_fumi_articles.py
+python3 scripts/seichi/test_fumi_review.py
 
 if cmp -s "$CURRENT" "$PROMOTED"; then
   echo "[$(date -Is)] no production data changes"
