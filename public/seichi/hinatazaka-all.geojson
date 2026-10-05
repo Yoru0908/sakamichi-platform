@@ -237032,6 +237032,62 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6255346,
+          35.6113711
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4ef2262b27d910af6a12",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4ef2262b27d910af6a12",
+        "name": "二子橋下",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "二子橋下",
+        "sceneNote": "加藤史帆と齊藤京子は登場したblt2017年６月号ペアグラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6q6Qgm9Zgzd3i0EBwNSTfAuskJXo31i5BjomB0S3Lw80Q3iC1FRHmkdgz5LxfSmSmBoqcogBF20soQdEMYCRupsLsfJswAQrOemskfpgwKhyz41rHzRU5B6buYabd2PQp6FITTMuDwMQ34x7Jl9cfZTpzO7k7RN2qTd93nGhmPYgGe-welqkTv1sMMh7u2JwJfPfvoJZ4J4owWYoqM8f9-m3awjA_cT9-fEo9NVfoyBohM9I-GyNfd_1Q%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7V-HI3juG7vFJalcewJl8lxIdxpZXjTS23xCuRY08BErfvFjqjsw6OK6roH7i0fH9k-T2Aow7PjN5V9bMNSIC1deljVwSOOPYm14A4hn9rTlkNi8ssKkkB4L67VqBI1fhQeSs7zr_KP5gkM57vax2qsdbbtU7ME0av8GsJf0EXv6yFwx2vvJrdSDZNK1-cCiB240rqCRKxUBlKVkHsCl0VYNZTG5GhVhaVKH-Ih3Nk3LkphXpxBmzOwsw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "二子橋下",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
