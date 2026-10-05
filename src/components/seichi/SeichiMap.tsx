@@ -59,6 +59,7 @@ interface Feature {
     sourceLabel: string;
     sourceUrl: string;
     referenceUrl: string;
+    coordSource?: string;
     tags: string[];
     images: string[];
     members?: string[];
@@ -205,6 +206,9 @@ const BASE_MAP_OPTIONS: { id: BaseMapStyle; label: string }[] = [
 
 const ESRI_ATTRIBUTION =
   'Tiles &copy; <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, OpenStreetMap contributors, and the GIS user community';
+
+// fumi sync places some spots via OpenPOI (Overture Maps) / OpenStreetMap; credit them only when such spots are shown.
+const LOOKUP_ATTRIBUTION = '位置: <a href="https://overturemaps.org/">Overture Maps</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 
 const createBaseMapLayer = (style: BaseMapStyle): L.Layer => {
   if (style === 'light') {
@@ -501,6 +505,13 @@ export default function SeichiMap({
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [routeOpen]);
+
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map?.attributionControl || !data?.features.some(f => f.properties.coordSource === 'lookup')) return;
+    map.attributionControl.addAttribution(LOOKUP_ATTRIBUTION);
+    return () => { map.attributionControl?.removeAttribution(LOOKUP_ATTRIBUTION); };
+  }, [data]);
 
   // 2. 初始化 Leaflet 地图
   useEffect(() => {
