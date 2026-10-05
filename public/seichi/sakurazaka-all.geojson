@@ -83968,6 +83968,63 @@
         "coordSource": "lookup",
         "coordPrecision": "exact"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.78433,
+          35.613991
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:9b0666e41c8f0f501400",
+        "sourceKey": "fumi-article:9b0666e41c8f0f501400",
+        "name": "青海コンテナ埠頭",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都江東区青海3丁目1",
+        "sceneTitle": "2026.10.05 櫻坂46 中嶋優月 僕は 君を blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都江東区青海3丁目1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60088090.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60088090.html",
+        "tags": [
+          "櫻坂46",
+          "中嶋優月"
+        ],
+        "images": [],
+        "members": [
+          "中嶋優月"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60088090.html",
+          "mapId": "",
+          "layer": "2026.10.05 櫻坂46 中嶋優月 僕は 君を blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "中嶋優月"
+          ],
+          "name": "青海コンテナ埠頭",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
     }
   ]
 }
