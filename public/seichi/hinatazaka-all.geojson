@@ -237263,6 +237263,67 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.5255305,
+          34.9947356
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c265f5b50898b43276c4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c265f5b50898b43276c4",
+        "name": "三保松原海岸",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "三保松原海岸",
+        "sceneNote": "2026.03.28 O.A.のキョコロヒーで珍しくロケに行った齊藤京子が寒さと強風(ロケ日3/13）に他番組ではありえないような表情になった場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7OLoC4aHsHwmNa738XAxUgwWcUyfhzjfOfPDTQnbqK-lIS_UNDjxYAweFbTNM_3r3FFZ9aposlrqbiozKokXdjLeuUeI4fupe4eG7z_wne_-XG3S_qDbTmMGK4CvtTrwh0KumVjyfcWjn4nLrzYINxmKo2ArCssj7h5RGM_M-LGsC0a-XibWYgNqEJzP9zROjGtfPQnqhZ2twBt9rQm-xfYFP5URkcPyYral1flF2kYp2qkqej10b5T1M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4tnH96-MsX7ELia2ig1O3luSmjHfYrgxCr0M_bAdGZpwf1t9yyCKqjH0E77JmSyHeqfADHlsU66c4ez1KbOj4IvAzdrkM2JEzdTpFmFrz5Q7LixUlBQveoIi0h6W8Znf7xa6E2ED8KAou6kGNS6NDE8NMypQYDWAmwP6vIUK1qOUk4Y9APcxm63G5azc0C6GpzQ_LlJav-CTsecI8t4SJDEouc_WkMjhLer7DHENuu-2vWgmLqhzEUW1c%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6RyrWNAqY59KlIi9ZtMhw_bIDApADh2Wcx2QJmQ_KlqIT0T1X-1nJiV3it4Oe4iRjGLUk54eAOxFx05ViCH9_UQzBVNvxUpXaI-ChOCg42wMAqS8OGX_U8Tt6wfaYIrRNjYcJ8eaIMalGvKDzIPYu5J8gvdjMOj7pcgEheOoOcUB2NqmKYXA8Hhmm8GjuQW5tyc7gnuTKnehc7EUshB02k3EkoyzhCfWwYNn4ZTUgQcGWvtvRgqanNQBU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR762Rw0ulIG6G_4xHrkBahP1oYFnriYeuGlqswd5mqH_mOVwmhM6XT3dQ2hOXyN7QLmaSKxZ6bd77d8Nix3vsh9G98qfyiD6d9eoyM7-tQodMM8Ilup29-Io1ISYsEhJIgqYEHJwtWC8z_J7sjrkEv_E0UPN0BxaE_AKvPkmThZBY3AUqHTB__uq3-NTUzCMBrwQNywRUm78Yxe15gvS_JgSv2jRUB3r3v35vpQCp_eFEGFVS8XxHp6-uA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5JRJmkBh2OkOCEhnpe6MczlzBrpwWADA6sVl7uu4bkcpTwSs5qJO8Djb757zTTiCHz8cOmtj4HBiepmXpffsqBXO1Y9ChHKnUbqepqfEfnRJo9_-O9waMsCt2R5iSspAHUq-BXL9fDL5ZnI3CXWLlgpsQbNNYF1QeoLa4rZEwehgZne9SRixz1PoplVIVKjCLyTsbwpJuh1E1cpV2HI0vZdpboW2L2USkPADBiC8ldH1GDokCLgKSdWFw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4yGypMdr81CpIISR7EEiRgHmnETAOzRCTAYxpfccvhgVBf7uP9-wX5Dnx2CvL9kgp3Nmxv8MRLPBZL_pAm1H0C3xkf1VKZy8h3a8OD6dZhoBbI6jDBZBvTUsieO1hs1NTaE19Q5jscvpjV4pWMJpdMujH7lw5HQwnzYDc1kBso6z4cX-wQTOZHpsGtK8YRlOGC1Np1QZlABac0mynoclS2xemUPqM1X7y5uAqIm-i91euOXwclLJoi5nQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7KXJ2FHyoIHgYj1Bsl1f5j9xhhnpEwyPsU_Cjz-CF52EHwovpRgeDhGz2Z3cLvXb7-DBsRNUsApe-55fhcve-Hm5dav2Sl_xToL3vHpGD5XOvpoe8cG7-nZ7GxKFgOQb3RIhyQY2c6hiZycdlPd-AleYRuE3tpFVZQFGrOe-YEPS8CcA3juf3JR953Tgrf7tqTpPhkEWUQ3yfKT_Wnpvg2mK88CaCg3js-7jwMTyTRSZ4cFdAdURBCiPc%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "三保松原海岸",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
