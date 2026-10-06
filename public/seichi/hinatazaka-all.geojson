@@ -15426,6 +15426,63 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          136.904469,
+          35.1582483
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ef00bc2944bcf57eb4a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ef00bc2944bcf57eb4a",
+        "name": "東仁王門通商店街",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "東仁王門通商店街",
+        "sceneNote": "山下葉留花が出演した2023.09.25 O.A.「大須テレビ」#1のロケスタート地点。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4r0CWLEQ4D5X06IdwjDzla2ASPlHeHKY5aQ-q2CgZEPonGZolWDpwpE0lx4EBHHf2Eylo_wt2OanXu_K9vR2xTW1frJLTXskwG8-pLdLUUqFvHOW1r3c_bocCssujoqOHmVJrZbLfFSQh4vVMztp_5PKoRNR2WzneSZXQlZKsLXAD9ftNDSeP8ZmjnrfrzIPlqj07aLQzqJmdx_fDHs2pP9h3KjQkzT63YIu2hUbiUoBIiclSWAUu3SDw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5TPkC-CjEEu4DShqL4EorCySCV9A_ZJelVKiL-2C0Jlm7InBuWtLTTwqH41nzAHN3SSAjv2RQOaMJ-uP9KivK0x6SysSatokeSZOwSQ2n16FzU0qktDqC-lgqDX_AkFNBVTSyROF1AsQ4_MWZpgJ1xXoh_2siwt2wYzya3hoASvXiP46gxVNZ96jJltV8KNSKfWeUV1RZDP1zC-dMJ6lbqA7wsDKXRdpK0RJCz_wXSS9wjAnCY94hrW7M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5zWsHsGpDpEuRx1nnWRGeWKPPhEaA6OZWOGPSTBkx4tjSKekaJPn02LvLxF-nXGliDcT0BN1_hDXFn1cXqtN7lbuj35O2vN9AQCykaVHZqg_QHrWOlEIR60kMcQHqWgZhCPfXraT5s9mhDMsSQ51I8pMYP78T38QTpAbdh6JpXk9sLB5EW2AhHAg7qxmRgh7sE_-S1QU38R7moXR2fHYniGXckm07zfp9F-rssDg7tOquZmss21-ho7y8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "東仁王門通商店街",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           137.4590857,
           35.3996834
         ]
@@ -237310,6 +237367,62 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "三保松原海岸",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.3246889,
+          35.871242
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4fb9e8923a62e26828e6",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4fb9e8923a62e26828e6",
+        "name": "リトルミイのお店付近",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "リトルミイのお店付近",
+        "sceneNote": "2023.06.03 O.A.「いまドキッ！埼玉いまたま」で、渡邉美穂がリトル・ミィと出会った場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5-IkLtw-2ZlqVAJntPA1C8xaiAah1A0i5u1OMm4AtJ21ZIupm_PAwaI8APBI6nuOibfcDUGnHCPPJdVal4KQzulRPkamws7quVBbxflJDkTgg1E0gOkhMI5Qg9VbSvo504_7q5Ndpj-2xFdk3SqnH88dJDKmUcgNrJuyALknfmIHfl0yKqGCK-d9IlF-BE7IiPrA5Ig4F2_gHev-IG1ZEY_tMP0fqMzdLbQXon2cGRX7_4-GoQleUX_uQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7t1ybhZ4NKSd4NtSOj7WIDgyoj8T0t5uaJonAS7mZhTleOJMqzLKrTWrFxIsDsJmykV2upmqz3ebdZpDG7bdopyQfztOhT7w9iUFhNEwhqoLeNxs0pE17xz7OBV5vMUXWcbo6gEH-DbqF_DiKPuiZUQy8Sk3HncIVAaT5xhLHjL4vyFYRRb6ZsQof3-_cqqwM0MWUX26jScih__WDGH8S4JEScTzAfhFxXUhicny4xMcNcx6N_sKE99iw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "リトルミイのお店付近",
           "group": "日向坂46"
         },
         "classification": {
