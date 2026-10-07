@@ -84025,6 +84025,89 @@
         "coordSource": "article",
         "coordPrecision": "exact"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.688675,
+          35.694054
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:617f9c3c3b204c22c536",
+        "sourceKey": "fumi-article:617f9c3c3b204c22c536",
+        "name": "芸能花伝舎 (新宿区立旧淀橋第三小学校、廃校)",
+        "category": "MV・楽曲",
+        "subcategory": "元凶",
+        "categoryColor": "#e11d48",
+        "address": "東京都新宿区西新宿6-12-30",
+        "sceneTitle": "櫻坂46「元凶」PV撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都新宿区西新宿6-12-30",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60090966.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60090966.html",
+        "tags": [
+          "櫻坂46",
+          "四期生",
+          "山川宇衣",
+          "佐藤愛桜",
+          "浅井恋乃未",
+          "稲熊ひな",
+          "勝又春",
+          "中川智尋",
+          "松本和子",
+          "目黒陽色",
+          "山田桃実"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "佐藤愛桜",
+          "浅井恋乃未",
+          "稲熊ひな",
+          "勝又春",
+          "中川智尋",
+          "松本和子",
+          "目黒陽色",
+          "山田桃実"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60090966.html",
+          "mapId": "",
+          "layer": "櫻坂46「元凶」PV撮影場所",
+          "tags": [
+            "櫻坂46",
+            "四期生",
+            "山川宇衣",
+            "佐藤愛桜",
+            "浅井恋乃未",
+            "稲熊ひな",
+            "勝又春",
+            "中川智尋",
+            "松本和子",
+            "目黒陽色",
+            "山田桃実"
+          ],
+          "name": "芸能花伝舎 (新宿区立旧淀橋第三小学校、廃校)",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "MV・楽曲",
+          "subcategory": "元凶",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
