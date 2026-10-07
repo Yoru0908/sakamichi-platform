@@ -227901,6 +227901,177 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          135.7929328,
+          34.8361492
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7411981cd582716b394e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7411981cd582716b394e",
+        "name": "城陽市観音堂甲田 けやき工房脇の路地",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "城陽市観音堂甲田 けやき工房脇の路地",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちがお米に感謝しながら歩いた奈良街道へ抜ける路地。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6m8s9-Xr3avah-v0AGCNK0pZcRaNqNOMA73oB6B-SfUaTi2rPYfRhd7DfY4_k-ucHZ_T7ycBox5xwwj3M8TUvyA8buTwVkk4KQns4Cn-U-_Q5VqvutH7wb1fvwL-lUXjPiIpsxD-HCxIGdpK8LXjUnrfY9CSEgWFsidkFG2aI9ai8ugcROOJ5JBdmng1ZSEBAgpM18AJ34teJzfcJajthhh77O2cepz5ZBPgTWVaHswR9TB77NAS-j-bk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5tjjDU6NuN56TGOxcZ-M2vhmLIhcWO9E5IU5XyvlJ0UQGtFIqLZ4m5ScMF6ArdyIFcR71EnD-uR9ZzF9RMfJNv87a3VJ_Pio3d7zOLVh4Zma-vR1c9deHZ_U__d90l53vnPzNpu0ESL4vBw_lmtNqCAtN_HsxCEsWsX7mrLgnpJdmP9fhfyLQ9wKDdjNaspzH9GQq55VWSj9FUtxKPwd9r1NjGmuQtimAhaHrmN4R-2A4rUXvTc0fKFkM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6kfz_EDDev3o5KM6Jx77i-75Gl6UFRVyC-UYsEE2LvEVkHDRcUtNjD-BQ5SFXvbSRkwryoMNQfQ7GSD1zF4jaiC0VDZwUit0tVdcPzhItc8piMV4_qVaFlaHGdZ2BTKNo4N_dVm1SLtszjgCnSEPUD6g_BYKHePT8hVJUrT0HOEv38YrtLmh2cK7_8uLHtTPvMmFSnu-UNmFhUxbyapx4aGD0Zx1jzkkzJUbohsPAH-eNWtHnOc6C0nQU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6dTBOyd-YMEmJ5J1sPlHX5j8-1w8BTh7f9SWot6EfyScb4wl0B_aCjqoRi3dn5wFBO4WDCZbwIEDGH7Q9dLsIAVP6oiEDZ4XdGQj9r5NIS92gGTAz3xzGshTYwk2U2eQBJJ7cSXiM1KmHZsmFZF6m98i5TUryoKaOSVwgLLeyOr9SndNpoNnkOvGUVwJWRTjkW_SxBbbiry4L3jKWW2rR5nYXjxiYGRdBqWoIc-H-HtuSvd-eXTzV1TiE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "城陽市観音堂甲田 けやき工房脇の路地",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8073196,
+          34.8195881
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:79d83c9283e0d6d1ad33",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:79d83c9283e0d6d1ad33",
+        "name": "「ならかいどう」石碑",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "「ならかいどう」石碑",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちが通過した道標。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5PbLS4Y00JU2EWeLjqRzPcW-T4oOv3f91ryFJQxE8ShbFZcEq3qb8QaSznSXpRINDekan_3qPX6eFhdWyGHHT6D_1wmPIqRCZ17Y6Zh_EKvr0LXmsGyfacm8RdLo-ww7HyDUW8iK9G1wWVrx2yXvsA80CC7Ov_dBp1hPNU_0X1017HrCntsdt3_5SX-rF2ehibdsPfwayDra51pUndWa3qptHIkS86J_RS2yy94g2UWR1_BVgModrVozo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "「ならかいどう」石碑",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8047216,
+          34.8002015
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7c0ecbfca6ed15b328e8",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7c0ecbfca6ed15b328e8",
+        "name": "井手史跡名勝の碑",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "井手史跡名勝の碑",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちが延々歩いて到達したチェックポイント。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR51Ub-4jmu-4ARZrda-RSRWjT3-z1w0J23anE8k2CPbfeTpKepSNxLiLvXOPIJp5gwMOjkB9edJ58rnTqWEwJiDgeuTrHykW_e4CoCecBgITZY1yHShdwiFhXxGZoySam7ZeLGe_KpYNzHWqTwRZ0PltqQBIpoEqjU-yTe01vJojws255fhOCPbg5gogZmkrWkSmNuBlaknNHRnBiGAUzFekFarZDp7AVnUKl5IIvdmwSJmdjVdxIOkAcM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7VBbEkeRL-C-Z2b7VPXSsmNDvdcuqmyUrSGb7Gy34Ug56fsU2Fia3jvefsZ7WFtBe_F-uPJfCUnh1jPnQ7KAJOGLFAnLqPT8RxdLddfebJkxklP___Dxg4wfoCc-BxnTuhw6wl6nKHqA-L3tCMeXyOx7MtUciwlT4pf9dIdbGVs2CVy1XRFgrbyeBqY_C1XQskGkYo1dehKlLM2VVqjrGztWq5QuX3aALOB6QifreIve07C37FTrz31r8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4ARfyH9eEC2eJjMpUE2Bdz-9xmawB-170fwMJ4VoW_hu-IkN2xxr1Uybg5VJFwdG39kmLHuiuT8LwYMP4rzKZDftgRU79xuCEOUHysW_quEplNKU4W0VcmrzoU12llqGBwK8hQ_UesrK8pMBSe9JEA8wQx4V06xp5tHfiumCdI8K5uWZydyfVldBe2GUhZspXSWxdmZoH55JAzo0cBtdly_5kkT2yYCv04QI17jukZU02vk9dqfWqxVvE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7OLwdAaaKsU38ov4d2MrVVkb3OsLcqePGCGhHLaRvsQ3SPQPKS_YRlXHgAISfVOeF8LvHDaoFMPw8egRyR2ut6RkAWyPQEF4920-y5FfFh2FIFs279uo9WBPS-SS-7HJYNbUnr587ZSbBTLnWCXX0VsoAq6gIJmcbnKl1JvyBIjLK8t0AqGH3ux60mS4vLKaEUjR4XljOPy6IOvmlMGQw0dnZLildPr9QDxn_5iFxNB80gfTT1HF2xz4Y%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "井手史跡名勝の碑",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           136.8397668,
           34.887556
         ]
