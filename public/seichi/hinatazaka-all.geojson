@@ -36804,6 +36804,66 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          129.8758029,
+          32.7412178
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:134ed0de5833a2d9bfc0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:134ed0de5833a2d9bfc0",
+        "name": "江山楼 長崎中華街新館",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "江山楼 長崎中華街新館",
+        "sceneNote": "長濱ねる1st.写真集「ここから」(一枚目は本編でも使用されたカット)https://x.com/neru_nagasaki/status/918014672967671808 https://x.com/neru_nagasaki/status/918755143578816512",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ta0wJVULZKHs80uczQT2K4ZUpOeU8GmbnPbrXiiJiYlu7-euAu6-T5-P5rgnu1OHQrTWSivi4WCew5CGVwCEqvmuL5gXI-JJVH4QVFDBGusBxCOuk-aLuth5Cx2HRHmHY4FrxRZApxGE136s9y9oHoSwha9ak7QEmhURdaACgdHKjBxcH56UvoN17I2zp3lqpp9IyRt8uRFNf3Y01562WmcK4m7WM6MhNu0yl853ted25Kqn3e1iqseY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7IidDZjXIMiRRKgXtN5WSBYA3ATZRld_c4lwXhs9bYPK5s7RGHBCiFMXkg741jl2xMe48EZozrkAPtyWukZpM6wFoMjRfTWouIOwO9yMXgntOcG5KNFG8HAtG_edZ5-0d-RrS2C4bEp35A_zY7gpzjRE-eTvChfvIZVB0gX11c3P87JERI-qkpvnHvP1JCJkpghEx2QSlN0UA783vZ4ZzyHVyrRMk2_yHmtmWKhD-gZ0ISS3eVA8XJ1Gk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR71AaPuzaJESr_3BFNQkLn4u3pNfNeYD8ljGo6V200JQ1-kzJECmDudSREECMrXVoUijAtQFBoyCZe-1CBGKHC-nlW2X286U6YbxiMHtEuxNlw00g6jmRoxd9TLteR4DaVTf3Hd3_A7SaUlQVn6a0LUA5PF-bqN00NcYFCC4zUF5tvF-EtZVhdzSi613sFA52ccFN6ix8vIBHaz43Do2iT4MKF4VDuhGPo3IlzCftTNAWGE9tYbDCFlgTg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4WMDDnvNp8LRKo57eAXzMSUPFqEJ0_mBbvh3uGVfmgHbZBCAGzXSLy0Smdf2pDSUYv0n1ZtVbcmWwKyKY8E9JLDuHIzyAEU21d440KtcPj1fdDhEfvF0iM6738ufAtL38a8pRLgm0D7s8itjJBnqZeJQ7NG0Wlxv1nEVYHsLG1ecEa4wR5IZFZvdw71c8usNFxhUNgOr6aKsAYHPAfFnG5HuG9evCxYfynqhSGkx_kdreYFHK0s66q9Cs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5YAWHP_O6Tpmb1-KAozTZcpKOj4Sd7FS1AR83FjKdUFXSRWI0FQT2-WIRl3oBsqyWgBQbD5ViD9zIhXEv1thnAZ8QuFPrLaBR9Q53HYDvXJdNQe_AgJk8I2hF1KhpByNcDWZmgqSZD1eslMS0jS1DoEYH_foCNjGXmIJnpBTo2CyvM_QTeH5u39LzWImopqitwznT8mcVrZ37d0IgIVnDXY7oaJXWMF4i_pYF8Rg4vYMMnZFNui_U77YA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR668RkXMO3SBVPp8xhx3olMPqOS1UR9FMwC4d5KauVKjiQbiXDvpaL8OY67uGe6vQnCBer-zBU1ZKwxV7KIbMpfeqTa74a2-XSUzYR4sRzXeuX0y2DtgTkIbB2EcoFFoen2QluvBLAnwqXUANmSzr2vrcSUd7YyZRJMHjm02KRqcObGx0tJELiFLc7rPv-kfwnQD83vKU78bOfZt5exfqEO_D1_g7URQo9NniFhB51O2Qpdg1HkDokxn34%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "江山楼 長崎中華街新館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           129.8801059,
           32.7470474
         ]
@@ -37022,20 +37082,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          129.0597911,
-          32.8416241
+          129.0591318,
+          32.8421356
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3b691d3c679af6fd7b79",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3b691d3c679af6fd7b79",
-        "name": "ゆうちょ銀行ATM 奈良尾郵便局",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cdd712f258b9dccfd516",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cdd712f258b9dccfd516",
+        "name": "(旧)ならお商店街看板",
         "category": "写真集関連",
         "subcategory": "写真集関連",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "ゆうちょ銀行ATM 奈良尾郵便局",
-        "sceneNote": "長濱ねる1st.写真集「ここから」で、長濱ねるが「五島のお母さん」と慕う女性と抱擁しているカットの撮影場所。",
+        "sceneTitle": "(旧)ならお商店街看板",
+        "sceneNote": "長濱ねる1st.写真集「ここから」でグリーンのワンピースの長濱ねるがラムネを手に立っているカットの看板があった場所、現在は撤去されている。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -37054,7 +37114,60 @@
             "日向坂46",
             "写真集関連"
           ],
-          "name": "ゆうちょ銀行ATM 奈良尾郵便局",
+          "name": "(旧)ならお商店街看板",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.0598431,
+          32.8396657
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1355c15fc2d54aa839c2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1355c15fc2d54aa839c2",
+        "name": "奈良尾図書館(戸田会館)",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "奈良尾図書館(戸田会館)",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で長濱ねるが入口から顔を出している児童図書館。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "奈良尾図書館(戸田会館)",
           "group": "日向坂46"
         },
         "classification": {
@@ -37108,6 +37221,59 @@
             "写真集関連"
           ],
           "name": "リカーズ三蔵",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.0597911,
+          32.8416241
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3b691d3c679af6fd7b79",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3b691d3c679af6fd7b79",
+        "name": "ゆうちょ銀行ATM 奈良尾郵便局",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ゆうちょ銀行ATM 奈良尾郵便局",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で、長濱ねるが「五島のお母さん」と慕う女性と抱擁しているカットの撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "ゆうちょ銀行ATM 奈良尾郵便局",
           "group": "日向坂46"
         },
         "classification": {
@@ -37472,20 +37638,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          129.8758029,
-          32.7412178
+          129.0616344,
+          32.8392077
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:134ed0de5833a2d9bfc0",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:134ed0de5833a2d9bfc0",
-        "name": "江山楼 長崎中華街新館",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8cb117df080649741c97",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8cb117df080649741c97",
+        "name": "五島列島中通島 奈良尾-江川橋",
         "category": "写真集関連",
         "subcategory": "写真集関連",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "江山楼 長崎中華街新館",
-        "sceneNote": "長濱ねる1st.写真集「ここから」(一枚目は本編でも使用されたカット)https://x.com/neru_nagasaki/status/918014672967671808 https://x.com/neru_nagasaki/status/918755143578816512",
+        "sceneTitle": "五島列島中通島 奈良尾-江川橋",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で制服姿の長濱ねるが自転車に乗っているカットの撮影場所。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -37493,14 +37659,7 @@
           "日向坂46",
           "写真集関連"
         ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7ta0wJVULZKHs80uczQT2K4ZUpOeU8GmbnPbrXiiJiYlu7-euAu6-T5-P5rgnu1OHQrTWSivi4WCew5CGVwCEqvmuL5gXI-JJVH4QVFDBGusBxCOuk-aLuth5Cx2HRHmHY4FrxRZApxGE136s9y9oHoSwha9ak7QEmhURdaACgdHKjBxcH56UvoN17I2zp3lqpp9IyRt8uRFNf3Y01562WmcK4m7WM6MhNu0yl853ted25Kqn3e1iqseY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7IidDZjXIMiRRKgXtN5WSBYA3ATZRld_c4lwXhs9bYPK5s7RGHBCiFMXkg741jl2xMe48EZozrkAPtyWukZpM6wFoMjRfTWouIOwO9yMXgntOcG5KNFG8HAtG_edZ5-0d-RrS2C4bEp35A_zY7gpzjRE-eTvChfvIZVB0gX11c3P87JERI-qkpvnHvP1JCJkpghEx2QSlN0UA783vZ4ZzyHVyrRMk2_yHmtmWKhD-gZ0ISS3eVA8XJ1Gk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR71AaPuzaJESr_3BFNQkLn4u3pNfNeYD8ljGo6V200JQ1-kzJECmDudSREECMrXVoUijAtQFBoyCZe-1CBGKHC-nlW2X286U6YbxiMHtEuxNlw00g6jmRoxd9TLteR4DaVTf3Hd3_A7SaUlQVn6a0LUA5PF-bqN00NcYFCC4zUF5tvF-EtZVhdzSi613sFA52ccFN6ix8vIBHaz43Do2iT4MKF4VDuhGPo3IlzCftTNAWGE9tYbDCFlgTg%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4WMDDnvNp8LRKo57eAXzMSUPFqEJ0_mBbvh3uGVfmgHbZBCAGzXSLy0Smdf2pDSUYv0n1ZtVbcmWwKyKY8E9JLDuHIzyAEU21d440KtcPj1fdDhEfvF0iM6738ufAtL38a8pRLgm0D7s8itjJBnqZeJQ7NG0Wlxv1nEVYHsLG1ecEa4wR5IZFZvdw71c8usNFxhUNgOr6aKsAYHPAfFnG5HuG9evCxYfynqhSGkx_kdreYFHK0s66q9Cs%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5YAWHP_O6Tpmb1-KAozTZcpKOj4Sd7FS1AR83FjKdUFXSRWI0FQT2-WIRl3oBsqyWgBQbD5ViD9zIhXEv1thnAZ8QuFPrLaBR9Q53HYDvXJdNQe_AgJk8I2hF1KhpByNcDWZmgqSZD1eslMS0jS1DoEYH_foCNjGXmIJnpBTo2CyvM_QTeH5u39LzWImopqitwznT8mcVrZ37d0IgIVnDXY7oaJXWMF4i_pYF8Rg4vYMMnZFNui_U77YA%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR668RkXMO3SBVPp8xhx3olMPqOS1UR9FMwC4d5KauVKjiQbiXDvpaL8OY67uGe6vQnCBer-zBU1ZKwxV7KIbMpfeqTa74a2-XSUzYR4sRzXeuX0y2DtgTkIbB2EcoFFoen2QluvBLAnwqXUANmSzr2vrcSUd7YyZRJMHjm02KRqcObGx0tJELiFLc7rPv-kfwnQD83vKU78bOfZt5exfqEO_D1_g7URQo9NniFhB51O2Qpdg1HkDokxn34%3Ffife%3Ds16383"
-        ],
+        "images": [],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -37511,7 +37670,7 @@
             "日向坂46",
             "写真集関連"
           ],
-          "name": "江山楼 長崎中華街新館",
+          "name": "五島列島中通島 奈良尾-江川橋",
           "group": "日向坂46"
         },
         "classification": {
@@ -37532,20 +37691,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          129.0591318,
-          32.8421356
+          129.0615983,
+          32.8396257
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cdd712f258b9dccfd516",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cdd712f258b9dccfd516",
-        "name": "(旧)ならお商店街看板",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d8fd60320721feb762c9",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d8fd60320721feb762c9",
+        "name": "奈良尾支所商工会館付近",
         "category": "写真集関連",
         "subcategory": "写真集関連",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "(旧)ならお商店街看板",
-        "sceneNote": "長濱ねる1st.写真集「ここから」でグリーンのワンピースの長濱ねるがラムネを手に立っているカットの看板があった場所、現在は撤去されている。",
+        "sceneTitle": "奈良尾支所商工会館付近",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で制服姿の長濱ねるが自転車を押して振り向いているカットの撮影場所。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -37564,7 +37723,7 @@
             "日向坂46",
             "写真集関連"
           ],
-          "name": "(旧)ならお商店街看板",
+          "name": "奈良尾支所商工会館付近",
           "group": "日向坂46"
         },
         "classification": {
@@ -62261,112 +62420,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          129.0616344,
-          32.8392077
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8cb117df080649741c97",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8cb117df080649741c97",
-        "name": "五島列島中通島 奈良尾-江川橋",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "五島列島中通島 奈良尾-江川橋",
-        "sceneNote": "長濱ねる1st.写真集「ここから」で制服姿の長濱ねるが自転車に乗っているカットの撮影場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "五島列島中通島 奈良尾-江川橋",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          129.0615983,
-          32.8396257
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d8fd60320721feb762c9",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d8fd60320721feb762c9",
-        "name": "奈良尾支所商工会館付近",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "奈良尾支所商工会館付近",
-        "sceneNote": "長濱ねる1st.写真集「ここから」で制服姿の長濱ねるが自転車を押して振り向いているカットの撮影場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "奈良尾支所商工会館付近",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           16.3684856,
           48.2043482
         ]
@@ -62911,20 +62964,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          129.0598431,
-          32.8396657
+          129.0601687,
+          32.8396367
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1355c15fc2d54aa839c2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1355c15fc2d54aa839c2",
-        "name": "奈良尾図書館(戸田会館)",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e23b8fecfada5b6d4769",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e23b8fecfada5b6d4769",
+        "name": "奈良尾-あこうの大樹",
         "category": "写真集関連",
         "subcategory": "写真集関連",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "奈良尾図書館(戸田会館)",
-        "sceneNote": "長濱ねる1st.写真集「ここから」で長濱ねるが入口から顔を出している児童図書館。",
+        "sceneTitle": "奈良尾-あこうの大樹",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で長濱ねるが奈良尾神社の鳥居をバックにしたシルエットのカットの撮影場所。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -62943,7 +62996,7 @@
             "日向坂46",
             "写真集関連"
           ],
-          "name": "奈良尾図書館(戸田会館)",
+          "name": "奈良尾-あこうの大樹",
           "group": "日向坂46"
         },
         "classification": {
