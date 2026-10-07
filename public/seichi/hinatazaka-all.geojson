@@ -100137,20 +100137,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          136.5394924,
-          34.8437014
+          133.9186772,
+          34.6806077
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:61f17434ee4350a83ee6",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:61f17434ee4350a83ee6",
-        "name": "鈴鹿サーキット",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1b076c1789393e5c7134",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1b076c1789393e5c7134",
+        "name": "シティライトスタジアム",
         "category": "メンバーブログ・SNS・その他",
         "subcategory": "メンバーブログ・SNS・その他",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "鈴鹿サーキット",
-        "sceneNote": "富田鈴花が2023年10月にスーパーフォーミュラ最終戦で国歌斉唱。その他、富田鈴花卒業セレモニーのVTR撮影場所としても利用された。 https://www.hinatazaka46.com/s/official/diary/detail/53135?ima=0000&cd=member 題名:",
+        "sceneTitle": "シティライトスタジアム",
+        "sceneNote": "2019年9月8日京都戦のガールズフェスタにゲスト出演 https://x.com/yass_ishikawa/status/1170695903633477632 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -100159,9 +100159,7 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5rkhmTXQ5PAu7PGLwgd-O2ru8S0FtUNA_CmlIBRsXgbU2khQwZTAyEP0W-J6Yn1CRbyuNWHI2WC7nOjyO7PB1iMDHGep8nASPepAlZRGaflQYl30eXI6eRERkzr0mlHDvQFZ5_6HnuFvK-46zKsjuBsI7Cs2r3hBFAmwwAzdVdiZGx3MKpk87jR2V9V0mwUO7QV7b8A2aGncMo09IhJ4CPzgPzUA9TukV6cFsuh8MTSHEqjqvcCN7sPu0%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5JnXl4S1p1SPyLojEvNy1QZpoa2OCDVpIFfvw2Wm9w_r6EzlBZ48pbTSEIAdENlIF6M8aSZxkH0PTto2B7-2AGQQaP0KipZPM_mXsFxFIk6D7x755BEnW5c1dzipK2kye2e2TUAXErIPKZ_nfQRx2ewWEAnXmbeqP2YGhg4my2O3bx3UFjqK4j6ER3quNVtlsWs8Ku9G4Ln2GKlwDYePLiIMLBDRwZFI9x4SMw4nOrmXhIAf2gKdYuw0M%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6PDnaHEKNpG3Uzkz6Z0Kk252IbKeGkPJyIFIU1IicPZqg2vJqbZyfVWjTbnKSHazRoOZZPJgszHjCVCLuEUQt4x_Jt46pDvYTqIQI0CqK72M1GnVTh56z_dAYv8_RlmsqfzCAXLmKOEupnPZG4WCH_mHFaFFptb7hP14Xy5ciVdspmXemILxFcR4ucM_nOsl2wCo94_QvNfIGnRmGdnhdKyhqSD905C5chj4PWj7hn2u0oRM3obvytCUw%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5wIAh2UUrZGanfO7tlXvEFkTOO0p_dEIZTXzOrQn3PDHRAn5jTgQLUunvSQp-u-wXBzGbl7B4SavVscb-jfC_tXZ8V_vjyJFP1ANZpw2JWX3dJOk1xiM9QK4FYD-uxfkeleHeONjTZp9df0OqbjsnqLZ500cXyM2gX-zH2c2oFdoEGdTjtd4s9QwmH0z54hP-XjwgSRPrT75vVaHPjy3K2n3YajgVunsMbBBnI45uKn5IH8WlrpkDdr4s%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -100173,7 +100171,280 @@
             "日向坂46",
             "メンバーブログ・SNS・その他"
           ],
-          "name": "鈴鹿サーキット",
+          "name": "シティライトスタジアム",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.6481714,
+          36.5780443
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c64b671dc71edd6a6ef6",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c64b671dc71edd6a6ef6",
+        "name": "金沢駅",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "金沢駅",
+        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6996nfLXYDk-uJiwuCOwnpjEtnV6uycPXtgWEQw0yKaBOHBOIrI19jXrP3VzXPJA0DGX9N869DUQH-a63K-aBMWkB3cu0RJ8JIDd97ZeF8waGKe08qSx-UgquhfdnAgnDee7IzihXZI7-mcHWfafh4g4qkQRAEPZYXAcyAYWPE-c3zTyzJlbWD1m0LgBubjeByrEUatqQFdxzEHYERYIOwRWuhlusRoUeVcUkpP7PlcYfT6cnyFuOX1Jw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "金沢駅",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.658151,
+          36.5648935
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fe1d7a4974adf477a7a6",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fe1d7a4974adf477a7a6",
+        "name": "金沢城跡",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "金沢城跡",
+        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57HvGT33jWqz2YbxHGioO0Z6QB_0NjAc_zZeyAU9yklUwVGkvyGtmUj0oWhH1N_UsCzZOjZGtrzFZZgf74N3WPj7fmWLajsV7dZ5VsClIFq1hQ5xDa7kppuXGtZqbVH2xxDoh_LrnIMIhL0EqF0bgPK-FfGnqUxC6eIDg7c_fYXpwiILosRu6tWI48xd45tgsHdtrgErBwbMFHCttWD1YkDR2VnOeBlS5TcwS1iIf002dLXK5LHoRkJzA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "金沢城跡",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.6626515,
+          36.5621278
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:03149d5ae49f88d8b4dc",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:03149d5ae49f88d8b4dc",
+        "name": "兼六園(1)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "兼六園(1)",
+        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "兼六園(1)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.6585251,
+          36.5608713
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f180220cfd224f8267f2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f180220cfd224f8267f2",
+        "name": "金沢21世紀美術館(1)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "金沢21世紀美術館(1)",
+        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4iUwGQLLa4pSPLQ7TFr2R7K7tNa8TxH9QOf6vKmxVoW2IpR7_GkO-07-oEGtrt86VfjzVdUJiy7H0-txeLdipW9dap4Sm3-BY2uu3_U-NVsSWVMMUwD7dK9EYjmW76-UAXQPARa0oePl3MROMikBxksXGNUZ_PYrFl_Jm5qHF7BPu7JbSTSWZqPC_qG-mkQMfQEDjauuPGeRlGcXD3eKbEuBSLtfLjqa5Myn_MYbU9f_d9NnjWO178C60%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "金沢21世紀美術館(1)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.6558651,
+          36.5717335
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:82f5d9cb5c884105346d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:82f5d9cb5c884105346d",
+        "name": "近江町市場",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "近江町市場",
+        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR62QWiWTUjUAC98SeKsiMbYszV1HzuGzhOFPTfUd-GWgOpMT3HOHTOrRtm5egb9YRJWoOKs7pXipC9VrbwRhUinmICo4E23x2ayxGReQ1bd_xT2GG8ziAoB2WS9BXUpsFJv1NUXLt5lkeCXjbks9MrXrlVvnE--Y6Yh8qiEfjRDNRYtkWK5PYQ9TWlj6l5OkL2dxdqp3SuD4GoIR86Km3Om748lG6_VzH9prx_RhbMafQYhkr8gMpehVSQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "近江町市場",
           "group": "日向坂46"
         },
         "classification": {
@@ -100229,6 +100500,63 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "日向大神宮",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.5394924,
+          34.8437014
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:61f17434ee4350a83ee6",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:61f17434ee4350a83ee6",
+        "name": "鈴鹿サーキット",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "鈴鹿サーキット",
+        "sceneNote": "富田鈴花が2023年10月にスーパーフォーミュラ最終戦で国歌斉唱。その他、富田鈴花卒業セレモニーのVTR撮影場所としても利用された。 https://www.hinatazaka46.com/s/official/diary/detail/53135?ima=0000&cd=member 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5rkhmTXQ5PAu7PGLwgd-O2ru8S0FtUNA_CmlIBRsXgbU2khQwZTAyEP0W-J6Yn1CRbyuNWHI2WC7nOjyO7PB1iMDHGep8nASPepAlZRGaflQYl30eXI6eRERkzr0mlHDvQFZ5_6HnuFvK-46zKsjuBsI7Cs2r3hBFAmwwAzdVdiZGx3MKpk87jR2V9V0mwUO7QV7b8A2aGncMo09IhJ4CPzgPzUA9TukV6cFsuh8MTSHEqjqvcCN7sPu0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5JnXl4S1p1SPyLojEvNy1QZpoa2OCDVpIFfvw2Wm9w_r6EzlBZ48pbTSEIAdENlIF6M8aSZxkH0PTto2B7-2AGQQaP0KipZPM_mXsFxFIk6D7x755BEnW5c1dzipK2kye2e2TUAXErIPKZ_nfQRx2ewWEAnXmbeqP2YGhg4my2O3bx3UFjqK4j6ER3quNVtlsWs8Ku9G4Ln2GKlwDYePLiIMLBDRwZFI9x4SMw4nOrmXhIAf2gKdYuw0M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6PDnaHEKNpG3Uzkz6Z0Kk252IbKeGkPJyIFIU1IicPZqg2vJqbZyfVWjTbnKSHazRoOZZPJgszHjCVCLuEUQt4x_Jt46pDvYTqIQI0CqK72M1GnVTh56z_dAYv8_RlmsqfzCAXLmKOEupnPZG4WCH_mHFaFFptb7hP14Xy5ciVdspmXemILxFcR4ucM_nOsl2wCo94_QvNfIGnRmGdnhdKyhqSD905C5chj4PWj7hn2u0oRM3obvytCUw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "鈴鹿サーキット",
           "group": "日向坂46"
         },
         "classification": {
@@ -100663,279 +100991,6 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "大黒ラーメン 伏見本店",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          136.6481714,
-          36.5780443
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c64b671dc71edd6a6ef6",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c64b671dc71edd6a6ef6",
-        "name": "金沢駅",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "金沢駅",
-        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6996nfLXYDk-uJiwuCOwnpjEtnV6uycPXtgWEQw0yKaBOHBOIrI19jXrP3VzXPJA0DGX9N869DUQH-a63K-aBMWkB3cu0RJ8JIDd97ZeF8waGKe08qSx-UgquhfdnAgnDee7IzihXZI7-mcHWfafh4g4qkQRAEPZYXAcyAYWPE-c3zTyzJlbWD1m0LgBubjeByrEUatqQFdxzEHYERYIOwRWuhlusRoUeVcUkpP7PlcYfT6cnyFuOX1Jw%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "金沢駅",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          136.658151,
-          36.5648935
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fe1d7a4974adf477a7a6",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fe1d7a4974adf477a7a6",
-        "name": "金沢城跡",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "金沢城跡",
-        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57HvGT33jWqz2YbxHGioO0Z6QB_0NjAc_zZeyAU9yklUwVGkvyGtmUj0oWhH1N_UsCzZOjZGtrzFZZgf74N3WPj7fmWLajsV7dZ5VsClIFq1hQ5xDa7kppuXGtZqbVH2xxDoh_LrnIMIhL0EqF0bgPK-FfGnqUxC6eIDg7c_fYXpwiILosRu6tWI48xd45tgsHdtrgErBwbMFHCttWD1YkDR2VnOeBlS5TcwS1iIf002dLXK5LHoRkJzA%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "金沢城跡",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          136.6626515,
-          36.5621278
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:03149d5ae49f88d8b4dc",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:03149d5ae49f88d8b4dc",
-        "name": "兼六園(1)",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "兼六園(1)",
-        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "兼六園(1)",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          136.6585251,
-          36.5608713
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f180220cfd224f8267f2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f180220cfd224f8267f2",
-        "name": "金沢21世紀美術館(1)",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "金沢21世紀美術館(1)",
-        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4iUwGQLLa4pSPLQ7TFr2R7K7tNa8TxH9QOf6vKmxVoW2IpR7_GkO-07-oEGtrt86VfjzVdUJiy7H0-txeLdipW9dap4Sm3-BY2uu3_U-NVsSWVMMUwD7dK9EYjmW76-UAXQPARa0oePl3MROMikBxksXGNUZ_PYrFl_Jm5qHF7BPu7JbSTSWZqPC_qG-mkQMfQEDjauuPGeRlGcXD3eKbEuBSLtfLjqa5Myn_MYbU9f_d9NnjWO178C60%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "金沢21世紀美術館(1)",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          136.6558651,
-          36.5717335
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:82f5d9cb5c884105346d",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:82f5d9cb5c884105346d",
-        "name": "近江町市場",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "近江町市場",
-        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR62QWiWTUjUAC98SeKsiMbYszV1HzuGzhOFPTfUd-GWgOpMT3HOHTOrRtm5egb9YRJWoOKs7pXipC9VrbwRhUinmICo4E23x2ayxGReQ1bd_xT2GG8ziAoB2WS9BXUpsFJv1NUXLt5lkeCXjbks9MrXrlVvnE--Y6Yh8qiEfjRDNRYtkWK5PYQ9TWlj6l5OkL2dxdqp3SuD4GoIR86Km3Om748lG6_VzH9prx_RhbMafQYhkr8gMpehVSQ%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "近江町市場",
           "group": "日向坂46"
         },
         "classification": {
@@ -101431,61 +101486,6 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "六本木けやき坂通り",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.9186772,
-          34.6806077
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1b076c1789393e5c7134",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1b076c1789393e5c7134",
-        "name": "シティライトスタジアム",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "シティライトスタジアム",
-        "sceneNote": "2019年9月8日京都戦のガールズフェスタにゲスト出演 https://x.com/yass_ishikawa/status/1170695903633477632 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5wIAh2UUrZGanfO7tlXvEFkTOO0p_dEIZTXzOrQn3PDHRAn5jTgQLUunvSQp-u-wXBzGbl7B4SavVscb-jfC_tXZ8V_vjyJFP1ANZpw2JWX3dJOk1xiM9QK4FYD-uxfkeleHeONjTZp9df0OqbjsnqLZ500cXyM2gX-zH2c2oFdoEGdTjtd4s9QwmH0z54hP-XjwgSRPrT75vVaHPjy3K2n3YajgVunsMbBBnI45uKn5IH8WlrpkDdr4s%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "シティライトスタジアム",
           "group": "日向坂46"
         },
         "classification": {
@@ -237101,6 +237101,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.3246889,
+          35.871242
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4fb9e8923a62e26828e6",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4fb9e8923a62e26828e6",
+        "name": "リトルミイのお店付近",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "リトルミイのお店付近",
+        "sceneNote": "2023.06.03 O.A.「いまドキッ！埼玉いまたま」で、渡邉美穂がリトル・ミィと出会った場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5-IkLtw-2ZlqVAJntPA1C8xaiAah1A0i5u1OMm4AtJ21ZIupm_PAwaI8APBI6nuOibfcDUGnHCPPJdVal4KQzulRPkamws7quVBbxflJDkTgg1E0gOkhMI5Qg9VbSvo504_7q5Ndpj-2xFdk3SqnH88dJDKmUcgNrJuyALknfmIHfl0yKqGCK-d9IlF-BE7IiPrA5Ig4F2_gHev-IG1ZEY_tMP0fqMzdLbQXon2cGRX7_4-GoQleUX_uQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7t1ybhZ4NKSd4NtSOj7WIDgyoj8T0t5uaJonAS7mZhTleOJMqzLKrTWrFxIsDsJmykV2upmqz3ebdZpDG7bdopyQfztOhT7w9iUFhNEwhqoLeNxs0pE17xz7OBV5vMUXWcbo6gEH-DbqF_DiKPuiZUQy8Sk3HncIVAaT5xhLHjL4vyFYRRb6ZsQof3-_cqqwM0MWUX26jScih__WDGH8S4JEScTzAfhFxXUhicny4xMcNcx6N_sKE99iw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "リトルミイのお店付近",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.828022,
           35.882039
         ]
@@ -237442,20 +237498,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.3246889,
-          35.871242
+          139.7376342,
+          35.5763131
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4fb9e8923a62e26828e6",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4fb9e8923a62e26828e6",
-        "name": "リトルミイのお店付近",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7ba991ecbfa209cd882e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7ba991ecbfa209cd882e",
+        "name": "美原児童公園",
         "category": "映画・ドラマ・TV番組・雑誌・新聞",
         "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "リトルミイのお店付近",
-        "sceneNote": "2023.06.03 O.A.「いまドキッ！埼玉いまたま」で、渡邉美穂がリトル・ミィと出会った場所。",
+        "sceneTitle": "美原児童公園",
+        "sceneNote": "ENTAME2018年５月号での高本彩花と東村芽依のペアグラビアの撮影場所のひとつ。(筒状遊具とは別の公園)",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -237464,8 +237520,8 @@
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5-IkLtw-2ZlqVAJntPA1C8xaiAah1A0i5u1OMm4AtJ21ZIupm_PAwaI8APBI6nuOibfcDUGnHCPPJdVal4KQzulRPkamws7quVBbxflJDkTgg1E0gOkhMI5Qg9VbSvo504_7q5Ndpj-2xFdk3SqnH88dJDKmUcgNrJuyALknfmIHfl0yKqGCK-d9IlF-BE7IiPrA5Ig4F2_gHev-IG1ZEY_tMP0fqMzdLbQXon2cGRX7_4-GoQleUX_uQ%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7t1ybhZ4NKSd4NtSOj7WIDgyoj8T0t5uaJonAS7mZhTleOJMqzLKrTWrFxIsDsJmykV2upmqz3ebdZpDG7bdopyQfztOhT7w9iUFhNEwhqoLeNxs0pE17xz7OBV5vMUXWcbo6gEH-DbqF_DiKPuiZUQy8Sk3HncIVAaT5xhLHjL4vyFYRRb6ZsQof3-_cqqwM0MWUX26jScih__WDGH8S4JEScTzAfhFxXUhicny4xMcNcx6N_sKE99iw%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR79GMJeTY_1_3BH_Z0gX9xTNuUdeOjlHttoBqXovFo7y5TdfczDYxFBrqxBqBo-noK5rbwY8RGIYIK7rIz6S7hRxyPdOH1LMAUNtA9cpoW8AFOtfUGzrikm7Dh1C6eh9CvIF6qE14VndB4FA4KwbKEyboDVyiRm2vdVJMeL_I6kWDo1BdGi6xkIbS4rFRh4fow3wWMo_utaDH_fruVmfA6lndRQ-MN1SuLGqi8fhZTfj1cvjz55jcnrVZY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6mzI3l41IwEzTg2wbTTOdZ71Kf_xhnKaBKNa-Tx7Qv8zplJyBmpWl7M9yxUdxzNrj8wtE8sSI9VWhdstmLmoZ6mX9V7gLSXKxnYJNTbLdWc3zEuVC6QxFiWG1avmJNfMpja4Oo4EcxiqRc5DIovzc5Rfjr6GVfbNmQeJctR1jbJC4IR2WjT1s-Lp79dXbFOCprBV98NBuNDrXLo66-5wYrcmTNHPBf5QNeaKEnZ3DMTgh1gHAPwXiv7ns%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -237477,7 +237533,7 @@
             "日向坂46",
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
-          "name": "リトルミイのお店付近",
+          "name": "美原児童公園",
           "group": "日向坂46"
         },
         "classification": {
