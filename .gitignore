@@ -26,7 +26,7 @@ pnpm-debug.log*
 .idea/
 
 # wrangler local state
-.wrangler/
+**/.wrangler/
 
 # backup dirs
 _backup_*/
