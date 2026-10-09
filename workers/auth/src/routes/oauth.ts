@@ -6,6 +6,7 @@ import { generateGeoPass, shouldIssueGeoPass } from '../utils/geo-pass.ts';
 import { getAuthUser } from './preferences.ts';
 import { buildGoogleAuthState, parseGoogleAuthState, saveGoogleCalendarConnection, syncAllMiguriToGoogleCalendar } from './google-calendar.ts';
 import { createRefreshCredential, runBestEffortDuringD1Quota } from '../utils/refresh-token.ts';
+import { redirectWithState, openState, clearState } from '../utils/oauth-state.ts';
 
 /** Get primary site URL from comma-separated CORS_ORIGIN */
 function getSiteUrl(env: Env): string {
@@ -60,13 +61,22 @@ export async function handleDiscordRedirect(req: Request, env: Env): Promise<Res
     scope: 'identify email',
     state,
   });
-  return Response.redirect(`https://discord.com/api/oauth2/authorize?${params}`, 302);
+  return redirectWithState(state, sealed => {
+    params.set('state', sealed);
+    return `https://discord.com/api/oauth2/authorize?${params}`;
+  });
 }
 
 export async function handleDiscordCallback(req: Request, env: Env): Promise<Response> {
+  return clearState(await discordCallback(req, env));
+}
+
+async function discordCallback(req: Request, env: Env): Promise<Response> {
   const url = new URL(req.url);
   const code = url.searchParams.get('code');
-  const authState = parseDiscordAuthState(url.searchParams.get('state'));
+  const sealed = openState(req, url.searchParams.get('state'));
+  if (sealed === null) return Response.redirect(`${getSiteUrl(env)}/auth/login?error=state_mismatch`, 302);
+  const authState = parseDiscordAuthState(sealed);
   const redirectBase = validateOrigin(authState.origin, env) || getSiteUrl(env);
   if (!code) return Response.redirect(`${redirectBase}/auth/login?error=missing_code`, 302);
 
@@ -95,7 +105,7 @@ export async function handleDiscordCallback(req: Request, env: Env): Promise<Res
   if (!userRes.ok) return Response.redirect(`${redirectBase}/auth/login?error=user_failed`, 302);
 
   const discordUser = await userRes.json() as {
-    id: string; username: string; email?: string; avatar?: string;
+    id: string; username: string; email?: string; verified?: boolean; avatar?: string;
   };
 
   if (authState.action === 'link') {
@@ -134,7 +144,8 @@ export async function handleDiscordCallback(req: Request, env: Env): Promise<Res
   return await handleOAuthUser(req, env, {
     provider: 'discord',
     providerId: discordUser.id,
-    email: discordUser.email || `${discordUser.id}@discord.user`,
+    // An unverified email proves nothing about the account it names: never match or claim an account by it.
+    email: discordUser.email && discordUser.verified ? discordUser.email : `${discordUser.id}@discord.user`,
     name: discordUser.username,
     avatar: discordUser.avatar
       ? `https://cdn.discordapp.com/avatars/${discordUser.id}/${discordUser.avatar}.png`
@@ -159,7 +170,10 @@ export async function handleGoogleRedirect(req: Request, env: Env): Promise<Resp
     state,
     access_type: 'offline',
   });
-  return Response.redirect(`https://accounts.google.com/o/oauth2/v2/auth?${params}`, 302);
+  return redirectWithState(state, sealed => {
+    params.set('state', sealed);
+    return `https://accounts.google.com/o/oauth2/v2/auth?${params}`;
+  });
 }
 
 export async function handleGoogleCalendarConnectRedirect(req: Request, env: Env): Promise<Response> {
@@ -181,13 +195,22 @@ export async function handleGoogleCalendarConnectRedirect(req: Request, env: Env
     prompt: 'consent',
     include_granted_scopes: 'true',
   });
-  return Response.redirect(`https://accounts.google.com/o/oauth2/v2/auth?${params}`, 302);
+  return redirectWithState(state, sealed => {
+    params.set('state', sealed);
+    return `https://accounts.google.com/o/oauth2/v2/auth?${params}`;
+  });
 }
 
 export async function handleGoogleCallback(req: Request, env: Env): Promise<Response> {
+  return clearState(await googleCallback(req, env));
+}
+
+async function googleCallback(req: Request, env: Env): Promise<Response> {
   const url = new URL(req.url);
   const code = url.searchParams.get('code');
-  const authState = parseGoogleAuthState(url.searchParams.get('state'));
+  const sealed = openState(req, url.searchParams.get('state'));
+  if (sealed === null) return Response.redirect(`${getSiteUrl(env)}/auth/login?error=state_mismatch`, 302);
+  const authState = parseGoogleAuthState(sealed);
   const redirectBase = validateOrigin(authState.origin, env) || getSiteUrl(env);
   if (!code) return Response.redirect(`${redirectBase}/auth/login?error=missing_code`, 302);
 
@@ -214,7 +237,7 @@ export async function handleGoogleCallback(req: Request, env: Env): Promise<Resp
   if (!userRes.ok) return Response.redirect(`${redirectBase}/auth/login?error=user_failed`, 302);
 
   const googleUser = await userRes.json() as {
-    id: string; email: string; name?: string; picture?: string;
+    id: string; email: string; verified_email?: boolean; name?: string; picture?: string;
   };
 
   if (authState.action === 'calendar_connect') {
@@ -241,7 +264,7 @@ export async function handleGoogleCallback(req: Request, env: Env): Promise<Resp
   return await handleOAuthUser(req, env, {
     provider: 'google',
     providerId: googleUser.id,
-    email: googleUser.email,
+    email: googleUser.verified_email ? googleUser.email : `${googleUser.id}@google.user`,
     name: googleUser.name || googleUser.email.split('@')[0],
     avatar: googleUser.picture || null,
   }, redirectBase);

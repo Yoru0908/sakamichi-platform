@@ -40,6 +40,15 @@ import { isD1QuotaError } from './utils/refresh-token';
 
 type Handler = (req: Request, env: Env) => Promise<Response>;
 
+// Auth cookies are SameSite=None, so a cross-site <form> (text/plain, no preflight) would reach these routes with the
+// user's cookies. Writes must be JSON: browsers only send that cross-site after a CORS preflight, which withCors refuses
+// for foreign origins. Exempt: Ko-fi (form post, token-verified) and refresh (only re-issues the caller's own cookies;
+// the site and the miguri-sync extension call it without a body).
+const FORM_OK = new Set(['POST /api/webhook/kofi', 'POST /api/auth/refresh']);
+const isCrossSiteForm = (req: Request, key: string) =>
+  req.method !== 'GET' && req.method !== 'HEAD' && !FORM_OK.has(key)
+  && !(req.headers.get('Content-Type') || '').toLowerCase().startsWith('application/json');
+
 /** Exact-path routes: "METHOD /path" */
 const routes: Record<string, Handler> = {
   // ── Auth ──
@@ -112,8 +121,11 @@ export default {
 
     let res: Response;
     try {
-      const handler = routes[`${method} ${path}`];
-      res = handler ? await handler(req, env) : error('Not found', 404);
+      const key = `${method} ${path}`;
+      const handler = routes[key];
+      res = !handler ? error('Not found', 404)
+        : isCrossSiteForm(req, key) ? error('Content-Type must be application/json', 415)
+        : await handler(req, env);
     } catch (e) {
       console.error('[Auth Worker] Error:', e);
       res = isD1QuotaError(e)
