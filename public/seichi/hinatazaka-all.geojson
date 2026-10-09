@@ -37195,6 +37195,59 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          129.0601687,
+          32.8396367
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e23b8fecfada5b6d4769",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e23b8fecfada5b6d4769",
+        "name": "奈良尾-あこうの大樹",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "奈良尾-あこうの大樹",
+        "sceneNote": "長濱ねる1st.写真集「ここから」で長濱ねるが奈良尾神社の鳥居をバックにしたシルエットのカットの撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "奈良尾-あこうの大樹",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           129.0598242,
           32.8414883
         ]
@@ -39905,13 +39958,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -157.8297269,
-          21.2793141
+          -157.829456,
+          21.2794841
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9f6cd5c416d72cc08e25",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9f6cd5c416d72cc08e25",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1e1ed5bb204069856f07",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1e1ed5bb204069856f07",
         "name": "ロイヤル ハワイアン センター",
         "category": "写真集関連",
         "subcategory": "写真集関連",
@@ -39927,7 +39980,7 @@
           "写真集関連"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6aU6yKrFCEfQ2eNBRDgkbaPxVJwlPaKObW-F50JgP2nRFucuq2d6YMIqdkBc_Jhp7WRpVurgJEiv2iXqXcMGyVf2OIVOaPOPcx5mefs_ImSXUXXoOpjv7XwxzHuGXGO-Nj3FkixUKQ5PDnmUeD6FUeblEUd_ZRyRMpTTd6K-MG4Fw6E-uQ4u0zXuWzBUP9RfBHSPa-B_y5aqRnlVovTswG0ciFcw89l7VFFysuku5VTSw7YC8Nsd3PrS0%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR53IMbUpGIIs7B125ZPOQB-TNyNnf3JwR9tt6ABUT3CwBb4JvpnIOdsvhrUf63FHL3TFhhaSTxHiTGHm_my5RgzK5mZR8u5tpP9E8RjFT3Zl4xPc9LG4bqqlYkMapvRsoh9yt5C4nxpnN4TpdGvwFvLVibSCmdrHmmADAYw8-kUhLJNjAIWkfmL7EL2agRq15yVEa_u0g5BvJSAVgD6Yr-bRNMrE9gCGtavfgIFdNFF827xEM7SLTXYhH0%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -40658,6 +40711,59 @@
             "写真集関連"
           ],
           "name": "ラニカイ・ビーチ・パブリック・アクセス",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -157.8332336,
+          21.2795668
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:359e61e105989e04b054",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:359e61e105989e04b054",
+        "name": "Kalia Rd + Saratoga Rd",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Kalia Rd + Saratoga Rd",
+        "sceneNote": "加藤史帆1st.写真集のバス停カット。ハレクラニ方面を背景に撮影している。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "Kalia Rd + Saratoga Rd",
           "group": "日向坂46"
         },
         "classification": {
@@ -62483,59 +62589,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -157.8333117,
-          21.2794906
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:21902ed5b53d65bf0a0d",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:21902ed5b53d65bf0a0d",
-        "name": "Kalia Rd + Saratoga Rd",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "Kalia Rd + Saratoga Rd",
-        "sceneNote": "加藤史帆1st.写真集のバス停カット。ハレクラニ方面を背景に撮影している。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "Kalia Rd + Saratoga Rd",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           174.7637061,
           -36.8457305
         ]
@@ -62951,59 +63004,6 @@
             "写真集関連"
           ],
           "name": "Iconic harbour gates",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          129.0601687,
-          32.8396367
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e23b8fecfada5b6d4769",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e23b8fecfada5b6d4769",
-        "name": "奈良尾-あこうの大樹",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "奈良尾-あこうの大樹",
-        "sceneNote": "長濱ねる1st.写真集「ここから」で長濱ねるが奈良尾神社の鳥居をバックにしたシルエットのカットの撮影場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "奈良尾-あこうの大樹",
           "group": "日向坂46"
         },
         "classification": {
