@@ -15043,61 +15043,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.5398856,
-          35.6448943
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:345fbb1a29ad8e97483a",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:345fbb1a29ad8e97483a",
-        "name": "角川大映スタジオ（7）",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "角川大映スタジオ（7）",
-        "sceneNote": "https://www.youtube.com/embed/qjsOs4Kjr5Q 坂道選抜(乃木坂46×櫻坂46×日向坂46)「Audition」MV撮影スタジオ。 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "https://img.youtube.com/vi/qjsOs4Kjr5Q/hqdefault.jpg"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "角川大映スタジオ（7）",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.5396067,
           35.6448898
         ]
@@ -15141,6 +15086,61 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "角川大映スタジオ(1)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5398856,
+          35.6448943
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:345fbb1a29ad8e97483a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:345fbb1a29ad8e97483a",
+        "name": "角川大映スタジオ（7）",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "角川大映スタジオ（7）",
+        "sceneNote": "https://www.youtube.com/embed/qjsOs4Kjr5Q 坂道選抜(乃木坂46×櫻坂46×日向坂46)「Audition」MV撮影スタジオ。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "https://img.youtube.com/vi/qjsOs4Kjr5Q/hqdefault.jpg"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "角川大映スタジオ（7）",
           "group": "日向坂46"
         },
         "classification": {
@@ -15428,20 +15428,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          136.904469,
-          35.1582483
+          139.5610709,
+          35.5339009
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ef00bc2944bcf57eb4a",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ef00bc2944bcf57eb4a",
-        "name": "東仁王門通商店街",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7736b4b09b8a51551d2c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7736b4b09b8a51551d2c",
+        "name": "イエロースタジオ",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "東仁王門通商店街",
-        "sceneNote": "山下葉留花が出演した2023.09.25 O.A.「大須テレビ」#1のロケスタート地点。 題名:",
+        "sceneTitle": "イエロースタジオ",
+        "sceneNote": "AKB48 51stシングル「ジャーバージャ」Type-E収録の坂道AKBとして二曲目の楽曲「国境のない時代」にひらがなけやきから唯一、加藤史帆が選出される。（センターの長濱ねるは既に兼任解除後）https://youtu.be/pO5dNXuxqhg?si=mHsg3Us8v_i-OU-P 題名: https://www.youtube.com/embed/pO5dNXuxqhg",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -15450,9 +15450,14 @@
           "シングル・アルバム（ロケ地）"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4r0CWLEQ4D5X06IdwjDzla2ASPlHeHKY5aQ-q2CgZEPonGZolWDpwpE0lx4EBHHf2Eylo_wt2OanXu_K9vR2xTW1frJLTXskwG8-pLdLUUqFvHOW1r3c_bocCssujoqOHmVJrZbLfFSQh4vVMztp_5PKoRNR2WzneSZXQlZKsLXAD9ftNDSeP8ZmjnrfrzIPlqj07aLQzqJmdx_fDHs2pP9h3KjQkzT63YIu2hUbiUoBIiclSWAUu3SDw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5TPkC-CjEEu4DShqL4EorCySCV9A_ZJelVKiL-2C0Jlm7InBuWtLTTwqH41nzAHN3SSAjv2RQOaMJ-uP9KivK0x6SysSatokeSZOwSQ2n16FzU0qktDqC-lgqDX_AkFNBVTSyROF1AsQ4_MWZpgJ1xXoh_2siwt2wYzya3hoASvXiP46gxVNZ96jJltV8KNSKfWeUV1RZDP1zC-dMJ6lbqA7wsDKXRdpK0RJCz_wXSS9wjAnCY94hrW7M%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5zWsHsGpDpEuRx1nnWRGeWKPPhEaA6OZWOGPSTBkx4tjSKekaJPn02LvLxF-nXGliDcT0BN1_hDXFn1cXqtN7lbuj35O2vN9AQCykaVHZqg_QHrWOlEIR60kMcQHqWgZhCPfXraT5s9mhDMsSQ51I8pMYP78T38QTpAbdh6JpXk9sLB5EW2AhHAg7qxmRgh7sE_-S1QU38R7moXR2fHYniGXckm07zfp9F-rssDg7tOquZmss21-ho7y8%3Ffife%3Ds16383"
+          "https://img.youtube.com/vi/pO5dNXuxqhg/hqdefault.jpg",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5y34RKuO8f9K1wvP6q7ncJHMyZQGjwj-EHog3rFzwEbvo_NUTEXdUk1L0K7SuQ01Ux6xghI9P6d0A6QoryUPbRWd4-l0wWnMU0Dl4JXxWnzFdPvGbRmRn-NHSOOpMSzaloa0ZZROJduW1gSjAOXCn2iWTMsr1GfgKEbVsmFBu-OA2bnSQsiMZ_C2nhovhuZD_Lclui9Lf-F8Q6SPv1yCGQf0RHwk3F6qhcihkVZ6KWyhjxbzD4hEKBzl0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7764KeYKPYeq4Tm4NPnUKuqzc3dZPlhNmpJnV3NzAXXhtfY7C2EUKai1hPtFIGDMzdZfdGmyrPHJelKei7ug5Nc1QRn30hZHKOsEijRbnjB8cEM_hwUM3u-7phoIx5bBldMJoazrTfZ2fHHm5VRu-PoSJPimfs2w5gOhZ9KFq1fO_wy_iIeWTr-sidtnNihJPryRGudAkEE7Tm_J5ztsK2roOpyk6w8DYC5ETg9DTGbOh6jazbE8rGTp8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5sM4h53SOXNF-pIrjys0ptu29YcH_KazzE9JbOnx2rh84wdN-loT43svfuvxlI6j_oqDb-HXkij5CfmpzcYGF7pBhmNlRtlHSszOTR-UCbUGusPcbtfzW9LUanq4JJTlX4IZzm9fPwz3U520Ffpqc-9GvOUIT3YW6ZTtZ2stKC-kP_iLD03aev6b92X99J2ImpzqPqdHqZdExTq8Jf50my24a8xmUb7FDC2skasE4t0Z_MobluMUuzyws%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR62ocZMqKswmvkhIgQH1YPOlaFxFgmOHdZ5ovIt5912FPbQX9vMP5tCzNj6UaxAIAR_MgslGeko5Ksg5cBVl2nbiPyJYiVs45_Tsv6cGQFrlK4FNpK9DNmdyfqmidtj1iav4UaojYoRjVZf-lY0sCC0L24zTVDKpZQLynht21tcsRxpj9PxVBGqtp81Xrcc4HOaqbUXFaeNrszRupZZRoZ1nEdR7ntPWdGOtt3U1Mzx1g9B2vmyaNe31fM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4vyY3RuT8OoGmfyuz_CRnaS1EvLy-xoKeYAT6ZVoNBUqg3BH1lycgenD1dtSq5TqNcAA54dHQ7a-IrZXWL7xnobhTPxZJnQFpd5_lOYzZgJ4KaSwNvEhxzy9tuiugDKewqfh6HKmuptspH1-GWwWRAHp0F5dVyQ8w97hxyQ8QoKeKlCvY8NhkuVEEpBWw_w1t7-xBPlc4uVdzIq3j1H93lhDNe6dL71GimfswQPow9zcRGDS2QKx2T3dY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4PDPjdzDuCDE-RessCLfByHwbJS2n8TDS3h3X3SwG04NlOBboQzaQQ72fyzwk2prI1xCV3OWgBh0rUsfoG6cyUh_BLbRsqyVuBI1e7ymBr8yW-NZACHI4JQsJiIw1DDx28mLdYNV12vM_v4lB9I8YkhVSD9KD0LjFVeheic_23Axzfcw_BSaikufZEkPWcnB-xQ1AdXPc8fqG0VpMfj9hLU4qPjTjaCLLMf1RU3WyAJvgGgVvOVi86ALo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7-U_X3YQYOvLC8G1t_Ek9vkDRguYE-FaB9gUarPjen-I2zpWkK6tOXVkmuv0nEpn6s6lVfL9FCr_V5ofkXSlOMw0KtQ3RYH1qifzCE89Nxxm3ws4x9CAxr7ZI89p7VM3ACVBGdjEu6HUu6atBWcjnWUeigiglMdaIW11Hf_SKR1n0m75jf_CHGNUwoAaBAwdYCApF-BCkokBrs--9HW6e0Ll7_Lb_qt8VWIIjD_cEtbac81mXV7FkhEwo%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -15464,7 +15469,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "東仁王門通商店街",
+          "name": "イエロースタジオ",
           "group": "日向坂46"
         },
         "classification": {
@@ -101341,13 +101346,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.293143,
-          48.857936
+          2.2945002,
+          48.8578725
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5a91f5ea588210436a90",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5a91f5ea588210436a90",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5b8de8fe23c1daea870c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5b8de8fe23c1daea870c",
         "name": "Cheminée datant de la construction de la Tour Eiffel",
         "category": "メンバーブログ・SNS・その他",
         "subcategory": "メンバーブログ・SNS・その他",
@@ -101363,7 +101368,7 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6UUR95uwFane5wbVaPp9e5T6v5byyVTmnQXCxSb4fm4pkpO3KRejMouJ3hnSTu9q8M4VqIkIXF64PG_QckpJxZPMN7OjlwaFhnGzrM6DUM8RuZQn9CiWk8AyZD9fXeBVXHBk-_-hjNvrKx2jyIJReOAWWjPxZNtIiC3cRf7fDOqNXa8aYQq06dgVV2aWGMfUfKln1_uplectmHCnBxYt1YmZiqQhryEceoNxeE8H720uVw3Lc-fv8SnjE%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR653ElU7rlP6Fwkg0nGRJwZ2BlwxgC-XSUpmwe702TiwIBgiXqqrw72R5-uae_gsL9YgVmENu1jCdVWxmB-efqZRPGWSWPLdzL7_mofpBmpidZvTZ6a2oX43opYSA1o5eiIRrA4eLplM3XZCl5zs-mWX4q-AHYxtXJty8WBgrvxnrawwfjqgYawgeQAKsrhwbsPJWhvuTUolICJ9WKxCEFzZ6oBHTpvUq25YMReF_jK0ON4wIw0HXpiGos%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -129146,7 +129151,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Pipeline戸越スタジオ(4)",
-        "sceneNote": "週刊ヤングジャンプ2022年46号グラビアにきょんこ登場。ひらがなけやき初グラビアの地に6年の時を経て再臨。 題名:",
+        "sceneNote": "週刊ヤングジャンプ2022年46号グラビアに齊藤京子登場。ひらがなけやき初グラビアの地に6年の時を経て再臨。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -129158,7 +129163,8 @@
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7kZZBvM6o2J2PVRyPsmR0dn7rnf82q8cHhkePwd_Ra3rOZmkJ5ZqPYNAnM3TnIXpA0hkA549qok_wIhfNc_Ejf4vRwGyRmxJYyrSKKeAd7VEYVpD3wXMWF4eaD6QJKeMUPE7O2a5vN5-jHpsIaLe5xmoch5NWN-hiMNn_uTd7QEH_dmLtmr_rQkGwhg3xDaghTt6kS1LpeqrgaB00CKQ_tLxnXJOSmk6EtiMyydBG9nq4JqLtLTD-I5Xg%3Ffife%3Ds16383",
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4t0VsHBdUYyWv6w1TIxHx-Llxkehb6dwCn-MxWfa54elww2q1RANXWLjigpyWsXrDE8b0R-cZw5vfULvMAgEfYwBhgbtElbCOaq1NJaPbXKf4bGjRL1tjNL6xgz7Q0ojiHQ6uwQLSQhl-cjXC2rGRrIthdrH9ONqWB--eeMOZuKKnGLafpO9c2EVdgu3OvfcLRAstfXVt1jJmQAKk-r4PCzxZz8wsBG35TSkwKyMmftSz03ZBo-GBS4uI%3Ffife%3Ds16383",
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57e3pXW132EDEhzzMH4EdbA0nQWR6yUEqKUzB7jVGJE79wimAmSjmNqRUfg1lP5m6RLUhf1dnbX5Oz1qbTvzp-fhQ5Vk-MYzobBpUK77tjCNU5JQgTGLheVGkKuWHQg6sfE7aAxwU2twG7h0yHBRUWMyjtUNfhYcv_XCScAoavONE6ZpOr1L8Z5MPdccwjH9gLfAotsgrDRL3IVAuR1GPulGE8Ar2KRkLz2d8P-dbzz8G2wLSIQjHb8kY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7WxiM02hqLyHF8RK81LzDD019DOFpcLbjrdH04eCccAw1ZlFvCFw-g8qDsPZ_jQMNB2pW9e7KlEIWHYgUVQDCME1Ib_VaCu3OoBL_NUfUwfkF-cBMZLQBLXPAYqT6_Hp-SUWGIcOO3jeW_sOvaTlj3ToTlggHgP4mAk7lkwPG9spi0BbpNhAmBH-exSdJKb_qqjp2zs4BWH6NVn9U-zM3Z4HFSxIKDJUvXjMcyHSUdvOACiz3QA2y_xDo%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7WxiM02hqLyHF8RK81LzDD019DOFpcLbjrdH04eCccAw1ZlFvCFw-g8qDsPZ_jQMNB2pW9e7KlEIWHYgUVQDCME1Ib_VaCu3OoBL_NUfUwfkF-cBMZLQBLXPAYqT6_Hp-SUWGIcOO3jeW_sOvaTlj3ToTlggHgP4mAk7lkwPG9spi0BbpNhAmBH-exSdJKb_qqjp2zs4BWH6NVn9U-zM3Z4HFSxIKDJUvXjMcyHSUdvOACiz3QA2y_xDo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5VkIfXd7dIryi1MIcdnp1UdsoLSf9cMg4eimYoAfQioQ0-3Vxie6kbuNcctpn3getwMrPard5--y2_BeRwrjTHAt7zWXiDf1v25TOrWzsDRBc3-ad2C73AIJoiEFS2OOZqg_ZUhGApgsSxto3pLeJviFjXU4D3JKkDFuHO84fE_1cZA2aJss9DXQnBW8pue1iBVfjG2stkOnanCnzgqdxR6lDbMKxGU-jWiePqzH450XyvU7FQqRUPW0s%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -129204,7 +129210,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "クロスクラブ(3)",
-        "sceneNote": "週刊少年チャンピオン2022年24号にきょんこ登場。 題名:",
+        "sceneNote": "週刊少年チャンピオン2022年24号に齊藤京子登場。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -129215,7 +129221,14 @@
         "images": [
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4KejTTKzIOuE7RBRLC_Rfny4kfjViMPJz-YWiKee_SD-NeR49riFquTmKLxeFFVwgdQVKVuFAPdhXzoOJsSgPoJF1ItznEHrcmfRDckXYJIEhshsnj2RpXn88MUqIpflQVytctlDcJcMwL9yX91KkPFSRqtzFU4TgatikrH620xclzthAtvyy6cZ6abk8C2I3I9E_OmJ7kqhxNLITZSJIq4QtKzIt2bZsC20xRzcjX6ROPgdsld83LchQ%3Ffife%3Ds16383",
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Art9OZEpQYH5RvnQxcYXLUoYGAWRxRFfGS7PbJTU58g_-TWm6GUfe03MDh3qpbrpNIx3Hq1lWj8z099nsipDyUYRICVZQKfnWKxYmm1zYCEcN2JcXlqpR9B2i4a7JuQDJTRMNvI-zWiRHzpTkmjTC8SKqGsYBTZS5zTKETM5lpajwIrbLuVdCJ4nDBAfsFqW6NBo9gkos9TOy4lx0zESxWqgYGt1nPLbMWg0LTkaATCT7pQW3ecBvvfw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR47-G6qJD-Hdtd4OTmgYsdc6oW818_btkPCungDZcme0Tvc9GFvq42BjnOQ4u7x5M61kY204HaHSpYvDxoXwS_kw1xrGeoKw93AkxmOx57M_u0UIDN_-bypxXx2Q5AK-RJX81KFzDojbi4t2DH72woOzUSPEXurUBQoEhSDClqvankBDn_F6aq7TzdrOFUgi6IWw7lE7QczBr5alaL9c2l7LMuFOIhdjfsFSa3AyU2M_Dc5BqXi7EiPazo%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR47-G6qJD-Hdtd4OTmgYsdc6oW818_btkPCungDZcme0Tvc9GFvq42BjnOQ4u7x5M61kY204HaHSpYvDxoXwS_kw1xrGeoKw93AkxmOx57M_u0UIDN_-bypxXx2Q5AK-RJX81KFzDojbi4t2DH72woOzUSPEXurUBQoEhSDClqvankBDn_F6aq7TzdrOFUgi6IWw7lE7QczBr5alaL9c2l7LMuFOIhdjfsFSa3AyU2M_Dc5BqXi7EiPazo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4i0SXSfn3prJSQz0JypWVTd2Z541bpQAE0kg1VDBOvU0ZaGn2l_vajQ6cqEypdiGgecDfBbgVCEvfSLsRhRGlLTWFfTS92VTBuuNn8rTgB9Uzr7RhmPXenjVYEcLhErTD3DeIaGX0-2oK7aw3Rm2mz7rXc8Nr4n1nM6h0VtS7jLzNtdU4uZI-30GDy6LhJhRsRhh-_ecEksmfjbpplk1V_hqexlsTTAqBCZUI90iFcsJ_2CfQTk7ytKH0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR55hdRFAFByYHRv84sq5vcHyEV7g984gIuUOscmp33MdktnbQHBSBRhpoq32oiiGYrdLP4ODHcKAIz5lgYZZkolg-ykTBEcXEbjA-yyzNCdvnsiorAqo2TL3G-9plK1d08p7bo3zq_Fhn0QE26QAyYJBat9uXA9xAM64Wb3jvEQILjDbVpgu1ZPC6bAwOXcMDltl5atSy5Fq28ng5IM8y0ipPqVYYIi_Sh-KpO8E0Q0EA4fHV02akTntPk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR77Alv0nuJ2tYXyol8lcuGUuse_X67ZWCysqC7DTmn7aqQIIiQgYcCrZwzmw7lO3iPxAjdeqN7PoEkiTLPmtApkmvneu82gXvc8ZUVbowNM6CS7Ya8ejEXI04bn7OYHwsFmt6JVi8sAp-6tiTwwhFuLBfAvf5j6BJ4vlEsViJYDd1zCi7YFdaT1pnDa63dpYAD_l5L9YvA4VvGDEYIyMgqZfRJTlZWIOBbuvm_NeaXe50omLhu69UY9oh4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4xrnj8NHASXwjzR7BEyeWSlXfj-AGnfdYJ5Dz25nTfb07hm-xggozjQN3QTxFj09bnz1NNrIe_57BqdJx37c0R2icLJgqLVciF45EdCwrMUTGuGFfBNb2OBTGHkYjTQeIX4-GsHZjhrIP6DWHBMKf531v2A3XZP-EVBeYzK7DbUAdBzk3J6fcb52ZwUpcjVHfOo06TEX5Gb7HncRmUw87oyM1vUjs1_OS9ov7IA9-3n5FmyGdedTPRPwA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5w6VdwC0gXt1xZef1ezsQjbbUU9IlUqqTSScCFWTseYO-5HwwliIX-OesL0TLerlkchQ_l1_7LlQJHnGvNlFxJx-sPLlZjlWjZ5yvVbAx1wtEuL3gmaVfzIkTNkVveu_HwzeD8Ztse7gUgVKNasPL4PJjpSTJMj2VDVsOAh__zJ8VPhLa7ry9MCNoer-LToCqCae7ckAEHr0XESFZBsImkg7lsz1-qIAJSgQeU5wtmoyxORHTyzS0S36o%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6EZkut2oNSekIZc_Fi5af2k40FEKV4ZK0s9j4o8Xbueqk1iHwUX4mn0i-6tJBN-uvfQmszogDdsVy7BW-8vtZGwrIAfMZnbcVamBZhUAsJEhcDGOGPPzWngVyd_eO-DI4ns-FCgkwPzL_dqWD9adNSK6JTdXU-rmlEs6USMDbkpOrRmFZyuwdqMklKTVQ5au5zE8bRvAbq9SvR69FQqOxuz76uNec57H_016PxGQhH_n22TxOnf8vz6qw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5yz5GiiBGyLj8G4HXj61q77ItKFfM2SaNP6vqZ7vSAjkA-eh2IBitecd0p8HZVK5gMh4aZ9mcZFpkmqdWODzxQSQc1umZfEdJ6YTxeDuOW9zfDngRPbIerUK4q5-5HBVoijTcMuMEghm1NZG23e8eoBT5na6n2MC6iKKZ1hdtSWfRfAcg3uNmugHUqK7RjJdyGfRfOu6nMVuVGuUKFN1i1RRuPoFwOJDetmigSdUDbMEYhCB_sslUTLb8%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -144623,7 +144636,8 @@
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ZkAthHLgY2uq2FbAeuqQXNNPyEBacrrpRdNuEATMqgbupxzgDKe9bJlAm0il3CPs5iPQupBwFwCagnlV2JOXkwEulE6PJoCC97fnrWpWS2zCmiyOA2r6fX7pVJJuD0TplNP7zaykbbO4uYJQQLUBBp-csbdNoJn09P6z7ZfyvDRkbfYaUzMrkeSz_5ORDwodMjxTR06q_dgJCGYWNKjaK-zglH_v-U9o0GCdYcw0BWsa7oqK1U3TGdXU%3Ffife%3Ds16383",
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4EGKzYFhTRDR2aAfC8R2oawTs2ePDzPseRXcxPuaJpobbcRj3mUk93Sg2TFk4JqQ8QqY69fsXQa79CFf-AISO7pDbXITOQR4DnTlur6rRpJWRTPZcalRK6rEYt3CEl2N-KaAQbAq2AsVlLmcQxsfcNHPIzwLbDDnzw_zJMprfqsDksw8Kxuh4heHQmgucB3T47fmls1P1sdx550RsPEH3qD9g6HsNcGNnpKNTg3vk5HfRKp8rHBpHpRYM%3Ffife%3Ds16383",
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5stsGuBcSV31yEKijNY8KMg9oqL4oW9Mw5ZEA-yA9BLj5dAd4KFqupAcXjLP8jzbW262ds_EefzG9LTemq8H3yTGph-zlu15dEDi9BRgV9yNwiYrlTSUmixNyNAsw9VHeBjSLU3iaTf3ubL_FmPKXlVbNDBlZNsvbXlkvctcDF1bwskUSWVx8FFtadGJgwkNztMAKHKsdR5Jt7NxayMfkqOwzTf8IQPPsMyP5ubher-9SpgwZ9OYpKvyw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5GwWVmsE6kpjYVnxJSj9VZilXt6H7YPDVLsCEkOEEfAuxAvlJPCbDceWn39uLEM7NN2vggtPMzd_5t-s0aBRK1LcABV6_YTrCLG-KODjCRiK6iw4jXzlWFeBo6hdVBhZFmk2hovPJKVENnwiPMjUeUjZ2WYjnRLJO6J3LGUQ-A7Hf_VwhIWajul4vJ3mG0Vpbb30FCjKY6RSmyAqWL0fkUT0GmRaTW6BHJ4okPWRdmR3VHwFtTdaLOwik%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5GwWVmsE6kpjYVnxJSj9VZilXt6H7YPDVLsCEkOEEfAuxAvlJPCbDceWn39uLEM7NN2vggtPMzd_5t-s0aBRK1LcABV6_YTrCLG-KODjCRiK6iw4jXzlWFeBo6hdVBhZFmk2hovPJKVENnwiPMjUeUjZ2WYjnRLJO6J3LGUQ-A7Hf_VwhIWajul4vJ3mG0Vpbb30FCjKY6RSmyAqWL0fkUT0GmRaTW6BHJ4okPWRdmR3VHwFtTdaLOwik%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6x5if_4AGaUf1iM_Hz_v4l7fymz8-ZHPoqrI6Qttj1QHMad8CMOG9s5Ig_syOjhh6f8Vro83tbGX8rvcPPBfS5uBLbUHxldTHeqSS4A2pDoebVD1bRb5pUJA97mCSgLJzTRz3Wl6G7d_Itm5eIZoujG4V1CiJUAe8hJTSXjvyL5nwv6fIadmKwBA_x41z83Znk6BYxWA89h0B0bnwzjvh1nMsDyzYfhAFl4m7pHcc03B7MOIIp7M2YPvo%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -144636,6 +144650,173 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "Palms 22(2)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7241359,
+          35.6127081
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a6bef7a1f04d38402e6c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a6bef7a1f04d38402e6c",
+        "name": "品川区立豊町一丁目防災活動広場前の路上",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "品川区立豊町一丁目防災活動広場前の路上",
+        "sceneNote": "週刊ヤングジャンプ2022年46号グラビアに齊藤京子登場。（2022.10.13の当時の齊藤京子のブログより） 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4bNUSBunoOJda6S8__IRqjSdb0GPfQSiRQ2FU2OzxUPYuORSYgkg-8XF7raFobT_41RWlAaCtyW-1ENBzntNLZoLMSlStVJ8MSpkOhI1DrUydYcTOI0Pz0ERAjImg_nTEVVWGl9yQMJfrzO_ajcYrSvrWew8GAlHrumvEHMPtid3o37t6GFV2wOwOWpUkQlQVqos_5bJnfEynBd9m7Grry8Nh78bCEW026yesDhZt1TJk4uyCzCQ9HB0s%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4sH7Bzj0Y5qQDWQ1hgkVhwvSAdceEnBI2yTjHXgeMNvXBWhNzHmoech7xmdjYP8jvQaq8AIFLltJQalFMdwsyKx0z53gSupyTM2J2qbJJo1goipBePAN0YeZri73cHXOhaikxfLdV2rGCQSwbvW4goJ17lUPYl_zL9DWQa0AGtj4bLProvK8NRxEEWn2JV69_BimxYvMk21Y_xlQ3ZPOIgHJJqNeR3tHzlYA2eTZOnM7QcQ6DDAsjFgJo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "品川区立豊町一丁目防災活動広場前の路上",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.2944813,
+          48.8583701
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9f40f8bb4a202b95de58",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9f40f8bb4a202b95de58",
+        "name": "エッフェル塔",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "エッフェル塔",
+        "sceneNote": "幼少期の森本茉莉が立っていた場所。https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=23&dy=20200501 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4vbw4CDHWcxhWIZ6YFDcFAwq0Ik38m0UGybhR9cWhCHtzz8G-teUsgLJvLP8juW5VsU_BQWEKPHp3mdotzN6U7syc8TjllQls2OzNVIeHRc6OJI_h5A0gM4pMDPk9nSQV5qtnl139LrLm_TicScU9GpE91jtvcuTdhWqyBxN2FAfbZWgbR_W6ny4RxI0nbCrRGhdg0s_XtXWwBkOWzMbjtkRC0f0M1jGH2DlO-pOP86ImbJCGZmhjwk2I%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5BByN8fjD-JpdI8CQUhsBetuoa8BOdOeaYdUy4VsHid9WvEvuna2UwaYO0KPirO_CnP3m5GkPHOvZhwj37bSTw8Nr0iW71mxiPl2ntD8PMMusadfqESGHpoizTtkSCT-uN9trPr1wWC3LoZpXORNYlsS1n17u1LYHNR1tDKi2nwk1JsvCYmE2rzlQ-BSpZp4TWIHbV5ESdzIOW4LIpVhCOQMVVRPOwjOP5NXGc8XigfX-P0bhitg5Slq8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "エッフェル塔",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7008219,
+          35.6596547
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ea194af00c70370e2437",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ea194af00c70370e2437",
+        "name": "CROSSING VIEW & ROOFTOP LOUNGE MAG 8",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "CROSSING VIEW & ROOFTOP LOUNGE MAG 8",
+        "sceneNote": "2018年6月、坂道合同オーディション2次審査前に森本茉莉がゲン担ぎ(坂道合同オーディションCMの撮影地）に訪れた場所。https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=23&dy=20200603 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6w53SCcmgc39XHc8Q7ybFE1s8cogVnwJbrX2ftN4c9gYXpk7oMaO0g_TANIEwcPYyfy5yRq45qi8P9Dmo3nnpv2hrTdeMUzllv5O_CWwfQz_tqtnOlCzPvqFBPmXg9bezJYjjG1wKti8f67_Ejb7V__9-Kb_sXteQJ7zMg5TbLoxws1_mMgW3nOWw0nMX8H5nsAZbcS8bdVh3j5ABQJszR8IDFfUoMWEchJ_QKPW1c7OWTkFwfNwqbmmY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "CROSSING VIEW & ROOFTOP LOUNGE MAG 8",
           "group": "日向坂46"
         },
         "classification": {
@@ -148006,6 +148187,63 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "昭栄大橋のそば",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.904469,
+          35.1582483
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:378e434ed6cbf3ba9f35",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:378e434ed6cbf3ba9f35",
+        "name": "東仁王門通商店街",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "東仁王門通商店街",
+        "sceneNote": "山下葉留花が出演した2023.09.25 O.A.「大須テレビ」#1のロケスタート地点。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4r0CWLEQ4D5X06IdwjDzla2ASPlHeHKY5aQ-q2CgZEPonGZolWDpwpE0lx4EBHHf2Eylo_wt2OanXu_K9vR2xTW1frJLTXskwG8-pLdLUUqFvHOW1r3c_bocCssujoqOHmVJrZbLfFSQh4vVMztp_5PKoRNR2WzneSZXQlZKsLXAD9ftNDSeP8ZmjnrfrzIPlqj07aLQzqJmdx_fDHs2pP9h3KjQkzT63YIu2hUbiUoBIiclSWAUu3SDw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5TPkC-CjEEu4DShqL4EorCySCV9A_ZJelVKiL-2C0Jlm7InBuWtLTTwqH41nzAHN3SSAjv2RQOaMJ-uP9KivK0x6SysSatokeSZOwSQ2n16FzU0qktDqC-lgqDX_AkFNBVTSyROF1AsQ4_MWZpgJ1xXoh_2siwt2wYzya3hoASvXiP46gxVNZ96jJltV8KNSKfWeUV1RZDP1zC-dMJ6lbqA7wsDKXRdpK0RJCz_wXSS9wjAnCY94hrW7M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5zWsHsGpDpEuRx1nnWRGeWKPPhEaA6OZWOGPSTBkx4tjSKekaJPn02LvLxF-nXGliDcT0BN1_hDXFn1cXqtN7lbuj35O2vN9AQCykaVHZqg_QHrWOlEIR60kMcQHqWgZhCPfXraT5s9mhDMsSQ51I8pMYP78T38QTpAbdh6JpXk9sLB5EW2AhHAg7qxmRgh7sE_-S1QU38R7moXR2fHYniGXckm07zfp9F-rssDg7tOquZmss21-ho7y8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "東仁王門通商店街",
           "group": "日向坂46"
         },
         "classification": {
@@ -153018,7 +153256,7 @@
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4vbw4CDHWcxhWIZ6YFDcFAwq0Ik38m0UGybhR9cWhCHtzz8G-teUsgLJvLP8juW5VsU_BQWEKPHp3mdotzN6U7syc8TjllQls2OzNVIeHRc6OJI_h5A0gM4pMDPk9nSQV5qtnl139LrLm_TicScU9GpE91jtvcuTdhWqyBxN2FAfbZWgbR_W6ny4RxI0nbCrRGhdg0s_XtXWwBkOWzMbjtkRC0f0M1jGH2DlO-pOP86ImbJCGZmhjwk2I%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7DysHmtRAOjCDNF4o9lrOf1lt1-fpvrQ5WJ91QjO8Lb0itJuDkACKkPKPeBKL5-2AKazV_kwVJmj6_FCvy-G_pTx2co16pPUagigcL-OOBjpYE4L80FJZzR6ax0Mguv05LvwOKxtWeKEuWsz7TPVEvYEeTvlKZQWCYho8b_o4Y_t3f_-Nh6ySNaIH_yyGRgD3uDj3zbkurcUZI6elNua1srMXPF_e8Sda-J1dby9zfqZ467yCHoAH6zRM%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -228524,6 +228762,180 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          135.8052837,
+          34.8001498
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:29588891367e99296150",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:29588891367e99296150",
+        "name": "現丸屋",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "現丸屋",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちが抹茶スイーツのお店の聞き込みに入った葬儀屋さん。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR64a7aNDVuD3wibETGMZQ8yeHgFdusp6vcT4lt04Fv5fdf0z0zDEZvWeTpFMq3Fx6E5bAKurZqJ8jxlWEBibo7ELF5ojTqQVsLprcdhQbawacT3Okiz6saMSe6OdxWZbbKfInchxOk11iqu7uMpglHD5sGErBttkPubLWFzQyu4WS5-Xgo07UL4Kx9ybGZqxucjD_QfB3dwz3Zks6fHTI-LsFdb4o_A9_WQSJyGkrGfx5O_542zI9rzsuU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5KdG7ZfGHs4LTsNYKT_jj1QP2v2sK-irsrMquNT3p22d22GmiZV5WM07p8cxD1kAh3gOSc23_0jFP3MKj7tzBPGckj7QSwPUY-7D2XbQH1lIXQo-izlMK6XA5DVdGeOyT2nW6v3Rej3MEsKLoC_MFFU8Zpp1y5tsaDvqI4eMtIohhQXqV02YK79GHOUDYS8baM9j4uYSjDR4gf0_mOCWI_rzVC7rjZA0_CqEiFc4DfzDxe5CqZPCGMUdw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "現丸屋",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8062048,
+          34.7996209
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a0d13c57319964972b21",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a0d13c57319964972b21",
+        "name": "SHIKI second site ベラシティハウス",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "SHIKI second site ベラシティハウス",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちが抹茶スイーツをいただいたお店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6OeSW8X_oasSQr_K6xTnfYA2NxhO9_m3PEdFRcvj9UiRVLSokSdiuhZT0-rbeRwEBbSYIcDon_1Th1TsLbaeOuZJNrSUZA5igYNu5lYHb1cN4CoQtiOCrwdPOKV80yXIUZH8blqQrJapRbkbwdimHtcsNG9lkdSZ5hKnEB0AH4tqAvYwK5oUvafRyZcBBRgaC79NpBYzTrpj0_JqrsRRVneXVFcrx7FZe5GFm2b2fd5kWJMt0InyQYkho%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7YhLRlUh4t55PNoUkW-ml7raTQd0zBprYvq7-uipRDQGzRTP4Iqe42mzK6WXZFCMZdQ9Iwu_aRRqOGyAiNyI5eUHV6zF1YBTpFPdrrRsjk5YRXdvS_hbkIymerVGHgJHBKp7AQpSqX9uMjV1i_n3otbrZkjaaC0yFgSW7jBhePD867VJmZu7XsWAfhN7CA35i9Jms1oXagnVnDx2p4dSCWhEOrflNTYHWGgB7IaMeDjYvuXYuTpvxXq5Q%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4LyHXphaDi3OKInNxhkG4pxMdymQFP0-RRakQK43Co_Tb1MhMruzr6ZCLnm2G21Y7AmydWNGLVmkGKoxbhwc8RtaOubPDFoBr24KbWy3M4bFVnO-m842-H8jRs-Qo0uN4S30B3LPtIVNYWVmwDzted_MP21K_WOEMOTI5P7PQNrWZ0WXzNtYL3GKSYKBiXzfnfktO_57beI6Vs-dwMPWJPdNPC5bQB_4-ZPSlGRXLmSEMxTz6ByZxw0XY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6huhlnzs1LYaIPFJ5EDEQS5nv6oBwdT4AhbHszQ8O3TvQ2s_d-r_MkBX8GazzjppcV77S8cPzABFF_ZuE_wH5O-_DO9oFhhfxRV_j78zcFdZH0tsRteyjNWKYTRfxdJ28p2ebo92MD90GlQhv-z9uRFAYzVA4f-QLDbVd_iDQtLqRogv6w5DBk6-L5uBwXPC2qOoLiG2cSPvdoLxLcLmcJQvvjhyDl_66ZGwk_VXqnpYU3sVeM8Ad4tEY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6_m93JmCuObwittFkWbFQ_ol2ZYPPh9rcp5aZ2rsu65BQuzPQwgmFi5CGP8YLREnxAVNwEUM09C5IM4O_lItlLFB9NgGmgp4yEv26jtj-gRh7nuduW5uR86H2klkxMzYSuXLuXgnwuEyYo9UXmCkHlA8ltHBGSoicxofHoY09ppilNft_ScdIMCsCxsKEHA90Tf1acGYFQP7pgod4Ky7Cg2HZP-va4goI5k8F1B3KCnU9o68-gP-As4ZM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4OgP9ZN7Bnm_edS-hpMFv7YsQYwOpNg7EB-jrYfgVq1UclHmU1_GqlgkCHOg6n0g0wS3riwYKFI1ceqUBwpJYIq_RKCES6s_RMrTI5CG8AdKpDkU8ruNdmvBMTDWWUy6keIDpSjEepZ44C99AJwW9qxgovjsA4LjPVaFkTk-otj68zmZQOv7iK3qR7r01JSoZmPsdpDwrhWaUIZQKqS-H_LwxRRw4xWssDEZHArwm3d-dY_ann1wkvUO4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "SHIKI second site ベラシティハウス",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8114434,
+          34.7911411
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bae43e74d6352c790ba8",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bae43e74d6352c790ba8",
+        "name": "高倉神社",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "高倉神社",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちがバス券をゲットしたチェックポイント。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR43JwrWeJK2gpX6TxWzXQ21jTPPF10w9_N4Bstmfylh1px1yiy9lx1_Apu3Y4CNpiA-M4n6wu3OuqJ6zMjA0Jbhu4LneC9czj2T4kf-Vtc_zuD0VMYT-_dDM41Y3-RQNCNeNde-JDPSCkuS8LfTpzc3J7q9qi5CYWKSYyNTchDKOCZQxtDoFSU3lrF1wep5zXf_EKD2hsBoj9ePc2UH3Dq4ECykblCf6vY5I_96uVxr8J5-5TAUo7S1bDE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57oYKlJm1N-j5K4KhupCX6NFoW1NOEXbrT1F2FhXw7yocy6Yx6jmiWeZDJNV9IWTcy2P0zDWNUJiBbteAQckbCsuv3eB5EZ-yZgSwrjDifMRqjMuDoUxaV1l8Mzzi3qYPs1DjGkTp8T24fetknx3HqdK-AvabuyWgoqDTAf8DVO2pYbIy-rhArswxDhf0WKFLax0KwbOF72g0CaYTjqR_lkI-q3Z6ivuBrH1cYQUX-8D_WIoEgrw5hx0I%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7jg3T6xjVRvRcu2f3ybL-vfJot0Snc9vuThScfmp_rsfpga83zE-qGn9gL2jI5V_VYPHrahIInnP6kme0SGn60I0eI8PcG5Mg0KWskfRIUZW_wFEBa8nnjctuPik0VTQUXJIGyiP-rTy7SttJiHdRUKUsUonolUu1Rz3ABlQovLNtM06aZ2vLS9K9HKX0iUJyUq17_WNrZCWismkY-fs2J7VVnqAjRcPBml1YRYL2ZykOU3G_MTWWSsbo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5HWbd9ne42NZbIpzXTqtvx9TwvoCjJz7P-jhNCIHfl2qM6tgjkm9_IEnXt-TKNj7G4G-M_uLh35QgWg5IcNwBVWKYy2xuf-73b37VTS9PHNzrqm5CNrr90IMlucFxVif26vx4yIJHL6H_nNnT-iz7oultavRGpKzwKj4jeFf6YZy3MZX8z_hyjK3WjTdRj_vgqDmrnEAaZZ2Zdx0gdkjqmRyhfT93lqrLkqcb22h6TbUmmrjdzFC7q830%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "高倉神社",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           136.8397668,
           34.887556
         ]
@@ -237950,180 +238362,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.8052837,
-          34.8001498
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:29588891367e99296150",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:29588891367e99296150",
-        "name": "現丸屋",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "現丸屋",
-        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちが抹茶スイーツのお店の聞き込みに入った葬儀屋さん。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR64a7aNDVuD3wibETGMZQ8yeHgFdusp6vcT4lt04Fv5fdf0z0zDEZvWeTpFMq3Fx6E5bAKurZqJ8jxlWEBibo7ELF5ojTqQVsLprcdhQbawacT3Okiz6saMSe6OdxWZbbKfInchxOk11iqu7uMpglHD5sGErBttkPubLWFzQyu4WS5-Xgo07UL4Kx9ybGZqxucjD_QfB3dwz3Zks6fHTI-LsFdb4o_A9_WQSJyGkrGfx5O_542zI9rzsuU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5KdG7ZfGHs4LTsNYKT_jj1QP2v2sK-irsrMquNT3p22d22GmiZV5WM07p8cxD1kAh3gOSc23_0jFP3MKj7tzBPGckj7QSwPUY-7D2XbQH1lIXQo-izlMK6XA5DVdGeOyT2nW6v3Rej3MEsKLoC_MFFU8Zpp1y5tsaDvqI4eMtIohhQXqV02YK79GHOUDYS8baM9j4uYSjDR4gf0_mOCWI_rzVC7rjZA0_CqEiFc4DfzDxe5CqZPCGMUdw%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "現丸屋",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.8062048,
-          34.7996209
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a0d13c57319964972b21",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a0d13c57319964972b21",
-        "name": "SHIKI second site ベラシティハウス",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "SHIKI second site ベラシティハウス",
-        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちが抹茶スイーツをいただいたお店。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6OeSW8X_oasSQr_K6xTnfYA2NxhO9_m3PEdFRcvj9UiRVLSokSdiuhZT0-rbeRwEBbSYIcDon_1Th1TsLbaeOuZJNrSUZA5igYNu5lYHb1cN4CoQtiOCrwdPOKV80yXIUZH8blqQrJapRbkbwdimHtcsNG9lkdSZ5hKnEB0AH4tqAvYwK5oUvafRyZcBBRgaC79NpBYzTrpj0_JqrsRRVneXVFcrx7FZe5GFm2b2fd5kWJMt0InyQYkho%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7YhLRlUh4t55PNoUkW-ml7raTQd0zBprYvq7-uipRDQGzRTP4Iqe42mzK6WXZFCMZdQ9Iwu_aRRqOGyAiNyI5eUHV6zF1YBTpFPdrrRsjk5YRXdvS_hbkIymerVGHgJHBKp7AQpSqX9uMjV1i_n3otbrZkjaaC0yFgSW7jBhePD867VJmZu7XsWAfhN7CA35i9Jms1oXagnVnDx2p4dSCWhEOrflNTYHWGgB7IaMeDjYvuXYuTpvxXq5Q%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4LyHXphaDi3OKInNxhkG4pxMdymQFP0-RRakQK43Co_Tb1MhMruzr6ZCLnm2G21Y7AmydWNGLVmkGKoxbhwc8RtaOubPDFoBr24KbWy3M4bFVnO-m842-H8jRs-Qo0uN4S30B3LPtIVNYWVmwDzted_MP21K_WOEMOTI5P7PQNrWZ0WXzNtYL3GKSYKBiXzfnfktO_57beI6Vs-dwMPWJPdNPC5bQB_4-ZPSlGRXLmSEMxTz6ByZxw0XY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6huhlnzs1LYaIPFJ5EDEQS5nv6oBwdT4AhbHszQ8O3TvQ2s_d-r_MkBX8GazzjppcV77S8cPzABFF_ZuE_wH5O-_DO9oFhhfxRV_j78zcFdZH0tsRteyjNWKYTRfxdJ28p2ebo92MD90GlQhv-z9uRFAYzVA4f-QLDbVd_iDQtLqRogv6w5DBk6-L5uBwXPC2qOoLiG2cSPvdoLxLcLmcJQvvjhyDl_66ZGwk_VXqnpYU3sVeM8Ad4tEY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6_m93JmCuObwittFkWbFQ_ol2ZYPPh9rcp5aZ2rsu65BQuzPQwgmFi5CGP8YLREnxAVNwEUM09C5IM4O_lItlLFB9NgGmgp4yEv26jtj-gRh7nuduW5uR86H2klkxMzYSuXLuXgnwuEyYo9UXmCkHlA8ltHBGSoicxofHoY09ppilNft_ScdIMCsCxsKEHA90Tf1acGYFQP7pgod4Ky7Cg2HZP-va4goI5k8F1B3KCnU9o68-gP-As4ZM%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4OgP9ZN7Bnm_edS-hpMFv7YsQYwOpNg7EB-jrYfgVq1UclHmU1_GqlgkCHOg6n0g0wS3riwYKFI1ceqUBwpJYIq_RKCES6s_RMrTI5CG8AdKpDkU8ruNdmvBMTDWWUy6keIDpSjEepZ44C99AJwW9qxgovjsA4LjPVaFkTk-otj68zmZQOv7iK3qR7r01JSoZmPsdpDwrhWaUIZQKqS-H_LwxRRw4xWssDEZHArwm3d-dY_ann1wkvUO4%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "SHIKI second site ベラシティハウス",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.8114434,
-          34.7911411
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bae43e74d6352c790ba8",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bae43e74d6352c790ba8",
-        "name": "高倉神社",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "高倉神社",
-        "sceneNote": "025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちがバス券をゲットしたチェックポイント。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR43JwrWeJK2gpX6TxWzXQ21jTPPF10w9_N4Bstmfylh1px1yiy9lx1_Apu3Y4CNpiA-M4n6wu3OuqJ6zMjA0Jbhu4LneC9czj2T4kf-Vtc_zuD0VMYT-_dDM41Y3-RQNCNeNde-JDPSCkuS8LfTpzc3J7q9qi5CYWKSYyNTchDKOCZQxtDoFSU3lrF1wep5zXf_EKD2hsBoj9ePc2UH3Dq4ECykblCf6vY5I_96uVxr8J5-5TAUo7S1bDE%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57oYKlJm1N-j5K4KhupCX6NFoW1NOEXbrT1F2FhXw7yocy6Yx6jmiWeZDJNV9IWTcy2P0zDWNUJiBbteAQckbCsuv3eB5EZ-yZgSwrjDifMRqjMuDoUxaV1l8Mzzi3qYPs1DjGkTp8T24fetknx3HqdK-AvabuyWgoqDTAf8DVO2pYbIy-rhArswxDhf0WKFLax0KwbOF72g0CaYTjqR_lkI-q3Z6ivuBrH1cYQUX-8D_WIoEgrw5hx0I%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7jg3T6xjVRvRcu2f3ybL-vfJot0Snc9vuThScfmp_rsfpga83zE-qGn9gL2jI5V_VYPHrahIInnP6kme0SGn60I0eI8PcG5Mg0KWskfRIUZW_wFEBa8nnjctuPik0VTQUXJIGyiP-rTy7SttJiHdRUKUsUonolUu1Rz3ABlQovLNtM06aZ2vLS9K9HKX0iUJyUq17_WNrZCWismkY-fs2J7VVnqAjRcPBml1YRYL2ZykOU3G_MTWWSsbo%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5HWbd9ne42NZbIpzXTqtvx9TwvoCjJz7P-jhNCIHfl2qM6tgjkm9_IEnXt-TKNj7G4G-M_uLh35QgWg5IcNwBVWKYy2xuf-73b37VTS9PHNzrqm5CNrr90IMlucFxVif26vx4yIJHL6H_nNnT-iz7oultavRGpKzwKj4jeFf6YZy3MZX8z_hyjK3WjTdRj_vgqDmrnEAaZZ2Zdx0gdkjqmRyhfT93lqrLkqcb22h6TbUmmrjdzFC7q830%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "高倉神社",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.7374728,
           35.5790009
         ]
@@ -238162,6 +238400,68 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "atelier NORA 大森 -studio laMOMO グループ-",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8160441,
+          34.7864114
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e09709d9ef085a52f130",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e09709d9ef085a52f130",
+        "name": "蟹満寺",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "蟹満寺",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちがカニを7匹探す課題を行ったお寺。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6yQmyY5d9hx6Ve3Hwo5cn8LEIpLxn5Vjh4CfQChlhGkN4IKoUqFqHTWe6hhO8UOab78AZxhMzfrhnQzNIJdDTo_TdeeM-z0HNvugzmVmBbWhmsClQxaNZC5T7YOwqfqhJQNmtjJugCyXj6sQ5zEgRkR61hwSfQbWVJz3JRrMxuaSU2C5FGp6XFdeEOez2SlaCBF1BfVk-akS7UVZNb7ngxTn0hvz6jQkiNjEq4JjEHKq7ew3XYhybdP_U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6YSJRlhrshaiUgUU7APZRiH2uxGCgzqmJraCl3YyUbVIrXXCYdn2qa8lyAnsEliXbPH9iImkaNiExkNF7C1ygQOhYHf5TpqIeQpJjsGIO3A-McvJ46qu13ICHfnKBW4_WZi5wUCQorrAoCCO37imk4xbNZ2w6Arkh5HxWWU15Wof4ehIUEIRbBOBdlx1YGzWePti8JcsswznKbS5nRmyj3aqeyeRlqwBT77RHRJHT85XkigPK-CQjWv0s%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6EMgGFaXzifZvxHY1aJWFO-BKbLWe2Cj_O7VSZ2v2k2zde3goFYq0RNvKEHJFEIQpoee-jRWxPEdRap_aEHDrpDoZE_5TNc7e5MuTANlORXyuWNcsq1aQj_4Jorf2NQFouKp946C_Cyzu5iJ476s2LWdPshzOwDicmihvW2qW_QHgmF8qrFHxKo_qdl9cB8sJvLl9wYGUIXmWtHmQ-wCWqwTeFyCor_vw3lEJM0N75iZ178M0I2WDWRvs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7fWrDh97egWtuaDEM-QUzcQdBctNZBoC0lRJauC2yaVOTaEMA15Mh6arjDVrzcYU5H_VD1HpQLtRBAlaS8xQHq1dC9jWD4P2PaaDFGVcj02W60ye0QjpX2_GT1btt_rraW535DsjxvKNFRNfju_MLibI0Mi1WMgePDMohSTmolfwE6wydgFaYF3fdOGQEmXXVoFnHVJIvr_C3l3IOYSIkisuE-c7J_HLYpVbZKf_W5i0gxOec7eunrORE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7FTGDEWJYChvYj4mZkxTTJJP48qJy67KGb-Ny2GD-sHiSGIgaXD_w7UUahjrG9xs4qLCi5rK_RQOKYLy3qUgH5qyYNqKbIZ2pbm21HhOQQkYbZ4duIjsE2WrA2ULqcP-tcNVsEkgLTw87wDnSB6YAeZDYOWmKqAIQTnUMquexleqMjFRUTxzeqcVjoimlfcioytvc7EozIzL9oVfXN5y4yc2Czz6QnShk77f892joYUDhfxGgW4boJHYM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7Y2AH-2jh889hBYDFDBLtCqSpXKnTk7nc3azeRSrz5Qd7Ho99dUqzDRmSLSRKz37444Co0lN8-yl-tOlsq2XNqnnxilkvzP8ZwEct9WyRde4ANcmLkD5-aviBFk-2YYmVX4OOUcjmMW9-mXOOaZQ-dm0cCBjNYJDlOZvgpuQAkA0n2usa2hMyQwF87RvRKyMqZyuebm-O5oQnzvwmWcLdWQUB2bHIXrE9snV5AVjbmNqQL4eF6fwHlcuQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4U4WIymURLsEXHyc5h2LbCwJpOHgbnybGdIbty1qGz6QYWSixQjBfZ3KMhn7TNEiEA0r-jW2JryqbGpYy8RYCUthUmjmEd1E660mWKzxUMwbEabCB5h-5KfqRslxT2D0ABYGM4Tcsf_J_LtFXVi7oifq7FhDSYy4YjGpCZOAAnKQjl53dtOUkV-wv4U3GxbYO3SxzE32r1JDBPDn6Gfu5iZ79fj0RkMdgAn6J2fQ68y9EFRW6QwXpwAyc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5x8YV2op6Au3xrjrVXpG9LenfOHiNJbb4qle7LReupb_pcaPxstZ2fOaQKOnbDDB9T_v6wlkH7h51oC4xd8rJbXIDYpQ-KeOW1EdLeDJ_mwbTl5fp_35lBVvvT1_Ih6VDgtktewOPterUtevfjDxV5GmyGXS9Pzn9CHCpHcMC-Qsv7sEztr87sRj9oOSD8glxjndYBPkL5wydSKpZbKqYm_JNtYmKEFsMVtZKnX-0LC_H6HBQir91gsOY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "蟹満寺",
           "group": "日向坂46"
         },
         "classification": {
