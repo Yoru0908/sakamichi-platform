@@ -4,7 +4,7 @@
 // (Cloudflare account cron triggers are at the free-tier limit of 5).
 
 import type { Env } from './types.ts';
-import { withCors, error, success } from './utils/response.ts';
+import { withCors, isCrossSiteWrite, error, success } from './utils/response.ts';
 
 import {
   handleGetMiguriEvents,
@@ -74,6 +74,9 @@ export default {
 
     if (method === 'OPTIONS') {
       return withCors(new Response(null, { status: 204 }), env, origin);
+    }
+    if (isCrossSiteWrite(req, env)) {
+      return withCors(error('cross-site write refused', 403), env, origin);
     }
 
     let res: Response;

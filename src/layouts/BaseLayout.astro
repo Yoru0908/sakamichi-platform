@@ -27,7 +27,7 @@ const {
 
 const siteUrl = Astro.site || new URL('https://46log.com');
 const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', siteUrl);
-const privatePage = /^\/(auth|dashboard|user|instagram|video|messages|prototypes)(?:\/|$)/.test(Astro.url.pathname) || /^\/(repo|photocard)\/(create|user|work)(?:\/|$)/.test(Astro.url.pathname);
+const privatePage = /^\/(404|auth|dashboard|user|instagram|video|messages|prototypes)(?:\/|$)/.test(Astro.url.pathname) || /^\/(repo|photocard)\/(create|user|work)(?:\/|$)/.test(Astro.url.pathname);
 const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toString();
 ---
 

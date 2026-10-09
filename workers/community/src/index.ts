@@ -3,7 +3,7 @@
 // Owns /api/community/* (生写社区), /api/repo/* (Repo 社区), /api/report + /api/manage/reports*.
 
 import type { Env } from './types.ts';
-import { withCors, error } from './utils/response.ts';
+import { withCors, isCrossSiteWrite, error } from './utils/response.ts';
 
 import {
   handleListWorks,
@@ -84,6 +84,9 @@ export default {
 
     if (method === 'OPTIONS') {
       return withCors(new Response(null, { status: 204 }), env, origin);
+    }
+    if (isCrossSiteWrite(req, env)) {
+      return withCors(error('cross-site write refused', 403), env, origin);
     }
 
     let res: Response;

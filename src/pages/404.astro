@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+// Pages serves this with HTTP 404 for unknown paths (before 2026-10-10 they fell back to the home page with 200).
+---
+<BaseLayout title="页面不存在 - 46log" description="找不到这个页面">
+  <!-- Old-site links (/blog.html, /photocard.html …) used to land on the home page: send them to the current page. -->
+  <script is:inline>
+    if (/\.html$/.test(location.pathname)) location.replace(location.pathname.replace(/\.html$/, '') + location.search + location.hash);
+  </script>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+    <p class="text-6xl font-bold text-[var(--text-secondary)]">404</p>
+    <h1 class="mt-4 text-xl font-bold text-[var(--text-primary)]">页面不存在</h1>
+    <p class="mt-2 text-sm text-[var(--text-secondary)]">链接可能已失效，或页面已经移动。</p>
+    <a href="/" class="inline-block mt-8 px-5 py-2 rounded-full border border-[var(--border-primary)] text-sm hover:bg-[var(--bg-secondary)]">返回首页</a>
+  </div>
+</BaseLayout>

@@ -1,0 +1,11 @@
+# Security headers for every page (2026-10-10). CSP here only covers what cannot break a page: who may frame us,
+# plugins and <base>. A script/style allowlist needs its own pass (many image / tile / embed hosts).
+# HSTS without includeSubDomains/preload: not every *.46log.com host has been checked for HTTPS-only use.
+# Pages adds Access-Control-Allow-Origin: * by default; nothing reads our pages cross-origin, so drop it
+# (Functions such as /api/proxy-image set their own CORS headers).
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: frame-ancestors 'self'; object-src 'none'; base-uri 'self'
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self), payment=(), usb=()
+  ! Access-Control-Allow-Origin

@@ -9,6 +9,8 @@
  * - 仅允许白名单域名（坂道公式 + CDN）
  * - 限制响应大小 ≤ 10MB
  * - 设置 24h 浏览器 + Cloudflare CDN 缓存
+ * - 只返回位图（jpg/png/gif/webp/avif）：HTML / SVG 都能跑脚本，经本代理就成了 46log.com 同源内容（2026-10-10 安全修复）
+ * - 跟随重定向，但最终地址也必须在白名单内
  */
 
 const ALLOWED_HOSTS = [
@@ -25,6 +27,19 @@ const ALLOWED_HOSTS = [
 ];
 
 const MAX_SIZE = 10 * 1024 * 1024; // 10MB
+
+const RASTER_BY_EXT: Record<string, string> = {
+  jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', gif: 'image/gif', webp: 'image/webp', avif: 'image/avif',
+};
+const RASTER_TYPES = new Set([...Object.values(RASTER_BY_EXT), 'image/jpg']);
+
+/** The raster image type to serve, or null (refuse). Octet-stream / missing types fall back to a raster extension. */
+function rasterType(upstreamType: string | null, url: URL): string | null {
+  const type = (upstreamType || '').split(';')[0].trim().toLowerCase();
+  if (RASTER_TYPES.has(type)) return type === 'image/jpg' ? 'image/jpeg' : type;
+  const ext = url.pathname.split('.').pop()?.toLowerCase() || '';
+  return ['', 'application/octet-stream', 'binary/octet-stream'].includes(type) ? RASTER_BY_EXT[ext] ?? null : null;
+}
 const CACHE_TTL = 86400; // 24h
 
 function isAllowed(url: URL): boolean {
@@ -66,6 +81,13 @@ export const onRequest: PagesFunction = async (context) => {
     if (!upstream.ok) {
       return new Response(`Upstream error: ${upstream.status}`, { status: upstream.status });
     }
+    if (upstream.url && !isAllowed(new URL(upstream.url))) {
+      return new Response('Redirected to a host that is not allowed', { status: 403 });
+    }
+    const contentType = rasterType(upstream.headers.get('content-type'), targetUrl);
+    if (!contentType) {
+      return new Response('Not a raster image', { status: 415 });
+    }
 
     const contentLength = upstream.headers.get('content-length');
     if (contentLength && parseInt(contentLength, 10) > MAX_SIZE) {
@@ -97,19 +119,15 @@ export const onRequest: PagesFunction = async (context) => {
       offset += chunk.length;
     }
 
-    const ext = targetUrl.pathname.split('.').pop()?.toLowerCase();
-    const mimeMap: Record<string, string> = {
-      jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png',
-      gif: 'image/gif', webp: 'image/webp', svg: 'image/svg+xml', avif: 'image/avif',
-    };
-    const contentType = mimeMap[ext || ''] || upstream.headers.get('content-type') || 'image/jpeg';
-
     return new Response(body, {
       status: 200,
       headers: {
         'Content-Type': contentType,
         'Cache-Control': `public, max-age=${CACHE_TTL}, s-maxage=${CACHE_TTL}`,
         'Access-Control-Allow-Origin': '*',
+        // Even if a browser opens it as a page: no sniffing, no script, no same-origin powers.
+        'X-Content-Type-Options': 'nosniff',
+        'Content-Security-Policy': "default-src 'none'; sandbox",
         'X-Proxy-Source': targetUrl.hostname,
       },
     });

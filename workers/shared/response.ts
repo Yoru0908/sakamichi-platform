@@ -55,6 +55,19 @@ function isAllowedOrigin(origin: string, allowed: string[]): boolean {
   return false;
 }
 
+/**
+ * A write a browser could send cross-site without a CORS preflight (form-able or missing Content-Type) from an origin
+ * that is not ours. Auth cookies are SameSite=None, so such a request would act as the signed-in user (CSRF).
+ * JSON from anywhere (the extension), requests with no Origin (Homeserver cron) and our own pages' uploads still pass.
+ */
+export function isCrossSiteWrite(req: Request, env: CorsEnv): boolean {
+  if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') return false;
+  const origin = req.headers.get('Origin');
+  if (!origin || isAllowedOrigin(origin, env.CORS_ORIGIN.split(',').map((s: string) => s.trim()))) return false;
+  const type = (req.headers.get('Content-Type') || '').split(';')[0].trim().toLowerCase();
+  return ['', 'text/plain', 'application/x-www-form-urlencoded', 'multipart/form-data'].includes(type);
+}
+
 /** Add CORS headers (supports multiple origins via CORS_ORIGIN comma-separated) */
 export function withCors(res: Response, env: CorsEnv, requestOrigin?: string | null): Response {
   const allowed = env.CORS_ORIGIN.split(',').map((s: string) => s.trim());
