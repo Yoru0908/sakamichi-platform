@@ -1108,7 +1108,7 @@ export default function SeichiMap({
         className={`
           ${mobileView === 'list' ? 'flex' : 'hidden'} md:flex
           md:w-[380px] md:min-w-[380px]
-          relative z-20 flex-col h-full overflow-hidden bg-[var(--bg-primary)] border-r border-[var(--border-primary)] shadow-sm
+          relative z-20 flex-col h-full overflow-x-hidden overflow-y-auto md:overflow-hidden bg-[var(--bg-primary)] border-r border-[var(--border-primary)] shadow-sm
           transition-all duration-250
         `}
       >
@@ -1413,7 +1413,7 @@ export default function SeichiMap({
         )}
 
         {/* 地点列表（含缩略图预览） */}
-        <div ref={locationListRef} className="flex-1 overflow-y-auto divide-y divide-[var(--border-primary)]">
+        <div ref={locationListRef} className="flex-1 min-h-[240px] md:min-h-0 overflow-y-auto divide-y divide-[var(--border-primary)]">
           <div className="space-y-2 bg-[var(--bg-secondary)] p-3" data-timeline-controls>
             <div className="flex items-center gap-2">
               <select aria-label="地点の並び順" value={timelineOrder} onChange={event => { setTimelineOrder(event.target.value as SortOrder); setFacetsCollapsed(event.target.value !== 'original'); }} className="min-h-9 min-w-0 flex-1 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-2 text-xs text-[var(--text-primary)]">
@@ -1873,6 +1873,24 @@ export default function SeichiMap({
         </div>
 
         <div className="flex-1 overflow-y-auto px-3 py-3 sm:px-4">
+          {(routeStops.length > 0 || room.roomId) && (
+            <div className="mb-3">
+        <RouteShareBar
+          room={room}
+          keys={routeStopKeys}
+          mode={routeTravelMode}
+          stops={routeStops.map((stop) => ({
+            name: stop.properties.name,
+            address: stop.properties.address,
+            lng: stop.geometry.coordinates[0],
+            lat: stop.geometry.coordinates[1],
+            color: stop.properties.categoryColor,
+          }))}
+          onNotice={setRouteNotice}
+          buttonClass="flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] text-xs font-semibold text-[var(--text-secondary)] disabled:opacity-50"
+      />
+            </div>
+          )}
           <div className="mb-2.5 flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-3 py-2.5 dark:border-blue-900/60 dark:bg-blue-950/30">
             <div className="relative flex h-7 w-7 shrink-0 items-center justify-center">
               <span className="absolute h-5 w-5 rounded-full bg-blue-500/20" />
@@ -2022,24 +2040,6 @@ export default function SeichiMap({
                 })}
               </ol>
             </>
-          )}
-          {(routeStops.length > 0 || room.roomId) && (
-            <div className="mt-3 border-t border-[var(--border-primary)] pt-3">
-              <RouteShareBar
-                room={room}
-                keys={routeStopKeys}
-                mode={routeTravelMode}
-                stops={routeStops.map((stop) => ({
-                  name: stop.properties.name,
-                  address: stop.properties.address,
-                  lng: stop.geometry.coordinates[0],
-                  lat: stop.geometry.coordinates[1],
-                  color: stop.properties.categoryColor,
-                }))}
-                onNotice={setRouteNotice}
-                buttonClass="flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] text-xs font-semibold text-[var(--text-secondary)] disabled:opacity-50"
-            />
-            </div>
           )}
         </div>
 

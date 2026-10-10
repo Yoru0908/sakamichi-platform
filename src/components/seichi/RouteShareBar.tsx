@@ -49,38 +49,41 @@ export default function RouteShareBar({ keys, stops, mode, siteName, buttonClass
 
   const copyInvite = async () => {
     if (!room?.inviteUrl) return;
-    if (await copyText(room.inviteUrl)) onNotice('招待リンクをコピーしました');
+    if (await copyText(room.inviteUrl)) onNotice('招待リンクをコピーしました（リンクを知っている人は誰でも編集できます）');
     else window.prompt('招待リンクをコピーしてください', room.inviteUrl);
   };
   const showRoom = !!room && (room.available || !!room.roomId);
+  const live = !!room?.roomId;
+  const label = 'min-w-0 truncate';
+  const cols = live ? 'grid-cols-4' : showRoom ? 'grid-cols-3' : 'grid-cols-2';
 
   return (
-    <div className="space-y-2" data-route-share>
-      <div className="grid grid-cols-2 gap-2">
-        <button type="button" onClick={shareImage} disabled={busy || stops.length === 0} className={buttonClass}>
-          <ImageDown size={15} />
-          {busy ? '作成中…' : '画像で共有'}
-        </button>
-        <button type="button" onClick={copyLink} disabled={keys.length === 0} className={buttonClass}>
-          <Link2 size={15} />
-          リンクをコピー
-        </button>
-      </div>
-      {showRoom && room && (room.roomId ? (
-        <div className="space-y-2 rounded-xl border border-emerald-200 bg-emerald-50 p-2.5 text-emerald-900" data-route-room="live">
-          <p className="text-xs font-bold" role="status">
-            共同編集中 · {room.status === 'offline' ? 'オフライン（再接続を待っています）' : '同期中'}
-          </p>
-          <p className="text-[11px] leading-relaxed">リンクを知っている人は誰でもこのルートを編集できます。</p>
-          <div className="grid grid-cols-2 gap-2">
-            <button type="button" onClick={copyInvite} className={buttonClass}><Link2 size={15} />招待リンク</button>
-            <button type="button" onClick={room.leave} className={buttonClass}><LogOut size={15} />終了</button>
-          </div>
-        </div>
+    <div className={`grid gap-2 ${cols}`} data-route-share data-route-room={live ? 'live' : undefined}>
+      <button type="button" onClick={shareImage} disabled={busy || stops.length === 0} className={buttonClass} aria-label="画像で共有">
+        <ImageDown size={16} className="shrink-0" />
+        <span className={label}>{busy ? '作成中' : '画像'}</span>
+      </button>
+      <button type="button" onClick={copyLink} disabled={keys.length === 0} className={buttonClass} aria-label="ルートのリンクをコピー">
+        <Link2 size={16} className="shrink-0" />
+        <span className={label}>リンク</span>
+      </button>
+      {showRoom && room && (live ? (
+        <>
+          <button type="button" onClick={copyInvite} className={`${buttonClass} relative`} aria-label="共同編集中。招待リンクをコピー"
+            title={room.status === 'offline' ? 'オフライン · 再接続を待っています' : 'リンクを知っている人は誰でも編集できます'}>
+            <Users size={16} className="shrink-0" />
+            <span className={label}>招待</span>
+            <span aria-hidden="true" className={`absolute right-1.5 top-1.5 h-2 w-2 rounded-full ${room.status === 'offline' ? 'bg-amber-500' : 'bg-emerald-500'}`} />
+          </button>
+          <button type="button" onClick={room.leave} className={buttonClass} aria-label="共同編集を終了">
+            <LogOut size={16} className="shrink-0" />
+            <span className={label}>終了</span>
+          </button>
+        </>
       ) : (
-        <button type="button" onClick={room.start} disabled={keys.length === 0} className={`${buttonClass} w-full`} data-route-room="start">
-          <Users size={15} />
-          共同編集を始める
+        <button type="button" onClick={room.start} disabled={keys.length === 0} className={buttonClass} data-route-room="start" aria-label="共同編集を始める">
+          <Users size={16} className="shrink-0" />
+          <span className={label}>共同編集</span>
         </button>
       ))}
     </div>
