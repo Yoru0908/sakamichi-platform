@@ -50,6 +50,21 @@ export function buildShareUrl(origin: string, pathname: string, keys: string[], 
 
 export const routeLetter = (index: number): string => (index < 26 ? String.fromCharCode(65 + index) : String(index + 1));
 
+/**
+ * 409 のとき、自分の編集（base → local の差分）を相手の最新（current）に載せ直す。
+ * 追加と削除は個別に反映。並べ替えだけなら自分の順序を優先し、相手が足した地点は末尾に残す。
+ */
+export function rebaseKeys(base: string[], local: string[], current: string[], maxStops: number): string[] {
+  const added = local.filter((k) => !base.includes(k));
+  const removed = base.filter((k) => !local.includes(k));
+  if (added.length === 0 && removed.length === 0) {
+    const mine = local.filter((k) => current.includes(k));
+    return [...mine, ...current.filter((k) => !mine.includes(k))].slice(0, maxStops);
+  }
+  const next = current.filter((k) => !removed.includes(k));
+  return [...next, ...added.filter((k) => !next.includes(k))].slice(0, maxStops);
+}
+
 // ---- 画像 -------------------------------------------------------------------------------
 
 const FONT = '"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP","PingFang SC","Microsoft YaHei",sans-serif';

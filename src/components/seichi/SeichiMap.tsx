@@ -3,6 +3,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import RouteShareBar from './RouteShareBar';
 import { decodeRoute, ROUTE_PARAM } from './route-share';
+import { useRouteRoom, ROOM_PARAM } from './use-route-room';
 import './seichi-markers.css';
 import { getMarkerKind, MARKER_STYLES, markerHtml } from './marker-style';
 import { getTimelineInfo, compareTimeline, type SortOrder } from './timeline';
@@ -472,7 +473,7 @@ export default function SeichiMap({
         url.searchParams.delete(ROUTE_PARAM);
         window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
       }
-      if (incoming) {
+      if (incoming && !url.searchParams.has(ROOM_PARAM)) {
         const found = incoming.keys.filter((key) => available.has(key));
         const hasCurrent = (saved.stopKeys || []).some((key) => available.has(key));
         if (found.length === 0) {
@@ -503,6 +504,22 @@ export default function SeichiMap({
       started: routeStarted,
     }));
   }, [routeActiveIndex, routeRestored, routeStarted, routeStopKeys, routeStorageKey, routeTravelMode]);
+
+  // 共同編集ルーム。ローカル復元（routeRestored）後にだけ動き、サーバー状態を既存の路線 state に反映する。
+  const room = useRouteRoom({
+    keys: routeStopKeys,
+    mode: routeTravelMode,
+    ready: routeRestored,
+    validKey: (key) => routeFeatureIndex.has(key),
+    maxStops: MAX_ROUTE_STOPS,
+    apply: (keys, mode) => {
+      setRouteStopKeys(keys);
+      setRouteTravelMode(mode);
+      setRouteActiveIndex((index) => Math.min(index, keys.length));
+    },
+    onNotice: setRouteNotice,
+    onJoined: () => setRouteOpen(true),
+  });
 
   useEffect(() => {
     if (routeActiveIndex <= routeStops.length) return;
@@ -1830,9 +1847,10 @@ export default function SeichiMap({
           </div>
         </header>
 
-        {routeStops.length > 0 && (
+        {(routeStops.length > 0 || room.roomId) && (
           <div className="shrink-0 border-b border-[var(--border-primary)] px-4 py-3">
             <RouteShareBar
+              room={room}
               keys={routeStopKeys}
               mode={routeTravelMode}
               stops={routeStops.map((stop) => ({
