@@ -1801,7 +1801,7 @@ export default function SeichiMap({
 
       {/* 巡礼路线编辑器：移动端 Bottom Sheet、桌面端右侧浮动面板。 */}
       <section
-        className="t-panel-slide absolute bottom-2 left-2 right-2 z-[1150] flex max-h-[calc(100%-1rem)] flex-col overflow-hidden rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] shadow-2xl md:bottom-4 md:left-auto md:right-4 md:top-4 md:w-[400px] md:max-h-none"
+        className="t-panel-slide fixed bottom-2 left-2 right-2 z-[1150] flex max-h-[calc(100dvh-5rem)] flex-col overflow-hidden rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] shadow-2xl md:absolute md:bottom-4 md:left-auto md:right-4 md:top-4 md:w-[400px] md:max-h-none"
         data-open={routeOpen ? 'true' : 'false'}
         role="dialog"
         aria-modal={routeOpen ? 'true' : undefined}
