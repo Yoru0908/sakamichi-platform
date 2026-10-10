@@ -1,6 +1,8 @@
 import { Fragment, useEffect, useRef, useState, useMemo, type ReactNode } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import RouteShareBar from './RouteShareBar';
+import { decodeRoute, ROUTE_PARAM } from './route-share';
 import './seichi-markers.css';
 import { getMarkerKind, MARKER_STYLES, markerHtml } from './marker-style';
 import { getTimelineInfo, compareTimeline, type SortOrder } from './timeline';
@@ -462,6 +464,29 @@ export default function SeichiMap({
       }
       setRouteActiveIndex(Math.max(0, saved.activeIndex || 0));
       setRouteStarted(Boolean(saved.started));
+
+      // ?route= の共有リンク。既存の路線があれば確認し、黙って上書きしない。
+      const url = new URL(window.location.href);
+      const incoming = decodeRoute(url.searchParams.get(ROUTE_PARAM), MAX_ROUTE_STOPS);
+      if (url.searchParams.has(ROUTE_PARAM)) {
+        url.searchParams.delete(ROUTE_PARAM);
+        window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
+      }
+      if (incoming) {
+        const found = incoming.keys.filter((key) => available.has(key));
+        const hasCurrent = (saved.stopKeys || []).some((key) => available.has(key));
+        if (found.length === 0) {
+          setRouteNotice('共有されたルートの地点は見つかりませんでした');
+        } else if (!hasCurrent || window.confirm(`共有された${found.length}地点のルートを開きます。現在のルートは置き換えられます。よろしいですか？`)) {
+          setRouteStopKeys(found);
+          setRouteTravelMode(incoming.mode);
+          setRouteActiveIndex(0);
+          setRouteStarted(false);
+          setRouteOpen(true);
+          const missing = incoming.keys.length - found.length;
+          setRouteNotice(missing ? `共有ルートを開きました（${missing}地点は見つかりません）` : '共有ルートを開きました');
+        }
+      }
     } catch (error) {
       console.warn('Failed to restore local seichi route:', error);
     } finally {
@@ -1804,6 +1829,24 @@ export default function SeichiMap({
             </button>
           </div>
         </header>
+
+        {routeStops.length > 0 && (
+          <div className="shrink-0 border-b border-[var(--border-primary)] px-4 py-3">
+            <RouteShareBar
+              keys={routeStopKeys}
+              mode={routeTravelMode}
+              stops={routeStops.map((stop) => ({
+                name: stop.properties.name,
+                address: stop.properties.address,
+                lng: stop.geometry.coordinates[0],
+                lat: stop.geometry.coordinates[1],
+                color: stop.properties.categoryColor,
+              }))}
+              onNotice={setRouteNotice}
+              buttonClass="flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] text-xs font-semibold text-[var(--text-secondary)] disabled:opacity-50"
+            />
+          </div>
+        )}
 
         <div className="shrink-0 border-b border-[var(--border-primary)] px-4 py-3">
           <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-tertiary)]">移動方法</p>
