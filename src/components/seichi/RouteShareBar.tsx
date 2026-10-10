@@ -71,7 +71,7 @@ export default function RouteShareBar({ keys, stops, mode, siteName, buttonClass
           <p className="text-xs font-bold" role="status">
             共同編集中 · {room.status === 'offline' ? 'オフライン（再接続を待っています）' : '同期中'}
           </p>
-          <p className="text-[11px] leading-relaxed">招待リンクを開いた人と同じルートを編集できます。リンクを知っている人は誰でも編集できます。</p>
+          <p className="text-[11px] leading-relaxed">リンクを知っている人は誰でもこのルートを編集できます。</p>
           <div className="grid grid-cols-2 gap-2">
             <button type="button" onClick={copyInvite} className={buttonClass}><Link2 size={15} />招待リンク</button>
             <button type="button" onClick={room.leave} className={buttonClass}><LogOut size={15} />終了</button>

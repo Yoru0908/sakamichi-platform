@@ -1847,25 +1847,6 @@ export default function SeichiMap({
           </div>
         </header>
 
-        {(routeStops.length > 0 || room.roomId) && (
-          <div className="shrink-0 border-b border-[var(--border-primary)] px-4 py-3">
-            <RouteShareBar
-              room={room}
-              keys={routeStopKeys}
-              mode={routeTravelMode}
-              stops={routeStops.map((stop) => ({
-                name: stop.properties.name,
-                address: stop.properties.address,
-                lng: stop.geometry.coordinates[0],
-                lat: stop.geometry.coordinates[1],
-                color: stop.properties.categoryColor,
-              }))}
-              onNotice={setRouteNotice}
-              buttonClass="flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] text-xs font-semibold text-[var(--text-secondary)] disabled:opacity-50"
-            />
-          </div>
-        )}
-
         <div className="shrink-0 border-b border-[var(--border-primary)] px-4 py-3">
           <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-[var(--text-tertiary)]">移動方法</p>
           <div className="grid grid-cols-3 rounded-xl bg-[var(--bg-secondary)] p-1">
@@ -2041,6 +2022,24 @@ export default function SeichiMap({
                 })}
               </ol>
             </>
+          )}
+          {(routeStops.length > 0 || room.roomId) && (
+            <div className="mt-3 border-t border-[var(--border-primary)] pt-3">
+              <RouteShareBar
+                room={room}
+                keys={routeStopKeys}
+                mode={routeTravelMode}
+                stops={routeStops.map((stop) => ({
+                  name: stop.properties.name,
+                  address: stop.properties.address,
+                  lng: stop.geometry.coordinates[0],
+                  lat: stop.geometry.coordinates[1],
+                  color: stop.properties.categoryColor,
+                }))}
+                onNotice={setRouteNotice}
+                buttonClass="flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] text-xs font-semibold text-[var(--text-secondary)] disabled:opacity-50"
+            />
+            </div>
           )}
         </div>
 
