@@ -84108,6 +84108,63 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.739639,
+          35.701813
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:3fe62adfcc79fc5a7c08",
+        "sourceKey": "fumi-article:3fe62adfcc79fc5a7c08",
+        "name": "LE BRETAGNE ル ブルターニュ神楽坂",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都新宿区神楽坂4丁目2",
+        "sceneTitle": "2026.10.11 櫻坂46 石森璃花 たべたい？、201 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都新宿区神楽坂4丁目2",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60097924.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60097924.html",
+        "tags": [
+          "櫻坂46",
+          "石森璃花"
+        ],
+        "images": [],
+        "members": [
+          "石森璃花"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60097924.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 石森璃花 たべたい？、201 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "石森璃花"
+          ],
+          "name": "LE BRETAGNE ル ブルターニュ神楽坂",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
