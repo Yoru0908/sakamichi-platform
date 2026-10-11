@@ -352,6 +352,9 @@ export default function SeichiMap({
   const [facetLocked, setFacetLocked] = useState(false);
 
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null);
+  // 一覧を地図の表示範囲に追従させる（マーカー・絞り込みは変えない）。null = まだ地図が測れていない。
+  const [mapBounds, setMapBounds] = useState<{ south: number; west: number; north: number; east: number } | null>(null);
+  const [followMap, setFollowMap] = useState(true);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   
   // 桌面端侧边栏展开
@@ -585,6 +588,15 @@ export default function SeichiMap({
     const markersGroup = L.layerGroup().addTo(map);
     markersLayerRef.current = markersGroup;
     mapInstanceRef.current = map;
+    // 非表示（スマホのリスト表示中など）でサイズ 0 のときは範囲を更新しない（点になって全件消えるのを防ぐ）。
+    const reportBounds = () => {
+      const size = map.getSize();
+      if (!size.x || !size.y) return;
+      const b = map.getBounds();
+      setMapBounds({ south: b.getSouth(), west: b.getWest(), north: b.getNorth(), east: b.getEast() });
+    };
+    map.on('moveend', reportBounds);
+    reportBounds();
 
     // On mobile, briefly hide only the straight route guide while pinching.
     // It returns at the exact recalculated position on zoomend.
@@ -896,6 +908,16 @@ export default function SeichiMap({
     setRouteOpen(false);
   };
 
+  // 一覧に出す地点: 地図の表示範囲内（選択中の地点は常に残す）。
+  const listFeatures = useMemo(() => {
+    if (!followMap || !mapBounds) return filteredFeatures;
+    return filteredFeatures.filter(f => {
+      const [lng, lat] = f.geometry.coordinates;
+      return f.properties.id === selectedFeature?.properties.id
+        || (lat >= mapBounds.south && lat <= mapBounds.north && lng >= mapBounds.west && lng <= mapBounds.east);
+    });
+  }, [filteredFeatures, followMap, mapBounds, selectedFeature]);
+
   const visibleMapFeatures = useMemo(() => {
     const features = new Map(filteredFeatures.map((feature) => [getRouteKey(feature), feature]));
     routeStops.forEach((feature) => features.set(getRouteKey(feature), feature));
@@ -1049,12 +1071,12 @@ export default function SeichiMap({
         type="button"
         onClick={() => setMobileView(mobileView === 'map' ? 'list' : 'map')}
         className="absolute right-3 top-3 z-[1100] flex min-h-11 items-center gap-1.5 rounded-full border border-[var(--border-primary)] bg-[var(--bg-primary)] px-3.5 py-2 text-xs font-semibold text-[var(--text-primary)] shadow-lg backdrop-blur-md md:hidden"
-        aria-label={mobileView === 'map' ? `リストを表示。${filteredFeatures.length}地点` : 'マップに戻る'}
+        aria-label={mobileView === 'map' ? `リストを表示。${listFeatures.length}地点` : 'マップに戻る'}
       >
         {mobileView === 'map' ? (
           <>
             <List size={15} />
-            <span>リスト ({filteredFeatures.length})</span>
+            <span>リスト ({listFeatures.length})</span>
           </>
         ) : (
           <>
@@ -1433,15 +1455,18 @@ export default function SeichiMap({
               </select>
               <p className="text-[9px] leading-relaxed text-[var(--text-tertiary)]">楽曲はCD発売日順（MV公開日・撮影日ではありません）。その他は企画名に明記された日付。未確認は末尾。MV・楽曲にはジャケット撮影地も含みます。</p>
             </>}
-            <p aria-live="polite" className="text-[10px] text-[var(--text-tertiary)]">{filteredFeatures.length}地点{timelineOrder !== 'original' && ` · 日付あり ${filteredFeatures.filter(f => timelineInfo.get(f)).length}地点`}</p>
+            <label className="flex min-h-9 items-center gap-2 text-[10px] font-semibold text-[var(--text-secondary)]">
+              <input type="checkbox" checked={followMap} onChange={event => setFollowMap(event.target.checked)} className="h-4 w-4" />地図の範囲だけ一覧に表示
+            </label>
+            <p aria-live="polite" className="text-[10px] text-[var(--text-tertiary)]">{listFeatures.length !== filteredFeatures.length ? `地図内 ${listFeatures.length} / ${filteredFeatures.length}` : filteredFeatures.length}地点{timelineOrder !== 'original' && ` · 日付あり ${filteredFeatures.filter(f => timelineInfo.get(f)).length}地点`}</p>
           </div>
-          {filteredFeatures.map((f, index) => {
+          {listFeatures.map((f, index) => {
             const fp = f.properties;
             const isSelected = selectedFeature?.properties.id === fp.id;
             const hasImg = fp.images && fp.images.length > 0;
             const isInRoute = routeStopKeys.includes(getRouteKey(f));
             const dateInfo = timelineInfo.get(f);
-            const showDateHeading = timelineOrder !== 'original' && (index === 0 || dateInfo?.key !== timelineInfo.get(filteredFeatures[index - 1])?.key);
+            const showDateHeading = timelineOrder !== 'original' && (index === 0 || dateInfo?.key !== timelineInfo.get(listFeatures[index - 1])?.key);
 
             return (
               <Fragment key={fp.id}>
@@ -1541,9 +1566,9 @@ export default function SeichiMap({
             );
           })}
 
-          {filteredFeatures.length === 0 && (
+          {listFeatures.length === 0 && (
             <div className="p-8 text-center text-xs text-[var(--text-tertiary)]">
-              該当するスポットが見つかりません
+              {filteredFeatures.length ? 'この範囲に地点がありません。地図を動かすか縮小してください。' : '該当するスポットが見つかりません'}
             </div>
           )}
         </div>
