@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ImageDown, Link2, Users, LogOut } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ImageDown, Link2, Users, LogOut, Check } from 'lucide-react';
 import {
   buildShareUrl, copyText, renderRouteImage, shareOrDownloadImage,
   type ShareMode, type ShareStop,
@@ -23,6 +23,14 @@ type Props = {
 /** 路線を画像（A=地点名の一覧 + 略図）または ?route= リンクで共有する。 */
 export default function RouteShareBar({ keys, stops, mode, siteName, buttonClass, onNotice, room, title = '巡礼ルート' }: Props) {
   const [busy, setBusy] = useState(false);
+  // コピー成功はボタン自体で知らせる（地図上部のトーストはスマホだとルートパネルに隠れる）。
+  const [copied, setCopied] = useState<'link' | 'invite' | null>(null);
+  useEffect(() => {
+    if (!copied) return;
+    const timer = window.setTimeout(() => setCopied(null), 2000);
+    return () => window.clearTimeout(timer);
+  }, [copied]);
+  const doneClass = 'border-emerald-500 bg-emerald-50 text-emerald-700';
   const link = () => buildShareUrl(location.origin, location.pathname, keys, mode);
 
   const shareImage = async () => {
@@ -43,13 +51,13 @@ export default function RouteShareBar({ keys, stops, mode, siteName, buttonClass
 
   const copyLink = async () => {
     const url = link();
-    if (await copyText(url)) onNotice('リンクをコピーしました');
+    if (await copyText(url)) { setCopied('link'); onNotice('リンクをコピーしました'); }
     else window.prompt('リンクをコピーしてください', url);
   };
 
   const copyInvite = async () => {
     if (!room?.inviteUrl) return;
-    if (await copyText(room.inviteUrl)) onNotice('招待リンクをコピーしました（リンクを知っている人は誰でも編集できます）');
+    if (await copyText(room.inviteUrl)) { setCopied('invite'); onNotice('招待リンクをコピーしました（リンクを知っている人は誰でも編集できます）'); }
     else window.prompt('招待リンクをコピーしてください', room.inviteUrl);
   };
   const showRoom = !!room && (room.available || !!room.roomId);
@@ -63,16 +71,16 @@ export default function RouteShareBar({ keys, stops, mode, siteName, buttonClass
         <ImageDown size={16} className="shrink-0" />
         <span className={label}>{busy ? '作成中' : '画像'}</span>
       </button>
-      <button type="button" onClick={copyLink} disabled={keys.length === 0} className={buttonClass} aria-label="ルートのリンクをコピー">
-        <Link2 size={16} className="shrink-0" />
-        <span className={label}>リンク</span>
+      <button type="button" onClick={copyLink} disabled={keys.length === 0} className={`${buttonClass} transition-colors ${copied === 'link' ? doneClass : ''}`} aria-label="ルートのリンクをコピー">
+        {copied === 'link' ? <Check size={16} className="shrink-0" /> : <Link2 size={16} className="shrink-0" />}
+        <span className={label}>{copied === 'link' ? 'コピー済み' : 'リンク'}</span>
       </button>
       {showRoom && room && (live ? (
         <>
-          <button type="button" onClick={copyInvite} className={`${buttonClass} relative`} aria-label="共同編集中。招待リンクをコピー"
+          <button type="button" onClick={copyInvite} className={`${buttonClass} relative transition-colors ${copied === 'invite' ? doneClass : ''}`} aria-label="共同編集中。招待リンクをコピー"
             title={room.status === 'offline' ? 'オフライン · 再接続を待っています' : 'リンクを知っている人は誰でも編集できます'}>
-            <Users size={16} className="shrink-0" />
-            <span className={label}>招待</span>
+            {copied === 'invite' ? <Check size={16} className="shrink-0" /> : <Users size={16} className="shrink-0" />}
+            <span className={label}>{copied === 'invite' ? 'コピー済み' : '招待'}</span>
             <span aria-hidden="true" className={`absolute right-1.5 top-1.5 h-2 w-2 rounded-full ${room.status === 'offline' ? 'bg-amber-500' : 'bg-emerald-500'}`} />
           </button>
           <button type="button" onClick={room.leave} className={buttonClass} aria-label="共同編集を終了">
