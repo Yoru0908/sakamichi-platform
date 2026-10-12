@@ -84165,6 +84165,861 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.178788,
+          34.167058
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:da0750ce06b9228dfe52",
+        "sourceKey": "fumi-article:da0750ce06b9228dfe52",
+        "name": "錦川の河川敷",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県岩国市岩国1丁目5",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県岩国市岩国1丁目5",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "錦川の河川敷",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.17827971,
+          34.16767217
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:2671df6f74388b7f2ba6",
+        "sourceKey": "fumi-article:2671df6f74388b7f2ba6",
+        "name": "錦帯橋",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県岩国市岩国",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県岩国市岩国",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "錦帯橋",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.1772,
+          34.168343
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:35f181b7476086dae77c",
+        "sourceKey": "fumi-article:35f181b7476086dae77c",
+        "name": "むさし",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県岩国市横山2-1-23",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県岩国市横山2-1-23",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "むさし",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.17569,
+          34.171143
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:fe3031b5add0072b5387",
+        "sourceKey": "fumi-article:fe3031b5add0072b5387",
+        "name": "岩国城ロープウェイ",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県岩国市横山2-6-51",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県岩国市横山2-6-51",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "岩国城ロープウェイ",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.171688,
+          34.172927
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:35789142e89ce191e36e",
+        "sourceKey": "fumi-article:35789142e89ce191e36e",
+        "name": "城山イベント広場",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県岩国市横山2丁目",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県岩国市横山2丁目",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "城山イベント広場",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.475296,
+          34.378075
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:6fe7bb16d275f0d93e32",
+        "sourceKey": "fumi-article:6fe7bb16d275f0d93e32",
+        "name": "アクターズスクール広島",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "広島市南区出汐2-3-18 TSS別館8階 株式会社TSSプロダクション内",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。広島市南区出汐2-3-18 TSS別館8階 株式会社TSSプロダクション内",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "アクターズスクール広島",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.179138,
+          34.157677
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:ed3b9ecd702b73e56e23",
+        "sourceKey": "fumi-article:ed3b9ecd702b73e56e23",
+        "name": "レストハウスたんぽぽ",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県岩国市川西4-5-1",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県岩国市川西4-5-1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "レストハウスたんぽぽ",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.27036499,
+          33.97176306
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:bfa3242fdcdf5e552a89",
+        "sourceKey": "fumi-article:bfa3242fdcdf5e552a89",
+        "name": "琴崎八幡宮",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県宇部市大字上宇部大小路571",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県宇部市大字上宇部大小路571",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "琴崎八幡宮",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.209686,
+          34.159752
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:2781bfefe87b8c4fc8cd",
+        "sourceKey": "fumi-article:2781bfefe87b8c4fc8cd",
+        "name": "坂の上のれすとらん",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県岩国市今津町6-12-23 白崎八幡宮敷地内 (白崎メモリアルコート内)",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県岩国市今津町6-12-23 白崎八幡宮敷地内 (白崎メモリアルコート内)",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "坂の上のれすとらん",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.218277,
+          34.165649
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:a24e4d5d4f96d204c8ee",
+        "sourceKey": "fumi-article:a24e4d5d4f96d204c8ee",
+        "name": "甘味処 乃庵",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県岩国市今津町2-17-27",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県岩国市今津町2-17-27",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "甘味処 乃庵",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.174896,
+          34.157124
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:b62202f37e47d72e9733",
+        "sourceKey": "fumi-article:b62202f37e47d72e9733",
+        "name": "宇野千代生家",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県岩国市川西2-9-35",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県岩国市川西2-9-35",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "宇野千代生家",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.148926,
+          34.164574
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:fe14af72dfc28b7522cf",
+        "sourceKey": "fumi-article:fe14af72dfc28b7522cf",
+        "name": "JR西日本山陽新幹線 新岩国駅",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "山口県岩国市御庄1055-1",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。山口県岩国市御庄1055-1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "JR西日本山陽新幹線 新岩国駅",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.177362,
+          34.168439
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:9a8e2a148230a8511e2e",
+        "sourceKey": "fumi-article:9a8e2a148230a8511e2e",
+        "name": "東屋",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "東屋",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.171996,
+          34.17327
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:c6c1688863bdfe9849e3",
+        "sourceKey": "fumi-article:c6c1688863bdfe9849e3",
+        "name": "岩国城ロープウェー山頂駅前の東屋",
+        "category": "番組・イベント",
+        "subcategory": "そこ曲がったら、櫻坂?",
+        "categoryColor": "#2563eb",
+        "address": "",
+        "sceneTitle": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098837.html",
+        "tags": [
+          "櫻坂46",
+          "谷口愛季"
+        ],
+        "images": [],
+        "members": [
+          "谷口愛季"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098837.html",
+          "mapId": "",
+          "layer": "2026.10.11 櫻坂46 谷口愛季「そこ曲がったら、櫻坂?」櫻坂46 16thシングルヒット祈願",
+          "tags": [
+            "櫻坂46",
+            "谷口愛季"
+          ],
+          "name": "岩国城ロープウェー山頂駅前の東屋",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "そこ曲がったら、櫻坂?",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.552474,
+          32.274455
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:e27641c4bcb42fa5ae97",
+        "sourceKey": "fumi-article:e27641c4bcb42fa5ae97",
+        "name": "都農ワイナリー 展望公園",
+        "category": "雑誌・グラビア",
+        "subcategory": "バースデーレターテンプレート",
+        "categoryColor": "#7c3aed",
+        "address": "宮崎県児湯郡都農町藤見14609",
+        "sceneTitle": "櫻坂46 松田里奈 バースデーレターテンプレート写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。宮崎県児湯郡都農町藤見14609",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60098860.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60098860.html",
+        "tags": [
+          "櫻坂46",
+          "松田里奈"
+        ],
+        "images": [],
+        "members": [
+          "松田里奈"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60098860.html",
+          "mapId": "",
+          "layer": "櫻坂46 松田里奈 バースデーレターテンプレート写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "松田里奈"
+          ],
+          "name": "都農ワイナリー 展望公園",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "バースデーレターテンプレート",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
     }
   ]
 }
