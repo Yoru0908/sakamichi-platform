@@ -85020,6 +85020,93 @@
         "coordSource": "article",
         "coordPrecision": "exact"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.784882,
+          35.616001
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:d4874382321b9388a8c8",
+        "sourceKey": "fumi-article:d4874382321b9388a8c8",
+        "name": "TACS ODAIBA STUDIO",
+        "category": "番組・イベント",
+        "subcategory": "夏の近道",
+        "categoryColor": "#2563eb",
+        "address": "東京都江東区青海4-4-18 TACS 6F",
+        "sceneTitle": "櫻坂46「夏の近道」Dance Practice撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都江東区青海4-4-18 TACS 6F",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60109745.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60109745.html",
+        "tags": [
+          "櫻坂46",
+          "的野美青",
+          "山下瞳月",
+          "谷口愛季",
+          "村井優",
+          "中嶋優月",
+          "小島凪紗",
+          "村山美羽",
+          "遠藤理子",
+          "小田倉麗奈",
+          "石森璃花",
+          "向井純葉"
+        ],
+        "images": [],
+        "members": [
+          "的野美青",
+          "山下瞳月",
+          "谷口愛季",
+          "村井優",
+          "中嶋優月",
+          "小島凪紗",
+          "村山美羽",
+          "遠藤理子",
+          "小田倉麗奈",
+          "石森璃花",
+          "向井純葉"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60109745.html",
+          "mapId": "",
+          "layer": "櫻坂46「夏の近道」Dance Practice撮影場所",
+          "tags": [
+            "櫻坂46",
+            "的野美青",
+            "山下瞳月",
+            "谷口愛季",
+            "村井優",
+            "中嶋優月",
+            "小島凪紗",
+            "村山美羽",
+            "遠藤理子",
+            "小田倉麗奈",
+            "石森璃花",
+            "向井純葉"
+          ],
+          "name": "TACS ODAIBA STUDIO",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "夏の近道",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
