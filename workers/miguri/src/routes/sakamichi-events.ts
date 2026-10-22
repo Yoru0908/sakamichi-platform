@@ -6,6 +6,7 @@
 import type { Env } from '../types.ts';
 import { error, json } from '../utils/response.ts';
 import { getAuthUserId } from './preferences.ts';
+import { parseSakamichiEventId } from '../../../shared/sakamichi-event-id.ts';
 
 /** First year on each official schedule: Nogizaka 2011-08, Sakurazaka 2020-10 (改名), Hinatazaka 2019-02 (改名). */
 export const EVENT_GROUPS = { nogizaka: 2011, sakurazaka: 2020, hinatazaka: 2019 } as const;
@@ -33,9 +34,9 @@ export function eventsQuery(url: URL, now = new Date()): Query | null {
 export function markTarget(raw: string, now = new Date()): (Query & { id: string }) | null {
   let id: string;
   try { id = decodeURIComponent(raw); } catch { return null; }
-  const m = id.match(/^(h_|n_)?[0-9A-Za-z]{1,16}:(\d{4})-\d{2}-\d{2}$/);
-  if (!m) return null;
-  const grp: EventGroup = m[1] === 'h_' ? 'hinatazaka' : m[1] === 'n_' ? 'nogizaka' : 'sakurazaka', year = Number(m[2]);
+  const target = parseSakamichiEventId(id);
+  if (!target) return null;
+  const { grp, year } = target;
   return servedYear(grp, year, now) ? { id, grp, year } : null;
 }
 

@@ -77,7 +77,23 @@ test('event ids map to their group and year; anything else is refused', () => {
   assert.deepEqual(markTarget('n_107229%3A2026-10-20', now), { id: 'n_107229:2026-10-20', grp: 'nogizaka', year: 2026 });
   assert.deepEqual(markTarget('h_5355:2021-10-20', now), { id: 'h_5355:2021-10-20', grp: 'hinatazaka', year: 2021 });
   assert.deepEqual(markTarget('1234:2025-03-01', now), { id: '1234:2025-03-01', grp: 'sakurazaka', year: 2025 });
-  for (const bad of ['k_1:2026-01-01', '1234:2019-05-01', 'h_1:2018-01-01', 'n_1:2028-01-01', 'n_1', 'n_1:2026-1-1', "n_1:2026-01-01' OR 1", '%E0%A4%A']) assert.equal(markTarget(bad, now), null, bad);
+  assert.deepEqual(markTarget('12161_18%3A2026-10-18', now), { id: '12161_18:2026-10-18', grp: 'sakurazaka', year: 2026 });
+  for (const bad of ['x/1:2026-01-01', `${'1'.repeat(33)}:2026-01-01`, '1234:2019-05-01', 'h_1:2018-01-01', 'n_1:2028-01-01', 'n_1', 'n_1:2026-1-1', "n_1:2026-01-01' OR 1", '%E0%A4%A']) assert.equal(markTarget(bad, now), null, bad);
+});
+
+test('real Sakurazaka count_day id saves, survives a fresh read, and deletes without affecting another user', async () => {
+  const source = { ...row, id: '12161_18:2026-10-18', date: '2026-10-18' };
+  const e = { ...marksEnv(), ...env(() => Response.json({ data: { events: [source] } })) };
+  const a = await as('user-a'), b = await as('user-b');
+  assert.equal((await mark(e, a, source.id)).status, 200);
+  assert.equal((await mark(e, b, source.id)).status, 200);
+  const mine = async cookie => (await (await call(handleGetMySakamichiEventMarks, '/marks?grp=sakurazaka&year=2026', e, cookie)).json()).data.mine;
+  assert.deepEqual(await mine(a), [source.id]);
+  assert.equal(e.MIGURI_DB.db.prepare('SELECT grp FROM sakamichi_event_marks WHERE user_id=?').get('user-a').grp, 'sakurazaka');
+  assert.equal((await mark(e, a, '12161_19:2026-10-19')).status, 404);
+  assert.equal((await mark(e, a, source.id, false)).status, 200);
+  assert.deepEqual(await mine(a), []);
+  assert.deepEqual(await mine(b), [source.id]);
 });
 
 test('marks need a 46log login (401, so the client refreshes its token)', async () => {

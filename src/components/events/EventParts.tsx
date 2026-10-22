@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useStore } from '@nanostores/react';
-import { CalendarDays, Check, ChevronDown, ExternalLink, MapPin, Users, X } from 'lucide-react';
+import { CalendarDays, Check, ChevronDown, ExternalLink, LoaderCircle, MapPin, Users, X } from 'lucide-react';
 import type { TranslationKey } from '@/i18n';
 import { $auth } from '@/stores/auth';
 import { getSakamichiEventMarks, setSakamichiEventMark } from '@/utils/auth-api';
@@ -20,7 +20,11 @@ export function useEventMarks(api: string, grp: EventGroupId, year: number) {
   const [mine, setMine] = useState<ReadonlySet<string>>(new Set());
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [delta, setDelta] = useState<Record<string, number>>({});
-  const [busy, setBusy] = useState(''), [failed, setFailed] = useState(false);
+  const [busy, setBusy] = useState(''), [failed, setFailed] = useState('');
+  const [loadedScope, setLoadedScope] = useState(''), [attempt, setAttempt] = useState(0);
+  const scope = `${grp}:${year}:${auth.userId ?? ''}`;
+  const currentScope = useRef(scope), pending = useRef(false);
+  currentScope.current = scope;
 
   useEffect(() => {
     const ctl = new AbortController();
@@ -34,28 +38,40 @@ export function useEventMarks(api: string, grp: EventGroupId, year: number) {
 
   useEffect(() => {
     setMine(new Set());
+    setFailed(''); setLoadedScope('');
     if (!auth.isLoggedIn) return;
     let live = true;
-    getSakamichiEventMarks(grp, year).then((r) => { if (live && r.success) setMine(new Set(r.data?.mine ?? [])); });
+    getSakamichiEventMarks(grp, year).then((r) => {
+      if (!live || currentScope.current !== scope) return;
+      if (r.success && r.data) { setMine(new Set(r.data.mine)); setLoadedScope(scope); }
+      else setFailed('load');
+    }).catch(() => { if (live && currentScope.current === scope) setFailed('load'); });
     return () => { live = false; };
-  }, [grp, year, auth.isLoggedIn]);
+  }, [grp, year, auth.isLoggedIn, scope, attempt]);
 
   const toggle = useCallback(async (id: string) => {
     if (!auth.isLoggedIn) {
       if (!auth.loading) location.href = `/auth/login?next=${encodeURIComponent(location.pathname + location.search)}`;
       return;
     }
+    if (pending.current || loadedScope !== scope) return;
     const on = !mine.has(id);
-    setBusy(id); setFailed(false);
-    const r = await setSakamichiEventMark(id, on);
-    setBusy('');
-    if (!r.success) { setFailed(true); return; }
-    setMine((prev) => { const next = new Set(prev); if (on) next.add(id); else next.delete(id); return next; });
-    setDelta((prev) => ({ ...prev, [id]: (prev[id] ?? 0) + (on ? 1 : -1) }));
-  }, [auth.isLoggedIn, auth.loading, mine]);
+    pending.current = true;
+    setBusy(id); setFailed('');
+    try {
+      const r = await setSakamichiEventMark(id, on);
+      if (currentScope.current !== scope) return;
+      if (!r.success || r.data?.id !== id || r.data.marked !== on) { setFailed(id); return; }
+      setMine((prev) => { const next = new Set(prev); if (on) next.add(id); else next.delete(id); return next; });
+      setDelta((prev) => ({ ...prev, [id]: (prev[id] ?? 0) + (on ? 1 : -1) }));
+    } catch {
+      if (currentScope.current === scope) setFailed(id);
+    } finally { pending.current = false; setBusy(''); }
+  }, [auth.isLoggedIn, auth.loading, mine, loadedScope, scope]);
 
   return {
     signedIn: auth.isLoggedIn, authLoading: auth.loading, mine, toggle, busy, failed,
+    loading: auth.loading || (auth.isLoggedIn && loadedScope !== scope), retry: () => setAttempt((n) => n + 1),
     count: (id: string) => Math.max(0, (counts[id] ?? 0) + (delta[id] ?? 0)),
   };
 }
@@ -72,14 +88,18 @@ type Dates = ReturnType<typeof useDates>;
 export function MarkButton({ d, marks, color, today, tr }: { d: SakamichiEvent; marks: Marks; color: string; today: string; tr: Tr }) {
   const marked = marks.mine.has(d.id), count = marks.count(d.id);
   return (
-    <button type="button" aria-pressed={marked} disabled={marks.busy === d.id} onClick={() => void marks.toggle(d.id)}
+    <span className="inline-flex max-w-40 shrink-0 flex-col items-end gap-1">
+    <button type="button" aria-pressed={marked} aria-busy={marks.busy === d.id} disabled={Boolean(marks.busy) || marks.loading} onClick={() => void marks.toggle(d.id)}
+      title={marked ? tr('events.mark.remove') : undefined}
       className={`inline-flex min-h-9 shrink-0 items-center gap-1 rounded-full border px-3 text-xs font-semibold transition-colors disabled:opacity-60 ${marked
         ? 'border-transparent text-white' : 'border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]'}`}
       style={marked ? { backgroundColor: color } : undefined}>
-      {marked && <Check size={13} />}
-      <span>{tr(markKey(d.date, marked, today))}</span>
+      {marks.busy === d.id ? <LoaderCircle size={13} className="animate-spin motion-reduce:animate-none" /> : marked && <Check size={13} />}
+      <span>{tr(marks.busy === d.id ? 'events.mark.saving' : markKey(d.date, marked, today))}</span>
       {count > 0 && <span className="inline-flex items-center gap-0.5 font-normal opacity-80"><Users size={11} />{count}</span>}
     </button>
+    {marks.failed === d.id && <span role="alert" className="text-right text-[11px] text-red-700">{tr('events.mark_error')}</span>}
+    </span>
   );
 }
 

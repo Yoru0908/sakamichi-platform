@@ -124,7 +124,9 @@ export default function SakamichiEvents() {
         </div>
       </section>
 
-      {marks.failed && <p role="alert" className="mb-4 rounded-xl border border-amber-500/25 bg-amber-500/10 px-4 py-3 text-xs text-amber-800">{tr('events.mark_error')}</p>}
+      {marks.failed === 'load' && <div role="alert" className="mb-4 rounded-xl border border-amber-500/25 bg-amber-500/10 px-4 py-3 text-xs text-amber-800">
+        {tr('events.marks_load_error')} <button type="button" onClick={marks.retry} className="min-h-11 px-2 font-semibold underline">{tr('events.retry')}</button>
+      </div>}
       {load.state === 'loading' && <p className="py-16 text-center text-sm text-[var(--text-tertiary)]">{tr('events.loading')}</p>}
       {load.state === 'error' && (
         <div className="flex flex-col items-center py-16 text-center">

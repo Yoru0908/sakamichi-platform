@@ -71,5 +71,7 @@ test('?event= ids name their group and year', () => {
   assert.deepEqual(eventGroupYear('n_107229:2026-10-20'), { grp: 'nogizaka', year: 2026 });
   assert.deepEqual(eventGroupYear('h_5355:2021-10-20'), { grp: 'hinatazaka', year: 2021 });
   assert.deepEqual(eventGroupYear('1234:2025-03-01'), { grp: 'sakurazaka', year: 2025 });
-  assert.equal(eventGroupYear('x_1:2025-03-01'), null);
+  assert.deepEqual(eventGroupYear('12161_18:2026-10-18'), { grp: 'sakurazaka', year: 2026 });
+  assert.deepEqual(eventGroupYear(`${'1'.repeat(32)}:2026-10-18`), { grp: 'sakurazaka', year: 2026 });
+  for (const id of ['x/1:2025-03-01', `${'1'.repeat(33)}:2026-10-18`, '12161_18:2026-1-18']) assert.equal(eventGroupYear(id), null);
 });

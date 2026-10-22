@@ -1,5 +1,6 @@
 // 46log /events (plan E4/E5): the three groups' in-person / online days from GET /api/miguri/sakamichi-events, as cards, with the
 // viewer's 行く / 参加した marks. Page logic follows 坂ログ /events (month jump, これから / 過去, one toggle per day).
+import { parseSakamichiEventId } from '../../../workers/shared/sakamichi-event-id.ts';
 
 export type EventGroupId = 'nogizaka' | 'sakurazaka' | 'hinatazaka';
 /** First year on each official schedule (the API refuses earlier years). */
@@ -63,8 +64,7 @@ export const dayAndShowCount = (cards: EventCard[]) => ({
 
 /** Group and year of an event id (?event= links): "h_…" Hinatazaka, "n_…" Nogizaka, else Sakurazaka (same rule as the API). */
 export function eventGroupYear(id: string): { grp: EventGroupId; year: number } | null {
-  const m = id.match(/^(h_|n_)?[0-9A-Za-z]{1,16}:(\d{4})-\d{2}-\d{2}$/);
-  return m ? { grp: m[1] === 'h_' ? 'hinatazaka' : m[1] === 'n_' ? 'nogizaka' : 'sakurazaka', year: Number(m[2]) } : null;
+  return parseSakamichiEventId(id);
 }
 
 /** Cards by the month of their first day ("2026-10"), months in order. */
