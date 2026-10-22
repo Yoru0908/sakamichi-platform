@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 """Validate and promote the 清水ひなた public My Maps snapshot.
 
-Legacy production rows do not have stable source keys, so the first promotion
-matches them by name, coordinates and description to retain mirrored R2 images.
-Future manually curated/non-source rows are preserved outside the managed subset.
+Source keys are content hashes, not stable placemark IDs. Reconcile exact scenes
+and evidence-backed renames, retain deletions/moves for review, and drain safe
+additions within a per-run limit. Non-source rows and mirrored images survive.
 """
 
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import math
 import sys
 import tempfile
 import urllib.parse
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -174,28 +176,124 @@ def promote(
     if len(candidate_features) < min_features:
         raise ValueError(f"candidate has only {len(candidate_features)} features; minimum is {min_features}")
 
-    current_by_key: dict[tuple[str, float, float], list[dict[str, Any]]] = defaultdict(list)
-    for feature in current_managed:
-        current_by_key[match_key(feature)].append(feature)
-    used_by_key: dict[tuple[str, float, float], set[int]] = defaultdict(set)
+    # Never mutate caller snapshots: dry runs and repeated reconciliation must agree.
+    candidate_features = copy.deepcopy(candidate_features)
+    incoming_keys = [str(f.get("properties", {}).get("sourceKey", "")) for f in candidate_features]
+    if "" in incoming_keys or len(incoming_keys) != len(set(incoming_keys)):
+        raise ValueError("candidate contains missing or duplicate sourceKey values")
+    for row, key in zip(candidate_features, incoming_keys):
+        source = row.get("properties", {}).get("source", {})
+        if not key.startswith(KEY_PREFIX) or source.get("mapId") != MAP_ID:
+            raise ValueError("candidate has unexpected source identity")
+    if max_additions < 1 or max_removals < 0:
+        raise ValueError("max-additions must be positive and max-removals non-negative")
+    # The source's KML exports no stable placemark identifier. Its sourceKey is
+    # content-derived, so it cannot prove that a moved/renamed row is a new place.
+    def props(row):
+        return row.get("properties", {})
 
-    output_managed: list[dict[str, Any]] = []
-    matched = proxied_images = 0
-    for feature in candidate_features:
-        key = match_key(feature)
-        previous = choose_previous(feature, current_by_key.get(key, []), used_by_key[key])
-        if previous is not None:
-            matched += 1
+    def layer(row):
+        return props(row).get("source", {}).get("layer") or props(row).get("category", "")
+
+    def note(row):
+        return str(props(row).get("sceneNote", "")).strip()
+
+    def describe(row):
+        return {"sourceKey": props(row).get("sourceKey", props(row).get("id")),
+                "name": props(row).get("name"), "coordinates": list(coordinates(row)),
+                "layer": layer(row), "sceneNote": note(row)}
+
+    old_by_exact = defaultdict(list)
+    for i, row in enumerate(current_managed):
+        old_by_exact[match_key(row)].append(i)
+    used = set()
+    matches = {}
+    # Match unchanged rows first, before identifying changed rows. This avoids
+    # stealing an old row from an exact match later in the source ordering.
+    for j, row in enumerate(candidate_features):
+        choices = [i for i in old_by_exact[match_key(row)] if i not in used
+                   and note(current_managed[i]) == note(row)]
+        choices.sort(key=lambda i: layer(current_managed[i]) != layer(row))
+        if choices:
+            matches[j] = choices[0]
+            used.add(choices[0])
+    # Description edits may reuse an exact place only after all exact scene
+    # matches have claimed their row. New scenes cannot steal older scene IDs.
+    remaining_by_exact = defaultdict(list)
+    for j, row in enumerate(candidate_features):
+        if j not in matches:
+            remaining_by_exact[match_key(row)].append(j)
+    for key, incoming in remaining_by_exact.items():
+        choices = [i for i in old_by_exact[key] if i not in used]
+        if len(incoming) == 1 and len(choices) == 1:
+            matches[incoming[0]] = choices[0]
+            used.add(choices[0])
+
+    # Per-run additions may drain a backlog only while the source is recognisably
+    # the same map. A replacement/truncated feed must not creep into production.
+    if len(current_managed) >= 100 and len(matches) < len(current_managed) * 0.9:
+        raise ValueError("source continuity below 90%; refusing bulk source replacement")
+    unmatched = [j for j in range(len(candidate_features)) if j not in matches]
+    possible = {}
+    for j in unmatched:
+        row = candidate_features[j]
+        possible[j] = [i for i, old in enumerate(current_managed) if i not in used
+                       and layer(old) == layer(row)
+                       and (props(old).get("name") == props(row).get("name")
+                            or coordinates(old) == coordinates(row)
+                            or (note(old) and note(old) == note(row)))]
+    reverse = defaultdict(list)
+    for j, choices in possible.items():
+        for i in choices:
+            reverse[i].append(j)
+
+    output_managed = []
+    review = []
+    deferred_rows = []
+    matched = len(matches)
+    renamed = moved = additions = deferred = proxied_images = 0
+    for j, feature in enumerate(candidate_features):
+        previous = current_managed[matches[j]] if j in matches else None
+        if previous is None and possible.get(j):
+            choices = possible[j]
+            old = current_managed[choices[0]]
+            unambiguous = len(choices) == 1 and len(reverse[choices[0]]) == 1
+            if (unambiguous and coordinates(old) == coordinates(feature)
+                    and note(old) and note(old) == note(feature)):
+                previous = old
+                used.add(choices[0])
+                matched += 1
+                renamed += 1
+            else:
+                moved += int(unambiguous and coordinates(old) != coordinates(feature))
+                review.append({"reason": "source-change-needs-review",
+                               "candidate": describe(feature),
+                               "previous": [describe(current_managed[i]) for i in choices]})
+                continue
+        if previous is None:
+            # Limit writes per run, not total backlog size: a healthy source
+            # catches up over successive runs without disabling the guard.
+            if additions >= max_additions:
+                deferred += 1
+                deferred_rows.append(describe(feature))
+                continue
+            additions += 1
         normalised, proxied = normalise_candidate(feature, previous)
+        # Public IDs are referenced by shared routes/bookmarks. Keep identity
+        # across a confirmed rename while recording the new sourceKey honestly.
+        if previous is not None:
+            normalised["properties"]["id"] = props(previous).get("id", props(normalised)["id"])
         output_managed.append(normalised)
         proxied_images += proxied
 
-    additions = len(candidate_features) - matched
-    removals = len(current_managed) - matched
-    if additions > max_additions:
-        raise ValueError(f"refusing {additions} additions; maximum is {max_additions}")
-    if removals > max_removals:
-        raise ValueError(f"refusing {removals} removals; maximum is {max_removals}")
+    retained = [row for i, row in enumerate(current_managed) if i not in used]
+    for i, row in enumerate(current_managed):
+        if i not in used and not reverse.get(i):
+            review.append({"reason": "source-missing-needs-review", "previous": [describe(row)]})
+    # Source deletion is never automatically approved. max_removals remains
+    # accepted for runner compatibility; actual removals are always zero.
+    removals = 0
+    output_managed.extend(copy.deepcopy(retained))
 
     source_keys = [str(row.get("properties", {}).get("sourceKey", "")) for row in output_managed]
     if "" in source_keys or len(source_keys) != len(set(source_keys)):
@@ -219,9 +317,16 @@ def promote(
         "matched": matched,
         "added": additions,
         "removed": removals,
+        "renamed": renamed,
+        "coordinateChangesHeld": moved,
+        "retainedPendingReview": len(retained),
+        "deferredAdditions": deferred,
+        "deferredAdds": deferred_rows,
+        "review": review,
+        "removalPolicy": "retain-until-reviewed",
         "newSourceImagesUsingProxy": proxied_images,
         "promotedFeatures": len(result["features"]),
-        "status": "validated",
+        "status": "validated-with-pending" if review or deferred else "validated",
     }
     return result, report
 
@@ -246,6 +351,8 @@ def main() -> int:
             max_additions=args.max_additions,
             max_removals=args.max_removals,
         )
+        report["validatedAt"] = datetime.now(timezone.utc).isoformat()
+        report["stage"] = "promote"
         if not args.dry_run:
             atomic_write(args.output or args.current, result)
         if args.report:
@@ -253,6 +360,10 @@ def main() -> int:
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0
     except (OSError, ValueError, json.JSONDecodeError) as error:
+        if args.report:
+            atomic_write(args.report, {"status": "failed", "stage": "promote",
+                                      "failedAt": datetime.now(timezone.utc).isoformat(),
+                                      "error": str(error)})
         print(f"promote_shimizu_hinata.py: {error}", file=sys.stderr)
         return 1
 

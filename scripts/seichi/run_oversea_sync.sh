@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Parse the whole job before git fast-forward can replace this script mid-run.
+main() {
+
 REPO_DIR="${SEICHI_REPO_DIR:-/vol1/sakamichi-platform}"
 RUNTIME_DIR="${SEICHI_RUNTIME_DIR:-/vol1/seichi-sync}"
 LOG_DIR="$RUNTIME_DIR/logs"
@@ -35,8 +38,18 @@ if ! flock -n 8; then
   exit 0
 fi
 
-# Alert once on the first failure and once on recovery (after the locks, so a skipped run is not a "success").
-trap 'python3 "$(dirname "${BASH_SOURCE[0]}")/job_alert.py" oversea "$?" "$LOG_FILE" || true' EXIT
+# Only a lock-owning run updates status. Capture $? before any helper/substitution.
+SEICHI_STARTED_AT=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
+SEICHI_STAGE=preflight
+SEICHI_OUTCOME=none
+SEICHI_SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+SEICHI_RUN_REPORT="$REPORT_DIR/oversea-run-latest.json"
+trap 'seichi_exit_status=$?; python3 "$SEICHI_SCRIPT_DIR/job_run_report.py" finish oversea "$SEICHI_RUN_REPORT" "$SEICHI_STARTED_AT" "$SEICHI_STAGE" "$seichi_exit_status" "$REPO_DIR" "$SEICHI_OUTCOME" || true; python3 "$SEICHI_SCRIPT_DIR/job_alert.py" oversea "$seichi_exit_status" "$LOG_FILE" || true' EXIT
+python3 "$SEICHI_SCRIPT_DIR/job_run_report.py" start oversea "$SEICHI_RUN_REPORT" "$SEICHI_STARTED_AT"
+seichi_stage() {
+  SEICHI_STAGE="$1"
+  python3 "$SEICHI_SCRIPT_DIR/job_run_report.py" progress oversea "$SEICHI_RUN_REPORT" "$SEICHI_STARTED_AT" "$SEICHI_STAGE"
+}
 echo "[$(date -Is)] overseas sync started"
 vol1_percent=$(df -P /vol1 | awk 'NR==2 {gsub(/%/, "", $5); print $5}')
 if (( vol1_percent >= 85 )); then
@@ -51,6 +64,7 @@ if [[ -n "$(git status --porcelain --untracked-files=no)" ]]; then
   exit 1
 fi
 
+seichi_stage git-sync
 git fetch origin sakamichi-platform
 git checkout sakamichi-platform
 git merge --ff-only origin/sakamichi-platform
@@ -59,6 +73,7 @@ if (( $(git rev-list --count origin/sakamichi-platform..HEAD) > 0 )); then
   git push origin HEAD:sakamichi-platform
 fi
 
+seichi_stage fetch
 python3 scripts/seichi/sync_mymaps_sources.py \
   --source cyberiz-oversea \
   --output "$CANDIDATE" \
@@ -66,20 +81,25 @@ python3 scripts/seichi/sync_mymaps_sources.py \
   --save-raw \
   --raw-dir "$RAW_DIR"
 
+seichi_stage promote
 python3 scripts/seichi/promote_oversea_mymaps.py \
   --current "$CURRENT" \
   --candidate "$CANDIDATE" \
   --output "$PROMOTED" \
   --report "$REPORT_DIR/latest.json"
 
+seichi_stage tests
 python3 scripts/seichi/test_sync_mymaps_sources.py
 python3 scripts/seichi/test_promote_oversea_mymaps.py
 
 if cmp -s "$CURRENT" "$PROMOTED"; then
+  SEICHI_STAGE=complete
+  SEICHI_OUTCOME=unchanged
   echo "[$(date -Is)] no production data changes"
   exit 0
 fi
 
+seichi_stage publish
 cp "$PROMOTED" "${CURRENT}.tmp.sync"
 mv -f "${CURRENT}.tmp.sync" "$CURRENT"
 git diff --check -- public/seichi/oversea.geojson
@@ -90,4 +110,9 @@ git -c user.name="Sakamichi Seichi Sync" \
 
 # A concurrent human push is never overwritten; a non-fast-forward push fails.
 git push origin HEAD:sakamichi-platform
+SEICHI_STAGE=complete
+SEICHI_OUTCOME=published
 echo "[$(date -Is)] overseas sync committed and pushed"
+}
+
+main "$@"
