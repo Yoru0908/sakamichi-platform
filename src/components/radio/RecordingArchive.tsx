@@ -112,7 +112,8 @@ export default function RecordingArchive() {
   const [page, setPage] = useState(1);
 
   // Audio player
-  const [playingFile, setPlayingFile] = useState<string | null>(null);
+  const [playingFile, setPlayingFile] = useState<string | null>(null);   // loaded recording (its bar stays while paused)
+  const [isPlaying, setIsPlaying] = useState(false);
   const [audioProgress, setAudioProgress] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
   const [audioCurrentTime, setAudioCurrentTime] = useState(0);
@@ -193,28 +194,28 @@ export default function RecordingArchive() {
     }, 250);
   }, [stopProgressTracking]);
 
+  // Same recording: pause / resume where it was. The button follows the audio's own play / pause events, so it stays right when
+  // the OS pauses it (headphones unplugged, lock-screen controls).
   const togglePlay = useCallback((rec: Recording) => {
-    const audioUrl = `${apiBase}/api/radio/recordings/play/${encodeURIComponent(playPath(rec))}`;
-
-    if (playingFile === playPath(rec)) {
-      audioRef.current?.pause();
-      setPlayingFile(null);
-      stopProgressTracking();
-    } else {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        stopProgressTracking();
-      }
-      const audio = new Audio(audioUrl);
-      audio.play().catch(() => {});
-      audio.onended = () => { setPlayingFile(null); stopProgressTracking(); setAudioProgress(0); };
-      audio.onloadedmetadata = () => setAudioDuration(audio.duration);
-      audioRef.current = audio;
-      setPlayingFile(playPath(rec));
-      setAudioProgress(0);
-      setAudioCurrentTime(0);
-      startProgressTracking();
+    const path = playPath(rec), current = audioRef.current;
+    if (playingFile === path && current) {
+      if (current.paused) current.play().catch(() => {}); else current.pause();
+      return;
     }
+    if (current) {
+      current.onplay = current.onpause = current.onended = null;   // the old recording's pause must not stop the new one's bar
+      current.pause();
+    }
+    const audio = new Audio(`${apiBase}/api/radio/recordings/play/${encodeURIComponent(path)}`);
+    audio.onplay = () => { setIsPlaying(true); startProgressTracking(); };
+    audio.onpause = () => { setIsPlaying(false); stopProgressTracking(); };
+    audio.onended = () => { setPlayingFile(null); setAudioProgress(0); };
+    audio.onloadedmetadata = () => setAudioDuration(audio.duration);
+    audioRef.current = audio;
+    setPlayingFile(path);
+    setAudioProgress(0);
+    setAudioCurrentTime(0);
+    audio.play().catch(() => {});
   }, [apiBase, playingFile, stopProgressTracking, startProgressTracking]);
 
   const seekAudio = useCallback((delta: number) => {
@@ -386,7 +387,7 @@ export default function RecordingArchive() {
                   }`}
                   style={isActive ? { backgroundColor: groupColor } : undefined}
                 >
-                  {isActive ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
+                  {isActive && isPlaying ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
                 </button>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-[var(--text-primary)] truncate">
