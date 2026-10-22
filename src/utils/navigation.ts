@@ -29,7 +29,13 @@ export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'nav.blog', href: '/blog', icon: 'Pen' },
   { labelKey: 'nav.radio', href: '/radio', icon: 'Radio' },
   { labelKey: 'nav.photocard', href: '/photocard', icon: 'Image' },
-  { labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays' },
+  {
+    labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays',
+    children: [
+      { labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays' },
+      { labelKey: 'nav.events', href: '/events', icon: 'Ticket' },
+    ],
+  },
   {
     labelKey: 'nav.miguri', href: '/miguri', icon: 'Calendar',
     children: [
@@ -62,6 +68,7 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
       { labelKey: 'nav.blog', href: '/blog', icon: 'Pen' },
       { labelKey: 'nav.radio', href: '/radio', icon: 'Radio' },
       { labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays' },
+      { labelKey: 'nav.events', href: '/events', icon: 'Ticket' },
     ],
   },
   {
@@ -93,6 +100,7 @@ export const FOOTER_CONTENT_LINKS: NavItem[] = [
   { labelKey: 'nav.blog', href: '/blog' },
   { labelKey: 'nav.radio', href: '/radio' },
   { labelKey: 'nav.schedule', href: '/schedule' },
+  { labelKey: 'nav.events', href: '/events' },
 ];
 
 export const FOOTER_COMMUNITY_LINKS: NavItem[] = [

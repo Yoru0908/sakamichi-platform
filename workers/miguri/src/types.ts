@@ -19,4 +19,8 @@ export interface Env {
   MIGURI_WEIBO_ENABLED?: string;
   MIGURI_WEIBO_WEBHOOK_URL?: string;
   MIGURI_WEIBO_WEBHOOK_SECRET?: string;
+  /** 坂ログ Worker (service binding): GET /internal/events for /api/miguri/sakamichi-events (46log /events). */
+  SAKA46LOG?: Fetcher;
+  /** Read-only token for that route (坂ログ EVENTS_READ_TOKEN); cannot push events. */
+  EVENTS_READ_TOKEN?: string;
 }

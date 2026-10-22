@@ -9,13 +9,18 @@ MIGURI_WEIBO_WEBHOOK_URL = "https://blog-push.46log.com/webhook/weibo-publish"
 # Secrets (wrangler secret put): JWT_SECRET, MIGURI_SYNC_SECRET,
 # GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET,
 # MIGURI_ALERT_WEBHOOK_URL, MIGURI_ALERT_WEBHOOK_SECRET,
-# NAPCAT_NOTIFY_GROUPS, MIGURI_NEW_WINDOW_NOTIFY_GROUPS
+# NAPCAT_NOTIFY_GROUPS, MIGURI_NEW_WINDOW_NOTIFY_GROUPS, EVENTS_READ_TOKEN (坂ログ read-only events token)
 # (optional: NAPCAT_NOTIFY_URL, NAPCAT_NOTIFY_TOKEN, MIGURI_WEIBO_WEBHOOK_SECRET)
 
 # Public event metadata cache: avoids scanning every slot-member row per page load.
 [[kv_namespaces]]
 binding = "MIGURI_CACHE"
 id = "e4fc7b6b21a44cfd9d5f5945093a1f8b"
+
+# 坂ログ Worker: the three groups' events for /api/miguri/sakamichi-events (46log /events, plan E4; GET /internal/events only)
+[[services]]
+binding = "SAKA46LOG"
+service = "saka46log"
 
 # auth D1 (users / followed members / google calendar connections) — shared with sakamichi-auth
 [[d1_databases]]
