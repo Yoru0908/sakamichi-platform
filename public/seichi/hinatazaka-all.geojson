@@ -2332,6 +2332,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          140.205246,
+          35.471649
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:810e2ddedc4edac8a1a0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c669f1cb1b280e78f10e",
+        "name": "ロングウッドステーション",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ロングウッドステーション",
+        "sceneNote": "2nd キツネ https://www.youtube.com/watch?v=13yytDs4TeQ 題名: 2ndシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6mIUz4FD4lnMTEvT3Qx-YJVFdjxIKJUuKfooS9Cgp8IjGLmC_65qQCMx9eK0DXcPXQTiOEVaitAglrVfCQ5mmbi9jSXk-z9tR-WBZVmlFXZDw41uFwnbMxRZF-kaLh3vdSozwRWooDkMFLv_KCGHcb3q_F57-ZoGV_oMoeFm5B7nE-h9K17o8LWPNvHqXpkGrxHfW6-PIoKcrTm2-Ib3ggs09kdzs3Be9K3bEdk4dLqbHmovCaOrtPGok%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "ロングウッドステーション",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           140.0355286,
           35.6476856
         ]
@@ -3090,6 +3145,116 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.6583152,
+          35.5160956
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1bf24905d24990a7fca2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b940b6b7aa4a6deb21ef",
+        "name": "白鵬女子高等学校",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "白鵬女子高等学校",
+        "sceneNote": "2nd 一番好きだとみんなに言っていた小説のタイトルを思い出せない https://www.youtube.com/watch?v=kAK9dQtzBno 題名: 2ndシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Yt8A_wifrJ1JAJiASzE6vp0TS3hNZMtaeNbQnSD66nQxSjn2wltK67xXUlOVe4w09aX2Ixq08Ag18OFxbif_z6Y4QjDDIFIWClx-VHG3OdhDh8gM-WZBMtSWd3mEaLOF2ARKyKVksJf98W3Wj1fXrNHkQVIyyEB750ISU7ma-orv4zpwYZofm9gD1futD6fV61bomh9DHC26pke0OWgv0ky9DmRaIKucMaCnrVOJSQO6YhtL2-MJYBUA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "白鵬女子高等学校",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6727374,
+          35.5148325
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fbcdd0c2a24f4036419e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:08961d255460f873c120",
+        "name": "レアールつくの",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "レアールつくの",
+        "sceneNote": "2nd 一番好きだとみんなに言っていた小説のタイトルを思い出せない https://www.youtube.com/watch?v=kAK9dQtzBno 題名: 2ndシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7qGFPUP58AOtm9XCqkJ_vPqgaf5utDfn-thnbhgpJqy9IlZayhtPMErk6Ig6_IXHew_yyaEFtS3D2K2oFgINlJNP55UKIN9ESQBWGTS48LB-mceJG_HKmFth3EHB0aK4Ky4dQ61rQvSVN5l7E15CW5f-2LFmI2K00-T_KZHf_A7YIbhOvPjFBFWhvf5kCR_zzRqDfX3fXNJupYFVaa71EIXpt2c2jmyxvArcrAJIv7Fu4ZbSzR2ofa-zM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "レアールつくの",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7236101,
           35.263215
         ]
@@ -3478,6 +3643,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7573879,
+          35.6713378
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:41388250b45918971127",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:203aec7af92077e46a93",
+        "name": "NTT日比谷ビル",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "NTT日比谷ビル",
+        "sceneNote": "3rd 青春の馬 すでに解体 https://www.youtube.com/watch?v=hZQzmzXjJB0 題名: 3rd",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7eXBfz_J34A0FkqqYcHkdPJhVQ1iC6Slve5qDhEcsP8oRJtODkFTn8p3Zvl-wHwKwE_eWz3f8yAaUcY9FKDKcftWa7FnKSHv2YuYf1XZrg7KeYHtxafqw822U9UQTGyO9dR602ZoEzzZaaTgpRgPnqOrRaQyACL6_5lhDFdN59mw7kAP7sTvgYtrvNeiAFCGs2D0lIAqZUoijC6WBZncFSozK0CEA8-WugvQz-3mOxoW-M5XsorQ7d8Cg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "NTT日比谷ビル",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7715694,
           35.6251435
         ]
@@ -3841,6 +4061,61 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "キャットストリート",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7024697,
+          35.6615583
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f3ccd6e52c55b4bf6b27",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f7651bac10ff0f1b7cc1",
+        "name": "フリーマンカフェ",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "フリーマンカフェ",
+        "sceneNote": "4th ソンナコトナイヨ 金村美玖 https://www.youtube.com/watch?v=7njC5lgL61c 題名: 4th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Kz--jyJmFqy6UjcI5eVNRg2VwDBHeke92yZDhE0Wlxj68RkQLjCVhSSOsSROAT4_5VMClbmILAb_V4BtnPtuTxIA3u8_v70o2VJnU5htmSJrnH17Q4SkT-eOvP-pHHtCVRzHhZE8TPtA2g56Wmweg9O0dsHQttbncRdntpEnS9A3_2iZrhLmcixqdt7D6VXWO3hPsAFZtSSWFTE1z9QwPtPpepC1CR1EhclOVlv0JGnEOdmA5neVhx_k%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "フリーマンカフェ",
           "group": "日向坂46"
         },
         "classification": {
@@ -5016,6 +5291,116 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          140.0364781,
+          35.6498742
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a21f3de8456608faca52",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ebd7f4b07ec12a2d04fb",
+        "name": "幕張メッセ 国際展示場 9-11ホール",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "幕張メッセ 国際展示場 9-11ホール",
+        "sceneNote": "5th 君しか勝たん https://www.youtube.com/watch?v=Z59HsgPVbWY 題名: 5th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6k5iuEBn3J0YQtGYAtw6ZI5lHQjiAwKRWih17kk9cI3fAxhLPIKAc7UEuf5Htxf3fOaJG0fn9mxmwiS5UlFtKR7EddfcEAzNAzI0Zd5J1PrdGWlljUpA9Xd6dMquS1VqIrdFwIQHBdIiqNz3zcBBoTEdroWvsGR75v36PQBjD9UJw9Cjj494eUXAzRVoKJShuLi61kB9VEtyvQy1UYDmF7owkIq_MUFQ0qDhfiVoUt5_Wk9cabK141Vvs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "幕張メッセ 国際展示場 9-11ホール",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6586771,
+          35.5159017
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5d65f1f3d271e9bbd239",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:5d65f1f3d271e9bbd239",
+        "name": "白鵬女子高等学校",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "白鵬女子高等学校",
+        "sceneNote": "5th 声の足跡 https://youtu.be/YClzk5GpaHM 題名: 5th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjzXdrR3eWe7_saTIGs_RaiPLjVI8qpuJFejtaspqPhUuWBywjdwQygoWzPKJbDJ7glou0jVUwdKRRhxPY5UXkGRl9_vA9WpzqtE7G9-UezwjvZ1x7YXZP_iPlluMtpSLlTHBqHoLwT4uxPsSoBZK1pdSQfj-PORppxCxIlPWbd6J-n-J4l6fwWrd7izyXGIIdSFicZFqmYqXpBluGhRgWLXriBBcidwd1wPQcE4gbunn9oBge3-WoF51E%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "白鵬女子高等学校",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           140.291801,
           35.482192
         ]
@@ -5107,6 +5492,61 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "Palms 22(1)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.2059669,
+          35.4722877
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e013347877fceeea0f79",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e013347877fceeea0f79",
+        "name": "ロングウッドステーション",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ロングウッドステーション",
+        "sceneNote": "5th 世界にはThank you！が溢れている https://youtu.be/Tl51xNHeP4g 題名: 5th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiuTXSDx1o-RDH1F6ZjDxacJGVKirqeEfIJLiPX6MJccsVz0YkjoCnFFsln4SUH6PSmt5ChH6xM6MFxuM0bPqRNr6Qi_mCHDLRcObVkO2-fBETrA8awboO7_QojnMs1MjHYucDu_tHalVf345KB9fYgNJDuzOuqVXamwzH4KOtrJOmIQ1SK_w_K786BaxdX3s6yNN4iziMjiJj9d_9MuFcSHBldhCegJNxVXgFf3MGifWZ6lvGoG2T4Ao8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "ロングウッドステーション",
           "group": "日向坂46"
         },
         "classification": {
@@ -5622,6 +6062,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          140.7380562,
+          35.6921243
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a8f0811d09892c224677",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2c82bf37767d1dd3c165",
+        "name": "刑部岬",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "刑部岬",
+        "sceneNote": "6th 何度でも何度でも https://www.youtube.com/watch?v=iKa0B66oQAQ 題名: 6th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4UNP3y6Hy46BWyPNN_1q1P9l-_gxrOF1bINEWvu7TQJnZyQf2sqmlbb88lmH3nwfcdrscSDL2olRevnfBoWm48e0mZSGzeIHnzjGdQd0OX1VBr5YBE4tCa9U6ZIamtJBtNRrdDNLa_eL3qdIFdOwR3TUd02kLwFolZW2xb2GR2nZ1hK8v5TiNcHPWWnY3dnaCQpQhTXBltd9vjvi2GTzq3iSVZNwhTczcVP5A_fwsKVDhOmje5U4GJzeI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "刑部岬",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.4879985,
           35.6534872
         ]
@@ -5897,6 +6392,116 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.6181245,
+          35.1413633
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:34204674df56337e487a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:366ef590f5535dc424ab",
+        "name": "三崎公園(三浦市)",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "三崎公園(三浦市)",
+        "sceneNote": "6th 酸っぱい自己嫌悪 https://www.youtube.com/watch?v=eDupOQ6Dc9g 題名: 6th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4OvhhisCtD5yGFHy_dKcMMbypxxQLY8xW_m6molLbxSF9kndG0QDvDe6rZNhFMSSqiSxNzlgfnxGLqz9j4WroqqCAWSlxzl33ypMKiwqPUnt4nOmzEeyJLzY1poShAyaFOV6ulTs9F1LLwWbp14ZSrHCzyEtoUzIEiyMG21i4cVhW1_j7-rssnaFdPoXCguZpfpmn5cv3g57vNwhqpxhtKGVnCt8uQCDsMkg16srtDlLSyy1E1JIs2vYI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "三崎公園(三浦市)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6185162,
+          35.1417662
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fc6e3913272b6d8c637c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e91bba00f43016d566b5",
+        "name": "三上写真館",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "三上写真館",
+        "sceneNote": "6th 酸っぱい自己嫌悪 https://www.youtube.com/watch?v=eDupOQ6Dc9g 題名: 6th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4XC8dlA4krNxh1BAQhmIdd_ft_lSAdLjM-BFNN7jFNT-UCKNdxbgfxNKzUalPtWr_VERZvOJCwenMnUF8e3fwBNLuKTEoYDieE2y8B_99LVk2C20IvWnfqtTe3v_xGsGSMYpzLp6dAdg9rVhnwR3gP8SHpS1mGclrjrnxe9dVDXR2_WwOWSO81Ti7_yfIpPqMGQOOyNf99QR5ysoFLpNVbxeaiA-5n3VUmMR98QCxKwlKJ2CFsN3az1t4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "三上写真館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7062621,
           35.2111876
         ]
@@ -6117,6 +6722,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.6166994,
+          35.1416502
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7e864184d50dfcfa3799",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:747a17584a1c6913e119",
+        "name": "丸山クリーニング店",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "丸山クリーニング店",
+        "sceneNote": "6th 酸っぱい自己嫌悪 https://www.youtube.com/watch?v=eDupOQ6Dc9g 題名: 6th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Z0NXrXep3qGCjql1CiRNgPBD19Hbc91MQka0jx-VQInfOIjiSuOdOr0bZ-lAZCT90ifCRqikOLG20dbrkcI42Fc66-kaxuI0DEpI0tGtUmkSBUTT_R28MHGDclVTw-m9psuFR67B3C2rRX6150B3RkwZ2sNdj3ewJYGsqR5dnFG3bXyWXa-PhkeeGdQSzAe7tX8-Av-wWyhLCNTltIc2RU6wU_PDTITxed4Y0Pgr7RKiuAAtGvI2BrAI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "丸山クリーニング店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.609666666667,
           35.1441944444444
         ]
@@ -6152,6 +6812,61 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "二町谷",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.617801,
+          35.1406409
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9a28a5a8ab58dad7e37e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9a28a5a8ab58dad7e37e",
+        "name": "三崎漁港(本港)",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "三崎漁港(本港)",
+        "sceneNote": "6th 酸っぱい自己嫌悪 https://www.youtube.com/watch?v=eDupOQ6Dc9g 題名: 6th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg2yfuzmRYJBOWuQfHSEYD3gLpyZcbTvAQ136iF7DrKGqypqJulA_g1cY_yWXp9f8ZtNHdj271TGcGROGBJm9KcIfs7Vu84QWc34d1kV6z1qTBPX0e91yjeHVSBMJRm2lH3Bu0gj-OPLch63wt2wrBbx8E_ghoka75PVysfPFCjp_HJz-iECfyiH3mSnuPwZx1JsSHIddThSH6TvOxsEBk71L7XVCnu4Lz7JUK_cNtKiAQhsMdOukqo2oU%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "三崎漁港(本港)",
           "group": "日向坂46"
         },
         "classification": {
@@ -7713,6 +8428,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          140.640522,
+          35.9919909
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2359ef26abcc3b10b049",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9d0eb86ec67541d5ed93",
+        "name": "茨城県立カシマサッカースタジアム",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "茨城県立カシマサッカースタジアム",
+        "sceneNote": "9th 友よ一番星だ https://www.youtube.com/watch?v=uV_Caa5Z_Bs 題名: 9th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7a5l5fbsfqECTG1_TQoPxFPU6CDLRApFoGum1n5jGvjzXfmvB2Sa8_EtAmBPZdkkrBec5jkwOWKe0uBy7_kACgGeFapb5fhuM4rekmWvpMTKo4A-xAUMZjqBK0I19Fw4w0SH4MvZgBq8IcAapgG54I25zruC5eWbow_dYt23FA6lDwX7FK85h8Gj6EBx5M6jDbSttdqyrCU97ChmDzLRbHT4Ej_SPItYIyKXBc-wGWTGkY0dr941YGOOI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "茨城県立カシマサッカースタジアム",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           140.6284398,
           35.9403663
         ]
@@ -8464,6 +9234,61 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "多田神社",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3205096,
+          36.4773828
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:998bd156326475ce8683",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2a4b5585a63b78723a21",
+        "name": "（財）日本自動車研究所城里テストセンター",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "（財）日本自動車研究所城里テストセンター",
+        "sceneNote": "11thシングル 僕に続け 低μ路 https://www.youtube.com/watch?v=-Uz4KJb2ies 題名: 11th",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6DVQ3NgEJzjJFSvOZPpTNrkz8XduTCYtG3fQKWDi4VMR9DznmSNgO6newI45-j_cKydeegbBnOCxjQBmzLqbE-DRJbSBnqYGzY1sL2_4go05k83oD5YMgYvgWSwHI__HhWd--ky4l-bzq3fKvjt_ku6EqAEoZ20U3qrNcOWH2lMHtMDAZnJNGt2YXmhsfGlh1SZ0HX91v7v0WpheA4nJ2O-91SC619r4R5NttwLrHBgCa6u4Nbm4KFUkY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "（財）日本自動車研究所城里テストセンター",
           "group": "日向坂46"
         },
         "classification": {
@@ -9646,6 +10471,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.6419996,
+          35.4570485
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b9cf0f70a0a2e4e3e25a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e38eed6e5879ed803f02",
+        "name": "ハンマーヘッドデッキ",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ハンマーヘッドデッキ",
+        "sceneNote": "12thシングルで富田鈴carが爆走してた場所 https://youtu.be/qUZagu-NL_s?si=15Y2WiJQnQsONaJK&t=29 題名: 12thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6qlBnJiF0zVqQGZNSAgtKr5s9-nNos3_EY97KbyhR58EEMZHpBk9nEQU1m2rD8Qf6f3TiMq9suOIA93GYrrRDYXufq23VBuVgxc-_a1lN5R1wATI-jmsdLUfvubGKoMOftbiraFlF9h2H4e-iBONzHtm8F2eJGOtdIOffn6hfADO3CDPPPmvDRwGcNkMV8vkQUbZSoUR6Cii33gDDCMc4qwcVue-kZGq1kSYrMS9mx6DtV93v58l9Cr2A%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "ハンマーヘッドデッキ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.5489535,
           35.5276707
         ]
@@ -10569,6 +11449,61 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "水戸英宏中学校",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.3263031,
+          36.4744151
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cac67011ba99f21ce665",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:60bd96faa38865aeaad2",
+        "name": "（財）日本自動車研究所城里テストセンター",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "（財）日本自動車研究所城里テストセンター",
+        "sceneNote": "卒業写真だけが知ってるの撮影地 NV・多用途試験路 https://youtu.be/I1qSilZNvFs?si=wDBmPXFekq6SyuPQ 題名: 13thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4n1KkvLUOTn6YZG9WL9RpYNi1r64zyPWv4LCxTnPjMtxVpdXKTrmBz6wV3fwm9DkFZMHFKAmtQ2B_fHgfOdGZkh7a2Utz6wdBb8jjORS84Xt1B-fhPAlNqak6bg07N05Ein9EPU9P2wtGNKNmfbhbG4hgbWV9vz3EE_Rdt_u3xJbFdCDkbbnGOOsLZdV4SKp4yPwoFAjgRQcXixLjcw6gDY5TT6vDxSoAGCxxuT4-mhIYDSdfaN89r-EQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "（財）日本自動車研究所城里テストセンター",
           "group": "日向坂46"
         },
         "classification": {
@@ -13018,6 +13953,64 @@
             "シングル・アルバム（ロケ地）"
           ],
           "name": "沖ノ島護岸",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8699593,
+          35.2214218
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:95a0a746254403dd1fc4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:59391f45c8c0163bfe4f",
+        "name": "Palms 22(5)",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Palms 22(5)",
+        "sceneNote": "17thシングル Kind of loveのジャケット写真タイプBの撮影地 タイプDのメンバーもここが待機場所だった模様 https://www.hinatazaka46.com/s/official/diary/detail/68955 https://www.hinatazaka46.com/s/official/diary/detail/68965 題名: 17thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57yVbdVbuchSxpZ0wc3IQSK2wJj3WX_tZUSG6EFirdjni2gW8PdIn6sNlL1iGmNkANb4pCT6zjeEf2qf3W4z9XCGHao-r8Gjty1tikgUI17ZG6NPtroqsoEYitohMO4aRXrz8qSe2M3JgC2NQae8Fa_JcCYN_MCf0JElSwnDxU3pZ3DZ2sxM1x83apGs4DuYML5Yhlm9MCKNBUGZHxU-YT53Ysv9HLsrUilVM-cBbgjjBpVzYKIV9EFwk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6s073Hdfl_JnOV36pe9QpTt0eN86vN1lSFshpj1vwlAsn0UyPgcfpGXX0uVf3XN9xeGlUlPZVPfV4DDGJZkkx5dmNT3QI_8AZ0zXCCAbKix5gBhCSNMUhmiNkGAlTCv_OFrwCTGiOjqCo7i8sS4GmHMJB2CgZfcooBP6uqHRZ2cZulrkc4X8M7lugluqjmhaTX6QEleXyPVx_1yfLFGFwFAgJWx9r37PG7JC5SgZh8leFTHgs2Wn4KG3E%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6o7Njo1O1BzGHYEeCNi_2XMcN5f_FcJ2TjnRWDaxbXr_qERFJuYUQwz1ju8V-4XYxb252zWf-8mPEEm4WxZQ327mf-NYbr7vVDMIGu_zCNyMNt0RsY6u2lgWkylqBWQlkteo2AZBtEuMC8N7ZSS7megvwHFsBJ5aTzrsWqsBoidOVCDLQoIpkYNaurm9KFrDp9eDIMDXo2468DPIX5qgxItJv_1LiuAhcUdkRVPrnDgQWVxKjBLWa_Xpo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4P36NvlAI3lyp7Jd6F9n_hAjjZqSphEZkfFqYBJGDa6J64hSGII82YJ5hrOiuWOdOBBwDjFbVio4SnC9bz1uCfpgFQl5zoQo--3m6HIeQW8mKNtLfqceMYT3dL_VW1dcdptC8VOO0l2MfY06Nj1VyilCbdabiLKGn2tbdXdCfELIrXuwR5gizVMd9BDErul85X5KQPXfvMjCJvV4AOMCdlFp5BVx9o1TsUiuT7mRqQw58lz1eeoX1gV68%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "Palms 22(5)",
           "group": "日向坂46"
         },
         "classification": {
@@ -52714,6 +53707,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7763659,
+          35.7189091
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fbcbc7d5213e3d2903ce",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4ec0174fb0e76ff6ba1f",
+        "name": "東京国立博物館",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "東京国立博物館",
+        "sceneNote": "影山優佳写真集 https://twitter.com/kageyama_JAPAN/status/1643544005643489280",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7aGVBcukTEVyLYiFNyauR9tU-UP9K_21DWjYmaiILzrqRKHBKV_8wTvkauMiIhiiGW6w5ty6PSmuO2XQsSWonDVbXNlDRRwTMUTDje8wNOvvx5vticmAtnqfjma8D6tIB3xM4t-hpo3MbysVt03-12AZxUQrZ99d1qS-5UQuszbYHpSPoRfPhL5tNWcjBMtn3EbM8lmfZVn84XrT_SuJCcJ00bXleQUkft6uS0NHnilTy2iuYh0Vsv5WI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "東京国立博物館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7579002,
           35.6515164
         ]
@@ -63332,6 +64380,62 @@
             "ライブ会場・舞台"
           ],
           "name": "幕張イベントホール",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "ライブ会場・舞台",
+          "subcategory": "ライブ会場・舞台",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.0363521,
+          35.6499614
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ca9c78b047bf6ced6d71",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:efd940160f23ef984a1e",
+        "name": "幕張メッセ 国際展示場 9-11ホール",
+        "category": "ライブ会場・舞台",
+        "subcategory": "ライブ会場・舞台",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "幕張メッセ 国際展示場 9-11ホール",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "ライブ会場・舞台"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7-3__nMlr4u-YOOPjRQCT-Qf_GAJewfkUpP9TKuWXOYoEeBMCzL7wJ5wLp2cY-Aum1o__M9R07RzbIBEHfFcMiVRb07n0C69V46oRX5aTeSbLpk-c5fmpCoMnUhfvwFT0hktUkxwu5cW-Ce2DpYaFXwhAY0w7AmNfWfLWfQbqbS9Npxz_lAJ5dBLrIWCyZHevPV2Q2FrROQI42BQmKJISWr82291iRNPqWFS1cwsV-tDjmp8RhXQrmkdI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5MdoQLb2qz6rohiD1A7yHnLlpdCBqKwlNLiqxSvMaPGpxq7AE_hRHu2J_VTvhgHoAGgnqK0wcOOSMyVC9U3kRdgMm1dn0P4g2n95pypJn0Up1II5F7WbALOzx4cHpzcWBuM2BsrWLzVvtQC9lBxaRMT4kd7FVotLNAoMI5Rs3suYh4B2gqO3I5eoX4NbsfiGUmn0TXh_kQxhC7JdbhOMhOZm64VknsiNB-B51-Fj6dCByzJSqJ0FliSMw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "ライブ会場・舞台",
+          "tags": [
+            "日向坂46",
+            "ライブ会場・舞台"
+          ],
+          "name": "幕張メッセ 国際展示場 9-11ホール",
           "group": "日向坂46"
         },
         "classification": {
@@ -101463,6 +102567,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          136.6558678,
+          36.5717098
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:82f5d9cb5c884105346d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:120f83bc07cd0f53a3d1",
+        "name": "近江町市場",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "近江町市場",
+        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR62QWiWTUjUAC98SeKsiMbYszV1HzuGzhOFPTfUd-GWgOpMT3HOHTOrRtm5egb9YRJWoOKs7pXipC9VrbwRhUinmICo4E23x2ayxGReQ1bd_xT2GG8ziAoB2WS9BXUpsFJv1NUXLt5lkeCXjbks9MrXrlVvnE--Y6Yh8qiEfjRDNRYtkWK5PYQ9TWlj6l5OkL2dxdqp3SuD4GoIR86Km3Om748lG6_VzH9prx_RhbMafQYhkr8gMpehVSQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "近江町市場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           135.7953638,
           35.006749
         ]
@@ -125466,6 +126625,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.429293,
+          35.624512
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f8b03c5f8053663ea8da",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f539e23fa0331886c669",
+        "name": "サンリオピューロランド(1)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "サンリオピューロランド(1)",
+        "sceneNote": "渡邉美穂と小坂菜緒が遊びに行ったテーマパーク。(2022.07.29の渡邉美穂の当時のブログより) 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR76mm24HP4U-p5XQfT3A7wjhAVpKvktsNh77KZMDRKegNHMWBa4UT1t7c0gdm6r2H3gbnYfWbHJ312x64-vDa0rYT59h9V3vMjCQ-SCkJNmPxIhdBct_Bj0Uii_TQY1jsm_GavhuZ0ZUzLQOzOdyL9aSN87QCXzH5vSxNxyCHeiJo1H5dQlFDQltPM01LRPq_D07A8JF0R4VDojIDKbb1X8Wgc2-Ec2ogd7q1Pte06uX_excnJWOF50zn0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "サンリオピューロランド(1)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7630392,
           35.6692206
         ]
@@ -145393,6 +146607,67 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.8699757,
+          35.2214551
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8420dfc8351d4a0cf0a3",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:37df932c9644c1148ddc",
+        "name": "Palms 22(2)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Palms 22(2)",
+        "sceneNote": "2023.7.31創刊グラビアチャンピオン創刊号で表紙を飾った齊藤京子ソログラビアの撮影場所。Right?のPV撮影やKind of Loveのジャケット撮影でも使用された。https://www.instagram.com/p/CvWIIRDPKWO/?img_index=2 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4pgyqpCMfJcm_v5fjQeosrpvnXFWFAyEoOIM_ApGxx2wtSr_NNXe1jPXWD3yAyRrl5zXkGHB9WkD-Gd4RnsweofNIar63dPWVPVuwpVRSjoEPJdUgm6RNMKiGVHQBi2O9vZ-02OBXG6XoOh_9WgZ84KBDT1QJR9JxizIVaO8Y0sfI925U3j9fJTl5dAPH_s8SXHzPbtpCoPMoadr-VB-aMWaJAPC2gbuNmVVyEPY32XGhTDTCj-3dtST8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6XACicCnVqRdbVNbIZMSRxeTeNqpeNU74VlQBMBst5xw25Sbf-0zZ8PCD8nj2jeCb3-dhk9Kziw-qUS-6VzgTj-tj0bTz5eduu-czPgzxu7KAJ2AHVcOUJnN3MYr27OejCX-a9ILiO9LKbSko8dT8DFTh0X1nSu-h7pkMvIPJ3MfwXlKUlbD6QDeqhbIcOY0C4a-G1qqOdylO3E22xNtE9DMsNf-iznHvBNLGI91Z9o9gqlNXuYd6wWGU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ZkAthHLgY2uq2FbAeuqQXNNPyEBacrrpRdNuEATMqgbupxzgDKe9bJlAm0il3CPs5iPQupBwFwCagnlV2JOXkwEulE6PJoCC97fnrWpWS2zCmiyOA2r6fX7pVJJuD0TplNP7zaykbbO4uYJQQLUBBp-csbdNoJn09P6z7ZfyvDRkbfYaUzMrkeSz_5ORDwodMjxTR06q_dgJCGYWNKjaK-zglH_v-U9o0GCdYcw0BWsa7oqK1U3TGdXU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4EGKzYFhTRDR2aAfC8R2oawTs2ePDzPseRXcxPuaJpobbcRj3mUk93Sg2TFk4JqQ8QqY69fsXQa79CFf-AISO7pDbXITOQR4DnTlur6rRpJWRTPZcalRK6rEYt3CEl2N-KaAQbAq2AsVlLmcQxsfcNHPIzwLbDDnzw_zJMprfqsDksw8Kxuh4heHQmgucB3T47fmls1P1sdx550RsPEH3qD9g6HsNcGNnpKNTg3vk5HfRKp8rHBpHpRYM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5stsGuBcSV31yEKijNY8KMg9oqL4oW9Mw5ZEA-yA9BLj5dAd4KFqupAcXjLP8jzbW262ds_EefzG9LTemq8H3yTGph-zlu15dEDi9BRgV9yNwiYrlTSUmixNyNAsw9VHeBjSLU3iaTf3ubL_FmPKXlVbNDBlZNsvbXlkvctcDF1bwskUSWVx8FFtadGJgwkNztMAKHKsdR5Jt7NxayMfkqOwzTf8IQPPsMyP5ubher-9SpgwZ9OYpKvyw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5GwWVmsE6kpjYVnxJSj9VZilXt6H7YPDVLsCEkOEEfAuxAvlJPCbDceWn39uLEM7NN2vggtPMzd_5t-s0aBRK1LcABV6_YTrCLG-KODjCRiK6iw4jXzlWFeBo6hdVBhZFmk2hovPJKVENnwiPMjUeUjZ2WYjnRLJO6J3LGUQ-A7Hf_VwhIWajul4vJ3mG0Vpbb30FCjKY6RSmyAqWL0fkUT0GmRaTW6BHJ4okPWRdmR3VHwFtTdaLOwik%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6x5if_4AGaUf1iM_Hz_v4l7fymz8-ZHPoqrI6Qttj1QHMad8CMOG9s5Ig_syOjhh6f8Vro83tbGX8rvcPPBfS5uBLbUHxldTHeqSS4A2pDoebVD1bRb5pUJA97mCSgLJzTRz3Wl6G7d_Itm5eIZoujG4V1CiJUAe8hJTSXjvyL5nwv6fIadmKwBA_x41z83Znk6BYxWA89h0B0bnwzjvh1nMsDyzYfhAFl4m7pHcc03B7MOIIp7M2YPvo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "Palms 22(2)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7241359,
           35.6127081
         ]
@@ -151695,6 +152970,61 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "双葉准看護学院",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          136.6559537,
+          36.5716926
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0db4fd86729cd93b49d6",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b064cdf91b67a35d6006",
+        "name": "近江町市場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "近江町市場",
+        "sceneNote": "河田陽菜が一人旅行に行った場所 https://youtu.be/x-O68uCtvrA?t=211",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4SVv8_qmPydhhSlY5IX95nMEdIfY1pEnn5oJgH-pwhjjDqkKNfzRjdn5XgGbiPErggRChslwecYQL4_AmvYfuw7dxbsmiFpMD40nNZaURXOgdsKMGKopOOAO5p6WunB7Dqg4Zymsl0kIh4w5JANqsuuYgwRuFTtB1zGg3oPt4jRmm5HyM6Bu6xQHReZmfK_AKqSaPm29zokbBGEgA5f5oNwho0XWoMyYbetxUukV0eDpdCa09ppiBJw_o%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "近江町市場",
           "group": "日向坂46"
         },
         "classification": {
@@ -243827,612 +245157,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.205354,
-          35.4717031
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:810e2ddedc4edac8a1a0",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:810e2ddedc4edac8a1a0",
-        "name": "ロングウッドステーション",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "ロングウッドステーション",
-        "sceneNote": "2nd キツネ 5th 世界にはThank you！が溢れている https://www.youtube.com/watch?v=13yytDs4TeQ 題名: 2ndシングル",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6mIUz4FD4lnMTEvT3Qx-YJVFdjxIKJUuKfooS9Cgp8IjGLmC_65qQCMx9eK0DXcPXQTiOEVaitAglrVfCQ5mmbi9jSXk-z9tR-WBZVmlFXZDw41uFwnbMxRZF-kaLh3vdSozwRWooDkMFLv_KCGHcb3q_F57-ZoGV_oMoeFm5B7nE-h9K17o8LWPNvHqXpkGrxHfW6-PIoKcrTm2-Ib3ggs09kdzs3Be9K3bEdk4dLqbHmovCaOrtPGok%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "ロングウッドステーション",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.6577975,
-          35.5158118
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1bf24905d24990a7fca2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1bf24905d24990a7fca2",
-        "name": "白鵬女子高等学校",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "白鵬女子高等学校",
-        "sceneNote": "2nd 一番好きだとみんなに言っていた小説のタイトルを思い出せない https://www.youtube.com/watch?v=kAK9dQtzBno 5th 声の足跡 題名: 2ndシングル",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Yt8A_wifrJ1JAJiASzE6vp0TS3hNZMtaeNbQnSD66nQxSjn2wltK67xXUlOVe4w09aX2Ixq08Ag18OFxbif_z6Y4QjDDIFIWClx-VHG3OdhDh8gM-WZBMtSWd3mEaLOF2ARKyKVksJf98W3Wj1fXrNHkQVIyyEB750ISU7ma-orv4zpwYZofm9gD1futD6fV61bomh9DHC26pke0OWgv0ky9DmRaIKucMaCnrVOJSQO6YhtL2-MJYBUA%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "白鵬女子高等学校",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.6740121,
-          35.513838
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fbcdd0c2a24f4036419e",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fbcdd0c2a24f4036419e",
-        "name": "レアールつくの",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "レアールつくの",
-        "sceneNote": "2nd 一番好きだとみんなに言っていた小説のタイトルを思い出せない https://www.youtube.com/watch?v=kAK9dQtzBno 題名: 2ndシングル",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7qGFPUP58AOtm9XCqkJ_vPqgaf5utDfn-thnbhgpJqy9IlZayhtPMErk6Ig6_IXHew_yyaEFtS3D2K2oFgINlJNP55UKIN9ESQBWGTS48LB-mceJG_HKmFth3EHB0aK4Ky4dQ61rQvSVN5l7E15CW5f-2LFmI2K00-T_KZHf_A7YIbhOvPjFBFWhvf5kCR_zzRqDfX3fXNJupYFVaa71EIXpt2c2jmyxvArcrAJIv7Fu4ZbSzR2ofa-zM%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "レアールつくの",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7573879,
-          35.6713378
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:41388250b45918971127",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:41388250b45918971127",
-        "name": "NTT東日本 霞ヶ関電話交換所（霞ヶ関ビル本館）",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "NTT東日本 霞ヶ関電話交換所（霞ヶ関ビル本館）",
-        "sceneNote": "3rd 青春の馬 https://www.youtube.com/watch?v=hZQzmzXjJB0 題名: 3rd",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7eXBfz_J34A0FkqqYcHkdPJhVQ1iC6Slve5qDhEcsP8oRJtODkFTn8p3Zvl-wHwKwE_eWz3f8yAaUcY9FKDKcftWa7FnKSHv2YuYf1XZrg7KeYHtxafqw822U9UQTGyO9dR602ZoEzzZaaTgpRgPnqOrRaQyACL6_5lhDFdN59mw7kAP7sTvgYtrvNeiAFCGs2D0lIAqZUoijC6WBZncFSozK0CEA8-WugvQz-3mOxoW-M5XsorQ7d8Cg%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "NTT東日本 霞ヶ関電話交換所（霞ヶ関ビル本館）",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.702355,
-          35.661512
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f3ccd6e52c55b4bf6b27",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f3ccd6e52c55b4bf6b27",
-        "name": "フリーマンカフェ",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "フリーマンカフェ",
-        "sceneNote": "4th ソンナコトナイヨ 金村美玖 https://www.youtube.com/watch?v=7njC5lgL61c 題名: 4th",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5Kz--jyJmFqy6UjcI5eVNRg2VwDBHeke92yZDhE0Wlxj68RkQLjCVhSSOsSROAT4_5VMClbmILAb_V4BtnPtuTxIA3u8_v70o2VJnU5htmSJrnH17Q4SkT-eOvP-pHHtCVRzHhZE8TPtA2g56Wmweg9O0dsHQttbncRdntpEnS9A3_2iZrhLmcixqdt7D6VXWO3hPsAFZtSSWFTE1z9QwPtPpepC1CR1EhclOVlv0JGnEOdmA5neVhx_k%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "フリーマンカフェ",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.0364218,
-          35.6499047
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a21f3de8456608faca52",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a21f3de8456608faca52",
-        "name": "幕張メッセ 国際展示場 9-11ホール",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "幕張メッセ 国際展示場 9-11ホール",
-        "sceneNote": "5th 君しか勝たん https://www.youtube.com/watch?v=Z59HsgPVbWY 題名: 5th",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6k5iuEBn3J0YQtGYAtw6ZI5lHQjiAwKRWih17kk9cI3fAxhLPIKAc7UEuf5Htxf3fOaJG0fn9mxmwiS5UlFtKR7EddfcEAzNAzI0Zd5J1PrdGWlljUpA9Xd6dMquS1VqIrdFwIQHBdIiqNz3zcBBoTEdroWvsGR75v36PQBjD9UJw9Cjj494eUXAzRVoKJShuLi61kB9VEtyvQy1UYDmF7owkIq_MUFQ0qDhfiVoUt5_Wk9cabK141Vvs%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "幕張メッセ 国際展示場 9-11ホール",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.7391291,
-          35.6923639
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a8f0811d09892c224677",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a8f0811d09892c224677",
-        "name": "刑部岬",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "刑部岬",
-        "sceneNote": "6th 何度でも何度でも https://www.youtube.com/watch?v=iKa0B66oQAQ 題名: 6th",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4UNP3y6Hy46BWyPNN_1q1P9l-_gxrOF1bINEWvu7TQJnZyQf2sqmlbb88lmH3nwfcdrscSDL2olRevnfBoWm48e0mZSGzeIHnzjGdQd0OX1VBr5YBE4tCa9U6ZIamtJBtNRrdDNLa_eL3qdIFdOwR3TUd02kLwFolZW2xb2GR2nZ1hK8v5TiNcHPWWnY3dnaCQpQhTXBltd9vjvi2GTzq3iSVZNwhTczcVP5A_fwsKVDhOmje5U4GJzeI%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "刑部岬",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.6179341,
-          35.1413962
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:34204674df56337e487a",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:34204674df56337e487a",
-        "name": "三崎公園(三浦市)",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "三崎公園(三浦市)",
-        "sceneNote": "6th 酸っぱい自己嫌悪 https://www.youtube.com/watch?v=eDupOQ6Dc9g 題名: 6th",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4OvhhisCtD5yGFHy_dKcMMbypxxQLY8xW_m6molLbxSF9kndG0QDvDe6rZNhFMSSqiSxNzlgfnxGLqz9j4WroqqCAWSlxzl33ypMKiwqPUnt4nOmzEeyJLzY1poShAyaFOV6ulTs9F1LLwWbp14ZSrHCzyEtoUzIEiyMG21i4cVhW1_j7-rssnaFdPoXCguZpfpmn5cv3g57vNwhqpxhtKGVnCt8uQCDsMkg16srtDlLSyy1E1JIs2vYI%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "三崎公園(三浦市)",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.618423,
-          35.141707
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fc6e3913272b6d8c637c",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fc6e3913272b6d8c637c",
-        "name": "三上写真館",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "三上写真館",
-        "sceneNote": "6th 酸っぱい自己嫌悪 https://www.youtube.com/watch?v=eDupOQ6Dc9g 題名: 6th",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4XC8dlA4krNxh1BAQhmIdd_ft_lSAdLjM-BFNN7jFNT-UCKNdxbgfxNKzUalPtWr_VERZvOJCwenMnUF8e3fwBNLuKTEoYDieE2y8B_99LVk2C20IvWnfqtTe3v_xGsGSMYpzLp6dAdg9rVhnwR3gP8SHpS1mGclrjrnxe9dVDXR2_WwOWSO81Ti7_yfIpPqMGQOOyNf99QR5ysoFLpNVbxeaiA-5n3VUmMR98QCxKwlKJ2CFsN3az1t4%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "三上写真館",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.6166692,
-          35.1415956
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7e864184d50dfcfa3799",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7e864184d50dfcfa3799",
-        "name": "丸山クリーニング店",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "丸山クリーニング店",
-        "sceneNote": "6th 酸っぱい自己嫌悪 https://www.youtube.com/watch?v=eDupOQ6Dc9g 題名: 6th",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Z0NXrXep3qGCjql1CiRNgPBD19Hbc91MQka0jx-VQInfOIjiSuOdOr0bZ-lAZCT90ifCRqikOLG20dbrkcI42Fc66-kaxuI0DEpI0tGtUmkSBUTT_R28MHGDclVTw-m9psuFR67B3C2rRX6150B3RkwZ2sNdj3ewJYGsqR5dnFG3bXyWXa-PhkeeGdQSzAe7tX8-Av-wWyhLCNTltIc2RU6wU_PDTITxed4Y0Pgr7RKiuAAtGvI2BrAI%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "丸山クリーニング店",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.6403396,
-          35.9919605
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2359ef26abcc3b10b049",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2359ef26abcc3b10b049",
-        "name": "茨城県立カシマサッカースタジアム",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "茨城県立カシマサッカースタジアム",
-        "sceneNote": "9th 友よ一番星だ https://www.youtube.com/watch?v=uV_Caa5Z_Bs 松尾桜が鹿島アントラーズ公式YOUTUBEでも登場 https://www.youtube.com/watch?v=y0mPEh_tLT0 題名: 9th",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7a5l5fbsfqECTG1_TQoPxFPU6CDLRApFoGum1n5jGvjzXfmvB2Sa8_EtAmBPZdkkrBec5jkwOWKe0uBy7_kACgGeFapb5fhuM4rekmWvpMTKo4A-xAUMZjqBK0I19Fw4w0SH4MvZgBq8IcAapgG54I25zruC5eWbow_dYt23FA6lDwX7FK85h8Gj6EBx5M6jDbSttdqyrCU97ChmDzLRbHT4Ej_SPItYIyKXBc-wGWTGkY0dr941YGOOI%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4HvJ6mEwjpVUF4VvWh-FvqnyTfIK3qknX9KDQAVC89d6H_TTAOe19jhkUKGOWSfeyPjXMCEPArVrQb4HPwXzbXCosDtibLyzR4Arz3tkQNgwRjzsw9UKDgTbD2cdEc-UQtSXeeSBxGuOWoVoajm9bE-dWrlFKTUyHbHt8kBb8IKBKmzb5UmtpD8xXINm_5H4iDgbEu3iIKHdbMXkkH_dbGM9kk8pfwDvFUbzNrv1rvqbxM9pnrnIa1Fog%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "茨城県立カシマサッカースタジアム",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.3733889,
           35.4190491
         ]
@@ -244473,566 +245197,6 @@
         "classification": {
           "category": "シングル・アルバム（ロケ地）",
           "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.3213465,
-          36.4777969
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:998bd156326475ce8683",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:998bd156326475ce8683",
-        "name": "（財）日本自動車研究所城里テストセンター",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "（財）日本自動車研究所城里テストセンター",
-        "sceneNote": "11thシングル 僕に続け https://www.youtube.com/watch?v=-Uz4KJb2ies 題名: 11th",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6DVQ3NgEJzjJFSvOZPpTNrkz8XduTCYtG3fQKWDi4VMR9DznmSNgO6newI45-j_cKydeegbBnOCxjQBmzLqbE-DRJbSBnqYGzY1sL2_4go05k83oD5YMgYvgWSwHI__HhWd--ky4l-bzq3fKvjt_ku6EqAEoZ20U3qrNcOWH2lMHtMDAZnJNGt2YXmhsfGlh1SZ0HX91v7v0WpheA4nJ2O-91SC619r4R5NttwLrHBgCa6u4Nbm4KFUkY%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "（財）日本自動車研究所城里テストセンター",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.6423751,
-          35.4568125
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b9cf0f70a0a2e4e3e25a",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b9cf0f70a0a2e4e3e25a",
-        "name": "ハンマーヘッドデッキ",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "ハンマーヘッドデッキ",
-        "sceneNote": "12thシングルで富田鈴carが爆走してた場所 https://youtu.be/qUZagu-NL_s?si=15Y2WiJQnQsONaJK&t=29 題名: 12thシングル",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6qlBnJiF0zVqQGZNSAgtKr5s9-nNos3_EY97KbyhR58EEMZHpBk9nEQU1m2rD8Qf6f3TiMq9suOIA93GYrrRDYXufq23VBuVgxc-_a1lN5R1wATI-jmsdLUfvubGKoMOftbiraFlF9h2H4e-iBONzHtm8F2eJGOtdIOffn6hfADO3CDPPPmvDRwGcNkMV8vkQUbZSoUR6Cii33gDDCMc4qwcVue-kZGq1kSYrMS9mx6DtV93v58l9Cr2A%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "ハンマーヘッドデッキ",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.3257667,
-          36.4738975
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cac67011ba99f21ce665",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cac67011ba99f21ce665",
-        "name": "（財）日本自動車研究所城里テストセンター",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "（財）日本自動車研究所城里テストセンター",
-        "sceneNote": "卒業写真だけが知ってるの撮影地 https://youtu.be/I1qSilZNvFs?si=wDBmPXFekq6SyuPQ 題名: 13thシングル",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4n1KkvLUOTn6YZG9WL9RpYNi1r64zyPWv4LCxTnPjMtxVpdXKTrmBz6wV3fwm9DkFZMHFKAmtQ2B_fHgfOdGZkh7a2Utz6wdBb8jjORS84Xt1B-fhPAlNqak6bg07N05Ein9EPU9P2wtGNKNmfbhbG4hgbWV9vz3EE_Rdt_u3xJbFdCDkbbnGOOsLZdV4SKp4yPwoFAjgRQcXixLjcw6gDY5TT6vDxSoAGCxxuT4-mhIYDSdfaN89r-EQ%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "（財）日本自動車研究所城里テストセンター",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.869957,
-          35.2214054
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:95a0a746254403dd1fc4",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:95a0a746254403dd1fc4",
-        "name": "Palms 22(3)",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "Palms 22(3)",
-        "sceneNote": "17thシングル Kind of loveのジャケット写真タイプBの撮影地 タイプDのメンバーもここが待機場所だった模様 https://www.hinatazaka46.com/s/official/diary/detail/68955 https://www.hinatazaka46.com/s/official/diary/detail/68965 題名: 17thシングル",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57yVbdVbuchSxpZ0wc3IQSK2wJj3WX_tZUSG6EFirdjni2gW8PdIn6sNlL1iGmNkANb4pCT6zjeEf2qf3W4z9XCGHao-r8Gjty1tikgUI17ZG6NPtroqsoEYitohMO4aRXrz8qSe2M3JgC2NQae8Fa_JcCYN_MCf0JElSwnDxU3pZ3DZ2sxM1x83apGs4DuYML5Yhlm9MCKNBUGZHxU-YT53Ysv9HLsrUilVM-cBbgjjBpVzYKIV9EFwk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6s073Hdfl_JnOV36pe9QpTt0eN86vN1lSFshpj1vwlAsn0UyPgcfpGXX0uVf3XN9xeGlUlPZVPfV4DDGJZkkx5dmNT3QI_8AZ0zXCCAbKix5gBhCSNMUhmiNkGAlTCv_OFrwCTGiOjqCo7i8sS4GmHMJB2CgZfcooBP6uqHRZ2cZulrkc4X8M7lugluqjmhaTX6QEleXyPVx_1yfLFGFwFAgJWx9r37PG7JC5SgZh8leFTHgs2Wn4KG3E%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6o7Njo1O1BzGHYEeCNi_2XMcN5f_FcJ2TjnRWDaxbXr_qERFJuYUQwz1ju8V-4XYxb252zWf-8mPEEm4WxZQ327mf-NYbr7vVDMIGu_zCNyMNt0RsY6u2lgWkylqBWQlkteo2AZBtEuMC8N7ZSS7megvwHFsBJ5aTzrsWqsBoidOVCDLQoIpkYNaurm9KFrDp9eDIMDXo2468DPIX5qgxItJv_1LiuAhcUdkRVPrnDgQWVxKjBLWa_Xpo%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4P36NvlAI3lyp7Jd6F9n_hAjjZqSphEZkfFqYBJGDa6J64hSGII82YJ5hrOiuWOdOBBwDjFbVio4SnC9bz1uCfpgFQl5zoQo--3m6HIeQW8mKNtLfqceMYT3dL_VW1dcdptC8VOO0l2MfY06Nj1VyilCbdabiLKGn2tbdXdCfELIrXuwR5gizVMd9BDErul85X5KQPXfvMjCJvV4AOMCdlFp5BVx9o1TsUiuT7mRqQw58lz1eeoX1gV68%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "Palms 22(3)",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7765215,
-          35.7188351
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fbcbc7d5213e3d2903ce",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fbcbc7d5213e3d2903ce",
-        "name": "東京国立博物館",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "東京国立博物館",
-        "sceneNote": "影山優佳写真集 https://twitter.com/kageyama_JAPAN/status/1643544005643489280",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7aGVBcukTEVyLYiFNyauR9tU-UP9K_21DWjYmaiILzrqRKHBKV_8wTvkauMiIhiiGW6w5ty6PSmuO2XQsSWonDVbXNlDRRwTMUTDje8wNOvvx5vticmAtnqfjma8D6tIB3xM4t-hpo3MbysVt03-12AZxUQrZ99d1qS-5UQuszbYHpSPoRfPhL5tNWcjBMtn3EbM8lmfZVn84XrT_SuJCcJ00bXleQUkft6uS0NHnilTy2iuYh0Vsv5WI%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "東京国立博物館",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.0364218,
-          35.6499047
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ca9c78b047bf6ced6d71",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ca9c78b047bf6ced6d71",
-        "name": "幕張メッセ 国際展示場 9-11ホール",
-        "category": "ライブ会場・舞台",
-        "subcategory": "ライブ会場・舞台",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "幕張メッセ 国際展示場 9-11ホール",
-        "sceneNote": "",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "ライブ会場・舞台"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7-3__nMlr4u-YOOPjRQCT-Qf_GAJewfkUpP9TKuWXOYoEeBMCzL7wJ5wLp2cY-Aum1o__M9R07RzbIBEHfFcMiVRb07n0C69V46oRX5aTeSbLpk-c5fmpCoMnUhfvwFT0hktUkxwu5cW-Ce2DpYaFXwhAY0w7AmNfWfLWfQbqbS9Npxz_lAJ5dBLrIWCyZHevPV2Q2FrROQI42BQmKJISWr82291iRNPqWFS1cwsV-tDjmp8RhXQrmkdI%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5MdoQLb2qz6rohiD1A7yHnLlpdCBqKwlNLiqxSvMaPGpxq7AE_hRHu2J_VTvhgHoAGgnqK0wcOOSMyVC9U3kRdgMm1dn0P4g2n95pypJn0Up1II5F7WbALOzx4cHpzcWBuM2BsrWLzVvtQC9lBxaRMT4kd7FVotLNAoMI5Rs3suYh4B2gqO3I5eoX4NbsfiGUmn0TXh_kQxhC7JdbhOMhOZm64VknsiNB-B51-Fj6dCByzJSqJ0FliSMw%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "ライブ会場・舞台",
-          "tags": [
-            "日向坂46",
-            "ライブ会場・舞台"
-          ],
-          "name": "幕張メッセ 国際展示場 9-11ホール",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "ライブ会場・舞台",
-          "subcategory": "ライブ会場・舞台",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          136.6558651,
-          36.5717335
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:82f5d9cb5c884105346d",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:82f5d9cb5c884105346d",
-        "name": "近江町市場",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "近江町市場",
-        "sceneNote": "渡邉美穂のブログ「歩くの大好き、走るのはもっと好き。」2019年12月30日より https://www.hinatazaka46.com/s/official/diary/detail/32083 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR62QWiWTUjUAC98SeKsiMbYszV1HzuGzhOFPTfUd-GWgOpMT3HOHTOrRtm5egb9YRJWoOKs7pXipC9VrbwRhUinmICo4E23x2ayxGReQ1bd_xT2GG8ziAoB2WS9BXUpsFJv1NUXLt5lkeCXjbks9MrXrlVvnE--Y6Yh8qiEfjRDNRYtkWK5PYQ9TWlj6l5OkL2dxdqp3SuD4GoIR86Km3Om748lG6_VzH9prx_RhbMafQYhkr8gMpehVSQ%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "近江町市場",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.429293,
-          35.624512
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f8b03c5f8053663ea8da",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f8b03c5f8053663ea8da",
-        "name": "サンリオピューロランド",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "サンリオピューロランド",
-        "sceneNote": "ミホ・ワタナベとこさかなが遊びに行った場所。(2022.7.29のミホの当時のブログより) 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR76mm24HP4U-p5XQfT3A7wjhAVpKvktsNh77KZMDRKegNHMWBa4UT1t7c0gdm6r2H3gbnYfWbHJ312x64-vDa0rYT59h9V3vMjCQ-SCkJNmPxIhdBct_Bj0Uii_TQY1jsm_GavhuZ0ZUzLQOzOdyL9aSN87QCXzH5vSxNxyCHeiJo1H5dQlFDQltPM01LRPq_D07A8JF0R4VDojIDKbb1X8Wgc2-Ec2ogd7q1Pte06uX_excnJWOF50zn0%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "サンリオピューロランド",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.8699573,
-          35.2214274
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8420dfc8351d4a0cf0a3",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8420dfc8351d4a0cf0a3",
-        "name": "Palms 22(2)",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "Palms 22(2)",
-        "sceneNote": "2023.7.31創刊グラビアチャンピオン創刊号で表紙を飾った齊藤京子ソログラビアの撮影場所。Right?のPV撮影やKind of Loveのジャケット撮影でも使用された。https://www.instagram.com/p/CvWIIRDPKWO/?img_index=2 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4pgyqpCMfJcm_v5fjQeosrpvnXFWFAyEoOIM_ApGxx2wtSr_NNXe1jPXWD3yAyRrl5zXkGHB9WkD-Gd4RnsweofNIar63dPWVPVuwpVRSjoEPJdUgm6RNMKiGVHQBi2O9vZ-02OBXG6XoOh_9WgZ84KBDT1QJR9JxizIVaO8Y0sfI925U3j9fJTl5dAPH_s8SXHzPbtpCoPMoadr-VB-aMWaJAPC2gbuNmVVyEPY32XGhTDTCj-3dtST8%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6XACicCnVqRdbVNbIZMSRxeTeNqpeNU74VlQBMBst5xw25Sbf-0zZ8PCD8nj2jeCb3-dhk9Kziw-qUS-6VzgTj-tj0bTz5eduu-czPgzxu7KAJ2AHVcOUJnN3MYr27OejCX-a9ILiO9LKbSko8dT8DFTh0X1nSu-h7pkMvIPJ3MfwXlKUlbD6QDeqhbIcOY0C4a-G1qqOdylO3E22xNtE9DMsNf-iznHvBNLGI91Z9o9gqlNXuYd6wWGU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6ZkAthHLgY2uq2FbAeuqQXNNPyEBacrrpRdNuEATMqgbupxzgDKe9bJlAm0il3CPs5iPQupBwFwCagnlV2JOXkwEulE6PJoCC97fnrWpWS2zCmiyOA2r6fX7pVJJuD0TplNP7zaykbbO4uYJQQLUBBp-csbdNoJn09P6z7ZfyvDRkbfYaUzMrkeSz_5ORDwodMjxTR06q_dgJCGYWNKjaK-zglH_v-U9o0GCdYcw0BWsa7oqK1U3TGdXU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4EGKzYFhTRDR2aAfC8R2oawTs2ePDzPseRXcxPuaJpobbcRj3mUk93Sg2TFk4JqQ8QqY69fsXQa79CFf-AISO7pDbXITOQR4DnTlur6rRpJWRTPZcalRK6rEYt3CEl2N-KaAQbAq2AsVlLmcQxsfcNHPIzwLbDDnzw_zJMprfqsDksw8Kxuh4heHQmgucB3T47fmls1P1sdx550RsPEH3qD9g6HsNcGNnpKNTg3vk5HfRKp8rHBpHpRYM%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5stsGuBcSV31yEKijNY8KMg9oqL4oW9Mw5ZEA-yA9BLj5dAd4KFqupAcXjLP8jzbW262ds_EefzG9LTemq8H3yTGph-zlu15dEDi9BRgV9yNwiYrlTSUmixNyNAsw9VHeBjSLU3iaTf3ubL_FmPKXlVbNDBlZNsvbXlkvctcDF1bwskUSWVx8FFtadGJgwkNztMAKHKsdR5Jt7NxayMfkqOwzTf8IQPPsMyP5ubher-9SpgwZ9OYpKvyw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5GwWVmsE6kpjYVnxJSj9VZilXt6H7YPDVLsCEkOEEfAuxAvlJPCbDceWn39uLEM7NN2vggtPMzd_5t-s0aBRK1LcABV6_YTrCLG-KODjCRiK6iw4jXzlWFeBo6hdVBhZFmk2hovPJKVENnwiPMjUeUjZ2WYjnRLJO6J3LGUQ-A7Hf_VwhIWajul4vJ3mG0Vpbb30FCjKY6RSmyAqWL0fkUT0GmRaTW6BHJ4okPWRdmR3VHwFtTdaLOwik%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6x5if_4AGaUf1iM_Hz_v4l7fymz8-ZHPoqrI6Qttj1QHMad8CMOG9s5Ig_syOjhh6f8Vro83tbGX8rvcPPBfS5uBLbUHxldTHeqSS4A2pDoebVD1bRb5pUJA97mCSgLJzTRz3Wl6G7d_Itm5eIZoujG4V1CiJUAe8hJTSXjvyL5nwv6fIadmKwBA_x41z83Znk6BYxWA89h0B0bnwzjvh1nMsDyzYfhAFl4m7pHcc03B7MOIIp7M2YPvo%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "Palms 22(2)",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          136.6558866,
-          36.5717077
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0db4fd86729cd93b49d6",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0db4fd86729cd93b49d6",
-        "name": "近江町市場",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "近江町市場",
-        "sceneNote": "河田陽菜が一人旅行に行った場所 https://youtu.be/x-O68uCtvrA?t=211",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4SVv8_qmPydhhSlY5IX95nMEdIfY1pEnn5oJgH-pwhjjDqkKNfzRjdn5XgGbiPErggRChslwecYQL4_AmvYfuw7dxbsmiFpMD40nNZaURXOgdsKMGKopOOAO5p6WunB7Dqg4Zymsl0kIh4w5JANqsuuYgwRuFTtB1zGg3oPt4jRmm5HyM6Bu6xQHReZmfK_AKqSaPm29zokbBGEgA5f5oNwho0XWoMyYbetxUukV0eDpdCa09ppiBJw_o%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "近江町市場",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
           "method": "source-layer",
           "status": "source"
         },
