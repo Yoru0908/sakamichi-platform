@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { byMonth, filterCards, toCards, yearsOf } from './events-data.ts';
+import { byMonth, dayAndShowCount, eventGroupYear, filterCards, isPastCard, markKey, toCards, yearsOf } from './events-data.ts';
 
 const day = (id, date, title, extra = {}) => ({ id, date, title, kind: 'ライブ', category: 'attend', shows: [], members: [], wholeGroup: false,
   sourceUrl: `https://example.com/${id}`, venue: null, ...extra });
@@ -49,4 +49,27 @@ test('years from next year down to the group\'s first official year', () => {
   assert.deepEqual(yearsOf('hinatazaka', now).slice(0, 2), [2028, 2027]);
   assert.equal(yearsOf('hinatazaka', now).at(-1), 2019);
   assert.equal(yearsOf('nogizaka', now).at(-1), 2011);
+});
+
+test('記録済み keeps cards with a marked day; labels and past split follow today (坂ログ rules)', () => {
+  const cards = toCards([
+    day('a', '2026-10-20', 'A', { shows: [{ label: '昼', start: '13:00' }, { label: '夜', start: '18:00' }] }),
+    day('b1', '2026-10-21', 'B'), day('b2', '2026-10-24', 'B'),
+  ]);
+  assert.deepEqual(filterCards(cards, 'mine', '', new Set(['b2'])).map((c) => c.title), ['B']);
+  assert.deepEqual(filterCards(cards, 'mine', '').length, 0);
+  const today = '2026-10-22';
+  assert.deepEqual(cards.map((c) => isPastCard(c, today)), [true, false]);   // B runs 10/21–10/24: still これから
+  assert.equal(markKey('2026-10-24', false, today), 'events.mark.go');
+  assert.equal(markKey('2026-10-24', true, today), 'events.mark.going');
+  assert.equal(markKey('2026-10-22', false, today), 'events.mark.attended_q');   // the day itself counts as 参加
+  assert.equal(markKey('2026-10-20', true, today), 'events.mark.attended');
+  assert.deepEqual(dayAndShowCount(cards), { days: 3, shows: 4 });
+});
+
+test('?event= ids name their group and year', () => {
+  assert.deepEqual(eventGroupYear('n_107229:2026-10-20'), { grp: 'nogizaka', year: 2026 });
+  assert.deepEqual(eventGroupYear('h_5355:2021-10-20'), { grp: 'hinatazaka', year: 2021 });
+  assert.deepEqual(eventGroupYear('1234:2025-03-01'), { grp: 'sakurazaka', year: 2025 });
+  assert.equal(eventGroupYear('x_1:2025-03-01'), null);
 });

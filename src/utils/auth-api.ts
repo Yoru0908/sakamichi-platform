@@ -202,6 +202,15 @@ function miguriUrl(path: string): string {
   return `${MIGURI_BASE}${path}`;
 }
 
+/** 46log 参加ログ: the signed-in user's marked days of one group-year (401 → token refresh, then logged out). */
+export function getSakamichiEventMarks(grp: string, year: number): Promise<ApiResponse<{ mine: string[] }>> {
+  return miguriFetch(`/sakamichi-events/marks?grp=${grp}&year=${year}`);
+}
+
+export function setSakamichiEventMark(id: string, on: boolean): Promise<ApiResponse<{ id: string; marked: boolean }>> {
+  return miguriFetch(`/sakamichi-events/marks/${encodeURIComponent(id)}`, { method: on ? 'PUT' : 'DELETE' });
+}
+
 export function getMiguriCalendarIcsUrl(): string {
   return miguriUrl('/calendar.ics');
 }

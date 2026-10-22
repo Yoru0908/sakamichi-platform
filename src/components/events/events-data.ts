@@ -1,4 +1,5 @@
-// 46log /events (plan E4): the three groups' in-person / online days from GET /api/miguri/sakamichi-events, as cards.
+// 46log /events (plan E4/E5): the three groups' in-person / online days from GET /api/miguri/sakamichi-events, as cards, with the
+// viewer's 行く / 参加した marks. Page logic follows 坂ログ /events (month jump, これから / 過去, one toggle per day).
 
 export type EventGroupId = 'nogizaka' | 'sakurazaka' | 'hinatazaka';
 /** First year on each official schedule (the API refuses earlier years). */
@@ -39,12 +40,31 @@ export function toCards(events: SakamichiEvent[]): EventCard[] {
   return cards;
 }
 
-export type CategoryFilter = 'all' | 'attend' | 'online';
-/** Category, then a free-text match on the title, official kind, venues and members. */
-export function filterCards(cards: EventCard[], category: CategoryFilter, query: string): EventCard[] {
+export type CategoryFilter = 'all' | 'attend' | 'online' | 'mine';
+/** Category (or 'mine': a card with a marked day), then a free-text match on the title, official kind, venues and members. */
+export function filterCards(cards: EventCard[], category: CategoryFilter, query: string, mine: ReadonlySet<string> = new Set()): EventCard[] {
   const q = query.trim().toLowerCase();
-  return cards.filter((c) => (category === 'all' || c.category === category) && (!q || [c.title, c.kind, ...c.venues.map((v) => v.name ?? ''), ...c.members.map((m) => m.name)]
+  const kept = (c: EventCard) => category === 'all' || (category === 'mine' ? c.days.some((d) => mine.has(d.id)) : c.category === category);
+  return cards.filter((c) => kept(c) && (!q || [c.title, c.kind, ...c.venues.map((v) => v.name ?? ''), ...c.members.map((m) => m.name)]
     .some((s) => s.toLowerCase().includes(q))));
+}
+
+export const jstToday = (now = new Date()) => new Date(now.getTime() + 9 * 3600e3).toISOString().slice(0, 10);
+/** 坂ログ markLabel: 行く / 行く予定 before the day, 参加した？ / 参加した from the day on. */
+export const markKey = (date: string, marked: boolean, today: string) =>
+  date > today ? (marked ? 'events.mark.going' : 'events.mark.go') : (marked ? 'events.mark.attended' : 'events.mark.attended_q');
+/** A card has ended once its last day is before today (a tour still running stays in これから). */
+export const isPastCard = (c: EventCard, today: string) => c.days[c.days.length - 1].date < today;
+/** Days and shows of some cards (DAY1 / DAY2 count one day each, 昼 / 夜 one show each — as on 坂ログ). */
+export const dayAndShowCount = (cards: EventCard[]) => ({
+  days: cards.reduce((n, c) => n + c.days.length, 0),
+  shows: cards.reduce((n, c) => n + c.days.reduce((m, d) => m + Math.max(1, d.shows.length), 0), 0),
+});
+
+/** Group and year of an event id (?event= links): "h_…" Hinatazaka, "n_…" Nogizaka, else Sakurazaka (same rule as the API). */
+export function eventGroupYear(id: string): { grp: EventGroupId; year: number } | null {
+  const m = id.match(/^(h_|n_)?[0-9A-Za-z]{1,16}:(\d{4})-\d{2}-\d{2}$/);
+  return m ? { grp: m[1] === 'h_' ? 'hinatazaka' : m[1] === 'n_' ? 'nogizaka' : 'sakurazaka', year: Number(m[2]) } : null;
 }
 
 /** Cards by the month of their first day ("2026-10"), months in order. */

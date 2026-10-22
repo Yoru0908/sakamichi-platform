@@ -17,7 +17,12 @@ import {
   handleGetMiguriLottery,
 } from './routes/miguri.ts';
 import { handleGetMiguriSoldOutHistory } from './routes/soldout-history.ts';
-import { handleGetSakamichiEvents } from './routes/sakamichi-events.ts';
+import {
+  handleGetMySakamichiEventMarks,
+  handleGetSakamichiEventCounts,
+  handleGetSakamichiEvents,
+  handleSetSakamichiEventMark,
+} from './routes/sakamichi-events.ts';
 import { handleImportMiguriEntries } from './routes/entry-import.ts';
 import { handleMiguriSync, handleMiguriSoldOutImport, syncMiguriFromSource } from './routes/manage-miguri.ts';
 import { handleDisconnectGoogleCalendar } from './routes/google-calendar.ts';
@@ -57,6 +62,8 @@ const routes: Record<string, Handler> = {
   'GET /api/miguri/soldout': handleGetMiguriSoldOut,
   'GET /api/miguri/soldout-history': handleGetMiguriSoldOutHistory,
   'GET /api/miguri/sakamichi-events': (req, env) => handleGetSakamichiEvents(req, env),
+  'GET /api/miguri/sakamichi-events/counts': (req, env) => handleGetSakamichiEventCounts(req, env),
+  'GET /api/miguri/sakamichi-events/marks': (req, env) => handleGetMySakamichiEventMarks(req, env),
   'GET /api/miguri/lottery': (req) => handleGetMiguriLottery(req),
   'POST /api/miguri/soldout-import': handleMiguriSoldOutImport,
   'POST /api/manage/miguri/sync': handleMiguriSync,
@@ -86,6 +93,8 @@ export default {
       const handler = routes[`${method} ${path}`];
       if (handler) {
         res = await handler(req, env);
+      } else if (path.startsWith('/api/miguri/sakamichi-events/marks/') && (method === 'PUT' || method === 'DELETE')) {
+        res = await handleSetSakamichiEventMark(req, env, path.slice('/api/miguri/sakamichi-events/marks/'.length), method === 'PUT');
       } else if (path.startsWith('/api/miguri/entries/') && method === 'PUT') {
         res = await handleUpdateMiguriEntry(req, env, path.slice('/api/miguri/entries/'.length));
       } else if (path.startsWith('/api/miguri/entries/') && method === 'DELETE') {

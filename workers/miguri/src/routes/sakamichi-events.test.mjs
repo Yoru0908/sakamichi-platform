@@ -1,7 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { eventsQuery, handleGetSakamichiEvents } from './sakamichi-events.ts';
+import { readFileSync } from 'node:fs';
+import { DatabaseSync } from 'node:sqlite';
+
+import { signAccessToken } from '../../../shared/jwt.ts';
+import {
+  eventsQuery, handleGetMySakamichiEventMarks, handleGetSakamichiEventCounts, handleGetSakamichiEvents, handleSetSakamichiEventMark, markTarget,
+} from './sakamichi-events.ts';
 
 const now = new Date('2026-10-22T12:00:00Z');
 const row = {
@@ -44,4 +50,70 @@ test('bad query 400 (no upstream call), unconfigured 503, upstream failure 502',
   assert.equal(e.calls.length, 0);
   assert.equal((await get('grp=nogizaka&year=2026', { SAKA46LOG: e.SAKA46LOG })).status, 503);
   assert.equal((await get('grp=nogizaka&year=2026', env(() => new Response('no', { status: 401 })))).status, 502);
+});
+
+// D1 stand-in on node:sqlite with the real migration (014), so the SQL itself is under test.
+function miguriDb() {
+  const db = new DatabaseSync(':memory:');
+  db.exec(readFileSync(new URL('../../../auth/src/db/migrations/014_sakamichi_event_marks.sql', import.meta.url), 'utf8'));
+  const plain = (r) => ({ ...r });
+  return {
+    db,
+    prepare(sql) {
+      let args = [];
+      const st = { bind: (...a) => { args = a; return st; }, all: async () => ({ results: db.prepare(sql).all(...args).map(plain) }),
+        first: async () => { const r = db.prepare(sql).get(...args); return r ? plain(r) : null; }, run: async () => db.prepare(sql).run(...args) };
+      return st;
+    },
+  };
+}
+const SECRET = 'test-secret';
+async function as(userId) { return `access_token=${await signAccessToken(userId, 'member', SECRET)}`; }
+function marksEnv() { return { ...env(), MIGURI_DB: miguriDb(), JWT_SECRET: SECRET }; }
+const call = (handler, path, e, cookie, ...rest) => handler(new Request(`https://api.46log.com/api/miguri/sakamichi-events${path}`, { headers: cookie ? { Cookie: cookie } : {} }), e, ...rest, now);
+const mark = (e, cookie, id, on = true) => call(handleSetSakamichiEventMark, `/marks/${encodeURIComponent(id)}`, e, cookie, encodeURIComponent(id), on);
+
+test('event ids map to their group and year; anything else is refused', () => {
+  assert.deepEqual(markTarget('n_107229%3A2026-10-20', now), { id: 'n_107229:2026-10-20', grp: 'nogizaka', year: 2026 });
+  assert.deepEqual(markTarget('h_5355:2021-10-20', now), { id: 'h_5355:2021-10-20', grp: 'hinatazaka', year: 2021 });
+  assert.deepEqual(markTarget('1234:2025-03-01', now), { id: '1234:2025-03-01', grp: 'sakurazaka', year: 2025 });
+  for (const bad of ['k_1:2026-01-01', '1234:2019-05-01', 'h_1:2018-01-01', 'n_1:2028-01-01', 'n_1', 'n_1:2026-1-1', "n_1:2026-01-01' OR 1", '%E0%A4%A']) assert.equal(markTarget(bad, now), null, bad);
+});
+
+test('marks need a 46log login (401, so the client refreshes its token)', async () => {
+  const e = marksEnv();
+  assert.equal((await call(handleGetMySakamichiEventMarks, '/marks?grp=nogizaka&year=2026', e)).status, 401);
+  assert.equal((await mark(e, null, row.id)).status, 401);
+  assert.equal((await mark(e, null, row.id, false)).status, 401);
+  assert.equal(e.MIGURI_DB.db.prepare('SELECT COUNT(*) n FROM sakamichi_event_marks').get().n, 0);
+});
+
+test('mark a published day (twice is harmless), count it across users, unmark it', async () => {
+  const e = marksEnv(), a = await as('user-a'), b = await as('user-b');
+  assert.equal((await mark(e, a, row.id)).status, 200);
+  assert.equal((await mark(e, a, row.id)).status, 200);
+  assert.equal((await mark(e, b, row.id)).status, 200);
+  const mine = async (cookie) => (await (await call(handleGetMySakamichiEventMarks, '/marks?grp=nogizaka&year=2026', e, cookie)).json()).data.mine;
+  assert.deepEqual(await mine(a), [row.id]);
+  const counts = await call(handleGetSakamichiEventCounts, '/counts?grp=nogizaka&year=2026', e);
+  assert.deepEqual((await counts.json()).data.counts, { [row.id]: 2 });
+  assert.equal(counts.headers.get('Cache-Control'), 'public, max-age=60');
+  // The title is kept with the mark (history survives a renamed official row); the other year and group see nothing.
+  assert.equal(e.MIGURI_DB.db.prepare('SELECT title FROM sakamichi_event_marks WHERE user_id=?').get('user-a').title, row.title);
+  assert.deepEqual((await (await call(handleGetSakamichiEventCounts, '/counts?grp=nogizaka&year=2025', e)).json()).data.counts, {});
+  assert.deepEqual((await (await call(handleGetSakamichiEventCounts, '/counts?grp=hinatazaka&year=2026', e)).json()).data.counts, {});
+  assert.equal((await mark(e, a, row.id, false)).status, 200);
+  assert.deepEqual(await mine(a), []);
+  assert.deepEqual(await mine(b), [row.id]);
+});
+
+test('only days in the published list can be marked: bad id 400, unknown day 404, source down 502', async () => {
+  const e = marksEnv(), a = await as('user-a');
+  assert.equal((await mark(e, a, 'n_1:2010-01-01')).status, 400);
+  assert.equal((await mark(e, a, 'n_999:2026-10-20')).status, 404);
+  assert.equal((await mark(e, a, 'h_1:2026-10-20')).status, 404);   // a Nogizaka row never counts as a Hinatazaka id
+  assert.equal(e.calls.at(-1).url, 'https://saka46log.com/internal/events?grp=hinatazaka&year=2026');
+  const down = { ...marksEnv(), ...env(() => new Response('no', { status: 500 })) };
+  assert.equal((await mark(down, a, row.id)).status, 502);
+  assert.equal(e.MIGURI_DB.db.prepare('SELECT COUNT(*) n FROM sakamichi_event_marks').get().n, 0);
 });

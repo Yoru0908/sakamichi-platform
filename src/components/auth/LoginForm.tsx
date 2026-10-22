@@ -3,6 +3,12 @@ import { LogIn, Mail, Lock, Loader2, AlertCircle } from 'lucide-react';
 import { login } from '@/stores/auth';
 import OAuthButtons from './OAuthButtons';
 
+/** ?next=/events?grp=… from a page that sent the visitor here; same-site paths only (never "//host" or a full URL). */
+function nextPath(): string {
+  const next = new URLSearchParams(window.location.search).get('next') ?? '';
+  return next.startsWith('/') && !next.startsWith('//') && !next.startsWith('/\\') ? next : '/';
+}
+
 export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,7 +27,7 @@ export default function LoginForm() {
       if (result.isFirstLogin) {
         window.location.href = '/auth/onboarding';
       } else {
-        window.location.href = '/';
+        window.location.href = nextPath();
       }
     } else {
       setError(result.error || '登录失败');
