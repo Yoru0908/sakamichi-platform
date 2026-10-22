@@ -44,11 +44,11 @@ export async function handleGetSakamichiEvents(req: Request, env: Env, now = new
     headers: { Authorization: `Bearer ${env.EVENTS_READ_TOKEN}` },
   });
   if (!res.ok) return error('events source unavailable', 502);
-  const body = await res.json() as { data?: { events?: SourceEvent[] } };
-  // Past years change only on admin fixes and backfills; this year gains rows every morning (JST 06:20 job).
-  const maxAge = q.year < jstYear(now) ? 86400 : 600;
-  const out = json({ success: true, data: { grp: q.grp, year: q.year, events: (body.data?.events ?? []).map(publicEvent) } }, 200,
-    { 'Cache-Control': `public, max-age=${maxAge}` });
+  const body = await res.json() as { data?: { events?: SourceEvent[] } }, events = (body.data?.events ?? []).map(publicEvent);
+  // Past years change only on admin fixes and backfills; this year gains rows every morning (JST 06:20 job). An empty year is
+  // most likely one not backfilled yet, so it must not stick for a day.
+  const maxAge = !events.length ? 60 : q.year < jstYear(now) ? 86400 : 600;
+  const out = json({ success: true, data: { grp: q.grp, year: q.year, events } }, 200, { 'Cache-Control': `public, max-age=${maxAge}` });
   await cache?.put(key, out.clone());
   return out;
 }

@@ -34,6 +34,8 @@ test('reads one group-year through the binding with the read token; only public 
   assert.deepEqual(ev.venue, row.venue);
   assert.equal(res.headers.get('Cache-Control'), 'public, max-age=600');
   assert.equal((await get('grp=nogizaka&year=2016', env())).headers.get('Cache-Control'), 'public, max-age=86400');   // a past year
+  const empty = env(() => Response.json({ ok: true, data: { events: [] } }));
+  assert.equal((await get('grp=nogizaka&year=2016', empty)).headers.get('Cache-Control'), 'public, max-age=60');   // not backfilled yet
 });
 
 test('bad query 400 (no upstream call), unconfigured 503, upstream failure 502', async () => {
