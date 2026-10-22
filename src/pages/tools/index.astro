@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { Camera, FileText, Clock, Sparkles, Wrench, ArrowRight, Ticket, MapPin, MessageSquare } from 'lucide-astro';
+import { Camera, FileText, Captions, Wrench, ArrowRight, Ticket, MapPin, MessageSquare } from 'lucide-astro';
 import { t, type TranslationKey } from '@/i18n';
+import { MAIJEV_TOOL_HREF } from '@/utils/navigation';
 
 type Tool = { titleKey: TranslationKey; descKey: TranslationKey; href: string; color: string; iconIdx: number; external?: boolean };
 const categories: { key: TranslationKey; tools: Tool[] }[] = [
@@ -19,8 +20,7 @@ const categories: { key: TranslationKey; tools: Tool[] }[] = [
   ] },
   { key: 'tools.subtitles', tools: [
     { titleKey: 'tools.merge.title', descKey: 'tools.merge.description', href: '/tools/subtitle-merge', color: 'var(--color-brand-nogi)', iconIdx: 2 },
-    { titleKey: 'nav.tools.srt_fixer', descKey: 'tools.srt.description', href: '/tools/srt-fixer', color: 'var(--color-brand-nogi)', iconIdx: 3 },
-    { titleKey: 'nav.tools.fad_effect', descKey: 'tools.fad.description', href: '/tools/fad-effect', color: 'var(--color-brand-nogi)', iconIdx: 4 },
+    { titleKey: 'nav.tools.maijev', descKey: 'tools.maijev.description', href: MAIJEV_TOOL_HREF, color: 'var(--color-brand-nogi)', iconIdx: 9, external: true },
   ] },
 ];
 ---
@@ -48,8 +48,7 @@ const categories: { key: TranslationKey; tools: Tool[] }[] = [
                   {tool.iconIdx === 6 && <MapPin size={18} />}
                   {tool.iconIdx === 5 && <Ticket size={18} />}
                   {tool.iconIdx === 2 && <FileText size={18} />}
-                  {tool.iconIdx === 3 && <Clock size={18} />}
-                  {tool.iconIdx === 4 && <Sparkles size={18} />}
+                  {tool.iconIdx === 9 && <Captions size={18} />}
                 </div>
                 <ArrowRight size={14} class="text-[var(--text-tertiary)] opacity-0 group-hover:opacity-100 transition-opacity mt-1" />
               </div>

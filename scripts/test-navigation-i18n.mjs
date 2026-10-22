@@ -27,7 +27,7 @@ test('Instagram is archived under More, not a top-level content item', () => {
 
 test('the More pill remains active for archives and nested tools without prefix collisions', () => {
   const active = (path) => NAV_ITEMS.filter((item) => isNavItemActive(item, path)).map((item) => item.href);
-  for (const path of ['/tools', '/tools/srt-fixer', '/instagram', '/instagram/']) assert.deepEqual(active(path), ['/tools']);
+  for (const path of ['/tools', '/tools/subtitle-merge', '/instagram', '/instagram/']) assert.deepEqual(active(path), ['/tools']);
   assert.deepEqual(active('/instagram-elsewhere'), []);
   assert.deepEqual(active('/miguri/history'), ['/miguri']);
   assert.deepEqual(active('/'), ['/']);

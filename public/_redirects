@@ -1,3 +1,8 @@
+# SRT fixer / FAD tools removed 2026-10-22 (replaced by the open-source maijev, linked from /tools/); keep old links working.
+/tools/srt-fixer /tools/ 301
+/tools/srt-fixer/ /tools/ 301
+/tools/fad-effect /tools/ 301
+/tools/fad-effect/ /tools/ 301
 /photocard/create /photocard/create 200
 /photocard/work /photocard/work 200
 /photocard/user /photocard/user 200

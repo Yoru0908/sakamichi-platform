@@ -15,6 +15,8 @@ export interface NavGroup {
 }
 
 const TICKET_FORM_TOOL_HREF = 'https://chromewebstore.google.com/detail/%E5%9D%82%E9%81%93%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E4%B8%80%E9%94%AE%E5%A1%AB%E5%86%99/ghhhepiljinhplblcgalalafpagddhmp?authuser=0&hl=ja';
+// Open-source subtitle pipeline (2026-10-22: replaces the SRT fixer / FAD tools).
+export const MAIJEV_TOOL_HREF = 'https://github.com/Yoru0908/maijev';
 
 export function isNavItemActive(item: NavItem, path: string): boolean {
   return (item.href === '/' ? path === '/' : path === item.href || path.startsWith(item.href + '/'))
@@ -46,8 +48,7 @@ export const NAV_ITEMS: NavItem[] = [
       { labelKey: 'nav.tools.msg_generator', href: '/tools/msg-generator', icon: 'MessageSquare' },
       { labelKey: 'nav.instagram', href: '/instagram', icon: 'Camera' },
       { labelKey: 'nav.tools.subtitle_merge', href: '/tools/subtitle-merge', icon: 'FileText' },
-      { labelKey: 'nav.tools.srt_fixer', href: '/tools/srt-fixer', icon: 'Clock' },
-      { labelKey: 'nav.tools.fad_effect', href: '/tools/fad-effect', icon: 'Sparkles' },
+      { labelKey: 'nav.tools.maijev', href: MAIJEV_TOOL_HREF, icon: 'Captions', external: true },
       { labelKey: 'nav.tools.ticket_form', href: TICKET_FORM_TOOL_HREF, icon: 'Ticket', external: true },
     ],
   },
@@ -81,8 +82,7 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
       { labelKey: 'nav.tools.msg_generator', href: '/tools/msg-generator', icon: 'MessageSquare' },
       { labelKey: 'nav.instagram', href: '/instagram', icon: 'Camera' },
       { labelKey: 'nav.tools.subtitle_merge', href: '/tools/subtitle-merge', icon: 'FileText' },
-      { labelKey: 'nav.tools.srt_fixer', href: '/tools/srt-fixer', icon: 'Clock' },
-      { labelKey: 'nav.tools.fad_effect', href: '/tools/fad-effect', icon: 'Sparkles' },
+      { labelKey: 'nav.tools.maijev', href: MAIJEV_TOOL_HREF, icon: 'Captions', external: true },
       { labelKey: 'nav.tools.ticket_form', href: TICKET_FORM_TOOL_HREF, icon: 'Ticket', external: true },
     ],
   },
