@@ -33,6 +33,8 @@ try {
   await page.route('**/*', route => route.request().resourceType() === 'image' && !/basemaps\.cartocdn\.com|tile\.openstreetmap\.org|server\.arcgisonline\.com/.test(route.request().url()) ? route.abort() : route.continue());
   await page.goto(base + '/seichi/sakurazaka/', { waitUntil: 'domcontentloaded' });
   await page.locator('[data-prefecture-status="ready"]').waitFor();
+  // This suite compares the full filtered dataset; viewport-following defaults to on.
+  await page.getByLabel('地図の範囲だけ一覧に表示').uncheck();
   await page.locator('[data-seichi-feature="sakumap:221"]').waitFor({ state: 'attached' });
   const ids = await page.locator('[data-seichi-feature]').evaluateAll(es => es.map(e => e.dataset.seichiFeature));
   const kinds = await page.locator('.seichi-marker-glyph').evaluateAll(es => [...new Set(es.map(e => e.dataset.markerKind))]);

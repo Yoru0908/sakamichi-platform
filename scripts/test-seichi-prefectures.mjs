@@ -28,6 +28,8 @@ try {
   await page.route('**/*', route => route.request().resourceType() === 'image' ? route.abort() : route.continue());
   await page.goto(base + '/seichi/sakurazaka/', { waitUntil: 'domcontentloaded' });
   await page.locator('[data-prefecture-status="ready"]').waitFor();
+  // Count all matching venues, including those outside the initial map viewport.
+  await page.getByLabel('地図の範囲だけ一覧に表示').uncheck();
   await page.locator('[data-seichi-feature="sakumap:221"]').waitFor({ state: 'attached' });
   assert.equal(await page.locator('[data-seichi-feature^="sakumap:"]').count(), 20);
   const total = await page.locator('[data-seichi-feature]').count();

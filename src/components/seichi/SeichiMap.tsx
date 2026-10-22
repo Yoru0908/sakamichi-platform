@@ -7,6 +7,7 @@ import { useRouteRoom, ROOM_PARAM } from './use-route-room';
 import './seichi-markers.css';
 import { getMarkerKind, MARKER_STYLES, markerHtml } from './marker-style';
 import { getTimelineInfo, compareTimeline, type SortOrder } from './timeline';
+import { distanceBetween, findNearby, formatDistance, isValidCoordinates, locationErrorMessage, NEARBY_RADII_KM } from './nearby';
 import { createPrefectureResolver, getFeaturePrefecture, PREFECTURES, UNCLASSIFIED, type BoundaryCollection } from './prefectures';
 import {
   Search,
@@ -265,17 +266,6 @@ const getGoogleMapsQuery = (feature: Feature): string => {
 const getRouteLabel = (index: number): string =>
   index < 26 ? String.fromCharCode(65 + index) : String(index + 1);
 
-const distanceBetween = (from: [number, number], to: [number, number]): number => {
-  const toRadians = (value: number) => value * Math.PI / 180;
-  const [fromLng, fromLat] = from;
-  const [toLng, toLat] = to;
-  const dLat = toRadians(toLat - fromLat);
-  const dLng = toRadians(toLng - fromLng);
-  const a = Math.sin(dLat / 2) ** 2
-    + Math.cos(toRadians(fromLat)) * Math.cos(toRadians(toLat)) * Math.sin(dLng / 2) ** 2;
-  return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-};
-
 const buildDirectionsUrl = ({
   destination,
   mode,
@@ -375,6 +365,13 @@ export default function SeichiMap({
   const [routeNotice, setRouteNotice] = useState('');
   const [currentLocation, setCurrentLocation] = useState<[number, number] | null>(null);
   const [locationStatus, setLocationStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
+  const [locationAccuracy, setLocationAccuracy] = useState<number | null>(null);
+  const [locationError, setLocationError] = useState('');
+  const [nearbyEnabled, setNearbyEnabled] = useState(false);
+  const [nearbyRadiusKm, setNearbyRadiusKm] = useState(5);
+  // Ignore late callbacks after clearing a location or unmounting. No coordinates are persisted.
+  const locationRequestRef = useRef(0);
+  useEffect(() => () => { locationRequestRef.current += 1; }, []);
   const [draggedStopIndex, setDraggedStopIndex] = useState<number | null>(null);
 
   const routeFeatureIndex = useMemo(() => {
@@ -730,7 +727,16 @@ export default function SeichiMap({
     .filter(info => info?.basis === 'cd-release').map(info => [info!.key, info!])).values())
     .sort((a, b) => compareTimeline(a, b, 'newest')), [timelineInfo]);
 
-  useEffect(() => { locationListRef.current?.scrollTo({ top: 0 }); }, [timelineOrder, musicOnly, selectedWork]);
+  useEffect(() => {
+    const list = locationListRef.current;
+    list?.scrollTo({ top: 0 });
+    if (list && !nearbyEnabled && timelineOrder !== 'original' && mobileView === 'list'
+      && window.matchMedia('(max-width: 767px)').matches) {
+      // Filters and date notes can fill the mobile list viewport. Keep the first
+      // result above the source footer after switching a work or timeline order.
+      list.querySelector<HTMLElement>('[data-seichi-feature]')?.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+    }
+  }, [timelineOrder, musicOnly, selectedWork, nearbyEnabled, nearbyRadiusKm, mobileView]);
 
   // 4. 多层级与搜索过滤
   const filteredFeatures = useMemo(() => {
@@ -780,7 +786,7 @@ export default function SeichiMap({
   }, [prefectureData, selectedCategory, selectedSubcategory, selectedTag, search, musicOnly, selectedWork, timelineInfo, timelineOrder]);
 
   useEffect(() => {
-    if (selectedWork === 'ALL' || !filteredFeatures.length) return;
+    if (nearbyEnabled || selectedWork === 'ALL' || !filteredFeatures.length) return;
     const frame = requestAnimationFrame(() => {
       const map = mapInstanceRef.current;
       if (!map || !mapContainer.current?.offsetWidth) return;
@@ -788,10 +794,10 @@ export default function SeichiMap({
       map.fitBounds(L.latLngBounds(filteredFeatures.map(f => L.latLng(f.geometry.coordinates[1], f.geometry.coordinates[0]))), { padding: [36, 36], maxZoom: 14, animate: false });
     });
     return () => cancelAnimationFrame(frame);
-  }, [selectedWork, filteredFeatures, mobileView]);
+  }, [selectedWork, filteredFeatures, mobileView, nearbyEnabled]);
 
   useEffect(() => {
-    if (selectedWork !== 'ALL' || selectedPrefecture === 'ALL' || selectedPrefecture === UNCLASSIFIED || !prefectureData?.features.length) return;
+    if (nearbyEnabled || selectedWork !== 'ALL' || selectedPrefecture === 'ALL' || selectedPrefecture === UNCLASSIFIED || !prefectureData?.features.length) return;
     const frame = requestAnimationFrame(() => {
       const map = mapInstanceRef.current;
       if (!map || !mapContainer.current?.offsetWidth) return;
@@ -802,7 +808,7 @@ export default function SeichiMap({
       })), { padding: [24, 24], maxZoom: 13, animate: false });
     });
     return () => cancelAnimationFrame(frame);
-  }, [selectedPrefecture, prefectureData, mobileView, selectedWork]);
+  }, [selectedPrefecture, prefectureData, mobileView, selectedWork, nearbyEnabled]);
 
   const resetRouteProgress = () => {
     setRouteActiveIndex(0);
@@ -873,27 +879,60 @@ export default function SeichiMap({
     setRouteNotice(currentLocation ? '現在地から近い順に並べました' : 'A地点から近い順に並べました');
   };
 
-  const requestCurrentLocation = () => {
+  const openNearbyList = () => {
+    setNearbyEnabled(true);
+    setFacetsCollapsed(true);
+    setSidebarOpen(true);
+    setMobileView('list');
+    setSelectedFeature(null);
+  };
+
+  const requestCurrentLocation = (showNearby = false) => {
+    if (locationStatus === 'loading') return;
+    setLocationError('');
     if (!navigator.geolocation) {
       setLocationStatus('error');
-      setRouteNotice('このブラウザは現在地取得に対応していません');
+      setLocationError(locationErrorMessage());
       return;
     }
+    const request = ++locationRequestRef.current;
     setLocationStatus('loading');
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        if (request !== locationRequestRef.current) return;
         const location: [number, number] = [position.coords.longitude, position.coords.latitude];
+        if (!isValidCoordinates(location)) {
+          setLocationStatus('error');
+          setLocationError(locationErrorMessage(2));
+          return;
+        }
         setCurrentLocation(location);
+        setLocationAccuracy(Number.isFinite(position.coords.accuracy) && position.coords.accuracy >= 0 ? position.coords.accuracy : null);
         setLocationStatus('ready');
-        setRouteNotice('現在地を取得しました');
-        mapInstanceRef.current?.flyTo([location[1], location[0]], Math.max(mapInstanceRef.current.getZoom(), 13));
+        if (showNearby) openNearbyList();
+        mapInstanceRef.current?.flyTo([location[1], location[0]], 13);
       },
-      () => {
+      (error) => {
+        if (request !== locationRequestRef.current) return;
         setLocationStatus('error');
-        setRouteNotice('現在地を取得できませんでした。Google Maps側の現在地を使用します');
+        setLocationError(locationErrorMessage(error.code));
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
     );
+  };
+
+  const clearCurrentLocation = () => {
+    locationRequestRef.current += 1;
+    setCurrentLocation(null);
+    setLocationAccuracy(null);
+    setLocationStatus('idle');
+    setLocationError('');
+    setNearbyEnabled(false);
+  };
+
+  const showNearby = () => {
+    if (currentLocation) openNearbyList();
+    else requestCurrentLocation(true);
   };
 
   const fitRouteOnMap = () => {
@@ -908,21 +947,30 @@ export default function SeichiMap({
     setRouteOpen(false);
   };
 
+  // Nearby uses the existing filter intersection, independent of the current viewport.
+  const nearbyResults = useMemo(() => currentLocation
+    ? findNearby(filteredFeatures, currentLocation, nearbyRadiusKm)
+    : [], [filteredFeatures, currentLocation, nearbyRadiusKm]);
+  const nearbyDistances = useMemo(() => new Map(nearbyResults.map(({ feature, distanceKm }) => [feature, distanceKm])), [nearbyResults]);
+  const displayFeatures = useMemo(() => nearbyEnabled && currentLocation
+    ? nearbyResults.map(item => item.feature)
+    : filteredFeatures, [nearbyEnabled, currentLocation, nearbyResults, filteredFeatures]);
+
   // 一覧に出す地点: 地図の表示範囲内（選択中の地点は常に残す）。
   const listFeatures = useMemo(() => {
-    if (!followMap || !mapBounds) return filteredFeatures;
-    return filteredFeatures.filter(f => {
+    if (nearbyEnabled || !followMap || !mapBounds) return displayFeatures;
+    return displayFeatures.filter(f => {
       const [lng, lat] = f.geometry.coordinates;
       return f.properties.id === selectedFeature?.properties.id
         || (lat >= mapBounds.south && lat <= mapBounds.north && lng >= mapBounds.west && lng <= mapBounds.east);
     });
-  }, [filteredFeatures, followMap, mapBounds, selectedFeature]);
+  }, [displayFeatures, nearbyEnabled, followMap, mapBounds, selectedFeature]);
 
   const visibleMapFeatures = useMemo(() => {
-    const features = new Map(filteredFeatures.map((feature) => [getRouteKey(feature), feature]));
+    const features = new Map(displayFeatures.map((feature) => [getRouteKey(feature), feature]));
     routeStops.forEach((feature) => features.set(getRouteKey(feature), feature));
     return Array.from(features.values());
-  }, [filteredFeatures, routeStops]);
+  }, [displayFeatures, routeStops]);
 
   // 5. 渲染地图标记与路线预览。路线折线仅表示访问顺序，真实道路交给 Google Maps。
   useEffect(() => {
@@ -947,13 +995,23 @@ export default function SeichiMap({
     }
 
     if (currentLocation) {
+      if (locationAccuracy !== null) L.circle([currentLocation[1], currentLocation[0]], {
+        radius: locationAccuracy,
+        color: '#2563eb',
+        weight: 1,
+        opacity: 0.5,
+        fillOpacity: 0.1,
+        interactive: false,
+        className: 'seichi-location-accuracy',
+      }).addTo(markersGroup);
       L.circleMarker([currentLocation[1], currentLocation[0]], {
         radius: 8,
         color: '#ffffff',
         weight: 3,
         fillColor: '#2563eb',
         fillOpacity: 1,
-      }).bindTooltip('現在地').addTo(markersGroup);
+        className: 'seichi-current-location',
+      }).bindTooltip(locationAccuracy !== null ? `現在地 · 精度の目安 ${formatDistance(locationAccuracy / 1000)}` : '現在地').addTo(markersGroup);
     }
 
     visibleMapFeatures.forEach((f) => {
@@ -990,7 +1048,7 @@ export default function SeichiMap({
 
       markersGroup.addLayer(marker);
     });
-  }, [currentLocation, routeActiveIndex, routeStarted, routeStopKeys, routeStops, selectedFeature, visibleMapFeatures]);
+  }, [currentLocation, locationAccuracy, routeActiveIndex, routeStarted, routeStopKeys, routeStops, selectedFeature, visibleMapFeatures]);
 
   // 列表项点击逻辑（支持重复点击取消选择）
   const handleSelectFeature = (f: Feature) => {
@@ -1436,13 +1494,47 @@ export default function SeichiMap({
 
         {/* 地点列表（含缩略图预览） */}
         <div ref={locationListRef} className="flex-1 min-h-[240px] md:min-h-0 overflow-y-auto divide-y divide-[var(--border-primary)]">
+          {(currentLocation || locationStatus !== 'idle') && <section aria-label="現在地と周辺の地点" data-nearby-controls className="space-y-2 bg-[var(--bg-secondary)] p-3">
+            <div className="flex items-center justify-between gap-2">
+              <h2 className="text-xs font-bold text-[var(--text-primary)]">現在地の周辺</h2>
+              <div className="flex items-center gap-2">
+                <button type="button" onClick={() => currentLocation ? requestCurrentLocation(nearbyEnabled) : showNearby()} disabled={locationStatus === 'loading'} className="flex min-h-10 items-center gap-1.5 rounded-lg border border-blue-200 bg-blue-50 px-3 text-xs font-semibold text-blue-700 disabled:opacity-50 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-300">
+                  <LocateFixed size={14} className={locationStatus === 'loading' ? 'animate-pulse' : ''} />
+                  {locationStatus === 'loading' ? '現在地を取得中…' : currentLocation ? '現在地を更新' : '周辺を探す'}
+                </button>
+                {currentLocation && <button type="button" aria-label="現在地を消去" title="現在地を消去" onClick={clearCurrentLocation} className="flex min-h-10 min-w-10 items-center justify-center rounded-lg border border-[var(--border-primary)] text-[var(--text-secondary)]"><X size={15} /></button>}
+              </div>
+            </div>
+            {currentLocation && <>
+              <div className="flex flex-wrap items-center gap-2">
+                <label className="flex min-h-10 flex-1 items-center gap-2 text-[11px] font-semibold text-[var(--text-secondary)]">
+                  <input type="checkbox" checked={nearbyEnabled} onChange={event => setNearbyEnabled(event.target.checked)} className="h-4 w-4" />周辺の地点を近い順に表示
+                </label>
+                {nearbyEnabled && <select aria-label="周辺検索の半径" value={nearbyRadiusKm} onChange={event => setNearbyRadiusKm(Number(event.target.value))} className="min-h-10 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-2 text-xs text-[var(--text-primary)]">
+                  {NEARBY_RADII_KM.map(radius => <option key={radius} value={radius}>半径 {radius} km</option>)}
+                </select>}
+              </div>
+              <p className="text-[10px] text-[var(--text-secondary)]" data-location-accuracy>
+                {locationStatus === 'error' ? '前回取得した現在地を表示中' : '現在地を取得済み'}
+                {locationAccuracy !== null && ` · 精度の目安 ${formatDistance(locationAccuracy / 1000)}`}
+              </p>
+            </>}
+            {locationError && <p role="alert" className="text-[11px] leading-relaxed text-red-600 dark:text-red-400">{locationError}</p>}
+            <details className="text-[10px] leading-relaxed text-[var(--text-tertiary)]">
+              <summary className="cursor-pointer">距離・現在地の扱い</summary>
+              <p className="mt-1">距離は直線距離です。現在の絞り込み条件を適用し、地図の表示範囲に関係なく検索します。移動後は現在地を更新してください。</p>
+              <p className="mt-1">現在地はブラウザ内で計算に使用し、保存・ルート共有しません。ナビを開くと起点として Google Maps に渡します。</p>
+            </details>
+          </section>}
           <div className="space-y-2 bg-[var(--bg-secondary)] p-3" data-timeline-controls>
             <div className="flex items-center gap-2">
-              <select aria-label="地点の並び順" value={timelineOrder} onChange={event => { setTimelineOrder(event.target.value as SortOrder); setFacetsCollapsed(event.target.value !== 'original'); }} className="min-h-9 min-w-0 flex-1 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-2 text-xs text-[var(--text-primary)]">
+              <select aria-label="地点の並び順" disabled={nearbyEnabled} value={nearbyEnabled ? 'nearby' : timelineOrder} onChange={event => { setTimelineOrder(event.target.value as SortOrder); setFacetsCollapsed(event.target.value !== 'original'); }} className="min-h-9 min-w-0 flex-1 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-2 text-xs text-[var(--text-primary)] disabled:opacity-50">
+                {nearbyEnabled && <option value="nearby">現在地から近い順</option>}
                 <option value="original">通常の一覧</option>
                 <option value="newest">タイムライン：新しい順</option>
                 <option value="oldest">タイムライン：古い順</option>
               </select>
+              {!currentLocation && locationStatus === 'idle' && <button type="button" onClick={showNearby} title="現在地を取得して周辺を検索します。現在地は保存・ルート共有しません。" className="flex min-h-9 shrink-0 items-center gap-1 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-2 text-[10px] font-semibold text-[var(--text-secondary)]"><LocateFixed size={13} />周辺を探す</button>}
               <button type="button" aria-pressed={musicOnly} onClick={() => {
                 setMusicOnly(!musicOnly); setSelectedWork('ALL'); setSelectedFeature(null);
                 if (!musicOnly) { setTimelineOrder('newest'); setFacetsCollapsed(true); setSelectedCategory('ALL'); setSelectedSubcategory('ALL'); }
@@ -1455,10 +1547,10 @@ export default function SeichiMap({
               </select>
               <p className="text-[9px] leading-relaxed text-[var(--text-tertiary)]">楽曲はCD発売日順（MV公開日・撮影日ではありません）。その他は企画名に明記された日付。未確認は末尾。MV・楽曲にはジャケット撮影地も含みます。</p>
             </>}
-            <label className="flex min-h-9 items-center gap-2 text-[10px] font-semibold text-[var(--text-secondary)]">
-              <input type="checkbox" checked={followMap} onChange={event => setFollowMap(event.target.checked)} className="h-4 w-4" />地図の範囲だけ一覧に表示
+            <label className={`${nearbyEnabled ? 'hidden' : 'flex'} min-h-9 items-center gap-2 text-[10px] font-semibold text-[var(--text-secondary)]`}>
+              <input type="checkbox" checked={followMap && !nearbyEnabled} disabled={nearbyEnabled} onChange={event => setFollowMap(event.target.checked)} className="h-4 w-4" />地図の範囲だけ一覧に表示
             </label>
-            <p aria-live="polite" className="text-[10px] text-[var(--text-tertiary)]">{listFeatures.length !== filteredFeatures.length ? `地図内 ${listFeatures.length} / ${filteredFeatures.length}` : filteredFeatures.length}地点{timelineOrder !== 'original' && ` · 日付あり ${filteredFeatures.filter(f => timelineInfo.get(f)).length}地点`}</p>
+            <p aria-live="polite" className="text-[10px] text-[var(--text-tertiary)]">{nearbyEnabled ? `半径 ${nearbyRadiusKm} km 以内 · ${listFeatures.length}地点 · 近い順` : <>{listFeatures.length !== filteredFeatures.length ? `地図内 ${listFeatures.length} / ${filteredFeatures.length}` : filteredFeatures.length}地点{timelineOrder !== 'original' && ` · 日付あり ${filteredFeatures.filter(f => timelineInfo.get(f)).length}地点`}</>}</p>
           </div>
           {listFeatures.map((f, index) => {
             const fp = f.properties;
@@ -1466,7 +1558,7 @@ export default function SeichiMap({
             const hasImg = fp.images && fp.images.length > 0;
             const isInRoute = routeStopKeys.includes(getRouteKey(f));
             const dateInfo = timelineInfo.get(f);
-            const showDateHeading = timelineOrder !== 'original' && (index === 0 || dateInfo?.key !== timelineInfo.get(listFeatures[index - 1])?.key);
+            const showDateHeading = !nearbyEnabled && timelineOrder !== 'original' && (index === 0 || dateInfo?.key !== timelineInfo.get(listFeatures[index - 1])?.key);
 
             return (
               <Fragment key={fp.id}>
@@ -1479,6 +1571,7 @@ export default function SeichiMap({
                 data-seichi-feature={fp.id}
                 data-prefecture={prefectureLabels.get(f)}
                 data-category={fp.category}
+                data-distance-km={nearbyEnabled ? nearbyDistances.get(f) : undefined}
                 onClick={() => handleSelectFeature(f)}
                 className={`p-3 cursor-pointer transition-colors ${
                   isSelected
@@ -1487,6 +1580,7 @@ export default function SeichiMap({
                 }`}
                 style={{
                   borderLeftColor: isSelected ? fp.categoryColor : 'transparent',
+                  scrollMarginBottom: '24px',
                 }}
               >
                 <div className="flex items-start gap-3">
@@ -1518,8 +1612,8 @@ export default function SeichiMap({
                   {/* 标题 & 详情 */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-1">
-                      <h4 className="text-xs font-bold text-[var(--text-primary)] truncate">
-                        {fp.name}
+                      <h4 className="min-w-0 text-xs font-bold text-[var(--text-primary)] truncate">
+                        <button type="button" className="max-w-full truncate text-left" onClick={event => { event.stopPropagation(); handleSelectFeature(f); }} aria-label={`${fp.name}の詳細を表示`}>{fp.name}</button>
                       </h4>
                       <div className="flex shrink-0 items-center gap-1">
                         <span
@@ -1549,6 +1643,7 @@ export default function SeichiMap({
                         </button>
                       </div>
                     </div>
+                    {nearbyEnabled && <p className="mt-0.5 text-[11px] font-semibold text-blue-600 dark:text-blue-400">現在地から {formatDistance(nearbyDistances.get(f) ?? Infinity)} <span className="font-normal">（直線距離）</span></p>}
                     {fp.sceneTitle && (
                       <p className="text-[11px] text-[var(--text-secondary)] truncate mt-0.5">
                         {fp.sceneTitle}
@@ -1568,7 +1663,9 @@ export default function SeichiMap({
 
           {listFeatures.length === 0 && (
             <div className="p-8 text-center text-xs text-[var(--text-tertiary)]">
-              {filteredFeatures.length ? 'この範囲に地点がありません。地図を動かすか縮小してください。' : '該当するスポットが見つかりません'}
+              {nearbyEnabled
+                ? `現在の絞り込み条件では半径 ${nearbyRadiusKm} km 以内に地点がありません。半径を広げるか、地域・分類・検索条件を変更してください。`
+                : filteredFeatures.length ? 'この範囲に地点がありません。地図を動かすか縮小してください。' : '該当するスポットが見つかりません'}
             </div>
           )}
         </div>
@@ -1594,6 +1691,14 @@ export default function SeichiMap({
           {sidebarOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
         </button>
 
+        <div className="absolute right-3 top-16 z-[1000] flex max-w-[245px] flex-col items-end gap-2 md:top-24">
+          <button type="button" aria-label="現在地の周辺を探す" onClick={showNearby} disabled={locationStatus === 'loading'} className="flex min-h-11 items-center gap-1.5 rounded-full border border-[var(--border-primary)] bg-[var(--bg-primary)] px-3.5 py-2 text-xs font-semibold text-[var(--text-primary)] shadow-lg disabled:opacity-50">
+            <LocateFixed size={15} className={locationStatus === 'loading' ? 'animate-pulse' : ''} />
+            {locationStatus === 'loading' ? '取得中…' : nearbyEnabled ? '周辺リスト' : '周辺を探す'}
+          </button>
+          {locationError && <p role="alert" className="rounded-xl border border-red-200 bg-[var(--bg-primary)] p-3 text-[11px] leading-relaxed text-red-600 shadow-md dark:border-red-900 dark:text-red-400">{locationError}</p>}
+        </div>
+
         {/* Loading 提示 */}
         {loading && (
           <div className="absolute inset-0 z-[1001] flex items-center justify-center bg-[var(--bg-primary)]/80 backdrop-blur-sm">
@@ -1601,7 +1706,7 @@ export default function SeichiMap({
           </div>
         )}
 
-        <details className="absolute left-3 top-14 z-[999] max-w-[220px] rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)]/95 px-3 py-2 text-[10px] text-[var(--text-primary)] shadow-sm">
+        <details className="absolute left-3 top-28 z-[999] max-w-[220px] md:top-14 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)]/95 px-3 py-2 text-[10px] text-[var(--text-primary)] shadow-sm">
           <summary className="cursor-pointer font-semibold">アイコンの見方</summary>
           <div className="mt-2 grid grid-cols-2 gap-2">
             {Object.entries(MARKER_STYLES).map(([kind, style]) => <span key={kind} className="flex items-center gap-1.5"><span style={{ color: style.color }} dangerouslySetInnerHTML={{ __html: style.svg }} />{style.label}</span>)}
@@ -1924,8 +2029,8 @@ export default function SeichiMap({
             <div className="min-w-0 flex-1">
               <p className="text-xs font-bold text-[var(--text-primary)]">現在地から開始</p>
               <p className="truncate text-[10px] text-[var(--text-tertiary)]">
-                {locationStatus === 'ready'
-                  ? '取得済み · 距離順の計算にも使用します'
+                {currentLocation
+                  ? locationStatus === 'error' ? '前回の現在地を使用中 · 更新をお試しください' : '取得済み · 距離順の計算にも使用します'
                   : locationStatus === 'error'
                     ? '未取得 · Google Maps側の現在地を使用します'
                     : 'Google Maps側で現在地を使用します'}
@@ -1933,7 +2038,7 @@ export default function SeichiMap({
             </div>
             <button
               type="button"
-              onClick={requestCurrentLocation}
+              onClick={() => requestCurrentLocation()}
               disabled={locationStatus === 'loading'}
               className="flex min-h-8 shrink-0 items-center gap-1 rounded-lg border border-blue-200 bg-white px-2.5 text-[10px] font-semibold text-blue-600 disabled:opacity-50 dark:border-blue-900 dark:bg-blue-950"
             >
@@ -1941,6 +2046,8 @@ export default function SeichiMap({
               {locationStatus === 'loading' ? '取得中' : '取得'}
             </button>
           </div>
+          {locationError && <p role="alert" className="mb-3 text-[11px] leading-relaxed text-red-600 dark:text-red-400">{locationError}</p>}
+          <p className="mb-3 text-[10px] leading-relaxed text-[var(--text-tertiary)]">現在地は保存・ルート共有しません。ナビを開くと起点として Google Maps に渡します。</p>
 
           {routeStops.length === 0 ? (
             <div className="flex min-h-48 flex-col items-center justify-center rounded-2xl border border-dashed border-[var(--border-secondary)] bg-[var(--bg-secondary)] px-6 text-center">
