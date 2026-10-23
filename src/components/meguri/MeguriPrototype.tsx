@@ -295,8 +295,10 @@ export default function MeguriPrototype() {
     async function load() {
       setIsLoading(true);
       setError('');
-      const authResult = await fetchMe();
-      const res = await getMiguriEvents();
+      // Both at once: each Worker may cold-start, so waiting on /me first doubled the wait.
+      const [authResult, first] = await Promise.all([fetchMe(), getMiguriEvents()]);
+      // /events answers an expired token anonymously instead of 401; fetchMe has refreshed it by now, so ask once more.
+      const res = authResult.data?.user && first.data && !first.data.authenticated ? await getMiguriEvents() : first;
       if (!mounted) return;
 
       if (!res.success || !res.data) {

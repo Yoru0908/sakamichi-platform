@@ -719,15 +719,34 @@ export function entryLotteryCounts(entry: LotteryCountEntry) {
 
 export type MiguriRelease = { key: string; label: string; title: string };
 export type WinRatePoint = { applied: number; won: number };
-export type WinRateSeries = { name: string; applied: number; won: number; points: Array<WinRatePoint | null> };
+/** One result cell: a member's tickets in one 部 of one day, inside one release and one 类型/会场 section. */
+export type WinRateCell = WinRatePoint & { release: string; section: string; date: string; slot: number; member: string };
+/** Where 部 numbers compare: one category (`kind`, e.g. 個別 / リアミ) at one venue. */
+export type WinRateSection = { key: string; kind: string; venue: string; applied: number };
 export type WinRateTrend = {
   releases: Array<MiguriRelease & { date: string }>;
-  overall: WinRateSeries;
-  members: WinRateSeries[];
-  slots: WinRateSeries[];
+  sections: WinRateSection[];
+  cells: WinRateCell[];
 };
 export type WinRateTrendEntry = LotteryCountEntry & Pick<MiguriEntry, 'member' | 'date' | 'slot'>
-  & Partial<Pick<MiguriEntry, 'eventSlug' | 'eventTitle' | 'group'>>;
+  & Partial<Pick<MiguriEntry, 'eventSlug' | 'eventTitle' | 'group' | 'venue'>>;
+
+const SECTION_LABELS: Array<[NonNullable<MiguriEntry['category']>, string]> = [
+  ['個別ミーグリ', '個別'],
+  ['全国ミーグリ', '全国'],
+  ['リアミ', 'リアミ'],
+  ['サイン会', 'サイン会'],
+  ['その他', '其他'],
+];
+
+/** Music 個別 第1部, Meets リアミ 第1部 and 京都 / 幕張 第1部 are separate lotteries, so each category × venue is its own section. */
+export function miguriSectionOf(entry: Partial<Pick<MiguriEntry, 'category' | 'venue'>>) {
+  const category = entry.category || '個別ミーグリ';
+  const found = SECTION_LABELS.findIndex(([value]) => value === category);
+  const order = found < 0 ? SECTION_LABELS.length - 1 : found;
+  const venue = (entry.venue || '').replace(/[（(][^）)]*[）)]/g, '').trim();
+  return { key: `${category}|${venue}`, kind: SECTION_LABELS[order][1], venue, order };
+}
 
 const RELEASE_GROUPS: Array<[RegExp, MiguriGroupId]> = [
   [/乃木坂46/, 'nogizaka'],
@@ -754,18 +773,11 @@ export function miguriReleaseOf(entry: Partial<Pick<MiguriEntry, 'eventSlug' | '
   return { key: `${group || '-'}:${album ? 'album' : 'single'}:${release[1]}`, label, title: name ? `${label}『${name}』` : label };
 }
 
-/** 中签率推移: won / applied per release in time order — overall, per member and per 部. Entries without a result yet are left out. */
+/** 中签率推移 data: result cells (entries without a result yet are left out), releases in time order, 类型/会场 sections. */
 export function buildMiguriWinRateTrend(entries: WinRateTrendEntry[]): WinRateTrend {
   const releases = new Map<string, MiguriRelease & { date: string }>();
-  const totals = new Map<'all', Map<string, WinRatePoint>>();
-  const byMember = new Map<string, Map<string, WinRatePoint>>();
-  const bySlot = new Map<number, Map<string, WinRatePoint>>();
-  const add = <K>(rows: Map<K, Map<string, WinRatePoint>>, name: K, key: string, counts: WinRatePoint) => {
-    const row = rows.get(name) || new Map<string, WinRatePoint>();
-    const point = row.get(key) || { applied: 0, won: 0 };
-    row.set(key, { applied: point.applied + counts.applied, won: point.won + counts.won });
-    rows.set(name, row);
-  };
+  const sections = new Map<string, WinRateSection & { order: number }>();
+  const cells = new Map<string, WinRateCell>();
   for (const entry of entries) {
     const counts = entryLotteryCounts(entry);
     if (entry.status === 'planned' || counts.applied <= 0) continue;
@@ -773,28 +785,74 @@ export function buildMiguriWinRateTrend(entries: WinRateTrendEntry[]): WinRateTr
     const known = releases.get(release.key);
     if (!known) releases.set(release.key, { ...release, date: entry.date || '' });
     else if (entry.date && (!known.date || entry.date < known.date)) known.date = entry.date;
-    add(totals, 'all', release.key, counts);
-    add(byMember, entry.member, release.key, counts);
-    add(bySlot, entry.slot > 0 ? entry.slot : 0, release.key, counts);
+    const section = miguriSectionOf(entry);
+    const area = sections.get(section.key) || { ...section, applied: 0 };
+    area.applied += counts.applied;
+    sections.set(section.key, area);
+    const slot = entry.slot > 0 ? entry.slot : 0;
+    const key = [release.key, section.key, entry.date, slot, entry.member].join('\u0000');
+    const cell = cells.get(key)
+      || { release: release.key, section: section.key, date: entry.date || '', slot, member: entry.member, applied: 0, won: 0 };
+    cell.applied += counts.applied;
+    cell.won += counts.won;
+    cells.set(key, cell);
   }
-  const ordered = Array.from(releases.values()).sort((left, right) => (
-    (left.date || '9999').localeCompare(right.date || '9999') || left.key.localeCompare(right.key)
-  ));
-  const series = (name: string, row: Map<string, WinRatePoint>): WinRateSeries => {
-    const points = ordered.map((release) => row.get(release.key) || null);
-    return {
-      name,
-      applied: points.reduce((sum, point) => sum + (point?.applied || 0), 0),
-      won: points.reduce((sum, point) => sum + (point?.won || 0), 0),
-      points,
-    };
+  return {
+    releases: Array.from(releases.values()).sort((left, right) => (
+      (left.date || '9999').localeCompare(right.date || '9999') || left.key.localeCompare(right.key)
+    )),
+    // Category order, then the busiest venue first.
+    sections: Array.from(sections.values())
+      .sort((left, right) => left.order - right.order || right.applied - left.applied || left.venue.localeCompare(right.venue, 'ja'))
+      .map(({ key, kind, venue, applied }) => ({ key, kind, venue, applied })),
+    cells: Array.from(cells.values()),
   };
-  const members = Array.from(byMember.entries())
-    .map(([name, row]) => series(name, row))
-    .sort((left, right) => right.applied - left.applied || left.name.localeCompare(right.name, 'ja'));
-  // 第1部…第N部 in order; サイン会 and other entries without a slot last as 未分部.
-  const slots = Array.from(bySlot.entries())
-    .sort(([left], [right]) => (left || 99) - (right || 99))
-    .map(([slot, row]) => series(slot ? `第${slot}部` : '未分部', row));
-  return { releases: ordered, overall: series('全部', totals.get('all') || new Map()), members, slots };
+}
+
+export type WinRatePivot<R, C> = {
+  /** Row and column keys in first-seen order; callers sort them. */
+  rows: R[];
+  columns: C[];
+  at: (row: R, column: C) => WinRatePoint | null;
+  rowTotal: (row: R) => WinRatePoint | null;
+  columnTotal: (column: C) => WinRatePoint | null;
+  total: WinRatePoint | null;
+};
+
+/** Every 中签率 view is this sum over cells: chart (member/部 × release), 单曲一览, 成员×部, 全日程 (date × 部). */
+export function pivotWinRate<R, C>(
+  cells: WinRateCell[],
+  rowOf: (cell: WinRateCell) => R,
+  columnOf: (cell: WinRateCell) => C,
+): WinRatePivot<R, C> {
+  const sums = new Map<string, WinRatePoint>();
+  const rows = new Map<R, true>();
+  const columns = new Map<C, true>();
+  const id = (...parts: unknown[]) => JSON.stringify(parts);
+  const add = (key: string, cell: WinRateCell) => {
+    const point = sums.get(key) || { applied: 0, won: 0 };
+    sums.set(key, { applied: point.applied + cell.applied, won: point.won + cell.won });
+  };
+  for (const cell of cells) {
+    const row = rowOf(cell);
+    const column = columnOf(cell);
+    rows.set(row, true);
+    columns.set(column, true);
+    add(id('cell', row, column), cell);
+    add(id('row', row), cell);
+    add(id('column', column), cell);
+    add(id('total'), cell);
+  }
+  const read = (key: string) => {
+    const point = sums.get(key);
+    return point && point.applied > 0 ? point : null;
+  };
+  return {
+    rows: Array.from(rows.keys()),
+    columns: Array.from(columns.keys()),
+    at: (row, column) => read(id('cell', row, column)),
+    rowTotal: (row) => read(id('row', row)),
+    columnTotal: (column) => read(id('column', column)),
+    total: read(id('total')),
+  };
 }
