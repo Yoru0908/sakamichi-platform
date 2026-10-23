@@ -756,7 +756,7 @@ test('miguriSectionOf / miguriPointOf: categories never mix, real-meet venues ar
   assert.deepEqual([miguriPointOf(online).key, miguriPointOf(online).venue], ['sakurazaka:single:16', '']);
   assert.equal(miguriPointOf({ ...online, venue: null }).key, 'sakurazaka:single:16');
   const kyoto = miguriPointOf({ eventTitle: SAKURA_16_MEETS, group: 'sakurazaka', venue: '京都パルスプラザ' });
-  assert.deepEqual([kyoto.key, kyoto.label], ['sakurazaka:single:16@京都パルスプラザ', '櫻坂 16th']);
+  assert.deepEqual([kyoto.key, kyoto.label, kyoto.single], ['sakurazaka:single:16@京都パルスプラザ', '櫻坂 16th', 'sakurazaka:single:16']);
   assert.notEqual(kyoto.key, miguriPointOf({ eventTitle: SAKURA_16_MEETS, group: 'sakurazaka', venue: '幕張メッセ' }).key);
   assert.equal(miguriPointOf({ eventTitle: SAKURA_16_MEETS, group: 'sakurazaka', venue: '東京ビッグサイト(東京国際展示場)' }).venue, '東京ビッグサイト');
 });

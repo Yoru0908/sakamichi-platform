@@ -723,7 +723,7 @@ export type WinRatePoint = { applied: number; won: number };
 /** One result cell: a member's tickets in one 部 of one day, at one point (`release`) of one category (`section`). */
 export type WinRateCell = WinRatePoint & { release: string; section: string; date: string; slot: number; member: string };
 /** One x-axis point: a single, and for real-meet events one venue of it — 京都 第1部 and 東京 第1部 are separate lotteries. */
-export type WinRateRelease = MiguriRelease & { date: string; venue: string };
+export type WinRateRelease = MiguriRelease & { date: string; venue: string; single: string };
 /** Where 部 numbers compare: one category. Music 個別 第1部 and Meets リアミ 第1部 never share a column. */
 export type WinRateSection = { key: string; label: string; applied: number };
 export type WinRateTrend = {
@@ -753,7 +753,7 @@ export function miguriSectionOf(entry: Partial<Pick<MiguriEntry, 'category'>>) {
 export function miguriPointOf(entry: Partial<Pick<MiguriEntry, 'eventSlug' | 'eventTitle' | 'group' | 'venue'>>) {
   const release = miguriReleaseOf(entry);
   const venue = (entry.venue || '').replace(/[（(][^）)]*[）)]/g, '').trim();
-  return { ...release, key: venue ? `${release.key}@${venue}` : release.key, venue };
+  return { ...release, key: venue ? `${release.key}@${venue}` : release.key, venue, single: release.key };
 }
 
 const RELEASE_GROUPS: Array<[RegExp, MiguriGroupId]> = [

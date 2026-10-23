@@ -6,7 +6,16 @@ type Cut = "member" | "slot";
 type Tab = "releases" | "members" | "schedule";
 type Line = { key: string; name: string; color: string; points: Array<WinRatePoint | null>; dashed?: boolean };
 type Column = { key: string; label: string; color?: string };
-type Row = { key: string; label: string; sub?: string; points: Array<WinRatePoint | null>; active?: boolean; onSelect?: () => void };
+/** `group` heads a block of rows (one single / venue), `subtotal` closes it. */
+type Row = {
+  key: string;
+  label: string;
+  sub?: string;
+  points: Array<WinRatePoint | null>;
+  kind?: "group" | "subtotal";
+  active?: boolean;
+  onSelect?: () => void;
+};
 
 const OVERALL_COLOR = "#64748b";
 const NO_SLOT_COLOR = "#94a3b8";
@@ -117,29 +126,55 @@ function RateCell({ point }: { point: WinRatePoint | null }) {
   );
 }
 
-/** The one table behind 单曲一览, 成员×部 and 全日程: sticky header and first column, a totals footer. */
-function Matrix({ corner, columns, rows, footer }: { corner: string; columns: Column[]; rows: Row[]; footer: Row }) {
-  const rowHead = (row: Row, background: string) => (
-    <th scope="row" className={`sticky left-0 z-10 px-3 py-2 text-left font-normal ${background}`}>
-      {row.onSelect ? (
-        <button
-          type="button"
-          onClick={row.onSelect}
-          title={row.label}
-          className={`block max-w-[7rem] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 sm:max-w-[11rem] ${
-            row.active ? "text-indigo-700 dark:text-indigo-300" : "text-[var(--text-primary)]"
-          }`}
-        >
-          <span className="block font-bold">{row.label}</span>
-          {row.sub ? <span className="block truncate text-[10px] text-[var(--text-tertiary)]">{row.sub}</span> : null}
-        </button>
-      ) : (
-        <span className="block max-w-[7rem] truncate font-bold text-[var(--text-primary)] sm:max-w-[11rem]">{row.label}</span>
-      )}
-    </th>
-  );
+const ROW_TONE: Record<NonNullable<Row["kind"]> | "row" | "active", string> = {
+  row: "bg-[var(--bg-primary)]",
+  active: "bg-[var(--bg-secondary)]",
+  group: "bg-indigo-50 dark:bg-indigo-950",
+  subtotal: "bg-[var(--bg-secondary)]",
+};
+
+/** The one table behind 单曲一览, 成员×部 and 全日程: sticky header and first column, optional row groups, a totals footer. */
+function Matrix({ corner, columns, rows, footer, focus }: { corner: string; columns: Column[]; rows: Row[]; footer: Row; focus?: string }) {
+  const box = useRef<HTMLDivElement>(null);
+
+  // Clicking a single on the chart brings its block under the header.
+  useEffect(() => {
+    const container = box.current;
+    const target = focus ? container?.querySelector<HTMLElement>(`[data-row="${CSS.escape(focus)}"]`) : null;
+    if (!container || !target) return;
+    const header = container.querySelector("thead")?.getBoundingClientRect().height ?? 0;
+    container.scrollTop += target.getBoundingClientRect().top - container.getBoundingClientRect().top - header;
+  }, [focus]);
+
+  const rowHead = (row: Row, background: string) => {
+    const tone = row.active ? "text-indigo-700 dark:text-indigo-300" : "text-[var(--text-primary)]";
+    const body = (
+      <>
+        <span className={`block truncate ${row.kind === "subtotal" ? "font-semibold" : "font-bold"}`}>{row.label}</span>
+        {row.sub ? <span className="block truncate text-[10px] font-normal text-[var(--text-tertiary)]">{row.sub}</span> : null}
+      </>
+    );
+    return (
+      <th scope="row" className={`sticky left-0 z-10 px-3 py-2 text-left font-normal ${background}`}>
+        {row.onSelect ? (
+          <button
+            type="button"
+            onClick={row.onSelect}
+            title={row.label}
+            className={`block max-w-[8rem] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 sm:max-w-[14rem] ${tone}`}
+          >
+            {body}
+          </button>
+        ) : (
+          <span title={row.sub ? `${row.label} ${row.sub}` : row.label} className={`block max-w-[8rem] sm:max-w-[14rem] ${tone}`}>
+            {body}
+          </span>
+        )}
+      </th>
+    );
+  };
   return (
-    <div className="max-h-[28rem] overflow-auto rounded-2xl border border-[var(--border-primary)]">
+    <div ref={box} className="max-h-[75vh] overflow-auto rounded-2xl border border-[var(--border-primary)]">
       <table className="w-full min-w-max border-collapse text-xs tabular-nums">
         <thead className="sticky top-0 z-20 bg-[var(--bg-secondary)]">
           <tr>
@@ -158,13 +193,17 @@ function Matrix({ corner, columns, rows, footer }: { corner: string; columns: Co
         </thead>
         <tbody>
           {rows.map((row) => {
-            const background = row.active ? "bg-[var(--bg-secondary)]" : "bg-[var(--bg-primary)]";
+            const background = ROW_TONE[row.kind ?? (row.active ? "active" : "row")];
             return (
-              <tr key={row.key} className={`border-t border-[var(--border-primary)] ${background}`}>
+              <tr
+                key={row.key}
+                data-row={row.key}
+                className={`${row.kind === "group" ? "border-t-2" : "border-t"} border-[var(--border-primary)] ${background}`}
+              >
                 {rowHead(row, background)}
-                {row.points.map((point, index) => (
-                  <td key={columns[index]?.key ?? index} className="px-3 py-2 text-right">
-                    <RateCell point={point} />
+                {columns.map((column, index) => (
+                  <td key={column.key} className="px-3 py-2 text-right">
+                    {row.kind === "group" ? null : <RateCell point={row.points[index] ?? null} />}
                   </td>
                 ))}
               </tr>
@@ -333,9 +372,15 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
   const toggle = (key: string) =>
     setPicked({ ...picked, [pickKey]: shown.includes(key) ? shown.filter((item) => item !== key) : [...shown, key] });
 
-  const releaseCells = useMemo(() => cells.filter((cell) => cell.release === release?.key), [cells, release?.key]);
-  const scheduleMembers = Array.from(new Set(releaseCells.map((cell) => cell.member)));
-  const member = scheduleMembers.includes(scheduleMember) ? scheduleMember : "";
+  // 成员×部 and 全日程 list every single at once, newest first, so they can be compared without picking one.
+  const newest = releases.slice().reverse();
+  const slots = Array.from(new Set(cells.map((cell) => cell.slot))).sort(bySlot);
+  const slotColumns: Column[] = slots.map((slot) => ({ key: String(slot), label: slotLabel(slot), color: slotColor(slot) }));
+  const members = Array.from(new Set(cells.map((cell) => cell.member)));
+  const member = members.includes(scheduleMember) ? scheduleMember : "";
+  const pointName = (item: (typeof releases)[number]) => (item.venue ? `${item.label} · ${shortVenue(item.venue)}` : item.label);
+  const singleName = (item: (typeof releases)[number]) =>
+    item.title.startsWith(`${item.label}『`) ? item.title.slice(item.label.length) : item.date ? dateLabel(item.date) : undefined;
   const table = (() => {
     if (tab === "releases") {
       const columns: Column[] = [{ key: "all", label: "全部", color: OVERALL_COLOR }, ...series.map((item) => ({ key: item.key, label: item.name, color: item.color }))];
@@ -345,9 +390,7 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
         rows: releases.map((item, index) => ({
           key: item.key,
           label: item.label,
-          sub: item.venue
-            ? `${shortVenue(item.venue)} · ${dateLabel(item.date)}`
-            : item.title.startsWith(`${item.label}『`) ? item.title.slice(item.label.length) : item.date,
+          sub: item.venue ? `${shortVenue(item.venue)} · ${dateLabel(item.date)}` : singleName(item),
           points: [byRelease.columnTotal(item.key), ...series.map((line) => line.points[index])],
           active: index === activeIndex,
           onSelect: () => setReleaseKey(item.key),
@@ -355,35 +398,69 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
         footer: { key: "total", label: "合计", points: [byRelease.total, ...series.map((line) => byRelease.rowTotal(line.key))] },
       };
     }
-    const members = pivotWinRate(releaseCells, (cell) => cell.member, (cell) => cell.slot);
-    const slots = members.columns.slice().sort(bySlot);
-    const slotColumns: Column[] = slots.map((slot) => ({ key: String(slot), label: slotLabel(slot), color: slotColor(slot) }));
     if (tab === "members") {
+      // One block per point: a real-meet venue is its own block, so 京都 and 東京 部 stay apart.
+      const grid = pivotWinRate(cells, (cell) => `${cell.release}\u0000${cell.member}`, (cell) => cell.slot);
+      const totals = pivotWinRate(cells, (cell) => cell.member, (cell) => cell.slot);
+      const rows: Row[] = newest.flatMap((item) => {
+        const names = members
+          .filter((name) => grid.rowTotal(`${item.key}\u0000${name}`))
+          .sort((left, right) => (grid.rowTotal(`${item.key}\u0000${right}`)?.applied ?? 0) - (grid.rowTotal(`${item.key}\u0000${left}`)?.applied ?? 0));
+        return [
+          { key: item.key, kind: "group" as const, label: pointName(item), sub: singleName(item), points: [], active: item.key === release.key },
+          ...names.map((name) => {
+            const key = `${item.key}\u0000${name}`;
+            return { key, label: name, points: [...slots.map((slot) => grid.at(key, slot)), grid.rowTotal(key)] };
+          }),
+        ];
+      });
       return {
-        corner: "成员",
+        corner: "单曲 / 成员",
         columns: [...slotColumns, { key: "total", label: "合计" }],
-        rows: members.rows
-          .slice()
-          .sort((left, right) => (members.rowTotal(right)?.applied ?? 0) - (members.rowTotal(left)?.applied ?? 0) || left.localeCompare(right, "ja"))
-          .map((member) => ({ key: member, label: member, points: [...slots.map((slot) => members.at(member, slot)), members.rowTotal(member)] })),
-        footer: { key: "total", label: "全部", points: [...slots.map((slot) => members.columnTotal(slot)), members.total] },
+        rows,
+        footer: { key: "total", label: "全部单曲", points: [...slots.map((slot) => totals.columnTotal(slot)), totals.total] },
       };
     }
-    const days = pivotWinRate(
-      releaseCells.filter((cell) => !member || cell.member === member),
-      (cell) => cell.date,
-      (cell) => cell.slot,
-    );
+    // 全日程: one block per single; a real-meet single lists each venue day, so 京都 / 東京 sit next to each other.
+    const pool = member ? cells.filter((cell) => cell.member === member) : cells;
+    const days = pivotWinRate(pool, (cell) => `${cell.release}\u0000${cell.date}`, (cell) => cell.slot);
+    const pointOf = new Map(releases.map((item) => [item.key, item]));
+    const singleOf = (key: string) => pointOf.get(key)?.single ?? key;
+    const perSingle = pivotWinRate(pool, (cell) => singleOf(cell.release), (cell) => cell.slot);
+    const singles = Array.from(new Map(newest.map((item) => [item.single, item])).values());
+    const rows: Row[] = singles.flatMap((item) => {
+      const dayKeys = days.rows
+        .filter((key) => singleOf(key.split("\u0000")[0]) === item.single)
+        .sort((left, right) => byDate(left.split("\u0000")[1], right.split("\u0000")[1]));
+      if (!dayKeys.length) return [];
+      const dayRows: Row[] = dayKeys.map((key) => {
+        const [point, date] = key.split("\u0000");
+        const venue = pointOf.get(point)?.venue;
+        return {
+          key,
+          label: venue ? `${dateLabel(date)} · ${shortVenue(venue)}` : dateLabel(date),
+          points: [...slots.map((slot) => days.at(key, slot)), days.rowTotal(key)],
+        };
+      });
+      // A subtotal adds days up; days at different venues are different lotteries, so those singles get none.
+      const onePlace = new Set(dayKeys.map((key) => key.split("\u0000")[0])).size === 1;
+      const subtotal: Row[] = dayRows.length > 1 && onePlace
+        ? [{ key: `${item.single}-total`, kind: "subtotal", label: "本单曲合计", points: [...slots.map((slot) => perSingle.at(item.single, slot)), perSingle.rowTotal(item.single)] }]
+        : [];
+      return [
+        { key: item.single, kind: "group" as const, label: item.label, sub: singleName(item), points: [], active: item.single === release.single },
+        ...dayRows,
+        ...subtotal,
+      ];
+    });
     return {
-      corner: "日期",
+      corner: "单曲 / 日期",
       columns: [...slotColumns, { key: "day", label: "当日" }],
-      rows: days.rows
-        .slice()
-        .sort(byDate)
-        .map((date) => ({ key: date, label: dateLabel(date), points: [...slots.map((slot) => days.at(date, slot)), days.rowTotal(date)] })),
+      rows,
       footer: { key: "total", label: "每部合计", points: [...slots.map((slot) => days.columnTotal(slot)), days.total] },
     };
   })();
+  const focus = tab === "members" ? release?.key : tab === "schedule" ? release?.single : undefined;
 
   if (!section || !release) return null;
 
@@ -429,31 +506,24 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
           options={[["releases", "单曲一览"], ["members", "成员×部"], ["schedule", "全日程"]]}
           onChange={setTab}
         />
-        {tab === "releases" ? null : (
-          <Picker
-            label="单曲"
-            value={release.key}
-            options={releases.map((item) => [item.key, item.venue ? `${item.title} · ${item.venue}` : item.title] as [string, string])}
-            onChange={setReleaseKey}
-          />
-        )}
         {tab === "schedule" ? (
           <Picker
             label="成员"
             value={member}
-            options={[["", "全部成员"], ...scheduleMembers.map((name) => [name, name] as [string, string])]}
+            options={[["", "全部成员"], ...members.map((name) => [name, name] as [string, string])]}
             onChange={setScheduleMember}
           />
         ) : null}
+        {tab === "releases" ? null : <span className="text-xs text-[var(--text-tertiary)]">点图表上的单曲可跳到该组</span>}
       </div>
 
       <div className="mt-3">
-        <Matrix corner={table.corner} columns={table.columns} rows={table.rows} footer={table.footer} />
+        <Matrix corner={table.corner} columns={table.columns} rows={table.rows} footer={table.footer} focus={focus} />
       </div>
 
       <p className="mt-3 text-xs leading-5 text-[var(--text-tertiary)]">
-        中签率 = 中签张数 ÷ 申请张数（サイン会按抽选次数），与成员排行同一算法，但只计已出结果的申请。個別 / 全国 / リアミ / サイン会分开统计；リアミ与サイン会的每个会场单独算（图上一个点、表里一行），
-        同一会场的部才放在一起。同一单曲的各次受付合并。「每部合计」看哪一部更难抽。跟随上方团体与类型筛选。
+        中签率 = 中签张数 ÷ 申请张数（サイン会按抽选次数），与成员排行同一算法，但只计已出结果的申请。個別 / 全国 / リアミ / サイン会分开统计；リアミ与サイン会的每个会场单独算（图上一个点、表里一组 / 一行），
+        同一会场的部才放在一起。同一单曲的各次受付合并。「成员×部」「全日程」列出全部单曲（新的在上），「本单曲合计」「每部合计」看哪一部更难抽。跟随上方团体与类型筛选。
       </p>
     </section>
   );
