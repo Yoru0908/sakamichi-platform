@@ -335,10 +335,19 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
   const [tab, setTab] = useState<Tab>("releases");
   const [picked, setPicked] = useState<Record<string, string[]>>({});
   const [releaseKey, setReleaseKey] = useState<string | null>(null);
-  const [scheduleMember, setScheduleMember] = useState("");
+  const [memberFilter, setMemberFilter] = useState("");
 
   const section = trend.sections.find((item) => item.key === sectionKey) ?? trend.sections.find((item) => item.key === defaultSection);
-  const cells = useMemo(() => trend.cells.filter((cell) => cell.section === section?.key), [trend.cells, section?.key]);
+  const sectionCells = useMemo(() => trend.cells.filter((cell) => cell.section === section?.key), [trend.cells, section?.key]);
+  // One member filter for the whole card: chart lines (按部 = that member's 部), 单曲一览, 成员×部 and 全日程.
+  const members = useMemo(() => {
+    const applied = new Map<string, number>();
+    for (const cell of sectionCells) applied.set(cell.member, (applied.get(cell.member) ?? 0) + cell.applied);
+    return Array.from(applied.keys()).sort((left, right) => (applied.get(right) ?? 0) - (applied.get(left) ?? 0) || left.localeCompare(right, "ja"));
+  }, [sectionCells]);
+  const member = members.includes(memberFilter) ? memberFilter : "";
+  const cells = useMemo(() => (member ? sectionCells.filter((cell) => cell.member === member) : sectionCells), [sectionCells, member]);
+  const overallName = member ? "合计" : "全部";
   const byRelease = useMemo(
     () => pivotWinRate(cells, (cell) => (cut === "member" ? cell.member : String(cell.slot)), (cell) => cell.release),
     [cells, cut],
@@ -363,10 +372,10 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
       points: releases.map((item) => byRelease.at(key, item.key)),
     }));
   const lineable = series.filter((item) => item.color);
-  const pickKey = `${section?.key}|${cut}`;
+  const pickKey = `${section?.key}|${cut}|${member}`;
   const shown = picked[pickKey] ?? (cut === "member" ? lineable.slice(0, DEFAULT_MEMBERS) : lineable).map((item) => item.key);
   const lines: Line[] = [
-    { key: "all", name: "全部", color: OVERALL_COLOR, dashed: true, points: releases.map((item) => byRelease.columnTotal(item.key)) },
+    { key: "all", name: overallName, color: OVERALL_COLOR, dashed: true, points: releases.map((item) => byRelease.columnTotal(item.key)) },
     ...lineable.filter((item) => shown.includes(item.key)),
   ];
   const toggle = (key: string) =>
@@ -376,14 +385,12 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
   const newest = releases.slice().reverse();
   const slots = Array.from(new Set(cells.map((cell) => cell.slot))).sort(bySlot);
   const slotColumns: Column[] = slots.map((slot) => ({ key: String(slot), label: slotLabel(slot), color: slotColor(slot) }));
-  const members = Array.from(new Set(cells.map((cell) => cell.member)));
-  const member = members.includes(scheduleMember) ? scheduleMember : "";
   const pointName = (item: (typeof releases)[number]) => (item.venue ? `${item.label} · ${shortVenue(item.venue)}` : item.label);
   const singleName = (item: (typeof releases)[number]) =>
     item.title.startsWith(`${item.label}『`) ? item.title.slice(item.label.length) : item.date ? dateLabel(item.date) : undefined;
   const table = (() => {
     if (tab === "releases") {
-      const columns: Column[] = [{ key: "all", label: "全部", color: OVERALL_COLOR }, ...series.map((item) => ({ key: item.key, label: item.name, color: item.color }))];
+      const columns: Column[] = [{ key: "all", label: overallName, color: OVERALL_COLOR }, ...series.map((item) => ({ key: item.key, label: item.name, color: item.color }))];
       return {
         corner: "单曲",
         columns,
@@ -422,11 +429,10 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
       };
     }
     // 全日程: one block per single; a real-meet single lists each venue day, so 京都 / 東京 sit next to each other.
-    const pool = member ? cells.filter((cell) => cell.member === member) : cells;
-    const days = pivotWinRate(pool, (cell) => `${cell.release}\u0000${cell.date}`, (cell) => cell.slot);
+    const days = pivotWinRate(cells, (cell) => `${cell.release}\u0000${cell.date}`, (cell) => cell.slot);
     const pointOf = new Map(releases.map((item) => [item.key, item]));
     const singleOf = (key: string) => pointOf.get(key)?.single ?? key;
-    const perSingle = pivotWinRate(pool, (cell) => singleOf(cell.release), (cell) => cell.slot);
+    const perSingle = pivotWinRate(cells, (cell) => singleOf(cell.release), (cell) => cell.slot);
     const singles = Array.from(new Map(newest.map((item) => [item.single, item])).values());
     const rows: Row[] = singles.flatMap((item) => {
       const dayKeys = days.rows
@@ -474,21 +480,27 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
         <Segmented label="线条" value={cut} options={[["member", "按成员"], ["slot", "按部"]]} onChange={setCut} />
       </div>
 
-      {trend.sections.length > 1 ? (
-        <div className="mt-3">
+      <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+        {trend.sections.length > 1 ? (
           <Segmented
             label="类型"
             value={section.key}
             options={trend.sections.map((item) => [item.key, item.label] as [string, string])}
             onChange={setSectionKey}
           />
-        </div>
-      ) : null}
+        ) : null}
+        <Picker
+          label="成员"
+          value={member}
+          options={[["", "全部成员"], ...members.map((name) => [name, name] as [string, string])]}
+          onChange={setMemberFilter}
+        />
+      </div>
 
       <div className="mt-4 flex flex-wrap gap-2">
         <Chip on={false}>
           <span className="h-0.5 w-3 border-t-2 border-dashed" style={{ borderColor: OVERALL_COLOR }} />
-          全部
+          {member ? `${member} 合计` : "全部"}
         </Chip>
         {lineable.map((item) => (
           <Chip key={item.key} on={shown.includes(item.key)} color={item.color} onClick={() => toggle(item.key)}>
@@ -506,14 +518,6 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
           options={[["releases", "单曲一览"], ["members", "成员×部"], ["schedule", "全日程"]]}
           onChange={setTab}
         />
-        {tab === "schedule" ? (
-          <Picker
-            label="成员"
-            value={member}
-            options={[["", "全部成员"], ...members.map((name) => [name, name] as [string, string])]}
-            onChange={setScheduleMember}
-          />
-        ) : null}
         {tab === "releases" ? null : <span className="text-xs text-[var(--text-tertiary)]">点图表上的单曲可跳到该组</span>}
       </div>
 
@@ -523,7 +527,7 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
 
       <p className="mt-3 text-xs leading-5 text-[var(--text-tertiary)]">
         中签率 = 中签张数 ÷ 申请张数（サイン会按抽选次数），与成员排行同一算法，但只计已出结果的申请。個別 / 全国 / リアミ / サイン会分开统计；リアミ与サイン会的每个会场单独算（图上一个点、表里一组 / 一行），
-        同一会场的部才放在一起。同一单曲的各次受付合并。「成员×部」「全日程」列出全部单曲（新的在上），「本单曲合计」「每部合计」看哪一部更难抽。跟随上方团体与类型筛选。
+        同一会场的部才放在一起。同一单曲的各次受付合并。「成员×部」「全日程」列出全部单曲（新的在上），「本单曲合计」「每部合计」看哪一部更难抽。选了成员后图表与三张表都只算该成员（按部即该成员每一部的推移）。跟随上方团体与类型筛选。
       </p>
     </section>
   );
