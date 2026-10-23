@@ -786,3 +786,25 @@ test('buildMiguriWinRateTrend: with no pending entries each member total equals 
   // A release without a date goes last instead of first.
   assert.equal(trend.releases.at(-1).key, '特別企画');
 });
+
+test('buildMiguriWinRateTrend: per 部 series in slot order, entries without a slot (サイン会) last as 未分部', () => {
+  const trend = buildMiguriWinRateTrend([
+    trendEntry({ slot: 5, appliedTickets: 4, wonTickets: 1, status: 'won' }),
+    trendEntry({ slot: 1, appliedTickets: 2, wonTickets: 2, status: 'won' }),
+    trendEntry({ slot: 1, member: '石森璃花', appliedTickets: 2, wonTickets: 0 }),
+    trendEntry({ slot: 1, eventTitle: SAKURA_15_MUSIC, date: '2026-07-12', appliedTickets: 3, wonTickets: 1, status: 'won' }),
+    trendEntry({ slot: 0, eventTitle: SAKURA_15_MEETS, date: '2026-07-20', category: 'サイン会', signLots: 2, status: 'won' }),
+    trendEntry({ slot: 3, appliedTickets: 5, status: 'planned' }),
+  ]);
+  assert.deepEqual(trend.slots.map((slot) => [slot.name, slot.applied, slot.won]), [
+    ['第1部', 7, 3],
+    ['第5部', 4, 1],
+    ['未分部', 2, 2],
+  ]);
+  assert.deepEqual(trend.slots[0].points, [{ applied: 3, won: 1 }, { applied: 4, won: 2 }]);
+  assert.deepEqual(trend.slots[1].points, [null, { applied: 4, won: 1 }]);
+  // 部 and members are two cuts of the same results.
+  const sum = (series) => series.reduce((total, item) => total + item.applied, 0);
+  assert.equal(sum(trend.slots), trend.overall.applied);
+  assert.equal(sum(trend.members), trend.overall.applied);
+});

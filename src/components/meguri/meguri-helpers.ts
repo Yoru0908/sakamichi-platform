@@ -724,8 +724,9 @@ export type WinRateTrend = {
   releases: Array<MiguriRelease & { date: string }>;
   overall: WinRateSeries;
   members: WinRateSeries[];
+  slots: WinRateSeries[];
 };
-export type WinRateTrendEntry = LotteryCountEntry & Pick<MiguriEntry, 'member' | 'date'>
+export type WinRateTrendEntry = LotteryCountEntry & Pick<MiguriEntry, 'member' | 'date' | 'slot'>
   & Partial<Pick<MiguriEntry, 'eventSlug' | 'eventTitle' | 'group'>>;
 
 const RELEASE_GROUPS: Array<[RegExp, MiguriGroupId]> = [
@@ -753,16 +754,17 @@ export function miguriReleaseOf(entry: Partial<Pick<MiguriEntry, 'eventSlug' | '
   return { key: `${group || '-'}:${album ? 'album' : 'single'}:${release[1]}`, label, title: name ? `${label}『${name}』` : label };
 }
 
-/** 中签率推移: won / applied per release in time order, overall and per member. Entries without a result yet are left out. */
+/** 中签率推移: won / applied per release in time order — overall, per member and per 部. Entries without a result yet are left out. */
 export function buildMiguriWinRateTrend(entries: WinRateTrendEntry[]): WinRateTrend {
-  const ALL = '\u0000all';
   const releases = new Map<string, MiguriRelease & { date: string }>();
-  const cells = new Map<string, Map<string, WinRatePoint>>();
-  const add = (name: string, key: string, counts: WinRatePoint) => {
-    const row = cells.get(name) || new Map<string, WinRatePoint>();
+  const totals = new Map<'all', Map<string, WinRatePoint>>();
+  const byMember = new Map<string, Map<string, WinRatePoint>>();
+  const bySlot = new Map<number, Map<string, WinRatePoint>>();
+  const add = <K>(rows: Map<K, Map<string, WinRatePoint>>, name: K, key: string, counts: WinRatePoint) => {
+    const row = rows.get(name) || new Map<string, WinRatePoint>();
     const point = row.get(key) || { applied: 0, won: 0 };
     row.set(key, { applied: point.applied + counts.applied, won: point.won + counts.won });
-    cells.set(name, row);
+    rows.set(name, row);
   };
   for (const entry of entries) {
     const counts = entryLotteryCounts(entry);
@@ -771,8 +773,9 @@ export function buildMiguriWinRateTrend(entries: WinRateTrendEntry[]): WinRateTr
     const known = releases.get(release.key);
     if (!known) releases.set(release.key, { ...release, date: entry.date || '' });
     else if (entry.date && (!known.date || entry.date < known.date)) known.date = entry.date;
-    add(ALL, release.key, counts);
-    add(entry.member, release.key, counts);
+    add(totals, 'all', release.key, counts);
+    add(byMember, entry.member, release.key, counts);
+    add(bySlot, entry.slot > 0 ? entry.slot : 0, release.key, counts);
   }
   const ordered = Array.from(releases.values()).sort((left, right) => (
     (left.date || '9999').localeCompare(right.date || '9999') || left.key.localeCompare(right.key)
@@ -786,9 +789,12 @@ export function buildMiguriWinRateTrend(entries: WinRateTrendEntry[]): WinRateTr
       points,
     };
   };
-  const members = Array.from(cells.entries())
-    .filter(([name]) => name !== ALL)
+  const members = Array.from(byMember.entries())
     .map(([name, row]) => series(name, row))
     .sort((left, right) => right.applied - left.applied || left.name.localeCompare(right.name, 'ja'));
-  return { releases: ordered, overall: series('全部', cells.get(ALL) || new Map()), members };
+  // 第1部…第N部 in order; サイン会 and other entries without a slot last as 未分部.
+  const slots = Array.from(bySlot.entries())
+    .sort(([left], [right]) => (left || 99) - (right || 99))
+    .map(([slot, row]) => series(slot ? `第${slot}部` : '未分部', row));
+  return { releases: ordered, overall: series('全部', totals.get('all') || new Map()), members, slots };
 }
