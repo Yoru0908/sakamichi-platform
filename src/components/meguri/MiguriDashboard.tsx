@@ -64,7 +64,7 @@ const GROUP_LABELS: Record<MiguriGroupId, string> = {
 };
 const MEETS_DISCOUNT_STORAGE_KEY =
   "46log:miguri:limited-edition-discount-pct";
-const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 16] as const;
+const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 20] as const;
 
 function extensionNeedsUpdate(version: string) {
   const current = version.split(".").map((part) => Number(part) || 0);
@@ -277,7 +277,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   当前版本需要更新
                 </div>
                 <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                  v1.1.16 修复 Meets 登录后仍停在等待页的问题。请先关闭旧版自动同步，再下载 ZIP 手动更新；商店版尚未包含此修复。
+                  v1.1.20 适配 forTUNE meets 10/13 改版后的登录方式：旧版即使已登录也会停在「等待官方登录」。请先关闭旧版自动同步，再下载 ZIP 手动更新；商店版尚未包含此修复。
                 </p>
               </div>
               <div className="flex shrink-0 flex-wrap gap-2">
@@ -291,11 +291,11 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   </button>
                 ) : null}
                 <a
-                  href="/downloads/46log-miguri-sync.zip?v=1.1.16"
+                  href="/downloads/46log-miguri-sync.zip?v=1.1.20"
                   download
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-xs font-bold text-white hover:bg-indigo-700"
                 >
-                  <Download size={15} /> 下载 v1.1.16 ZIP
+                  <Download size={15} /> 下载 v1.1.20 ZIP
                 </a>
               </div>
             </div>
@@ -354,13 +354,13 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 text-xs font-bold text-emerald-800">
-                <Puzzle size={14} /> 修复版 ZIP · v1.1.16
+                <Puzzle size={14} /> 修复版 ZIP · v1.1.20
               </div>
               <div className="mt-3 text-sm font-bold text-[var(--text-primary)]">
                 安装最新版同步扩展
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
-                v1.1.16 修复 Meets 登录后无法恢复同步的问题，现可下载 ZIP 手动安装。Chrome Web Store 版仍为 v1.1.15，尚未包含此修复。
+                v1.1.20 适配 forTUNE meets 10/13 改版后的登录方式（旧版已登录也会停在「等待官方登录」），现可下载 ZIP 手动安装。Chrome Web Store 版尚未包含此修复。
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
@@ -379,11 +379,11 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                 从 Chrome Web Store 安装 <ArrowRight size={16} />
               </a>
               <a
-                href="/downloads/46log-miguri-sync.zip?v=1.1.16"
+                href="/downloads/46log-miguri-sync.zip?v=1.1.20"
                 download
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-indigo-500/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
-                <Download size={16} /> 下载 v1.1.16 ZIP
+                <Download size={16} /> 下载 v1.1.20 ZIP
               </a>
             </div>
           </div>
