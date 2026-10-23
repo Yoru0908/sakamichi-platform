@@ -20,8 +20,11 @@ import type {
 } from "@/utils/auth-api";
 import {
   aggregateMiguriDashboard,
+  buildMiguriWinRateTrend,
+  entryLotteryCounts,
   resolveMiguriEntrySpend,
 } from "./meguri-helpers";
+import WinRateTrend from "./WinRateTrend";
 import {
   runMiguriExtensionAutoSync,
   setMiguriExtensionAutoSync,
@@ -591,6 +594,10 @@ export default function MiguriDashboard({
     [filteredEntries, meetsDiscountPct],
   );
   const nextStop = dashboard.nextStops[0];
+  const winRateTrend = useMemo(
+    () => buildMiguriWinRateTrend(filteredEntries),
+    [filteredEntries],
+  );
   const hasMeetsEntries = filteredEntries.some(
     (entry) => entry.source === "fortunemeets",
   );
@@ -680,20 +687,7 @@ export default function MiguriDashboard({
         won: 0,
         spend: 0,
       };
-      const isSign = entry.category === "サイン会";
-      const applied =
-        isSign && entry.signLots > 0
-          ? entry.signLots
-          : entry.appliedTickets || entry.tickets;
-      const won =
-        isSign && entry.signLots > 0
-          ? entry.status === "won" || entry.status === "paid"
-            ? entry.signLots
-            : 0
-          : entry.wonTickets ||
-            (entry.status === "won" || entry.status === "paid"
-              ? entry.tickets
-              : 0);
+      const { applied, won } = entryLotteryCounts(entry);
       current.applied += applied;
       current.won += won;
       current.spend += resolveMiguriEntrySpend(
@@ -1268,6 +1262,10 @@ export default function MiguriDashboard({
           total={dashboard.totalSpendYen}
         />
       </div>
+
+      {winRateTrend.releases.length > 0 ? (
+        <WinRateTrend trend={winRateTrend} />
+      ) : null}
 
       <p className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
         <Ticket size={13} />

@@ -17,6 +17,7 @@ import {
   sortEventsForDisplay,
   summarizeEntries,
 } from './meguri-helpers.ts';
+import { buildMiguriWinRateTrend, entryLotteryCounts, miguriReleaseOf } from './meguri-helpers.ts';
 
 test('resolveFortuneMeetsSource keeps lottery analysis on the selected group and single', () => {
   assert.deepEqual(
@@ -704,4 +705,84 @@ test('失効 tickets keep 中签 and 中签率 but leave spend and calendar', as
   assert.equal(prepareEntriesForCalendar([{ ...entry, lapsedTickets: 3 }]).length, 0);
   const dashboard = aggregateMiguriDashboard([entry]);
   assert.equal(dashboard.totalWon, 3); assert.equal(dashboard.totalLapsed, 1); assert.equal(dashboard.winRate, 3 / 5);
+});
+
+// 中签率推移 — titles as they appear in miguri_user_entries (Music rounds, Meets campaigns, unlinked imports).
+const SAKURA_16_MUSIC = '【抽選応募】櫻坂46 16thシングル『愛MUST BE』 発売記念オンラインミート＆グリート（個別トーク会）';
+const SAKURA_16_MEETS = '櫻坂46 16th Single『愛MUST BE』 発売記念 スペシャル応募抽選企画｜購入者応募抽選企画！16th Single『愛MUST BE』';
+const SAKURA_15_MUSIC = '【抽選応募】櫻坂46 15thシングル『Lonesome rabbit / What&#039;s “KAZOKU”?』 発売記念オンラインミート＆グリート';
+const SAKURA_15_MEETS = '櫻坂46 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』 発売記念';
+
+test('miguriReleaseOf: Music rounds and the Meets campaign of one single are one release', () => {
+  assert.equal(miguriReleaseOf({ eventTitle: SAKURA_16_MUSIC }).key, 'sakurazaka:single:16');
+  assert.equal(miguriReleaseOf({ eventTitle: SAKURA_16_MEETS }).key, 'sakurazaka:single:16');
+  assert.equal(miguriReleaseOf({ eventTitle: SAKURA_15_MEETS }).key, 'sakurazaka:single:15');
+  assert.deepEqual(miguriReleaseOf({ eventTitle: SAKURA_16_MUSIC }), {
+    key: 'sakurazaka:single:16', label: '櫻坂 16th', title: '櫻坂 16th『愛MUST BE』',
+  });
+  assert.equal(miguriReleaseOf({ eventTitle: SAKURA_15_MUSIC }).title, '櫻坂 15th『Lonesome rabbit / What\'s “KAZOKU”?』');
+});
+
+test('miguriReleaseOf: the same ordinal of another group, or an album, is a different release', () => {
+  const hinata16 = miguriReleaseOf({ eventTitle: '【抽選応募/第2次】日向坂46 16thSG『クリフハンガー』発売記念オンラインミート＆グリート' });
+  assert.equal(hinata16.key, 'hinatazaka:single:16');
+  assert.equal(hinata16.label, '日向坂 16th');
+  const album = miguriReleaseOf({ eventTitle: '【抽選応募/第1次】櫻坂46 2ndアルバム発売記念オンラインミート＆グリート' });
+  assert.deepEqual(album, { key: 'sakurazaka:album:2', label: '櫻坂 2nd 专辑', title: '櫻坂 2nd 专辑' });
+  assert.notEqual(miguriReleaseOf({ eventTitle: '櫻坂46 2nd Single『x』' }).key, album.key);
+  assert.equal(miguriReleaseOf({ eventTitle: '【抽選応募/第1次】日向坂46 6thシングル発売記念オンラインミート＆グリート' }).title, '日向坂 6th');
+  assert.equal(miguriReleaseOf({ eventTitle: '9thシングル発売記念', group: 'nogizaka' }).key, 'nogizaka:single:9');
+});
+
+test('miguriReleaseOf: an unrecognised title is still a release, one per event, not one per round', () => {
+  assert.equal(miguriReleaseOf({ eventSlug: 'special_202601', eventTitle: 'Special' }).key, 'special_202601');
+  const first = miguriReleaseOf({ eventTitle: '【抽選応募/第1次】特別企画オンライン' });
+  assert.equal(first.key, '特別企画オンライン');
+  assert.equal(miguriReleaseOf({ eventTitle: '【抽選応募/第2次】特別企画オンライン' }).key, first.key);
+  assert.equal(miguriReleaseOf({}).key, '其他');
+});
+
+const trendEntry = (overrides) => ({
+  member: '山川宇衣', date: '2026-10-18', status: 'lost', tickets: 0, category: '個別ミーグリ',
+  appliedTickets: 0, wonTickets: 0, signLots: 0, eventSlug: '', eventTitle: SAKURA_16_MUSIC, group: 'sakurazaka',
+  ...overrides,
+});
+
+test('buildMiguriWinRateTrend: won / applied per release in time order, overall and per member', () => {
+  const trend = buildMiguriWinRateTrend([
+    trendEntry({ appliedTickets: 4, wonTickets: 2, status: 'won' }),
+    trendEntry({ eventTitle: SAKURA_16_MEETS, source: 'fortunemeets', category: 'リアミ', appliedTickets: 2, wonTickets: 1, status: 'won' }),
+    trendEntry({ member: '石森璃花', appliedTickets: 3, wonTickets: 0 }),
+    trendEntry({ eventTitle: SAKURA_15_MUSIC, date: '2026-07-12', appliedTickets: 5, wonTickets: 5, status: 'won' }),
+    trendEntry({ eventTitle: SAKURA_15_MEETS, date: '2026-06-01', category: 'サイン会', signLots: 2, appliedTickets: 9, status: 'lost' }),
+    // No result yet: must not count as a loss.
+    trendEntry({ date: '2026-11-01', appliedTickets: 6, status: 'planned' }),
+  ]);
+  assert.deepEqual(trend.releases.map((release) => [release.key, release.date]), [
+    ['sakurazaka:single:15', '2026-06-01'],
+    ['sakurazaka:single:16', '2026-10-18'],
+  ]);
+  assert.deepEqual(trend.overall.points, [{ applied: 7, won: 5 }, { applied: 9, won: 3 }]);
+  assert.deepEqual(trend.members.map((member) => [member.name, member.applied, member.won]), [
+    ['山川宇衣', 13, 8],
+    ['石森璃花', 3, 0],
+  ]);
+  assert.deepEqual(trend.members[1].points, [null, { applied: 3, won: 0 }]);
+});
+
+test('buildMiguriWinRateTrend: with no pending entries each member total equals the 成员排行 counts', () => {
+  const entries = [
+    trendEntry({ appliedTickets: 4, wonTickets: 1, status: 'won' }),
+    trendEntry({ eventTitle: SAKURA_15_MUSIC, tickets: 2, status: 'paid', source: 'manual', category: null }),
+    trendEntry({ member: '石森璃花', category: 'サイン会', signLots: 3, status: 'won' }),
+    trendEntry({ member: '石森璃花', eventTitle: '【抽選応募/第1次】特別企画', date: '', appliedTickets: 2, wonTickets: 0 }),
+  ];
+  const trend = buildMiguriWinRateTrend(entries);
+  for (const member of trend.members) {
+    const ranking = entries.filter((entry) => entry.member === member.name).map(entryLotteryCounts)
+      .reduce((sum, counts) => ({ applied: sum.applied + counts.applied, won: sum.won + counts.won }), { applied: 0, won: 0 });
+    assert.deepEqual({ applied: member.applied, won: member.won }, ranking, member.name);
+  }
+  // A release without a date goes last instead of first.
+  assert.equal(trend.releases.at(-1).key, '特別企画');
 });

@@ -705,3 +705,90 @@ export function hasEventDatePassed(dateValue?: string, now = new Date()): boolea
   if (Number.isNaN(endOfDay.getTime())) return false;
   return endOfDay < now;
 }
+
+export type LotteryCountEntry = Pick<MiguriEntry, 'tickets' | 'status'>
+  & Partial<Pick<MiguriEntry, 'category' | 'appliedTickets' | 'wonTickets' | 'signLots'>>;
+
+/** Applied / won of one entry, as 成员排行 counts them: サイン会 by lots, everything else by tickets. */
+export function entryLotteryCounts(entry: LotteryCountEntry) {
+  const won = entry.status === 'won' || entry.status === 'paid';
+  const lots = entry.category === 'サイン会' ? entry.signLots || 0 : 0;
+  if (lots > 0) return { applied: lots, won: won ? lots : 0 };
+  return { applied: entry.appliedTickets || entry.tickets, won: entry.wonTickets || (won ? entry.tickets : 0) };
+}
+
+export type MiguriRelease = { key: string; label: string; title: string };
+export type WinRatePoint = { applied: number; won: number };
+export type WinRateSeries = { name: string; applied: number; won: number; points: Array<WinRatePoint | null> };
+export type WinRateTrend = {
+  releases: Array<MiguriRelease & { date: string }>;
+  overall: WinRateSeries;
+  members: WinRateSeries[];
+};
+export type WinRateTrendEntry = LotteryCountEntry & Pick<MiguriEntry, 'member' | 'date'>
+  & Partial<Pick<MiguriEntry, 'eventSlug' | 'eventTitle' | 'group'>>;
+
+const RELEASE_GROUPS: Array<[RegExp, MiguriGroupId]> = [
+  [/乃木坂46/, 'nogizaka'],
+  [/櫻坂46/, 'sakurazaka'],
+  [/日向坂46/, 'hinatazaka'],
+];
+const RELEASE_GROUP_SHORT: Record<MiguriGroupId, string> = { nogizaka: '乃木坂', sakurazaka: '櫻坂', hinatazaka: '日向坂' };
+// 「16thシングル」「16thSG」「15th Double A-side Single」「2ndアルバム」
+const RELEASE_PATTERN = /(\d+)(st|nd|rd|th)\s*(?:Double A-side\s*)?(シングル|SG|Single|アルバム|Album)/i;
+
+/** The single / album an entry's lottery belongs to: every Music round and the Meets campaign of one release share it. */
+export function miguriReleaseOf(entry: Partial<Pick<MiguriEntry, 'eventSlug' | 'eventTitle' | 'group'>>): MiguriRelease {
+  const title = (entry.eventTitle || '').replace(/&#0?39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+  const release = title.match(RELEASE_PATTERN);
+  if (!release) {
+    // Older titles carry the round in the bracket (【抽選応募/第2次】); strip it so the rounds stay one release.
+    const plain = title.replace(/^【[^】]*】\s*/, '').trim() || entry.eventSlug || '其他';
+    return { key: entry.eventSlug || plain, label: plain.slice(0, 10), title: plain };
+  }
+  const group = RELEASE_GROUPS.find(([pattern]) => pattern.test(title))?.[1] || entry.group || null;
+  const album = /アルバム|Album/i.test(release[3]);
+  const label = `${group ? `${RELEASE_GROUP_SHORT[group]} ` : ''}${release[1]}${release[2].toLowerCase()}${album ? ' 专辑' : ''}`;
+  const name = title.match(/『([^』]+)』/)?.[1];
+  return { key: `${group || '-'}:${album ? 'album' : 'single'}:${release[1]}`, label, title: name ? `${label}『${name}』` : label };
+}
+
+/** 中签率推移: won / applied per release in time order, overall and per member. Entries without a result yet are left out. */
+export function buildMiguriWinRateTrend(entries: WinRateTrendEntry[]): WinRateTrend {
+  const ALL = '\u0000all';
+  const releases = new Map<string, MiguriRelease & { date: string }>();
+  const cells = new Map<string, Map<string, WinRatePoint>>();
+  const add = (name: string, key: string, counts: WinRatePoint) => {
+    const row = cells.get(name) || new Map<string, WinRatePoint>();
+    const point = row.get(key) || { applied: 0, won: 0 };
+    row.set(key, { applied: point.applied + counts.applied, won: point.won + counts.won });
+    cells.set(name, row);
+  };
+  for (const entry of entries) {
+    const counts = entryLotteryCounts(entry);
+    if (entry.status === 'planned' || counts.applied <= 0) continue;
+    const release = miguriReleaseOf(entry);
+    const known = releases.get(release.key);
+    if (!known) releases.set(release.key, { ...release, date: entry.date || '' });
+    else if (entry.date && (!known.date || entry.date < known.date)) known.date = entry.date;
+    add(ALL, release.key, counts);
+    add(entry.member, release.key, counts);
+  }
+  const ordered = Array.from(releases.values()).sort((left, right) => (
+    (left.date || '9999').localeCompare(right.date || '9999') || left.key.localeCompare(right.key)
+  ));
+  const series = (name: string, row: Map<string, WinRatePoint>): WinRateSeries => {
+    const points = ordered.map((release) => row.get(release.key) || null);
+    return {
+      name,
+      applied: points.reduce((sum, point) => sum + (point?.applied || 0), 0),
+      won: points.reduce((sum, point) => sum + (point?.won || 0), 0),
+      points,
+    };
+  };
+  const members = Array.from(cells.entries())
+    .filter(([name]) => name !== ALL)
+    .map(([name, row]) => series(name, row))
+    .sort((left, right) => right.applied - left.applied || left.name.localeCompare(right.name, 'ja'));
+  return { releases: ordered, overall: series('全部', cells.get(ALL) || new Map()), members };
+}
