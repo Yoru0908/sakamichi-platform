@@ -67,7 +67,7 @@ const GROUP_LABELS: Record<MiguriGroupId, string> = {
 };
 const MEETS_DISCOUNT_STORAGE_KEY =
   "46log:miguri:limited-edition-discount-pct";
-const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 20] as const;
+const MIN_RECOMMENDED_EXTENSION_VERSION = [1, 1, 21] as const;
 
 function extensionNeedsUpdate(version: string) {
   const current = version.split(".").map((part) => Number(part) || 0);
@@ -280,7 +280,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   当前版本需要更新
                 </div>
                 <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                  v1.1.20 适配 forTUNE meets 10/13 改版后的登录方式：旧版即使已登录也会停在「等待官方登录」。请先关闭旧版自动同步，再下载 ZIP 手动更新；商店版尚未包含此修复。
+                  v1.1.21 修正 Meets 保障应募（R 序列号）被重复算钱，并包含 v1.1.20 对 forTUNE meets 10/13 改版登录方式的适配（旧版已登录也会停在「等待官方登录」）。请先关闭旧版自动同步，再下载 ZIP 手动更新；商店版尚未包含这些修复。
                 </p>
               </div>
               <div className="flex shrink-0 flex-wrap gap-2">
@@ -294,11 +294,11 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   </button>
                 ) : null}
                 <a
-                  href="/downloads/46log-miguri-sync.zip?v=1.1.20"
+                  href="/downloads/46log-miguri-sync.zip?v=1.1.21"
                   download
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-xs font-bold text-white hover:bg-indigo-700"
                 >
-                  <Download size={15} /> 下载 v1.1.20 ZIP
+                  <Download size={15} /> 下载 v1.1.21 ZIP
                 </a>
               </div>
             </div>
@@ -357,13 +357,13 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 text-xs font-bold text-emerald-800">
-                <Puzzle size={14} /> 修复版 ZIP · v1.1.20
+                <Puzzle size={14} /> 修复版 ZIP · v1.1.21
               </div>
               <div className="mt-3 text-sm font-bold text-[var(--text-primary)]">
                 安装最新版同步扩展
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
-                v1.1.20 适配 forTUNE meets 10/13 改版后的登录方式（旧版已登录也会停在「等待官方登录」），现可下载 ZIP 手动安装。Chrome Web Store 版尚未包含此修复。
+                v1.1.21 修正 Meets 保障应募（R 序列号）被重复算钱，并包含 v1.1.20 对 forTUNE meets 10/13 改版登录方式的适配（旧版已登录也会停在「等待官方登录」），现可下载 ZIP 手动安装。Chrome Web Store 版尚未包含这些修复。
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
@@ -382,11 +382,11 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                 从 Chrome Web Store 安装 <ArrowRight size={16} />
               </a>
               <a
-                href="/downloads/46log-miguri-sync.zip?v=1.1.20"
+                href="/downloads/46log-miguri-sync.zip?v=1.1.21"
                 download
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-indigo-500/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
-                <Download size={16} /> 下载 v1.1.20 ZIP
+                <Download size={16} /> 下载 v1.1.21 ZIP
               </a>
             </div>
           </div>
@@ -632,9 +632,14 @@ export default function MiguriDashboard({
             if (entry.category === "サイン会") {
               totals.signPaid += paidSpend;
             }
+            totals.rescue += entry.rescueTickets || 0;
+            totals.rescueWon += entry.rescueWonTickets || 0;
+            if ((entry.rescueTickets || 0) > 0 && entry.rescueWonTickets == null) {
+              totals.rescueWonKnown = false;
+            }
             return totals;
           },
-          { paid: 0, signPaid: 0 },
+          { paid: 0, signPaid: 0, rescue: 0, rescueWon: 0, rescueWonKnown: true },
         ),
     [filteredEntries, meetsDiscountPct],
   );
@@ -951,8 +956,17 @@ export default function MiguriDashboard({
                     </span>
                   </>
                 ) : null}
+                {meetsSpend.rescue > 0 ? (
+                  <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
+                    <span>保障应募（R 序列号，不计金额）</span>
+                    <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
+                      {meetsSpend.rescue} 次
+                      {meetsSpend.rescueWonKnown ? ` · 中 ${meetsSpend.rescueWon}` : ""}
+                    </strong>
+                  </span>
+                ) : null}
                 <span className="mt-3 block text-[11px] leading-5 text-[var(--text-tertiary)]">
-                  リアミ／全国每次应募按 1 张碟计费，中没中都算进支付合计：当选金额 = 当选张数 × 单价，落选金额 = 落选张数 × 单价。サイン会一口需要多张碟，按官方 used 序列号张数计费。单价取价格表，没收录的单曲用同步时官方页面的販売価格，再乘上方折扣。
+                  リアミ／全国每次用自己买的碟应募按 1 张碟计费，中没中都算进支付合计：当选金额 = 当选张数 × 单价，落选金额 = 落选张数 × 单价。保障应募用的是 1 次落选后发的 R 序列号，那张碟在落选时已算过，记 ¥0（需扩展 v1.1.21 同步）。サイン会一口需要多张碟，按官方 used 序列号张数计费。单价取价格表，没收录的单曲用同步时官方页面的販売価格，再乘上方折扣。
                 </span>
               </label>
             ) : null}

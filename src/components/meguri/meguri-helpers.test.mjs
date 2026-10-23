@@ -414,6 +414,43 @@ test('resolveMiguriEntrySpend prices a single missing from the catalog at the sy
   assert.equal(resolveMiguriEntrySpend({ ...entry, unitPriceYen: 0 }, 0, true).spendYen, 0);
 });
 
+// 15th 全国 for one user: 17 applications, 3 with bought serials (all won) and 14 保障 R1 (4 won).
+test('resolveMiguriEntrySpend charges 保障 applications nothing because the lost 1次 CD was already counted', () => {
+  const entry = {
+    id: 'rescue-mix',
+    member: '山川宇衣',
+    date: '2026-07-12',
+    slot: 1,
+    tickets: 7,
+    status: 'won',
+    source: 'fortunemeets',
+    group: 'sakurazaka',
+    category: '全国ミーグリ',
+    eventTitle: '櫻坂46 15th Single「Lonesome rabbit / What\'s “KAZOKU”?」発売記念',
+    appliedTickets: 17,
+    wonTickets: 7,
+    paidTickets: 9,
+    rescueTickets: 14,
+    rescueWonTickets: 4,
+  };
+  assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 6000);
+  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 6000);
+  assert.equal(resolveMiguriEntryLostSpend(entry), 0);
+  // All 保障: nothing bought for this slot.
+  const allRescue = { ...entry, appliedTickets: 10, wonTickets: 5, rescueTickets: 10, rescueWonTickets: 5 };
+  assert.equal(resolveMiguriEntrySpend(allRescue, 0, true).spendYen, 0);
+  // Old sync (no 保障 counts): every application is a bought CD, as before.
+  const oldSync = { ...entry, rescueTickets: null, rescueWonTickets: null };
+  assert.equal(resolveMiguriEntrySpend(oldSync, 0, true).spendYen, 34000);
+  // 保障 known but its wins not split: total stays right, wins go to bought CDs first.
+  const unsplit = { ...entry, rescueWonTickets: null };
+  assert.equal(resolveMiguriEntrySpend(unsplit, 0, true).spendYen, 6000);
+  assert.equal(resolveMiguriEntrySpend(unsplit).spendYen, 6000);
+  // サイン会 has no 保障 round; a stray count is ignored.
+  const sign = { ...entry, category: 'サイン会', appliedTickets: 12, wonTickets: 0, status: 'lost', paidTickets: 12, rescueTickets: 5 };
+  assert.equal(resolveMiguriEntrySpend(sign, 0, true).spendYen, 24000);
+});
+
 test('resolveMiguriEntrySpend charges a 33口 × 3-CD sign event as 99 CDs', () => {
   const entry = {
     id: 'sign-won',

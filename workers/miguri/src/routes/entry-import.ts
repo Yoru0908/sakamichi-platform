@@ -31,6 +31,9 @@ export type MiguriImportRecord = {
   venue: string;
   group: MiguriImportGroup | null;
   resultStatus?: 'pending' | 'won' | 'lost' | 'paid';
+  /** Meets 保障 applications (R serials) and their wins; null when the extension did not send them. */
+  rescueTickets: number | null;
+  rescueWonTickets: number | null;
 };
 
 export type NormalizedImportRecord = MiguriImportRecord & {
@@ -186,6 +189,11 @@ export function normalizeImportRecord(input: unknown): NormalizedImportRecord | 
   ) return null;
   if (eventSlug && !/^[\w-]+$/.test(eventSlug)) return null;
 
+  // Optional and lenient: a bad 保障 count is dropped (null = unknown), it never rejects the record.
+  const rescueTickets = raw.rescueTickets == null ? null : normalizeCount(raw.rescueTickets);
+  const rescue = rescueTickets !== null && rescueTickets <= appliedTickets ? rescueTickets : null;
+  const rescueWon = rescue === null || raw.rescueWonTickets == null ? null : normalizeCount(raw.rescueWonTickets);
+
   return {
     source,
     sourceKey,
@@ -208,6 +216,8 @@ export function normalizeImportRecord(input: unknown): NormalizedImportRecord | 
     title,
     venue,
     group,
+    rescueTickets: rescue,
+    rescueWonTickets: rescueWon !== null && rescue !== null && rescueWon <= Math.min(rescue, wonTickets) ? rescueWon : null,
   };
 }
 
@@ -352,6 +362,7 @@ async function loadImportedEntries(
       SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.status,
              e.source, e.source_key, e.category, e.venue,
              e.applied_tickets, e.won_tickets, e.paid_tickets, e.lapsed_tickets,
+             e.rescue_tickets, e.rescue_won_tickets,
              e.unit_price_yen, e.spend_yen, e.sign_lots,
              e.application_round, e.source_synced_at,
              COALESCE(m.title, e.import_title) AS event_title,
@@ -387,6 +398,8 @@ async function loadImportedEntries(
       wonTickets: row.won_tickets,
       paidTickets: row.paid_tickets,
       lapsedTickets: row.lapsed_tickets ?? 0,
+      rescueTickets: row.rescue_tickets ?? null,
+      rescueWonTickets: row.rescue_won_tickets ?? null,
       unitPriceYen: row.unit_price_yen ?? 0,
       spendYen: row.spend_yen ?? 0,
       signLots: row.sign_lots ?? 0,
@@ -409,10 +422,11 @@ export const UPSERT_ENTRY_SQL = `
       id, user_id, event_slug, member_name, event_date, slot_number, tickets, status,
       source, source_key, category, venue, import_title, import_group,
       applied_tickets, won_tickets, paid_tickets,
-      unit_price_yen, spend_yen, sign_lots, application_round, source_synced_at
+      unit_price_yen, spend_yen, sign_lots, application_round, source_synced_at,
+      rescue_tickets, rescue_won_tickets
     )
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ON CONFLICT(user_id, source_key) WHERE source_key IS NOT NULL DO UPDATE SET
       event_slug = excluded.event_slug,
       member_name = excluded.member_name,
@@ -434,6 +448,9 @@ export const UPSERT_ENTRY_SQL = `
       sign_lots = excluded.sign_lots,
       application_round = excluded.application_round,
       source_synced_at = excluded.source_synced_at,
+      -- A sync from an extension without 保障 counts keeps the last known ones instead of erasing them.
+      rescue_tickets = CASE WHEN excluded.rescue_tickets IS NULL THEN miguri_user_entries.rescue_tickets ELSE excluded.rescue_tickets END,
+      rescue_won_tickets = CASE WHEN excluded.rescue_tickets IS NULL THEN miguri_user_entries.rescue_won_tickets ELSE excluded.rescue_won_tickets END,
       updated_at = datetime('now')
   `;
 
@@ -484,6 +501,8 @@ export async function handleImportMiguriEntries(req: Request, env: Env): Promise
     record.signLots,
     record.applicationRound,
     record.sourceSyncedAt,
+    record.rescueTickets,
+    record.rescueWonTickets,
   ));
 
   for (const statementChunk of chunk(statements, WRITE_CHUNK_SIZE)) {

@@ -100,8 +100,12 @@ export interface MiguriEntry {
   appliedTickets: number;
   wonTickets: number;
   paidTickets: number;
-  /** 失効：未付款而失效的中签张数；实际持有 = wonTickets - lapsedTickets */
+  /** 失効：未付款而失効的中签张数；实际持有 = wonTickets - lapsedTickets */
   lapsedTickets?: number;
+  /** Meets 保障：用 1 次落选后发的 R 序列号应募的张数（那张碟已在落选时算过）。null = 旧扩展同步，不知道 */
+  rescueTickets?: number | null;
+  /** 保障应募里中签的张数；null = 不知道 */
+  rescueWonTickets?: number | null;
   unitPriceYen: number;
   spendYen: number;
   signLots: number;

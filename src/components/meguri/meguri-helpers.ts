@@ -19,6 +19,8 @@ export type DashboardEntryLike = EntryLike & Partial<Pick<
   | 'wonTickets'
   | 'paidTickets'
   | 'lapsedTickets'
+  | 'rescueTickets'
+  | 'rescueWonTickets'
   | 'unitPriceYen'
   | 'spendYen'
   | 'signLots'
@@ -311,18 +313,22 @@ export function resolveMiguriEntrySpend(
     // official campaign (販売価格) instead of counting its CDs as ¥0.
     const priceYen = resolveMiguriCdPriceYen(entry.group, entry.eventTitle) || entry.unitPriceYen || 0;
     const appliedTickets = Math.max(wonTickets, entry.appliedTickets || 0);
-    // リアミ / 全国: every application is one CD bought up front, won or lost. サイン会 takes several CDs per 口,
-    // so it keeps the official used-serial count.
+    // リアミ / 全国: every application with an own serial is one CD bought up front, won or lost. A 保障 application
+    // reuses a lost 1次 serial (R1/R2/R3), so its CD is already counted. サイン会 takes several CDs per 口, so it keeps
+    // the official used-serial count. Old syncs carry no 保障 counts and read as 0.
+    const isSign = entry.category === 'サイン会';
+    const rescueTickets = isSign ? 0 : Math.min(appliedTickets, entry.rescueTickets || 0);
+    const rescueWonTickets = Math.min(rescueTickets, entry.rescueWonTickets || 0);
     const hasSerialAllocation =
       (entry.paidTickets || 0) > 0 || (entry.spendYen || 0) === 0;
-    const allocatedSerials = entry.category !== 'サイン会'
-      ? appliedTickets
+    const allocatedSerials = !isSign
+      ? appliedTickets - rescueTickets
       : hasSerialAllocation
         ? Math.max(0, entry.paidTickets || 0)
         : appliedTickets;
     const officialLostTickets = entry.status === 'planned'
       ? 0
-      : Math.max(0, appliedTickets - wonTickets);
+      : Math.max(0, appliedTickets - rescueTickets - (wonTickets - rescueWonTickets));
     const allocatedLostSerials = Math.min(
       allocatedSerials,
       officialLostTickets,

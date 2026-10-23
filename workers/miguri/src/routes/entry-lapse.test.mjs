@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { DatabaseSync } from 'node:sqlite';
 import { UPSERT_ENTRY_SQL, normalizeImportRecord } from './entry-import.ts';
 
-const MIGRATIONS = ['005_miguri.sql', '010_miguri_entry_import.sql', '011_miguri_entry_analytics.sql', '012_miguri_entry_lapsed.sql'];
+const MIGRATIONS = ['005_miguri.sql', '010_miguri_entry_import.sql', '011_miguri_entry_analytics.sql', '012_miguri_entry_lapsed.sql', '016_miguri_entry_rescue.sql'];
 function database() {
   const db = new DatabaseSync(':memory:');
   for (const name of MIGRATIONS) db.exec(readFileSync(new URL(`../../../auth/src/db/migrations/${name}`, import.meta.url), 'utf8'));
@@ -20,7 +20,8 @@ const music = (overrides = {}) => ({
 function save(db, raw) {
   const r = normalizeImportRecord(raw);
   db.prepare(UPSERT_ENTRY_SQL).run('id-' + Math.random(), 'user-1', '', r.member, r.date, r.slot, r.tickets, r.status, r.source, r.sourceKey,
-    r.category, r.venue, r.title, r.group, r.appliedTickets, r.wonTickets, r.paidTickets, r.unitPriceYen, r.spendYen, r.signLots, r.applicationRound, r.sourceSyncedAt);
+    r.category, r.venue, r.title, r.group, r.appliedTickets, r.wonTickets, r.paidTickets, r.unitPriceYen, r.spendYen, r.signLots, r.applicationRound, r.sourceSyncedAt,
+    r.rescueTickets, r.rescueWonTickets);
   return db.prepare('SELECT won_tickets AS won, lapsed_tickets AS lapsed, status, spend_yen AS spend FROM miguri_user_entries').get();
 }
 
@@ -43,4 +44,28 @@ test('a different applied count or a first import is taken as read', () => {
   assert.deepEqual({ ...save(db, music({ appliedTickets: 6, lotteryApplied: 6, wonTickets: 2, spendYen: 2400 })) }, { won: 2, lapsed: 0, status: 'won', spend: 2400 });
   const fresh = database();
   assert.deepEqual({ ...save(fresh, music({ wonTickets: 0, lotteryWon: 1, lotteryReviewRequired: true })) }, { won: 1, lapsed: 0, status: 'won', spend: 1200 });
+});
+
+// Meets 保障 (R serials): 15th 全国 第3部 had 3 bought + 14 保障 applications (4 保障 wins).
+const meets = (overrides = {}) => ({
+  source: 'fortunemeets', sourceKey: 'sakurazaka46:15th-online-0712-3', category: '全国ミーグリ', member: '山川宇衣',
+  date: '2026-07-12', slot: 3, appliedTickets: 17, wonTickets: 7, paidTickets: 9, unitPriceYen: 2000, spendYen: 18000,
+  signLots: 0, applicationRound: '15th', sourceSyncedAt: '2026-10-25T00:00:00.000Z', eventSlug: '', title: 't', venue: '',
+  group: 'sakurazaka', resultStatus: 'won', ...overrides,
+});
+const rescueRow = (db) => ({ ...db.prepare('SELECT rescue_tickets AS rescue, rescue_won_tickets AS rescueWon FROM miguri_user_entries').get() });
+test('保障 counts are optional, validated leniently, and kept when an older extension re-syncs', () => {
+  assert.equal(normalizeImportRecord(meets()).rescueTickets, null);
+  assert.equal(normalizeImportRecord(meets({ rescueTickets: 18 })).rescueTickets, null);
+  assert.equal(normalizeImportRecord(meets({ rescueTickets: 14, rescueWonTickets: 8 })).rescueWonTickets, null);
+  assert.ok(normalizeImportRecord(meets({ rescueTickets: 'x' })));
+  const db = database();
+  save(db, meets());
+  assert.deepEqual(rescueRow(db), { rescue: null, rescueWon: null });
+  save(db, meets({ rescueTickets: 14, rescueWonTickets: 4 }));
+  assert.deepEqual(rescueRow(db), { rescue: 14, rescueWon: 4 });
+  save(db, meets());
+  assert.deepEqual(rescueRow(db), { rescue: 14, rescueWon: 4 });
+  save(db, meets({ rescueTickets: 14, rescueWonTickets: null }));
+  assert.deepEqual(rescueRow(db), { rescue: 14, rescueWon: null });
 });
