@@ -1,5 +1,11 @@
 # 圣巡定时同步核查 — 2026-10-23 JST
 
+## 最终自然周期与线上数据
+
+10/23 的第二个日间自然周期也已完成：oversea 13:17:02–13:17:04 JST、shimizu-hinata 13:31:01–13:31:09、fumi 13:43:01–13:43:14，三份正式 run reports 均 success / complete / exit_code 0。日向坂自动提交 `9a6c5fa` 新增2点，4,384→**4,386**；另外两路 unchanged。根端快进合入该数据提交，并核对当前 Pages `5858e9d0` 的动态 API 与三份 Git 文件逐字节一致。日向坂 SHA256 `d787d6b8b8adcbf8688d4a1779dfa3cd335c8693fa947c24e4920aaef6bea6e6`；櫻坂1,486、海外141，散列仍为下文记录值。证据 `.tmp/maps-final-20261023.json`。
+
+前端代码部署仍为 `7f0cebc` → Pages `5858e9d0`；数据更新不需要重新部署页面。该 Pages 的静态兜底仍是构建时快照，正常访问使用已核实的动态 API。相模川移动继续保留旧点待审。
+
 ## 修复后验证（00:52–00:59 JST）
 
 下文初次审计的 4,280 点/未部署是历史现场。修复 `959fa15` 已通过 Git bundle 从本地正本部署到 `/vol1/sakamichi-platform`，保持 tracked 工作区干净；备份在 `/vol1/seichi-sync/backups/release-20261023/`。保守增量发布在 00:52 两次正常 runner 执行中分别提交 `0d39673`（4,330 点）、`8b98d75`（4,380 点），实测抓取→质量门→测试→commit→push。

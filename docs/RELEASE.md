@@ -19,7 +19,7 @@
 ### 回滚
 
 - 本轮之前 Pages：`6c174b7f-e517-47b2-a365-38f440c74373`，source `1190e61`。
-- 保存修复前 miguri：`99221a32-b3f0-4401-9fd8-ef892fedbccb`。仅需撤回后续私人记录功能时应退到保留保存修复的 `bafd6d73`。
+- 保存修复前 miguri：`99221a32-b3f0-4401-9fd8-ef892fedbccb`。本轮发布前最后版本是 `47c1868a-6ecf-496d-add1-ecd5cf9a2797`（含另一次 `aae1e25` 告警修复及其secret配置），应优先按该版本回退；`bafd6d73` 仅保留较早保存修复，会丢失后续告警代码。
 - schema 015 为 additive；回退代码时保留新表，避免清除用户已保存的感想/花费/公开偏好。
 - 不能用旧源码重新发布去回滚地图数据；当前 Git Raw 与 Pages 内置静态快照分别记录。远端同步备份位于 `/vol1/seichi-sync/backups/release-20261023/`，审查前 GeoJSON 位于 `/vol1/seichi-sync/reviews/20261023/`。
 
@@ -44,3 +44,28 @@
 
 - 旧WebKit `/schedule` React hydration错误已复现并修：Intl中文日期空格在Node/WebKit不同，改确定格式；Astro序列化initialDate，mount后更新JST今日，避免静态构建跨日不一致。Chrome/WebKit×light/dark、跨日、reload严格零pageerror。
 - 01:17 JST自然cron已完成oversea（started16:17:02Z/finished16:17:04Z），status=success、stage=complete、unchanged、commit935f2b0；不是手动触发。
+
+### 页面收尾版本
+
+Pages 最终 `5858e9d0`，源码 `7f0cebc`（事件语义main整理 `e62d45a`、日向坂标题/团体标识修正 `7f0cebc`）；miguri仍 `f48145e2`。构建56页通过。工作区只有预存未跟踪依赖 `workers/auth/node_modules`，发布器会报dirty metadata；未将依赖链接加入源码。
+
+公开API再次逐条验证2026/2027全部76个人工会场、2011全部7个curated日期。三路地图API与Git文件逐字节一致：日向坂4384 SHA `22d8810ec7dd28f8c1c44dccd5e2b65b63e87fac20690d0ff62d491ba6c4b289`；櫻坂1486（另有20补充点，页面综合显示1506）；海外141。新版定位按钮已在真实日向坂生产地图可见；定位成功/拒绝/超时/半径及排序由本地模拟浏览器验证，没有替用户授权系统定位。
+
+saka46log解析追加修复 `4d6b7a5` → `854bbc7c-f7ad-49c6-aff8-197f7cf8d3da`，拒绝地区副标题/幕張等非场馆并规范冒号分号。21个event回归和tsc通过；Homeserver parser按共享锁原子替换、SHA一致，旧版已备份。
+
+最终生产手机验收：真实Chrome 390×844，活动卡片/票根/操作区完整，document scrollWidth=390、viewport=390，仅一个main；恢复原窗口尺寸。截图 `.tmp/events-production-mobile-20261023.png`。8条官方标题明确取消/延期的日向坂旧活动已移出公开列表，原source/title/lead/venue和私人记录保留，精确回读通过。
+
+后续13时自然地图周期三路全部成功，日向坂自动提交 `9a6c5fa` 新增2点，当前4,386点。已快进合入生产数据提交；线上动态API与三份Git文件逐字节一致（日向坂SHA `d787d6b8b8adcbf8688d4a1779dfa3cd335c8693fa947c24e4920aaef6bea6e6`）。Pages前端版本保持5858e9d0，静态兜底保持构建时快照。详见 `SEICHI_SYNC_AUDIT_20261023.md`。
+
+### 历史回填与数据终态
+
+- 乃木坂201108…202608共181个月，31,699条官网原始日程逐ID/date/title/lead/source_url与D1一致：零缺失、零多余、零字段差异。2011的23条都是生日投影，全部rejected；独立7个curated日期保持published。2011实际历史仍有来源空白，详见saka46log的 `docs/2011-source-review/`。
+- 当前乃木坂2,867、日向坂481、櫻坂488条公开活动日期记录（共3,836，包含当期/未来窗口）；未决分类94条（60/24/10）继续待审。公开生日、标题含中止/延期均为0。已精确清理旧18条+末批92条会场，末批89条规范化、3条未知，原始来源/分类/私人记录保持；不从日期区间推造场次。
+- 14:33 JST公开代理、14:34 JST内部只读API完整核对34个团体/年份（各团首年…2027），与清理后D1逐字段、规范化SHA一致；内部响应均no-store，公开投影不含attendees/memo/cost/user_id。76个人工会场、7个curated日期、92个最终会场修正全部包含在核验中。
+- 内置浏览器直接访问正式46log的乃木坂2019页面：111场活动/470个活动日条目已显示，修正后的GIRLS REVUE东京/大阪会场可见，单一main、1280px无横向溢出、console error为0。截图 `.tmp/nogi-history-production-20261023.png`。此前真实登录和390px手机生产验证仍见上文。
+
+### 最终发布收尾
+
+- saka46log 最终源码 `2f9a566`，14:40 JST通过正式部署守卫发布 Worker **`cf3c41c5-c66a-4259-95de-418d09230a6a`**；104项测试、2项来源缓存测试、tsc/build通过。14:49 JST发布后公开列表2026/80条、46log乃木坂2019/470条均HTTP200；未认证内部接口HTTP401。日志在saka46log `.tmp/deploy-history-final-20261023.log`，精确核验在 `.tmp/worker-final-postdeploy-20261023.json`。最近前版Worker回滚 `854bbc7c-f7ad-49c6-aff8-197f7cf8d3da`。
+- Homeserver最终parser SHA `040c74a89274a23c7a344f8106bf0a649c84d2ba51dc8ffdb2f0ad320864bbfb`；先SCP暂存再共享锁内原子替换，前版备份 `/vol1/saka46log-sync/backups/parser-final-20261023/events-parse.4c027cf8.ts`。无需重启常驻进程，下一次cron直接读取该文件。
+- 部署地图、两仓库RELEASE及任务清单完成回写。2011源空白、94条分类待审、相模川1处待核地点移动均明确保留，不自动编造或发布；本轮功能和既定历史抓取范围已完成。
