@@ -22,6 +22,9 @@ const slotColor = (slot: number) => (slot > 0 ? LINE_COLORS[(slot - 1) % LINE_CO
 const bySlot = (left: number, right: number) => (left || 99) - (right || 99);
 const byDate = (left: string, right: string) => (left || "9999").localeCompare(right || "9999");
 
+/** 京都パルスプラザ → 京都, 東京ビッグサイト → 東京, 幕張メッセ → 幕張; names without a leading place stay whole. */
+const shortVenue = (venue: string) => venue.match(/^\p{Script=Han}{2,}/u)?.[0] ?? venue;
+
 function dateLabel(date: string) {
   const match = date.match(/^\d{4}-(\d{2})-(\d{2})$/);
   if (!match) return date || "日期未知";
@@ -255,11 +258,13 @@ function TrendChart({
             {releases.map((item, index) => (
               <span
                 key={item.key}
-                className={`truncate px-1 pt-2 text-center text-[11px] ${
+                title={item.venue ? `${item.label} · ${item.venue}` : item.label}
+                className={`min-w-0 px-1 pt-2 text-center text-[11px] leading-4 ${
                   index === active ? "font-bold text-indigo-700 dark:text-indigo-300" : "text-[var(--text-tertiary)]"
                 }`}
               >
-                {item.label}
+                <span className="block truncate">{item.label}</span>
+                {item.venue ? <span className="block truncate text-[10px] font-normal">{shortVenue(item.venue)}</span> : null}
               </span>
             ))}
           </div>
@@ -283,7 +288,7 @@ function TrendChart({
   );
 }
 
-/** 中签率推移: one 类型/会场 at a time (部 never cross 個別 / リアミ / venues), by member or by 部, with three tables. */
+/** 中签率推移: one category at a time (部 never cross 個別 / リアミ), real-meet venues as their own points, by member or by 部, with three tables. */
 export default function WinRateTrend({ trend }: { trend: Trend }) {
   const defaultSection = [...trend.sections].sort((left, right) => right.applied - left.applied)[0]?.key ?? "";
   const [sectionKey, setSectionKey] = useState(defaultSection);
@@ -294,9 +299,6 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
   const [scheduleMember, setScheduleMember] = useState("");
 
   const section = trend.sections.find((item) => item.key === sectionKey) ?? trend.sections.find((item) => item.key === defaultSection);
-  // Two levels: category tabs, then a venue menu. Sections come busiest venue first, so a tab opens on that venue.
-  const kinds = Array.from(new Set(trend.sections.map((item) => item.kind)));
-  const venues = trend.sections.filter((item) => item.kind === section?.kind);
   const cells = useMemo(() => trend.cells.filter((cell) => cell.section === section?.key), [trend.cells, section?.key]);
   const byRelease = useMemo(
     () => pivotWinRate(cells, (cell) => (cut === "member" ? cell.member : String(cell.slot)), (cell) => cell.release),
@@ -343,7 +345,9 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
         rows: releases.map((item, index) => ({
           key: item.key,
           label: item.label,
-          sub: item.title.startsWith(`${item.label}『`) ? item.title.slice(item.label.length) : item.date,
+          sub: item.venue
+            ? `${shortVenue(item.venue)} · ${dateLabel(item.date)}`
+            : item.title.startsWith(`${item.label}『`) ? item.title.slice(item.label.length) : item.date,
           points: [byRelease.columnTotal(item.key), ...series.map((line) => line.points[index])],
           active: index === activeIndex,
           onSelect: () => setReleaseKey(item.key),
@@ -393,28 +397,16 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
         <Segmented label="线条" value={cut} options={[["member", "按成员"], ["slot", "按部"]]} onChange={setCut} />
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-2">
-        {kinds.length > 1 ? (
+      {trend.sections.length > 1 ? (
+        <div className="mt-3">
           <Segmented
             label="类型"
-            value={section.kind}
-            options={kinds.map((kind) => [kind, kind] as [string, string])}
-            onChange={(kind) => setSectionKey(trend.sections.find((item) => item.kind === kind)?.key ?? defaultSection)}
-          />
-        ) : (
-          <span className="text-xs font-semibold text-[var(--text-secondary)]">{section.kind}</span>
-        )}
-        {venues.length > 1 ? (
-          <Picker
-            label="会场"
             value={section.key}
-            options={venues.map((item) => [item.key, item.venue || "未注明会场"] as [string, string])}
+            options={trend.sections.map((item) => [item.key, item.label] as [string, string])}
             onChange={setSectionKey}
           />
-        ) : section.venue ? (
-          <span className="text-xs text-[var(--text-tertiary)]">{section.venue}</span>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
 
       <div className="mt-4 flex flex-wrap gap-2">
         <Chip on={false}>
@@ -441,7 +433,7 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
           <Picker
             label="单曲"
             value={release.key}
-            options={releases.map((item) => [item.key, item.title] as [string, string])}
+            options={releases.map((item) => [item.key, item.venue ? `${item.title} · ${item.venue}` : item.title] as [string, string])}
             onChange={setReleaseKey}
           />
         )}
@@ -460,8 +452,8 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
       </div>
 
       <p className="mt-3 text-xs leading-5 text-[var(--text-tertiary)]">
-        中签率 = 中签张数 ÷ 申请张数（サイン会按抽选次数），与成员排行同一算法，但只计已出结果的申请。個別 / 全国 / リアミ / サイン会与各会场分开统计，部不跨类型或会场合并；
-        同一单曲的各次受付合并。「每部合计」看哪一部更难抽。跟随上方团体与类型筛选。
+        中签率 = 中签张数 ÷ 申请张数（サイン会按抽选次数），与成员排行同一算法，但只计已出结果的申请。個別 / 全国 / リアミ / サイン会分开统计；リアミ与サイン会的每个会场单独算（图上一个点、表里一行），
+        同一会场的部才放在一起。同一单曲的各次受付合并。「每部合计」看哪一部更难抽。跟随上方团体与类型筛选。
       </p>
     </section>
   );

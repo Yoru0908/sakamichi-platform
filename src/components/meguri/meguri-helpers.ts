@@ -720,11 +720,14 @@ export function entryLotteryCounts(entry: LotteryCountEntry) {
 export type MiguriRelease = { key: string; label: string; title: string };
 export type WinRatePoint = { applied: number; won: number };
 /** One result cell: a member's tickets in one 部 of one day, inside one release and one 类型/会场 section. */
+/** One result cell: a member's tickets in one 部 of one day, at one point (`release`) of one category (`section`). */
 export type WinRateCell = WinRatePoint & { release: string; section: string; date: string; slot: number; member: string };
-/** Where 部 numbers compare: one category (`kind`, e.g. 個別 / リアミ) at one venue. */
-export type WinRateSection = { key: string; kind: string; venue: string; applied: number };
+/** One x-axis point: a single, and for real-meet events one venue of it — 京都 第1部 and 東京 第1部 are separate lotteries. */
+export type WinRateRelease = MiguriRelease & { date: string; venue: string };
+/** Where 部 numbers compare: one category. Music 個別 第1部 and Meets リアミ 第1部 never share a column. */
+export type WinRateSection = { key: string; label: string; applied: number };
 export type WinRateTrend = {
-  releases: Array<MiguriRelease & { date: string }>;
+  releases: WinRateRelease[];
   sections: WinRateSection[];
   cells: WinRateCell[];
 };
@@ -739,13 +742,18 @@ const SECTION_LABELS: Array<[NonNullable<MiguriEntry['category']>, string]> = [
   ['その他', '其他'],
 ];
 
-/** Music 個別 第1部, Meets リアミ 第1部 and 京都 / 幕張 第1部 are separate lotteries, so each category × venue is its own section. */
-export function miguriSectionOf(entry: Partial<Pick<MiguriEntry, 'category' | 'venue'>>) {
+export function miguriSectionOf(entry: Partial<Pick<MiguriEntry, 'category'>>) {
   const category = entry.category || '個別ミーグリ';
   const found = SECTION_LABELS.findIndex(([value]) => value === category);
   const order = found < 0 ? SECTION_LABELS.length - 1 : found;
+  return { key: category, label: SECTION_LABELS[order][1], order };
+}
+
+/** 'sakurazaka:single:16' for online events, 'sakurazaka:single:16@京都パルスプラザ' for one venue of a real meet. */
+export function miguriPointOf(entry: Partial<Pick<MiguriEntry, 'eventSlug' | 'eventTitle' | 'group' | 'venue'>>) {
+  const release = miguriReleaseOf(entry);
   const venue = (entry.venue || '').replace(/[（(][^）)]*[）)]/g, '').trim();
-  return { key: `${category}|${venue}`, kind: SECTION_LABELS[order][1], venue, order };
+  return { ...release, key: venue ? `${release.key}@${venue}` : release.key, venue };
 }
 
 const RELEASE_GROUPS: Array<[RegExp, MiguriGroupId]> = [
@@ -773,26 +781,26 @@ export function miguriReleaseOf(entry: Partial<Pick<MiguriEntry, 'eventSlug' | '
   return { key: `${group || '-'}:${album ? 'album' : 'single'}:${release[1]}`, label, title: name ? `${label}『${name}』` : label };
 }
 
-/** 中签率推移 data: result cells (entries without a result yet are left out), releases in time order, 类型/会场 sections. */
+/** 中签率推移 data: result cells (entries without a result yet are left out), points in time order, categories. */
 export function buildMiguriWinRateTrend(entries: WinRateTrendEntry[]): WinRateTrend {
-  const releases = new Map<string, MiguriRelease & { date: string }>();
+  const releases = new Map<string, WinRateRelease>();
   const sections = new Map<string, WinRateSection & { order: number }>();
   const cells = new Map<string, WinRateCell>();
   for (const entry of entries) {
     const counts = entryLotteryCounts(entry);
     if (entry.status === 'planned' || counts.applied <= 0) continue;
-    const release = miguriReleaseOf(entry);
-    const known = releases.get(release.key);
-    if (!known) releases.set(release.key, { ...release, date: entry.date || '' });
+    const point = miguriPointOf(entry);
+    const known = releases.get(point.key);
+    if (!known) releases.set(point.key, { ...point, date: entry.date || '' });
     else if (entry.date && (!known.date || entry.date < known.date)) known.date = entry.date;
     const section = miguriSectionOf(entry);
     const area = sections.get(section.key) || { ...section, applied: 0 };
     area.applied += counts.applied;
     sections.set(section.key, area);
     const slot = entry.slot > 0 ? entry.slot : 0;
-    const key = [release.key, section.key, entry.date, slot, entry.member].join('\u0000');
+    const key = [point.key, section.key, entry.date, slot, entry.member].join('\u0000');
     const cell = cells.get(key)
-      || { release: release.key, section: section.key, date: entry.date || '', slot, member: entry.member, applied: 0, won: 0 };
+      || { release: point.key, section: section.key, date: entry.date || '', slot, member: entry.member, applied: 0, won: 0 };
     cell.applied += counts.applied;
     cell.won += counts.won;
     cells.set(key, cell);
@@ -801,10 +809,9 @@ export function buildMiguriWinRateTrend(entries: WinRateTrendEntry[]): WinRateTr
     releases: Array.from(releases.values()).sort((left, right) => (
       (left.date || '9999').localeCompare(right.date || '9999') || left.key.localeCompare(right.key)
     )),
-    // Category order, then the busiest venue first.
     sections: Array.from(sections.values())
-      .sort((left, right) => left.order - right.order || right.applied - left.applied || left.venue.localeCompare(right.venue, 'ja'))
-      .map(({ key, kind, venue, applied }) => ({ key, kind, venue, applied })),
+      .sort((left, right) => left.order - right.order)
+      .map(({ key, label, applied }) => ({ key, label, applied })),
     cells: Array.from(cells.values()),
   };
 }

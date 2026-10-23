@@ -17,7 +17,7 @@ import {
   sortEventsForDisplay,
   summarizeEntries,
 } from './meguri-helpers.ts';
-import { buildMiguriWinRateTrend, entryLotteryCounts, miguriReleaseOf, miguriSectionOf, pivotWinRate } from './meguri-helpers.ts';
+import { buildMiguriWinRateTrend, entryLotteryCounts, miguriPointOf, miguriReleaseOf, miguriSectionOf, pivotWinRate } from './meguri-helpers.ts';
 
 test('resolveFortuneMeetsSource keeps lottery analysis on the selected group and single', () => {
   assert.deepEqual(
@@ -748,17 +748,20 @@ const trendEntry = (overrides) => ({
   ...overrides,
 });
 
-test('miguriSectionOf: 部 compare only inside one category and one real-meet venue', () => {
-  assert.deepEqual(miguriSectionOf({ category: '個別ミーグリ', venue: '' }), { key: '個別ミーグリ|', kind: '個別', venue: '', order: 0 });
-  assert.equal(miguriSectionOf({ category: null, venue: null }).key, '個別ミーグリ|');
-  const kyoto = miguriSectionOf({ category: 'リアミ', venue: '京都パルスプラザ' });
-  assert.deepEqual([kyoto.kind, kyoto.venue], ['リアミ', '京都パルスプラザ']);
-  assert.notEqual(kyoto.key, miguriSectionOf({ category: 'リアミ', venue: '幕張メッセ' }).key);
-  assert.notEqual(miguriSectionOf({ category: 'リアミ', venue: '' }).key, '個別ミーグリ|');
-  assert.equal(miguriSectionOf({ category: 'サイン会', venue: '東京ビッグサイト(東京国際展示場)' }).venue, '東京ビッグサイト');
+test('miguriSectionOf / miguriPointOf: categories never mix, real-meet venues are separate points', () => {
+  assert.deepEqual(miguriSectionOf({ category: '個別ミーグリ' }), { key: '個別ミーグリ', label: '個別', order: 0 });
+  assert.equal(miguriSectionOf({ category: null }).key, '個別ミーグリ');
+  assert.equal(miguriSectionOf({ category: 'リアミ' }).label, 'リアミ');
+  const online = { eventTitle: SAKURA_16_MUSIC, group: 'sakurazaka', venue: '' };
+  assert.deepEqual([miguriPointOf(online).key, miguriPointOf(online).venue], ['sakurazaka:single:16', '']);
+  assert.equal(miguriPointOf({ ...online, venue: null }).key, 'sakurazaka:single:16');
+  const kyoto = miguriPointOf({ eventTitle: SAKURA_16_MEETS, group: 'sakurazaka', venue: '京都パルスプラザ' });
+  assert.deepEqual([kyoto.key, kyoto.label], ['sakurazaka:single:16@京都パルスプラザ', '櫻坂 16th']);
+  assert.notEqual(kyoto.key, miguriPointOf({ eventTitle: SAKURA_16_MEETS, group: 'sakurazaka', venue: '幕張メッセ' }).key);
+  assert.equal(miguriPointOf({ eventTitle: SAKURA_16_MEETS, group: 'sakurazaka', venue: '東京ビッグサイト(東京国際展示場)' }).venue, '東京ビッグサイト');
 });
 
-test('buildMiguriWinRateTrend: one cell per release × section × day × 部 × member, results only', () => {
+test('buildMiguriWinRateTrend: one cell per point × category × day × 部 × member, results only', () => {
   const trend = buildMiguriWinRateTrend([
     trendEntry({ appliedTickets: 4, wonTickets: 2, status: 'won' }),
     trendEntry({ appliedTickets: 2, wonTickets: 1, status: 'won' }),
@@ -772,15 +775,13 @@ test('buildMiguriWinRateTrend: one cell per release × section × day × 部 × 
   ]);
   assert.deepEqual(trend.releases.map((release) => [release.key, release.date]), [
     ['sakurazaka:single:15', '2026-07-12'],
+    ['sakurazaka:single:15@幕張メッセ', '2026-07-20'],
     ['sakurazaka:single:16', '2026-10-18'],
+    ['sakurazaka:single:16@京都パルスプラザ', '2026-11-08'],
+    ['sakurazaka:single:16@幕張メッセ', '2026-11-22'],
   ]);
-  assert.deepEqual(trend.sections.map((section) => [section.kind, section.venue, section.applied]), [
-    ['個別', '', 14],
-    ['リアミ', '京都パルスプラザ', 2],
-    ['リアミ', '幕張メッセ', 1],
-    ['サイン会', '幕張メッセ', 2],
-  ]);
-  const first = trend.cells.find((cell) => cell.release === 'sakurazaka:single:16' && cell.section === '個別ミーグリ|' && cell.slot === 1);
+  assert.deepEqual(trend.sections.map((section) => [section.label, section.applied]), [['個別', 14], ['リアミ', 3], ['サイン会', 2]]);
+  const first = trend.cells.find((cell) => cell.release === 'sakurazaka:single:16' && cell.section === '個別ミーグリ' && cell.slot === 1);
   assert.deepEqual({ applied: first.applied, won: first.won }, { applied: 6, won: 3 });
   assert.equal(trend.cells.length, 6);
 });
@@ -790,8 +791,16 @@ test('pivotWinRate: 個別 第1部 and リアミ 第1部 never share a column', 
     trendEntry({ slot: 1, appliedTickets: 4, wonTickets: 1, status: 'won' }),
     trendEntry({ slot: 1, category: 'リアミ', venue: '京都パルスプラザ', appliedTickets: 2, wonTickets: 2, status: 'won' }),
   ]);
-  const solo = pivotWinRate(trend.cells.filter((cell) => cell.section === '個別ミーグリ|'), (cell) => cell.member, (cell) => cell.slot);
+  const solo = pivotWinRate(trend.cells.filter((cell) => cell.section === '個別ミーグリ'), (cell) => cell.member, (cell) => cell.slot);
   assert.deepEqual(solo.at('山川宇衣', 1), { applied: 4, won: 1 });
+  // Same 部 number at two venues of one single: two points, so a 按部 line or a 单曲一览 row never adds them up.
+  const meets = buildMiguriWinRateTrend([
+    trendEntry({ eventTitle: SAKURA_16_MEETS, category: 'リアミ', venue: '京都パルスプラザ', appliedTickets: 2, wonTickets: 2, status: 'won' }),
+    trendEntry({ eventTitle: SAKURA_16_MEETS, category: 'リアミ', venue: '東京ビッグサイト', date: '2026-11-22', appliedTickets: 3, wonTickets: 0 }),
+  ]);
+  const bySlot = pivotWinRate(meets.cells, (cell) => cell.slot, (cell) => cell.release);
+  assert.deepEqual(bySlot.at(1, 'sakurazaka:single:16@京都パルスプラザ'), { applied: 2, won: 2 });
+  assert.deepEqual(bySlot.at(1, 'sakurazaka:single:16@東京ビッグサイト'), { applied: 3, won: 0 });
 });
 
 test('pivotWinRate: cells, row / column totals and the grand total of a 成员×部 and a 全日程 table', () => {
