@@ -642,9 +642,9 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /formatYen\(combinedMiguriSpend\.paid\)/);
   assert.match(dashboardSource, /リアミ＋全国落选金额合计/);
   assert.match(dashboardSource, /formatYen\(combinedMiguriSpend\.lost\)/);
-  assert.match(dashboardSource, /当选金额（不含落选）/);
+  assert.match(dashboardSource, /实付金额（Meets 中没中都算）/);
   assert.match(dashboardSource, /落选金额合计/);
-  assert.match(dashboardSource, /支付合计（含 Meets 落选）/);
+  assert.match(dashboardSource, /实付合计（含 Meets 落选）/);
   assert.match(dashboardSource, /サイン会一口需要多张碟，按官方 used 序列号张数计费/);
   assert.match(dashboardSource, /リアミ／全国每次应募按 1 张碟计费，中没中都算进支付合计/);
   assert.match(dashboardSource, /没收录的单曲用同步时官方页面的販売価格/);

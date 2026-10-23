@@ -433,14 +433,15 @@ export function aggregateMiguriDashboard(
   const scheduledEntryIds = new Set(scheduleEntries.map((entry) => entry.id));
   let estimatedSpendYen = 0;
   let estimatedSpendEntries = 0;
-  let lostSpendYen = 0;
+  let wonSpendYen = 0;
   let unpricedWonTickets = 0;
 
+  // Shares, breakdowns and the timeline use what was actually paid: a lost Meets CD was still bought.
   for (const entry of entries) {
     const category = dashboardCategory(entry);
-    const resolvedSpend = resolveMiguriEntrySpend(entry, meetsDiscountPct);
+    const resolvedSpend = resolveMiguriEntrySpend(entry, meetsDiscountPct, true);
     const spendYen = resolvedSpend.spendYen;
-    lostSpendYen += resolveMiguriEntryLostSpend(entry, meetsDiscountPct);
+    wonSpendYen += resolveMiguriEntrySpend(entry, meetsDiscountPct).spendYen;
     if (resolvedSpend.estimated) {
       estimatedSpendYen += spendYen;
       estimatedSpendEntries += 1;
@@ -523,13 +524,13 @@ export function aggregateMiguriDashboard(
     )
   ), 0);
   const totalLapsed = eligibleResults.reduce((sum, entry) => sum + Math.max(0, entry.lapsedTickets || 0), 0);
-  const totalSpendYen = Array.from(categorySpend.values()).reduce((sum, value) => sum + value, 0);
+  const totalPaidSpendYen = Array.from(categorySpend.values()).reduce((sum, value) => sum + value, 0);
   const memberBreakdown = buildBreakdown(memberTickets, memberSpend);
   const categoryBreakdown = buildBreakdown(categoryTickets, categorySpend);
   const topMember = memberBreakdown[0] || null;
   const spendShares = memberBreakdown
     .filter((item) => item.spendYen > 0)
-    .map((item) => item.spendYen / Math.max(1, totalSpendYen));
+    .map((item) => item.spendYen / Math.max(1, totalPaidSpendYen));
   const concentration = spendShares.reduce((sum, share) => sum + share * share, 0);
   const oshiType = concentration >= 0.5
     ? '单推'
@@ -549,9 +550,9 @@ export function aggregateMiguriDashboard(
 
   return {
     totalTickets: scheduleEntries.reduce((sum, entry) => sum + entry.tickets, 0),
-    totalSpendYen,
-    lostSpendYen,
-    totalPaidSpendYen: totalSpendYen + lostSpendYen,
+    totalSpendYen: wonSpendYen,
+    lostSpendYen: totalPaidSpendYen - wonSpendYen,
+    totalPaidSpendYen,
     estimatedSpendYen,
     estimatedSpendEntries,
     unpricedWonTickets,
@@ -559,11 +560,11 @@ export function aggregateMiguriDashboard(
     totalWon,
     totalLapsed,
     winRate: totalApplied > 0 ? totalWon / totalApplied : 0,
-    costPerWinYen: totalWon > 0 ? totalSpendYen / totalWon : 0,
+    costPerWinYen: totalWon > 0 ? wonSpendYen / totalWon : 0,
     topMember: topMember
       ? {
           name: topMember.label,
-          share: totalSpendYen > 0 ? topMember.spendYen / totalSpendYen : topMember.percentage,
+          share: totalPaidSpendYen > 0 ? topMember.spendYen / totalPaidSpendYen : topMember.percentage,
           spendYen: topMember.spendYen,
         }
       : null,

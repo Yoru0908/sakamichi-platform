@@ -269,7 +269,8 @@ test('aggregateMiguriDashboard builds next stop, category totals, and per-slot t
   );
 });
 
-test('aggregateMiguriDashboard excludes lost Meets cost from overview totals', () => {
+// A lost Meets CD was still bought: shares and breakdowns count it; 当选 / 落选 stay split.
+test('aggregateMiguriDashboard counts lost Meets CDs as paid in shares and breakdowns', () => {
   const dashboard = aggregateMiguriDashboard([
     {
       id: 'music-won',
@@ -332,11 +333,12 @@ test('aggregateMiguriDashboard excludes lost Meets cost from overview totals', (
   assert.equal(dashboard.totalApplied, 14);
   assert.equal(dashboard.totalWon, 10);
   assert.equal(dashboard.winRate, 10 / 14);
-  assert.equal(dashboard.topMember.name, '小田倉麗奈');
-  assert.equal(dashboard.topMember.spendYen, 8000);
+  assert.equal(dashboard.topMember.name, '山川宇衣');
+  assert.equal(dashboard.topMember.spendYen, 31200);
+  assert.equal(dashboard.topMember.share, 31200 / 39200);
   assert.equal(
     dashboard.categoryBreakdown.find((item) => item.label === 'サイン会').spendYen,
-    0,
+    24000,
   );
   assert.equal(dashboard.nextStops[0].rows.some((row) => row.category === 'サイン会'), false);
 });

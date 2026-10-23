@@ -858,14 +858,14 @@ export default function MiguriDashboard({
           <div>
             <div className="text-sm font-semibold text-[var(--text-secondary)]">
               {selectedCategory === "all"
-                ? "当选金额（不含落选）"
-                : `${selectedCategory}当选金额（不含落选）`}
+                ? "实付金额（Meets 中没中都算）"
+                : `${selectedCategory}实付金额（中没中都算）`}
             </div>
             <div className="mt-2 text-5xl font-black tracking-[-0.055em] text-[var(--text-primary)] sm:text-7xl">
               <span className="mr-1 text-2xl font-semibold text-[var(--text-tertiary)] sm:text-4xl">
                 ¥
               </span>
-              {Math.round(dashboard.totalSpendYen).toLocaleString("ja-JP")}
+              {Math.round(dashboard.totalPaidSpendYen).toLocaleString("ja-JP")}
             </div>
             <SpendSparkline points={dashboard.spendTimeline} />
             {dashboard.topMember ? (
@@ -1044,8 +1044,8 @@ export default function MiguriDashboard({
           {
             label:
               selectedCategory === "all"
-                ? "支付合计（含 Meets 落选）"
-                : `${selectedCategory}支付合计`,
+                ? "实付合计（含 Meets 落选）"
+                : `${selectedCategory}实付合计`,
             value: formatYen(dashboard.totalPaidSpendYen),
             icon: CircleDollarSign,
             color: "text-pink-500",
@@ -1259,7 +1259,7 @@ export default function MiguriDashboard({
 
         <Donut
           items={dashboard.categoryBreakdown}
-          total={dashboard.totalSpendYen}
+          total={dashboard.totalPaidSpendYen}
         />
       </div>
 
