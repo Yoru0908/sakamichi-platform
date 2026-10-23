@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import CalendarSubscriptionModal from '@/components/meguri/CalendarSubscriptionModal';
 import type { MiguriGroupId } from '@/utils/auth-api';
+import { tokyoToday, formatDateHeading } from './schedule-date';
 import {
   dedupeScheduleEvents,
   groupMeta,
@@ -55,15 +56,6 @@ const CATEGORY_ICONS: Record<ScheduleCategory, typeof CalendarDays> = {
   other: CalendarDays,
 };
 
-function tokyoToday(): string {
-  return new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Tokyo',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).format(new Date());
-}
-
 function asJstDate(dateKey: string): Date {
   return new Date(`${dateKey}T12:00:00+09:00`);
 }
@@ -78,15 +70,6 @@ function shiftMonth(dateKey: string, amount: number): string {
   const date = asJstDate(dateKey);
   date.setUTCMonth(date.getUTCMonth() + amount, 1);
   return date.toISOString().slice(0, 10);
-}
-
-function formatDateHeading(dateKey: string): string {
-  return new Intl.DateTimeFormat('zh-CN', {
-    timeZone: 'Asia/Tokyo',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'short',
-  }).format(asJstDate(dateKey));
 }
 
 function eventFallsOnDate(event: ScheduleEvent, dateKey: string): boolean {
@@ -535,12 +518,13 @@ function EventDetail({
   );
 }
 
-export default function SakamichiSchedule() {
+export default function SakamichiSchedule({ initialDate }: { initialDate: string }) {
   const [events, setEvents] = useState<ScheduleEvent[]>([]);
   const [loadState, setLoadState] = useState<'loading' | 'ready' | 'error'>('loading');
   const [loadWarning, setLoadWarning] = useState('');
   const [view, setView] = useState<ViewMode>('today');
-  const [dateKey, setDateKey] = useState(tokyoToday);
+  const [dateKey, setDateKey] = useState(initialDate);
+  const [today, setToday] = useState(initialDate);
   const [activeGroups, setActiveGroups] = useState<MiguriGroupId[]>(SCHEDULE_GROUPS.map((group) => group.id));
   const [category, setCategory] = useState<'all' | ScheduleCategory>('all');
   const [selectedEvent, setSelectedEvent] = useState<ScheduleEvent | null>(null);
@@ -580,6 +564,10 @@ export default function SakamichiSchedule() {
   }
 
   useEffect(() => {
+    // Hydrate the serialized build date first, then show the visitor's current JST day.
+    const current = tokyoToday();
+    setToday(current);
+    setDateKey(current);
     void loadFeeds();
   }, []);
 
@@ -661,9 +649,9 @@ export default function SakamichiSchedule() {
               <button type="button" onClick={() => moveDate(-1)} className="flex h-11 w-11 items-center justify-center rounded-xl text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]" aria-label={view === 'month' ? '上个月' : '前一天'}>
                 <ChevronLeft size={18} />
               </button>
-              <button type="button" onClick={() => setDateKey(tokyoToday())} className="min-h-11 rounded-xl px-3 text-sm font-bold text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]">
+              <button type="button" onClick={() => { const current = tokyoToday(); setToday(current); setDateKey(current); }} className="min-h-11 rounded-xl px-3 text-sm font-bold text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]">
                 {view === 'month' ? `${dateKey.slice(0, 4)}年${Number(dateKey.slice(5, 7))}月` : formatDateHeading(dateKey)}
-                {dateKey === tokyoToday() && <span className="ml-2 rounded-full bg-red-500/10 px-2 py-0.5 text-[10px] text-red-600">今天</span>}
+                {dateKey === today && <span className="ml-2 rounded-full bg-red-500/10 px-2 py-0.5 text-[10px] text-red-600">今天</span>}
               </button>
               <button type="button" onClick={() => moveDate(1)} className="flex h-11 w-11 items-center justify-center rounded-xl text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]" aria-label={view === 'month' ? '下个月' : '后一天'}>
                 <ChevronRight size={18} />

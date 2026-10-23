@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useStore } from '@nanostores/react';
 import { $mobileDrawerOpen, closeDrawer } from '@/stores/ui';
 import { useLanguage } from '@/i18n/use-language';
@@ -18,7 +19,11 @@ interface Props {
 export default function MobileDrawer({ currentPath }: Props) {
   const isOpen = useStore($mobileDrawerOpen);
   const lang = useLanguage();
-  const theme = useStore($theme);
+  const storedTheme = useStore($theme);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  // Static SSR is logged out/light; other islands may hydrate the stores first.
+  const theme = mounted ? storedTheme : 'light';
   const auth = useStore($auth);
 
   return (
@@ -77,7 +82,7 @@ export default function MobileDrawer({ currentPath }: Props) {
             <div className="px-5 py-1 text-xs font-semibold text-[var(--text-tertiary)] uppercase tracking-wider">
               {t('nav.group.account', lang)}
             </div>
-            {auth.isLoggedIn ? (
+            {mounted && auth.isLoggedIn ? (
               <>
                 <a
                   href="/user"

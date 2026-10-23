@@ -1,3 +1,4 @@
+import type { EventMemoData, EventPublicProfile, EventHistoryPayload, EventRankingEntry } from '../../workers/shared/event-attendance.ts';
 import { API_CONFIG } from './constants.ts';
 
 // ── Types ──
@@ -209,6 +210,27 @@ export function getSakamichiEventMarks(grp: string, year: number): Promise<ApiRe
 
 export function setSakamichiEventMark(id: string, on: boolean): Promise<ApiResponse<{ id: string; marked: boolean }>> {
   return miguriFetch(`/sakamichi-events/marks/${encodeURIComponent(id)}`, { method: on ? 'PUT' : 'DELETE' });
+}
+
+export function getSakamichiHistory(offset = 0): Promise<ApiResponse<EventHistoryPayload>> {
+  return miguriFetch(`/sakamichi-events/history?offset=${offset}`);
+}
+export function getSakamichiEventMemo(id: string): Promise<ApiResponse<{ marked: boolean; memo: EventMemoData; updatedAt: number | null }>> {
+  return miguriFetch(`/sakamichi-events/memos/${encodeURIComponent(id)}`);
+}
+export interface EventMemoWriteRequest extends EventMemoData { expectedUpdatedAt: number | null }
+export function saveSakamichiEventMemo(id: string, memo: EventMemoData, expectedUpdatedAt: number | null): Promise<ApiResponse<{ marked: boolean; memo: EventMemoData; updatedAt: number }>> {
+  const body: EventMemoWriteRequest = { ...memo, expectedUpdatedAt };
+  return miguriFetch(`/sakamichi-events/memos/${encodeURIComponent(id)}`, { method: 'PATCH', body: JSON.stringify(body) });
+}
+export function getSakamichiEventProfile(): Promise<ApiResponse<EventPublicProfile>> {
+  return miguriFetch('/sakamichi-events/profile');
+}
+export function setSakamichiEventProfile(profile: EventPublicProfile): Promise<ApiResponse<EventPublicProfile>> {
+  return miguriFetch('/sakamichi-events/profile', { method: 'PUT', body: JSON.stringify(profile) });
+}
+export function getSakamichiRanking(): Promise<ApiResponse<{ ranking: EventRankingEntry[]; asOf: string }>> {
+  return miguriFetch('/sakamichi-events/ranking');
 }
 
 export function getMiguriCalendarIcsUrl(): string {

@@ -6,7 +6,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <h1 class="text-2xl font-bold text-[var(--text-primary)] mb-8">Privacy Policy / 隐私政策</h1>
     <div class="prose prose-sm max-w-none text-[var(--text-secondary)] space-y-4">
-      <p>Last updated: July 29, 2026 / 最后更新日期: 2026年7月29日</p>
+      <p>Last updated: October 23, 2026 / 最后更新日期: 2026年10月23日</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">1. Introduction / 简介</h2>
       <p>Sakamichi Tools ("we", "us", "our") operates the website https://46log.com (the "Service"). This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our Service.</p>
@@ -31,6 +31,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <p><strong>46log 咪咕力同步扩展数据：</strong>如果您安装可选的 Chrome 扩展并启动同步，扩展会读取您自己的 forTUNE music 与 forTUNE meets 应募履历页，仅向私人咪咕力面板传输所需的规范化字段：组合、活动或作品标题、成员、类型、活动日期、会场、部数、应募/中签/付款数量、来源页面提供的价格/金额、来源记录标识和同步时间。</p>
       <p>The extension never reads or stores your forTUNE password, login form value, or cookie. For Meets synchronization, it temporarily reads the official site's existing session key in memory and sends it only to the official forTUNE Meets API as its required request header. The key is never stored by the extension or sent to 46log.</p>
       <p>扩展不会读取或保存您的 forTUNE 密码、登录表单内容或 Cookie。同步 Meets 时，扩展仅在内存中临时读取官方站点已有的会话密钥，并仅将其作为必要请求头发回 forTUNE Meets 官方 API；扩展不会保存该密钥，也不会将其发送给 46log。</p>
+      <p><strong>Event records:</strong> We save the event days you choose, their title/date snapshots, and notes or costs you enter in your 46log account. Notes and costs are private. These personal records are separate from accounts and records on 坂ログ.</p>
+      <p><strong>活动记录：</strong>我们在您的 46log 账号中保存您选择的活动日期、标题与日期快照，以及自行填写的感想和费用。感想与费用为私人数据，与坂ログ的账号和记录分开保存。</p>
+      <p><strong>Nearby places:</strong> Location is requested only after you choose the nearby feature. Coordinates stay in browser memory for distance filtering and are not saved to your account or sent to the 46log API. If you choose navigation using your current location, the external Google Maps link includes that starting location and the destination.</p>
+      <p><strong>附近地点：</strong>仅在您主动使用附近功能时申请定位；坐标只在浏览器内存中用于距离筛选，不保存到账号，也不发送至 46log API。若您选择从当前位置导航，外部 Google Maps 链接会包含起点和目的地。</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">3. How We Use Your Information / 信息使用</h2>
       <p>We use the collected information solely for the following purposes:</p>
@@ -68,6 +72,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">6. Data Sharing / 数据共享</h2>
       <p>We do not sell, trade, or transfer your personal information to third parties. We do not share your Google account data with any external services beyond the Google Calendar API itself for the purposes described above.</p>
       <p>我们不会向第三方出售、交易或转让您的个人信息。除上述目的通过 Google Calendar API 本身外，我们不会与任何外部服务共享您的 Google 账号数据。</p>
+      <p>The attendance ranking is private by default. If you explicitly join and choose a public display name, the ranking publishes only that name, rank, distinct attended-day count and event-day record count. Future plans, notes, costs, email and account identifiers are excluded. Turning off participation removes your entry on the next ranking request.</p>
+      <p>参与排名默认不公开。只有您主动加入并填写公开显示名后，排名才显示该名称、名次、去重参与天数和活动日期记录数；不公开未来计划、感想、费用、邮箱或账号标识。关闭公开后，下次请求排名即不再显示您的条目。</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">7. Data Retention and Deletion / 数据保留与删除</h2>
       <p>You may disconnect your Google Calendar connection at any time through the Service interface. Upon disconnection:</p>
@@ -86,6 +92,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <p>您也可以删除整个账号，这将移除所有关联数据，包括记录、偏好设置和所有已连接服务的令牌。</p>
       <p>You can stop automatic Miguri synchronization from the dashboard or by uninstalling the extension. You can delete synchronized Miguri entries from the Service; deleting your 46log account removes all associated Miguri records.</p>
       <p>您可以在咪咕力面板关闭自动同步，或卸载扩展以停止同步；也可以在本服务中删除已同步记录。删除 46log 账号会一并删除关联的咪咕力记录。</p>
+      <p>Removing an event mark keeps its private notes and costs so they return if you add the same day again. To clear them, open the marked day, save an empty note and blank costs, then remove the mark if desired. Contact us using the address below if you need assistance removing retained event data.</p>
+      <p>取消活动记录时会保留私人感想和费用，重新记录同一天可恢复。若要清空，请打开已记录的日期，将感想与各项费用留空并保存，再按需取消记录。需要协助清除保留的活动数据时，可通过下方联系方式联系我们。</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">8. Cookies / Cookie 使用</h2>
       <p>We use strictly necessary cookies for authentication (login session) and user preferences (theme, language). We do not use third-party tracking cookies or analytics cookies.</p>

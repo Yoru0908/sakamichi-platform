@@ -1,5 +1,17 @@
 # 圣巡定时同步核查 — 2026-10-23 JST
 
+## 修复后验证（00:52–00:59 JST）
+
+下文初次审计的 4,280 点/未部署是历史现场。修复 `959fa15` 已通过 Git bundle 从本地正本部署到 `/vol1/sakamichi-platform`，保持 tracked 工作区干净；备份在 `/vol1/seichi-sync/backups/release-20261023/`。保守增量发布在 00:52 两次正常 runner 执行中分别提交 `0d39673`（4,330 点）、`8b98d75`（4,380 点），实测抓取→质量门→测试→commit→push。
+
+来源差异按固定候选散列逐项审查后，`935f2b0` 发布 4,383 点，详见 `SEICHI_HINATA_REVIEW_20261023.md`。相模川约 4.2km 的移动仍保留旧点待审；不会阻止其他安全新增继续发布。发布文件与 Pages 线上 `/api/seichi-data/hinatazaka` 逐字节相同，SHA-256 `a898fa3a20f2c1e4c9f7b7942196057d70c6e1e1159d05a40ed77fab79af5fc5`。
+
+00:58 再用三个正式 runner 跑完整链路，`shimizu-hinata` / `oversea` / `fumi` 独立 run reports 均为 `status=success, stage=complete, exit_code=0, outcome=unchanged, production_commit=935f2b0`。日向坂业务报告为 `validated-with-pending`，4,382 精确匹配 + 1 保留待审，0 新增/删除/延期新增。手动验证使用 `SEICHI_ALERT_DRY_RUN=1`，没有额外发送测试消息；正常 cron 的通知配置未改。真正失败通知的送达仍需未来实际故障回执，不能由退出码测试冒充。
+
+已核对原 cron 三路均存在、此前正常定时触发。修复后的下一次自然 cron 执行证据将在本轮 RELEASE 中补记。
+
+## 初次只读审计现场
+
 核查窗口：2026-10-23 00:31–00:41 JST。Homeserver、Git、公开 KML、fumi tag 索引和线上 API 均只读检查，未重跑任务、未改 cron、未发布数据、未发通知。以下 trap 修复已在本地完成并测试，审计结束时尚未部署。
 
 ## 结论

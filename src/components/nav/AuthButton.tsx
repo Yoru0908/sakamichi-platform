@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useStore } from '@nanostores/react';
 import { User, LogIn, LogOut, Shield } from 'lucide-react';
 import { $auth, initAuth, logout } from '@/stores/auth';
@@ -8,12 +8,15 @@ import { t } from '@/i18n';
 export default function AuthButton() {
   const lang = useLanguage();
   const auth = useStore($auth);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     initAuth();
   }, []);
 
-  if (auth.loading) {
+  // Static SSR always renders the login link, including after SPA navigation.
+  if (mounted && auth.loading) {
     return (
       <div className="hidden xl:flex items-center ml-2">
         <div className="w-5 h-5 border-2 border-t-transparent border-[var(--color-brand-nogi)] rounded-full animate-spin" />
@@ -21,7 +24,7 @@ export default function AuthButton() {
     );
   }
 
-  if (auth.isLoggedIn) {
+  if (mounted && auth.isLoggedIn) {
     return (
       <div className="hidden xl:flex items-center gap-2 ml-2">
         {auth.role === 'admin' && (

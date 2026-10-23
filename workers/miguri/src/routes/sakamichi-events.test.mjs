@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 import { DatabaseSync } from 'node:sqlite';
 
 import { signAccessToken } from '../../../shared/jwt.ts';
+import { SAKAMICHI_EVENTS_CACHE_REVISION } from '../../../shared/sakamichi-events-cache.ts';
 import {
   eventsQuery, handleGetMySakamichiEventMarks, handleGetSakamichiEventCounts, handleGetSakamichiEvents, handleSetSakamichiEventMark, markTarget,
 } from './sakamichi-events.ts';
@@ -39,9 +40,34 @@ test('reads one group-year through the binding with the read token; only public 
   assert.equal('attendees' in ev, false);
   assert.deepEqual(ev.venue, row.venue);
   assert.equal(res.headers.get('Cache-Control'), 'public, max-age=600');
-  assert.equal((await get('grp=nogizaka&year=2016', env())).headers.get('Cache-Control'), 'public, max-age=86400');   // a past year
+  assert.equal((await get('grp=nogizaka&year=2016', env())).headers.get('Cache-Control'), 'public, max-age=600');   // partial backfills can change old years
   const empty = env(() => Response.json({ ok: true, data: { events: [] } }));
   assert.equal((await get('grp=nogizaka&year=2016', empty)).headers.get('Cache-Control'), 'public, max-age=60');   // not backfilled yet
+});
+
+test('versioned public cache ignores old 24-hour entries, reuses the new snapshot, and refreshes within 10 minutes', async t => {
+  const entries = new Map(), oldUrl = 'https://api.46log.com/api/miguri/sakamichi-events?grp=nogizaka&year=2012';
+  let time = 0, source = [{ ...row, id: 'n_1:2012-01-01', date: '2012-01-01' }];
+  entries.set(oldUrl, { response: Response.json({ success: true, data: { events: [] } }, { headers: { 'Cache-Control': 'public, max-age=86400' } }), expiry: 86400 });
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'caches');
+  Object.defineProperty(globalThis, 'caches', { configurable: true, value: { default: {
+    async match(key) { const item = entries.get(key.url); return item && item.expiry > time ? item.response.clone() : undefined; },
+    async put(key, response) { entries.set(key.url, { response: response.clone(), expiry: time + Number(response.headers.get('Cache-Control').match(/max-age=(\d+)/)[1]) }); },
+  } } });
+  t.after(() => { if (original) Object.defineProperty(globalThis, 'caches', original); else delete globalThis.caches; });
+  const e = env(() => Response.json({ data: { events: source } }));
+  const first = await get('grp=nogizaka&year=2012&revision=untrusted', e);
+  assert.equal((await first.json()).data.events.length, 1, 'must not read the old 86400-second entry');
+  assert(entries.has(`${oldUrl}&revision=${SAKAMICHI_EVENTS_CACHE_REVISION}`));
+  source = [...source, { ...row, id: 'n_2:2012-04-01', date: '2012-04-01' }];
+  time = 599;
+  assert.equal((await (await get('grp=nogizaka&year=2012', e)).json()).data.events.length, 1);
+  assert.equal(e.calls.length, 1, 'same group-year reuses the bounded cache despite caller query noise');
+  time = 600;
+  assert.equal((await (await get('grp=nogizaka&year=2012', e)).json()).data.events.length, 2);
+  assert.equal(e.calls.length, 2);
+  assert.equal((await get('grp=hinatazaka&year=2020', e)).headers.get('Cache-Control'), 'public, max-age=600');
+  assert.equal((await get('grp=sakurazaka&year=2020', e)).headers.get('Cache-Control'), 'public, max-age=600');
 });
 
 test('bad query 400 (no upstream call), unconfigured 503, upstream failure 502', async () => {

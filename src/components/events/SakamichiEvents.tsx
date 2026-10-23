@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from 'react';
 import { ChevronDown, RefreshCw, Search } from 'lucide-react';
 import { t, type TranslationKey } from '@/i18n';
 import { useLanguage } from '@/i18n/use-language';
@@ -9,6 +9,8 @@ import {
   type CategoryFilter, type EventCard, type EventGroupId, type SakamichiEvent,
 } from './events-data';
 import { EventModal, EventRow, LOCALE, useDates, useEventMarks, type Marks, type Tr } from './EventParts';
+import './events.css';
+import { SAKAMICHI_EVENTS_CACHE_REVISION } from '../../../workers/shared/sakamichi-events-cache';
 
 // 46log /events (plan E4/E5). Page logic and layout after 坂ログ /events: group / year / 現地・オンライン・記録済み, a month jump
 // strip, this year split into これから and a folded 過去のイベント, one row per title with a 行く / 参加した toggle per day,
@@ -53,14 +55,15 @@ export default function SakamichiEvents() {
     if (hit) { setLoad({ state: 'ready', events: hit }); return; }
     const ctl = new AbortController();
     setLoad({ state: 'loading' });
-    fetch(`${API}?grp=${grp}&year=${year}`, { signal: ctl.signal })
+    fetch(`${API}?grp=${grp}&year=${year}&revision=${SAKAMICHI_EVENTS_CACHE_REVISION}`, { signal: ctl.signal })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((body: { data?: { events?: SakamichiEvent[] } }) => {
+        if (ctl.signal.aborted) return;
         const events = body.data?.events ?? [];
         loaded.set(key, events);
         setLoad({ state: 'ready', events });
       })
-      .catch((e) => { if (e.name !== 'AbortError') setLoad({ state: 'error' }); });
+      .catch((e) => { if (!ctl.signal.aborted && e.name !== 'AbortError') setLoad({ state: 'error' }); });
     return () => ctl.abort();
   }, [grp, year, attempt]);
 
@@ -83,8 +86,8 @@ export default function SakamichiEvents() {
   const row = { marks, color: group.color, today, tr, dates, onOpen: setOpen };
 
   return (
-    <div>
-      <section className="mb-5 space-y-3 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-3 sm:p-4">
+    <div className="events-view" style={{ '--event-accent': group.color } as CSSProperties}>
+      <section className="events-filters mb-5 space-y-3 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-3 sm:p-4">
         <div className="flex flex-wrap gap-2">
           {SCHEDULE_GROUPS.map((g) => {
             const active = g.id === grp;
@@ -143,11 +146,11 @@ export default function SakamichiEvents() {
           <>
             <Summary cards={shown} label={`${group.label} · ${year}`} tr={tr} />
             <MonthJump year={year} cards={shown} today={today} tr={tr} onJump={jump} />
-            {split && <h2 className="mb-3 mt-5 text-sm font-bold text-[var(--text-primary)]">{tr('events.upcoming')} <small className="font-normal text-[var(--text-tertiary)]">{upcoming.length}</small></h2>}
+            {split && <h2 className="events-section-title">{tr('events.upcoming')} <small>{upcoming.length}</small></h2>}
             {upcoming.length ? <Months cards={upcoming} {...row} /> : <p className="py-6 text-sm text-[var(--text-tertiary)]">{tr('events.upcoming_empty')}</p>}
             {past.length > 0 && (
-              <details open={pastOpen} onToggle={(e) => setPastOpen((e.currentTarget as HTMLDetailsElement).open)} className="group mt-6">
-                <summary className="mb-3 flex cursor-pointer list-none items-center gap-2 text-sm font-bold text-[var(--text-primary)] [&::-webkit-details-marker]:hidden">
+              <details open={pastOpen} onToggle={(e) => setPastOpen((e.currentTarget as HTMLDetailsElement).open)} className="events-past group mt-6">
+                <summary className="events-section-title mb-3 flex cursor-pointer list-none items-center gap-2 text-sm font-bold text-[var(--text-primary)] [&::-webkit-details-marker]:hidden">
                   {tr('events.past')} <small className="font-normal text-[var(--text-tertiary)]">{past.length}</small>
                   <ChevronDown size={16} className="text-[var(--text-tertiary)] transition-transform group-open:rotate-180" />
                 </summary>
@@ -157,28 +160,27 @@ export default function SakamichiEvents() {
           </>
         ))}
 
-      <p className="mt-6 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-4 py-3 text-[11px] leading-5 text-[var(--text-tertiary)]">{tr('events.note')}</p>
-      {open && load.state === 'ready' && <EventModal card={openCard} groupLabel={group.label} color={group.color} marks={marks} today={today} tr={tr} dates={dates} onClose={close} />}
+      <p className="events-source-note">{tr('events.note')}</p>
+      {open && load.state === 'ready' && <EventModal card={openCard} eventId={open} groupLabel={group.label} color={group.color} marks={marks} today={today} tr={tr} dates={dates} onClose={close} />}
     </div>
   );
 }
 
 function Summary({ cards, label, tr }: { cards: EventCard[]; label: string; tr: Tr }) {
   const { days, shows } = dayAndShowCount(cards);
-  return <p className="mb-2 text-xs text-[var(--text-tertiary)]">{label} · {tr('events.summary', { events: cards.length, days, shows })}</p>;
+  return <p className="events-summary"><strong>{label}</strong><span>{tr('events.summary', { events: cards.length, days, shows })}</span></p>;
 }
 
 /** 1–12: months with events jump to their section (opening 過去のイベント if needed); the current month is marked. */
 function MonthJump({ year, cards, today, tr, onJump }: { year: number; cards: EventCard[]; today: string; tr: Tr; onJump: (m: string) => void }) {
   const months = new Set(cards.map((c) => c.days[0].date.slice(0, 7)));
   return (
-    <nav aria-label={tr('events.month_jump')} className="mb-2 grid grid-cols-12 gap-1">
+    <nav aria-label={tr('events.month_jump')} className="events-month-jump">
       {Array.from({ length: 12 }, (_, i) => `${year}-${String(i + 1).padStart(2, '0')}`).map((m) => {
         const now = m === today.slice(0, 7), label = Number(m.slice(5));
         return months.has(m)
-          ? <button key={m} type="button" onClick={() => onJump(m)}
-            className={`min-h-9 rounded-lg text-xs font-semibold ${now ? 'bg-[var(--text-primary)] text-[var(--bg-primary)]' : 'bg-[var(--bg-secondary)] text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)]'}`}>{label}</button>
-          : <span key={m} aria-hidden="true" className="flex min-h-9 items-center justify-center text-xs text-[var(--text-tertiary)] opacity-50">{label}</span>;
+          ? <button key={m} type="button" onClick={() => onJump(m)} aria-current={now ? 'date' : undefined}>{label}</button>
+          : <span key={m} aria-hidden="true">{label}</span>;
       })}
     </nav>
   );
@@ -191,9 +193,9 @@ function Months({ cards, ...row }: { cards: EventCard[] } & RowProps) {
   return (
     <>
       {byMonth(cards).map(([month, list]) => (
-        <section key={month} id={`m-${month}`} className="mb-6 scroll-mt-20">
-          <h2 className="mb-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-tertiary)]">{fmt.format(new Date(`${month}-01T00:00:00Z`))}</h2>
-          <div className="space-y-2">{list.map((c) => <EventRow key={c.key} card={c} {...row} />)}</div>
+        <section key={month} id={`m-${month}`} className="events-month">
+          <h2><span className="events-month-number" aria-hidden="true">{month.slice(5)}</span><span>{fmt.format(new Date(`${month}-01T00:00:00Z`))}</span><small>{list.length}</small></h2>
+          <div className="space-y-3">{list.map((c) => <EventRow key={c.key} card={c} {...row} />)}</div>
         </section>
       ))}
     </>

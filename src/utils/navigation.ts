@@ -29,11 +29,13 @@ export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'nav.blog', href: '/blog', icon: 'Pen' },
   { labelKey: 'nav.radio', href: '/radio', icon: 'Radio' },
   { labelKey: 'nav.photocard', href: '/photocard', icon: 'Image' },
+  { labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays' },
   {
-    labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays',
+    labelKey: 'nav.event_records', href: '/events', icon: 'Ticket',
     children: [
-      { labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays' },
       { labelKey: 'nav.events', href: '/events', icon: 'Ticket' },
+      { labelKey: 'nav.event_history', href: '/events/history', icon: 'BookOpen' },
+      { labelKey: 'nav.event_ranking', href: '/events/ranking', icon: 'Trophy' },
     ],
   },
   {
@@ -68,7 +70,14 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
       { labelKey: 'nav.blog', href: '/blog', icon: 'Pen' },
       { labelKey: 'nav.radio', href: '/radio', icon: 'Radio' },
       { labelKey: 'nav.schedule', href: '/schedule', icon: 'CalendarDays' },
+    ],
+  },
+  {
+    groupKey: 'nav.event_records',
+    items: [
       { labelKey: 'nav.events', href: '/events', icon: 'Ticket' },
+      { labelKey: 'nav.event_history', href: '/events/history', icon: 'BookOpen' },
+      { labelKey: 'nav.event_ranking', href: '/events/ranking', icon: 'Trophy' },
     ],
   },
   {

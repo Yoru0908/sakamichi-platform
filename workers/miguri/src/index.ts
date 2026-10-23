@@ -18,6 +18,7 @@ import {
 } from './routes/miguri.ts';
 import { handleGetMiguriSoldOutHistory } from './routes/soldout-history.ts';
 import {
+  handleGetSakamichiHistory, handleSakamichiEventMemo, handleSakamichiEventProfile, handleGetSakamichiRanking,
   handleGetMySakamichiEventMarks,
   handleGetSakamichiEventCounts,
   handleGetSakamichiEvents,
@@ -63,6 +64,10 @@ const routes: Record<string, Handler> = {
   'GET /api/miguri/soldout-history': handleGetMiguriSoldOutHistory,
   'GET /api/miguri/sakamichi-events': (req, env) => handleGetSakamichiEvents(req, env),
   'GET /api/miguri/sakamichi-events/counts': (req, env) => handleGetSakamichiEventCounts(req, env),
+  'GET /api/miguri/sakamichi-events/history': handleGetSakamichiHistory,
+  'GET /api/miguri/sakamichi-events/ranking': handleGetSakamichiRanking,
+  'GET /api/miguri/sakamichi-events/profile': handleSakamichiEventProfile,
+  'PUT /api/miguri/sakamichi-events/profile': handleSakamichiEventProfile,
   'GET /api/miguri/sakamichi-events/marks': (req, env) => handleGetMySakamichiEventMarks(req, env),
   'GET /api/miguri/lottery': (req) => handleGetMiguriLottery(req),
   'POST /api/miguri/soldout-import': handleMiguriSoldOutImport,
@@ -93,6 +98,8 @@ export default {
       const handler = routes[`${method} ${path}`];
       if (handler) {
         res = await handler(req, env);
+      } else if (path.startsWith('/api/miguri/sakamichi-events/memos/') && (method === 'GET' || method === 'PATCH')) {
+        res = await handleSakamichiEventMemo(req, env, path.slice('/api/miguri/sakamichi-events/memos/'.length));
       } else if (path.startsWith('/api/miguri/sakamichi-events/marks/') && (method === 'PUT' || method === 'DELETE')) {
         res = await handleSetSakamichiEventMark(req, env, path.slice('/api/miguri/sakamichi-events/marks/'.length), method === 'PUT');
       } else if (path.startsWith('/api/miguri/entries/') && method === 'PUT') {

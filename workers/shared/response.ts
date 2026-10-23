@@ -76,7 +76,7 @@ export function withCors(res: Response, env: CorsEnv, requestOrigin?: string | n
   const headers = new Headers(res.headers);
   headers.set('Access-Control-Allow-Origin', origin);
   headers.set('Access-Control-Allow-Credentials', 'true');
-  headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
   headers.set('Access-Control-Allow-Headers', 'Content-Type, x-miguri-sync-secret');
   return new Response(res.body, { status: res.status, headers });
 }

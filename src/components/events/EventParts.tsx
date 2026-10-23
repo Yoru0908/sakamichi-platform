@@ -5,6 +5,7 @@ import type { TranslationKey } from '@/i18n';
 import { $auth } from '@/stores/auth';
 import { getSakamichiEventMarks, setSakamichiEventMark } from '@/utils/auth-api';
 import { isPastCard, markKey, type EventCard, type EventGroupId, type SakamichiEvent } from './events-data';
+import EventMemo from './EventMemo';
 
 // Pieces of 46log /events: the viewer's marks, one day row with its toggle, a card (one day inline, a tour in <details>),
 // and the detail dialog (?event=<id>). Same logic as 坂ログ's components/events.tsx and pages/EventDetail.tsx, 46log's look.
@@ -84,16 +85,16 @@ export function useDates(lang: Lang) {
 }
 type Dates = ReturnType<typeof useDates>;
 
-/** 行く / 行く予定 / 参加した？ / 参加した with the day's 46log count. */
+/** Explicit save action and confirmed state, with the day's 46log count. */
 export function MarkButton({ d, marks, color, today, tr }: { d: SakamichiEvent; marks: Marks; color: string; today: string; tr: Tr }) {
   const marked = marks.mine.has(d.id), count = marks.count(d.id);
   return (
     <span className="inline-flex max-w-40 shrink-0 flex-col items-end gap-1">
     <button type="button" aria-pressed={marked} aria-busy={marks.busy === d.id} disabled={Boolean(marks.busy) || marks.loading} onClick={() => void marks.toggle(d.id)}
       title={marked ? tr('events.mark.remove') : undefined}
-      className={`inline-flex min-h-9 shrink-0 items-center gap-1 rounded-full border px-3 text-xs font-semibold transition-colors disabled:opacity-60 ${marked
+      className={`event-mark inline-flex min-h-11 shrink-0 items-center gap-1 rounded-full border px-3 text-xs font-semibold transition-colors disabled:opacity-60 ${marked
         ? 'border-transparent text-white' : 'border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]'}`}
-      style={marked ? { backgroundColor: color } : undefined}>
+      style={marked ? { backgroundColor: `color-mix(in srgb, ${color} 68%, #111827)` } : undefined}>
       {marks.busy === d.id ? <LoaderCircle size={13} className="animate-spin motion-reduce:animate-none" /> : marked && <Check size={13} />}
       <span>{tr(marks.busy === d.id ? 'events.mark.saving' : markKey(d.date, marked, today))}</span>
       {count > 0 && <span className="inline-flex items-center gap-0.5 font-normal opacity-80"><Users size={11} />{count}</span>}
@@ -115,7 +116,7 @@ const showsText = (d: SakamichiEvent, tr: Tr) =>
 /** One day of a tour or a run: date, venue, start times, its own toggle. */
 export function DayRow({ d, marks, color, today, tr, dates }: { d: SakamichiEvent; marks: Marks; color: string; today: string; tr: Tr; dates: Dates }) {
   return (
-    <li className={`flex items-center gap-3 py-2 ${d.date < today ? 'opacity-75' : ''}`}>
+    <li className={`event-day flex items-center gap-3 py-2 ${d.date < today ? 'event-day-past' : ''}`}>
       <span className="w-20 shrink-0 text-xs font-semibold text-[var(--text-primary)]">{dates.day(d.date)}</span>
       <span className="min-w-0 flex-1 text-xs text-[var(--text-secondary)] [overflow-wrap:anywhere]">
         <Venue d={d} tr={tr} />
@@ -142,8 +143,8 @@ function Members({ card, tr, limit = MEMBERS_SHOWN }: { card: EventCard; tr: Tr;
 
 function Chips({ card, color, tr }: { card: EventCard; color: string; tr: Tr }) {
   return (
-    <div className="mb-1 flex flex-wrap items-center gap-1.5">
-      <span className="rounded-md px-1.5 py-0.5 text-[10px] font-semibold" style={{ backgroundColor: `color-mix(in srgb, ${color} 12%, transparent)`, color }}>{card.kind}</span>
+    <div className="event-chips mb-1 flex flex-wrap items-center gap-1.5">
+      <span className="event-kind rounded-md px-1.5 py-0.5 text-[10px] font-semibold">{card.kind}</span>
       {card.category === 'online' && <span className="rounded-md bg-[var(--bg-tertiary)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--text-secondary)]">{tr('events.online')}</span>}
     </div>
   );
@@ -162,14 +163,14 @@ export function EventRow({ card, marks, color, today, tr, dates, onOpen }: CardP
   const first = card.days[0], last = card.days[card.days.length - 1], many = card.days.length > 1;
   const head = (
     <>
-      <div className="w-14 shrink-0 text-center sm:w-16">
-        <div className="text-sm font-bold text-[var(--text-primary)]">{dates.md(first.date)}</div>
-        <div className="text-[11px] text-[var(--text-tertiary)]">{dates.wd(first.date)}</div>
-        {many && <div className="mt-1 text-[11px] leading-4 text-[var(--text-tertiary)]">– {dates.md(last.date)}<br />{tr('events.days', { n: card.days.length })}</div>}
+      <div className="event-ticket-date">
+        <time dateTime={first.date}>{dates.md(first.date)}</time>
+        <span>{dates.wd(first.date)}</span>
+        {many && <small>– {dates.md(last.date)}<br />{tr('events.days', { n: card.days.length })}</small>}
       </div>
       <div className="min-w-0 flex-1">
         <Chips card={card} color={color} tr={tr} />
-        <h3 className="text-sm font-semibold leading-snug text-[var(--text-primary)] [overflow-wrap:anywhere]" lang="ja">{card.title}</h3>
+        <h3 className="event-ticket-title text-sm font-semibold leading-snug text-[var(--text-primary)] [overflow-wrap:anywhere]" lang="ja">{card.title}</h3>
         <p className="mt-1 flex gap-1.5 text-xs text-[var(--text-secondary)]">
           <MapPin size={12} className="mt-0.5 shrink-0 text-[var(--text-tertiary)]" />
           <span className="min-w-0 [overflow-wrap:anywhere]" lang="ja">{placeOf(card, tr)}</span>
@@ -178,35 +179,33 @@ export function EventRow({ card, marks, color, today, tr, dates, onOpen }: CardP
       </div>
     </>
   );
-  const box = `rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] ${isPastCard(card, today) ? 'opacity-80' : ''}`;
+  const box = `event-ticket ${isPastCard(card, today) ? 'event-ticket-past' : ''}`;
   const links = (
-    <div className="flex items-center gap-1">
-      <button type="button" onClick={() => onOpen(first.id)} className="min-h-9 rounded-lg px-2 text-xs font-semibold text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">{tr('events.detail')}</button>
+    <div className="event-links flex items-center gap-1">
+      <button type="button" onClick={() => onOpen(first.id)} className="min-h-11 rounded-lg px-2 text-xs font-semibold text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">{tr('events.detail')}</button>
       <a href={first.sourceUrl} target="_blank" rel="noopener noreferrer" title={tr('events.official')} aria-label={tr('events.official')}
-        className="flex h-9 w-9 items-center justify-center rounded-lg text-[var(--text-tertiary)] hover:bg-[var(--bg-secondary)]"><ExternalLink size={14} /></a>
+        className="flex h-11 w-11 items-center justify-center rounded-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]"><ExternalLink size={14} /></a>
     </div>
   );
   if (!many) return (
-    <article className={`${box} p-3 sm:p-4`}>
-      <button type="button" onClick={() => onOpen(first.id)} className="flex w-full gap-3 text-left sm:gap-4">{head}</button>
-      <div className="mt-2 flex flex-wrap items-center justify-between gap-2 pl-[4.25rem] sm:pl-20">
-        <Members card={card} tr={tr} limit={4} />
-        <div className="ml-auto flex items-center gap-1">{links}<MarkButton d={first} marks={marks} color={color} today={today} tr={tr} /></div>
-      </div>
+    <article className={`${box} event-ticket-single`}>
+      <button type="button" onClick={() => onOpen(first.id)} className="event-ticket-header text-left">{head}</button>
+      <div className="event-ticket-extra"><Members card={card} tr={tr} limit={4} /></div>
+      <div className="event-ticket-stub"><MarkButton d={first} marks={marks} color={color} today={today} tr={tr} />{links}</div>
     </article>
   );
   const mine = card.days.filter((d) => marks.mine.has(d.id)).length;
   return (
     <details className={`group ${box}`}>
-      <summary className="flex cursor-pointer list-none gap-3 p-3 sm:gap-4 sm:p-4 [&::-webkit-details-marker]:hidden">
-        {head}
-        <span className="flex shrink-0 flex-col items-center justify-center text-[var(--text-tertiary)]">
-          <span className="text-xs font-bold text-[var(--text-primary)]">{mine}/{card.days.length}</span>
-          <span className="text-[10px]">{tr('events.marked_days')}</span>
-          <ChevronDown size={16} className="mt-1 transition-transform group-open:rotate-180" />
+      <summary className="event-ticket-summary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+        <div className="event-ticket-header">{head}</div>
+        <span className="event-ticket-stub event-ticket-progress">
+          <span><b>{mine}</b><span> / {card.days.length}</span></span>
+          <small>{tr('events.marked_days')}</small>
+          <ChevronDown size={16} className="event-expand mt-1" />
         </span>
       </summary>
-      <div className="border-t border-[var(--border-primary)] px-3 pb-3 sm:px-4">
+      <div className="event-ticket-days border-t border-[var(--border-primary)] px-3 pb-3 sm:px-4">
         <ul className="divide-y divide-[var(--border-primary)]">
           {card.days.map((d) => <DayRow key={d.id} d={d} marks={marks} color={color} today={today} tr={tr} dates={dates} />)}
         </ul>
@@ -217,21 +216,49 @@ export function EventRow({ card, marks, color, today, tr, dates, onOpen }: CardP
 }
 
 /** The detail dialog (坂ログ EventDetail, as 46log's schedule dialog): dates, venues, start times, every day's toggle, the cast. */
-export function EventModal({ card, groupLabel, color, marks, today, tr, dates, onClose }: {
-  card: EventCard | null; groupLabel: string; color: string; marks: Marks; today: string; tr: Tr; dates: Dates; onClose: () => void;
+export function EventModal({ card, eventId, groupLabel, color, marks, today, tr, dates, onClose }: {
+  card: EventCard | null; eventId: string; groupLabel: string; color: string; marks: Marks; today: string; tr: Tr; dates: Dates; onClose: () => void;
 }) {
+  const [memoId, setMemoId] = useState(eventId);
+  const dialogRef = useRef<HTMLElement>(null);
+  useEffect(() => setMemoId(eventId), [eventId]);
   useEffect(() => {
     const before = document.body.style.overflow;
+    const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const focusable = () => Array.from(dialogRef.current?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex]:not([tabindex="-1"])'
+    ) ?? []).filter((el) => el.tabIndex >= 0 && el.getClientRects().length > 0);
+    const focusFirst = () => (focusable()[0] ?? dialogRef.current)?.focus({ preventScroll: true });
     document.body.style.overflow = 'hidden';
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    return () => { document.body.style.overflow = before; window.removeEventListener('keydown', onKey); };
+    focusFirst();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { e.preventDefault(); onClose(); return; }
+      if (e.key !== 'Tab') return;
+      const items = focusable(), first = items[0], last = items[items.length - 1];
+      if (!first) { e.preventDefault(); dialogRef.current?.focus(); return; }
+      if (e.shiftKey && (document.activeElement === first || !dialogRef.current?.contains(document.activeElement))) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && (document.activeElement === last || !dialogRef.current?.contains(document.activeElement))) {
+        e.preventDefault(); first.focus();
+      }
+    };
+    const onFocus = (e: FocusEvent) => {
+      if (e.target instanceof Node && !dialogRef.current?.contains(e.target)) focusFirst();
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('focusin', onFocus);
+    return () => {
+      document.body.style.overflow = before;
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('focusin', onFocus);
+      if (opener?.isConnected) opener.focus({ preventScroll: true });
+    };
   }, [onClose]);
 
   const first = card?.days[0], last = card?.days[card.days.length - 1], mine = card ? card.days.filter((d) => marks.mine.has(d.id)).length : 0;
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/45 sm:items-center sm:p-6" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <section role="dialog" aria-modal="true" aria-labelledby="event-detail-title" className="max-h-[90vh] w-full overflow-y-auto rounded-t-3xl bg-[var(--bg-primary)] shadow-2xl sm:max-w-lg sm:rounded-3xl">
+      <section ref={dialogRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby="event-detail-title" className="max-h-[90vh] w-full overflow-y-auto rounded-t-3xl bg-[var(--bg-primary)] shadow-2xl sm:max-w-lg sm:rounded-3xl">
         <div className="h-1.5" style={{ backgroundColor: color }} />
         <div className="p-5 sm:p-6">
           <div className="flex items-start justify-between gap-4">
@@ -275,6 +302,16 @@ export function EventModal({ card, groupLabel, color, marks, today, tr, dates, o
                   <Members card={card} tr={tr} limit={card.members.length} />
                 </section>
               )}
+              {marks.signedIn && <section className="mt-5 border-t border-[var(--border-primary)] pt-5">
+                <h3 className="mb-3 text-sm font-semibold text-[var(--text-primary)]">{tr('events.memo_title')}</h3>
+                {card.days.length > 1 && <label className="mb-4 flex flex-wrap items-center gap-2 text-xs text-[var(--text-secondary)]">
+                  {tr('events.memo_day')}
+                  <select value={memoId} onChange={e => setMemoId(e.target.value)} className="min-h-11 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-3 text-sm text-[var(--text-primary)]">
+                    {card.days.map(d => <option key={d.id} value={d.id}>{dates.day(d.date)}</option>)}
+                  </select>
+                </label>}
+                <EventMemo key={memoId} eventId={memoId} marked={marks.mine.has(memoId)} />
+              </section>}
               <a href={first.sourceUrl} target="_blank" rel="noopener noreferrer"
                 className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--text-primary)] px-4 text-xs font-bold text-[var(--bg-primary)]">
                 <ExternalLink size={14} /> {tr('events.official')}

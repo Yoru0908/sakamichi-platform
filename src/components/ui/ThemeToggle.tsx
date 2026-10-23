@@ -1,9 +1,14 @@
+import { useEffect, useState } from 'react';
 import { useStore } from '@nanostores/react';
 import { $theme, toggleTheme } from '@/stores/theme';
 import { Moon, Sun } from 'lucide-react';
 
 export default function ThemeToggle() {
-  const theme = useStore($theme);
+  const storedTheme = useStore($theme);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  // Match static SSR first, then show the existing saved/system theme.
+  const theme = mounted ? storedTheme : 'light';
 
   return (
     <button
