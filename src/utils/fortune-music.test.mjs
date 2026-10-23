@@ -242,3 +242,37 @@ test('parseEventDetailHtml extracts dates slots and members from Fortune Music d
   });
   assert.deepEqual(detail.members, ['小坂菜緒', '正源司陽子', '藤嶌果歩']);
 });
+
+// forTUNE's maintenance page (2026-10-21 22:30～未定) is HTTP 200 with no events: the sync must say so, not "empty".
+const MAINTENANCE_HTML = `<html><head><title>forTUNE music</title></head><body><table><tr><td>
+<p class="style00">【forTUNE musicからのお知らせ】</p>
+<p class="style01">当サイトはただいまシステムメンテナンス実施に伴い、サイトを一時停止しております。<br></p>
+<div style="font-size: large; text-align: center;">
+<span style="color: #FF0000;">【サイト停止時間】</span><br>
+<br>
+2026年10月21日(水)　22時30分<br>～<br>未定<br>
+<br>
+</div>
+<p class="style01"><br>
+※メンテナンス作業が終了次第、サイトを再開させて頂きます。<br></p></td></tr></table></body></html>`;
+
+test('fortuneMaintenance reads the stop period of the maintenance page and ignores a normal list', async () => {
+  const { fortuneMaintenance } = await import('./fortune-music.ts');
+  assert.equal(fortuneMaintenance(MAINTENANCE_HTML), '2026年10月21日(水) 22時30分 ～ 未定');
+  assert.equal(fortuneMaintenance('<html><body><a href="/sakurazaka_202610/">櫻坂46</a></body></html>'), null);
+});
+
+test('fetchFortuneEvents throws the reason instead of returning an empty list', async () => {
+  const { fetchFortuneEvents } = await import('./fortune-music.ts');
+  const originalFetch = globalThis.fetch;
+  try {
+    globalThis.fetch = async () => new Response(MAINTENANCE_HTML, { status: 200 });
+    await assert.rejects(fetchFortuneEvents(), /forTUNE music 维护中（停止时间：2026年10月21日\(水\) 22時30分 ～ 未定），本次未同步，D1 未改动/);
+    globalThis.fetch = async () => new Response('busy', { status: 503 });
+    await assert.rejects(fetchFortuneEvents(), /HTTP 503/);
+    globalThis.fetch = async () => { throw new TypeError('fetch failed'); };
+    await assert.rejects(fetchFortuneEvents(), /forTUNE 活动列表请求失败：fetch failed/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});

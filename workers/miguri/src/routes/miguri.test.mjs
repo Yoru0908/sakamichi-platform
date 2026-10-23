@@ -1191,3 +1191,56 @@ test('assertNormalizedStructureComplete rejects events whose normalized structur
   };
   assert.throws(() => assertNormalizedStructureComplete(partial), /成员枠为空/);
 });
+
+test('sync alerts go privately to MIGURI_ALERT_QQ_USERS through content-push, never to a group or Discord', async () => {
+  const fetchCalls = [];
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init) => {
+    fetchCalls.push({ url, init });
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'content-type': 'application/json' } });
+  };
+  const env = {
+    MIGURI_DB: { prepare() { throw new Error('db should not be touched'); } },
+    MIGURI_ALERT_WEBHOOK_URL: 'https://blog-push.46log.com/webhook/miguri-alert',
+    MIGURI_ALERT_WEBHOOK_SECRET: 'relay-secret',
+    MIGURI_ALERT_QQ_USERS: '314389463',
+    NAPCAT_NOTIFY_URL: 'http://napcat.local',
+    NAPCAT_NOTIFY_GROUPS: '213658334,1059030628',
+  };
+  await assert.rejects(
+    manageMiguriRoutes.syncMiguriFromSource(env, async () => { throw new Error('forTUNE music 维护中（停止时间：2026年10月21日(水) 22時30分 ～ 未定），本次未同步，D1 未改动'); }),
+    /维护中/,
+  );
+  globalThis.fetch = originalFetch;
+
+  assert.equal(fetchCalls.length, 1);
+  assert.equal(fetchCalls[0].url, 'https://blog-push.46log.com/webhook/content-push');
+  assert.equal(fetchCalls[0].init.headers['x-webhook-secret'], 'relay-secret');
+  const body = JSON.parse(fetchCalls[0].init.body);
+  assert.deepEqual(body.qq.userIds, ['314389463']);
+  assert.equal(body.qq.includeDefaultGroups, false);
+  assert.equal('groupIds' in body.qq, false);
+  assert.equal(body.discord.enabled, false);
+  assert.match(body.qq.message, /^⚠️ Miguri 同步异常\n来源：定时同步\nforTUNE music 维护中/);
+});
+
+test('a failed private alert is not retried into a group', async () => {
+  const fetchCalls = [];
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init) => {
+    fetchCalls.push({ url, init });
+    return new Response('napcat down', { status: 502 });
+  };
+  await assert.rejects(
+    manageMiguriRoutes.syncMiguriFromSource({
+      MIGURI_DB: { prepare() { throw new Error('db should not be touched'); } },
+      MIGURI_ALERT_WEBHOOK_URL: 'https://blog-push.46log.com/webhook/miguri-alert',
+      MIGURI_ALERT_QQ_USERS: '314389463',
+      NAPCAT_NOTIFY_URL: 'http://napcat.local',
+      NAPCAT_NOTIFY_GROUPS: '213658334',
+    }, async () => { throw new Error('fortune source down'); }),
+    /fortune source down/,
+  );
+  globalThis.fetch = originalFetch;
+  assert.deepEqual(fetchCalls.map((c) => c.url), ['https://blog-push.46log.com/webhook/content-push']);
+});

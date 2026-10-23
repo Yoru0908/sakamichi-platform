@@ -122,7 +122,35 @@ async function notifyMiguriWebhook(env: Env, text: string, groups: string[]): Pr
   return true;
 }
 
+/** Sync alerts are for the operator, not the fans' reminder group: with MIGURI_ALERT_QQ_USERS set they go only as QQ private
+ *  messages through the relay's /webhook/content-push (same secret as /webhook/miguri-alert) — never a group, even when the
+ *  private send fails. Returns false when unset (the old group route). */
+async function alertOperatorPrivately(env: Env, text: string): Promise<boolean> {
+  const users = parseNotifyGroups(env.MIGURI_ALERT_QQ_USERS), webhookUrl = env.MIGURI_ALERT_WEBHOOK_URL?.trim();
+  if (!users.length) return false;
+  if (!webhookUrl) {
+    console.error('[Miguri] MIGURI_ALERT_QQ_USERS is set but MIGURI_ALERT_WEBHOOK_URL is missing; alert dropped');
+    return true;
+  }
+  const headers: Record<string, string> = { 'content-type': 'application/json' };
+  if (env.MIGURI_ALERT_WEBHOOK_SECRET?.trim()) headers['x-webhook-secret'] = env.MIGURI_ALERT_WEBHOOK_SECRET.trim();
+  try {
+    const response = await fetch(new URL('/webhook/content-push', webhookUrl).toString(), {
+      method: 'POST',
+      headers,
+      // content-push adds its default QQ groups and Discord routes unless told not to; weibo only posts with text, off anyway.
+      body: JSON.stringify({ source: 'miguri-sync', category: 'miguri_alert', qq: { message: text, userIds: users, includeDefaultGroups: false },
+        discord: { enabled: false }, weibo: { enabled: false } }),
+    });
+    if (!response.ok) console.error('[Miguri] Private alert failed:', response.status, await response.text());
+  } catch (err) {
+    console.error('[Miguri] Private alert request failed:', err);
+  }
+  return true;
+}
+
 async function notifyNapcat(env: Env, text: string): Promise<void> {
+  if (await alertOperatorPrivately(env, text)) return;
   const groups = parseNotifyGroups(env.NAPCAT_NOTIFY_GROUPS);
   if (await notifyMiguriWebhook(env, text, groups)) return;
 

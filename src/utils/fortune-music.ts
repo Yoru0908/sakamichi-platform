@@ -360,26 +360,29 @@ export function parseEventDetailHtml(html: string): FortuneEventDetail {
   };
 }
 
+/** forTUNE's maintenance notice — served with HTTP 200 and no events (2026-10-21 22:30～未定). The stop period, or null. */
+export function fortuneMaintenance(html: string): string | null {
+  if (!/システムメンテナンス|サイトを一時停止/.test(html)) return null;
+  const period = htmlToText(html).match(/【サイト停止時間】([\s\S]*?)※/)?.[1] ?? '';
+  return period.replace(/\s+/g, ' ').trim() || '未定';
+}
+
+/** The event list. Throws with the reason (unreachable, HTTP status, maintenance) instead of returning [], so a sync
+ *  alert says why there is nothing to sync; the empty-result guard still covers a page that parses to nothing. */
 export async function fetchFortuneEvents(): Promise<FortuneEvent[]> {
-  try {
-    const res = await fetch('https://fortunemusic.jp/event_list/', {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-      },
-      signal: AbortSignal.timeout(15000),
-    });
+  const res = await fetch('https://fortunemusic.jp/event_list/', {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+    },
+    signal: AbortSignal.timeout(15000),
+  }).catch((err: unknown) => {
+    throw new Error(`forTUNE 活动列表请求失败：${err instanceof Error ? err.message : String(err)}`);
+  });
+  if (!res.ok) throw new Error(`forTUNE 活动列表 HTTP ${res.status}，本次未同步，D1 未改动`);
 
-    if (!res.ok) {
-      console.error(`[fortune-music] fetch failed: ${res.status}`);
-      return [];
-    }
-
-    const html = await res.text();
-    return parseEventListHtml(html);
-  } catch (err) {
-    console.error('[fortune-music] fetch error:', err);
-    return [];
-  }
+  const html = await res.text(), stop = fortuneMaintenance(html);
+  if (stop) throw new Error(`forTUNE music 维护中（停止时间：${stop}），本次未同步，D1 未改动`);
+  return parseEventListHtml(html);
 }
 
 export async function fetchFortuneEventDetail(url: string): Promise<FortuneEventDetail> {

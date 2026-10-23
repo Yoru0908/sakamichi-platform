@@ -12,6 +12,8 @@ export interface Env {
   GOOGLE_CLIENT_SECRET: string;
   MIGURI_ALERT_WEBHOOK_URL?: string;
   MIGURI_ALERT_WEBHOOK_SECRET?: string;
+  /** QQ user ids (comma / space separated) for sync alerts: when set, alerts go only to them privately (relay content-push). */
+  MIGURI_ALERT_QQ_USERS?: string;
   NAPCAT_NOTIFY_URL?: string;
   NAPCAT_NOTIFY_TOKEN?: string;
   NAPCAT_NOTIFY_GROUPS?: string;
