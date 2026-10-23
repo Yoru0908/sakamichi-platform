@@ -148437,6 +148437,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          135.7821769,
+          35.015778
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:39f71bbbf7edd3548503",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:39f71bbbf7edd3548503",
+        "name": "平安神宮",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "平安神宮",
+        "sceneNote": "https://www.instagram.com/p/DeortL4kzNR/?img_index=2 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgk2uRA_bOcueeOzuhiRjnla3zdVO34YEHkYvxTCa1vNbqwPX0SktHRh3NLjtpGfBN_aZErLy4jyHllSlh1ZU4hbU9F88cYRqgYu9BMPu1DauwrHFbiFTIWwbVJ8ByOtuebxa2yTQt6gRpK30Vl91K6lJzkbD-1JPNYuV_f6Bn83DhD4X7pOb4PqLqmr6VP2k0FGq9tgKdz7RsJKw9mk1keO1iZ5ei_7SQmGaWbtyfXu_0xuA6TFxHuWhQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgVEFqWiuFpMtayBXA5aZbd6MCjGJ93bRojf6B0pZ2hoBTw2uoYTGBOv9pXHkV74NelLH_Rz91AJ7ypNUxTRAJEyKZjzs1BGZk00olLTUTzwi20yvTZJY7xB-6FX-awksifbSsRuFCW9jzTualJoxoRthEdFZohTP-GfY9UtNht5-WFEi4_NC1oWGeyIY2WpcefbNsH91On5qKOjLrvlFn3dkXbadQNoJDNXsAb1FPpnIDdSM1IphTjhws%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "平安神宮",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
@@ -244835,7 +244891,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "朝から肉る。",
-        "sceneNote": "2026.10.19 O.A.「キョコロヒー」で佐々木美玲が訪れた朝から営業の焼肉屋さん。 )https://tver.jp/episodes/epndhw4tbm",
+        "sceneNote": "2026.10.19 O.A.「キョコロヒー」で佐々木美玲が訪れた朝から営業の焼肉屋さん。 https://tver.jp/episodes/epndhw4tbm",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -245203,6 +245259,59 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "東京タワー下",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8723778,
+          35.7335732
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9f21eb9b0c456c618fe5",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9f21eb9b0c456c618fe5",
+        "name": "スパイラルマリーン",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "スパイラルマリーン",
+        "sceneNote": "2026.10.19 O.A.「キョコロヒー」で佐々木美玲が錦鯉の渡辺隆さんと釣りに出発した場所。https://tver.jp/episodes/epndhw4tbm",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "スパイラルマリーン",
           "group": "日向坂46"
         },
         "classification": {
