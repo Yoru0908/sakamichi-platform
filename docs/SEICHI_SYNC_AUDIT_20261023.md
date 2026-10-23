@@ -10,6 +10,10 @@
 
 已核对原 cron 三路均存在、此前正常定时触发。修复后的下一次自然 cron 执行证据将在本轮 RELEASE 中补记。
 
+## 后续自然 cron 验收（10/23 07时）
+
+恢复工作后直接读取 Homeserver 正式 run reports：oversea 07:17:02–07:17:03 JST、shimizu-hinata 07:31:01–07:31:09、fumi 07:43:01–07:43:14 均为 success / complete / exit_code 0。日向坂 outcome=published、生产提交 `9174dcd`；其余 unchanged。这是 cron 自然运行，非人工触发。生产分支后续 `aae1e25` 的 Miguri 告警修复已一起快进保留在本轮 `e089bbf` 中。
+
 ## 初次只读审计现场
 
 核查窗口：2026-10-23 00:31–00:41 JST。Homeserver、Git、公开 KML、fumi tag 索引和线上 API 均只读检查，未重跑任务、未改 cron、未发布数据、未发通知。以下 trap 修复已在本地完成并测试，审计结束时尚未部署。

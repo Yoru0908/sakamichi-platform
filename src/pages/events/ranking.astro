@@ -4,5 +4,5 @@ import EventRanking from '@/components/events/EventRanking';
 import { t } from '@/i18n';
 ---
 <BaseLayout title={t('events.ranking.page_title')} titleKey="events.ranking.page_title" description={t('events.ranking.description')} descriptionKey="events.ranking.description">
-  <main class="events-page mx-auto max-w-4xl px-4 py-8 sm:px-6"><EventRanking client:only="react" /></main>
+  <div class="events-page mx-auto max-w-4xl px-4 py-8 sm:px-6"><EventRanking client:only="react" /></div>
 </BaseLayout>

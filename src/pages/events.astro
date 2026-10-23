@@ -6,7 +6,7 @@ import { t } from '@/i18n';
 ---
 
 <BaseLayout title={t('events.page_title')} titleKey="events.page_title" description={t('events.description')} descriptionKey="events.description">
-  <main class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
     <header class="mb-6">
       <div class="mb-1 flex items-center gap-2">
         <CalendarDays size={16} class="text-[var(--text-tertiary)]" />
@@ -16,5 +16,5 @@ import { t } from '@/i18n';
     </header>
     <!-- client:only — the default year and the year list depend on today (JST), not on the build date. -->
     <SakamichiEvents client:only="react" />
-  </main>
+  </div>
 </BaseLayout>
