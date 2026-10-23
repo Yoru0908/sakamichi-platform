@@ -85107,6 +85107,63 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.824814,
+          35.715561
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:5a14c2b5645ec18c7536",
+        "sourceKey": "fumi-article:5a14c2b5645ec18c7536",
+        "name": "studio貸屋 (ニュー三浦マンション)",
+        "category": "番組・イベント",
+        "subcategory": "私の聖域",
+        "categoryColor": "#2563eb",
+        "address": "東京都墨田区京島3-20-10",
+        "sceneTitle": "櫻坂46 守屋麗奈 サントリージン翠CM「私の聖域」篇撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都墨田区京島3-20-10",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60115802.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60115802.html",
+        "tags": [
+          "櫻坂46",
+          "守屋麗奈"
+        ],
+        "images": [],
+        "members": [
+          "守屋麗奈"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60115802.html",
+          "mapId": "",
+          "layer": "櫻坂46 守屋麗奈 サントリージン翠CM「私の聖域」篇撮影場所",
+          "tags": [
+            "櫻坂46",
+            "守屋麗奈"
+          ],
+          "name": "studio貸屋 (ニュー三浦マンション)",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "私の聖域",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
