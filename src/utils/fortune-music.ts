@@ -362,7 +362,8 @@ export function parseEventDetailHtml(html: string): FortuneEventDetail {
 
 /** forTUNE's maintenance notice — served with HTTP 200 and no events (2026-10-21 22:30～未定). The stop period, or null. */
 export function fortuneMaintenance(html: string): string | null {
-  if (!/システムメンテナンス|サイトを一時停止/.test(html)) return null;
+  // Not 「システムメンテナンス」 alone: event cards say 「※システムメンテナンスに伴い…受付期間が変更」 on a live list.
+  if (!/サイトを一時停止|【サイト停止時間】/.test(html)) return null;
   const period = htmlToText(html).match(/【サイト停止時間】([\s\S]*?)※/)?.[1] ?? '';
   return period.replace(/\s+/g, ' ').trim() || '未定';
 }
@@ -380,9 +381,11 @@ export async function fetchFortuneEvents(): Promise<FortuneEvent[]> {
   });
   if (!res.ok) throw new Error(`forTUNE 活动列表 HTTP ${res.status}，本次未同步，D1 未改动`);
 
-  const html = await res.text(), stop = fortuneMaintenance(html);
+  // Events on the page win: the maintenance check only explains an empty list, it never discards a real one.
+  const html = await res.text(), events = parseEventListHtml(html);
+  const stop = events.length ? null : fortuneMaintenance(html);
   if (stop) throw new Error(`forTUNE music 维护中（停止时间：${stop}），本次未同步，D1 未改动`);
-  return parseEventListHtml(html);
+  return events;
 }
 
 export async function fetchFortuneEventDetail(url: string): Promise<FortuneEventDetail> {

@@ -276,3 +276,20 @@ test('fetchFortuneEvents throws the reason instead of returning an empty list', 
     globalThis.fetch = originalFetch;
   }
 });
+
+// Live list 2026-10-23 after maintenance: a 22/7 card carries 「※システムメンテナンスに伴い…」. That is not the maintenance page.
+const LIVE_LIST_WITH_NOTICE = `<html><body><a href="/227_202607_main/"> <p><em class="itemHdg">22/7</em></p> <p>22/7 17thシングル発売記念「オンライン特典会」</p> <dl class="listDl01"> 【第1次抽選受付】10月15日(木) 14:00 ～ 10月16日(金) 14:00<br> 【第2次抽選受付】10月23日(金) 14:00 ～ 10月26日(月) 14:00<br> 【第3次抽選受付】10月29日(木) 18:00 ～ 10月30日(金) 14:00<br> <br> <span class="e-red bold fs16">※システムメンテナンスに伴い、第2次・第3次抽選受付の受付期間が変更となります。ご注意ください。</span> </dl> <div class="itemFoot"> </div><!-- /.itemFoot --> </a>
+<a href="/nogizaka_202612/"> <p><em class="itemHdg">乃木坂46</em></p> <p>【抽選応募】乃木坂46 43rdシングル『君ロス』発売記念 オンラインミート＆グリート（個別トーク会）</p> <dl class="listDl01"> <dt> 第1次受付 </dt> <dd>2026年10月23日（金）14:00 ～ 2026年10月26日（月）14:00 まで</dd> </dl><dl class="listDl01"> <dt> 第2次受付 </dt> <dd>2026年10月29日（木）14:00 ～ 2026年10月30日（金）14:00 まで</dd> </dl><dl class="listDl01"> <dt> 第3次受付 </dt> <dd>2026年11月5日（木）14:00 ～ 2026年11月6日（金）14:00 まで</dd> </dl> <div class="itemFoot"> <ul class="listTag"> <li class="_type01">受付中</li> <li class="_type02">抽選販売</li> </ul> </div><!-- /.itemFoot --> </a></body></html>`;
+
+test('a live list that mentions システムメンテナンス in a card is not maintenance', async () => {
+  const { fortuneMaintenance, fetchFortuneEvents } = await import('./fortune-music.ts');
+  assert.equal(fortuneMaintenance(LIVE_LIST_WITH_NOTICE), null);
+  const originalFetch = globalThis.fetch;
+  try {
+    globalThis.fetch = async () => new Response(LIVE_LIST_WITH_NOTICE, { status: 200 });
+    const events = await fetchFortuneEvents();
+    assert.deepEqual(events.map((event) => event.slug), ['nogizaka_202612']);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
