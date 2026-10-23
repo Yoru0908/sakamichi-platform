@@ -634,7 +634,7 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /type="range"/);
   assert.match(dashboardSource, /max="30"/);
   assert.match(dashboardSource, /MEETS_DISCOUNT_STORAGE_KEY/);
-  assert.match(dashboardSource, /Meets 支付合计（普通used序列号）/);
+  assert.match(dashboardSource, /Meets 支付合计（中没中都算）/);
   assert.match(dashboardSource, /サイン会支付/);
   assert.match(dashboardSource, /combinedMiguriEntries/);
   assert.match(dashboardSource, /\[entries, selectedGroup\]/);
@@ -642,13 +642,12 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /formatYen\(combinedMiguriSpend\.paid\)/);
   assert.match(dashboardSource, /リアミ＋全国落选金额合计/);
   assert.match(dashboardSource, /formatYen\(combinedMiguriSpend\.lost\)/);
-  assert.match(dashboardSource, /当选金额（普通序列号，不含落选）/);
+  assert.match(dashboardSource, /当选金额（不含落选）/);
   assert.match(dashboardSource, /落选金额合计/);
-  assert.match(dashboardSource, /支付合计（按序列号）/);
-  assert.match(dashboardSource, /type／serialInfo、应募时间与活动保障期 serialName/);
-  assert.match(dashboardSource, /保障券保留在应募、中签和中签率中/);
-  assert.match(dashboardSource, /两类官方落选张数合计计算/);
-  assert.match(dashboardSource, /不使用百分比分摊/);
+  assert.match(dashboardSource, /支付合计（含 Meets 落选）/);
+  assert.match(dashboardSource, /サイン会一口需要多张碟，按官方 used 序列号张数计费/);
+  assert.match(dashboardSource, /リアミ／全国每次应募按 1 张碟计费，中没中都算进支付合计/);
+  assert.match(dashboardSource, /没收录的单曲用同步时官方页面的販売価格/);
   assert.match(dashboardSource, /落选金额计入支付合计及成员排行/);
   assert.match(dashboardSource, /支付金额/);
   assert.match(dashboardSource, /中签张数/);

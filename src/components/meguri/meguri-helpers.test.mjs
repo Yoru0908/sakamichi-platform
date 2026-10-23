@@ -363,7 +363,8 @@ test('resolveMiguriEntrySpend includes lost Meets applications only when request
   assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 19200);
 });
 
-test('resolveMiguriEntrySpend uses official losses within the paid serial pool', () => {
+// リアミ / 全国: each application is one CD bought up front, won or lost (126 applications = 126 CDs).
+test('resolveMiguriEntrySpend charges every リアミ application as one CD, won or lost', () => {
   const entry = {
     id: 'serial-pool',
     member: '山川宇衣',
@@ -380,10 +381,10 @@ test('resolveMiguriEntrySpend uses official losses within the paid serial pool',
     paidTickets: 93,
     spendYen: 186000,
   };
-  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 78000);
+  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 144000);
   assert.equal(resolveMiguriEntryLostSpend(entry), 108000);
-  assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 186000);
-  assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 148800);
+  assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 252000);
+  assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 201600);
 });
 
 test('resolveMiguriEntrySpend prices a single missing from the catalog at the synced official price', () => {
@@ -405,9 +406,9 @@ test('resolveMiguriEntrySpend prices a single missing from the catalog at the sy
     unitPriceYen: 2000,
     spendYen: 28000,
   };
-  assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 28000);
-  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 22000);
-  assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 22400);
+  assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 22000);
+  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 16000);
+  assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 17600);
   assert.equal(resolveMiguriEntrySpend({ ...entry, unitPriceYen: 0 }, 0, true).spendYen, 0);
 });
 
@@ -567,7 +568,8 @@ test('aggregateMiguriDashboard applies the limited-edition discount only to Meet
   assert.equal(dashboard.costPerWinYen, 1600);
 });
 
-test('aggregateMiguriDashboard keeps zero-allocated Meets wins in counts but not costs', () => {
+// No used serial matched these wins; they were still bought CDs, so they cost money (not ¥0 保障券).
+test('aggregateMiguriDashboard charges Meets wins without a matched used serial as bought CDs', () => {
   const dashboard = aggregateMiguriDashboard([
     {
       id: 'zero-allocated-win',
@@ -590,9 +592,9 @@ test('aggregateMiguriDashboard keeps zero-allocated Meets wins in counts but not
   assert.equal(dashboard.totalApplied, 72);
   assert.equal(dashboard.totalWon, 72);
   assert.equal(dashboard.winRate, 1);
-  assert.equal(dashboard.totalSpendYen, 0);
+  assert.equal(dashboard.totalSpendYen, 115200);
   assert.equal(dashboard.lostSpendYen, 0);
-  assert.equal(dashboard.totalPaidSpendYen, 0);
+  assert.equal(dashboard.totalPaidSpendYen, 115200);
 });
 
 test('aggregateMiguriDashboard fixes Music CDs at ¥1,200 and reports unknown legacy prices', () => {

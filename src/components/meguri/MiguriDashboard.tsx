@@ -858,8 +858,8 @@ export default function MiguriDashboard({
           <div>
             <div className="text-sm font-semibold text-[var(--text-secondary)]">
               {selectedCategory === "all"
-                ? "当选金额（普通序列号，不含落选）"
-                : `${selectedCategory}当选金额（普通序列号，不含落选）`}
+                ? "当选金额（不含落选）"
+                : `${selectedCategory}当选金额（不含落选）`}
             </div>
             <div className="mt-2 text-5xl font-black tracking-[-0.055em] text-[var(--text-primary)] sm:text-7xl">
               <span className="mr-1 text-2xl font-semibold text-[var(--text-tertiary)] sm:text-4xl">
@@ -918,8 +918,8 @@ export default function MiguriDashboard({
                 <span className="mt-3 flex items-center justify-between gap-3 text-xs text-[var(--text-secondary)]">
                   <span>
                     {selectedCategory === "all"
-                      ? "Meets 支付合计（普通used序列号）"
-                      : `${selectedCategory}支付（普通used序列号）`}
+                      ? "Meets 支付合计（中没中都算）"
+                      : `${selectedCategory}支付（中没中都算）`}
                   </span>
                   <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
                     {formatYen(meetsSpend.paid)}
@@ -952,7 +952,7 @@ export default function MiguriDashboard({
                   </>
                 ) : null}
                 <span className="mt-3 block text-[11px] leading-5 text-[var(--text-tertiary)]">
-                  扩展会结合官方 used 的 type／serialInfo、应募时间与活动保障期 serialName 识别保障券：保障券保留在应募、中签和中签率中，但金额为 ¥0。リアミ＋全国落选金额直接按两类官方落选张数合计计算，并以普通付费序列号为上限，不使用百分比分摊。
+                  リアミ／全国每次应募按 1 张碟计费，中没中都算进支付合计：当选金额 = 当选张数 × 单价，落选金额 = 落选张数 × 单价。サイン会一口需要多张碟，按官方 used 序列号张数计费。单价取价格表，没收录的单曲用同步时官方页面的販売価格，再乘上方折扣。
                 </span>
               </label>
             ) : null}
@@ -1044,7 +1044,7 @@ export default function MiguriDashboard({
           {
             label:
               selectedCategory === "all"
-                ? "支付合计（按序列号）"
+                ? "支付合计（含 Meets 落选）"
                 : `${selectedCategory}支付合计`,
             value: formatYen(dashboard.totalPaidSpendYen),
             icon: CircleDollarSign,

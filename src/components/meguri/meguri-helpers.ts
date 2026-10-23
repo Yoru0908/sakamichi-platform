@@ -311,11 +311,15 @@ export function resolveMiguriEntrySpend(
     // official campaign (販売価格) instead of counting its CDs as ¥0.
     const priceYen = resolveMiguriCdPriceYen(entry.group, entry.eventTitle) || entry.unitPriceYen || 0;
     const appliedTickets = Math.max(wonTickets, entry.appliedTickets || 0);
+    // リアミ / 全国: every application is one CD bought up front, won or lost. サイン会 takes several CDs per 口,
+    // so it keeps the official used-serial count.
     const hasSerialAllocation =
       (entry.paidTickets || 0) > 0 || (entry.spendYen || 0) === 0;
-    const allocatedSerials = hasSerialAllocation
-      ? Math.max(0, entry.paidTickets || 0)
-      : appliedTickets;
+    const allocatedSerials = entry.category !== 'サイン会'
+      ? appliedTickets
+      : hasSerialAllocation
+        ? Math.max(0, entry.paidTickets || 0)
+        : appliedTickets;
     const officialLostTickets = entry.status === 'planned'
       ? 0
       : Math.max(0, appliedTickets - wonTickets);
