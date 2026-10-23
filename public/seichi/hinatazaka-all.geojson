@@ -100246,65 +100246,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.429293,
-          35.624512
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3d62d79fc4c265e9f728",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3d62d79fc4c265e9f728",
-        "name": "サンリオピューロランド（3）",
-        "category": "日向ちゃんねる関連",
-        "subcategory": "日向ちゃんねる関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "サンリオピューロランド（3）",
-        "sceneNote": "2026.06.15配信【トキメキ】大好きな先輩とのサンリオピューロランドデートでかわいいが止まらない！！【グッズ購入】で、片山紗季が清水理央とhttps://www.youtube.com/watch?v=bNTCUWPzPJE https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=39&dy=20260616 https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=28&dy=20260616 https://www.youtube.com/embed/bNTCUWPzPJE",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "日向ちゃんねる関連"
-        ],
-        "images": [
-          "https://img.youtube.com/vi/bNTCUWPzPJE/hqdefault.jpg",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjBvdrujmWzYgCe1Xzdw1C8IJM3RejFLRkOHb3zuWb0B_Oo6Y9zX-2k7xy2lpFtW4QC4ACu2VQaEpkhTS07nvACLWHulgnO2yabXZQsdCD4jeyaId_DfWZvgPdx0nP4G7CIyh32Q-vzrxbmplZyUFIUZCUPeo5wrnfckAOEeCHSv3UITIjRI669n9A0ii2jdymk_u3WkeSLzqN68ORNWwC6fwVKEfoQFDk-Y23x-C8fw_dQK0z5bzvP7zw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhQpS_vAEssAzVBahmh3T3N8jMzCMTasvVbusNhg5rr5iG2RmXH6AY-xIu8BwpAcls5Ev8AiiwccLUovhPsN83zIgMYmGN3ZUgG2jXf-jTgdHGBW-5Tcph8yd8h-VADgReYATSh0L4CkWs_wSVWqTVPfuJi8mJ9rjfEg-8Uoc6eEb6XRUV7tTmQ7QOrd3SSsrRo8rs3nxwD-efLXf4WeRoQe5jxbm6PMeKyojYKRFeVPtE4CUctE0K_vFc%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgWOz7tGJLNYFyA1mpegK6h74Vmvv9nYGsMaqexfRnSosxarNaHMHGjPNNkkDq7wpWwkO9wXPqR_wLu6WXJWaDF8YMd50NGKNuMluq7OFtUDTFkTu2RYiwF8OsVdXyiLXxbMdCexmINVq-OF3PiGZWcYUyLiniSPFiAqy48Low5_j9OPqimaAKn0W0tVk3c18qdFb1lI9q9rS9LIOkEr2UrBsYnZ6behuuPriNyh4_Dvgl8gsnbqc3CKhc%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh3SyiugaxOyRedqQw044iNH_Rk3p1gTZKaYMAVuP2KfT-Bo-ZFdxIx_vpzethJ9sMnOW0G6Vt8kS8dg7p6fecA693c0IrcyKA4xAbIOqekCEdo8Bij8FtCzzFegF5QwH32bR6j0yxlmrpuFdzDLO5bfajGSCWWXh5uVpervwdH6FBnHUi03q7zhWijkrgqgIZwJ19KW9HeUtdpzvKVZlvZ4IOYfEar4YsB3WKO-fZ28Hb4cWuUSumS3Ok%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "日向ちゃんねる関連",
-          "tags": [
-            "日向坂46",
-            "日向ちゃんねる関連"
-          ],
-          "name": "サンリオピューロランド（3）",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "日向ちゃんねる関連",
-          "subcategory": "日向ちゃんねる関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           130.8085394,
           33.869201
         ]
@@ -126605,61 +126546,6 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "三協フロンテア柏スタジアム",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.429293,
-          35.624512
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f8b03c5f8053663ea8da",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f539e23fa0331886c669",
-        "name": "サンリオピューロランド(1)",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "サンリオピューロランド(1)",
-        "sceneNote": "渡邉美穂と小坂菜緒が遊びに行ったテーマパーク。(2022.07.29の渡邉美穂の当時のブログより) 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR76mm24HP4U-p5XQfT3A7wjhAVpKvktsNh77KZMDRKegNHMWBa4UT1t7c0gdm6r2H3gbnYfWbHJ312x64-vDa0rYT59h9V3vMjCQ-SCkJNmPxIhdBct_Bj0Uii_TQY1jsm_GavhuZ0ZUzLQOzOdyL9aSN87QCXzH5vSxNxyCHeiJo1H5dQlFDQltPM01LRPq_D07A8JF0R4VDojIDKbb1X8Wgc2-Ec2ogd7q1Pte06uX_excnJWOF50zn0%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "サンリオピューロランド(1)",
           "group": "日向坂46"
         },
         "classification": {
@@ -244944,6 +244830,69 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.8584987,
+          35.7447768
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1c1553bb52501bb6c753",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1c1553bb52501bb6c753",
+        "name": "中川(青砥橋〜奥戸橋）",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "中川(青砥橋〜奥戸橋）",
+        "sceneNote": "026.10.19 O.A.「キョコロヒー」で佐々木美玲がスカイツリーを発見したポイント。錦鯉の渡辺隆さんのお爺ちゃんのようなノリに齊藤京子がツッコミを入れる。https://tver.jp/episodes/epndhw4tbm",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjAJhLOj2iE1M0nbklIiBJ7Iw1usI0-CeDNcr1p4CKTlkULLQ_924--cF7961fu_ZqkBDnP2iySWZG2v3bqhVRLVoulJPE7tomzUJwM8onyO1nJ1xYlgvVtqfOQW99m1eUSNXAbFw3khHplguQ-Y4Clhu5a8YOXj1muILMkMiNelbhuORvOYKN0qyXLBKh3QjZntYDxxvP0fgWCc2dxhmlMRybvBr_ovRFa0y8NX7ohtsOQjU7_xu5nU4I%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhNLT2T3SG1JUFQ2y-n3SHmnT8VT0So_CNzItSQG42AQlNtbCbkHb-48vBScQr8sXB_S5MaYEE6qk5KAR7tyWyRE7NsZFq2iAYCsMkQyM1-3hFaWtLE17Up8WIH0Fdvk0zKNUd1OA1eEh37-Y9Yx9ediSpmfNv2SmqKdnkujkFgZPigvrwaEX7JwuwD1AW7vkIfuWd_mEusWYT2SRH5LDph0Wz9VHlCyeSir_LGpPjqwmkdCDk22Fsa8Qk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg9JItvYrNi-Batdz2Bn3VzuuMWYw7Cmcdq7jC-bPb1NLOcVNAZkX_HDJKAcu65y6f39SPt4INH2lF_0SuGrHyd5-K295wU5tCD0GmbHOyPXHT4TKqVVbE0t8nscybh1u8pbz2V-gNS_deYI0_8INR634WL49sNPcOYFg50pG54brUkZU1CbIb-NSOTFK_PIAaO8YgN7L_unXuTr3HLVlb-kNePrO6jYRWasO5JcM6AccBJs4_P7g4Ze4c%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh5sSmlwy0aOx-jpDS9PETCVC09UAV5ijDpMX3weaUmbV5T-5Q6TXYYoxDRkthvw3zL88ku6VukP1KRkOE2iq8YiknGZlh1OyGWmu0zKPbo0I0odvg89vVfNxCxGnoo8fIuUn1bbFqhvqdUZSeDXcMRrWaRcd5B2Zzyob8Mh8Z7ZPDpjsnJuRQLltAGitptnfSgBUsoqpFFU6cnGqIPUUfDmRVnWglPI_Rk57BdEzAZgoIhnRmDiK62qio%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg7a5DlecXOKH6FjFzymZujiKTlfHd5DxCmjCC6eiDCZVo3p3uoCNF_Rdd8gkFhUgXPRqD-MZ2_Haz1FSy46gZpFZJkT6nkbca1qiYN1iUKgZodCq8kia4vrpy10iRf36PU6go4z7SQkQamOKQCWQFxF9bYW1HmzKUOxf67Emx0VARjUDvm_a16Bv1TptyXyj_bpr1c0gly5PaHf61G2743QQJSjA4gLx5ogwgaXlMejPM5dt1N16cPJys%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjPrMvxRhtzH1QQ18sMldDX0-gkDoZjuHE1OsNUZOuW5oXXOQ0oAeo-wGtz5lh7FF5ySUZn7mD7I5LTlpwyRbm2Fmb4zbQnO0ICkBdelPyMbzEVz6RXrUS7vuUJStsoEmR4P-_bKAp3q0UTQt-1GhmRdK0hSKlMUDPXOg3TayK9kluiTeFKQsCAzfZrdeMmH0MHpcrKu3-GiZtwxLnI2TmuHGWxQ0_sJh1tW_QdcXdN_cQn3Q2YRkKK2IE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgZpKKFYXkJZ27W9avaShN6VW-_wL-RwZ8MUUh4yBF9rAKpxygsPZstX5FzaMCk0AWV1TYohGZjNeqGbWiC7XGqQLGic-g1WNP4B2z5JkJwXzIDyn0TkNkf6YTv3iZSmFQ1GUMuIthrMrv4KDKLWx7HkZecSM9Rlpx3XwhC7t3dD_t6J9yXGf-Sj36fQl6O2tnyOb2-CQRvVotYno8bzn09nTVyJz1_wDiEGEgc74ZDxEuJYL_NRB5OeOk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj0k79NwIVv42O8Kmy65ewHiNE-0Jllm6fxkqmY6X55Twbgn57meW6S48YskrP3v7tyAH_UMcs_9WyUi3zV3H0JjTXWjHRIr6eA5FAb4CP7t5wniE5t4YA_SfFGaGPYTuJssb4-zO07hfbnyZ8oS-03ceNb04ci0YRTkZOedAeK8PGPDiyIYg6oEs0HLE6JXDOeis3QVjVxAKAETPH0echaEsTQRLWlCuVpLypgUTXeXNngBE9PTsWM18U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjuBp6ok7AePZGBHsZwl5tie3qdrXB8FsCpSuZhv3sZFwEOc0eaDrzAkC8wy1XZQKmgT2O_qtgQ7Dsply016qBsxVUhXZqDb4q2EgmFf4adtwrydFWUirbjmfI9pJh1o1JhEJbMuKiag8Vwjy4WsvyKa8cnFPTIXdXr_7blG56f8VzoraUOZ6ws1L_K2GfllHhbVgNB4KWM-l0yKcgK08SEdFME4PaTlU2_v3mVCd6fDVlydW4QkGQXeDw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "中川(青砥橋〜奥戸橋）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.8736249,
           35.6626123
         ]
@@ -245264,6 +245213,400 @@
         "classification": {
           "category": "映画・ドラマ・TV番組・雑誌・新聞",
           "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6699057,
+          35.714749
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a500879cab129be3be5c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a500879cab129be3be5c",
+        "name": "かざみどり",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "かざみどり",
+        "sceneNote": "EX大衆2023年4月号の正源司陽子ソログラビア撮影場所。(一枚目左下、二枚目右下）",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhXZN9OcuyJHV4146Grnh_xm-0FuOWFeax0th83r5qldAipFWSW7DMDZGU_pZ55TVAlRZZIpUGygKo6oL0gRKx97JzXJsNeP3LxOK6-q6cig-hCEBywgZZFXco8DzVbLlcNkEKeFWfjpcK9B8TCsRI3rRN7-7wB9n8PRB0jecxtAizBgvzp-kitiK-6yDjVU49_cpF6tZvLhlhxfcvQwDw52uJ6l11Imoe9fyX1C6_K0CBQ79hsUXw9_uI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh4quINmxKx8rtAUbLbtdBmXVelRuyXYcjxB8DlGaP1WNA59mgfzSdjzmkgs5oULaBsaZWg0JRJly5oPHLtkAQYJSDdO1x4_WAZ-OD80Rj0YAP9nl7ywvcxkQlGUxVMPffZ5THobm4fwVrlsAZUZIolbLgG9xunOzK3p_NGPSvggMj3oLzvpkMQxQWetfcNeEsa63bJs2d3RxM3aABLOaAyRurLeShn4q-mshyyIysOPGXOCRGWIx1iBBQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "かざみどり",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6718959,
+          35.7164749
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:28b210935501611e43e5",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:28b210935501611e43e5",
+        "name": "哲学堂通り( ブリロ前）",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "哲学堂通り( ブリロ前）",
+        "sceneNote": "EX大衆2023年4月号の正源司陽子ソログラビア撮影場所。(左下のミカンを掲げる写真）",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjkvdcq1HVjrAkeMWBxI1KzMZ3wH6bQYUxpuqm8m6W0f1iI5BF25OCE4iTSHdmAl9G_4bpBlDwyYSrWBLz6KxdgkREmhEajo736s2IxPdg0WX5k-YACwdN1dHAeKP3UWo2hPaFCmIryjA82G1_h4mV5CZMC7neojr9LnjFVkZV1Yz9Usmh53pslliQmYDbaILO-AR7-3cJEdXUlsInq40FDpIqm5lLpsPI_hYHxlyVzaGrjuPxbmRIEboA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "哲学堂通り( ブリロ前）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6719686,
+          35.7165565
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:938e99ec8dde2da6023c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:938e99ec8dde2da6023c",
+        "name": "明幸フルーツ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "明幸フルーツ",
+        "sceneNote": "EX大衆2023年4月号の正源司陽子ソログラビア撮影場所。(右下の果物を物色している写真）",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjoyZppw5CEFx-evb-C1E8el-r2K9pfOG2HDND5TceA8cWBOFqo7z-penVFHhZ5WZhVSj5q60Qy6mCLj-0bVS5ReJmrIcqidxtGlhnkTPdElyAPIuBrh_K9qryS5PFQ6q02YbxXt6zobuz-mnY-L93Pn8rgGQp3qJlACwvbZv69rWr4gk6GtuBin4Tn6x2nraklsWuwD841Ynb0OVDoEOVv5iUnipxdyS4Ue322DpaXxn2xbi4S6qtfNVQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "明幸フルーツ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6721978,
+          35.7167013
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:93710629b4d126b1d93a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:93710629b4d126b1d93a",
+        "name": "ぎふ屋",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ぎふ屋",
+        "sceneNote": "EX大衆2023年4月号の正源司陽子ソログラビア撮影場所。(一枚目の写真＆二枚目右上のおもちゃの刀を構えている写真）",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjKH2X7fzTY7eI7zftyntTwqaH3RRCAuDriFko0WrRn-lk8fiqbCtypeFV5bH_P8iSi2E9O2Mfu-hxVKSiLK_tFHJa1q8xd7DSE69cHXY0swKOjtZGhJYk3kWroOqckwr6NmPWYj2q3zRTPXPXVAiGNdWqQbBkHGHphXuHAt5wHEf7dE0_5aek_-3ILYtREHh7wcJrps-WkUHxkU40LVmA5PUcTJa8MB3v7aHLnbWJ3BddYB1909cP1Jt8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjKfTlABCYk_Qechs0CMtuBW6Elaooet4J6pbXhUexXjqb4WnnxwUA9XcpSGs7FG3G5yea5eAT6awvGWQXW1qosLZ-ylNCgM2msYoj9UPSFImMyX8GwqFuuP74dtIkrJYuxu78A-4cDBHQD3dlPkY1Kw5_By2lVioZktStWjZAmE7_3bS4EQlYbmSS5gUDM2DcLRFoMy8Vlag1fVzTirvlEjMFdtLCltiXMTpYh9dfvZzhf2R5J2w172So%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ぎふ屋",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.429293,
+          35.624512
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6c69dc2226d9eab43c2c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6c69dc2226d9eab43c2c",
+        "name": "サンリオピューロランド",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "サンリオピューロランド",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhVZ5lC29RIIp1-hMWY7vj3UI_FaNlwlrFr7QxYGnHbNmWYe3okiVr5M9BDCBvEDQrvC2vS0_kIxsaKhIrLH7eC2MURwBqclH2ODIb0o1YRVTC9ZRBL39Kq65IxX_lM8GI18N0QOuCrdaUz26J7nXqFgQ2_GzNYywmCsyNRCfEe8-WgVrv4arJGxZxvKQ78Z8EKfSCgA-EKMj-g8Zh6VS5nqFcxULvD_ZaDkHsMY5jb8FLa2AA50_vmnS4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh0fJVTKC49othMIWqDPHtPaQFw7k1sBAUyuVCBa-zhZ5t94nbLYYdJj0yplzS7pjPbwVXupK-TG-KNKHpqOiPhBPO-dUev3JKgHoRblmM1UM2HGgV2k2iWTeJ0rkEpW0No8RqoBlTYklvjAuig7n6sho6bQ7QfYaAy8Sz78-QEIsKIJ-n1rW_IqNN7TIiZsO2SKia5Shfm4bsU2TUN7Faj7Nb6LBZm9mOey0Lba1fR3sEPXCz2QfDjDK0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiE-BkaC8k1GMJPzvyQZB7UU8X55cCY0AqeTH7hyXV0tg6eDNZzXa3T4k7JAuIC4lKmHJu1nE6frMWhxHty3nouAO_4UWBMOY5Xq8aTD3tC7c6mUlmKYb8CHeCPz9Zv0yhV4gXgWcvk-Apq2KpsSHMBGNel5NLJv97fH07Bc9NgyAtEMsutIRe6zmuFkjosHvaybRt6szpxAMEyr1xBUb2m0AxzR1mkttQDSxSYU8WGRBfCBW9urxQ3yaA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZitWJ7E2WqpKchOIZZnOxKBZIOPGw3KPL3uAPYGC0U3kqh-Qlc3Q0vdcLc3TLvhtScKJJV6hOnSYl5RFV-P8dSlYaSRyB6Z1odk1jGw4kUr-loTYYuGXVNiXQsxrfB9x5asNVkQEUDObuTH5OnpaBX61oG-MJgDvcR9lFEMHYVivkBpxlaAss0csXdz8izqQ2dOWtVJ5PH1MJs2XkdhgJxR-59dKM1M9pfbH-6DSqeZRvPpLsFOagCxwWA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "サンリオピューロランド",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.429293,
+          35.624512
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3d62d79fc4c265e9f728",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3d62d79fc4c265e9f728",
+        "name": "サンリオピューロランド（3）",
+        "category": "日向ちゃんねる関連",
+        "subcategory": "日向ちゃんねる関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "サンリオピューロランド（3）",
+        "sceneNote": "2026.06.15配信【トキメキ】大好きな先輩とのサンリオピューロランドデートでかわいいが止まらない！！【グッズ購入】で、片山紗季が清水理央とhttps://www.youtube.com/watch?v=bNTCUWPzPJE https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=39&dy=20260616 https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=28&dy=20260616 https://www.youtube.com/embed/bNTCUWPzPJE",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "日向ちゃんねる関連"
+        ],
+        "images": [
+          "https://img.youtube.com/vi/bNTCUWPzPJE/hqdefault.jpg",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjBvdrujmWzYgCe1Xzdw1C8IJM3RejFLRkOHb3zuWb0B_Oo6Y9zX-2k7xy2lpFtW4QC4ACu2VQaEpkhTS07nvACLWHulgnO2yabXZQsdCD4jeyaId_DfWZvgPdx0nP4G7CIyh32Q-vzrxbmplZyUFIUZCUPeo5wrnfckAOEeCHSv3UITIjRI669n9A0ii2jdymk_u3WkeSLzqN68ORNWwC6fwVKEfoQFDk-Y23x-C8fw_dQK0z5bzvP7zw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhQpS_vAEssAzVBahmh3T3N8jMzCMTasvVbusNhg5rr5iG2RmXH6AY-xIu8BwpAcls5Ev8AiiwccLUovhPsN83zIgMYmGN3ZUgG2jXf-jTgdHGBW-5Tcph8yd8h-VADgReYATSh0L4CkWs_wSVWqTVPfuJi8mJ9rjfEg-8Uoc6eEb6XRUV7tTmQ7QOrd3SSsrRo8rs3nxwD-efLXf4WeRoQe5jxbm6PMeKyojYKRFeVPtE4CUctE0K_vFc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgWOz7tGJLNYFyA1mpegK6h74Vmvv9nYGsMaqexfRnSosxarNaHMHGjPNNkkDq7wpWwkO9wXPqR_wLu6WXJWaDF8YMd50NGKNuMluq7OFtUDTFkTu2RYiwF8OsVdXyiLXxbMdCexmINVq-OF3PiGZWcYUyLiniSPFiAqy48Low5_j9OPqimaAKn0W0tVk3c18qdFb1lI9q9rS9LIOkEr2UrBsYnZ6behuuPriNyh4_Dvgl8gsnbqc3CKhc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh3SyiugaxOyRedqQw044iNH_Rk3p1gTZKaYMAVuP2KfT-Bo-ZFdxIx_vpzethJ9sMnOW0G6Vt8kS8dg7p6fecA693c0IrcyKA4xAbIOqekCEdo8Bij8FtCzzFegF5QwH32bR6j0yxlmrpuFdzDLO5bfajGSCWWXh5uVpervwdH6FBnHUi03q7zhWijkrgqgIZwJ19KW9HeUtdpzvKVZlvZ4IOYfEar4YsB3WKO-fZ28Hb4cWuUSumS3Ok%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "日向ちゃんねる関連",
+          "tags": [
+            "日向坂46",
+            "日向ちゃんねる関連"
+          ],
+          "name": "サンリオピューロランド（3）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "日向ちゃんねる関連",
+          "subcategory": "日向ちゃんねる関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.429293,
+          35.624512
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f8b03c5f8053663ea8da",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f539e23fa0331886c669",
+        "name": "サンリオピューロランド(1)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "サンリオピューロランド(1)",
+        "sceneNote": "渡邉美穂と小坂菜緒が遊びに行ったテーマパーク。(2022.07.29の渡邉美穂の当時のブログより) 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR76mm24HP4U-p5XQfT3A7wjhAVpKvktsNh77KZMDRKegNHMWBa4UT1t7c0gdm6r2H3gbnYfWbHJ312x64-vDa0rYT59h9V3vMjCQ-SCkJNmPxIhdBct_Bj0Uii_TQY1jsm_GavhuZ0ZUzLQOzOdyL9aSN87QCXzH5vSxNxyCHeiJo1H5dQlFDQltPM01LRPq_D07A8JF0R4VDojIDKbb1X8Wgc2-Ec2ogd7q1Pte06uX_excnJWOF50zn0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "サンリオピューロランド(1)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
           "method": "source-layer",
           "status": "source"
         },
