@@ -386,6 +386,31 @@ test('resolveMiguriEntrySpend uses official losses within the paid serial pool',
   assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 148800);
 });
 
+test('resolveMiguriEntrySpend prices a single missing from the catalog at the synced official price', () => {
+  // 16th『愛MUST BE』 is not in the catalog yet; its CDs must not count as ¥0.
+  const entry = {
+    id: 'new-single',
+    member: '山川宇衣',
+    date: '2026-12-20',
+    slot: 1,
+    tickets: 8,
+    status: 'won',
+    source: 'fortunemeets',
+    group: 'sakurazaka',
+    category: 'リアミ',
+    eventTitle: '櫻坂46 16th Single『愛MUST BE』 発売記念 スペシャル応募抽選企画',
+    appliedTickets: 11,
+    wonTickets: 8,
+    paidTickets: 14,
+    unitPriceYen: 2000,
+    spendYen: 28000,
+  };
+  assert.equal(resolveMiguriEntrySpend(entry, 0, true).spendYen, 28000);
+  assert.equal(resolveMiguriEntrySpend(entry).spendYen, 22000);
+  assert.equal(resolveMiguriEntrySpend(entry, 20, true).spendYen, 22400);
+  assert.equal(resolveMiguriEntrySpend({ ...entry, unitPriceYen: 0 }, 0, true).spendYen, 0);
+});
+
 test('resolveMiguriEntrySpend charges a 33口 × 3-CD sign event as 99 CDs', () => {
   const entry = {
     id: 'sign-won',

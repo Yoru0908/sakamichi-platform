@@ -307,7 +307,9 @@ export function resolveMiguriEntrySpend(
     };
   }
   if (entry.source === 'fortunemeets') {
-    const priceYen = resolveMiguriCdPriceYen(entry.group, entry.eventTitle);
+    // A release missing from the catalog (e.g. a new single) keeps the price the extension read from the
+    // official campaign (販売価格) instead of counting its CDs as ¥0.
+    const priceYen = resolveMiguriCdPriceYen(entry.group, entry.eventTitle) || entry.unitPriceYen || 0;
     const appliedTickets = Math.max(wonTickets, entry.appliedTickets || 0);
     const hasSerialAllocation =
       (entry.paidTickets || 0) > 0 || (entry.spendYen || 0) === 0;
