@@ -608,23 +608,23 @@ test("Meets API accepts three-group campaign discovery from the official tab", a
 });
 
 test("Dashboard presents extension sync and removes legacy compatibility import", () => {
-  assert.match(dashboardSource, /修复版 ZIP · v1\.1\.21/);
-  assert.match(dashboardSource, /MIN_RECOMMENDED_EXTENSION_VERSION = \[1, 1, 21\]/);
+  assert.match(dashboardSource, /修复版 ZIP · v1\.1\.22/);
+  assert.match(dashboardSource, /MIN_RECOMMENDED_EXTENSION_VERSION = \[1, 1, 22\]/);
   assert.match(dashboardSource, /安装最新版同步扩展/);
   assert.match(dashboardSource, /当前版本需要更新/);
-  assert.match(dashboardSource, /v1\.1\.21 修正 Meets 保障应募（R 序列号）被重复算钱/);
+  assert.match(dashboardSource, /v1\.1\.22 补上全部落选的 Music 申请（以前被跳过，中签率偏高）/);
   assert.match(dashboardSource, /extensionNeedsUpdate/);
   assert.match(dashboardSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
   assert.match(dashboardSource, /从 Chrome Web Store 安装/);
-  assert.match(dashboardSource, /下载 v1\.1\.21 ZIP/);
+  assert.match(dashboardSource, /下载 v1\.1\.22 ZIP/);
   assert.match(dashboardSource, /单轮超过 10/);
   assert.match(dashboardSource, /downloads\/46log-miguri-sync\.zip/);
-  assert.match(supportSource, /修复版 ZIP · v1\.1\.21/);
+  assert.match(supportSource, /修复版 ZIP · v1\.1\.22/);
   assert.match(supportSource, /登录恢复修复版已提供下载/);
   assert.match(supportSource, /Chrome Web Store 版尚未包含此修复/);
-  assert.match(supportSource, /下载 v1\.1\.21 ZIP/);
+  assert.match(supportSource, /下载 v1\.1\.22 ZIP/);
   assert.match(supportSource, /加载已解压的扩展程序/);
-  assert.match(supportSource, /zip\?v=1\.1\.21/);
+  assert.match(supportSource, /zip\?v=1\.1\.22/);
   assert.match(supportSource, /kdfpdlijajcjianjpffgnmodnmigckdh/);
   assert.doesNotMatch(supportSource, /等待更新/);
   assert.match(dashboardSource, /一键同步 Music \+ Meets/);
