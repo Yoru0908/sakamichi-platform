@@ -148379,6 +148379,121 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          135.777364,
+          35.0094018
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:25128954a9c0df90230e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:25128954a9c0df90230e",
+        "name": "いわさき整形外科付近",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "いわさき整形外科付近",
+        "sceneNote": "https://www.instagram.com/p/DeortL4kzNR/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhpHq4QX6nP6RNwIBFWNnKtWQsc8yvXYdZByUN8vh1OVve-oGLYG06wHQrohYsvEIl66IyGtw94HO5-RMGWTK6PnqrS1IYZ3MGiMEH8fc9LNDfpW3GVW9ENBqdMn6yBYUvlXQaXBTPa1MxdC4eaTgp95GVgaDVdxAS--5n4-R0HT9wMkmiw1HQIMfM7ObMs93lpaY4Io6x_bFByFTBcFQ-iKpm3vBmEHdYezUnKoMSdhovygYVx5AqZytw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "いわさき整形外科付近",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6514984,
+          35.510218
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d320fef8cb033c23f3e2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d320fef8cb033c23f3e2",
+        "name": "マルコ撮影スタジオ(2)",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "マルコ撮影スタジオ(2)",
+        "sceneNote": "BOMB2026年11月号藤嶌果歩ソログラビア撮影場所。https://www.instagram.com/p/DeOyWWCEVIk/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh40wL0v-jBzwJpqVS5AXtT7-0QHv4u-YMYgbSREIasvMpW7MjyW_1wiRKrfWOoE0UAL9ZdhWnZXOo6wiENa3tBdNCxpvZe--pywgjtWKuHw-KRPjXcwrmG-mm9E2bELvaZGnXOzJN0oIKQLmS63wqdXs2-Um2KQCz-FJLBpzM_BTe6dbqJiC2EJfHBZDWpHab5XA3Fgiw7dOZxLYvSSICuLx1ZENIQ3SC5LGGm1NElGDaSFkJ1l6ysGJ0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh2YI7SXLvfJ9kz2-4Ho44-RLvD418p9-NW7h2mvU3piACRboPcrHqxQkTWzoxKUg52vQn64DvVBt8DSwN0y_XEncNQw8qlAkvpHu6I53FSOjlNk6zqa0rBhLR7mrndl4B3hfpmiL_OtPhYUM-lq0-_q1yBoAvgtOxd8bOVBbBSFuyBdNUWGGrLHSyYkV7DlObxTzsc3qmTDPx1HECKKwRfSfx4BSxtAo9dyKU5x72-o2z56xkduQDBrUg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjO12cBRReVXCHTcpJxPjqIgHfdr0mcaMO5B1SeMsBuz9gI-7E2jMxIl-BFvSG_6vo3QYKy9IKlO7Jts6CRmJaaQO_v-nwsEKUKq_YAYo8DxU5LXP3U-nWyX6zYYzRWxSMKmdh7NnBpWtnExSTtPO23Ry7w-yyxplSkFC_91bVjyWwcXCCK8K2ULg5PBpa4xQnKYYCnePfAc-UpwNo405-M6vL8asn2gPDzQEQtcEWt2mn7e4JHrd46xyM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiHIiEXEKAv6D9yXE2O_y3aysWx689nuYUsyCrZQ_r_x4d3SO4xLrv3NN4GkQBWp2PDCuOKxUTLz2BjAk7v7vWBfWg9dj31FjFJt07q8GpHDmmad5ZOiuBShpBd7daQ1CwfaGdkNji-oc_PfvQHNt1J9WcU2uyIZ6vvdttjm6_8uC_HldIThl_kwMh_04sE_OWbVKDxF2s-o3K-fYz4f64dPh1jn33DYlfeB_fTkknpRCBFHU7elaweRhs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjgEd5uvh6ZYsxflvbA32Jm8luevntOvC627TVOZKcdNEVee44poPzuPVD3KS_o8SIV65SgCnOFoDMzSRxY1koIrJk4wendkkIAqnv1OOPKSlstNauODa9SCvG6ONxSKz9hAwebgg4XTXxrmiYpkaAZRpm6cQ-4_NM8iImTHRZ4ESZSOCGfWOsVVlLB7NGBaOoonYPEHg_Zi8c03hnLVUaOxtUbf4A-ISrfXbU4kFOXWXEf-kBVWSa1QWE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg4aDCROmKRVE3NUTrbCcRBEsm-uZGXhGfPDJiBrn1PphvWYr2zFwPjkufEubIJ2dADF2D8Kv5pB4ZuCFjvz6031QrKNS7e7RnMo9_ZSyo3UdNCiK1x51SiZqCBFTh_VIskeEgI1Ufdgwtyl8NshiqtKAB0PZ0WXw3G7WongJZm9aK5AyO4fzSkDkanAjlQFEwf-qKx76eUyYYbCxNaBB_2ohwEiFzDWdNbzD08k_FQlG1nG_HiQcVePWs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "マルコ撮影スタジオ(2)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
@@ -183094,7 +183209,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "和洋学園 国分キャンパス",
-        "sceneNote": "ひなこい 4期生の初登場の撮影地 https://youtu.be/cjuJbcauCnw",
+        "sceneNote": "ひなこい 4期生の初登場の撮影地 https://youtu.be/cjuJbcauCnw ひなこい6周年「ひなこい隊結成！？」の撮影地 https://youtu.be/OdJIbR7FiK0",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -183103,7 +183218,8 @@
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6tLTAyrthmOabkVSwhL5os98766XOwLe9RtMXGR-WL7tZjk0g11_JEXnSMdlkftKZNRVHXTHHMizAvuoY57iaZJEAkIQnWcasP4H6nVJ9NMJR8iZa1gkCLvRxBfV8jgKzJUiBlBNRy20ZmAMoDqlXuoZW-Rb6ruBOp1iJJHP9j7qOhqFRRom_SeUA61SKEsR75sbKZo6UePP3VstT1QnoJ5JJ1MthOHvC2JkQVqS_TWdPJDiBlHk6MU4E%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6tLTAyrthmOabkVSwhL5os98766XOwLe9RtMXGR-WL7tZjk0g11_JEXnSMdlkftKZNRVHXTHHMizAvuoY57iaZJEAkIQnWcasP4H6nVJ9NMJR8iZa1gkCLvRxBfV8jgKzJUiBlBNRy20ZmAMoDqlXuoZW-Rb6ruBOp1iJJHP9j7qOhqFRRom_SeUA61SKEsR75sbKZo6UePP3VstT1QnoJ5JJ1MthOHvC2JkQVqS_TWdPJDiBlHk6MU4E%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi59L_l-d2Xdi6y53FMuscw14n-su3-K58TmLCGtHUcnJkL3845USbwHmtkX9oFNcPUXvEVFWGH6VZ6mxPD83BCqstps3IMJhykh8JzD1dqk1CyE8jfEpT3xE02vKw3gi0wLZkbhmlkF05ANz9ZJAv4gv9-iFF1Ahl4R59rHZzHGQNv2DAT1VFybXtX3bk6bc-wb5FPcJvwEYaM6mRmuwvIGP__suePgR_2J8IuYpLnjyC9yx2KXemHh20%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -187658,63 +187774,6 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "馬場神明社",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.6514863,
-          35.510221
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:229fef305cf203ad8b55",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:229fef305cf203ad8b55",
-        "name": "マルコ撮影スタジオ",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "マルコ撮影スタジオ",
-        "sceneNote": "アップトゥボーイNo.308で上村ひなのが訪れた場所",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5mvHBya-TS7bWP_Vye7Ijv_7A5dBCgWPe4to5_ONtNh4qywCIdk0lZQIB-HjUrGqkeMq0eR4AZxTQeEtM3tb-ixic9W_tLLX2-wbr65vJLusMS1Vm1CBCGhEoTDGDa6aoxssgX38B3B9_ocUOW09ZAG_54PbTmZ4WVyMRStWBbHP0M-52D1tsA5HHI2XPCljh9BwXo6XatbCU9b0dizB90vjFr7E_6M1P1dYjDEeewdLZMRb_Sp09NBKc%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5ZP-Xn8-z6w6vdjXLf3XXpml9ZxoeDgcpgbUh4urYnIa8zth3266q8D026DN0ZabE6ULjA94VdeixfYeDz6JYaqmFs__uhR276jrnOeOssAOfksBhQJqbPrbhDjmxC-foQtRnUqR4wCHkORbCyzelhqxli6I0K6Nuo-QA2NDXY3vMr_IWMjzI_8JDHW5k6Y5SYYZ_KPh-l__0OcZ4BiMYaX8Wpa5oFWhFKD7psKk8ErnbSQ_omhZj-4os%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5yHtCBIHXXUE6LWWUMlf1LUJsAAps7atwO2Q5UnM0pTIQ9Qyyw9w4HdYPr9o-HdJlMG8-GXmilpMdpl3FEFvnKt6hsefP_Uyn9RF8STfybCiU0YSjnm_EbSAPiiKYHlp3O2V53LLTHGZiQre1M3MJDzdgPaHyPoduSqQl6akJ1lzLni3iQiA47M1N0DQB15oXmamDwrwOPpjKBi5Zv8FM3bsbWpaNrT6sz1h_9-wIFJ8_YcB_ze7QL4tg%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "マルコ撮影スタジオ",
           "group": "日向坂46"
         },
         "classification": {
@@ -245859,6 +245918,122 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "FIREWORKS",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.1949406,
+          35.6140094
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d3b5a5edeb0f5a70514c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d3b5a5edeb0f5a70514c",
+        "name": "相模湖大橋",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "相模湖大橋",
+        "sceneNote": "2026.10.17 O.A.「出川哲朗の充電させてもらえませんか？」で出川哲朗さんのバイクの充電がまたまた切れて、渡邉美穂が充電場所を探すために先行した場所。https://tver.jp/episodes/epv3reghnl",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhmoY2sVJ7xM64TLpK4oJVp-QyF6tsiJb5Ji_MNnjy3CA-1jb7z8k4dDrexcstsmu2_PXlqkEGOjG814pxCNQ0P4Z2cnUARMhRhSkxzDMblfZnZ4TlXKF1zyZJSq2tEz6--78LFsFh7j7F0gvLUvm5BmhsZnVRJsGlR9Hs9QFZRj8CME7vLowqpScvqJQjG4mQPJUN1HpwA4zCkss39psR3ULexeLTqhlDYlpfTJSryhGcPqvyO5gG20JU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh54d49zSCUPXzUX5egDYFa-RxVt2UGeK8anBtDbHkMdwT_9t1K9OUGD7u-nM-3_m9-X12oJv1gucftlg7hoUoQCK9-48pi-jjUvyKRTtqyRFVNidE7ACJDYzZSBmG12eiHSY-cFFWSpx6mBdeYMM0KziC8amtkgvbizSWjMQx8rMElQmu7Zb0D1gBnDutHyGpO_YXUrgcPsXaPm5qz4ZE0Q3OrLBexCauFkC57f4AWU8Z5GBYF6oNXswU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjUEMw21BT3m1Z4Z-Ng9H2LtK-Com5OigbOsNqdSUgUw1AFaKRSWmVGWx9iwHoQZBhyPv_upl9_zLME-XSJPnIWOf1e4htioIGoyw7bDRVXzKj_JwNZww-_x83uhZjzfrrQ29Fd0C6Frr6W4Q64UtVukw0bJF6AghhvZHuke8_j5G_esjW2xk2riEX0mvdwBktM5RZwB02Z5e_rJurNlpSNQTFacHANGCUyNO6_QYG6LBGZudiH0P7fcMc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhLkPVzMEK9P8zkM8KTvdVDKKZkzF4c8BvXg-IeUzUhlJ7dn7_JsCJILukn_S2n7AAsmSkxdIM_Rb96v-dQztLIr6dL51W0YUrOzndC6XrWsjAoirbFBGLzMMs3MS0gS-t5o9FoIaBn5YivtY_q4UeiDEdHH-DblwzDsfwzl565KxxC6KZ5m7Jx8XzxU8f2mGY9tbWV-pbegVWrYurZO-YY4eKNWaxDAGxsz9cmg6bBzkJbQCw8e3hDmu8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiyqGsLDye1feda3t3qnwVDgLvsfpXOBVIomTze36Dwco3qsxweQEZHsJIdcFROvKfLnAutP4yoxGlr2xr0uf9shzatCFVZZsXuZ5asBWYfcK-Ls5CkmbPtIJSE8Cc0vw0JR0sOzZ9MPJjAECWRMW-xu2T9-jhnSb9IcY19475wSFehV8_YARxrkwH3RsMAQLitqTzmxMDXovW56wxH00uT3jp_kenSgFX8QTZWN3hEyG8aR7fBag__OP8%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "相模湖大橋",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6514863,
+          35.510221
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:229fef305cf203ad8b55",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:229fef305cf203ad8b55",
+        "name": "マルコ撮影スタジオ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "マルコ撮影スタジオ",
+        "sceneNote": "アップトゥボーイNo.308で上村ひなのが訪れた場所",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5mvHBya-TS7bWP_Vye7Ijv_7A5dBCgWPe4to5_ONtNh4qywCIdk0lZQIB-HjUrGqkeMq0eR4AZxTQeEtM3tb-ixic9W_tLLX2-wbr65vJLusMS1Vm1CBCGhEoTDGDa6aoxssgX38B3B9_ocUOW09ZAG_54PbTmZ4WVyMRStWBbHP0M-52D1tsA5HHI2XPCljh9BwXo6XatbCU9b0dizB90vjFr7E_6M1P1dYjDEeewdLZMRb_Sp09NBKc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5ZP-Xn8-z6w6vdjXLf3XXpml9ZxoeDgcpgbUh4urYnIa8zth3266q8D026DN0ZabE6ULjA94VdeixfYeDz6JYaqmFs__uhR276jrnOeOssAOfksBhQJqbPrbhDjmxC-foQtRnUqR4wCHkORbCyzelhqxli6I0K6Nuo-QA2NDXY3vMr_IWMjzI_8JDHW5k6Y5SYYZ_KPh-l__0OcZ4BiMYaX8Wpa5oFWhFKD7psKk8ErnbSQ_omhZj-4os%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5yHtCBIHXXUE6LWWUMlf1LUJsAAps7atwO2Q5UnM0pTIQ9Qyyw9w4HdYPr9o-HdJlMG8-GXmilpMdpl3FEFvnKt6hsefP_Uyn9RF8STfybCiU0YSjnm_EbSAPiiKYHlp3O2V53LLTHGZiQre1M3MJDzdgPaHyPoduSqQl6akJ1lzLni3iQiA47M1N0DQB15oXmamDwrwOPpjKBi5Zv8FM3bsbWpaNrT6sz1h_9-wIFJ8_YcB_ze7QL4tg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "マルコ撮影スタジオ",
           "group": "日向坂46"
         },
         "classification": {
