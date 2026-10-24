@@ -7,12 +7,13 @@ import {
 } from 'lucide-react';
 import { $auth, initAuth } from '@/stores/auth';
 import { formatVerificationTime } from '@/utils/admin-verification-time';
+import ActivityTab from './ActivityTab';
 import {
   getAdminStats, getAdminVerifications, resolveVerification,
   getAdminSubscriptions, getAdminInviteCodes, createInviteCode,
-  getAdminUnmatchedPayments, resolveUnmatchedPayment,
+  getAdminUnmatchedPayments, resolveUnmatchedPayment, getAdminActivity,
   type AdminStats, type AdminUser, type AdminSubscription,
-  type AdminInviteCode, type AdminUnmatchedPayment,
+  type AdminInviteCode, type AdminUnmatchedPayment, type AdminActivity,
 } from '@/utils/auth-api';
 
 // ── Helpers ──
@@ -591,13 +592,15 @@ function UnmatchedPaymentsTab() {
 }
 
 // ── Main Admin Dashboard ──
-type AdminTab = 'overview' | 'verifications' | 'invites' | 'subscriptions' | 'payments';
+type AdminTab = 'overview' | 'activity' | 'verifications' | 'invites' | 'subscriptions' | 'payments';
 
 export default function AdminDashboard() {
   const auth = useStore($auth);
   const [tab, setTab] = useState<AdminTab>('overview');
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [statsLoading, setStatsLoading] = useState(true);
+  // 活跃度 tab exists only for the viewer the Worker accepts (other admins get 403 and never see it).
+  const [activity, setActivity] = useState<{ data?: AdminActivity; error?: string } | null>(null);
 
   useEffect(() => { initAuth(); }, []);
 
@@ -611,6 +614,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (auth.isLoggedIn && auth.role === 'admin') {
       void loadStats();
+      void getAdminActivity(30).then(r => { if (r.error !== 'Forbidden' && r.error !== 'unauthorized') setActivity({ data: r.data, error: r.success ? undefined : r.error }); });
     }
   }, [auth.isLoggedIn, auth.role, loadStats]);
 
@@ -640,6 +644,7 @@ export default function AdminDashboard() {
 
   const tabs: { key: AdminTab; label: string; icon: typeof BarChart3; badge?: number }[] = [
     { key: 'overview', label: '概览', icon: BarChart3 },
+    ...(activity ? [{ key: 'activity' as const, label: '活跃度', icon: Clock }] : []),
     { key: 'verifications', label: 'GeoPass 审核', icon: Shield, badge: stats?.pending_users },
     { key: 'invites', label: '邀请码', icon: Ticket },
     { key: 'subscriptions', label: '订阅', icon: CreditCard },
@@ -719,6 +724,7 @@ export default function AdminDashboard() {
         </div>
       )}
 
+      {tab === 'activity' && activity && <ActivityTab first={activity} />}
       {tab === 'verifications' && <VerificationsTab onResolved={loadStats} />}
       {tab === 'invites' && <InviteCodesTab />}
       {tab === 'subscriptions' && <SubscriptionsTab />}

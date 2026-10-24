@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import '@/styles/global.css';
 import Navbar from '@/components/nav/Navbar.astro';
 import Footer from '@/components/footer/Footer.astro';
+import ActivityBeacon from '@/components/analytics/ActivityBeacon.astro';
 
 interface Props {
   title?: string;
@@ -84,6 +85,7 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', siteU
   </style>
 
   <ClientRouter />
+  <ActivityBeacon />
 </head>
 <body class="min-h-screen font-sans antialiased">
   <a href="#main-content" class="skip-link">Skip to content</a>

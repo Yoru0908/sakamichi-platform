@@ -850,6 +850,21 @@ export interface AdminUnmatchedPayment {
   created_at: string;
 }
 
+/** 46log 活跃度 (workers/auth routes/activity.ts). 403 for every admin except the configured viewer. */
+export interface AdminActivity {
+  days: number;
+  summary: Record<'users' | 'visitors', { people: number; returning: number; views: number; ms: number }>;
+  daily: { day: string; users: number; visitors: number; views: number; ms: number }[];
+  devices: { mobile: number; desktop: number };
+  users: { id: string; name: string | null; lastDay: string; activeDays: number; views: number; ms: number }[];
+  pages: { path: string; views: number; ms: number }[];
+  sections: { section: string; views: number; ms: number }[];
+}
+
+export async function getAdminActivity(days = 30): Promise<ApiResponse<AdminActivity>> {
+  return adminFetch<AdminActivity>(`/activity?days=${days}`, { cache: 'no-store' });
+}
+
 export async function getAdminStats(): Promise<ApiResponse<{ stats: AdminStats }>> {
   return adminFetch<{ stats: AdminStats }>('/stats');
 }

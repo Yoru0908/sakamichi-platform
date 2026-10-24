@@ -1,0 +1,41 @@
+---
+// 46log 活跃度 (2026-10-25): one beacon per page view with the time the page was visible. Totals are visible only to the
+// operator (workers/auth src/routes/activity.ts). Do Not Track / Global Privacy Control turn it off. See /privacy §2.
+---
+<script>
+  import { API_CONFIG } from '@/utils/constants';
+
+  const URL_ = `${API_CONFIG.baseUrl}/api/user/activity`, KEY = '46log-vid', MAX = 30 * 60 * 1000;
+  const nav = navigator as Navigator & { globalPrivacyControl?: boolean };
+  const off = nav.doNotTrack === '1' || nav.globalPrivacyControl === true || typeof nav.sendBeacon !== 'function';
+
+  function visitorId() {
+    try {
+      let v = localStorage.getItem(KEY);
+      if (!v || !/^[0-9a-f-]{36}$/.test(v)) { v = crypto.randomUUID(); localStorage.setItem(KEY, v); }
+      return v;
+    } catch { return crypto.randomUUID(); }
+  }
+
+  // One page view: its path, visible ms not yet sent, when it last became visible (0 = hidden), first send or not.
+  let path = '', ms = 0, since = 0, fresh = true;
+  const vid = off ? '' : visitorId();
+  const visible = () => document.visibilityState === 'visible';
+
+  function flush() {
+    if (since) { ms += Date.now() - since; since = visible() ? Date.now() : 0; }
+    if (!path || ms < 1000) return;
+    nav.sendBeacon(URL_, JSON.stringify({ v: vid, p: path, ms: Math.min(ms, MAX), n: fresh ? 1 : 0, b: nav.webdriver ? 1 : 0 }));
+    ms = 0; fresh = false;
+  }
+  function start() { path = location.pathname; ms = 0; fresh = true; since = visible() ? Date.now() : 0; }
+
+  if (!off) {
+    start();
+    // ClientRouter swaps pages without pagehide: a new pathname ends the previous view.
+    document.addEventListener('astro:page-load', () => { if (location.pathname !== path) { flush(); start(); } });
+    document.addEventListener('visibilitychange', () => { if (visible()) since = Date.now(); else flush(); });
+    addEventListener('pagehide', flush);
+    addEventListener('pageshow', e => { if (e.persisted) start(); });
+  }
+</script>

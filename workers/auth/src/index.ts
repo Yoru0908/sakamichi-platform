@@ -37,14 +37,16 @@ import { handleListVerifications, handleResolveVerification, handleRequestVerifi
 import { handleGetDiscordStatus, handleSyncDiscordRoles } from './routes/discord';
 import { syncDiscordRolesForUser } from './utils/discord-bot';
 import { isD1QuotaError } from './utils/refresh-token';
+import { handleActivityBeacon, handleActivityReport } from './routes/activity';
 
 type Handler = (req: Request, env: Env) => Promise<Response>;
 
 // Auth cookies are SameSite=None, so a cross-site <form> (text/plain, no preflight) would reach these routes with the
 // user's cookies. Writes must be JSON: browsers only send that cross-site after a CORS preflight, which withCors refuses
-// for foreign origins. Exempt: Ko-fi (form post, token-verified) and refresh (only re-issues the caller's own cookies;
-// the site and the miguri-sync extension call it without a body).
-const FORM_OK = new Set(['POST /api/webhook/kofi', 'POST /api/auth/refresh']);
+// for foreign origins. Exempt: Ko-fi (form post, token-verified), refresh (only re-issues the caller's own cookies;
+// the site and the miguri-sync extension call it without a body) and the activity beacon (sendBeacon is text/plain;
+// the handler itself drops any request whose Origin is not the site).
+const FORM_OK = new Set(['POST /api/webhook/kofi', 'POST /api/auth/refresh', 'POST /api/user/activity']);
 const isCrossSiteForm = (req: Request, key: string) =>
   req.method !== 'GET' && req.method !== 'HEAD' && !FORM_OK.has(key)
   && !(req.headers.get('Content-Type') || '').toLowerCase().startsWith('application/json');
@@ -86,6 +88,7 @@ const routes: Record<string, Handler> = {
   'DELETE /api/user/bookmarks': handleRemoveBookmark,
   'POST /api/user/request-verification': handleRequestVerification,
   'GET /api/user/discord/status': handleGetDiscordStatus,
+  'POST /api/user/activity': handleActivityBeacon,
   'POST /api/user/discord/sync': handleSyncDiscordRoles,
 
   // ── Payment links ──
@@ -103,6 +106,7 @@ const routes: Record<string, Handler> = {
   'POST /api/manage/unmatched-payments/resolve': handleResolveUnmatchedPayment,
   'GET /api/manage/subscriptions': handleListSubscriptions,
   'GET /api/manage/stats': handleAdminStats,
+  'GET /api/manage/activity': handleActivityReport,
   'GET /api/manage/verifications': handleListVerifications,
   'POST /api/manage/verifications/resolve': handleResolveVerification,
 };

@@ -6,7 +6,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <h1 class="text-2xl font-bold text-[var(--text-primary)] mb-8">Privacy Policy / 隐私政策</h1>
     <div class="prose prose-sm max-w-none text-[var(--text-secondary)] space-y-4">
-      <p>Last updated: October 23, 2026 / 最后更新日期: 2026年10月23日</p>
+      <p>Last updated: October 25, 2026 / 最后更新日期: 2026年10月25日</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">1. Introduction / 简介</h2>
       <p>Sakamichi Tools ("we", "us", "our") operates the website https://46log.com (the "Service"). This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our Service.</p>
@@ -25,8 +25,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <li>您的 Google 邮箱地址（用于识别连接）</li>
         <li>Google Calendar 事件（读写权限，用于管理您在本服务中创建的活动日程）</li>
       </ul>
-      <p><strong>Usage Data:</strong> We do not collect analytics, tracking data, or browsing behavior.</p>
-      <p><strong>使用数据：</strong>我们不收集分析数据、追踪数据或浏览行为。</p>
+      <p><strong>Website usage statistics:</strong> To understand which features are used, the website (not the extension) records each page you view on 46log.com: the page path (without query parameters), how long the page was visible, the device type (mobile or desktop, derived from the browser's user agent) and the time. A random visitor ID is kept in your browser's local storage so repeat visits from the same browser can be counted. If you are signed in, the record is linked to your 46log account, and visits from the same browser while your login session has lapsed are attributed to that account as well. We do not record page content, form input, search terms, your IP address in these statistics, or anything from other websites. If your browser sends Do Not Track or Global Privacy Control, nothing is recorded.</p>
+      <p><strong>网站使用统计：</strong>为了解哪些功能被使用，网站（不包括扩展）会记录您在 46log.com 浏览的每个页面：页面路径（不含查询参数）、页面处于前台显示的时长、设备类型（根据浏览器 User-Agent 判断手机或电脑）和时间。浏览器本地存储（localStorage）中会保存一个随机访客 ID，用于统计同一浏览器的再次访问。登录时，该记录会与您的 46log 账号关联；同一浏览器在登录状态失效期间的访问也会归入该账号。这些统计不记录页面内容、表单输入、搜索词、IP 地址，也不记录其他网站的任何信息。若浏览器开启「Do Not Track」或「Global Privacy Control」，则完全不记录。</p>
       <p><strong>46log Miguri Sync extension data:</strong> If you install the optional Chrome extension and start synchronization, it reads your own application-history pages on forTUNE music and forTUNE meets. It transfers only the normalized fields needed for the private Miguri dashboard: group, campaign or release title, member, category, event date, venue, slot, application/win/payment counts, price/spend information shown by the source, source record identifier, and synchronization time.</p>
       <p><strong>46log 咪咕力同步扩展数据：</strong>如果您安装可选的 Chrome 扩展并启动同步，扩展会读取您自己的 forTUNE music 与 forTUNE meets 应募履历页，仅向私人咪咕力面板传输所需的规范化字段：组合、活动或作品标题、成员、类型、活动日期、会场、部数、应募/中签/付款数量、来源页面提供的价格/金额、来源记录标识和同步时间。</p>
       <p>The extension never reads or stores your forTUNE password, login form value, or cookie. For Meets synchronization, it temporarily reads the official site's existing session key in memory and sends it only to the official forTUNE Meets API as its required request header. The key is never stored by the extension or sent to 46log.</p>
@@ -43,6 +43,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <li><strong>Google Calendar sync:</strong> To create, update, and delete calendar events on your behalf based on activity entries you manage within our Service (e.g., fan meet-and-greet schedules). We only write events that you explicitly add through our interface.</li>
         <li><strong>Notifications:</strong> To send service-related notifications you have opted into.</li>
         <li><strong>Miguri dashboard synchronization:</strong> To save and update the synchronized application records in your private 46log account, calculate statistics, and generate your upcoming schedule.</li>
+        <li><strong>Usage statistics:</strong> To see how much each page and feature is used and how often people come back, so we can decide what to improve. Only the site operator can view these statistics; they are not shown to other users or administrators, not used for advertising, and not shared.</li>
       </ul>
       <p>我们仅将收集的信息用于以下目的：</p>
       <ul class="list-disc list-inside space-y-1 ml-4">
@@ -50,6 +51,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <li><strong>Google Calendar 同步：</strong>根据您在本服务中管理的活动日程（如粉丝握手会时间表），代您创建、更新和删除日历事件。我们仅写入您通过界面明确添加的事件。</li>
         <li><strong>通知：</strong>发送您已选择接收的服务相关通知。</li>
         <li><strong>咪咕力面板同步：</strong>将同步的应募记录保存并更新到您的私人 46log 账号，用于计算统计数据和生成后续日程。</li>
+        <li><strong>使用统计：</strong>了解各页面和功能的使用量及回访情况，以决定改进方向。仅网站运营者本人可查看，不向其他用户或管理员展示，不用于广告，也不与他人共享。</li>
       </ul>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">4. Google API Services User Data Policy / Google API 用户数据政策</h2>
@@ -66,6 +68,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">5. Data Storage and Security / 数据存储与安全</h2>
       <p>All data is stored on Cloudflare's secure infrastructure (Cloudflare D1 database and Workers). Data is encrypted in transit using TLS. Google OAuth refresh tokens are stored as encrypted secrets and are never exposed to the client-side.</p>
       <p>所有数据存储在 Cloudflare 的安全基础设施上（Cloudflare D1 数据库和 Workers）。传输过程使用 TLS 加密。Google OAuth 刷新令牌作为加密密钥存储，从不暴露给客户端。</p>
+      <p>Website usage statistics are stored in Cloudflare Workers Analytics Engine, separate from account data. 网站使用统计保存在 Cloudflare Workers Analytics Engine 中，与账号数据分开存放。</p>
       <p>The extension stores only its enabled/disabled setting, synchronization status, and last synchronization time in Chrome local storage. Temporary synchronization jobs and results use Chrome session storage and are removed after delivery. A periodic Chrome alarm checks for updates while the browser is running; it does not run while Chrome or the device is offline.</p>
       <p>扩展仅在 Chrome 本地存储中保存自动同步开关、同步状态和上次同步时间。临时同步任务及结果使用 Chrome 会话存储，并在传递完成后删除。浏览器运行时由 Chrome 定时任务检查更新；Chrome 关闭、设备休眠或离线时不会运行。</p>
 
@@ -90,14 +93,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <li>之前在您 Google Calendar 中创建的事件将保留，除非您手动删除。</li>
       </ul>
       <p>您也可以删除整个账号，这将移除所有关联数据，包括记录、偏好设置和所有已连接服务的令牌。</p>
+      <p>Website usage statistics are deleted automatically after about 90 days. They cannot be removed one by one before then, including when you delete your account. To stop new records, enable Do Not Track or Global Privacy Control in your browser; clearing site data removes the visitor ID.</p>
+      <p>网站使用统计约 90 天后自动删除；在此之前无法逐条删除（删除账号时也是如此）。如需停止记录，请在浏览器中开启「Do Not Track」或「Global Privacy Control」；清除网站数据即可删除访客 ID。</p>
       <p>You can stop automatic Miguri synchronization from the dashboard or by uninstalling the extension. You can delete synchronized Miguri entries from the Service; deleting your 46log account removes all associated Miguri records.</p>
       <p>您可以在咪咕力面板关闭自动同步，或卸载扩展以停止同步；也可以在本服务中删除已同步记录。删除 46log 账号会一并删除关联的咪咕力记录。</p>
       <p>Removing an event mark keeps its private notes and costs so they return if you add the same day again. To clear them, open the marked day, save an empty note and blank costs, then remove the mark if desired. Contact us using the address below if you need assistance removing retained event data.</p>
       <p>取消活动记录时会保留私人感想和费用，重新记录同一天可恢复。若要清空，请打开已记录的日期，将感想与各项费用留空并保存，再按需取消记录。需要协助清除保留的活动数据时，可通过下方联系方式联系我们。</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">8. Cookies / Cookie 使用</h2>
-      <p>We use strictly necessary cookies for authentication (login session) and user preferences (theme, language). We do not use third-party tracking cookies or analytics cookies.</p>
-      <p>我们仅使用必要的 Cookie 用于身份验证（登录会话）和用户偏好（主题、语言）。不使用第三方追踪 Cookie 或分析 Cookie。</p>
+      <p>We use strictly necessary cookies for authentication (login session) and user preferences (theme, language). We do not use third-party tracking cookies or analytics cookies. The usage statistics in Section 2 use a random visitor ID in local storage, not a cookie, and are processed only by us (no third-party analytics service).</p>
+      <p>我们仅使用必要的 Cookie 用于身份验证（登录会话）和用户偏好（主题、语言）。不使用第三方追踪 Cookie 或分析 Cookie。第 2 节所述的使用统计使用本地存储中的随机访客 ID（不是 Cookie），且仅由我们自行处理，不使用第三方分析服务。</p>
 
       <h2 class="text-lg font-semibold text-[var(--text-primary)] mt-8 mb-4">9. Children's Privacy / 儿童隐私</h2>
       <p>Our Service is not directed to children under 13. We do not knowingly collect personal information from children under 13.</p>

@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import '@/styles/global.css';
 import Navbar from '@/components/nav/Navbar.astro';
 import Footer from '@/components/footer/Footer.astro';
+import ActivityBeacon from '@/components/analytics/ActivityBeacon.astro';
 import type { TranslationKey } from '@/i18n';
 
 interface Props {
@@ -91,6 +92,7 @@ const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).toStr
   ] }).replace(/</g, '\\u003c')} />}
   <slot name="head" />
   <ClientRouter />
+  <ActivityBeacon />
 </head>
 <body class="min-h-screen font-sans antialiased">
   <!-- Accessibility: skip to main content -->
