@@ -648,7 +648,7 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /サイン会一口需要多张碟，按官方 used 序列号张数计费/);
   assert.match(dashboardSource, /リアミ／全国每次用自己买的碟应募按 1 张碟计费，中没中都算进支付合计/);
   assert.match(dashboardSource, /<span>保障应募<\/span>/);
-  assert.match(dashboardSource, /Music 只算中签张数（落选、失效不用付款）；Meets 每次应募都用自己买的碟，中没中都算/);
+  assert.match(dashboardSource, /Music 只算中签张数（落选、失效不用付款）；Meets 用自己买的碟应募的中没中都算，保障应募不重复计费/);
   assert.match(dashboardSource, /没收录的单曲用同步时官方页面的販売価格/);
   assert.match(dashboardSource, /落选金额计入支付合计及成员排行/);
   assert.match(dashboardSource, /支付金额/);

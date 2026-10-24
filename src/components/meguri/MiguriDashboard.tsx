@@ -888,7 +888,7 @@ export default function MiguriDashboard({
               </p>
             )}
             <p className="mt-2 text-xs leading-5 text-[var(--text-tertiary)]">
-              Music 只算中签张数（落选、失效不用付款）；Meets 每次应募都用自己买的碟，中没中都算。
+              Music 只算中签张数（落选、失效不用付款）；Meets 用自己买的碟应募的中没中都算，保障应募不重复计费。
             </p>
             {dashboard.estimatedSpendYen > 0 ? (
               <p className="mt-1 text-xs leading-5 text-amber-700">
