@@ -4,6 +4,7 @@ import LanguageSwitch from '@/components/ui/LanguageSwitch';
 import MobileDrawer from './MobileDrawer';
 import AuthButton from './AuthButton';
 import NavPill from './NavPill';
+import FeatureAnnouncement from '@/components/shared/FeatureAnnouncement';
 
 interface Props {
   hideMobileDrawer?: boolean;
@@ -22,7 +23,7 @@ const currentPath = Astro.url.pathname;
         data-astro-reload
         class="flex shrink-0 whitespace-nowrap items-center gap-2 text-lg font-bold tracking-tight text-[var(--text-primary)] hover:text-[var(--color-brand-nogi)] transition-colors"
       >
-        Sakamichi Tools
+        46log
       </a>
 
       <!-- Desktop links (Dynamic Island with sliding pill) -->
@@ -56,6 +57,9 @@ const currentPath = Astro.url.pathname;
 
 <!-- Mobile drawer (React island) -->
 {!hideMobileDrawer && <MobileDrawer client:load currentPath={currentPath} />}
+
+<!-- One-time feature popup, desktop only -->
+<FeatureAnnouncement client:idle />
 
 <script>
   import { toggleDrawer, closeDrawer } from '@/stores/ui';
