@@ -863,8 +863,8 @@ export default function MiguriDashboard({
           <div>
             <div className="text-sm font-semibold text-[var(--text-secondary)]">
               {selectedCategory === "all"
-                ? "实付金额（Meets 中没中都算）"
-                : `${selectedCategory}实付金额（中没中都算）`}
+                ? "实付金额"
+                : `${selectedCategory}实付金额`}
             </div>
             <div className="mt-2 text-5xl font-black tracking-[-0.055em] text-[var(--text-primary)] sm:text-7xl">
               <span className="mr-1 text-2xl font-semibold text-[var(--text-tertiary)] sm:text-4xl">
@@ -887,8 +887,11 @@ export default function MiguriDashboard({
                 同步带有单价的履历后显示实际支出。
               </p>
             )}
+            <p className="mt-2 text-xs leading-5 text-[var(--text-tertiary)]">
+              Music 只算中签张数（落选、失效不用付款）；Meets 每次应募都用自己买的碟，中没中都算。
+            </p>
             {dashboard.estimatedSpendYen > 0 ? (
-              <p className="mt-2 text-xs leading-5 text-amber-700">
+              <p className="mt-1 text-xs leading-5 text-amber-700">
                 含发行价格表或旧记录估算 {formatYen(dashboard.estimatedSpendYen)}
                 ；限定盘折扣仅保存在当前浏览器。
               </p>
@@ -923,8 +926,8 @@ export default function MiguriDashboard({
                 <span className="mt-3 flex items-center justify-between gap-3 text-xs text-[var(--text-secondary)]">
                   <span>
                     {selectedCategory === "all"
-                      ? "Meets 支付合计（中没中都算）"
-                      : `${selectedCategory}支付（中没中都算）`}
+                      ? "Meets 支付合计"
+                      : `${selectedCategory}支付`}
                   </span>
                   <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
                     {formatYen(meetsSpend.paid)}
@@ -958,7 +961,7 @@ export default function MiguriDashboard({
                 ) : null}
                 {meetsSpend.rescue > 0 ? (
                   <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
-                    <span>保障应募（R 序列号，不计金额）</span>
+                    <span>保障应募</span>
                     <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
                       {meetsSpend.rescue} 次
                       {meetsSpend.rescueWonKnown ? ` · 中 ${meetsSpend.rescueWon}` : ""}
@@ -1058,7 +1061,7 @@ export default function MiguriDashboard({
           {
             label:
               selectedCategory === "all"
-                ? "实付合计（含 Meets 落选）"
+                ? "实付合计"
                 : `${selectedCategory}实付合计`,
             value: formatYen(dashboard.totalPaidSpendYen),
             icon: CircleDollarSign,
