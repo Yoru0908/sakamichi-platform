@@ -30,7 +30,7 @@ const cookie = async id => ({ Cookie: `theme=dark; access_token=${await signAcce
 
 test('beacon: one Analytics Engine point per send, pathname only, no D1', async () => {
   const e = env(); db.reads = 0;
-  const res = await beacon(e, { v: VID, p: '/blog/123?member=x#top', ms: 4200, n: 1, b: 0 });
+  const res = await beacon(e, { v: VID, p: '/blog/123/?member=x#top', ms: 4200, n: 1, b: 0 });
   assert.equal(res.status, 204);
   assert.deepEqual(e.points, [{ indexes: [VID], blobs: ['', VID, '/blog/123', 'blog', 'desktop', '46log.com', '0'], doubles: [4200, 1] }]);
   await beacon(e, { v: VID, p: '/', ms: 9e9, n: 0, b: 1 }, { ...(await cookie('member')), 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) Mobile' });

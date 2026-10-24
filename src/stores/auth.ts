@@ -101,5 +101,7 @@ export async function register(req: RegisterRequest): Promise<{ success: boolean
 /** Logout */
 export async function logout(): Promise<void> {
   await apiLogout();
+  // 活跃度: a signed-out browser starts as a new visitor, so the next person's visits are not counted as this account's.
+  try { localStorage.removeItem('46log-vid'); } catch { /* storage blocked */ }
   $auth.set({ ...defaultAuth, loading: false });
 }

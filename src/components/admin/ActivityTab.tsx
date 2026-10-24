@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Loader2, RefreshCw } from 'lucide-react';
 import { getAdminActivity, type AdminActivity } from '@/utils/auth-api';
 
@@ -42,7 +42,9 @@ export default function ActivityTab({ first }: { first: { data?: AdminActivity; 
   const [res, setRes] = useState(first);
   const [loading, setLoading] = useState(false);
   const load = async (d: number) => { setLoading(true); const r = await getAdminActivity(d); setRes({ data: r.data, error: r.success ? undefined : r.error }); setLoading(false); };
-  useEffect(() => { if (days !== 30) void load(days); }, [days]);
+  const mounted = useRef(false);
+  // The first 30-day report came with the dashboard; every later choice (including back to 30) reloads.
+  useEffect(() => { if (mounted.current) void load(days); else mounted.current = true; }, [days]);
 
   if (res.error === 'analytics_token_missing') return (
     <div className="p-4 rounded-xl border border-amber-300 bg-amber-50 dark:bg-amber-950/30 text-xs text-[var(--text-secondary)] space-y-1">

@@ -28,7 +28,8 @@ export async function handleActivityBeacon(req: Request, env: Env): Promise<Resp
     if (text.length > 1024) return done;
     const b = JSON.parse(text) as { v?: unknown; p?: unknown; ms?: unknown; n?: unknown; b?: unknown };
     if (typeof b.v !== 'string' || !VID.test(b.v) || typeof b.p !== 'string' || !b.p.startsWith('/')) return done;
-    const path = b.p.split(/[?#]/)[0].slice(0, 200), ms = Math.min(Math.max(Math.round(Number(b.ms) || 0), 0), MAX_MS);
+    // Pages serves /about and /about/ alike: one row per page.
+    const path = (b.p.split(/[?#]/)[0].replace(/(.)\/+$/, '$1') || '/').slice(0, 200), ms = Math.min(Math.max(Math.round(Number(b.ms) || 0), 0), MAX_MS);
     const token = cookie(req, 'access_token'), user = token ? await verifyAccessToken(token, env.JWT_SECRET) : null;
     const device = /Mobi|Android|iPhone|iPad/i.test(req.headers.get('User-Agent') ?? '') ? 'mobile' : 'desktop';
     env.ACTIVITY.writeDataPoint({
