@@ -21,7 +21,7 @@ function insert(env, user, event = id, date = '2026-10-18') { env.sqlite.prepare
 async function request(user, method = 'GET', body, path = '') { return new Request(`https://api.46log.com/api/miguri/sakamichi-events${path}`, { method, headers: { ...(user ? { Cookie: `access_token=${await signAccessToken(user, 'member', secret)}` } : {}), 'Content-Type': 'application/json' }, ...(body === undefined ? {} : { body: JSON.stringify(body) }) }); }
 const memo = async (env, user, method = 'GET', body, event = id) => handleSakamichiEventMemo(await request(user, method, body), env, encodeURIComponent(event), now);
 const profile = async (env, user, body) => handleSakamichiEventProfile(await request(user, body ? 'PUT' : 'GET', body), env, now);
-const ranking = async env => handleGetSakamichiRanking(await request(null), env, now);
+const ranking = async (env, query = '') => handleGetSakamichiRanking(await request(null, 'GET', undefined, `/ranking${query}`), env, now);
 
 test('all personal endpoints require authentication and scopes come from the signed token', async () => {
   const env = setup(); insert(env, 'a');
@@ -69,8 +69,14 @@ test('ranking is opt-in by construction, counts unique dates, excludes plans and
   const data = (await response.json()).data.ranking;
   assert.deepEqual(data, [{ rank: 1, name: '公開A', days: 1, events: 2 }, { rank: 1, name: '公開B', days: 1, events: 1 }]);
   assert(!JSON.stringify(data).includes('never public')); assert(!JSON.stringify(data).includes('user_id'));
+  // Per group: only that group's events count; a group nobody attended is an empty list, an unknown group is refused.
+  assert.deepEqual((await (await ranking(env, '?grp=hinatazaka')).json()).data.ranking, [{ rank: 1, name: '公開A', days: 1, events: 1 }]);
+  assert.deepEqual((await (await ranking(env, '?grp=sakurazaka')).json()).data.ranking, [{ rank: 1, name: '公開A', days: 1, events: 1 }, { rank: 1, name: '公開B', days: 1, events: 1 }]);
+  assert.deepEqual((await (await ranking(env, '?grp=nogizaka')).json()).data.ranking, []);
+  for (const bad of ['?grp=', '?grp=keyakizaka', '?grp=__proto__']) assert.equal((await ranking(env, bad)).status, 400, bad);
   await profile(env, 'a', { public: false, name: '公開A' });
   assert.deepEqual((await (await ranking(env)).json()).data.ranking.map(r => r.name), ['公開B']);
+  assert.deepEqual((await (await ranking(env, '?grp=hinatazaka')).json()).data.ranking, []);
 });
 
 test('stale editors cannot overwrite newer notes or costs, including two updates in the same millisecond', async () => {

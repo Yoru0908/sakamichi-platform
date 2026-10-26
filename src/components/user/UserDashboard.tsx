@@ -19,6 +19,7 @@ import {
 } from '@/utils/auth-api';
 import { getGroupColor, getR2AvatarUrl, getOptimizedAvatarUrl, GROUP_CONFIG, sortedGenEntries, type MemberInfo } from '@/components/messages/msg-styles';
 import { memberImagesToList } from '@/utils/member-images';
+import EventRankingSettings from '@/components/events/EventRankingSettings';
 
 // ── Role badge ──
 const ROLE_LABELS: Record<string, { label: string; color: string }> = {
@@ -299,6 +300,9 @@ function ProfileTab({ profile }: { profile: UserProfile }) {
         initialLinked={profile.oauthLinks.some((link) => link.provider === 'discord')}
         isActive={profile.user.paymentStatus === 'active'}
       />
+
+      {/* 参加ランキングの公開設定 (moved here from /events/ranking, 2026-10-26) */}
+      <EventRankingSettings />
 
       {/* OAuth links */}
       <div>

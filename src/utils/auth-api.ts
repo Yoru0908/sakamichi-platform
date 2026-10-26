@@ -1,4 +1,4 @@
-import type { EventMemoData, EventPublicProfile, EventHistoryPayload, EventRankingEntry } from '../../workers/shared/event-attendance.ts';
+import type { EventMemoData, EventPublicProfile, EventHistoryPayload, EventRankingEntry, AttendanceGroup } from '../../workers/shared/event-attendance.ts';
 import { API_CONFIG } from './constants.ts';
 
 // ── Types ──
@@ -233,8 +233,8 @@ export function getSakamichiEventProfile(): Promise<ApiResponse<EventPublicProfi
 export function setSakamichiEventProfile(profile: EventPublicProfile): Promise<ApiResponse<EventPublicProfile>> {
   return miguriFetch('/sakamichi-events/profile', { method: 'PUT', body: JSON.stringify(profile) });
 }
-export function getSakamichiRanking(): Promise<ApiResponse<{ ranking: EventRankingEntry[]; asOf: string }>> {
-  return miguriFetch('/sakamichi-events/ranking');
+export function getSakamichiRanking(grp?: AttendanceGroup): Promise<ApiResponse<{ ranking: EventRankingEntry[]; asOf: string }>> {
+  return miguriFetch(`/sakamichi-events/ranking${grp ? `?grp=${grp}` : ''}`);
 }
 
 export function getMiguriCalendarIcsUrl(): string {

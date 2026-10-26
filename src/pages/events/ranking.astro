@@ -1,8 +1,19 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import EventRanking from '@/components/events/EventRanking';
-import { t } from '@/i18n';
+// 参加ランキング moved into 我的活动履历 (/events/history?view=ranking) on 2026-10-26. Old links and bookmarks land there,
+// keeping ?grp=. Not indexed.
 ---
-<BaseLayout title={t('events.ranking.page_title')} titleKey="events.ranking.page_title" description={t('events.ranking.description')} descriptionKey="events.ranking.description">
-  <div class="events-page mx-auto max-w-4xl px-4 py-8 sm:px-6"><EventRanking client:only="react" /></div>
-</BaseLayout>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content="0; url=/events/history?view=ranking" />
+    <title>46log</title>
+    <script is:inline>
+      var grp = new URLSearchParams(location.search).get('grp');
+      location.replace('/events/history?view=ranking' + (grp ? '&grp=' + encodeURIComponent(grp) : ''));
+    </script>
+  </head>
+  <body><a href="/events/history?view=ranking">/events/history?view=ranking</a></body>
+</html>
