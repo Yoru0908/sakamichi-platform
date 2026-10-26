@@ -298,3 +298,5 @@ export const soldOutMessages = { zh, ja, en };
 const soldOut = dictionary(soldOutMessages);
 export const soldOutTranslator = soldOut.translator;
 export type SoldOutTranslate = ReturnType<typeof soldOutTranslator>;
+/** For messages set from effects started on mount (/miguri/history loads at once, while the first render is still zh). */
+export const soldOutNow: SoldOutTranslate = soldOut.now;

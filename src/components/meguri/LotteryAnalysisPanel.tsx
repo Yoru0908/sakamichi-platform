@@ -16,7 +16,7 @@ import {
 } from '@/utils/auth-api';
 import { resolveFortuneMeetsSource } from './meguri-helpers';
 import { useLanguage } from '@/i18n/use-language';
-import { soldOutTranslator, type SoldOutTranslate } from '@/i18n/miguri-soldout';
+import { soldOutNow, soldOutTranslator, type SoldOutTranslate } from '@/i18n/miguri-soldout';
 import type { Language } from '@/stores/language';
 
 type TicketLedger = {
@@ -285,14 +285,14 @@ export default function LotteryAnalysisPanel({ group, eventTitle }: Props) {
     setLoading(true);
     setError('');
     if (!source) {
-      setError(st('noSource'));
+      setError(soldOutNow('noSource'));
       setData(null);
       setLoading(false);
       return;
     }
     const res = await getMiguriLottery(source.artist, source.event);
     if (!res.success || !res.data) {
-      setError(res.message || res.error || st('lotteryFailed'));
+      setError(res.message || res.error || soldOutNow('lotteryFailed'));
       setData(null);
       setLoading(false);
       return;

@@ -4,7 +4,7 @@ import { getMiguriSoldOutHistory, type MiguriSoldOutHistoryEvent } from '@/utils
 import SoldOutMatrix from './SoldOutMatrix';
 import { filterSoldOutHistory, formatSoldOutCapture, SOLDOUT_GROUP_LABELS, type SoldOutHistoryFilters } from './soldout-history-helpers';
 import { useLanguage } from '@/i18n/use-language';
-import { soldOutTranslator } from '@/i18n/miguri-soldout';
+import { soldOutNow, soldOutTranslator } from '@/i18n/miguri-soldout';
 
 export default function SoldOutHistory() {
   const st = soldOutTranslator(useLanguage());
@@ -22,7 +22,7 @@ export default function SoldOutHistory() {
     getMiguriSoldOutHistory().then((result) => {
       if (!mounted) return;
       if (!result.success || !result.data) {
-        setError(result.message || result.error || st('catalogFailed'));
+        setError(result.message || result.error || soldOutNow('catalogFailed'));
       } else {
         setEvents(result.data.events);
         const slug = new URLSearchParams(window.location.search).get('event') || '';

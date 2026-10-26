@@ -3,7 +3,7 @@ import { BarChart3, ListOrdered, Users } from 'lucide-react';
 import { getMiguriSoldOut, type MiguriSoldOutPayload } from '@/utils/auth-api';
 import RecordedSoldOutCells from './RecordedSoldOutCells';
 import { useLanguage } from '@/i18n/use-language';
-import { soldOutTranslator, type SoldOutTranslate } from '@/i18n/miguri-soldout';
+import { soldOutNow, soldOutTranslator, type SoldOutTranslate } from '@/i18n/miguri-soldout';
 import {
   computeSoldOutAnalysis,
   formatDateShort,
@@ -127,7 +127,7 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
     getMiguriSoldOut(eventSlug).then((res) => {
       if (!mounted) return;
       if (!res.success || !res.data) {
-        setError(res.message || st('loadFailed'));
+        setError(res.message || soldOutNow('loadFailed'));
       } else {
         setData(res.data);
       }
