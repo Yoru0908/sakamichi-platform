@@ -63464,6 +63464,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          152.5831231,
+          -25.7282336
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8e1db25aee16c9bdc545",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8e1db25aee16c9bdc545",
+        "name": "メイン・ストリート",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "メイン・ストリート",
+        "sceneNote": "富田鈴花1st写真集オフショットhttps://www.instagram.com/p/DLPoEhNzp7S/?img_index=1",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgTZoLR-yJU9wOHDO-nb-OGdbAOQVBg_9yhq3BmP_d1deouqFbp-1oFzsCIyjGhLHe6wZC6FmJ3Fb2gkDvzCNwvV8Esv_3OKzyyCbx4xxqLZY16IlYTJe5WaCTS56ZFEIoc5liNbg3_makhuEl1hJZXtcWFowJPx2WlzymE1u73P2PkXaqKryZL-hVzfrD2mNUZ6eg1XSehNM0Td3v_rMUKuZskB2pBT21mbAcN89uBvL6uZR7QMuxJDwQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "メイン・ストリート",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7353357,
           35.6725476
         ]
@@ -147960,7 +148015,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ペーナ宮殿",
-        "sceneNote": "題名:",
+        "sceneNote": "2026年夏ごろに富田鈴花がポルトガル旅行で訪れた場所。https://www.instagram.com/p/De4AAumEweg/?img_index=2 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -148015,7 +148070,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "レガレイラ宮殿",
-        "sceneNote": "題名:",
+        "sceneNote": "2026年夏ごろに富田鈴花がポルトガル旅行で訪れた場所。https://www.instagram.com/p/De4AAumEweg/?img_index=11 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -148071,7 +148126,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ベレンの塔",
-        "sceneNote": "題名:",
+        "sceneNote": "2026年夏ごろに富田鈴花がポルトガル旅行で訪れた場所。https://www.instagram.com/p/De4AAumEweg/?img_index=10 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -148126,7 +148181,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ロカ岬",
-        "sceneNote": "題名:",
+        "sceneNote": "2026年夏ごろに富田鈴花がポルトガル旅行で訪れた場所。https://www.instagram.com/p/De4AAumEweg/?img_index=1 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -148181,7 +148236,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Regaleira Tower",
-        "sceneNote": "題名:",
+        "sceneNote": "2026年夏ごろに富田鈴花がポルトガル旅行で訪れた場所。https://www.instagram.com/p/De4AAumEweg/?img_index=4 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -148236,7 +148291,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "The Moorish Castle",
-        "sceneNote": "題名:",
+        "sceneNote": "2026年夏ごろに富田鈴花がポルトガル旅行で訪れた場所。https://www.instagram.com/p/De4AAumEweg/?img_index=16 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -148258,6 +148313,173 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "The Moorish Castle",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.6147746,
+          41.1469055
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:24ebb8f93f2aca3a310e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:24ebb8f93f2aca3a310e",
+        "name": "レロ・イ・イルマオン",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "レロ・イ・イルマオン",
+        "sceneNote": "2026年夏ごろに富田鈴花がポルトガル旅行で訪れた場所。https://www.instagram.com/p/De4AAumEweg/?img_index=6 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgPpD-Lf3PIft8x5Jvz1Upx3t6Zj_u6u7YywMADyvZv-b-PMk6MTTnfdkF38K0t9nhnSYhgl8y72oDb2G34JD1i2goC_urZw9qXuFR2a8nrl5UHhEJrw8LGqFIl67HzD4QYh4ZahVTQyRNcH2_-mUJCYoewn_oSnMQ_21seJmSqeBxUKhO_hXkE4P4SR93dNJuCUSZwJyE4XWJc8Xdirusot9OdfJ-NKPG-y6bMSbnwiuIS29RWFJBm2XU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi2pEVcOM12WTHrzF-YCjf2sI3cWiOMmJrpJVnCgI_wZENUTl0BMapRX_A0vLMqkjPBRCjc6pg0lpI7ESzze6Kp5sACTpdvJjC3E5Gu307e5snh8PSjyvepZh1v68NdFeCaa3N7gfgHkDqozMzERc8UxA5V6kga-BtONzm4Zken14wosBHNSI1bPdBeaSr2C67uD68xqFURtYMUdohp-1zUTPcn0fH8xbJf_wsawJH43GffzfyO2S0jxfk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh8HhANQQcL6v-_Xbzi4ACdthDgpe50mnDSNcHB3aqC-BVDEBt4NBQLLMcktROqMmfYTFDDfqK-fPwS5CJfWiTJdu7CCO96S9Nk2ndY0DmBeNOHnPwRL6HZUTUNpIugUYha6sMhcbxVX8UEVBEIBA2xjE6SQzwK-g1s6Pqk6wb8yvf1Y5pBelrUt0_Ggw5OPWZhvMcpQKYNEhlw06pF4XJzBHn6bxCZrAaNh4uYFkxVgLhYgTsE6isnnzA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "レロ・イ・イルマオン",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.1434764,
+          38.7105849
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ebcb540a46df70f689a2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ebcb540a46df70f689a2",
+        "name": "Praça Luís de Camões",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Praça Luís de Camões",
+        "sceneNote": "2026年夏ごろに富田鈴花がポルトガル旅行で訪れた場所。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi6NI5ztVKLnln1sS3Gol9ELB9JGXAZjqDQePw8VfQEPAz8FFko4Wb_59OeyfMeAAIeWeCOGe6XNKNFptc4R9_FiNr8YjIAFvfO4u60AYfgmlFhpp30ns07At-jz-dsFjh8fU7nYg5gCCsRI8aMH_LYnNq6sSpS1DkWGtYx-gq0K1F--LkRko_FL603HB5dtZVtC170Z_hyk69amgM_m6B4okem5-xwbR0v6Wx6nU_oHhGVV0CIOzyMWWE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "Praça Luís de Camões",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.1474989,
+          38.7159709
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:102dd65013656527775a",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:102dd65013656527775a",
+        "name": "A Cevicheria",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "A Cevicheria",
+        "sceneNote": "2026年夏ごろに富田鈴花がポルトガル旅行で訪れた場所。(料理と椅子からの推定。) 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi_DABllhaeHkbWoFXJS_ijGk_BIIVVhgbi8xHMkCKQCl3w4FlB-Ectxm4rHuawM0UjjCTdt69T1RDtyhHlzR1vaAWRl1phhwNIGmtaYAieE9hGTIXSytQKjuZzWsZjks2bXBhIeetXxY2TseVodyUwdbaXjDrkatzcIxIZkf61NB3J4RkzeRpJi9nlKOuV8zz5fm3YD3ESpwxLzGMJPT4mT_wmwroeYbl_x-l2FmkPWYV4WNJOfdL1HFw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "A Cevicheria",
           "group": "日向坂46"
         },
         "classification": {
@@ -148887,63 +149109,6 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "マルコ撮影スタジオ(2)",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.6147746,
-          41.1469055
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:24ebb8f93f2aca3a310e",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:24ebb8f93f2aca3a310e",
-        "name": "レロ・イ・イルマオン",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "レロ・イ・イルマオン",
-        "sceneNote": "題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgPpD-Lf3PIft8x5Jvz1Upx3t6Zj_u6u7YywMADyvZv-b-PMk6MTTnfdkF38K0t9nhnSYhgl8y72oDb2G34JD1i2goC_urZw9qXuFR2a8nrl5UHhEJrw8LGqFIl67HzD4QYh4ZahVTQyRNcH2_-mUJCYoewn_oSnMQ_21seJmSqeBxUKhO_hXkE4P4SR93dNJuCUSZwJyE4XWJc8Xdirusot9OdfJ-NKPG-y6bMSbnwiuIS29RWFJBm2XU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi2pEVcOM12WTHrzF-YCjf2sI3cWiOMmJrpJVnCgI_wZENUTl0BMapRX_A0vLMqkjPBRCjc6pg0lpI7ESzze6Kp5sACTpdvJjC3E5Gu307e5snh8PSjyvepZh1v68NdFeCaa3N7gfgHkDqozMzERc8UxA5V6kga-BtONzm4Zken14wosBHNSI1bPdBeaSr2C67uD68xqFURtYMUdohp-1zUTPcn0fH8xbJf_wsawJH43GffzfyO2S0jxfk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh8HhANQQcL6v-_Xbzi4ACdthDgpe50mnDSNcHB3aqC-BVDEBt4NBQLLMcktROqMmfYTFDDfqK-fPwS5CJfWiTJdu7CCO96S9Nk2ndY0DmBeNOHnPwRL6HZUTUNpIugUYha6sMhcbxVX8UEVBEIBA2xjE6SQzwK-g1s6Pqk6wb8yvf1Y5pBelrUt0_Ggw5OPWZhvMcpQKYNEhlw06pF4XJzBHn6bxCZrAaNh4uYFkxVgLhYgTsE6isnnzA%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "レロ・イ・イルマオン",
           "group": "日向坂46"
         },
         "classification": {
@@ -246102,7 +246267,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "東京ゲートブリッジ北側海上",
-        "sceneNote": "2026.10.19 O.A.「キョコロヒー」で佐々木美玲が釣りをしたポイント。何度か移動している模様。錦鯉の長谷川隆さんに重めの相談をして、齊藤京子に「そんな子だったっけ？」を心配される、が最終的には「みーぱんワールド過ぎるって。」という結論に達する。https://tver.jp/episodes/epndhw4tbm",
+        "sceneNote": "2026.10.19 O.A.「キョコロヒー」で佐々木美玲が釣りをしたポイント。何度か移動している模様。錦鯉の長谷川隆さんに重めの相談をして、齊藤京子に「そんな子だったっけ？」と心配される、が最終的には「みーぱんワールド過ぎるって。」という結論に達する。https://tver.jp/episodes/epndhw4tbm",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -246170,7 +246335,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "舞浜大橋直下",
-        "sceneNote": "2026.10.19 O.A.「キョコロヒー」で佐々木美玲が納竿したポイント。最終的な釣果は隆さんの雑巾のみ。https://tver.jp/episodes/epndhw4tbm",
+        "sceneNote": "2026.10.19 O.A「キョコロヒー」で佐々木美玲が納竿したポイント。最終的な釣果は隆さんの雑巾のみ。https://tver.jp/episodes/epndhw4tbm",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
