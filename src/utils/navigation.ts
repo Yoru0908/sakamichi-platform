@@ -35,7 +35,6 @@ export const NAV_ITEMS: NavItem[] = [
     children: [
       { labelKey: 'nav.events', href: '/events', icon: 'Ticket' },
       { labelKey: 'nav.event_history', href: '/events/history', icon: 'BookOpen' },
-      { labelKey: 'nav.event_ranking', href: '/events/ranking', icon: 'Trophy' },
     ],
   },
   {
@@ -77,7 +76,6 @@ export const MOBILE_NAV_GROUPS: NavGroup[] = [
     items: [
       { labelKey: 'nav.events', href: '/events', icon: 'Ticket' },
       { labelKey: 'nav.event_history', href: '/events/history', icon: 'BookOpen' },
-      { labelKey: 'nav.event_ranking', href: '/events/ranking', icon: 'Trophy' },
     ],
   },
   {

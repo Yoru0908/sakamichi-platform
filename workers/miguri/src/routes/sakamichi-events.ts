@@ -207,11 +207,14 @@ export async function handleSakamichiEventProfile(req: Request, env: Env, now = 
   const row = await env.MIGURI_DB.prepare('SELECT public_enabled,public_name FROM sakamichi_event_profiles WHERE user_id=?').bind(userId).first<{ public_enabled: number; public_name: string }>();
   return json({ success: true, data: { public: !!row?.public_enabled, name: row?.public_name || '' } }, 200, privateHeaders);
 }
-/** Explicit opt-in and past/current dates are in the SQL predicate, not a UI filter. No public response reads memos/costs. */
-export async function handleGetSakamichiRanking(_req: Request, env: Env, now = new Date()): Promise<Response> {
+/** Explicit opt-in and past/current dates are in the SQL predicate, not a UI filter. No public response reads memos/costs.
+ *  ?grp= ranks one group's events only (2026-10-26); without it, dates count once across all three groups. */
+export async function handleGetSakamichiRanking(req: Request, env: Env, now = new Date()): Promise<Response> {
+  const grp = new URL(req.url).searchParams.get('grp');
+  if (grp !== null && !Object.hasOwn(EVENT_GROUPS, grp)) return error('invalid grp', 400);
   const rows = await env.MIGURI_DB.prepare(`SELECT p.public_name name,COUNT(DISTINCT m.date) days,COUNT(*) events
     FROM sakamichi_event_profiles p JOIN sakamichi_event_marks m ON m.user_id=p.user_id
-    WHERE p.public_enabled=1 AND m.date<=? GROUP BY p.user_id ORDER BY days DESC,events DESC,p.public_name,p.user_id LIMIT 50`)
-    .bind(attendanceToday(now)).all<{ name: string; days: number; events: number }>();
+    WHERE p.public_enabled=1 AND m.date<=?1 AND (?2 IS NULL OR m.grp=?2) GROUP BY p.user_id ORDER BY days DESC,events DESC,p.public_name,p.user_id LIMIT 50`)
+    .bind(attendanceToday(now), grp).all<{ name: string; days: number; events: number }>();
   return json({ success: true, data: { ranking: rows.results.map((r, i, all) => ({ rank: all.findIndex(x => x.days === r.days) + 1, ...r })), asOf: attendanceToday(now) } }, 200, { 'Cache-Control': 'no-store' });
 }

@@ -6,10 +6,22 @@ import { historyTranslator } from '@/i18n/events-history';
 import { getSakamichiHistory, setSakamichiEventMark } from '@/utils/auth-api';
 import { attendanceStatus, attendanceToday, eventCostTotal, type EventHistoryPayload, type EventMemoData } from '../../../workers/shared/event-attendance';
 import EventMemo from './EventMemo';
+import EventRanking from './EventRanking';
 import './events-history.css';
+
+type View = 'records' | 'ranking';
+const viewFromUrl = (): View => new URLSearchParams(window.location.search).get('view') === 'ranking' ? 'ranking' : 'records';
 
 export default function EventHistory() {
   const auth = useStore($auth), lang = useLanguage(), tr = historyTranslator(lang);
+  const [view, setView] = useState<View>(viewFromUrl);
+  const pickView = (next: View) => {
+    setView(next);
+    const url = new URL(window.location.href);
+    url.searchParams.delete('grp');
+    if (next === 'ranking') url.searchParams.set('view', 'ranking'); else url.searchParams.delete('view');
+    window.history.replaceState(null, '', url);
+  };
   const [payload, setPayload] = useState<EventHistoryPayload | null>(null);
   const [busy, setBusy] = useState(false), [error, setError] = useState(false);
   const generation = useRef(0);
@@ -52,9 +64,15 @@ export default function EventHistory() {
     finally { if (current === generation.current) setBusy(false); }
   };
   return <section className="event-history events-view" aria-label={tr('history')}>
-    <nav className="event-history-nav"><a href="/events">{tr('events')}</a><a href="/events/ranking">{tr('ranking')}</a></nav>
+    <nav className="event-history-nav"><a href="/events">{tr('events')}</a></nav>
     <h1 className="text-2xl font-bold">{tr('history')}</h1><p className="mt-2 text-sm text-[var(--text-secondary)]">{tr('description')}</p>
     {auth.loading ? <p role="status" className="my-6">{tr('loading')}</p> : !auth.isLoggedIn ? <p className="my-6">{tr('login')} <a className="underline" href="/auth/login?next=%2Fevents%2Fhistory">{tr('signIn')}</a></p> : <>
+      <div role="tablist" className="event-history-tabs" aria-label={tr('history')}>
+        {(['records', 'ranking'] as View[]).map(value => <button key={value} type="button" role="tab" aria-selected={view === value} onClick={() => pickView(value)}>
+          {tr(value === 'records' ? 'tabRecords' : 'tabRanking')}
+        </button>)}
+      </div>
+      {view === 'ranking' ? <EventRanking /> : <>
       {payload && <>
         <div className="event-history-stats">
           <div><span className="event-history-hint">{tr('attendedDays')}</span><strong>{payload.summary.attendedDays}</strong></div>
@@ -74,6 +92,7 @@ export default function EventHistory() {
       </>}
       {busy && <p role="status" className="my-4">{tr('loading')}</p>}
       {error && <div role="alert" className="my-4"><p className="event-history-error">{tr('loadError')}</p><button className="event-history-button mt-2" onClick={() => void load()}>{tr('retry')}</button></div>}
+      </>}
     </>}
   </section>;
 }
