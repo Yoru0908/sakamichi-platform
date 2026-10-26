@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Copy, Download, Share2, X } from "lucide-react";
+import { Copy, Download, ImageIcon, Share2, X } from "lucide-react";
 import type { MiguriTranslate } from "@/i18n/miguri";
 import { copyText, shareOrDownloadImage } from "../seichi/route-share";
 import {
@@ -29,6 +29,16 @@ function download(blob: Blob, filename: string) {
   a.click();
   a.remove();
   setTimeout(() => URL.revokeObjectURL(href), 10_000);
+}
+
+/** Images can't be attached through a web post link, so the PNG goes on the clipboard for pasting into the composer. */
+async function copyImage(blob: Blob): Promise<boolean> {
+  try {
+    await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 const chip = (on: boolean) =>
@@ -80,6 +90,14 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
     if (result === "downloaded") setStatus(tr("shareSaved"));
   };
   const copy = async () => setStatus((await copyText(text)) ? tr("shareCopied") : "");
+  const copyPicture = async () => {
+    if (image) setStatus((await copyImage(image.blob)) ? tr("shareImageCopied") : tr("shareImageCopyFailed"));
+  };
+  // Open the composer first (needs the click), then put the picture on the clipboard: paste it into the post box.
+  const post = async (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+    if (image) setStatus((await copyImage(image.blob)) ? tr("sharePasteHint") : tr("shareImageCopyFailed"));
+  };
 
   return (
     <div className="fixed inset-0 z-[70] flex items-end justify-center bg-slate-950/40 p-0 sm:items-center sm:p-4" onClick={onClose}>
@@ -131,15 +149,15 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
           <button type="button" onClick={copy} disabled={empty} className={action}>
             <Copy size={15} /> {tr("shareCopy")}
           </button>
-          <a
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-disabled={empty}
-            className={`${action} ${empty ? "pointer-events-none opacity-40" : ""}`}
-          >
+          <button type="button" onClick={copyPicture} disabled={!image || !("ClipboardItem" in window)} className={action}>
+            <ImageIcon size={15} /> {tr("shareCopyImage")}
+          </button>
+          <button type="button" onClick={() => post(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`)} disabled={!image} className={action}>
             {tr("shareX")}
-          </a>
+          </button>
+          <button type="button" onClick={() => post(`https://service.weibo.com/share/share.php?title=${encodeURIComponent(text)}`)} disabled={!image} className={action}>
+            {tr("shareWeibo")}
+          </button>
         </div>
         {status ? <p role="status" className="mt-2 text-xs font-semibold text-emerald-600">{status}</p> : null}
         <p className="mt-3 text-[11px] leading-5 text-[var(--text-tertiary)]">{tr("shareNote")}</p>
