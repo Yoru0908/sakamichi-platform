@@ -46,14 +46,16 @@ export type MiguriShareCard = {
  * `entries` and `dashboard` are the dashboard's filtered view. 応募 / 当選 / ranking count the same results as its 中签率,
  * so the card's numbers are the ones on screen.
  */
-export function buildMiguriShareCard({ entries, dashboard, period, group, category }: {
+export function buildMiguriShareCard({ entries, dashboard, period, group, category, today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }) }: {
   entries: CardEntry[];
   dashboard: Dashboard;
   period: MiguriPeriod;
   group: MiguriGroupId | 'all';
   category: string | null;
+  today?: string;
 }): MiguriShareCard {
-  const dates = entries.map((entry) => entry.date).filter((date) => yearOf(date) !== null).sort();
+  // The date range stops at today (JST): an upcoming date, with the group, says where the person will be.
+  const dates = entries.map((entry) => entry.date).filter((date) => yearOf(date) !== null && date <= today).sort();
   const won = new Map<string, number>();
   for (const entry of entries.filter(isMiguriLotteryResult)) {
     const counts = lotteryResultCounts(entry);

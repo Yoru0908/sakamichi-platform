@@ -20,8 +20,9 @@ const entries = [
   { ...music('g', '山川宇衣', '2026-12-20', 5, 5), category: 'リアミ', venue: '京都パルスプラザ', source: 'fortunemeets', unitPriceYen: 2000 },
   { ...music('h', '山川宇衣', '', 2, 2), date: '' }, // no date: only under 全期間
 ];
+const TODAY = '2026-10-26';
 const card = (period, list = inMiguriPeriod(entries, period), extra = {}) =>
-  buildMiguriShareCard({ entries: list, dashboard: aggregateMiguriDashboard(list, '2026-10-26'), period, group: 'all', category: null, ...extra });
+  buildMiguriShareCard({ entries: list, dashboard: aggregateMiguriDashboard(list, TODAY), period, group: 'all', category: null, today: TODAY, ...extra });
 
 test('years come from the records, newest first; undated records count only under 全期間', () => {
   assert.deepEqual(miguriYears(entries), [2026, 2025]);
@@ -38,7 +39,7 @@ test('2026 card: the dashboard totals for that year, ranking by 当選枚数, Ja
   assert.equal(year.applied, 38);
   assert.equal(year.won, 16);
   assert.deepEqual(year.title, ['2026年', 'ミーグリまとめ']);
-  assert.equal(year.range, '2026.02.14 – 2026.12.20');
+  assert.equal(year.range, '2026.02.14 – 2026.09.12'); // 12-20 is still ahead: counted, never shown
   assert.equal(year.scope, '櫻坂46'); // the only group in the records
   assert.deepEqual(year.ranking, [{ name: '山川宇衣', won: 10 }, { name: '山下瞳月', won: 3 }, { name: '村井優', won: 2 }]);
   assert.equal(year.wonDays, 4); // 02-14, 05-03, 09-12, 12-20
@@ -51,6 +52,8 @@ test('2026 card: the dashboard totals for that year, ranking by 当選枚数, Ja
 
 test('the card never carries venues, future schedule or account data', () => {
   const text = JSON.stringify(card(2026));
+  for (const [date] of text.matchAll(/\d{4}\.\d{2}\.\d{2}/g)) assert.ok(date.replaceAll('.', '-') <= TODAY, date);
+  assert.equal(card(2026, [music('z', '山川宇衣', '2026-12-24', 3, 1)]).range, null); // only upcoming dates → no range
   assert.doesNotMatch(text, /京都|パルスプラザ|venue|nextStop|email|@/);
   assert.equal(card(2026, inMiguriPeriod(entries, 2026), { group: 'sakurazaka', category: 'リアミ' }).scope, '櫻坂46 · リアミ');
 });

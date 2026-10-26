@@ -829,7 +829,7 @@ export default function MiguriDashboard({
           <button
             type="button"
             onClick={() => setSharing(true)}
-            disabled={filteredEntries.length === 0}
+            disabled={dashboard.totalApplied === 0}
             className="ml-auto inline-flex min-h-11 items-center gap-2 rounded-full bg-indigo-600 px-4 text-xs font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <Share2 size={14} /> {tr("shareOpen")}
@@ -1347,7 +1347,7 @@ export default function MiguriDashboard({
       {sharing ? (
         <MiguriShareDialog
           card={shareCard}
-          empty={filteredEntries.length === 0}
+          empty={dashboard.totalApplied === 0}
           years={years}
           period={period}
           onPeriod={setPeriod}
