@@ -1,4 +1,4 @@
-import type { Language } from '@/stores/language';
+import { $language, type Language } from '../stores/language.ts';
 
 // 咪咕力管理 Dashboard copy (2026-10-26). zh is the original text, unchanged; ja follows 日本語.
 // en still shows zh (as before) until it gets its own column. Keep zh and ja keys in sync.
@@ -348,3 +348,9 @@ export function miguriTranslator(lang: Language) {
 }
 
 export type MiguriTranslate = ReturnType<typeof miguriTranslator>;
+
+/**
+ * For text made outside render (effects and subscriptions started on mount). Those closures keep the first,
+ * hydration-time render, which is always zh; this reads the language at the moment of the call.
+ */
+export const miguriNow: MiguriTranslate = (key, params) => miguriTranslator($language.get())(key, params);

@@ -35,6 +35,7 @@ import {
 } from "./miguri-share";
 import { useLanguage } from "@/i18n/use-language";
 import {
+  miguriNow,
   miguriTranslator,
   type MiguriText,
   type MiguriTranslate,
@@ -199,7 +200,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
         if (event.type === "PONG") setExtensionVersion(event.version);
         if (event.type === "STARTED") {
           setExtensionMessage(
-            tr("syncStarted", { source: event.syncSource === "fortunemusic" ? "Music" : "Meets" }),
+            miguriNow("syncStarted", { source: event.syncSource === "fortunemusic" ? "Music" : "Meets" }),
           );
         }
         if (event.type === "PROGRESS")
@@ -210,11 +211,11 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
           setAutoState(event.state);
           if (event.state.status === "needs-login") {
             setExtensionMessage(
-              tr("autoNeedsLogin", { site: String(event.state.needsLogin) }),
+              miguriNow("autoNeedsLogin", { site: String(event.state.needsLogin) }),
             );
           } else if (event.state.status === "error") {
             setExtensionMessage(
-              tr("autoError", { error: event.state.lastError || tr("retryLater") }),
+              miguriNow("autoError", { error: event.state.lastError || miguriNow("retryLater") }),
             );
           }
         }

@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import SoldOutMatrix from './SoldOutMatrix';
 import { useLanguage } from '@/i18n/use-language';
-import { miguriTranslator } from '@/i18n/miguri';
+import { miguriNow, miguriTranslator } from '@/i18n/miguri';
 import LotteryAnalysisPanel from './LotteryAnalysisPanel';
 import CalendarSubscriptionModal from './CalendarSubscriptionModal';
 import MiguriDashboard, { type MiguriAutoImportState } from './MiguriDashboard';
@@ -306,7 +306,7 @@ export default function MeguriPrototype() {
       if (!mounted) return;
 
       if (!res.success || !res.data) {
-        setError(res.message || res.error || tr('loadFailed'));
+        setError(res.message || res.error || miguriNow('loadFailed'));
         setEvents([]);
         setEntries([]);
         setFavorites([]);
@@ -315,7 +315,7 @@ export default function MeguriPrototype() {
       }
 
       if (!authResult.success || !authResult.data?.user) {
-        setError(tr('loggedOut'));
+        setError(miguriNow('loggedOut'));
       }
 
       let loadedEntries = res.data.entries || [];
