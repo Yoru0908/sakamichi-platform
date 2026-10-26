@@ -1,7 +1,7 @@
-import { $language, type Language } from '../stores/language.ts';
+import { dictionary } from './miguri-dict.ts';
 
-// 咪咕力管理 Dashboard copy (2026-10-26). zh is the original text, unchanged; ja follows 日本語.
-// en still shows zh (as before) until it gets its own column. Keep zh and ja keys in sync.
+// 咪咕力管理 Dashboard copy (2026-10-26). zh is the original text, unchanged; ja follows 日本語, en follows English.
+// Keep the three key sets in sync.
 const zh = {
   title: "咪咕力管理",
   dashboardTitle: "我的 Miguri Dashboard",
@@ -129,6 +129,8 @@ const zh = {
   memberTotal: "{member} 合计",
   sectionOther: "其他",
   noSlotTrend: "不分部",
+  slotN: "第{n}部",
+  weekdays: "日月火水木金土",
   unknownDate: "日期未知",
   pointRate: "{title} 中签率",
   table: "表格",
@@ -297,6 +299,8 @@ const ja: Record<MiguriText, string> = {
   memberTotal: "{member} 合計",
   sectionOther: "その他",
   noSlotTrend: "部なし",
+  slotN: "第{n}部",
+  weekdays: "日月火水木金土",
   unknownDate: "日付不明",
   pointRate: "{title} の当選率",
   table: "表",
@@ -336,21 +340,177 @@ const ja: Record<MiguriText, string> = {
   close: "閉じる",
 };
 
-export const miguriMessages = { zh, ja };
+const en: Record<MiguriText, string> = {
+  title: "Miguri Manager",
+  dashboardTitle: "My Miguri Dashboard",
+  dashboardIntro: "Music / Meets history, your next stop and tickets per slot, summed up automatically",
+  calendarTitle: "Subscribe to the Miguri calendar",
+  calendar: "Calendar",
+  bulkImport: "Bulk import",
+  tabManage: "My records",
+  tabSoldout: "Sold out",
+  tabLottery: "National Miguri",
+  loading: "Loading Miguri data…",
+  loadFailed: "Could not load event data",
+  loggedOut: "Your session has expired. Sign in to 46log again before syncing; private records are hidden while signed out.",
 
-export function miguriTranslator(lang: Language) {
-  const dictionary: Record<MiguriText, string> = lang === 'ja' ? ja : zh;
-  return (key: MiguriText, params: Record<string, string | number> = {}): string => {
-    let value = dictionary[key];
-    for (const [name, replacement] of Object.entries(params)) value = value.replaceAll(`{${name}}`, String(replacement));
-    return value;
-  };
-}
+  never: "Never synced",
+  justNow: "just now",
+  minutesAgo: "{n} min ago",
+  hoursAgo: "{n} h ago",
+  daysAgo: "{n} days ago",
+  ticketUnit: " tickets",
+  signUnit: " entries",
+  listSep: ", ",
 
+  saving: "Saving history",
+  refreshed: "Dashboard refreshed",
+  syncIncomplete: "Sync did not finish",
+  continueMeets: "Continue with Meets",
+  syncStarted: "Started syncing {source}",
+  autoNeedsLogin: "Auto sync paused: sign in to {site} again",
+  autoError: "Auto sync paused: {error}",
+  retryLater: "Please try again later",
+  installFirst: "Install the extension first, then reload this page.",
+  openingOfficial: "Opening the official site…",
+  syncKicker: "Application history sync",
+  syncHeading: "Update Music and Meets in one click",
+  extensionOutdated: "Extension needs an update · v{v}",
+  extensionConnected: "Extension connected · v{v}",
+  extensionWaiting: "Waiting for the sync extension",
+  syncMusicUpdateFirst: "Sync Music (update recommended first)",
+  syncAll: "Sync Music + Meets",
+  syncMeetsOnly: "Sync Meets only (three groups)",
+  updateNeeded: "This version needs an update",
+  updateBody: "v1.1.22 adds the Music applications that lost every ticket (they were skipped before, which inflated the win rate). It also includes v1.1.21, which no longer charges for Meets guaranteed entries (R serials) twice, and v1.1.20, which handles the forTUNE meets sign-in change of 10/13 (older versions stop at “waiting for official sign-in” even when signed in). Turn off auto sync in the old version first, then download the ZIP and update manually; the Chrome Web Store version does not have these fixes yet.",
+  turnOffOldAuto: "Turn off old auto sync",
+  downloadZip: "Download v1.1.22 ZIP",
+  autoHeading: "Auto sync while the browser is open",
+  autoBody: "Checks every {n} minutes. Pauses with a notice if you are signed out; a run longer than 10 minutes is cleaned up and retried.",
+  lastSuccess: " Last success: {when}.",
+  checking: "Checking…",
+  checkNow: "Check now",
+  autoOn: "Auto sync on",
+  autoOff: "Auto sync off",
+  zipBadge: "Fixed ZIP · v1.1.22",
+  installHeading: "Install the latest sync extension",
+  installBody: "v1.1.22 adds the Music applications that lost every ticket (they were skipped before, which inflated the win rate). It also includes v1.1.21, which no longer charges for Meets guaranteed entries (R serials) twice, and v1.1.20, which handles the forTUNE meets sign-in change of 10/13 (older versions stop at “waiting for official sign-in” even when signed in). Download the ZIP to install it manually; the Chrome Web Store version does not have these fixes yet.",
+  installGuide: "Installation guide",
+  installStore: "Install from the Chrome Web Store",
+
+  sparkline: "Spending over the last {n} draws",
+  byCategory: "By type",
+  byCategoryEmpty: "The type breakdown appears after syncing.",
+
+  filters: "Dashboard filters",
+  periodAll: "All time",
+  periodYear: "{year}",
+  allGroups: "All groups",
+  allCategories: "All types",
+  syncState: "Sync status",
+  paid: "Amount paid",
+  paidOf: "{category} amount paid",
+  oshi: "Top oshi",
+  oshiShare: "{pct} of spending",
+  noPrice: "Actual spending appears once you sync records with prices.",
+  priceRule: "Music counts won tickets only (lost and lapsed tickets are not paid). Meets counts every entry made with a CD you bought, won or not; guaranteed entries are not charged again.",
+  estimated: "Includes {yen} estimated from the release price list or older records; the limited-edition discount is stored in this browser only.",
+  unpriced: "{n} more tickets have no known price and are not counted yet.",
+  discount: "Limited-edition discount",
+  meetsPaid: "Meets total paid",
+  meetsPaidOf: "{category} paid",
+  signPaid: "Sign event paid",
+  combinedPaid: "Real + national Miguri paid",
+  combinedLost: "Real + national Miguri lost amount",
+  rescue: "Guaranteed entries",
+  rescueCount: "{n}×",
+  rescueWon: " · won {n}",
+  meetsRule: "Each Real / national Miguri entry made with a CD you bought counts as one CD, won or not: won amount = won tickets × unit price, lost amount = lost tickets × unit price. Guaranteed entries use the R serial issued after a loss; that CD was already counted when it lost, so they are ¥0 (needs extension v1.1.21). One sign-event entry needs several CDs and is charged by the number of serials the official site marks as used. Unit prices come from the price list; singles not on it use the 販売価格 shown on the official page at sync time, then the discount above applies.",
+  winRate: "Win rate",
+  winRateScope: "Excludes sign events and other",
+  applied: "Tickets applied",
+  won: "Tickets won",
+  lapsed: "{n} lapsed unpaid",
+  topSpend: "Most of your spending: {pct} on {name}.",
+  wonSpendEstimated: "Won amount (incl. estimates)",
+  wonSpendEstimatedOf: "{category} won amount (incl. estimates)",
+  wonSpend: "Won amount",
+  wonSpendOf: "{category} won amount",
+  lostSpend: "Lost amount",
+  lostSpendOf: "{category} lost amount",
+  paidTotal: "Total paid",
+  paidTotalOf: "{category} total paid",
+  upcoming: "Upcoming dates",
+  members: "Members",
+  nextStop: "Next stop",
+  venuePending: "Venue not synced yet",
+  noSlot: "No slot",
+  nextStopEmpty: "Real Miguri, sign events and tickets per slot appear once you sync winning records.",
+  ranking: "Member ranking",
+  rankSpend: "Paid",
+  rankWon: "Won",
+  rankRate: "Win rate",
+  rankCost: "Per ticket",
+  rankingEmpty: "The member ranking appears after syncing.",
+  rankingNote: "“Paid” and “Per ticket” in the member ranking include the CDs behind that member's lost entries; the won and per-type amounts above do not include lost amounts.",
+  footnote: "forTUNE music winning CDs are counted at ¥1,200 each; Meets uses the reference site's release price list, and the limited-edition discount adjusts for what you actually paid. Events without a known price are not counted. Lost amounts are included in total paid and the member ranking.",
+
+  trendTitle: "Win rate over time",
+  trendLines: "Lines",
+  byMember: "By member",
+  bySlot: "By slot",
+  trendCategory: "Type",
+  member: "Member",
+  allMembers: "All members",
+  total: "Total",
+  all: "All",
+  memberTotal: "{member} total",
+  sectionOther: "Other",
+  noSlotTrend: "No slot",
+  slotN: "Slot {n}",
+  weekdays: "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+  unknownDate: "Date unknown",
+  pointRate: "{title} win rate",
+  table: "Table",
+  tableReleases: "Singles",
+  tableMembers: "Member × slot",
+  tableSchedule: "Full schedule",
+  cornerSingle: "Single",
+  cornerSingleMember: "Single / member",
+  cornerSingleDate: "Single / date",
+  allSingles: "All singles",
+  singleTotal: "Single total",
+  day: "Day",
+  slotTotal: "Slot total",
+  tableHint: "Click a single on the chart to jump to its rows",
+  trendNote: "Win rate = tickets won ÷ tickets applied (sign events count draws), the same formula as the member ranking, but only applications with results count. Individual / national / Real Miguri / sign events are counted separately; each Real Miguri and sign-event venue is its own point on the chart and its own group or row in the tables, and only slots at the same venue are combined. All application rounds of one single are merged. “Member × slot” and “Full schedule” list every single (newest first); “Single total” and “Slot total” show which slot is hardest to win. Picking a member limits the chart and all three tables to that member (by slot shows that member's slots). Follows the group and type filters above.",
+
+  oshi_单推: "Single oshi",
+  oshi_主推明确: "Clear favorite",
+  oshi_箱推: "Whole group",
+  oshi_DD: "DD",
+
+  shareOpen: "Make a share image",
+  shareTitle: "Share image",
+  sharePeriod: "Period",
+  shareShowSpend: "Show amounts in the image",
+  shareMaking: "Making the image…",
+  shareImage: "Share image",
+  shareSave: "Save image",
+  shareCopy: "Copy post text",
+  shareCopied: "Copied",
+  shareX: "Post on X",
+  shareSaved: "Image saved",
+  shareFailed: "Could not make the image. Please try again.",
+  shareEmpty: "No records in this period.",
+  shareNote: "The image and post text are always in Japanese. On a phone, “Share image” lets you pick X directly; on a computer, save the image first and add it to your X post (“Post on X” does not attach the image).",
+  sharePrivacy: "The image leaves out your account name and any upcoming dates or venues. It follows the period, group and type filters above.",
+  close: "Close",
+};
+
+export const miguriMessages = { zh, ja, en };
+const miguri = dictionary(miguriMessages);
+export const miguriTranslator = miguri.translator;
 export type MiguriTranslate = ReturnType<typeof miguriTranslator>;
-
-/**
- * For text made outside render (effects and subscriptions started on mount). Those closures keep the first,
- * hydration-time render, which is always zh; this reads the language at the moment of the call.
- */
-export const miguriNow: MiguriTranslate = (key, params) => miguriTranslator($language.get())(key, params);
+/** Reads the language at call time; for effects and subscriptions started on mount (they keep the zh first render). */
+export const miguriNow: MiguriTranslate = miguri.now;

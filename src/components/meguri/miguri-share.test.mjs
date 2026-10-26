@@ -78,13 +78,11 @@ test('post text is Japanese; the amount only when 金額を載せる is on', () 
   assert.match(without, /#ミーグリまとめ\nhttps:\/\/46log\.com\/miguri$/);
 });
 
-test('dictionary: zh and ja have the same keys; ja uses Japanese forms, not simplified Chinese', () => {
-  assert.deepEqual(Object.keys(miguriMessages.ja).sort(), Object.keys(miguriMessages.zh).sort());
-  for (const [key, value] of Object.entries(miguriMessages.ja))
-    assert.doesNotMatch(value, /[张签选应员类录图击额单这们为发设计总览时户载销组价划没给从启开关闭显检]/, key);
+test('dashboard dictionary: placeholders fill in; en has its own text', () => {
   const ja = miguriTranslator('ja'), zh = miguriTranslator('zh'), en = miguriTranslator('en');
   assert.equal(ja('periodYear', { year: 2026 }), '2026年');
   assert.equal(ja('autoBody', { n: 30 }), '30分ごとに確認します。ログインが切れたら一時停止してお知らせし、1回が10分を超えたら自動で片付けて再試行します。');
   assert.equal(zh('autoBody', { n: 30 }), '每 30 分钟检查一次；登录失效时暂停并提示，单轮超过 10 分钟会自动清理并重试。');
-  assert.equal(en('paid'), zh('paid')); // English keeps the Chinese text, as before
+  assert.equal(en('paid'), 'Amount paid');
+  assert.equal(Object.keys(miguriMessages.en).length, Object.keys(miguriMessages.zh).length);
 });

@@ -24,11 +24,12 @@ const NO_SLOT_COLOR = "#94a3b8";
 const LINE_COLORS = ["#6366f1", "#ec4899", "#0ea5e9", "#10b981", "#f59e0b", "#8b5cf6", "#ef4444", "#14b8a6"];
 const COLUMN_PX = 76;
 const DEFAULT_MEMBERS = 3;
-const WEEKDAYS = "日月火水木金土";
 
 const rate = (point: WinRatePoint) => Math.min(1, point.won / point.applied);
 const percent = (value: number) => `${Math.round(value * 100)}%`;
-const slotLabel = (slot: number, tr: MiguriTranslate) => (slot > 0 ? `第${slot}部` : tr("noSlotTrend"));
+const slotLabel = (slot: number, tr: MiguriTranslate) => (slot > 0 ? tr("slotN", { n: slot }) : tr("noSlotTrend"));
+/** 日月火… for zh / ja (one character each), Sun,Mon,… for en. */
+const weekday = (tr: MiguriTranslate, day: number) => { const names = tr("weekdays"); return (names.includes(",") ? names.split(",") : [...names])[day]; };
 const slotColor = (slot: number) => (slot > 0 ? LINE_COLORS[(slot - 1) % LINE_COLORS.length] : NO_SLOT_COLOR);
 const bySlot = (left: number, right: number) => (left || 99) - (right || 99);
 const byDate = (left: string, right: string) => (left || "9999").localeCompare(right || "9999");
@@ -39,7 +40,7 @@ const shortVenue = (venue: string) => venue.match(/^\p{Script=Han}{2,}/u)?.[0] ?
 function dateLabel(date: string, tr: MiguriTranslate) {
   const match = date.match(/^\d{4}-(\d{2})-(\d{2})$/);
   if (!match) return date || tr("unknownDate");
-  return `${Number(match[1])}/${Number(match[2])}(${WEEKDAYS[new Date(`${date}T00:00:00Z`).getUTCDay()]})`;
+  return `${Number(match[1])}/${Number(match[2])}(${weekday(tr, new Date(`${date}T00:00:00Z`).getUTCDay())})`;
 }
 
 function Segmented<T extends string>({

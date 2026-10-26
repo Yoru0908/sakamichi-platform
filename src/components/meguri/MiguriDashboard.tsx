@@ -1199,7 +1199,7 @@ export default function MiguriDashboard({
                         key={slot.slot}
                         className="rounded-full border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-2.5 py-1 text-[11px] font-medium text-[var(--text-secondary)]"
                       >
-                        {slot.slot > 0 ? `第${slot.slot}部` : tr("noSlot")} ·{" "}
+                        {slot.slot > 0 ? tr("slotN", { n: slot.slot }) : tr("noSlot")} ·{" "}
                         {slot.tickets}
                         {categoryUnit(row.category, tr)}
                       </span>
