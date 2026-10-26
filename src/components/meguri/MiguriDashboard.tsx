@@ -9,6 +9,7 @@ import {
   LoaderCircle,
   Puzzle,
   RefreshCw,
+  Share2,
   Ticket,
   TrendingUp,
   UserRound,
@@ -25,6 +26,20 @@ import {
   resolveMiguriEntrySpend,
 } from "./meguri-helpers";
 import WinRateTrend from "./WinRateTrend";
+import MiguriShareDialog from "./MiguriShareDialog";
+import {
+  buildMiguriShareCard,
+  inMiguriPeriod,
+  miguriYears,
+  type MiguriPeriod,
+} from "./miguri-share";
+import { useLanguage } from "@/i18n/use-language";
+import {
+  miguriNow,
+  miguriTranslator,
+  type MiguriText,
+  type MiguriTranslate,
+} from "@/i18n/miguri";
 import {
   runMiguriExtensionAutoSync,
   setMiguriExtensionAutoSync,
@@ -84,12 +99,11 @@ function clampMeetsDiscount(value: number) {
   return Math.max(0, Math.min(30, Number.isFinite(value) ? value : 0));
 }
 
-function displayDate(date: string) {
-  const weekday = new Intl.DateTimeFormat("ja-JP", {
-    weekday: "short",
-    timeZone: "Asia/Tokyo",
-  }).format(new Date(`${date}T00:00:00+09:00`));
-  return `${date}（${weekday}）`;
+/** 2026-11-15（日） in zh / ja, 2026-11-15 (Sun) in en. The date string is already a JST calendar date. */
+function displayDate(date: string, tr: MiguriTranslate) {
+  const names = tr("weekdays");
+  const weekday = (names.includes(",") ? names.split(",") : [...names])[new Date(`${date}T00:00:00Z`).getUTCDay()];
+  return tr("dateWithWeekday", { date, weekday });
 }
 
 function formatYen(value: number) {
@@ -100,20 +114,20 @@ function formatPercent(value: number) {
   return `${Math.round(value * 100)}%`;
 }
 
-function categoryUnit(category: string) {
-  return category === "サイン会" ? "口" : "张";
+function categoryUnit(category: string, tr: MiguriTranslate) {
+  return category === "サイン会" ? tr("signUnit") : tr("ticketUnit");
 }
 
-function relativeSyncTime(value: string | null) {
-  if (!value) return "未同步";
+function relativeSyncTime(value: string | null, tr: MiguriTranslate) {
+  if (!value) return tr("never");
   const diff = Date.now() - Date.parse(value);
-  if (!Number.isFinite(diff) || diff < 0) return "刚刚";
+  if (!Number.isFinite(diff) || diff < 0) return tr("justNow");
   const minutes = Math.floor(diff / 60_000);
-  if (minutes < 1) return "刚刚";
-  if (minutes < 60) return `${minutes} 分钟前`;
+  if (minutes < 1) return tr("justNow");
+  if (minutes < 60) return tr("minutesAgo", { n: minutes });
   const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours} 小时前`;
-  return `${Math.floor(hours / 24)} 天前`;
+  if (hours < 24) return tr("hoursAgo", { n: hours });
+  return tr("daysAgo", { n: Math.floor(hours / 24) });
 }
 
 function ImportStatus({
@@ -123,6 +137,7 @@ function ImportStatus({
   state: MiguriAutoImportState;
   onSyncMeets: () => void;
 }) {
+  const tr = miguriTranslator(useLanguage());
   if (state.status === "idle") return null;
   const isSaving = state.status === "saving";
   const isSuccess = state.status === "success";
@@ -148,10 +163,10 @@ function ImportStatus({
         <div>
           <div className="text-sm font-semibold text-[var(--text-primary)]">
             {isSaving
-              ? "正在保存履历"
+              ? tr("saving")
               : isSuccess
-                ? "Dashboard 已刷新"
-                : "同步未完成"}
+                ? tr("refreshed")
+                : tr("syncIncomplete")}
           </div>
           <p className="mt-0.5 text-xs leading-5 text-[var(--text-secondary)]">
             {state.message}
@@ -164,7 +179,7 @@ function ImportStatus({
           onClick={onSyncMeets}
           className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--text-primary)] px-4 text-sm font-semibold text-[var(--bg-primary)] transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
         >
-          继续同步 Meets <ArrowRight size={15} />
+          {tr("continueMeets")} <ArrowRight size={15} />
         </button>
       ) : null}
     </div>
@@ -172,6 +187,7 @@ function ImportStatus({
 }
 
 function ImportSetup({ state }: { state: MiguriAutoImportState }) {
+  const tr = miguriTranslator(useLanguage());
   const [extensionVersion, setExtensionVersion] = useState("");
   const [extensionMessage, setExtensionMessage] = useState("");
   const [autoState, setAutoState] =
@@ -183,7 +199,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
         if (event.type === "PONG") setExtensionVersion(event.version);
         if (event.type === "STARTED") {
           setExtensionMessage(
-            `已启动 ${event.syncSource === "fortunemusic" ? "Music" : "Meets"} 同步`,
+            miguriNow("syncStarted", { source: event.syncSource === "fortunemusic" ? "Music" : "Meets" }),
           );
         }
         if (event.type === "PROGRESS")
@@ -194,11 +210,11 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
           setAutoState(event.state);
           if (event.state.status === "needs-login") {
             setExtensionMessage(
-              `自动同步暂停：请重新登录 ${event.state.needsLogin}`,
+              miguriNow("autoNeedsLogin", { site: String(event.state.needsLogin) }),
             );
           } else if (event.state.status === "error") {
             setExtensionMessage(
-              `自动同步暂停：${event.state.lastError || "请稍后重试"}`,
+              miguriNow("autoError", { error: event.state.lastError || miguriNow("retryLater") }),
             );
           }
         }
@@ -212,10 +228,10 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
 
   const startSync = (source: "fortunemusic" | "fortunemeets") => {
     if (!extensionVersion) {
-      setExtensionMessage("请先安装扩展并重新加载页面。");
+      setExtensionMessage(tr("installFirst"));
       return;
     }
-    setExtensionMessage("正在打开官方页面…");
+    setExtensionMessage(tr("openingOfficial"));
     startMiguriExtensionSync(source);
   };
 
@@ -224,10 +240,10 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-indigo-600">
-            <RefreshCw size={14} /> 应募履历同步
+            <RefreshCw size={14} /> {tr("syncKicker")}
           </div>
           <h2 className="mt-2 text-xl font-bold tracking-tight text-[var(--text-primary)] sm:text-2xl">
-            一键更新 Music 与 Meets
+            {tr("syncHeading")}
           </h2>
         </div>
         <div
@@ -245,10 +261,8 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
             <Puzzle size={16} />
           )}
           {extensionVersion
-            ? needsUpdate
-              ? `扩展需要更新 · v${extensionVersion}`
-              : `扩展已连接 · v${extensionVersion}`
-            : "等待安装同步扩展"}
+            ? tr(needsUpdate ? "extensionOutdated" : "extensionConnected", { v: extensionVersion })
+            : tr("extensionWaiting")}
         </div>
       </div>
 
@@ -260,14 +274,14 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
               onClick={() => startSync("fortunemusic")}
               className="flex min-h-14 items-center justify-between rounded-2xl bg-indigo-600 px-5 text-left text-sm font-bold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
             >
-              {needsUpdate ? "同步 Music（建议先更新）" : "一键同步 Music + Meets"} <ArrowRight size={18} />
+              {needsUpdate ? tr("syncMusicUpdateFirst") : tr("syncAll")} <ArrowRight size={18} />
             </button>
             <button
               type="button"
               onClick={() => startSync("fortunemeets")}
               className="flex min-h-14 items-center justify-between rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-5 text-left text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-pink-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
             >
-              仅同步 Meets（三坂） <ArrowRight size={18} />
+              {tr("syncMeetsOnly")} <ArrowRight size={18} />
             </button>
           </div>
           {needsUpdate ? (
@@ -277,10 +291,10 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
             >
               <div>
                 <div className="text-sm font-bold text-amber-800">
-                  当前版本需要更新
+                  {tr("updateNeeded")}
                 </div>
                 <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                  v1.1.22 补上全部落选的 Music 申请（以前被跳过，中签率偏高），并包含 v1.1.21 的 Meets 保障应募（R 序列号）不重复算钱、v1.1.20 对 forTUNE meets 10/13 改版登录方式的适配（旧版已登录也会停在「等待官方登录」）。请先关闭旧版自动同步，再下载 ZIP 手动更新；商店版尚未包含这些修复。
+                  {tr("updateBody")}
                 </p>
               </div>
               <div className="flex shrink-0 flex-wrap gap-2">
@@ -290,7 +304,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                     onClick={() => setMiguriExtensionAutoSync(false)}
                     className="min-h-11 rounded-xl border border-amber-600/35 px-3 text-xs font-bold text-amber-800"
                   >
-                    关闭旧版自动同步
+                    {tr("turnOffOldAuto")}
                   </button>
                 ) : null}
                 <a
@@ -298,7 +312,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                   download
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-xs font-bold text-white hover:bg-indigo-700"
                 >
-                  <Download size={15} /> 下载 v1.1.22 ZIP
+                  <Download size={15} /> {tr("downloadZip")}
                 </a>
               </div>
             </div>
@@ -312,14 +326,12 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                       autoState?.status === "syncing" ? "animate-spin" : ""
                     }
                   />
-                  浏览器运行时自动同步
+                  {tr("autoHeading")}
                 </div>
                 <p className="mt-1 text-xs leading-5 text-[var(--text-secondary)]">
-                  每 {autoState?.intervalMinutes || 30}{" "}
-                  分钟检查一次；登录失效时暂停并提示，单轮超过 10
-                  分钟会自动清理并重试。
+                  {tr("autoBody", { n: autoState?.intervalMinutes || 30 })}
                   {autoState?.lastSuccessAt
-                    ? ` 上次成功：${relativeSyncTime(autoState.lastSuccessAt)}。`
+                    ? tr("lastSuccess", { when: relativeSyncTime(autoState.lastSuccessAt, tr) })
                     : ""}
                 </p>
               </div>
@@ -331,7 +343,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                     disabled={autoState.status === "syncing"}
                     className="min-h-11 rounded-xl border border-[var(--border-primary)] px-3 text-xs font-semibold text-[var(--text-primary)] disabled:cursor-wait disabled:opacity-50"
                   >
-                    {autoState.status === "syncing" ? "检查中…" : "立即检查"}
+                    {autoState.status === "syncing" ? tr("checking") : tr("checkNow")}
                   </button>
                 ) : null}
                 <button
@@ -346,7 +358,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                       : "bg-[var(--bg-secondary)] text-[var(--text-secondary)]"
                   }`}
                 >
-                  自动同步 {autoState?.enabled ? "已开启" : "已关闭"}
+                  {tr(autoState?.enabled ? "autoOn" : "autoOff")}
                 </button>
               </div>
             </div>
@@ -357,13 +369,13 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <div className="inline-flex min-h-8 items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 text-xs font-bold text-emerald-800">
-                <Puzzle size={14} /> 修复版 ZIP · v1.1.22
+                <Puzzle size={14} /> {tr("zipBadge")}
               </div>
               <div className="mt-3 text-sm font-bold text-[var(--text-primary)]">
-                安装最新版同步扩展
+                {tr("installHeading")}
               </div>
               <p className="mt-2 text-xs leading-5 text-[var(--text-secondary)]">
-                v1.1.22 补上全部落选的 Music 申请（以前被跳过，中签率偏高），并包含 v1.1.21 的 Meets 保障应募（R 序列号）不重复算钱、v1.1.20 对 forTUNE meets 10/13 改版登录方式的适配（旧版已登录也会停在「等待官方登录」），现可下载 ZIP 手动安装。Chrome Web Store 版尚未包含这些修复。
+                {tr("installBody")}
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-end">
@@ -371,7 +383,7 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                 href="/miguri-support"
                 className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-indigo-500/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
-                查看安装说明
+                {tr("installGuide")}
               </a>
               <a
                 href="https://chromewebstore.google.com/detail/46log-%E5%92%AA%E5%92%95%E5%8A%9B%E5%90%8C%E6%AD%A5/kdfpdlijajcjianjpffgnmodnmigckdh?authuser=0&hl=ja"
@@ -379,14 +391,14 @@ function ImportSetup({ state }: { state: MiguriAutoImportState }) {
                 rel="noreferrer"
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
               >
-                从 Chrome Web Store 安装 <ArrowRight size={16} />
+                {tr("installStore")} <ArrowRight size={16} />
               </a>
               <a
                 href="/downloads/46log-miguri-sync.zip?v=1.1.22"
                 download
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[var(--border-primary)] px-4 text-sm font-bold text-[var(--text-primary)] transition-colors hover:border-indigo-500/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
-                <Download size={16} /> 下载 v1.1.22 ZIP
+                <Download size={16} /> {tr("downloadZip")}
               </a>
             </div>
           </div>
@@ -415,6 +427,7 @@ function SpendSparkline({
 }: {
   points: Array<{ label: string; spendYen: number }>;
 }) {
+  const tr = miguriTranslator(useLanguage());
   if (points.length < 2) return null;
   const values = points.map((point) => point.spendYen);
   const max = Math.max(...values, 1);
@@ -433,7 +446,7 @@ function SpendSparkline({
       viewBox={`0 0 ${width} ${height}`}
       className="mt-4 h-12 w-full max-w-xs overflow-visible"
       role="img"
-      aria-label={`最近 ${points.length} 次抽选的支出走势`}
+      aria-label={tr("sparkline", { n: points.length })}
     >
       <polyline
         points={coordinates}
@@ -454,6 +467,7 @@ function Donut({
   items: ReturnType<typeof aggregateMiguriDashboard>["categoryBreakdown"];
   total: number;
 }) {
+  const tr = miguriTranslator(useLanguage());
   let cursor = 0;
   const gradient = items
     .filter((item) => item.percentage > 0)
@@ -471,7 +485,7 @@ function Donut({
     <section className="rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 sm:p-5">
       <div className="flex items-center gap-2">
         <CircleDollarSign size={16} className="text-indigo-500" />
-        <h3 className="text-sm font-bold text-[var(--text-primary)]">按类型</h3>
+        <h3 className="text-sm font-bold text-[var(--text-primary)]">{tr("byCategory")}</h3>
       </div>
       {items.length > 0 ? (
         <div className="mt-5 flex flex-col items-center gap-6 sm:flex-row sm:items-start">
@@ -485,7 +499,7 @@ function Donut({
             role="img"
             aria-label={items
               .map((item) => `${item.label} ${formatPercent(item.percentage)}`)
-              .join("，")}
+              .join(tr("listSep"))}
           >
             <div className="grid h-[92px] w-[92px] place-items-center rounded-full bg-[var(--bg-primary)] text-center">
               <span className="text-sm font-bold tabular-nums text-[var(--text-primary)]">
@@ -513,7 +527,7 @@ function Donut({
                 <span className="font-semibold tabular-nums text-[var(--text-primary)]">
                   {item.spendYen > 0
                     ? formatYen(item.spendYen)
-                    : `${item.tickets}${categoryUnit(item.label)}`}
+                    : `${item.tickets}${categoryUnit(item.label, tr)}`}
                 </span>
                 <span className="w-9 text-right tabular-nums text-[var(--text-tertiary)]">
                   {formatPercent(item.percentage)}
@@ -524,7 +538,7 @@ function Donut({
         </div>
       ) : (
         <p className="mt-4 text-sm text-[var(--text-tertiary)]">
-          同步后会显示类型分布。
+          {tr("byCategoryEmpty")}
         </p>
       )}
     </section>
@@ -535,6 +549,13 @@ export default function MiguriDashboard({
   entries,
   importState,
 }: Props) {
+  const tr = miguriTranslator(useLanguage());
+  const years = useMemo(() => miguriYears(entries), [entries]);
+  const [pickedPeriod, setPeriod] = useState<MiguriPeriod>("all");
+  const period: MiguriPeriod = pickedPeriod !== "all" && !years.includes(pickedPeriod) ? "all" : pickedPeriod;
+  const [sharing, setSharing] = useState(false);
+  // 期间 applies before 组合 / 类型: the totals, ranking, trend and share card all count the same year.
+  const periodEntries = useMemo(() => inMiguriPeriod(entries, period), [entries, period]);
   const groups = useMemo(
     () =>
       Array.from(
@@ -576,13 +597,13 @@ export default function MiguriDashboard({
 
   const filteredEntries = useMemo(
     () =>
-      entries.filter(
+      periodEntries.filter(
         (entry) =>
           (selectedGroup === "all" || entry.group === selectedGroup) &&
           (selectedCategory === "all" ||
             (entry.category || "個別ミーグリ") === selectedCategory),
       ),
-    [entries, selectedCategory, selectedGroup],
+    [periodEntries, selectedCategory, selectedGroup],
   );
   const dashboard = useMemo(
     () =>
@@ -592,6 +613,17 @@ export default function MiguriDashboard({
         meetsDiscountPct,
       ),
     [filteredEntries, meetsDiscountPct],
+  );
+  const shareCard = useMemo(
+    () =>
+      buildMiguriShareCard({
+        entries: filteredEntries,
+        dashboard,
+        period,
+        group: selectedGroup,
+        category: selectedCategory === "all" ? null : selectedCategory,
+      }),
+    [filteredEntries, dashboard, period, selectedGroup, selectedCategory],
   );
   const nextStop = dashboard.nextStops[0];
   const winRateTrend = useMemo(
@@ -603,14 +635,14 @@ export default function MiguriDashboard({
   );
   const combinedMiguriEntries = useMemo(
     () =>
-      entries.filter(
+      periodEntries.filter(
         (entry) =>
           entry.source === "fortunemeets" &&
           (selectedGroup === "all" || entry.group === selectedGroup) &&
           (entry.category === "リアミ" ||
             entry.category === "全国ミーグリ"),
       ),
-    [entries, selectedGroup],
+    [periodEntries, selectedGroup],
   );
   const meetsSpend = useMemo(
     () =>
@@ -776,7 +808,32 @@ export default function MiguriDashboard({
     <div className="space-y-5 sm:space-y-6">
       <ImportSetup state={importState} />
 
-      <section aria-label="Dashboard 筛选" className="space-y-3">
+      <section aria-label={tr("filters")} className="space-y-3">
+        <div className="flex flex-wrap items-center gap-2">
+          {(["all", ...years] as MiguriPeriod[]).map((value) => (
+            <button
+              key={value}
+              type="button"
+              aria-pressed={period === value}
+              onClick={() => setPeriod(value)}
+              className={`min-h-11 rounded-full border px-4 text-xs font-semibold ${
+                period === value
+                  ? "border-[var(--text-primary)] bg-[var(--text-primary)] text-[var(--bg-primary)]"
+                  : "border-[var(--border-primary)] text-[var(--text-secondary)]"
+              }`}
+            >
+              {value === "all" ? tr("periodAll") : tr("periodYear", { year: value })}
+            </button>
+          ))}
+          <button
+            type="button"
+            onClick={() => setSharing(true)}
+            disabled={dashboard.totalApplied === 0}
+            className="ml-auto inline-flex min-h-11 items-center gap-2 rounded-full bg-indigo-600 px-4 text-xs font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <Share2 size={14} /> {tr("shareOpen")}
+          </button>
+        </div>
         {groups.length > 1 ? (
           <div className="flex flex-wrap gap-2">
             <button
@@ -789,7 +846,7 @@ export default function MiguriDashboard({
                   : "border-[var(--border-primary)] text-[var(--text-secondary)]"
               }`}
             >
-              全部组合
+              {tr("allGroups")}
             </button>
             {groups.map((group) => (
               <button
@@ -820,7 +877,7 @@ export default function MiguriDashboard({
                   : "border-[var(--border-primary)] text-[var(--text-secondary)]"
               }`}
             >
-              全部类型
+              {tr("allCategories")}
             </button>
             {categories.map((category) => (
               <button
@@ -842,7 +899,7 @@ export default function MiguriDashboard({
       </section>
 
       {dashboard.sourceFreshness.length > 0 ? (
-        <div className="flex flex-wrap gap-2" aria-label="同步状态">
+        <div className="flex flex-wrap gap-2" aria-label={tr("syncState")}>
           {dashboard.sourceFreshness.slice(0, 6).map((item) => (
             <span
               key={`${item.source}-${item.group}`}
@@ -852,7 +909,7 @@ export default function MiguriDashboard({
               {item.source === "fortunemusic"
                 ? "forTUNE music"
                 : GROUP_LABELS[item.group as MiguriGroupId] || "Meets"}
-              · {relativeSyncTime(item.syncedAt)}
+              · {relativeSyncTime(item.syncedAt, tr)}
             </span>
           ))}
         </div>
@@ -863,8 +920,8 @@ export default function MiguriDashboard({
           <div>
             <div className="text-sm font-semibold text-[var(--text-secondary)]">
               {selectedCategory === "all"
-                ? "实付金额"
-                : `${selectedCategory}实付金额`}
+                ? tr("paid")
+                : tr("paidOf", { category: selectedCategory })}
             </div>
             <div className="mt-2 text-5xl font-black tracking-[-0.055em] text-[var(--text-primary)] sm:text-7xl">
               <span className="mr-1 text-2xl font-semibold text-[var(--text-tertiary)] sm:text-4xl">
@@ -875,30 +932,29 @@ export default function MiguriDashboard({
             <SpendSparkline points={dashboard.spendTimeline} />
             {dashboard.topMember ? (
               <p className="mt-3 text-sm text-[var(--text-secondary)]">
-                本命{" "}
+                {tr("oshi")}{" "}
                 <strong className="text-[var(--text-primary)]">
                   {dashboard.topMember.name}
                 </strong>
                 {" · "}
-                {formatPercent(dashboard.topMember.share)} 的支出份额
+                {tr("oshiShare", { pct: formatPercent(dashboard.topMember.share) })}
               </p>
             ) : (
               <p className="mt-3 text-sm text-[var(--text-tertiary)]">
-                同步带有单价的履历后显示实际支出。
+                {tr("noPrice")}
               </p>
             )}
             <p className="mt-2 text-xs leading-5 text-[var(--text-tertiary)]">
-              Music 只算中签张数（落选、失效不用付款）；Meets 用自己买的碟应募的中没中都算，保障应募不重复计费。
+              {tr("priceRule")}
             </p>
             {dashboard.estimatedSpendYen > 0 ? (
               <p className="mt-1 text-xs leading-5 text-amber-700">
-                含发行价格表或旧记录估算 {formatYen(dashboard.estimatedSpendYen)}
-                ；限定盘折扣仅保存在当前浏览器。
+                {tr("estimated", { yen: formatYen(dashboard.estimatedSpendYen) })}
               </p>
             ) : null}
             {dashboard.unpricedWonTickets > 0 ? (
               <p className="mt-1 text-xs leading-5 text-[var(--text-tertiary)]">
-                另有 {dashboard.unpricedWonTickets} 张价格未知，暂未计入。
+                {tr("unpriced", { n: dashboard.unpricedWonTickets })}
               </p>
             ) : null}
           </div>
@@ -906,7 +962,7 @@ export default function MiguriDashboard({
             {hasMeetsEntries ? (
               <label className="block rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-4">
                 <span className="flex items-center justify-between gap-4 text-sm font-bold text-[var(--text-primary)]">
-                  <span>限定盘折扣</span>
+                  <span>{tr("discount")}</span>
                   <output className="tabular-nums text-indigo-600">
                     {meetsDiscountPct}%
                   </output>
@@ -920,14 +976,14 @@ export default function MiguriDashboard({
                   onChange={(event) =>
                     updateMeetsDiscount(Number(event.currentTarget.value))
                   }
-                  aria-label="限定盘折扣"
+                  aria-label={tr("discount")}
                   className="mt-3 h-2 w-full cursor-pointer accent-indigo-600"
                 />
                 <span className="mt-3 flex items-center justify-between gap-3 text-xs text-[var(--text-secondary)]">
                   <span>
                     {selectedCategory === "all"
-                      ? "Meets 支付合计"
-                      : `${selectedCategory}支付`}
+                      ? tr("meetsPaid")
+                      : tr("meetsPaidOf", { category: selectedCategory })}
                   </span>
                   <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
                     {formatYen(meetsSpend.paid)}
@@ -935,7 +991,7 @@ export default function MiguriDashboard({
                 </span>
                 {selectedCategory === "all" || selectedCategory === "サイン会" ? (
                   <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
-                    <span>サイン会支付</span>
+                    <span>{tr("signPaid")}</span>
                     <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
                       {formatYen(meetsSpend.signPaid)}
                     </strong>
@@ -946,13 +1002,13 @@ export default function MiguriDashboard({
                 selectedCategory === "全国ミーグリ" ? (
                   <>
                     <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
-                      <span>リアミ＋全国共同支付</span>
+                      <span>{tr("combinedPaid")}</span>
                       <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
                         {formatYen(combinedMiguriSpend.paid)}
                       </strong>
                     </span>
                     <span className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--border-primary)] pt-3 text-xs text-[var(--text-secondary)]">
-                      <span>リアミ＋全国落选金额合计</span>
+                      <span>{tr("combinedLost")}</span>
                       <strong className="shrink-0 tabular-nums text-rose-600">
                         {formatYen(combinedMiguriSpend.lost)}
                       </strong>
@@ -961,24 +1017,24 @@ export default function MiguriDashboard({
                 ) : null}
                 {meetsSpend.rescue > 0 ? (
                   <span className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--text-tertiary)]">
-                    <span>保障应募</span>
+                    <span>{tr("rescue")}</span>
                     <strong className="shrink-0 tabular-nums text-[var(--text-primary)]">
-                      {meetsSpend.rescue} 次
-                      {meetsSpend.rescueWonKnown ? ` · 中 ${meetsSpend.rescueWon}` : ""}
+                      {tr("rescueCount", { n: meetsSpend.rescue })}
+                      {meetsSpend.rescueWonKnown ? tr("rescueWon", { n: meetsSpend.rescueWon }) : ""}
                     </strong>
                   </span>
                 ) : null}
                 <span className="mt-3 block text-[11px] leading-5 text-[var(--text-tertiary)]">
-                  リアミ／全国每次用自己买的碟应募按 1 张碟计费，中没中都算进支付合计：当选金额 = 当选张数 × 单价，落选金额 = 落选张数 × 单价。保障应募用的是 1 次落选后发的 R 序列号，那张碟在落选时已算过，记 ¥0（需扩展 v1.1.21 同步）。サイン会一口需要多张碟，按官方 used 序列号张数计费。单价取价格表，没收录的单曲用同步时官方页面的販売価格，再乘上方折扣。
+                  {tr("meetsRule")}
                 </span>
               </label>
             ) : null}
             <div className="grid grid-cols-3 gap-3">
               <div>
                 <div className="text-xs leading-5 text-[var(--text-tertiary)]">
-                  中签率
+                  {tr("winRate")}
                   <br />
-                  不含サイン会・其他
+                  {tr("winRateScope")}
                 </div>
                 <div className="mt-2 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
                   {formatPercent(dashboard.winRate)}
@@ -986,7 +1042,7 @@ export default function MiguriDashboard({
               </div>
               <div>
                 <div className="text-xs leading-5 text-[var(--text-tertiary)]">
-                  应募张数
+                  {tr("applied")}
                 </div>
                 <div className="mt-7 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
                   {dashboard.totalApplied}
@@ -994,14 +1050,14 @@ export default function MiguriDashboard({
               </div>
               <div>
                 <div className="text-xs leading-5 text-[var(--text-tertiary)]">
-                  中签张数
+                  {tr("won")}
                 </div>
                 <div className="mt-7 text-2xl font-bold tabular-nums text-[var(--text-primary)]">
                   {dashboard.totalWon}
                 </div>
                 {dashboard.totalLapsed > 0 && (
                   <div className="mt-1 text-xs text-[var(--text-tertiary)]">
-                    其中未付款失效 {dashboard.totalLapsed} 张
+                    {tr("lapsed", { n: dashboard.totalLapsed })}
                   </div>
                 )}
               </div>
@@ -1011,7 +1067,7 @@ export default function MiguriDashboard({
 
         <div className="mt-7">
           <span className="inline-flex rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-bold text-indigo-600">
-            {dashboard.oshiType}
+            {tr(`oshi_${dashboard.oshiType}` as MiguriText)}
           </span>
           <div
             className="mt-3 h-3 overflow-hidden rounded-full bg-[var(--bg-secondary)]"
@@ -1023,12 +1079,11 @@ export default function MiguriDashboard({
             role="img"
             aria-label={dashboard.memberBreakdown
               .map((item) => `${item.label} ${formatPercent(item.percentage)}`)
-              .join("，")}
+              .join(tr("listSep"))}
           />
           {dashboard.topMember ? (
             <p className="mt-2 text-xs text-[var(--text-secondary)]">
-              支出最集中：{formatPercent(dashboard.topMember.share)} 给了{" "}
-              {dashboard.topMember.name}。
+              {tr("topSpend", { pct: formatPercent(dashboard.topMember.share), name: dashboard.topMember.name })}
             </p>
           ) : null}
         </div>
@@ -1040,11 +1095,11 @@ export default function MiguriDashboard({
             label:
               dashboard.estimatedSpendYen > 0
                 ? selectedCategory === "all"
-                  ? "当选金额（含价格估算）"
-                  : `${selectedCategory}当选金额（含价格估算）`
+                  ? tr("wonSpendEstimated")
+                  : tr("wonSpendEstimatedOf", { category: selectedCategory })
                 : selectedCategory === "all"
-                  ? "当选金额"
-                  : `${selectedCategory}当选金额`,
+                  ? tr("wonSpend")
+                  : tr("wonSpendOf", { category: selectedCategory }),
             value: formatYen(dashboard.totalSpendYen),
             icon: CircleDollarSign,
             color: "text-indigo-500",
@@ -1052,8 +1107,8 @@ export default function MiguriDashboard({
           {
             label:
               selectedCategory === "all"
-                ? "落选金额合计"
-                : `${selectedCategory}落选金额`,
+                ? tr("lostSpend")
+                : tr("lostSpendOf", { category: selectedCategory }),
             value: formatYen(dashboard.lostSpendYen),
             icon: TrendingUp,
             color: "text-rose-500",
@@ -1061,20 +1116,20 @@ export default function MiguriDashboard({
           {
             label:
               selectedCategory === "all"
-                ? "实付合计"
-                : `${selectedCategory}实付合计`,
+                ? tr("paidTotal")
+                : tr("paidTotalOf", { category: selectedCategory }),
             value: formatYen(dashboard.totalPaidSpendYen),
             icon: CircleDollarSign,
             color: "text-pink-500",
           },
           {
-            label: "未来日期",
+            label: tr("upcoming"),
             value: `${dashboard.upcomingDates}`,
             icon: CalendarDays,
             color: "text-emerald-500",
           },
           {
-            label: "成员",
+            label: tr("members"),
             value: `${dashboard.memberBreakdown.length}`,
             icon: UserRound,
             color: "text-sky-500",
@@ -1103,7 +1158,7 @@ export default function MiguriDashboard({
           <div className="flex items-center gap-2">
             <CalendarDays size={16} className="text-emerald-500" />
             <h3 className="text-sm font-bold text-[var(--text-primary)]">
-              下一站
+              {tr("nextStop")}
             </h3>
           </div>
         </div>
@@ -1111,12 +1166,12 @@ export default function MiguriDashboard({
           <div className="divide-y divide-[var(--border-primary)]">
             <div className="px-4 py-5 sm:px-6">
               <h2 className="text-xl font-bold tracking-tight text-[var(--text-primary)] sm:text-2xl">
-                {displayDate(nextStop.date)}
+                {displayDate(nextStop.date, tr)}
               </h2>
               <p className="mt-1 text-sm text-[var(--text-secondary)]">
                 {nextStop.venues.length > 0
                   ? nextStop.venues.join(" · ")
-                  : "会场信息待同步"}
+                  : tr("venuePending")}
               </p>
             </div>
             {nextStop.rows.map((row) => (
@@ -1133,7 +1188,7 @@ export default function MiguriDashboard({
                       {row.category} ·{" "}
                       <span className="font-semibold tabular-nums">
                         {row.tickets}
-                        {categoryUnit(row.category)}
+                        {categoryUnit(row.category, tr)}
                       </span>
                     </div>
                   </div>
@@ -1143,9 +1198,9 @@ export default function MiguriDashboard({
                         key={slot.slot}
                         className="rounded-full border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-2.5 py-1 text-[11px] font-medium text-[var(--text-secondary)]"
                       >
-                        {slot.slot > 0 ? `第${slot.slot}部` : "无部数"} ·{" "}
+                        {slot.slot > 0 ? tr("slotN", { n: slot.slot }) : tr("noSlot")} ·{" "}
                         {slot.tickets}
-                        {categoryUnit(row.category)}
+                        {categoryUnit(row.category, tr)}
                       </span>
                     ))}
                   </div>
@@ -1161,7 +1216,7 @@ export default function MiguriDashboard({
                       className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between"
                     >
                       <span className="text-sm font-semibold text-[var(--text-primary)]">
-                        {displayDate(stop.date)}
+                        {displayDate(stop.date, tr)}
                       </span>
                       <span className="text-xs text-[var(--text-secondary)]">
                         {stop.rows
@@ -1179,7 +1234,7 @@ export default function MiguriDashboard({
           </div>
         ) : (
           <div className="px-4 py-10 text-center text-sm text-[var(--text-tertiary)] sm:px-6">
-            同步中签履历后，リアミ、サイン会与每一部张数会自动显示。
+            {tr("nextStopEmpty")}
           </div>
         )}
       </section>
@@ -1190,16 +1245,16 @@ export default function MiguriDashboard({
             <div className="flex items-center gap-2">
               <BarChart3 size={16} className="text-sky-500" />
               <h3 className="text-sm font-bold text-[var(--text-primary)]">
-                成员排行
+                {tr("ranking")}
               </h3>
             </div>
             <div className="flex overflow-x-auto rounded-xl border border-[var(--border-primary)] p-1">
               {(
                 [
-                  ["spend", "支付金额"],
-                  ["won", "中签张数"],
-                  ["rate", "中签率"],
-                  ["cost", "单张成本"],
+                  ["spend", tr("rankSpend")],
+                  ["won", tr("rankWon")],
+                  ["rate", tr("rankRate")],
+                  ["cost", tr("rankCost")],
                 ] as Array<[RankMetric, string]>
               ).map(([metric, label]) => (
                 <button
@@ -1262,14 +1317,13 @@ export default function MiguriDashboard({
             })}
             {memberRanking.length === 0 ? (
               <p className="text-sm text-[var(--text-tertiary)]">
-                同步后会显示成员排行。
+                {tr("rankingEmpty")}
               </p>
             ) : null}
           </div>
           {memberRanking.length > 0 ? (
             <p className="mt-5 text-xs leading-5 text-[var(--text-tertiary)]">
-              成员排行的“支付金额”和“单张成本”包含该成员落选申请对应的 CD
-              费用；上方当选与分类金额不包含落选金额。
+              {tr("rankingNote")}
             </p>
           ) : null}
         </section>
@@ -1286,9 +1340,20 @@ export default function MiguriDashboard({
 
       <p className="flex items-center gap-2 text-xs text-[var(--text-tertiary)]">
         <Ticket size={13} />
-        forTUNE music 的中签 CD 统一按每张 ¥1,200 计算；Meets
-        按参考站发行价格表计算，可用“限定盘折扣”调整渠道实付；价格未知的活动不计入。落选金额计入支付合计及成员排行。
+        {tr("footnote")}
       </p>
+
+      {sharing ? (
+        <MiguriShareDialog
+          card={shareCard}
+          empty={dashboard.totalApplied === 0}
+          years={years}
+          period={period}
+          onPeriod={setPeriod}
+          tr={tr}
+          onClose={() => setSharing(false)}
+        />
+      ) : null}
     </div>
   );
 }

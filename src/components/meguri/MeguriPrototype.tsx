@@ -19,6 +19,10 @@ import {
   X,
 } from 'lucide-react';
 import SoldOutMatrix from './SoldOutMatrix';
+import { useLanguage } from '@/i18n/use-language';
+import { miguriNow, miguriTranslator } from '@/i18n/miguri';
+import { manageNow, manageTranslator, type ManageTranslate } from '@/i18n/miguri-manage';
+import type { Language } from '@/stores/language';
 import LotteryAnalysisPanel from './LotteryAnalysisPanel';
 import CalendarSubscriptionModal from './CalendarSubscriptionModal';
 import MiguriDashboard, { type MiguriAutoImportState } from './MiguriDashboard';
@@ -82,11 +86,11 @@ function stateTone(state: 'active' | 'upcoming' | 'ended' | 'waiting') {
   return 'rgba(148, 163, 184, 0.14)';
 }
 
-function stateLabel(state: 'active' | 'upcoming' | 'ended' | 'waiting', eventDateHasPassed = false) {
-  if (state === 'active') return '受付中';
-  if (state === 'upcoming') return '即将开始';
-  if (state === 'waiting') return '等待下轮续报';
-  return eventDateHasPassed ? '全部结束' : '当前轮次已结';
+function stateLabel(mt: ManageTranslate, state: 'active' | 'upcoming' | 'ended' | 'waiting', eventDateHasPassed = false) {
+  if (state === 'active') return mt('state_active');
+  if (state === 'upcoming') return mt('state_upcoming');
+  if (state === 'waiting') return mt('state_waiting');
+  return eventDateHasPassed ? mt('state_ended') : mt('state_roundEnded');
 }
 
 function sortEntries(entries: MiguriEntry[]) {
@@ -113,9 +117,11 @@ function intersectMemberLists(lists: string[][]) {
   return uniqueMembers(lists[0]).filter((member) => lists.every((list) => list.includes(member)));
 }
 
-function weekdayLabel(dateString: string) {
+const DATE_LOCALE: Record<Language, string> = { zh: 'zh-CN', ja: 'ja-JP', en: 'en-US' };
+
+function weekdayLabel(dateString: string, lang: Language) {
   const date = new Date(dateString);
-  return date.toLocaleDateString('zh-CN', { weekday: 'short' });
+  return date.toLocaleDateString(DATE_LOCALE[lang], { weekday: 'short' });
 }
 
 function entryStatusLabel(status: MiguriEntryStatus) {
@@ -132,10 +138,10 @@ function entryStatusTone(status: MiguriEntryStatus) {
   return { backgroundColor: 'rgba(148, 163, 184, 0.14)', color: '#64748b' };
 }
 
-function slotTimeLabel(slot?: MiguriEvent['slots'][number]) {
-  if (!slot) return '未开放';
+function slotTimeLabel(mt: ManageTranslate, slot?: MiguriEvent['slots'][number]) {
+  if (!slot) return mt('slotClosed');
   if (slot.startTime && slot.endTime) return `${slot.startTime} - ${slot.endTime}`;
-  return '时间待定';
+  return mt('timeTbd');
 }
 
 function createPendingDraftId() {
@@ -155,7 +161,8 @@ function CalendarEntryCard({
   onEdit: (entry: MiguriEntry) => void;
   onDelete: (entryId: string) => void;
 }) {
-  const totalLabel = `本部 ${group.tickets} 张`;
+  const mt = manageTranslator(useLanguage());
+  const totalLabel = mt('slotTotal', { n: group.tickets });
   const cardClass = 'group relative rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-secondary)] p-2 transition-colors hover:border-[var(--border-primary)]';
 
   if (group.entries.length === 1) {
@@ -165,7 +172,7 @@ function CalendarEntryCard({
         <div className="pointer-events-none absolute -top-2 right-1 z-10 flex translate-y-1 items-center gap-1 opacity-0 transition-all duration-150 group-hover:translate-y-0 group-hover:opacity-100 focus-within:translate-y-0 focus-within:opacity-100">
           <button
             type="button"
-            title="编辑记录"
+            title={mt('editRecord')}
             onClick={() => onEdit(entry)}
             className="pointer-events-auto rounded-full border border-sky-100 bg-white p-1.5 text-sky-600 shadow-sm hover:bg-sky-50"
           >
@@ -173,7 +180,7 @@ function CalendarEntryCard({
           </button>
           <button
             type="button"
-            title="删除记录"
+            title={mt('deleteRecord')}
             onClick={() => onDelete(entry.id)}
             className="pointer-events-auto rounded-full border border-rose-100 bg-white p-1.5 text-rose-500 shadow-sm hover:bg-rose-50"
           >
@@ -204,7 +211,7 @@ function CalendarEntryCard({
           </span>
         </div>
         <div className="mt-1 text-[9px] text-[var(--text-tertiary)]">
-          {group.entries.length} 条履历 · 点击查看明细
+          {mt('historyCount', { n: group.entries.length })}
         </div>
       </summary>
       <div className="mt-2 space-y-1 border-t border-[var(--border-secondary)] pt-2">
@@ -215,15 +222,15 @@ function CalendarEntryCard({
           >
             <span className="min-w-0 truncate text-[9px] text-[var(--text-tertiary)]">
               {entry.source === 'manual'
-                ? '手动录入'
-                : entry.applicationRound || `官方履历 ${index + 1}`}
+                ? mt('manualEntry')
+                : entry.applicationRound || mt('officialRecord', { n: index + 1 })}
             </span>
             <span className="shrink-0 text-[9px] font-semibold text-[var(--text-secondary)]">
-              {entry.tickets} 张
+              {mt('ticketsN', { n: entry.tickets })}
             </span>
             <button
               type="button"
-              title="编辑这条履历"
+              title={mt('editItem')}
               onClick={() => onEdit(entry)}
               className="shrink-0 rounded p-1 text-sky-500 hover:bg-sky-50"
             >
@@ -231,7 +238,7 @@ function CalendarEntryCard({
             </button>
             <button
               type="button"
-              title="删除这条履历"
+              title={mt('deleteItem')}
               onClick={() => onDelete(entry.id)}
               className="shrink-0 rounded p-1 text-rose-400 hover:bg-rose-50"
             >
@@ -245,6 +252,10 @@ function CalendarEntryCard({
 }
 
 export default function MeguriPrototype() {
+  // The whole page follows the site language (2026-10-26). Text set from effects started on mount uses
+  // miguriNow / manageNow, which read the language at call time.
+  const lang = useLanguage();
+  const tr = miguriTranslator(lang), mt = manageTranslator(lang);
   const [events, setEvents] = useState<MiguriEvent[]>([]);
   const [entries, setEntries] = useState<MiguriEntry[]>([]);
   const [pendingDrafts, setPendingDrafts] = useState<PendingMeguriDraft[]>([]);
@@ -287,7 +298,7 @@ export default function MeguriPrototype() {
     if (hasHandoff && !handoff) {
       setAutoImportState({
         status: 'error',
-        message: '临时导入数据校验失败，未向 D1 写入任何内容。请从官方页面重新运行导入书签。',
+        message: manageNow('handoffInvalid'),
         next: null,
       });
     }
@@ -302,7 +313,7 @@ export default function MeguriPrototype() {
       if (!mounted) return;
 
       if (!res.success || !res.data) {
-        setError(res.message || res.error || '活动数据加载失败');
+        setError(res.message || res.error || miguriNow('loadFailed'));
         setEvents([]);
         setEntries([]);
         setFavorites([]);
@@ -311,7 +322,7 @@ export default function MeguriPrototype() {
       }
 
       if (!authResult.success || !authResult.data?.user) {
-        setError('登录状态已失效。请先重新登录 46log，再同步履历；未登录时私人 D1 内容不会显示。');
+        setError(miguriNow('loggedOut'));
       }
 
       let loadedEntries = res.data.entries || [];
@@ -323,7 +334,7 @@ export default function MeguriPrototype() {
         setActiveTab('dashboard');
         setAutoImportState({
           status: 'saving',
-          message: `已从 ${handoff.source === 'fortunemusic' ? 'forTUNE music' : 'forTUNE meets'} 带回 ${handoff.records.length} 条履历，正在自动保存…`,
+          message: manageNow('handoffSaving', { source: handoff.source === 'fortunemusic' ? 'forTUNE music' : 'forTUNE meets', n: handoff.records.length }),
           next: handoff.next,
         });
 
@@ -334,7 +345,7 @@ export default function MeguriPrototype() {
           for (const records of splitMiguriImportRecords(handoff.records)) {
             const importResult = await importMiguriEntries(records);
             if (!importResult.success || !importResult.data) {
-              throw new Error(importResult.message || importResult.error || '自动保存失败');
+              throw new Error(importResult.message || importResult.error || manageNow('autoSaveFailed'));
             }
             imported += importResult.data.imported;
             created += importResult.data.created;
@@ -345,8 +356,8 @@ export default function MeguriPrototype() {
             setAutoImportState({
               status: 'success',
               message: imported > 0
-                ? `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），重复同步不会累加。`
-                : '本次没有发现可保存的履历。',
+                ? manageNow('savedSummary', { n: imported, created, updated })
+                : manageNow('nothingToSave'),
               next: handoff.next,
             });
           }
@@ -354,7 +365,7 @@ export default function MeguriPrototype() {
           if (mounted) {
             setAutoImportState({
               status: 'error',
-              message: importError instanceof Error ? importError.message : '自动保存失败，请重新运行导入书签。',
+              message: importError instanceof Error ? importError.message : manageNow('autoSaveFailedRetry'),
               next: null,
             });
           }
@@ -381,7 +392,7 @@ export default function MeguriPrototype() {
       if (handoff.version !== 1 || !Array.isArray(handoff.records)) {
         setAutoImportState({
           status: 'error',
-          message: '扩展返回的同步结果无效。',
+          message: manageNow('extensionInvalid'),
           next: null,
         });
         return;
@@ -390,7 +401,7 @@ export default function MeguriPrototype() {
       setActiveTab('dashboard');
       setAutoImportState({
         status: 'saving',
-        message: `扩展已读取 ${handoff.records.length} 条履历，正在保存…`,
+        message: manageNow('extensionSaving', { n: handoff.records.length }),
         next: handoff.next,
       });
 
@@ -402,7 +413,7 @@ export default function MeguriPrototype() {
           for (const records of splitMiguriImportRecords(handoff.records)) {
             const result = await importMiguriEntries(records);
             if (!result.success || !result.data) {
-              throw new Error(result.message || result.error || '自动保存失败');
+              throw new Error(result.message || result.error || manageNow('autoSaveFailed'));
             }
             imported += result.data.imported;
             created += result.data.created;
@@ -414,16 +425,16 @@ export default function MeguriPrototype() {
           setAutoImportState({
             status: 'success',
             message: willAutoContinue
-              ? `${imported > 0 ? `已保存 ${imported} 条 Music 履历` : 'Music 没有发现履历'}，正在自动继续同步 Meets（三坂）。`
+              ? manageNow('continuingMeets', { music: imported > 0 ? manageNow('musicSaved', { n: imported }) : manageNow('musicNone') })
               : imported > 0
-                ? `已保存 ${imported} 条履历（新增 ${created}，更新 ${updated}），Dashboard 已刷新。`
-                : '三坂 Meets 检查完成，本次没有发现可保存的履历。',
+                ? manageNow('savedRefreshed', { n: imported, created, updated })
+                : manageNow('meetsNone'),
             next: willAutoContinue ? null : handoff.next,
           });
         } catch (extensionError) {
           setAutoImportState({
             status: 'error',
-            message: extensionError instanceof Error ? extensionError.message : '扩展履历保存失败。',
+            message: extensionError instanceof Error ? extensionError.message : manageNow('extensionSaveFailed'),
             next: null,
           });
         }
@@ -617,7 +628,7 @@ export default function MeguriPrototype() {
       search: '',
       status: 'planned',
     }));
-    setNotice(`已加入待保存：${draft.member}（${draft.slots.length} 部）`);
+    setNotice(mt('draftAdded', { member: draft.member, n: draft.slots.length }));
   }
 
   function removePendingDraft(draftId: string) {
@@ -650,7 +661,7 @@ export default function MeguriPrototype() {
           setPendingDrafts((current) => current.filter((draft) => !savedDraftIds.includes(draft.id)));
         }
         setIsSaving(false);
-        setError(res.message || res.error || '批量保存失败，请检查待保存记录');
+        setError(res.message || res.error || mt('batchSaveFailed'));
         return;
       }
 
@@ -662,7 +673,7 @@ export default function MeguriPrototype() {
     setPendingDrafts((current) => current.filter((draft) => !savedDraftIds.includes(draft.id)));
     setIsSaving(false);
     closeDrawer();
-    setNotice(`已保存 ${createdEntries.length} 条记录`);
+    setNotice(mt('savedN', { n: createdEntries.length }));
   }
 
   async function saveAddForm() {
@@ -684,7 +695,7 @@ export default function MeguriPrototype() {
       setIsSaving(false);
 
       if (!res.success || !res.data?.entry) {
-        setError(res.message || res.error || '更新失败，可能需要先登录');
+        setError(res.message || res.error || mt('updateFailed'));
         return;
       }
 
@@ -692,7 +703,7 @@ export default function MeguriPrototype() {
         entry.id === editingEntryId ? res.data!.entry : entry
       ))));
       closeDrawer();
-      setNotice('记录已更新');
+      setNotice(mt('recordUpdated'));
       return;
     }
 
@@ -708,7 +719,7 @@ export default function MeguriPrototype() {
     setIsSaving(false);
 
     if (!res.success || !res.data?.entries) {
-      setError(res.message || res.error || '保存失败，可能需要先登录');
+      setError(res.message || res.error || mt('saveFailed'));
       return;
     }
 
@@ -722,7 +733,7 @@ export default function MeguriPrototype() {
       status: 'planned',
     }));
     closeDrawer();
-    setNotice(`已新增 ${res.data.entries.length} 条记录`);
+    setNotice(mt('addedN', { n: res.data.entries.length }));
   }
 
   async function removeEntry(entryId: string) {
@@ -730,11 +741,11 @@ export default function MeguriPrototype() {
     setNotice('');
     const res = await deleteMiguriEntry(entryId);
     if (!res.success) {
-      setError(res.message || res.error || '删除失败');
+      setError(res.message || res.error || mt('deleteFailed'));
       return;
     }
     setEntries((current) => current.filter((entry) => entry.id !== entryId));
-    setNotice('记录已删除');
+    setNotice(mt('recordDeleted'));
   }
 
   async function exportCalendar() {
@@ -742,14 +753,14 @@ export default function MeguriPrototype() {
     setNotice('');
     const ok = await openMiguriCalendarIcs();
     if (!ok) {
-      setError('导出失败，请稍后重试');
+      setError(mt('exportFailed'));
       return;
     }
-    setNotice('ICS 已开始下载');
+    setNotice(mt('icsStarted'));
   }
 
   if (isLoading) {
-    return <div className="mx-auto max-w-[1600px] px-4 py-16 text-center text-sm text-[var(--text-tertiary)]">Miguri 数据加载中…</div>;
+    return <div className="mx-auto max-w-[1600px] px-4 py-16 text-center text-sm text-[var(--text-tertiary)]">{tr('loading')}</div>;
   }
 
   if (!selectedEvent) {
@@ -757,7 +768,7 @@ export default function MeguriPrototype() {
       <div className="mx-auto max-w-[1600px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2">
           <Sparkles size={16} className="text-[var(--text-tertiary)]" />
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">咪咕力管理</h1>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{tr('title')}</h1>
         </div>
         {error ? <p className="text-sm text-rose-600">{error}</p> : null}
         <MiguriDashboard
@@ -772,13 +783,13 @@ export default function MeguriPrototype() {
     <div className="mx-auto max-w-[1600px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
       <div className="hidden items-center gap-2 lg:flex">
         <Sparkles size={16} className="text-[var(--text-tertiary)]" />
-        <h1 className="text-2xl font-bold text-[var(--text-primary)]">咪咕力管理</h1>
+        <h1 className="text-2xl font-bold text-[var(--text-primary)]">{tr('title')}</h1>
       </div>
       {notice ? <p className="text-sm text-emerald-600">{notice}</p> : null}
       {error ? <p className="text-sm text-rose-600">{error}</p> : null}
 
       {/* Mobile FAB overlay */}
-      {activeTab !== 'dashboard' && isSidebarOpen ? <button type="button" aria-label="关闭活动总览" className="fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-[1px] lg:hidden" onClick={() => setIsSidebarOpen(false)} /> : null}
+      {activeTab !== 'dashboard' && isSidebarOpen ? <button type="button" aria-label={mt('closeOverview')} className="fixed inset-0 z-40 bg-slate-950/20 backdrop-blur-[1px] lg:hidden" onClick={() => setIsSidebarOpen(false)} /> : null}
 
       <aside
         className={`${activeTab === 'dashboard' ? 'hidden' : 'fixed'} bottom-5 left-5 z-50 w-[min(24rem,calc(100vw-1.5rem))] rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4 shadow-2xl transition-all duration-200 lg:hidden ${
@@ -787,8 +798,8 @@ export default function MeguriPrototype() {
       >
         <div className="flex items-center justify-between gap-3">
           <div>
-            <h2 className="text-base font-semibold text-[var(--text-primary)]">活动总览</h2>
-            <a href="/miguri/history" className="mt-1 inline-block text-xs text-[var(--color-brand-nogi)] underline">查看已结束活动的历史完售 →</a>
+            <h2 className="text-base font-semibold text-[var(--text-primary)]">{mt('overview')}</h2>
+            <a href="/miguri/history" className="mt-1 inline-block text-xs text-[var(--color-brand-nogi)] underline">{mt('historyLink')}</a>
           </div>
           <button
             type="button"
@@ -842,7 +853,7 @@ export default function MeguriPrototype() {
                         className="rounded-full px-2.5 py-1 text-[10px] font-medium"
                         style={{ backgroundColor: stateTone(state), color: 'var(--text-secondary)' }}
                       >
-                        {stateLabel(state, hasEventDatePassed(eventLastDate))}
+                        {stateLabel(mt, state, hasEventDatePassed(eventLastDate))}
                       </span>
                     </div>
                     <h3 className="mt-2 line-clamp-2 text-sm font-semibold leading-5 text-[var(--text-primary)]">{event.title}</h3>
@@ -861,7 +872,7 @@ export default function MeguriPrototype() {
           className="fixed bottom-5 left-5 z-40 inline-flex items-center gap-2 rounded-full border border-[var(--border-primary)] bg-[var(--bg-primary)] px-4 py-3 text-sm font-medium text-[var(--text-primary)] shadow-lg shadow-slate-950/10 lg:hidden"
         >
           <PanelLeft size={16} />
-          活动总览
+          {mt('overview')}
         </button>
       ) : null}
 
@@ -871,14 +882,14 @@ export default function MeguriPrototype() {
           <div className="sticky top-8 space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-lg font-semibold text-[var(--text-primary)]">活动总览</h2>
-                <a href="/miguri/history" className="mt-1 inline-block text-xs text-[var(--color-brand-nogi)] underline">查看已结束活动的历史完售 →</a>
+                <h2 className="text-lg font-semibold text-[var(--text-primary)]">{mt('overview')}</h2>
+                <a href="/miguri/history" className="mt-1 inline-block text-xs text-[var(--color-brand-nogi)] underline">{mt('historyLink')}</a>
               </div>
               <button
                 onClick={() => setIsSidebarOpen(false)}
                 className="flex items-center gap-1.5 rounded-full border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-3 py-1 text-xs text-[var(--text-tertiary)] transition-colors hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)]"
               >
-                <PanelLeftClose size={12} /> 收起
+                <PanelLeftClose size={12} /> {mt('collapse')}
               </button>
             </div>
 
@@ -922,7 +933,7 @@ export default function MeguriPrototype() {
                             className="rounded-full px-2.5 py-1 text-[10px] font-medium"
                             style={{ backgroundColor: stateTone(state), color: 'var(--text-secondary)' }}
                           >
-                            {stateLabel(state, hasEventDatePassed(eventLastDate))}
+                            {stateLabel(mt, state, hasEventDatePassed(eventLastDate))}
                           </span>
                         </div>
                         <h3 className="mt-2 line-clamp-2 text-sm font-semibold leading-5 text-[var(--text-primary)]">{event.title}</h3>
@@ -943,7 +954,7 @@ export default function MeguriPrototype() {
                   <button
                     onClick={() => setIsSidebarOpen((current) => !current)}
                     className="mt-1 hidden h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] text-[var(--text-secondary)] transition-colors hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] lg:flex"
-                    title={isSidebarOpen ? '折叠活动列表' : '展开活动列表'}
+                    title={isSidebarOpen ? mt('collapseList') : mt('expandList')}
                   >
                     {isSidebarOpen ? <PanelLeftClose size={20} /> : <PanelLeft size={20} />}
                   </button>
@@ -951,7 +962,7 @@ export default function MeguriPrototype() {
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     <h2 className="break-words whitespace-pre-wrap text-base font-black leading-snug text-[var(--text-primary)] sm:text-2xl lg:text-3xl">
-                      {activeTab === 'dashboard' ? '我的 Miguri Dashboard' : selectedEvent.title}
+                      {activeTab === 'dashboard' ? tr('dashboardTitle') : selectedEvent.title}
                     </h2>
                     {activeTab !== 'dashboard' ? (
                       <span
@@ -971,26 +982,26 @@ export default function MeguriPrototype() {
                           rel="noopener noreferrer"
                           className="flex min-h-11 items-center gap-1 text-[11px] font-medium text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] sm:text-xs"
                         >
-                          Fortune Music 原页 <ExternalLink size={12} className="sm:h-[14px] sm:w-[14px]" />
+                          {mt('sourcePage')} <ExternalLink size={12} className="sm:h-[14px] sm:w-[14px]" />
                         </a>
                         <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
                       </>
                     ) : (
                       <span className="text-xs leading-5 text-[var(--text-tertiary)]">
-                        自动汇总 Music / Meets 履历、下一站与每一部口数
+                        {tr('dashboardIntro')}
                       </span>
                     )}
                     <button
                       type="button"
                       onClick={() => setShowCalendarSubscription(true)}
                       className="flex min-h-11 items-center gap-1 text-[11px] font-medium text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] sm:gap-1.5 sm:text-xs"
-                      title="订阅 Miguri 日历"
+                      title={tr('calendarTitle')}
                     >
-                      <CalendarDays size={12} className="sm:h-[14px] sm:w-[14px]" /> 日历订阅
+                      <CalendarDays size={12} className="sm:h-[14px] sm:w-[14px]" /> {tr('calendar')}
                     </button>
                     <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
                     <button onClick={() => setShowImportModal(true)} className="flex min-h-11 items-center gap-1 text-[11px] font-medium text-sky-600 hover:text-sky-700 sm:gap-1.5 sm:text-xs">
-                      <ClipboardList size={12} className="sm:h-[14px] sm:w-[14px]" /> 批量导入
+                      <ClipboardList size={12} className="sm:h-[14px] sm:w-[14px]" /> {tr('bulkImport')}
                     </button>
                   </div>
                 </div>
@@ -1019,7 +1030,7 @@ export default function MeguriPrototype() {
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                <ClipboardList size={13} /> 个握管理
+                <ClipboardList size={13} /> {tr('tabManage')}
               </button>
               <button
                 type="button"
@@ -1030,7 +1041,7 @@ export default function MeguriPrototype() {
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                <BarChart3 size={13} /> 个握完售
+                <BarChart3 size={13} /> {tr('tabSoldout')}
               </button>
               <button
                 type="button"
@@ -1041,7 +1052,7 @@ export default function MeguriPrototype() {
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                <Ticket size={13} /> 全握分析
+                <Ticket size={13} /> {tr('tabLottery')}
               </button>
             </div>
 
@@ -1056,14 +1067,14 @@ export default function MeguriPrototype() {
             ) : activeTab === 'manage' ? (
               <div className="mt-4 grid grid-cols-4 gap-2 sm:mt-6 sm:grid-cols-2 sm:gap-3 xl:grid-cols-4">
                 {[
-                  { label: '部数', fullLabel: '我有多少部', value: summary.totalSlots, suffix: '部', icon: Layers3, color: '#7c3aed' },
-                  { label: '总张数', fullLabel: '全部日期总张数', value: summary.totalTickets, suffix: '张', icon: Ticket, color: '#f59e0b' },
-                  { label: '成员', fullLabel: '都有谁', value: summary.uniqueMembers, suffix: '人', icon: Users, color: '#2563eb' },
-                  { label: '天数', fullLabel: '日历占几天', value: summary.uniqueDates, suffix: '天', icon: CalendarDays, color: '#10b981' },
+                  { label: mt('statSlots'), fullLabel: mt('statSlotsFull'), value: summary.totalSlots, suffix: mt('statSlotsUnit'), icon: Layers3, color: '#7c3aed' },
+                  { label: mt('statTickets'), fullLabel: mt('statTicketsFull'), value: summary.totalTickets, suffix: mt('statTicketsUnit'), icon: Ticket, color: '#f59e0b' },
+                  { label: mt('statMembers'), fullLabel: mt('statMembersFull'), value: summary.uniqueMembers, suffix: mt('statMembersUnit'), icon: Users, color: '#2563eb' },
+                  { label: mt('statDays'), fullLabel: mt('statDaysFull'), value: summary.uniqueDates, suffix: mt('statDaysUnit'), icon: CalendarDays, color: '#10b981' },
                 ].map((item) => {
                   const Icon = item.icon;
                   return (
-                    <div key={item.fullLabel} className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-2 sm:p-4">
+                    <div key={item.label} className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-2 sm:p-4">
                       <div className="flex items-center gap-1 text-[10px] text-[var(--text-tertiary)] sm:gap-2 sm:text-[11px]">
                         <Icon size={12} className="sm:h-[13px] sm:w-[13px]" style={{ color: item.color }} />
                         <span className="sm:hidden">{item.label}</span>
@@ -1100,10 +1111,10 @@ export default function MeguriPrototype() {
                       <div className="flex items-center justify-between gap-3">
                         <div>
                           <div className="text-sm font-bold text-[var(--text-primary)]">{date}</div>
-                          <div className="mt-1 text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">{weekdayLabel(date)}</div>
+                          <div className="mt-1 text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">{weekdayLabel(date, lang)}</div>
                         </div>
                         <span className="rounded-full border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-2.5 py-1 text-[10px] font-medium text-[var(--text-secondary)]">
-                          {openSlots.length} 部开放
+                          {mt('slotsOpen', { n: openSlots.length })}
                         </span>
                       </div>
 
@@ -1120,15 +1131,15 @@ export default function MeguriPrototype() {
                             >
                               <div className="flex items-center justify-between gap-2">
                                 <div className="flex items-baseline gap-2">
-                                  <span className="text-xs font-bold text-[var(--text-primary)]">第{slotNumber}部</span>
-                                  <span className="text-[10px] text-[var(--text-tertiary)]">{slotTimeLabel(slotInfo)}</span>
+                                  <span className="text-xs font-bold text-[var(--text-primary)]">{mt('slotN', { n: slotNumber })}</span>
+                                  <span className="text-[10px] text-[var(--text-tertiary)]">{slotTimeLabel(mt, slotInfo)}</span>
                                 </div>
                                 <button
                                   type="button"
                                   onClick={() => openAddDrawer(date, slotNumber)}
                                   className="flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]"
                                 >
-                                  <Plus size={10} /> 添加
+                                  <Plus size={10} /> {mt('add')}
                                 </button>
                               </div>
 
@@ -1158,10 +1169,10 @@ export default function MeguriPrototype() {
                   <table className="w-full border-separate border-spacing-2">
                     <thead>
                       <tr>
-                        <th className="w-32 py-4 pl-2 text-left text-sm font-bold text-[var(--text-tertiary)]">日期 / 部数</th>
+                        <th className="w-32 py-4 pl-2 text-left text-sm font-bold text-[var(--text-tertiary)]">{mt('dateSlot')}</th>
                         {slotNumbers.map((slot) => (
                           <th key={slot} className="min-w-36 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] py-4 text-center text-sm font-bold text-[var(--text-secondary)]">
-                            第 {slot} 部
+                            {mt('slotHeader', { n: slot })}
                           </th>
                         ))}
                       </tr>
@@ -1173,7 +1184,7 @@ export default function MeguriPrototype() {
                           <tr key={date}>
                             <td className="py-4 pr-4 align-top">
                               <div className="text-sm font-bold text-[var(--text-primary)]">{date}</div>
-                              <div className="mt-1 text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">{weekdayLabel(date)}</div>
+                              <div className="mt-1 text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">{weekdayLabel(date, lang)}</div>
                             </td>
                             {slotNumbers.map((slotNumber) => {
                               const slotEntries = slots[slotNumber] || [];
@@ -1191,7 +1202,7 @@ export default function MeguriPrototype() {
                                   }`}
                                 >
                                   {!slotInfo ? (
-                                    <div className="flex h-full items-center justify-center text-[10px] text-[var(--text-tertiary)]">未开放</div>
+                                    <div className="flex h-full items-center justify-center text-[10px] text-[var(--text-tertiary)]">{mt('slotClosed')}</div>
                                   ) : slotEntries.length > 0 ? (
                                     <div className="flex flex-col gap-2">
                                       {slotEntries.map((entryGroup) => (
@@ -1207,7 +1218,7 @@ export default function MeguriPrototype() {
                                         onClick={() => openAddDrawer(date, slotNumber)}
                                         className="mt-1 w-full rounded-lg border border-dashed border-[var(--border-secondary)] py-1 text-[10px] text-[var(--text-tertiary)] hover:bg-[var(--bg-secondary)] hover:text-[var(--text-secondary)]"
                                       >
-                                        + 添加
+                                        {mt('addPlus')}
                                       </button>
                                     </div>
                                   ) : (
@@ -1219,7 +1230,7 @@ export default function MeguriPrototype() {
                                       <div className="rounded-full border border-[var(--border-primary)] bg-[var(--bg-primary)] p-1.5 shadow-sm">
                                         <Plus size={14} className="text-[var(--text-secondary)]" />
                                       </div>
-                                      <span className="text-[10px] text-[var(--text-tertiary)]">添加录入</span>
+                                      <span className="text-[10px] text-[var(--text-tertiary)]">{mt('addEntry')}</span>
                                     </button>
                                   )}
                                 </td>
@@ -1237,12 +1248,12 @@ export default function MeguriPrototype() {
             <div className="space-y-6">
               <div className="sticky top-8 space-y-6">
                 <div className="rounded-3xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4.5">
-                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">受付时间轴</h3>
+                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">{mt('timeline')}</h3>
                   <p className="mt-1 text-xs text-[var(--text-tertiary)]">
-                    {selectedEvent.windows.length > 0 ? `共 ${selectedEvent.windows.length} 轮，按时间线展示关键轮次` : '暂无已解析轮次'}
+                    {selectedEvent.windows.length > 0 ? mt('roundsCount', { n: selectedEvent.windows.length }) : mt('noRounds')}
                   </p>
                   {selectedEvent.windows.length === 0 ? (
-                    <div className="mt-5 py-4 text-center text-sm text-[var(--text-tertiary)]">受付日程未解析到</div>
+                    <div className="mt-5 py-4 text-center text-sm text-[var(--text-tertiary)]">{mt('noSchedule')}</div>
                   ) : (
                     <div className="mt-5 space-y-3">
                       {selectedEvent.windows.map((window, index) => {
@@ -1273,16 +1284,16 @@ export default function MeguriPrototype() {
                                   </div>
                                 </div>
                                 <span className="shrink-0 rounded-full px-2.5 py-1 text-[10px]" style={{ backgroundColor: stateTone(state), color: 'var(--text-secondary)' }}>
-                                  {stateLabel(state)}
+                                  {stateLabel(mt, state)}
                                 </span>
                               </div>
                               <div className="mt-3 space-y-2.5">
                                 <div className="rounded-xl bg-[var(--bg-primary)] px-3 py-2">
-                                  <div className="text-[10px] font-medium text-[var(--text-tertiary)]">开始</div>
+                                  <div className="text-[10px] font-medium text-[var(--text-tertiary)]">{mt('opens')}</div>
                                   <div className="mt-1 break-words text-xs leading-5 text-[var(--text-secondary)]">{window.start}</div>
                                 </div>
                                 <div className="rounded-xl bg-[var(--bg-primary)] px-3 py-2">
-                                  <div className="text-[10px] font-medium text-[var(--text-tertiary)]">截止</div>
+                                  <div className="text-[10px] font-medium text-[var(--text-tertiary)]">{mt('closes')}</div>
                                   <div className="mt-1 break-words text-xs leading-5 text-[var(--text-secondary)]">{window.end}</div>
                                 </div>
                               </div>
@@ -1302,12 +1313,12 @@ export default function MeguriPrototype() {
 
       {isAddOpen && (
         <div className="fixed inset-x-0 bottom-0 top-14 z-50 flex justify-end bg-slate-950/30 backdrop-blur-sm">
-          <button type="button" aria-label={isEditing ? '关闭编辑记录' : '关闭添加部数'} className="absolute inset-0 cursor-default" onClick={closeDrawer} />
+          <button type="button" aria-label={isEditing ? mt('closeEdit') : mt('closeAdd')} className="absolute inset-0 cursor-default" onClick={closeDrawer} />
           <aside className="relative h-full w-full max-w-[520px] overflow-y-auto border-l border-[var(--border-primary)] bg-[var(--bg-primary)] p-6 shadow-2xl">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs font-medium text-[var(--text-tertiary)]">当前活动</p>
-                <h3 className="mt-1 text-xl font-bold text-[var(--text-primary)]">{isEditing ? '编辑记录' : '添加部数'}</h3>
+                <p className="text-xs font-medium text-[var(--text-tertiary)]">{mt('currentEvent')}</p>
+                <h3 className="mt-1 text-xl font-bold text-[var(--text-primary)]">{isEditing ? mt('editRecord') : mt('addSlots')}</h3>
                 <p className="mt-1 line-clamp-2 text-sm text-[var(--text-secondary)]">{selectedEvent.title}</p>
               </div>
               <button type="button" onClick={closeDrawer} className="flex h-10 w-10 items-center justify-center rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
@@ -1317,7 +1328,7 @@ export default function MeguriPrototype() {
 
             <div className="mt-8 space-y-7">
               <div>
-                <label className="text-sm font-semibold text-[var(--text-primary)]">参加日期</label>
+                <label className="text-sm font-semibold text-[var(--text-primary)]">{mt('date')}</label>
                 <div className="mt-3 grid grid-cols-2 gap-2">
                   {availableDates.map((date) => (
                     <button
@@ -1337,7 +1348,7 @@ export default function MeguriPrototype() {
               </div>
 
               <div>
-                <label className="text-sm font-semibold text-[var(--text-primary)]">第几部</label>
+                <label className="text-sm font-semibold text-[var(--text-primary)]">{mt('whichSlot')}</label>
                 <div className="mt-3 grid grid-cols-6 gap-2">
                   {slotNumbers.map((slot) => {
                     const disabled = !selectedDateSlotNumbers.has(slot);
@@ -1362,8 +1373,8 @@ export default function MeguriPrototype() {
 
               <div>
                 <div className="flex items-end justify-between gap-3">
-                  <label className="text-sm font-semibold text-[var(--text-primary)]">お気に入りメンバー</label>
-                  <span className="text-xs text-[var(--text-tertiary)]">仅显示当前活动里可报名的账号真实收藏</span>
+                  <label className="text-sm font-semibold text-[var(--text-primary)]">{mt('favorites')}</label>
+                  <span className="text-xs text-[var(--text-tertiary)]">{mt('favoritesHint')}</span>
                 </div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {favoriteMembers.length > 0 ? favoriteMembers.map((member) => {
@@ -1383,22 +1394,22 @@ export default function MeguriPrototype() {
                         {member}
                       </button>
                     );
-                  }) : <div className="text-sm text-[var(--text-tertiary)]">当前筛选条件下没有可用的收藏成员。</div>}
+                  }) : <div className="text-sm text-[var(--text-tertiary)]">{mt('noFavorites')}</div>}
                 </div>
               </div>
 
               <div>
-                <label className="text-sm font-semibold text-[var(--text-primary)]">全成员搜索</label>
+                <label className="text-sm font-semibold text-[var(--text-primary)]">{mt('searchAll')}</label>
                 <div className="mt-3 flex items-center gap-2 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-4 py-3">
                   <Search size={16} className="text-[var(--text-tertiary)]" />
                   <input
                     value={addForm.search}
                     onChange={(event) => setAddForm((current) => ({ ...current, search: event.target.value }))}
-                    placeholder="输入成员名"
+                    placeholder={mt('memberPlaceholder')}
                     className="min-w-0 flex-1 bg-transparent text-sm text-[var(--text-primary)] outline-none placeholder:text-[var(--text-tertiary)]"
                   />
                 </div>
-                <p className="mt-2 text-xs text-[var(--text-tertiary)]">每次先为 1 位成员配置部数和张数，点“添加到待保存”后再继续添加其他成员。</p>
+                <p className="mt-2 text-xs text-[var(--text-tertiary)]">{mt('oneAtATime')}</p>
                 <div className="mt-3 grid grid-cols-2 gap-2">
                   {(addForm.search.trim() ? filteredMembers : allMembers.slice(0, 10)).map((member) => {
                     const active = addForm.member === member;
@@ -1419,7 +1430,7 @@ export default function MeguriPrototype() {
                   })}
                   {(addForm.search.trim() ? filteredMembers : allMembers.slice(0, 10)).length === 0 && (
                     <div className="col-span-2 rounded-2xl border border-dashed border-[var(--border-primary)] px-3 py-4 text-center text-sm text-[var(--text-tertiary)]">
-                      当前日期 / 部数组合下没有可选成员。
+                      {mt('noMembers')}
                     </div>
                   )}
                 </div>
@@ -1428,15 +1439,15 @@ export default function MeguriPrototype() {
               {!isEditing && (
                 <div>
                   <div className="flex items-end justify-between gap-3">
-                    <label className="text-sm font-semibold text-[var(--text-primary)]">待保存列表</label>
-                    <span className="text-xs text-[var(--text-tertiary)]">共 {pendingRecordCount} 条记录</span>
+                    <label className="text-sm font-semibold text-[var(--text-primary)]">{mt('pendingList')}</label>
+                    <span className="text-xs text-[var(--text-tertiary)]">{mt('pendingCount', { n: pendingRecordCount })}</span>
                   </div>
                   <div className="mt-3 space-y-2">
                     {pendingDraftsForEvent.length > 0 ? pendingDraftsForEvent.map((draft) => (
                       <div key={draft.id} className="flex items-start justify-between gap-3 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-3">
                         <div className="min-w-0 flex-1">
                           <div className="text-sm font-semibold text-[var(--text-primary)]">{draft.member}</div>
-                          <div className="mt-1 text-xs text-[var(--text-tertiary)]">{draft.date} · 第 {draft.slots.join(', ')} 部 · 每部 {draft.tickets} 张</div>
+                          <div className="mt-1 text-xs text-[var(--text-tertiary)]">{mt('draftLine', { date: draft.date, slots: draft.slots.join(', '), n: draft.tickets })}</div>
                         </div>
                         <button type="button" onClick={() => removePendingDraft(draft.id)} className="rounded-lg p-2 text-[var(--text-tertiary)] hover:bg-[var(--bg-primary)] hover:text-rose-500">
                           <Trash2 size={14} />
@@ -1444,7 +1455,7 @@ export default function MeguriPrototype() {
                       </div>
                     )) : (
                       <div className="rounded-2xl border border-dashed border-[var(--border-primary)] px-3 py-4 text-center text-sm text-[var(--text-tertiary)]">
-                        先把每位成员分别添加到待保存列表，再统一保存。
+                        {mt('pendingEmpty')}
                       </div>
                     )}
                   </div>
@@ -1452,7 +1463,7 @@ export default function MeguriPrototype() {
               )}
 
               <div>
-                <label className="text-sm font-semibold text-[var(--text-primary)]">张数</label>
+                <label className="text-sm font-semibold text-[var(--text-primary)]">{mt('ticketsLabel')}</label>
                 <div className="mt-3 flex items-center rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-1">
                   <button type="button" onClick={() => setAddForm((current) => ({ ...current, tickets: Math.max(1, current.tickets - 1) }))} className="h-10 flex-1 rounded-xl text-lg font-bold text-[var(--text-secondary)]">-</button>
                   <div className="w-12 text-center text-lg font-bold text-[var(--text-primary)]">{addForm.tickets}</div>
@@ -1462,11 +1473,11 @@ export default function MeguriPrototype() {
 
               {Boolean(addForm.member) && (
                 <div className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-4">
-                  <p className="text-xs font-medium text-[var(--text-tertiary)]">{isEditing ? '将更新为' : '将添加'}</p>
+                  <p className="text-xs font-medium text-[var(--text-tertiary)]">{isEditing ? mt('willUpdate') : mt('willAdd')}</p>
                   <p className="mt-2 text-sm font-semibold text-[var(--text-primary)]">
                     {isEditing
-                      ? `${addForm.date} · ${addForm.slots[0] ? `第 ${addForm.slots[0]} 部` : '未选择部数'} · ${addForm.member || '未选择成员'} · ${addForm.tickets} 张`
-                      : `${addForm.date} · ${addForm.slots.length > 0 ? `第 ${addForm.slots.join(', ')} 部` : '未选择部数'} · ${addForm.member || '未选择成员'} · 每部 ${addForm.tickets} 张`}
+                      ? `${addForm.date} · ${addForm.slots[0] ? mt('slotsChosen', { slots: addForm.slots[0] }) : mt('noSlotChosen')} · ${addForm.member || mt('noMemberChosen')} · ${mt('ticketsN', { n: addForm.tickets })}`
+                      : `${addForm.date} · ${addForm.slots.length > 0 ? mt('slotsChosen', { slots: addForm.slots.join(', ') }) : mt('noSlotChosen')} · ${addForm.member || mt('noMemberChosen')} · ${mt('perSlotTickets', { n: addForm.tickets })}`}
                   </p>
                 </div>
               )}
@@ -1480,7 +1491,7 @@ export default function MeguriPrototype() {
                   disabled={isSaving || !canSubmitForm}
                   className="w-full rounded-2xl bg-[var(--text-primary)] px-4 py-3 text-sm font-bold text-white disabled:cursor-not-allowed disabled:opacity-40"
                 >
-                  {isSaving ? '保存中…' : '保存修改'}
+                  {isSaving ? mt('saving') : mt('saveChanges')}
                 </button>
               ) : (
                 <div className="grid gap-3 sm:grid-cols-2">
@@ -1490,7 +1501,7 @@ export default function MeguriPrototype() {
                     disabled={isSaving || !canSubmitForm}
                     className="w-full rounded-2xl border border-[var(--text-primary)] bg-[var(--bg-primary)] px-4 py-3 text-sm font-bold text-[var(--text-primary)] disabled:cursor-not-allowed disabled:opacity-40"
                   >
-                    添加到待保存
+                    {mt('addToPending')}
                   </button>
                   <button
                     type="button"
@@ -1498,7 +1509,7 @@ export default function MeguriPrototype() {
                     disabled={isSaving || pendingDraftsForEvent.length === 0}
                     className="w-full rounded-2xl bg-[var(--text-primary)] px-4 py-3 text-sm font-bold text-white disabled:cursor-not-allowed disabled:opacity-40"
                   >
-                    {isSaving ? '保存中…' : `保存${pendingRecordCount > 0 ? ` (${pendingRecordCount} 条记录)` : ''}`}
+                    {isSaving ? mt('saving') : pendingRecordCount > 0 ? mt('saveWithCount', { n: pendingRecordCount }) : mt('save')}
                   </button>
                 </div>
               )}
@@ -1544,7 +1555,7 @@ export default function MeguriPrototype() {
         const dt = new Date(d);
         return dt.getMonth() + 1 === Number(item.date.split('/')[0]) && dt.getDate() === Number(item.date.split('/')[1]);
       }) || '';
-      if (!dateStr) { errors.push(`日期 ${item.date} 不匹配`); continue; }
+      if (!dateStr) { errors.push(mt('dateMismatch', { date: item.date })); continue; }
 
       const res = await createMiguriEntries({
         eventSlug: selectedEvent.slug,
@@ -1566,14 +1577,14 @@ export default function MeguriPrototype() {
         });
         created += res.data.entries.length;
       } else {
-        errors.push(`${item.member} ${item.date} 第${item.slot}部: ${res.error || '未知错误'}`);
+        errors.push(mt('importItemError', { member: item.member, date: item.date, slot: item.slot, error: res.error || mt('unknownError') }));
       }
     }
     setIsSaving(false);
     setShowImportModal(false);
     setImportText('');
-    const baseMsg = errors.length > 0 ? `已导入 ${created} 条，${errors.length} 条失败: ${errors.slice(0, 3).join('; ')}` : `已导入 ${created} 条记录（含累计）`;
-    const msg = skipped > 0 ? `${baseMsg}；已跳过 ${skipped} 条 0 张记录` : baseMsg;
+    const baseMsg = errors.length > 0 ? mt('importedWithErrors', { n: created, failed: errors.length, errors: errors.slice(0, 3).join('; ') }) : mt('importedN', { n: created });
+    const msg = skipped > 0 ? mt('skippedZero', { base: baseMsg, n: skipped }) : baseMsg;
     setNotice(msg);
   }
 }
@@ -1589,6 +1600,7 @@ function ImportModal({
   onConfirm: () => void;
   onClose: () => void;
 }) {
+  const mt = manageTranslator(useLanguage());
   if (!show) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onClick={onClose}>
@@ -1596,24 +1608,24 @@ function ImportModal({
         className="mx-4 w-full max-w-lg rounded-2xl bg-[var(--bg-primary)] p-5 shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className="mb-1 text-base font-bold text-[var(--text-primary)]">批量导入 Fortune Music 记录</h3>
+        <h3 className="mb-1 text-base font-bold text-[var(--text-primary)]">{mt('importTitle')}</h3>
         <p className="mb-3 text-xs text-[var(--text-tertiary)]">
-          支持 Fortune Music「お申込み内容」和付款信息页面表格，选中后复制并粘贴到下方输入框
+          {mt('importHint')}
         </p>
         <textarea
           className="h-40 w-full rounded-xl border border-[var(--border-secondary)] bg-[var(--bg-secondary)] p-3 text-xs text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:border-sky-400 focus:outline-none"
-          placeholder={`粘贴 Fortune Music 表格内容...\n\n例1（当選結果）:\n山川 宇衣【6/27 第2部】櫻坂46...\t1,200円\t3個\t3個\t3,600円\n\n例2（付款信息）:\n山川 宇衣【6/14 第5部】櫻坂46...\t1,200円\t4個\t4,800円`}
+          placeholder={mt('importPlaceholder')}
           value={text}
           onChange={(e) => setText(e.target.value)}
           autoFocus
         />
         {parsed.length > 0 && (
           <div className="mt-3 max-h-40 overflow-y-auto rounded-xl bg-[var(--bg-secondary)] p-3">
-            <p className="mb-2 text-xs font-semibold text-emerald-600">解析到 {parsed.length} 条:</p>
+            <p className="mb-2 text-xs font-semibold text-emerald-600">{mt('parsedN', { n: parsed.length })}</p>
             <div className="space-y-1">
               {parsed.map((p, i) => (
                 <div key={i} className="text-xs text-[var(--text-secondary)]">
-                  {p.member} {p.date} 第{p.slot}部 ×{p.count}
+                  {mt('parsedLine', { member: p.member, date: p.date, slot: p.slot, n: p.count })}
                 </div>
               ))}
             </div>
@@ -1624,14 +1636,14 @@ function ImportModal({
             onClick={onClose}
             className="rounded-lg px-4 py-2 text-sm text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]"
           >
-            取消
+            {mt('cancel')}
           </button>
           <button
             onClick={onConfirm}
             disabled={parsed.length === 0 || isSaving}
             className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 disabled:opacity-40"
           >
-            {isSaving ? '导入中…' : `确认导入 (${parsed.length} 条)`}
+            {isSaving ? mt('importing') : mt('confirmImport', { n: parsed.length })}
           </button>
         </div>
       </div>

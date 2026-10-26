@@ -1,4 +1,5 @@
 import type { MiguriImportHandoff } from "./miguri-auto-import";
+import { manageNow } from "../../i18n/miguri-manage.ts";
 
 const PAGE_SOURCE = "46log-miguri-page";
 const EXTENSION_SOURCE = "46log-miguri-extension";
@@ -86,7 +87,7 @@ export function subscribeMiguriExtension(
     } else if (message.type === "PROGRESS") {
       listener({
         type: "PROGRESS",
-        title: typeof message.title === "string" ? message.title : "同步中",
+        title: typeof message.title === "string" ? message.title : manageNow("extSyncing"),
         detail: typeof message.detail === "string" ? message.detail : "",
       });
     } else if (
@@ -113,7 +114,7 @@ export function subscribeMiguriExtension(
         message:
           typeof message.message === "string"
             ? message.message
-            : "扩展连接失败",
+            : manageNow("extConnectFailed"),
       });
     }
   };

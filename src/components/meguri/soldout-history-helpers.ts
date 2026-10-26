@@ -1,4 +1,5 @@
 import type { MiguriGroupId, MiguriSoldOutHistoryEvent } from '@/utils/auth-api';
+import { soldOutTranslator, type SoldOutTranslate } from '../../i18n/miguri-soldout.ts';
 
 export const SOLDOUT_GROUP_LABELS: Record<MiguriGroupId, string> = {
   nogizaka: '乃木坂46', sakurazaka: '櫻坂46', hinatazaka: '日向坂46',
@@ -25,13 +26,13 @@ export function filterSoldOutHistory(events: MiguriSoldOutHistoryEvent[], filter
   ));
 }
 
-export function formatSoldOutCapture(value: string | null) {
-  if (!value) return '未采集';
+export function formatSoldOutCapture(value: string | null, tr: SoldOutTranslate = soldOutTranslator('zh')) {
+  if (!value) return tr('notCaptured');
   // SQLite CURRENT_TIMESTAMP is UTC, not the browser's local timezone.
   const iso = /^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}$/.test(value)
     ? value.replace(' ', 'T') + 'Z' : value;
   const date = new Date(iso);
-  return Number.isNaN(date.getTime()) ? '时间未知' : date.toLocaleString('ja-JP', {
+  return Number.isNaN(date.getTime()) ? tr('timeUnknown') : date.toLocaleString('ja-JP', {
     timeZone: 'Asia/Tokyo', hour12: false,
   }) + ' JST';
 }

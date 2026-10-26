@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { BarChart3, ListOrdered, Users } from 'lucide-react';
 import { getMiguriSoldOut, type MiguriSoldOutPayload } from '@/utils/auth-api';
 import RecordedSoldOutCells from './RecordedSoldOutCells';
+import { useLanguage } from '@/i18n/use-language';
+import { soldOutNow, soldOutTranslator, type SoldOutTranslate } from '@/i18n/miguri-soldout';
 import {
   computeSoldOutAnalysis,
   formatDateShort,
@@ -33,6 +35,9 @@ const THEME = {
   },
 };
 
+/** 日月火… (one character each) for zh / ja, Sun,Mon,… for en. */
+const weekdayNames = (st: SoldOutTranslate) => { const names = st('weekdays'); return names.includes(',') ? names.split(',') : [...names]; };
+
 function getCellColor(round: number | null, maxRound: number, theme: typeof THEME.sakurazaka): string | undefined {
   if (round === null) return 'var(--bg-primary)';
   if (maxRound <= 1) return theme.cellSolid;
@@ -41,8 +46,8 @@ function getCellColor(round: number | null, maxRound: number, theme: typeof THEM
   return theme.cellSolid + Math.round(alpha * 255).toString(16).padStart(2, '0');
 }
 
-function SoldOutCell({ round, maxRound, theme, scheduled = true }: { round: number | null; maxRound: number; theme: typeof THEME.sakurazaka; scheduled?: boolean }) {
-  if (!scheduled && round === null) return <td className="p-0 text-center text-[10px] text-[var(--text-tertiary)] bg-[var(--bg-tertiary)] border-r border-b" title="未安排该成员参加此部" aria-label="未安排">—</td>;
+function SoldOutCell({ round, maxRound, theme, scheduled = true, st }: { round: number | null; maxRound: number; theme: typeof THEME.sakurazaka; scheduled?: boolean; st: SoldOutTranslate }) {
+  if (!scheduled && round === null) return <td className="p-0 text-center text-[10px] text-[var(--text-tertiary)] bg-[var(--bg-tertiary)] border-r border-b" title={st('notScheduledTitle')} aria-label={st('notScheduled')}>—</td>;
   const bg = getCellColor(round, maxRound, theme);
   return (
     <td
@@ -61,11 +66,13 @@ function MemberNameCell({
   rank,
   theme,
   showRank,
+  st,
 }: {
   member: MemberSoldOutInfo;
   rank?: number;
   theme: typeof THEME.sakurazaka;
   showRank: boolean;
+  st: SoldOutTranslate;
 }) {
   const round = member.fullSoldOutRound;
   return (
@@ -83,7 +90,7 @@ function MemberNameCell({
           </span>
         )}
         {round !== null && (
-          <span className="font-bold text-[10px]" style={{ color: theme.accent }}>({round}次完売)</span>
+          <span className="font-bold text-[10px]" style={{ color: theme.accent }}>{st('fullSoldOut', { n: round })}</span>
         )}
         <span className="font-medium text-[var(--text-primary)]">{member.name}</span>
       </div>
@@ -104,6 +111,7 @@ function StatCell({ member }: { member: MemberSoldOutInfo }) {
 }
 
 export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
+  const st = soldOutTranslator(useLanguage());
   const [data, setData] = useState<MiguriSoldOutPayload | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -119,7 +127,7 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
     getMiguriSoldOut(eventSlug).then((res) => {
       if (!mounted) return;
       if (!res.success || !res.data) {
-        setError(res.message || '完售数据加载失败');
+        setError(res.message || soldOutNow('loadFailed'));
       } else {
         setData(res.data);
       }
@@ -174,21 +182,21 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
     return (
       <div className="flex flex-col items-center justify-center gap-2 py-12">
         <div className="h-5 w-5 animate-spin rounded-full border-2 border-[var(--text-tertiary)] border-t-transparent" />
-        <span className="text-xs text-[var(--text-tertiary)]">完售数据加载中…</span>
+        <span className="text-xs text-[var(--text-tertiary)]">{st('loading')}</span>
       </div>
     );
   }
 
   if (error || !analysis) {
-    return <div className="text-center py-8 text-sm text-rose-500">{error || '暂无完售数据'}</div>;
+    return <div className="text-center py-8 text-sm text-rose-500">{error || st('noData')}</div>;
   }
 
   if (analysis.rounds.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-2 py-12 text-[var(--text-tertiary)]">
         <BarChart3 size={28} className="opacity-30" />
-        <span className="text-sm">暂无完售记录</span>
-        <span className="text-xs opacity-60">等待下一轮受付结束后自动生成</span>
+        <span className="text-sm">{st('noRecords')}</span>
+        <span className="text-xs opacity-60">{st('waitNextRound')}</span>
       </div>
     );
   }
@@ -211,7 +219,7 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
         <div className="flex-1 min-w-[200px]">
           <div className="mb-1 flex items-baseline gap-2">
             <span className="text-2xl font-bold tabular-nums" style={{ color: theme.accent }}>{analysis.totalSoldOut}</span>
-            <span className="text-xs text-[var(--text-tertiary)]">/ {analysis.totalCells} 枠</span>
+            <span className="text-xs text-[var(--text-tertiary)]">{st('cells', { n: analysis.totalCells })}</span>
             <span className="ml-1 rounded-full px-2 py-0.5 text-[10px] font-semibold text-white" style={{ backgroundColor: theme.accent }}>
               {pctSold}%
             </span>
@@ -221,9 +229,9 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
           </div>
         </div>
         <div className="flex items-center gap-4 text-xs text-[var(--text-secondary)]">
-          <div><span className="font-semibold text-[var(--text-primary)]">{analysis.members.length}</span> 成员</div>
-          <div><span className="font-semibold text-[var(--text-primary)]">{dates.length}</span> 日程</div>
-          <div><span className="font-semibold text-[var(--text-primary)]">{slotNumbers.length}</span> 部制</div>
+          <div><span className="font-semibold text-[var(--text-primary)]">{analysis.members.length}</span> {st('members')}</div>
+          <div><span className="font-semibold text-[var(--text-primary)]">{dates.length}</span> {st('dates')}</div>
+          <div><span className="font-semibold text-[var(--text-primary)]">{slotNumbers.length}</span> {st('slots')}</div>
         </div>
       </div>
 
@@ -231,8 +239,8 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
       <div className="flex flex-wrap items-center gap-2">
         <div className="flex rounded-lg overflow-hidden border border-[var(--border-primary)]">
           {([
-            { key: 'generation' as SortMode, label: '期別顺', icon: Users },
-            { key: 'soldout' as SortMode, label: '完售顺', icon: ListOrdered },
+            { key: 'generation' as SortMode, label: st('byGeneration'), icon: Users },
+            { key: 'soldout' as SortMode, label: st('bySoldOut'), icon: ListOrdered },
           ]).map(({ key, label, icon: Icon }) => (
             <button
               key={key}
@@ -252,20 +260,20 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
 
         {analysis.rounds.length > 1 && (
           <select
-            aria-label="回看完售轮次"
+            aria-label={st('roundSelect')}
             className="rounded-lg border border-[var(--border-primary)] bg-[var(--bg-primary)] px-2.5 py-1.5 text-xs cursor-pointer"
             value={selectedRound ?? ''}
             onChange={(e) => setSelectedRound(e.target.value ? Number(e.target.value) : null)}
           >
-            <option value="">全轮次累计</option>
+            <option value="">{st('allRounds')}</option>
             {analysis.rounds.map((r) => (
-              <option key={r.round} value={r.round}>{r.windowLabel || `第${r.round}次結果`}</option>
+              <option key={r.round} value={r.round}>{r.windowLabel || st('roundResultN', { n: r.round })}</option>
             ))}
           </select>
         )}
       </div>
 
-      {data?.memberSlotKeys && <p className="text-[10px] text-[var(--text-tertiary)]">数字为首次记录完售的轮次；空白为未记录完售；灰色「—」为未安排参加。特别场按当天实际部次显示。</p>}
+      {data?.memberSlotKeys && <p className="text-[10px] text-[var(--text-tertiary)]">{st('matrixLegend')}</p>}
 
       {/* Matrix table */}
       <div className="overflow-x-auto rounded-xl border border-[var(--border-primary)]">
@@ -278,7 +286,7 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
                 style={{ backgroundColor: theme.headerBg, borderColor: 'rgba(0,0,0,0.08)', minWidth: 140 }}
                 rowSpan={2}
               >
-                成员
+                {st('member')}
               </th>
               {dates.map((date) => (
                 <th
@@ -287,7 +295,7 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
                   className="border-b px-0 py-2 text-center text-[10px] font-bold"
                   style={{ backgroundColor: theme.headerBg, borderLeft: '1px solid rgba(0,0,0,0.08)', borderColor: 'rgba(0,0,0,0.08)' }}
                 >
-                  {formatDateShort(date)}
+                  {formatDateShort(date, weekdayNames(st))}
                 </th>
               ))}
               <th
@@ -327,10 +335,10 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
                     </tr>
                     {members.map((member) => (
                       <tr key={member.name} className="transition-colors hover:bg-black/[0.02]">
-                        <MemberNameCell member={member} theme={theme} showRank={false} />
+                        <MemberNameCell member={member} theme={theme} showRank={false} st={st} />
                         {dates.map((date) =>
                           slotsForDate(date).map((slot) => (
-                            <SoldOutCell key={`${date}-${slot}`} round={getCellRound(member, date, slot)} maxRound={maxRound} theme={theme} scheduled={scheduled(member.name, date, slot)} />
+                            <SoldOutCell key={`${date}-${slot}`} round={getCellRound(member, date, slot)} maxRound={maxRound} theme={theme} scheduled={scheduled(member.name, date, slot)} st={st} />
                           )),
                         )}
                         <StatCell member={member} />
@@ -340,10 +348,10 @@ export default function SoldOutMatrix({ eventSlug }: { eventSlug: string }) {
                 ))
               : sortedMembers.map((member, idx) => (
                   <tr key={member.name} className="transition-colors hover:bg-black/[0.02]">
-                    <MemberNameCell member={member} rank={idx + 1} theme={theme} showRank />
+                    <MemberNameCell member={member} rank={idx + 1} theme={theme} showRank st={st} />
                     {dates.map((date) =>
                       slotsForDate(date).map((slot) => (
-                        <SoldOutCell key={`${date}-${slot}`} round={getCellRound(member, date, slot)} maxRound={maxRound} theme={theme} scheduled={scheduled(member.name, date, slot)} />
+                        <SoldOutCell key={`${date}-${slot}`} round={getCellRound(member, date, slot)} maxRound={maxRound} theme={theme} scheduled={scheduled(member.name, date, slot)} st={st} />
                       )),
                     )}
                     <StatCell member={member} />

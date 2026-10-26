@@ -35,6 +35,9 @@ export const extra = {
     'ins.download_videos': '仅下载视频', 'ins.download_images': '仅下载图片', 'ins.shown': '已显示 {shown} / {total}',
     'ins.empty': '暂无内容', 'ins.select_hint': '选择成员查看内容', 'ins.sidebar_hint': '从侧边栏选择账号浏览 Instagram 归档',
     'ins.favorites': '收藏', 'ins.copied': '已复制', 'ins.copy_link': '复制链接', 'ins.download': '下载',
+    'miguri.page_title': '咪咕力管理 - Sakamichi Tools', 'miguri.description': 'Fortune Music 咪咕力活动管理 - 报名记录、个握历史完售、日历订阅与排队监控',
+    'miguri.history.page_title': '个握历史完售 - Sakamichi Tools', 'miguri.history.description': '三坂个握完售历史档案：按团体、单曲搜索已保存的完售记录，活动结束或下架后仍可按轮次回看。',
+    'miguri.history.back': '咪咕力管理', 'miguri.history.title': '个握历史完售', 'miguri.history.intro': '结束不消失，已采集的每一轮都能回来查看。', 'miguri.history.noscript': '请启用 JavaScript 加载完售历史目录与已保存记录。',
   },
   en: {
     'events.history.page_title': 'My event history - Sakamichi Tools', 'events.history.description': 'Your Sakamichi event history, private notes and costs.',
@@ -71,6 +74,9 @@ export const extra = {
     'ins.download_videos': 'Videos only', 'ins.download_images': 'Images only', 'ins.shown': 'Showing {shown} / {total}',
     'ins.empty': 'No content yet', 'ins.select_hint': 'Select a member to view content', 'ins.sidebar_hint': 'Select an account in the sidebar to browse the Instagram archive',
     'ins.favorites': 'Favorites', 'ins.copied': 'Copied', 'ins.copy_link': 'Copy link', 'ins.download': 'Download',
+    'miguri.page_title': 'Miguri Manager - Sakamichi Tools', 'miguri.description': 'Fortune Music Miguri manager: application records, individual Miguri sold-out history, calendar feeds and queue monitoring',
+    'miguri.history.page_title': 'Sold-out History - Sakamichi Tools', 'miguri.history.description': 'Sold-out archive for the three groups\' individual Miguri: search saved records by group or single and look back round by round, even after an event ends or is taken down.',
+    'miguri.history.back': 'Miguri Manager', 'miguri.history.title': 'Sold-out History', 'miguri.history.intro': 'Events end, records stay: every captured round is still here.', 'miguri.history.noscript': 'Enable JavaScript to load the sold-out catalog and saved records.',
   },
   ja: {
     'events.history.page_title': '自分の参加履歴 - Sakamichi Tools', 'events.history.description': '坂道3グループの参加履歴、自分だけの感想と費用。',
@@ -107,5 +113,8 @@ export const extra = {
     'ins.download_videos': '動画のみ', 'ins.download_images': '画像のみ', 'ins.shown': '{total}件中 {shown}件を表示',
     'ins.empty': 'まだコンテンツがありません', 'ins.select_hint': 'メンバーを選択してください', 'ins.sidebar_hint': 'サイドバーからアカウントを選ぶと Instagram アーカイブを閲覧できます',
     'ins.favorites': 'お気に入り', 'ins.copied': 'コピーしました', 'ins.copy_link': 'リンクをコピー', 'ins.download': 'ダウンロード',
+    'miguri.page_title': 'ミーグリ管理 - Sakamichi Tools', 'miguri.description': 'Fortune Music のミーグリ管理：申込記録、個別ミーグリの完売履歴、カレンダー購読、待機列モニター',
+    'miguri.history.page_title': '完売履歴 - Sakamichi Tools', 'miguri.history.description': '坂道3グループの個別ミーグリ完売アーカイブ。グループやシングルで保存済みの完売記録を検索でき、イベント終了・公開終了後も回ごとに振り返れます。',
+    'miguri.history.back': 'ミーグリ管理', 'miguri.history.title': '完売履歴', 'miguri.history.intro': 'イベントが終わっても消えません。取得した回はいつでも見返せます。', 'miguri.history.noscript': '完売履歴の一覧と保存済みの記録を読み込むには JavaScript を有効にしてください。',
   },
 } as const;
