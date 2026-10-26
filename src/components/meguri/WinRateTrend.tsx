@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { TrendingUp } from "lucide-react";
 import { pivotWinRate, type WinRatePoint, type WinRateTrend as Trend } from "./meguri-helpers";
+import { useLanguage } from "@/i18n/use-language";
+import { miguriTranslator, type MiguriTranslate } from "@/i18n/miguri";
 
 type Cut = "member" | "slot";
 type Tab = "releases" | "members" | "schedule";
@@ -26,7 +28,7 @@ const WEEKDAYS = "日月火水木金土";
 
 const rate = (point: WinRatePoint) => Math.min(1, point.won / point.applied);
 const percent = (value: number) => `${Math.round(value * 100)}%`;
-const slotLabel = (slot: number) => (slot > 0 ? `第${slot}部` : "不分部");
+const slotLabel = (slot: number, tr: MiguriTranslate) => (slot > 0 ? `第${slot}部` : tr("noSlotTrend"));
 const slotColor = (slot: number) => (slot > 0 ? LINE_COLORS[(slot - 1) % LINE_COLORS.length] : NO_SLOT_COLOR);
 const bySlot = (left: number, right: number) => (left || 99) - (right || 99);
 const byDate = (left: string, right: string) => (left || "9999").localeCompare(right || "9999");
@@ -34,9 +36,9 @@ const byDate = (left: string, right: string) => (left || "9999").localeCompare(r
 /** 京都パルスプラザ → 京都, 東京ビッグサイト → 東京, 幕張メッセ → 幕張; names without a leading place stay whole. */
 const shortVenue = (venue: string) => venue.match(/^\p{Script=Han}{2,}/u)?.[0] ?? venue;
 
-function dateLabel(date: string) {
+function dateLabel(date: string, tr: MiguriTranslate) {
   const match = date.match(/^\d{4}-(\d{2})-(\d{2})$/);
-  if (!match) return date || "日期未知";
+  if (!match) return date || tr("unknownDate");
   return `${Number(match[1])}/${Number(match[2])}(${WEEKDAYS[new Date(`${date}T00:00:00Z`).getUTCDay()]})`;
 }
 
@@ -236,6 +238,7 @@ function TrendChart({
   active: number;
   onSelect: (index: number) => void;
 }) {
+  const tr = miguriTranslator(useLanguage());
   const scroller = useRef<HTMLDivElement>(null);
   const count = releases.length;
   const x = (index: number) => ((index + 0.5) / count) * 100;
@@ -313,7 +316,7 @@ function TrendChart({
                 key={item.key}
                 type="button"
                 aria-pressed={index === active}
-                aria-label={`${item.title} 中签率`}
+                aria-label={tr("pointRate", { title: item.title })}
                 onClick={() => onSelect(index)}
                 className={`rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
                   index === active ? "bg-indigo-500/[0.06]" : ""
@@ -329,6 +332,7 @@ function TrendChart({
 
 /** 中签率推移: one category at a time (部 never cross 個別 / リアミ), real-meet venues as their own points, by member or by 部, with three tables. */
 export default function WinRateTrend({ trend }: { trend: Trend }) {
+  const tr = miguriTranslator(useLanguage());
   const defaultSection = [...trend.sections].sort((left, right) => right.applied - left.applied)[0]?.key ?? "";
   const [sectionKey, setSectionKey] = useState(defaultSection);
   const [cut, setCut] = useState<Cut>("member");
@@ -347,7 +351,7 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
   }, [sectionCells]);
   const member = members.includes(memberFilter) ? memberFilter : "";
   const cells = useMemo(() => (member ? sectionCells.filter((cell) => cell.member === member) : sectionCells), [sectionCells, member]);
-  const overallName = member ? "合计" : "全部";
+  const overallName = member ? tr("total") : tr("all");
   const byRelease = useMemo(
     () => pivotWinRate(cells, (cell) => (cut === "member" ? cell.member : String(cell.slot)), (cell) => cell.release),
     [cells, cut],
@@ -367,7 +371,7 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
     )
     .map((key, index) => ({
       key,
-      name: cut === "member" ? key : slotLabel(Number(key)),
+      name: cut === "member" ? key : slotLabel(Number(key), tr),
       color: cut === "member" ? LINE_COLORS[index] : slotColor(Number(key)),
       points: releases.map((item) => byRelease.at(key, item.key)),
     }));
@@ -384,25 +388,25 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
   // 成员×部 and 全日程 list every single at once, newest first, so they can be compared without picking one.
   const newest = releases.slice().reverse();
   const slots = Array.from(new Set(cells.map((cell) => cell.slot))).sort(bySlot);
-  const slotColumns: Column[] = slots.map((slot) => ({ key: String(slot), label: slotLabel(slot), color: slotColor(slot) }));
+  const slotColumns: Column[] = slots.map((slot) => ({ key: String(slot), label: slotLabel(slot, tr), color: slotColor(slot) }));
   const pointName = (item: (typeof releases)[number]) => (item.venue ? `${item.label} · ${shortVenue(item.venue)}` : item.label);
   const singleName = (item: (typeof releases)[number]) =>
-    item.title.startsWith(`${item.label}『`) ? item.title.slice(item.label.length) : item.date ? dateLabel(item.date) : undefined;
+    item.title.startsWith(`${item.label}『`) ? item.title.slice(item.label.length) : item.date ? dateLabel(item.date, tr) : undefined;
   const table = (() => {
     if (tab === "releases") {
       const columns: Column[] = [{ key: "all", label: overallName, color: OVERALL_COLOR }, ...series.map((item) => ({ key: item.key, label: item.name, color: item.color }))];
       return {
-        corner: "单曲",
+        corner: tr("cornerSingle"),
         columns,
         rows: releases.map((item, index) => ({
           key: item.key,
           label: item.label,
-          sub: item.venue ? `${shortVenue(item.venue)} · ${dateLabel(item.date)}` : singleName(item),
+          sub: item.venue ? `${shortVenue(item.venue)} · ${dateLabel(item.date, tr)}` : singleName(item),
           points: [byRelease.columnTotal(item.key), ...series.map((line) => line.points[index])],
           active: index === activeIndex,
           onSelect: () => setReleaseKey(item.key),
         })),
-        footer: { key: "total", label: "合计", points: [byRelease.total, ...series.map((line) => byRelease.rowTotal(line.key))] },
+        footer: { key: "total", label: tr("total"), points: [byRelease.total, ...series.map((line) => byRelease.rowTotal(line.key))] },
       };
     }
     if (tab === "members") {
@@ -422,10 +426,10 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
         ];
       });
       return {
-        corner: "单曲 / 成员",
-        columns: [...slotColumns, { key: "total", label: "合计" }],
+        corner: tr("cornerSingleMember"),
+        columns: [...slotColumns, { key: "total", label: tr("total") }],
         rows,
-        footer: { key: "total", label: "全部单曲", points: [...slots.map((slot) => totals.columnTotal(slot)), totals.total] },
+        footer: { key: "total", label: tr("allSingles"), points: [...slots.map((slot) => totals.columnTotal(slot)), totals.total] },
       };
     }
     // 全日程: one block per single; a real-meet single lists each venue day, so 京都 / 東京 sit next to each other.
@@ -444,14 +448,14 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
         const venue = pointOf.get(point)?.venue;
         return {
           key,
-          label: venue ? `${dateLabel(date)} · ${shortVenue(venue)}` : dateLabel(date),
+          label: venue ? `${dateLabel(date, tr)} · ${shortVenue(venue)}` : dateLabel(date, tr),
           points: [...slots.map((slot) => days.at(key, slot)), days.rowTotal(key)],
         };
       });
       // A subtotal adds days up; days at different venues are different lotteries, so those singles get none.
       const onePlace = new Set(dayKeys.map((key) => key.split("\u0000")[0])).size === 1;
       const subtotal: Row[] = dayRows.length > 1 && onePlace
-        ? [{ key: `${item.single}-total`, kind: "subtotal", label: "本单曲合计", points: [...slots.map((slot) => perSingle.at(item.single, slot)), perSingle.rowTotal(item.single)] }]
+        ? [{ key: `${item.single}-total`, kind: "subtotal", label: tr("singleTotal"), points: [...slots.map((slot) => perSingle.at(item.single, slot)), perSingle.rowTotal(item.single)] }]
         : [];
       return [
         { key: item.single, kind: "group" as const, label: item.label, sub: singleName(item), points: [], active: item.single === release.single },
@@ -460,10 +464,10 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
       ];
     });
     return {
-      corner: "单曲 / 日期",
-      columns: [...slotColumns, { key: "day", label: "当日" }],
+      corner: tr("cornerSingleDate"),
+      columns: [...slotColumns, { key: "day", label: tr("day") }],
       rows,
-      footer: { key: "total", label: "每部合计", points: [...slots.map((slot) => days.columnTotal(slot)), days.total] },
+      footer: { key: "total", label: tr("slotTotal"), points: [...slots.map((slot) => days.columnTotal(slot)), days.total] },
     };
   })();
   const focus = tab === "members" ? release?.key : tab === "schedule" ? release?.single : undefined;
@@ -475,24 +479,24 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <TrendingUp size={16} className="text-indigo-500" />
-          <h3 className="text-sm font-bold text-[var(--text-primary)]">中签率推移</h3>
+          <h3 className="text-sm font-bold text-[var(--text-primary)]">{tr("trendTitle")}</h3>
         </div>
-        <Segmented label="线条" value={cut} options={[["member", "按成员"], ["slot", "按部"]]} onChange={setCut} />
+        <Segmented label={tr("trendLines")} value={cut} options={[["member", tr("byMember")], ["slot", tr("bySlot")]]} onChange={setCut} />
       </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
         {trend.sections.length > 1 ? (
           <Segmented
-            label="类型"
+            label={tr("trendCategory")}
             value={section.key}
-            options={trend.sections.map((item) => [item.key, item.label] as [string, string])}
+            options={trend.sections.map((item) => [item.key, item.key === "その他" ? tr("sectionOther") : item.label] as [string, string])}
             onChange={setSectionKey}
           />
         ) : null}
         <Picker
-          label="成员"
+          label={tr("member")}
           value={member}
-          options={[["", "全部成员"], ...members.map((name) => [name, name] as [string, string])]}
+          options={[["", tr("allMembers")], ...members.map((name) => [name, name] as [string, string])]}
           onChange={setMemberFilter}
         />
       </div>
@@ -500,7 +504,7 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
       <div className="mt-4 flex flex-wrap gap-2">
         <Chip on={false}>
           <span className="h-0.5 w-3 border-t-2 border-dashed" style={{ borderColor: OVERALL_COLOR }} />
-          {member ? `${member} 合计` : "全部"}
+          {member ? tr("memberTotal", { member }) : tr("all")}
         </Chip>
         {lineable.map((item) => (
           <Chip key={item.key} on={shown.includes(item.key)} color={item.color} onClick={() => toggle(item.key)}>
@@ -513,12 +517,12 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
 
       <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
         <Segmented
-          label="表格"
+          label={tr("table")}
           value={tab}
-          options={[["releases", "单曲一览"], ["members", "成员×部"], ["schedule", "全日程"]]}
+          options={[["releases", tr("tableReleases")], ["members", tr("tableMembers")], ["schedule", tr("tableSchedule")]]}
           onChange={setTab}
         />
-        {tab === "releases" ? null : <span className="text-xs text-[var(--text-tertiary)]">点图表上的单曲可跳到该组</span>}
+        {tab === "releases" ? null : <span className="text-xs text-[var(--text-tertiary)]">{tr("tableHint")}</span>}
       </div>
 
       <div className="mt-3">
@@ -526,8 +530,7 @@ export default function WinRateTrend({ trend }: { trend: Trend }) {
       </div>
 
       <p className="mt-3 text-xs leading-5 text-[var(--text-tertiary)]">
-        中签率 = 中签张数 ÷ 申请张数（サイン会按抽选次数），与成员排行同一算法，但只计已出结果的申请。個別 / 全国 / リアミ / サイン会分开统计；リアミ与サイン会的每个会场单独算（图上一个点、表里一组 / 一行），
-        同一会场的部才放在一起。同一单曲的各次受付合并。「成员×部」「全日程」列出全部单曲（新的在上），「本单曲合计」「每部合计」看哪一部更难抽。选了成员后图表与三张表都只算该成员（按部即该成员每一部的推移）。跟随上方团体与类型筛选。
+        {tr("trendNote")}
       </p>
     </section>
   );

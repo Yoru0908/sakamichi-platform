@@ -40,10 +40,10 @@ const meetsApiSource = readFileSync(
   ),
   "utf8",
 );
-const dashboardSource = readFileSync(
-  new URL("./MiguriDashboard.tsx", import.meta.url),
-  "utf8",
-);
+// The dashboard copy lives in i18n/miguri.ts since it follows 日本語 (2026-10-26); zh is kept verbatim there.
+const dashboardSource =
+  readFileSync(new URL("./MiguriDashboard.tsx", import.meta.url), "utf8") +
+  readFileSync(new URL("../../i18n/miguri.ts", import.meta.url), "utf8");
 const prototypeSource = readFileSync(
   new URL("./MeguriPrototype.tsx", import.meta.url),
   "utf8",
@@ -637,7 +637,7 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /"Meets 支付合计"/);
   assert.match(dashboardSource, /サイン会支付/);
   assert.match(dashboardSource, /combinedMiguriEntries/);
-  assert.match(dashboardSource, /\[entries, selectedGroup\]/);
+  assert.match(dashboardSource, /\[periodEntries, selectedGroup\]/);
   assert.match(dashboardSource, /リアミ＋全国共同支付/);
   assert.match(dashboardSource, /formatYen\(combinedMiguriSpend\.paid\)/);
   assert.match(dashboardSource, /リアミ＋全国落选金额合计/);
@@ -647,7 +647,8 @@ test("Dashboard presents extension sync and removes legacy compatibility import"
   assert.match(dashboardSource, /"实付合计"/);
   assert.match(dashboardSource, /サイン会一口需要多张碟，按官方 used 序列号张数计费/);
   assert.match(dashboardSource, /リアミ／全国每次用自己买的碟应募按 1 张碟计费，中没中都算进支付合计/);
-  assert.match(dashboardSource, /<span>保障应募<\/span>/);
+  assert.match(dashboardSource, /<span>\{tr\("rescue"\)\}<\/span>/);
+  assert.match(dashboardSource, /rescue: "保障应募"/);
   assert.match(dashboardSource, /Music 只算中签张数（落选、失效不用付款）；Meets 用自己买的碟应募的中没中都算，保障应募不重复计费/);
   assert.match(dashboardSource, /没收录的单曲用同步时官方页面的販売価格/);
   assert.match(dashboardSource, /落选金额计入支付合计及成员排行/);

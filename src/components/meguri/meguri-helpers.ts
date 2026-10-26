@@ -420,6 +420,23 @@ function buildBreakdown(
     ));
 }
 
+/** The results 中签率 counts: lotteries with an outcome, in tickets (サイン会 and その他 are not counted in tickets). */
+export function isMiguriLotteryResult(entry: DashboardEntryLike) {
+  const category = dashboardCategory(entry);
+  return category !== 'サイン会'
+    && category !== 'その他'
+    && entry.status !== 'planned'
+    && Boolean(entry.appliedTickets || entry.wonTickets || entry.source === 'manual');
+}
+
+/** Applied / won tickets of one such result: the dashboard totals and the share card's member list both add these up. */
+export function lotteryResultCounts(entry: DashboardEntryLike) {
+  return {
+    applied: Math.max(0, entry.appliedTickets || entry.tickets),
+    won: Math.max(0, entry.wonTickets || (entry.status === 'won' || entry.status === 'paid' ? entry.tickets : 0)),
+  };
+}
+
 export function aggregateMiguriDashboard(
   entries: DashboardEntryLike[],
   today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }),
@@ -513,22 +530,9 @@ export function aggregateMiguriDashboard(
         )),
     }));
 
-  const eligibleResults = entries.filter((entry) => {
-    const category = dashboardCategory(entry);
-    return category !== 'サイン会'
-      && category !== 'その他'
-      && entry.status !== 'planned'
-      && (entry.appliedTickets || entry.wonTickets || entry.source === 'manual');
-  });
-  const totalApplied = eligibleResults.reduce((sum, entry) => (
-    sum + Math.max(0, entry.appliedTickets || entry.tickets)
-  ), 0);
-  const totalWon = eligibleResults.reduce((sum, entry) => (
-    sum + Math.max(
-      0,
-      entry.wonTickets || (entry.status === 'won' || entry.status === 'paid' ? entry.tickets : 0),
-    )
-  ), 0);
+  const eligibleResults = entries.filter(isMiguriLotteryResult);
+  const totalApplied = eligibleResults.reduce((sum, entry) => sum + lotteryResultCounts(entry).applied, 0);
+  const totalWon = eligibleResults.reduce((sum, entry) => sum + lotteryResultCounts(entry).won, 0);
   const totalLapsed = eligibleResults.reduce((sum, entry) => sum + Math.max(0, entry.lapsedTickets || 0), 0);
   const totalPaidSpendYen = Array.from(categorySpend.values()).reduce((sum, value) => sum + value, 0);
   const memberBreakdown = buildBreakdown(memberTickets, memberSpend);

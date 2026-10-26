@@ -19,6 +19,8 @@ import {
   X,
 } from 'lucide-react';
 import SoldOutMatrix from './SoldOutMatrix';
+import { useLanguage } from '@/i18n/use-language';
+import { miguriTranslator } from '@/i18n/miguri';
 import LotteryAnalysisPanel from './LotteryAnalysisPanel';
 import CalendarSubscriptionModal from './CalendarSubscriptionModal';
 import MiguriDashboard, { type MiguriAutoImportState } from './MiguriDashboard';
@@ -245,6 +247,8 @@ function CalendarEntryCard({
 }
 
 export default function MeguriPrototype() {
+  // Dashboard and header follow 日本語 (2026-10-26); the 管理 tab and import / calendar modals are still Chinese.
+  const tr = miguriTranslator(useLanguage());
   const [events, setEvents] = useState<MiguriEvent[]>([]);
   const [entries, setEntries] = useState<MiguriEntry[]>([]);
   const [pendingDrafts, setPendingDrafts] = useState<PendingMeguriDraft[]>([]);
@@ -749,7 +753,7 @@ export default function MeguriPrototype() {
   }
 
   if (isLoading) {
-    return <div className="mx-auto max-w-[1600px] px-4 py-16 text-center text-sm text-[var(--text-tertiary)]">Miguri 数据加载中…</div>;
+    return <div className="mx-auto max-w-[1600px] px-4 py-16 text-center text-sm text-[var(--text-tertiary)]">{tr('loading')}</div>;
   }
 
   if (!selectedEvent) {
@@ -757,7 +761,7 @@ export default function MeguriPrototype() {
       <div className="mx-auto max-w-[1600px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2">
           <Sparkles size={16} className="text-[var(--text-tertiary)]" />
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">咪咕力管理</h1>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{tr('title')}</h1>
         </div>
         {error ? <p className="text-sm text-rose-600">{error}</p> : null}
         <MiguriDashboard
@@ -772,7 +776,7 @@ export default function MeguriPrototype() {
     <div className="mx-auto max-w-[1600px] space-y-6 px-4 py-6 sm:px-6 lg:px-8">
       <div className="hidden items-center gap-2 lg:flex">
         <Sparkles size={16} className="text-[var(--text-tertiary)]" />
-        <h1 className="text-2xl font-bold text-[var(--text-primary)]">咪咕力管理</h1>
+        <h1 className="text-2xl font-bold text-[var(--text-primary)]">{tr('title')}</h1>
       </div>
       {notice ? <p className="text-sm text-emerald-600">{notice}</p> : null}
       {error ? <p className="text-sm text-rose-600">{error}</p> : null}
@@ -951,7 +955,7 @@ export default function MeguriPrototype() {
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     <h2 className="break-words whitespace-pre-wrap text-base font-black leading-snug text-[var(--text-primary)] sm:text-2xl lg:text-3xl">
-                      {activeTab === 'dashboard' ? '我的 Miguri Dashboard' : selectedEvent.title}
+                      {activeTab === 'dashboard' ? tr('dashboardTitle') : selectedEvent.title}
                     </h2>
                     {activeTab !== 'dashboard' ? (
                       <span
@@ -977,20 +981,20 @@ export default function MeguriPrototype() {
                       </>
                     ) : (
                       <span className="text-xs leading-5 text-[var(--text-tertiary)]">
-                        自动汇总 Music / Meets 履历、下一站与每一部口数
+                        {tr('dashboardIntro')}
                       </span>
                     )}
                     <button
                       type="button"
                       onClick={() => setShowCalendarSubscription(true)}
                       className="flex min-h-11 items-center gap-1 text-[11px] font-medium text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] sm:gap-1.5 sm:text-xs"
-                      title="订阅 Miguri 日历"
+                      title={tr('calendarTitle')}
                     >
-                      <CalendarDays size={12} className="sm:h-[14px] sm:w-[14px]" /> 日历订阅
+                      <CalendarDays size={12} className="sm:h-[14px] sm:w-[14px]" /> {tr('calendar')}
                     </button>
                     <div className="hidden h-3 w-[1px] bg-[var(--border-secondary)] sm:block" />
                     <button onClick={() => setShowImportModal(true)} className="flex min-h-11 items-center gap-1 text-[11px] font-medium text-sky-600 hover:text-sky-700 sm:gap-1.5 sm:text-xs">
-                      <ClipboardList size={12} className="sm:h-[14px] sm:w-[14px]" /> 批量导入
+                      <ClipboardList size={12} className="sm:h-[14px] sm:w-[14px]" /> {tr('bulkImport')}
                     </button>
                   </div>
                 </div>
@@ -1019,7 +1023,7 @@ export default function MeguriPrototype() {
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                <ClipboardList size={13} /> 个握管理
+                <ClipboardList size={13} /> {tr('tabManage')}
               </button>
               <button
                 type="button"
@@ -1030,7 +1034,7 @@ export default function MeguriPrototype() {
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                <BarChart3 size={13} /> 个握完售
+                <BarChart3 size={13} /> {tr('tabSoldout')}
               </button>
               <button
                 type="button"
@@ -1041,7 +1045,7 @@ export default function MeguriPrototype() {
                     : 'text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]'
                 }`}
               >
-                <Ticket size={13} /> 全握分析
+                <Ticket size={13} /> {tr('tabLottery')}
               </button>
             </div>
 
