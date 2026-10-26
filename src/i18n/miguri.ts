@@ -13,6 +13,8 @@ const zh = {
   tabSoldout: "个握完售",
   tabLottery: "全握分析",
   loading: "Miguri 数据加载中…",
+  loadFailed: "活动数据加载失败",
+  loggedOut: "登录状态已失效。请先重新登录 46log，再同步履历；未登录时私人 D1 内容不会显示。",
 
   never: "未同步",
   justNow: "刚刚",
@@ -179,6 +181,8 @@ const ja: Record<MiguriText, string> = {
   tabSoldout: "完売状況",
   tabLottery: "全握分析",
   loading: "ミーグリのデータを読み込み中…",
+  loadFailed: "イベント情報を読み込めませんでした",
+  loggedOut: "ログイン状態が切れています。46log にログインし直してから履歴を同期してください。ログインしていない間、自分の記録は表示されません。",
 
   never: "未同期",
   justNow: "たった今",

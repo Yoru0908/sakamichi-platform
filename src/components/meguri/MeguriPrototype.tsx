@@ -306,7 +306,7 @@ export default function MeguriPrototype() {
       if (!mounted) return;
 
       if (!res.success || !res.data) {
-        setError(res.message || res.error || '活动数据加载失败');
+        setError(res.message || res.error || tr('loadFailed'));
         setEvents([]);
         setEntries([]);
         setFavorites([]);
@@ -315,7 +315,7 @@ export default function MeguriPrototype() {
       }
 
       if (!authResult.success || !authResult.data?.user) {
-        setError('登录状态已失效。请先重新登录 46log，再同步履历；未登录时私人 D1 内容不会显示。');
+        setError(tr('loggedOut'));
       }
 
       let loadedEntries = res.data.entries || [];
