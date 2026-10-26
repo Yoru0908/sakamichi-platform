@@ -20,6 +20,11 @@ export interface Env {
   RESEND_API_KEY: string;
   GEO_PASS_SECRET: string;
   KOFI_VERIFICATION_TOKEN: string;
+  /** 46log 活跃度 (routes/activity.ts): Analytics Engine dataset, readers' user ids, SQL API account + read token (secret). */
+  ACTIVITY?: AnalyticsEngineDataset;
+  ACTIVITY_VIEWER_IDS?: string;
+  CF_ACCOUNT_ID?: string;
+  CF_ANALYTICS_TOKEN?: string;
 }
 
 export interface UserRow {
