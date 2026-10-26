@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import MeguriPrototype from '@/components/meguri/MeguriPrototype';
+import { t } from '@/i18n';
 ---
 
-<BaseLayout title="咪咕力管理 - Sakamichi Tools" description="Fortune Music 咪咕力活动管理 - 报名记录、个握历史完售、日历订阅与排队监控">
+<BaseLayout title={t('miguri.page_title')} titleKey="miguri.page_title" description={t('miguri.description')} descriptionKey="miguri.description">
   <MeguriPrototype client:load />
 </BaseLayout>

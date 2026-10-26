@@ -221,8 +221,7 @@ export function getCellRound(
   return member.cells.get(`${date}::${slot}`) ?? null;
 }
 
-export function formatDateShort(dateStr: string): string {
+export function formatDateShort(dateStr: string, weekdays: readonly string[] = ['日', '月', '火', '水', '木', '金', '土']): string {
   const d = new Date(dateStr);
-  const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
   return `${d.getMonth() + 1}/${d.getDate()}(${weekdays[d.getDay()]})`;
 }

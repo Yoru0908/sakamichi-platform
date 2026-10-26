@@ -15,6 +15,9 @@ import {
   type MiguriGroupId,
 } from '@/utils/auth-api';
 import { resolveFortuneMeetsSource } from './meguri-helpers';
+import { useLanguage } from '@/i18n/use-language';
+import { soldOutTranslator, type SoldOutTranslate } from '@/i18n/miguri-soldout';
+import type { Language } from '@/stores/language';
 
 type TicketLedger = {
   owned: number;
@@ -22,10 +25,8 @@ type TicketLedger = {
   planned: number;
 };
 
-const MODE_LABEL: Record<FortuneMeetsMode, string> = {
-  real: 'リアルミーグリ',
-  online: 'オンラインミーグリ',
-};
+const modeLabel = (st: SoldOutTranslate, mode: FortuneMeetsMode) => st(mode === 'real' ? 'modeReal' : 'modeOnline');
+const DATE_LOCALE: Record<Language, string> = { zh: 'zh-CN', ja: 'ja-JP', en: 'en-US' };
 
 const THEME = {
   sakurazaka: {
@@ -107,7 +108,7 @@ function memberClosedSet(award: FortuneMeetsAwardAnalysis, member: string) {
   return set;
 }
 
-function AwardMatrix({ award, theme }: { award: FortuneMeetsAwardAnalysis; theme: Theme }) {
+function AwardMatrix({ award, theme, st }: { award: FortuneMeetsAwardAnalysis; theme: Theme; st: SoldOutTranslate }) {
   const slotGroups = useMemo(() => groupSlotsByDate(award), [award]);
   const slots = award.slots;
   const topMembers = award.memberSummaries;
@@ -116,10 +117,10 @@ function AwardMatrix({ award, theme }: { award: FortuneMeetsAwardAnalysis; theme
     <div className="space-y-4">
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {[
-          { label: '关闭枠', value: `${award.closedCells}/${award.totalCells}` },
-          { label: '关闭率', value: `${award.closedRate}%` },
-          { label: '成员/组合', value: award.members.length },
-          { label: '日程/部', value: `${slotGroups.length}/${slots.length}` },
+          { label: st('closedCells'), value: `${award.closedCells}/${award.totalCells}` },
+          { label: st('closedRate'), value: `${award.closedRate}%` },
+          { label: st('membersUnits'), value: award.members.length },
+          { label: st('datesSlots'), value: `${slotGroups.length}/${slots.length}` },
         ].map((item) => (
           <div key={item.label} className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-3">
             <div className="text-[11px] font-medium text-[var(--text-tertiary)]">{item.label}</div>
@@ -136,7 +137,7 @@ function AwardMatrix({ award, theme }: { award: FortuneMeetsAwardAnalysis; theme
                 className="sticky left-0 z-10 w-40 border-b border-r px-3 py-2 text-left font-bold"
                 style={{ backgroundColor: theme.headerBg, borderColor: 'rgba(0,0,0,0.08)' }}
               >
-                成员
+                {st('member')}
               </th>
               {slotGroups.map(([date, dateSlots]) => (
                 <th
@@ -153,7 +154,7 @@ function AwardMatrix({ award, theme }: { award: FortuneMeetsAwardAnalysis; theme
                 className="w-20 border-b px-3 py-2 text-right font-bold"
                 style={{ borderColor: 'rgba(0,0,0,0.08)' }}
               >
-                关闭
+                {st('closed')}
               </th>
             </tr>
             <tr style={{ backgroundColor: theme.accentBg, color: '#777' }}>
@@ -211,7 +212,7 @@ function AwardMatrix({ award, theme }: { award: FortuneMeetsAwardAnalysis; theme
   );
 }
 
-function TicketLedgerPanel({ eventId, theme }: { eventId: string; theme: Theme }) {
+function TicketLedgerPanel({ eventId, theme, st }: { eventId: string; theme: Theme; st: SoldOutTranslate }) {
   const [ledger, setLedger] = useState<TicketLedger>(() => loadLedger(eventId));
 
   useEffect(() => {
@@ -224,16 +225,16 @@ function TicketLedgerPanel({ eventId, theme }: { eventId: string; theme: Theme }
 
   const remaining = Math.max(0, ledger.owned - ledger.used - ledger.planned);
   const fields: Array<{ key: keyof TicketLedger; label: string }> = [
-    { key: 'owned', label: '持有券数' },
-    { key: 'planned', label: '计划投入' },
-    { key: 'used', label: '已消耗' },
+    { key: 'owned', label: st('owned') },
+    { key: 'planned', label: st('planned') },
+    { key: 'used', label: st('used') },
   ];
 
   return (
     <div className="rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-primary)] p-4">
       <div className="flex items-center gap-2">
         <Ticket size={16} style={{ color: theme.accent }} />
-        <h3 className="text-sm font-bold text-[var(--text-primary)]">応募券管理</h3>
+        <h3 className="text-sm font-bold text-[var(--text-primary)]">{st('ticketLedger')}</h3>
       </div>
       <div className="mt-3 grid gap-3 sm:grid-cols-4">
         {fields.map((field) => (
@@ -256,7 +257,7 @@ function TicketLedgerPanel({ eventId, theme }: { eventId: string; theme: Theme }
           className="rounded-xl border px-3 py-2"
           style={{ borderColor: theme.accentBg, backgroundColor: theme.accentBg }}
         >
-          <div className="text-[11px] font-medium" style={{ color: theme.accent }}>剩余可分配</div>
+          <div className="text-[11px] font-medium" style={{ color: theme.accent }}>{st('remaining')}</div>
           <div className="mt-1 text-xl font-black" style={{ color: theme.accent }}>{remaining}</div>
         </div>
       </div>
@@ -270,6 +271,7 @@ type Props = {
 };
 
 export default function LotteryAnalysisPanel({ group, eventTitle }: Props) {
+  const lang = useLanguage(), st = soldOutTranslator(lang);
   const [data, setData] = useState<FortuneMeetsLotteryPayload | null>(null);
   const [mode, setMode] = useState<FortuneMeetsMode>('real');
   const [loading, setLoading] = useState(true);
@@ -283,14 +285,14 @@ export default function LotteryAnalysisPanel({ group, eventTitle }: Props) {
     setLoading(true);
     setError('');
     if (!source) {
-      setError('当前活动标题无法匹配对应的 forTUNE meets 全握数据');
+      setError(st('noSource'));
       setData(null);
       setLoading(false);
       return;
     }
     const res = await getMiguriLottery(source.artist, source.event);
     if (!res.success || !res.data) {
-      setError(res.message || res.error || '全握数据加载失败');
+      setError(res.message || res.error || st('lotteryFailed'));
       setData(null);
       setLoading(false);
       return;
@@ -312,7 +314,7 @@ export default function LotteryAnalysisPanel({ group, eventTitle }: Props) {
     return (
       <div className="flex items-center gap-2 rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)] p-4 text-sm text-[var(--text-secondary)]">
         <Loader2 size={16} className="animate-spin" />
-        全握データ加载中…
+        {st('lotteryLoading')}
       </div>
     );
   }
@@ -320,7 +322,7 @@ export default function LotteryAnalysisPanel({ group, eventTitle }: Props) {
   if (error || !data || !award) {
     return (
       <div className="rounded-2xl border border-rose-100 bg-rose-50 p-4 text-sm text-rose-600">
-        {error || '没有可用的全握分析数据'}
+        {error || st('noLottery')}
       </div>
     );
   }
@@ -334,7 +336,7 @@ export default function LotteryAnalysisPanel({ group, eventTitle }: Props) {
               className="rounded-full px-3 py-1 text-xs font-bold"
               style={{ backgroundColor: theme.accentBg, color: theme.accent }}
             >
-              全国ミーグリ / 応募抽選
+              {st('lotteryBadge')}
             </span>
             <span className="text-xs font-medium text-[var(--text-tertiary)]">{data.artistName}</span>
           </div>
@@ -343,7 +345,7 @@ export default function LotteryAnalysisPanel({ group, eventTitle }: Props) {
             <a href={data.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:text-[var(--text-secondary)]">
               ticket.fortunemeets.app <ExternalLink size={12} />
             </a>
-            <span>更新 {new Date(data.updatedAt).toLocaleString('zh-CN', { timeZone: 'Asia/Tokyo' })}</span>
+            <span>{st('updatedAt', { when: new Date(data.updatedAt).toLocaleString(DATE_LOCALE[lang], { timeZone: 'Asia/Tokyo' }) })}</span>
           </div>
         </div>
         <button
@@ -351,7 +353,7 @@ export default function LotteryAnalysisPanel({ group, eventTitle }: Props) {
           onClick={() => void load()}
           className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-[var(--border-primary)] bg-[var(--bg-primary)] px-3 text-xs font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
         >
-          <RefreshCcw size={14} /> 更新
+          <RefreshCcw size={14} /> {st('refresh')}
         </button>
       </div>
 
@@ -373,13 +375,13 @@ export default function LotteryAnalysisPanel({ group, eventTitle }: Props) {
             } : undefined}
           >
             <Users size={15} />
-            {MODE_LABEL[item.mode]}
+            {modeLabel(st, item.mode)}
           </button>
         ))}
       </div>
 
-      <AwardMatrix award={award} theme={theme} />
-      <TicketLedgerPanel eventId={data.eventId} theme={theme} />
+      <AwardMatrix award={award} theme={theme} st={st} />
+      <TicketLedgerPanel eventId={data.eventId} theme={theme} st={st} />
     </div>
   );
 }

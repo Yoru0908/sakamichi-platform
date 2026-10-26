@@ -99,12 +99,11 @@ function clampMeetsDiscount(value: number) {
   return Math.max(0, Math.min(30, Number.isFinite(value) ? value : 0));
 }
 
-function displayDate(date: string) {
-  const weekday = new Intl.DateTimeFormat("ja-JP", {
-    weekday: "short",
-    timeZone: "Asia/Tokyo",
-  }).format(new Date(`${date}T00:00:00+09:00`));
-  return `${date}（${weekday}）`;
+/** 2026-11-15（日） in zh / ja, 2026-11-15 (Sun) in en. The date string is already a JST calendar date. */
+function displayDate(date: string, tr: MiguriTranslate) {
+  const names = tr("weekdays");
+  const weekday = (names.includes(",") ? names.split(",") : [...names])[new Date(`${date}T00:00:00Z`).getUTCDay()];
+  return tr("dateWithWeekday", { date, weekday });
 }
 
 function formatYen(value: number) {
@@ -1167,7 +1166,7 @@ export default function MiguriDashboard({
           <div className="divide-y divide-[var(--border-primary)]">
             <div className="px-4 py-5 sm:px-6">
               <h2 className="text-xl font-bold tracking-tight text-[var(--text-primary)] sm:text-2xl">
-                {displayDate(nextStop.date)}
+                {displayDate(nextStop.date, tr)}
               </h2>
               <p className="mt-1 text-sm text-[var(--text-secondary)]">
                 {nextStop.venues.length > 0
@@ -1217,7 +1216,7 @@ export default function MiguriDashboard({
                       className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between"
                     >
                       <span className="text-sm font-semibold text-[var(--text-primary)]">
-                        {displayDate(stop.date)}
+                        {displayDate(stop.date, tr)}
                       </span>
                       <span className="text-xs text-[var(--text-secondary)]">
                         {stop.rows

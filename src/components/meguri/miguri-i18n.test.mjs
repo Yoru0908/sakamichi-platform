@@ -4,8 +4,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { miguriMessages } from '../../i18n/miguri.ts';
 import { manageMessages } from '../../i18n/miguri-manage.ts';
+import { calendarMessages } from '../../i18n/miguri-calendar.ts';
+import { soldOutMessages } from '../../i18n/miguri-soldout.ts';
+import { extra } from '../../i18n/extra.ts';
 
-const TABLES = { miguri: miguriMessages, manage: manageMessages };
+const pick = (table) => Object.fromEntries(Object.entries(table).filter(([key]) => key.startsWith('miguri.')));
+const TABLES = {
+  miguri: miguriMessages, manage: manageMessages, calendar: calendarMessages, soldOut: soldOutMessages,
+  pages: { zh: pick(extra.zh), ja: pick(extra.ja), en: pick(extra.en) },
+};
 const SIMPLIFIED_ONLY = /[张签选应员类录图击额单这们为发设计总览时户载销组价划没给从启开关闭显检历轮团该择并转换导续剩态]/;
 const ALLOWED_IN_EN = ['山川 宇衣', '【6/27 第2部】', '【6/14 第5部】', '櫻坂46', '乃木坂46', '日向坂46', '円', '個', 'お申込み内容', '販売価格'];
 const CJK = /[぀-ヿ㐀-鿿＀-￯]/;
