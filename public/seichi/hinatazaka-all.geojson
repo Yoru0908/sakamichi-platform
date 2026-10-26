@@ -147947,6 +147947,337 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -9.3906089,
+          38.7875851
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b6f4c8e6b6b603e3e226",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b6f4c8e6b6b603e3e226",
+        "name": "ペーナ宮殿",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ペーナ宮殿",
+        "sceneNote": "題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjreMVrT9RXmpH63TqR986sRtaKK4IuLYIUt78Rt5LMTBSjOhugl3MM2jw3xaG6rI_TdC2Lqz2OxsuitEmK0AJh72N85CDQRoLcusXNcO9L5bzU3WzeR6H2gzbhIWbYYZSu_XvqlzBpfwzKdPjq9g7PYcgUD5ingPHBDGkk40zCTajX91YaeqorCU9AtFBLJR9dh1FIvIGX0mAa-XOuwSkxSBw3YiKIjwL7ufkcjlWuhpWimjqA2rqCI10%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "ペーナ宮殿",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.3960244,
+          38.7963069
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fd0684d4018d919986e9",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fd0684d4018d919986e9",
+        "name": "レガレイラ宮殿",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "レガレイラ宮殿",
+        "sceneNote": "題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhuLnMmBFjyVF0CLhsiMgPo6Prq6uKCPP-G4f_YpjOeevpf5aKReO18dz-beCkR6udHMNHceBIxP5JSwJP5ThkdQLaFOnjfNfOw56F1ZqWhjeNQnjM9wRbcgV2Jz45XdxsIhG54K-Ur4Vo7ETOAYP75jN8RVSlFqiX-xikvPgSjm-9PnjW_-X1RCxK5KctgMhvQLh_E4ZVMWAdyMA4ilhS6rqlTegYfCcOtFK5FP1kO2P0vZYWSLlNQhR4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjYhNANjl62n5y0GqUH4w-_TZ6_xOtmD6zKiDX5f7PXeLGGVsl0GCRQrxCIRaZ30W2QbbscHGdi1KP9eItu3fZJ1BbxncTLAAbssepHiLO39aTaiuMsgOZQEregj11rydTrI9GNdPaTDrKATalCy0O5XKZZmaknpCRUMzBHtg7Y-ceDcv-G-EsebV7i3vFDvmlQ_46rqz-Ln3zBK7khsasBLPOBrxDbbcbi9Ri07WBP19TQWGYuWC9Hlag%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "レガレイラ宮殿",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.2159773,
+          38.6915837
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7a354cb4e654357e1d6e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7a354cb4e654357e1d6e",
+        "name": "ベレンの塔",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ベレンの塔",
+        "sceneNote": "題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgAxEQOZ4yXuRcUAqkukkHPQPn0uX15zn_F1rwhtcyVwlUcmvynvMU-vl6K6rSMi23E2XtQ77GUW62UwPXDtZRJwjFBd5B11Kio-wt5gZBGX7Of8ez4Q4PKiJyp3Oumf7-nPmgotTt9beLzOhIU_Aq_dfydNeb95WlGw8TjWWFj95AH03K5YmfvOWewCd0R6mbmOny2hRP9Pe9CuSl7gCHJs1_UgVkJkEUuWhgv4XHL2mUTY0fq_pntWEo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "ベレンの塔",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.4988889,
+          38.7802778
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04e928605140724a0ae4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:04e928605140724a0ae4",
+        "name": "ロカ岬",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ロカ岬",
+        "sceneNote": "題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiWI9k2zqC9_StgN0NRHIn4iY1NKJ7dAcQZbsT16uLhcPPrJM5casaYXeJoXC6SvoFR7BNRuKAagUQEt5J6EMvPN4HeNpvwUAJN5pCfiXU3I5DXTlcR3m6vfFcj1Zrfzt2w60BTJ0VjkA0v98zDJB_Pbias_wVdACJMNPllSNDw8lhRqk2HWjYl6BfUfRVChxp9C9dhCR_zaf67CduR1eL_2pLspQe7525FxZWomAhyLQczDR95-55sKvs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "ロカ岬",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.3959441,
+          38.7953868
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9d772b3a615223ff4d8f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9d772b3a615223ff4d8f",
+        "name": "Regaleira Tower",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Regaleira Tower",
+        "sceneNote": "題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgQZlHe1gcgBhQQDA8Xw06it81qsUkPSnpssQja-fiF7SshzgXZQNUxZpArk_IpPxNXsZYcmXZUUPKtwAOAkk74Ckcq7f8TWlR0teOGCCZkxXhr4EkInbw2-3zEKGm_AsXjBZGDnN2OOFUDS0t4C4W8TPEl0iu5fH0MkmH2zHSxz0FH-AelrTzqtuHPM1RMqChdmhzJOKZCCJZjhzHWx0npAUYVmq8KsT6Dso9-VCjcMMRvPYD6z7-9lQg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "Regaleira Tower",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.3893376,
+          38.792556
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ce79160dd18f6b8cabe0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ce79160dd18f6b8cabe0",
+        "name": "The Moorish Castle",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "The Moorish Castle",
+        "sceneNote": "題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgQz-zs2nPdBGT-QUhH4KeqUwVz1__8lIcUEOsA6EmzxFU-dr2tWjboXVluK-CwbWLKiMxgVFduMqpwohRWBlparnG0FnFSSkBDlh8qth_HeaCJQyl4S-oQcfXUBglGs0_kbSS13mU778XorlOzyEBVP6RhOEQKqqdULLkLrhwY9oO-ffNe7w2fdxoW2pSf5lcWsnGo8R_eQrBn0dxwr6wAGs8YRtXE9O8wvXXR2RgkNc-jjZ0-3oSEOFs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "The Moorish Castle",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7895617,
           35.6474237
         ]
@@ -148516,64 +148847,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.7824747,
-          35.0149956
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1085fde7d1948283dbdf",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1085fde7d1948283dbdf",
-        "name": "冷泉通",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "冷泉通",
-        "sceneNote": "2026.10.18 O.A.「バナナマンのせっかくグルメ！」で松田好花が人力車で疾走した通り。https://tver.jp/episodes/epr1ymtyll 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiupWoe0emjaAboXlYk5s8y2vs_Hviox-5Tgj2LafYFySJhuOlY3WebZ-jh8c8jrejBZv7K7F9qZoMAPmiJeNko5HollaJ1iOpsLYo6iEW1azcjLEFw_b0EFZuF1vLl3TbWY6PX1liykLKuHAz2ReCgET7rX_MgvZ2GgU3zuE2vBbzinSHyk0FRAxfmjmZ83_eV9f-nbH4ySXRcPwmJdZo1wpWnb3EIrXDNB1-VX7bwLLIB8GjzRMNVgO4%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhjt8ejTZ5x-QN0Nm1pFPRLkCCbESawXO3eIZCuuVsCPLiMu7Q6xY3WiWbh7kQtMMtrBaXY4c_WtXtb-2aAVa8Hi9IaeRIM-esxqQjVDecYgIFx6BihjnKKv4imiwB7VdSw6ez2tUWFbiSrJnflfKMEOokwQAOoLmEWgW0VhKSY5RAYzwVyURclvyV4Us21z6cXpxaXIRO9QwuzJdSa31pxaPZ61H8PrAv331LvP0tXE2VKMqxixPexqfM%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjCoNA60mp1FYVojaThuFSWHxPd1kuCWy_PTHNLgMpWmG-qpz6ueQGj8BkPKWfNEu9516jPs01NM_sWDUFArxcXFOnUmeQQv6XHp9ZLgM3ZyfFp3C9onfd71P5D1Qhwh37HlLDJPU4P-x8-WomlOIQraq690qwSWOgM9kJNMFbnXYRDsS-1F7FIhLWEElGzoet5kaOpUOqWPqin5duy2rWBfONQZ1IeaIU4J3Kk34YsnKTL58yX8xkdns4%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjGHXO2m0Z6_6NiU3vCuyLc-d4rExd7pJGkR49ABz9YpyY6DAOcLYxS_MirIzfbW3K494IHUtnje8oFnGb6IcuVMQtmaTEpx0pq2Sp1H9wz0HanvK1WLkmOBqdJJDQzdGDIXKcsDd7jfWnw5FaUrn3KmSBLNKu3oarGHV9fMiM1V9L_ziutk9AcCRr3tHueoIhsQoCIrnr1a2wO6DS7_TwSwk9p3vVVLtD3nBamg-uNYJ4tl-Qsfe5ksP0%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "冷泉通",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.6514984,
           35.510218
         ]
@@ -148634,20 +148907,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.7672108,
-          35.0156886
+          -8.6147746,
+          41.1469055
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3c7033b2b6781af72ae5",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3c7033b2b6781af72ae5",
-        "name": "進々堂 寺町店",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:24ebb8f93f2aca3a310e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:24ebb8f93f2aca3a310e",
+        "name": "レロ・イ・イルマオン",
         "category": "メンバーブログ・SNS・その他",
         "subcategory": "メンバーブログ・SNS・その他",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "進々堂 寺町店",
-        "sceneNote": "2026.10.18 O.A.「バナナマンのせっかくグルメ！」で松田好花が「めちゃくちゃ来ていた」と語ったパン屋さん。（※通っていた店舗が寺町店であるかどうかは不明）https://tver.jp/episodes/epr1ymtyll 題名:",
+        "sceneTitle": "レロ・イ・イルマオン",
+        "sceneNote": "題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -148656,13 +148929,9 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhGjLAphXLArI7GAeND4dn69IF6Nb1Lkv_hBVAhkYRiMBqxc8ukHCT55Gbcp8FtbPugR6YyG3yTtvwqschthfCFW26OTG4TbAmtCDMkTHV1kW5I7HIm4swH_ZhKXO7GG54bPnGtcdxA79to8_nR-5Nfmwf1KXD6Xv1vOE9vh0F4bLK7Ny0o0t-BNEKsV21HaqGxdPhTeh4uzljws8xGrr7JB_2F4Rq6z9M8dDTiiFiSgOPY615wf-qA4eU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjU24nGTCHA_S5PgrCTds72PP_KWQmIKZvbmF8KuTky2sqYYY9KD4G53bxRvBuCV45xCEhelp92BTba78T7t76CwCM1e_mwpZOvr1eaD13xaKK8hPtdy5lK41_uORkvaSIhb-wJBimj0ZZUwqmyhbAsG268e8ijdzca9Ac0_wb6w9ECi7QlJgKzkI74mGu_hdvNzEfi3Gs2i-JCO4kl4BwZCpfL3EqqBWsdM5qHZ93SD3pn46a_u1h7pnE%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhuZtPTkco4oRCKOwSX8Yl59GQLfweBRZGS-gyPCslrtZAAtls1cdUpMTo_MlayKIwzJLae8dAdpLP1KX9s6o6RVe4xQweF2aycHJOJjJwVDLDF7w8SMgCspfzfVhkkOM8Uub9M94H-89rNt6cOzkj1c0EcaWpDxd23Iu4WXOYVSnTb3xSdDGAKMNCxlNeCWP6PjQoC3PYmpETgPF1UKn9DUjQFDAglD3MV0vL1fagTedugP0CXbubLOUk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiHLQcaYYfIsH3ia_I0KBKcFxyQMcx7PbUv8K63ZHMD13u0uC51zQspMdpiuj5EA_Qluo_B6sW_r7qk2UgHKrxyrOR74mp6G19Ga179sYC47vRkjXeg4Y55qKqIwgYc2LDfKUFCyisGufTxf_hvZdsOwrOVXkkeA4nS4zbRfhip36BVybeFhb3gZfbz0oCRd8Lijl_0W8xsHQJxLRbW5vZHLOpuYkfYYmX8cXsfdSQlMvi60uagkF2AUGU%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjFb16ZDHTK9gOx3yHcTn7PgaWL0-9wKscleXScuvFYwoFFkGf0Cu9jC1DktJKw6TwSxttjYhXyMQugDtQxNTn0KzLUgIoHw971qgbYlDqhyXrps1cLVLCc4Ap_RrMEMaow3k88syRH0dPDL-f1yxNjpQ0q6bgcNGpt9qcVB5ogjivfUxKhUfz_szRnJRVsIEVQvG_dsTKKPARprmeZc4c1unxnlaqp7-OFDhTng3ubKmG1CFyZnRj-0Bs%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhEJg8CODL-iYBDfETGNMcJq8B8arbdl6sgbdoYm6nXMMSvGbZtW075NAN40oos3qpUNvB39GoInHU790QXTqEq4SWuqNkeGd5Dh23xrAgtru2Ux-VL1JzFyPg73t8ig0XTxSINNzb6nGSdgf_AGRLEltMxMkrJv_lP1lH6jLDtOdgbRRhzEGatFIsmBDpYPgJVYml8rYuGevqEvrXVp_lglksI40F3a12z4TT8kkDasc8OdsMQtga7kzY%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgUwh1oUWKKvDtD4YCnl72Z8p3F_ZK-u0zSLk1G-EJsZNW1yeT5oKfJ9D-BhwvPCAB1NpKoJBfefLZnjD3AMNJW_jsvI8vYz2cfbaJaI3pxZ-k0baiX-6kVV2GExZ3ivhphhWmfw6x45r6rAn15ApckumwZ3RYBWZZdk2NU9RBpbpmcqtDRxU71id5FAsKR6KsK40za8tbJPm_qPnT7KfboGGS5pG4TeOpGCcZ0r3ojk-wZ2gai2OgAe9E%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgPpD-Lf3PIft8x5Jvz1Upx3t6Zj_u6u7YywMADyvZv-b-PMk6MTTnfdkF38K0t9nhnSYhgl8y72oDb2G34JD1i2goC_urZw9qXuFR2a8nrl5UHhEJrw8LGqFIl67HzD4QYh4ZahVTQyRNcH2_-mUJCYoewn_oSnMQ_21seJmSqeBxUKhO_hXkE4P4SR93dNJuCUSZwJyE4XWJc8Xdirusot9OdfJ-NKPG-y6bMSbnwiuIS29RWFJBm2XU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi2pEVcOM12WTHrzF-YCjf2sI3cWiOMmJrpJVnCgI_wZENUTl0BMapRX_A0vLMqkjPBRCjc6pg0lpI7ESzze6Kp5sACTpdvJjC3E5Gu307e5snh8PSjyvepZh1v68NdFeCaa3N7gfgHkDqozMzERc8UxA5V6kga-BtONzm4Zken14wosBHNSI1bPdBeaSr2C67uD68xqFURtYMUdohp-1zUTPcn0fH8xbJf_wsawJH43GffzfyO2S0jxfk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh8HhANQQcL6v-_Xbzi4ACdthDgpe50mnDSNcHB3aqC-BVDEBt4NBQLLMcktROqMmfYTFDDfqK-fPwS5CJfWiTJdu7CCO96S9Nk2ndY0DmBeNOHnPwRL6HZUTUNpIugUYha6sMhcbxVX8UEVBEIBA2xjE6SQzwK-g1s6Pqk6wb8yvf1Y5pBelrUt0_Ggw5OPWZhvMcpQKYNEhlw06pF4XJzBHn6bxCZrAaNh4uYFkxVgLhYgTsE6isnnzA%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -148674,7 +148943,7 @@
             "日向坂46",
             "メンバーブログ・SNS・その他"
           ],
-          "name": "進々堂 寺町店",
+          "name": "レロ・イ・イルマオン",
           "group": "日向坂46"
         },
         "classification": {
@@ -246550,6 +246819,125 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "サンリオピューロランド",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7824747,
+          35.0149956
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1085fde7d1948283dbdf",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d6287fba857587c47b35",
+        "name": "冷泉通",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "冷泉通",
+        "sceneNote": "2026.10.18 O.A.「バナナマンのせっかくグルメ！」で松田好花が人力車で疾走した通り。https://tver.jp/episodes/epr1ymtyll",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiupWoe0emjaAboXlYk5s8y2vs_Hviox-5Tgj2LafYFySJhuOlY3WebZ-jh8c8jrejBZv7K7F9qZoMAPmiJeNko5HollaJ1iOpsLYo6iEW1azcjLEFw_b0EFZuF1vLl3TbWY6PX1liykLKuHAz2ReCgET7rX_MgvZ2GgU3zuE2vBbzinSHyk0FRAxfmjmZ83_eV9f-nbH4ySXRcPwmJdZo1wpWnb3EIrXDNB1-VX7bwLLIB8GjzRMNVgO4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhjt8ejTZ5x-QN0Nm1pFPRLkCCbESawXO3eIZCuuVsCPLiMu7Q6xY3WiWbh7kQtMMtrBaXY4c_WtXtb-2aAVa8Hi9IaeRIM-esxqQjVDecYgIFx6BihjnKKv4imiwB7VdSw6ez2tUWFbiSrJnflfKMEOokwQAOoLmEWgW0VhKSY5RAYzwVyURclvyV4Us21z6cXpxaXIRO9QwuzJdSa31pxaPZ61H8PrAv331LvP0tXE2VKMqxixPexqfM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjCoNA60mp1FYVojaThuFSWHxPd1kuCWy_PTHNLgMpWmG-qpz6ueQGj8BkPKWfNEu9516jPs01NM_sWDUFArxcXFOnUmeQQv6XHp9ZLgM3ZyfFp3C9onfd71P5D1Qhwh37HlLDJPU4P-x8-WomlOIQraq690qwSWOgM9kJNMFbnXYRDsS-1F7FIhLWEElGzoet5kaOpUOqWPqin5duy2rWBfONQZ1IeaIU4J3Kk34YsnKTL58yX8xkdns4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjGHXO2m0Z6_6NiU3vCuyLc-d4rExd7pJGkR49ABz9YpyY6DAOcLYxS_MirIzfbW3K494IHUtnje8oFnGb6IcuVMQtmaTEpx0pq2Sp1H9wz0HanvK1WLkmOBqdJJDQzdGDIXKcsDd7jfWnw5FaUrn3KmSBLNKu3oarGHV9fMiM1V9L_ziutk9AcCRr3tHueoIhsQoCIrnr1a2wO6DS7_TwSwk9p3vVVLtD3nBamg-uNYJ4tl-Qsfe5ksP0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "冷泉通",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7672108,
+          35.0156886
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3c7033b2b6781af72ae5",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a974cac84d7f11d081a7",
+        "name": "進々堂 寺町店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "進々堂 寺町店",
+        "sceneNote": "2026.10.18 O.A.「バナナマンのせっかくグルメ！」で松田好花が「めちゃくちゃ来ていた」と語ったパン屋さん。（※通っていた店舗が寺町店であるかどうかは不明）https://tver.jp/episodes/epr1ymtyll",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhGjLAphXLArI7GAeND4dn69IF6Nb1Lkv_hBVAhkYRiMBqxc8ukHCT55Gbcp8FtbPugR6YyG3yTtvwqschthfCFW26OTG4TbAmtCDMkTHV1kW5I7HIm4swH_ZhKXO7GG54bPnGtcdxA79to8_nR-5Nfmwf1KXD6Xv1vOE9vh0F4bLK7Ny0o0t-BNEKsV21HaqGxdPhTeh4uzljws8xGrr7JB_2F4Rq6z9M8dDTiiFiSgOPY615wf-qA4eU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjU24nGTCHA_S5PgrCTds72PP_KWQmIKZvbmF8KuTky2sqYYY9KD4G53bxRvBuCV45xCEhelp92BTba78T7t76CwCM1e_mwpZOvr1eaD13xaKK8hPtdy5lK41_uORkvaSIhb-wJBimj0ZZUwqmyhbAsG268e8ijdzca9Ac0_wb6w9ECi7QlJgKzkI74mGu_hdvNzEfi3Gs2i-JCO4kl4BwZCpfL3EqqBWsdM5qHZ93SD3pn46a_u1h7pnE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhuZtPTkco4oRCKOwSX8Yl59GQLfweBRZGS-gyPCslrtZAAtls1cdUpMTo_MlayKIwzJLae8dAdpLP1KX9s6o6RVe4xQweF2aycHJOJjJwVDLDF7w8SMgCspfzfVhkkOM8Uub9M94H-89rNt6cOzkj1c0EcaWpDxd23Iu4WXOYVSnTb3xSdDGAKMNCxlNeCWP6PjQoC3PYmpETgPF1UKn9DUjQFDAglD3MV0vL1fagTedugP0CXbubLOUk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiHLQcaYYfIsH3ia_I0KBKcFxyQMcx7PbUv8K63ZHMD13u0uC51zQspMdpiuj5EA_Qluo_B6sW_r7qk2UgHKrxyrOR74mp6G19Ga179sYC47vRkjXeg4Y55qKqIwgYc2LDfKUFCyisGufTxf_hvZdsOwrOVXkkeA4nS4zbRfhip36BVybeFhb3gZfbz0oCRd8Lijl_0W8xsHQJxLRbW5vZHLOpuYkfYYmX8cXsfdSQlMvi60uagkF2AUGU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjFb16ZDHTK9gOx3yHcTn7PgaWL0-9wKscleXScuvFYwoFFkGf0Cu9jC1DktJKw6TwSxttjYhXyMQugDtQxNTn0KzLUgIoHw971qgbYlDqhyXrps1cLVLCc4Ap_RrMEMaow3k88syRH0dPDL-f1yxNjpQ0q6bgcNGpt9qcVB5ogjivfUxKhUfz_szRnJRVsIEVQvG_dsTKKPARprmeZc4c1unxnlaqp7-OFDhTng3ubKmG1CFyZnRj-0Bs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhEJg8CODL-iYBDfETGNMcJq8B8arbdl6sgbdoYm6nXMMSvGbZtW075NAN40oos3qpUNvB39GoInHU790QXTqEq4SWuqNkeGd5Dh23xrAgtru2Ux-VL1JzFyPg73t8ig0XTxSINNzb6nGSdgf_AGRLEltMxMkrJv_lP1lH6jLDtOdgbRRhzEGatFIsmBDpYPgJVYml8rYuGevqEvrXVp_lglksI40F3a12z4TT8kkDasc8OdsMQtga7kzY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgUwh1oUWKKvDtD4YCnl72Z8p3F_ZK-u0zSLk1G-EJsZNW1yeT5oKfJ9D-BhwvPCAB1NpKoJBfefLZnjD3AMNJW_jsvI8vYz2cfbaJaI3pxZ-k0baiX-6kVV2GExZ3ivhphhWmfw6x45r6rAn15ApckumwZ3RYBWZZdk2NU9RBpbpmcqtDRxU71id5FAsKR6KsK40za8tbJPm_qPnT7KfboGGS5pG4TeOpGCcZ0r3ojk-wZ2gai2OgAe9E%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "進々堂 寺町店",
           "group": "日向坂46"
         },
         "classification": {
