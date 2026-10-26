@@ -125,6 +125,8 @@ const zh = {
   cancel: "取消",
   importing: "导入中…",
   confirmImport: "确认导入 ({n} 条)",
+  extSyncing: "同步中",
+  extConnectFailed: "扩展连接失败",
 } as const;
 
 export type ManageText = keyof typeof zh;
@@ -253,6 +255,8 @@ const ja: Record<ManageText, string> = {
   cancel: "キャンセル",
   importing: "取り込み中…",
   confirmImport: "取り込む（{n}件）",
+  extSyncing: "同期中",
+  extConnectFailed: "拡張機能に接続できませんでした",
 };
 
 const en: Record<ManageText, string> = {
@@ -379,6 +383,8 @@ const en: Record<ManageText, string> = {
   cancel: "Cancel",
   importing: "Importing…",
   confirmImport: "Import ({n})",
+  extSyncing: "Syncing",
+  extConnectFailed: "Could not connect to the extension",
 };
 
 export const manageMessages = { zh, ja, en };
