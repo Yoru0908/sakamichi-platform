@@ -247123,6 +247123,188 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          135.7671737,
+          35.0137917
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9eb17473df5d267e471d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9eb17473df5d267e471d",
+        "name": "寺町通(古美術ながた前)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "寺町通(古美術ながた前)",
+        "sceneNote": "2026.10.18 O.A.「バナナマンのせっかくグルメ！」で松田好花とずん飯尾さんが謎のオブジェを発見した場所。https://tver.jp/episodes/epr1ymtyll",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiukYduyfqJ99vJlwxyT0OzIqIQXOKZStm2haCobQv0fr50a0A-ODM2oOO7oruvWKHTrEAGY4Xl_3lng6iT3d-OUQ47uZrZVLM_WEvbaXMdBjis9Z3FMelV4G4kj7dmLQWSnV-JIXdcByq_uiYMsfMH0n_5T-OXENIKlbzet6Z1ZSPhFdwsUkJ5ToB93hddDRpslGOT7-RRpVj_Y-pgazhqOHVZfYXxSLAw7JXHy3ZkjZBTkHAOB_I9G9U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhFYNABDWTjnF2GItRqEZLVz0AMMldHaSy1swYrZ2rGJCiwysc0wKZBy5T2a6GqL_KLUD4_QRjDwxiRLqOUsQZk_pIAbPQO3xU7f7zMLzR45Bg2LUdbri-XD8Nkfpc22PkKv1fytJmRlINZCe6NlsmOdnJpyUHOei-LfI2wur-rxY6hbmJqkNBjN-fEAYpymuekCG-RcgM3tLdOEofltk9UeDP9dZFPkwyTKLSsFy8-m5O42mXixB4eA3U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhBQ_3eIqCYT78bUinmykITccuzO9W7Ka78jG8W06Yb_4GqOkNsMZ8mPWzyLmSSPCe06y6WNcR57rD8ldTVFFmLeb7bbHG2vxdW9vEVyBtiyQEv1kPB3kR-sTBhHlEl_rene7UJTrSGnQUU-vWdBPPK47TV_heCujOaVYrnwoHs8Xu0ntSgCUqAPafOHtAdaRJxvfVL3ZQsA9EuiUiG75w03_BcvCO2XptbH3Wd2-IyR5i4X8aA69SJq3o%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "寺町通(古美術ながた前)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7679479,
+          35.0121005
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f7e62a237c5bd2b9f0ba",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f7e62a237c5bd2b9f0ba",
+        "name": "押小路通(京都市役所付近)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "押小路通(京都市役所付近)",
+        "sceneNote": "2026.10.18 O.A.「バナナマンのせっかくグルメ！」で松田好花が一個目のおすすめグルメをゲットした場所。https://tver.jp/episodes/epr1ymtyll",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg0P49mHtBkD7Mdsf0AT0zSUw3TaYQ9ULkZExHAXp-yqgxOBhdV2sfXzncuqkm6tt7zvLVJYI--q_RgmaRfBJ6IgbQJIMYtYtOVQHd9QOENCAfSdLetnhKQn7NTGMO6gm_Z-sfqcov-ER4EkfzSmE7Sqaa6F_RMlQm_RRnyYK9_2hKdvc9rJiE0ui9Jlphh-7XiAzQnyphDFRV3LpSzHpdysC5vWeIyE52PDNvRe8W6u300ogc9j9rpldY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZioT586kqBCOXyTA0Hs2ATBoRxF2sdk2gNVdXzPaG_rtY4ik1VWmd3yvqKscOVSQ_XElpD-TnOjFcMNcL3Cb3X4bAWJXs1hY9ciqf81SZfSA3Zy5VVFLaUxu4SRKisCilHivD2AvQ46o4hljvbO7Cy8iZPrDa6vdDhVOXIrgv2DAjvo33iLNJf3Dy_R78qzkvW2AswyRm61J6mqqOa91oLJaLuiA9wMrLe-wR1lKEQa0Ykp3QcK9_hKNLo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjZ1uUAM25qmQUlEw-gFQVFNG3VMgZSVVUiAFtylJP4bGlPgFB2GnPFGK0rLMuHvSMsb71fTQN8ENkxuejBL8DdNAK-5JtWuzvVFxWwPQqI-kGdV61XqCvODQPmYEbV6Dfhp__ZDewp5Ggk_Ly85D4r_ACwb-V3q3pSH-_KW0nMQYwhHDINu0kjMIcjx-w-z8hN20PE5SjoPikXO8fN2qL5esvAeTrEm-iWfbn6T_NQCqvRGYbEqXzoCj0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZje-jKLLVGdR3Z_wDT3tWlsf8-lkpwzDN2KqQvv5jL9Iyv1l0c-NP27nWJHata3wDO9XwIXyT671lsDrR8EXCPiX1ETKtDfMQp0frs_7QvIDDVGZoq2cfDbGNqaYS2fywpkdEjgby9E9KtJwoyaA4cxd3bDyY_fcuX6DogjGJ3javSbLsuE41OjO3F_RVuH7EIQjAuifMag8EPcTc-2P0AJ8nmfuY1t_9B_g0Ie41y_EUut8ghjK43SVec%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhEMgjWK1EnzEVNDPtQKE57ce6hfsJFHYmNMC7UMAI0ZCtn2uNLY80p4AbgQtQY_VVoN_UvIj2WKTM3tnYcCEEQPLJC9tn8u73NeilzJPtDFILHxAJ9FZDNutjVOIfIL1UMTU3_wvToZ-kRbucm8ng1U0xdBiBVAf9_uZD6v_ZXwkFMKbR0oVIShEpk9CCKqeBtnapj85moITyeYDdCCVIv4zmKRLdvIXegdl9f7cnEZczxfJsayLbBP1E%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZji0VqteyMSN-w2SwkvGbUcsMbQzy7qhEsphcIy8IIObf2VkMxXe1G7rS4jdX4wTLuqEW1mOyXdDsUHWjIZZ4d4gtbDqGlCHjZJa7gJ8dUmNbOmPlecy2H7PLZPb_eCOG3S0tLSV49ABUMl181GtBp4OcIwsJYXuB5XAyuNJWe8NYA774yVhwP8ZsBAHRqegr4A4ZUrmzs09lxfXJqjf99eYU97BeGxNaRZQbPnCKBQ0s8QKN2t4N_ocZo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "押小路通(京都市役所付近)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7809899,
+          35.0287527
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f052cbfd9eacea1d2a42",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f052cbfd9eacea1d2a42",
+        "name": "ハイライト食堂 百万遍本店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ハイライト食堂 百万遍本店",
+        "sceneNote": "2026.10.18 O.A.「バナナマンのせっかくグルメ！」で松田好花が京大生に教わったジャンボチキンカツ定食のお店。https://tver.jp/episodes/epr1ymtyll",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhE8QT2cMMxnQxsCzaFsTOmj27djLmmCh-xCNv7GS4tbHwtEzHTqNeKC3o8qtmhanNxOl4dpxO4nDlmcs18EITxfNgxSBBpyHdjkbkar8qHH-AC7zZD3z-CwJXKx1v4PxcBrwd8p88V3MN17YqhvZSy-gZsyw1AzQyViT5ad6v47rFswrnEfZ6GrTw0fO2CdNZzlvtpmjK2ZriCtHVTFwfxQ1GS63p_08MOER-5fcuhF0JKJwXPSUNvl6M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjrtHxbOg7sIycMtPLVte8lsSfAcxISQSVJkwR7rwysKSmIaeVIc8WRE2TjZx4BNLpDJLXZpR0H0xeiE_KAcsrtZiWT1sccHzm48en8Ik7z88G3eOdARNnhLidUvvf3pU6ViQR3noYY5U4Woc3nQgM5Yhji4hZgkFAQoHhMcfvQN6FltZbFUW9fcObjMFcJvmxdU9vDPY3aJG40RWl-v1apOE3ZSR8m1bY2KXfL5RmSRTpmmHWypAl_-E8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjJ6b8Jn4sDE6yz9xHX6GS0Z6q0_q6j8vS_HLyMe_D7YzsM0971xgC2XLSluSEY3JuQczE7230JmS7AEQ7axQ8ACFIVLJWCoi4z_CqIpLfamZaIve3Wia8b5BWq45qwL7doEFlYp4GKxRdidMkOGKwz4eTDm9WYWEzqlH0MXddSx0rrOb0vZZa0saUF8lK7DizKbz9dW9HO_U2CI2u3-sCdazBWK4BE6WvBPqjuZA5krPDXFn8POonSJCo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj6_wguJOWZJApi1EbDhcMuWHI3sOdWQCEI0Roqz6MKwC2sPBixaroQO7klWqmIcmS9h1YMplTzoE0DLf4T1y9F6YPRBArUWlifC4ik7sZd_MVPyz8IvY0bBOwp1HDvffF1gn3VtQOfU6OncKwHD8rbfhoiVBrLp2QQlcNVt32i9ebaT4D3MtKPdruL01yzvBrqcovyNugwlwJ6ONmCvvLiKkMltORzaj1AxebdMIZNCtv9j4MoMLQQozw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZil2TVhxkL1HcMgp3SP3Ce7sP356UbpKYpQao43BrGZ0vFkTdxjar6V9t8ir7DmD8h6SICSprnQhgKvh-tg8ETCcGzChal0EDtsPHGdNkzCrlz8BoMR6rG_nc18FgmK7y8jZAzRI-EIw__392BoH6NqP7zh8VbjHH5Byan3eIcuI9hzOlbeTOVq0GccQOHSxxMxLUXVaq3xmnC-jsBnlQxwN90ri9BR71u3phhsKz67Arv9WovBLjUT884%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiI73Mnn6jfwmuLpmA5tttkWQnijS77NzNsJJ6KUanlLNsBDu7NV2SbpM_Puyh2vYtn7298Qym5Lit2CdTrxjpsY7hyh8Mu8gYfE4kAhO70Sp36f2_rF4xoI8cpNKQXFATlruy3X72Tfmw6FivLjGWnaJ2rP5JGYGJD7Gs2EFsy6kWjGnY4Qvx2cy7YU5KUXwQaWJHz-_9SDdidtTT_2jyZsZEo9UrhB1ogqo4W5zQUQXh_Mt20GvFfTUE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhV3SlTTtunc0hZPZaFVwyrVZ36cyJfEEhwFPNCSB_0b7FuP20GeaMsowQKgc3_Ib4XxgGoP0X5IvS4FjvqNmi6JR8dqOe4FlE8z4E7oTFMpl7Ko89PstaZRBr_gTlmKhV6-1mytLvY_-ZDqdo6m9D8mDXAazeARIKVA-YRWtIZmYCdnYZ0ioQVUBOAbrcrYxmHm4_nA0XC6dyJ18mH3J1agXrDlAcE4d8Ek-AuNk0fbviNUxJMtXhG7r4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgnLNsQUOFMppSMg6LX3B93WMdlUVYQ1GuV70pp18dFQR1UIwYaBBZpjrFnZtm1o7ARDjrLwZaZvySrYnjrtyPLOGgB1MvxDVEVUOFNiWjh7z_cLJPYX-A7rZR-ACWj86oMxD280vSWWpuld_1oznlwWieiu5rkCOYhAZeMTPWvBxx4JOUjvXEboj5f5VoaS14Si9O7n_uiQNuIHkCZQPX6rXkgJJ8h6yOKHAScIl9tS6UNTRTK_99aqrQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgdtjqXsuBlWJJSHOsgJggJ-ySy0u31EyLAp0j-oRqifyqkkRxK4Q7BOQdIecgfnZnRpbZpfNPuEf3LVWW_ENAYuBKcW9BCj0aLK_lVTla7CyxDtMFVGFbRPQbcifc-tJjz0OezDxoYfs4-ykd2RiM4Q3zzUkLz7dhtu5pS2r0lBFSMlAEeDMcYnxnl0drfJVqHRY2FNSO4tOhYxgtiWUOmOtFL3PtKSwqclNrGYH38TQIztRZlJlBm7XU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiZqf7A1kSt-1nNAlJgmpzJOmArVR3ui0qkW5ZnO6-zCics36u5HakoPfS7wO6zDtgg5kjBlZImFBwt4moSAEwI_uy2gXqXFPTZGl-AoQ2I664_71UV5LHKSXU2ASOzbGEuwp92bvWQM8DRLoy0sfL46B2O4718Hk3rffCPnmbkk9tx8kVIG5pdkH2rlNl3oCXISoj3Vc29Dm9ue9xBjXcUXuN6FQ94xib65ZnY7Y6zvl5jEh2yQgosjck%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgGsIHVAOzKcjrmiKTC2XI-FuEhX8WJqD9Ra6P5TRTwi_Id45PRZ75tCA2DMzlHt-R8q8fymAfWC3PvA6XxGcMDan8TAvV9yEPTbjYlufQrZqoQ23IC_jqxRlBaXd23M_7sYQKEfGE76zqbNj8FJX_9qQRUtijDxX9Iup4Dgtx_NH7bD4mkwUWKtitNTX5musppCKAwG0MU24risWzgob8GwFgQwXjFnZx3l2evYh4tBPHy5p0EEKUzaq4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ハイライト食堂 百万遍本店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.8102216,
           35.6283568
         ]
