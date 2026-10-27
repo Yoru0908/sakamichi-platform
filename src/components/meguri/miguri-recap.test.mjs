@@ -56,7 +56,7 @@ test('lives come from 参加ログ: marked, attended, that year, not 握手会 /
 
 test('recap post: no amounts, no dates', () => {
   const text = miguriRecapText(buildMiguriRecapCard({ entries, year: 2026, lives: LIVES, today: TODAY }));
-  assert.match(text, /^2026年のミーグリふりかえり\nライブ 7本 · ミーグリ 3日 · サイン会 1回\n当選 15枚 · 話した時間 約5分\n/);
+  assert.match(text, /^2026年のミーグリ振り返り\nライブ 7本 · ミーグリ 3日 · サイン会 1回\n当選 15枚 · 話した時間 約5分\n/);
   assert.doesNotMatch(text, /¥|\d{4}-\d{2}/);
-  assert.match(miguriRecapText(buildMiguriRecapCard({ entries, year: 2026, lives: null, today: TODAY })), /^2026年のミーグリふりかえり\nミーグリ 3日/);
+  assert.match(miguriRecapText(buildMiguriRecapCard({ entries, year: 2026, lives: null, today: TODAY })), /^2026年のミーグリ振り返り\nミーグリ 3日/);
 });

@@ -125,7 +125,7 @@ export default function MiguriShareDialog({ card, recapEntries, empty, years, pe
 
   const share = async () => {
     if (!image) return;
-    const result = await shareOrDownloadImage(image.blob, { filename, title: recap && year !== null ? `${year}年のふりかえり` : card.title.join(""), text });
+    const result = await shareOrDownloadImage(image.blob, { filename, title: recap && year !== null ? `${year}年の振り返り` : card.title.join(""), text });
     if (result === "downloaded") setStatus(tr("shareSaved"));
   };
   const copy = async () => setStatus((await copyText(text)) ? tr("shareCopied") : "");

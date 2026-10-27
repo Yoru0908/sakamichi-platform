@@ -340,7 +340,7 @@ const ja: Record<MiguriText, string> = {
   shareShowSpend: "金額を載せる",
   shareReroll: "別のデザインにする",
   shareModeSummary: "まとめ",
-  shareModeRecap: "年間ふりかえり",
+  shareModeRecap: "年間振り返り",
   shareRecapNote: "話した時間は1枚あたりの目安秒数から計算しています（オンライン9秒、リアミは東京約6秒・京都約8秒、サイン会は1人あたり約2分）。ライブの本数は「参加ログ」でマークしたものだけです。金額は載りません。",
   shareRecapLiveFailed: "参加ログを読み込めなかったため、ライブは「—」と表示します。",
   shareMaking: "作成中…",

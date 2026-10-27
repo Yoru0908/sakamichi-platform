@@ -1,4 +1,4 @@
-// 年間ふりかえり (2026-10-27): one year of 握手会 / ライブ / サイン会 as a 1080×1350 card, in the same styles as the まとめ card.
+// 年間振り返り (2026-10-27): one year of 握手会 / ライブ / サイン会 as a 1080×1350 card, in the same styles as the まとめ card.
 // Only what happened up to today counts, so a recap posted in December never shows a January date. Money is not on this card.
 import type { MiguriGroupId } from '@/utils/auth-api';
 import { isMiguriLotteryResult, lotteryResultCounts, entryLotteryCounts } from './meguri-helpers.ts';
@@ -104,7 +104,7 @@ const hoursOf = (minutes: number) => (minutes >= 60 ? `${Math.floor(minutes / 60
 
 export function miguriRecapText(card: MiguriRecapCard): string {
   return [
-    `${card.year}年のミーグリふりかえり`,
+    `${card.year}年のミーグリ振り返り`,
     [card.live === null ? null : `ライブ ${card.live}本`, `ミーグリ ${card.onlineDays + card.realDays}日`, card.signEvents ? `サイン会 ${card.signEvents}回` : null].filter(Boolean).join(' · '),
     `当選 ${card.won}枚 · 話した時間 約${hoursOf(card.minutes)}`,
     '#ミーグリまとめ',
@@ -143,15 +143,15 @@ export async function renderMiguriRecapImage(card: MiguriRecapCard, style: Migur
   text('46log MIGURI', PAD, 108, { size: 28, color: theme.brandColor, weight: 800 });
   text(String(card.year), W - PAD, 108, { size: 28, color: theme.muted, weight: 800, align: 'right', family: theme.num });
   const lead = `${card.year}年の`;
-  text(lead, PAD, 204, { size: 88, weight: 900, family: theme.title });
-  ctx.font = `900 88px ${theme.title}`;
-  text('ふりかえり', PAD + ctx.measureText(lead).width, 204, { size: 88, weight: 900, family: theme.title, color: theme.titleColor });
+  text(lead, PAD, 204, { size: 88, weight: 800, family: theme.title });
+  ctx.font = `800 88px ${theme.title}`;
+  text('振り返り', PAD + ctx.measureText(lead).width, 204, { size: 88, weight: 800, family: theme.title, color: theme.titleColor });
 
   // 話した時間
-  box(ctx, PAD, 244, INNER, 160, theme.radius);
+  box(ctx, PAD, 244, INNER, 170, theme.radius);
   fill();
   text('ミーグリとサイン会で話した時間（目安）', PAD + 40, 296, { size: 26, color: theme.muted });
-  text(`約 ${hoursOf(card.minutes)}`, PAD + 36, 376, { size: 84, weight: 900, family: theme.num, max: INNER - 72 });
+  text(`約${hoursOf(card.minutes)}`, PAD + 36, 386, { size: 84, weight: 800, family: theme.num, max: INNER - 72 });
 
   // 数字のタイル
   const tiles: Array<{ label: string; value: string; unit: string }> = [
@@ -166,9 +166,9 @@ export async function renderMiguriRecapImage(card: MiguriRecapCard, style: Migur
     box(ctx, x, tileY, tileW, tileH, theme.radius * 0.7);
     fill();
     text(label, x + 22, tileY + 38, { size: 22, color: theme.muted, weight: 700, max: tileW - 36 });
-    text(value, x + 22, tileY + 94, { size: 56, weight: 900, family: theme.num, max: tileW - 36 - (unit ? 30 : 0) });
+    text(value, x + 22, tileY + 94, { size: 56, weight: 800, family: theme.num, max: tileW - 36 - (unit ? 30 : 0) });
     if (unit) {
-      ctx.font = `900 56px ${theme.num}`;
+      ctx.font = `800 56px ${theme.num}`;
       const width = Math.min(ctx.measureText(value).width, tileW - 66);
       text(unit, x + 26 + width, tileY + 94, { size: 24, weight: 800, color: theme.muted });
     }
