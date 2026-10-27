@@ -96,7 +96,7 @@ export function miguriShareText(card: MiguriShareCard, showSpend: boolean): stri
     card.title.join(''),
     `応募 ${card.applied}枚 → 当選 ${card.won}枚${card.rate === null ? '' : `（当選率 ${pct(card.rate)}）`}`,
     showSpend && card.spendYen > 0 ? `支払総額 ${yen(card.spendYen)}` : null,
-    card.top ? `推しタイプ：${card.oshiType}（支出の ${pct(card.top.share)} が ${card.top.name}）` : null,
+    showSpend && card.top ? `推しタイプ：${card.oshiType}（支出の ${pct(card.top.share)} が ${card.top.name}）` : null,
     '#ミーグリまとめ',
     'https://46log.com/miguri',
   ].filter(Boolean).join('\n');
@@ -191,7 +191,7 @@ export async function renderMiguriShareImage(card: MiguriShareCard, showSpend: b
   panel(ctx, right, 724, half, 190);
   draw(ctx, '推しタイプ', right + 36, 784, { size: 28, color: MUTED });
   draw(ctx, card.oshiType, right + 36, 862, { size: 64, weight: 900, color: card.accent, max: half - 72 });
-  if (card.top) draw(ctx, `支出の ${pct(card.top.share)} が ${card.top.name}`, right + 36, 896, { size: 22, color: MUTED, weight: 600, max: half - 72 });
+  if (showSpend && card.top) draw(ctx, `支出の ${pct(card.top.share)} が ${card.top.name}`, right + 36, 896, { size: 22, color: MUTED, weight: 600, max: half - 72 });
 
   // 当選枚数ランキング
   draw(ctx, '当選枚数ランキング', PAD, 984, { size: 32, weight: 800 });
@@ -218,7 +218,8 @@ export async function renderMiguriShareImage(card: MiguriShareCard, showSpend: b
   if (!card.ranking.length) draw(ctx, '当選はまだありません', PAD, 1046, { size: 28, color: MUTED, weight: 500 });
 
   // 種類
-  if (card.categories.length > 1) {
+  // Category shares are shares of spend: with the amount hidden they would let サイン会 be back-calculated.
+  if (showSpend && card.categories.length > 1) {
     let x = PAD;
     ctx.save();
     ctx.beginPath();

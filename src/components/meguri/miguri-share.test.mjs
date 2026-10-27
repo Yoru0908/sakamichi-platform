@@ -75,6 +75,8 @@ test('post text is Japanese; the amount only when 金額を載せる is on', () 
   const withSpend = miguriShareText(year, true), without = miguriShareText(year, false);
   assert.match(withSpend, /^2026年ミーグリまとめ\n応募 38枚 → 当選 16枚（当選率 42%）\n支払総額 ¥[\d,]+\n/);
   assert.doesNotMatch(without, /¥/);
+  assert.doesNotMatch(without, /支出の/);
+  assert.match(withSpend, /支出の \d+% が /);
   assert.match(without, /#ミーグリまとめ\nhttps:\/\/46log\.com\/miguri$/);
 });
 
