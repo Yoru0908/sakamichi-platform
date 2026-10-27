@@ -85164,6 +85164,361 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6777003,
+          35.0152234
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:637d6e267636a2e801f3",
+        "sourceKey": "fumi-article:637d6e267636a2e801f3",
+        "name": "京福電気鉄道嵐山本線 嵐山駅 (嵐電嵐山駅)",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "京都府京都市右京区嵯峨天龍寺造路町",
+        "sceneTitle": "2026.10.26 櫻坂46 勝又春 かくれんぼしても1番に見つけてね blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。京都府京都市右京区嵯峨天龍寺造路町",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60119369.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60119369.html",
+        "tags": [
+          "櫻坂46",
+          "勝又春",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "勝又春"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60119369.html",
+          "mapId": "",
+          "layer": "2026.10.26 櫻坂46 勝又春 かくれんぼしても1番に見つけてね blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "勝又春",
+            "四期生"
+          ],
+          "name": "京福電気鉄道嵐山本線 嵐山駅 (嵐電嵐山駅)",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.67824,
+          35.015506
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:002b4240f4ccf90586b9",
+        "sourceKey": "fumi-article:002b4240f4ccf90586b9",
+        "name": "さくらの庭に行く階段にあるキモノフォレストのアクリルポール",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "",
+        "sceneTitle": "2026.10.26 櫻坂46 勝又春 かくれんぼしても1番に見つけてね blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60119369.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60119369.html",
+        "tags": [
+          "櫻坂46",
+          "勝又春",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "勝又春"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60119369.html",
+          "mapId": "",
+          "layer": "2026.10.26 櫻坂46 勝又春 かくれんぼしても1番に見つけてね blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "勝又春",
+            "四期生"
+          ],
+          "name": "さくらの庭に行く階段にあるキモノフォレストのアクリルポール",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.678227,
+          35.01547
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:122a864266acdff72057",
+        "sourceKey": "fumi-article:122a864266acdff72057",
+        "name": "三春滝桜",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "",
+        "sceneTitle": "2026.10.26 櫻坂46 勝又春 かくれんぼしても1番に見つけてね blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60119369.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60119369.html",
+        "tags": [
+          "櫻坂46",
+          "勝又春",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "勝又春"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60119369.html",
+          "mapId": "",
+          "layer": "2026.10.26 櫻坂46 勝又春 かくれんぼしても1番に見つけてね blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "勝又春",
+            "四期生"
+          ],
+          "name": "三春滝桜",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact",
+        "nameSource": "position"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6777003,
+          35.0152234
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:770dcdc964d3c607811c",
+        "sourceKey": "fumi-article:770dcdc964d3c607811c",
+        "name": "京福電気鉄道嵐山本線 嵐山駅 (嵐電嵐山駅)",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "京都府京都市右京区嵯峨天龍寺造路町",
+        "sceneTitle": "2026.10.26 櫻坂46 中川智尋 愛おしい日々 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。京都府京都市右京区嵯峨天龍寺造路町",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60119379.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60119379.html",
+        "tags": [
+          "櫻坂46",
+          "中川智尋",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "中川智尋"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60119379.html",
+          "mapId": "",
+          "layer": "2026.10.26 櫻坂46 中川智尋 愛おしい日々 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "中川智尋",
+            "四期生"
+          ],
+          "name": "京福電気鉄道嵐山本線 嵐山駅 (嵐電嵐山駅)",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "lookup",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.67824,
+          35.015506
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:349e03a7769005403d43",
+        "sourceKey": "fumi-article:349e03a7769005403d43",
+        "name": "さくらの庭に行く階段にあるキモノフォレストのアクリルポール",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "",
+        "sceneTitle": "2026.10.26 櫻坂46 中川智尋 愛おしい日々 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60119379.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60119379.html",
+        "tags": [
+          "櫻坂46",
+          "中川智尋",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "中川智尋"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60119379.html",
+          "mapId": "",
+          "layer": "2026.10.26 櫻坂46 中川智尋 愛おしい日々 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "中川智尋",
+            "四期生"
+          ],
+          "name": "さくらの庭に行く階段にあるキモノフォレストのアクリルポール",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.678262,
+          35.015477
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:0d3099f1db49d2d0d684",
+        "sourceKey": "fumi-article:0d3099f1db49d2d0d684",
+        "name": "階段上のベンチとアクリルポール",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "",
+        "sceneTitle": "2026.10.26 櫻坂46 中川智尋 愛おしい日々 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60119379.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60119379.html",
+        "tags": [
+          "櫻坂46",
+          "中川智尋",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "中川智尋"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60119379.html",
+          "mapId": "",
+          "layer": "2026.10.26 櫻坂46 中川智尋 愛おしい日々 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "中川智尋",
+            "四期生"
+          ],
+          "name": "階段上のベンチとアクリルポール",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
     }
   ]
 }
