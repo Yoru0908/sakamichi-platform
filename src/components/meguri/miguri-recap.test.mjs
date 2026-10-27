@@ -31,7 +31,7 @@ test('recap card: days, sign events and minutes stop at today; 当選 counts the
   assert.equal(card.signEvents, 1); // two rows, one event on one day
   assert.equal(card.won, 15); // 3 + 2 + 5 + 5 (the 12-20 win is still ahead but is a win of the year)
   assert.equal(card.applied, 31);
-  assert.equal(card.minutes, 7); // (27 + 16 + 30) s = 1.2 min, plus 3 sign lots × 2 min = 6 min
+  assert.equal(card.minutes, 5); // (27 + 16 + 30) s = 1.2 min, plus 2 signings (two members) × 2 min = 4 min
   assert.equal(card.live, 7);
   assert.deepEqual(card.topMember, { name: '山川宇衣', won: 15 });
   assert.equal(card.topGroup, 'sakurazaka');
@@ -52,7 +52,7 @@ test('lives come from 参加ログ: marked, attended, that year, not 握手会 /
 
 test('recap post: no amounts, no dates', () => {
   const text = miguriRecapText(buildMiguriRecapCard({ entries, year: 2026, live: 7, today: TODAY }));
-  assert.match(text, /^2026年のミーグリふりかえり\nライブ 7本 · ミーグリ 3日 · サイン会 1回\n当選 15枚 · 話した時間 約7分\n/);
+  assert.match(text, /^2026年のミーグリふりかえり\nライブ 7本 · ミーグリ 3日 · サイン会 1回\n当選 15枚 · 話した時間 約5分\n/);
   assert.doesNotMatch(text, /¥|\d{4}-\d{2}/);
   assert.match(miguriRecapText(buildMiguriRecapCard({ entries, year: 2026, live: null, today: TODAY })), /^2026年のミーグリふりかえり\nミーグリ 3日/);
 });

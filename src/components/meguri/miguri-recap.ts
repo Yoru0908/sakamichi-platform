@@ -6,7 +6,7 @@ import { box, draw, drawStrip, H, INNER, PAD, pct, rule, themeOf, W, wonSeries, 
 
 /** Seconds of talk per ticket, as the person gave them: online 9s; in person Tokyo about 6s, Kyoto about 8s. Estimates, shown as 約. */
 export const TALK_SECONDS = { online: 9, tokyo: 6, kyoto: 8 } as const;
-/** One サイン会 sign-in takes about 2 minutes. */
+/** One signing (one member at one サイン会) takes about 2 minutes. The 口 count is how many were applied for, so it is not used. */
 export const SIGN_MINUTES = 2;
 
 export type MiguriRecapCard = {
@@ -68,7 +68,7 @@ export function buildMiguriRecapCard({ entries, year, live, today = new Date().t
   }
   const signed = own.filter((entry) => kindOf(entry) === 'sign' && entry.date <= today && entryLotteryCounts(entry).won > 0);
   const signEvents = new Set(signed.map((entry) => `${entry.eventSlug ?? entry.eventTitle ?? ''}|${entry.date}`)).size;
-  const signLots = signed.reduce((sum, entry) => sum + entryLotteryCounts(entry).won, 0);
+  const signings = new Set(signed.map((entry) => `${entry.eventSlug ?? entry.eventTitle ?? ''}|${entry.date}|${entry.member}`)).size;
   const top = [...memberWon.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ja'))[0];
   const topGroup = [...groupWon.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
   return {
@@ -80,7 +80,7 @@ export function buildMiguriRecapCard({ entries, year, live, today = new Date().t
     won,
     applied,
     rate: applied > 0 ? won / applied : null,
-    minutes: Math.round(seconds / 60 + signLots * SIGN_MINUTES),
+    minutes: Math.round(seconds / 60 + signings * SIGN_MINUTES),
     topMember: top ? { name: top[0], won: top[1] } : null,
     topGroup,
     series: wonSeries(entries, year, today),
@@ -134,38 +134,41 @@ export async function renderMiguriRecapImage(card: MiguriRecapCard, style: Migur
   text('ミーグリ・ライブ・サイン会の記録から', PAD, 382, { size: 30, color: theme.muted, weight: 500 });
 
   // 話した時間
-  box(ctx, PAD, 420, INNER, 220, theme.radius);
+  box(ctx, PAD, 420, INNER, 180, theme.radius);
   fill();
-  text('ミーグリとサイン会で話した時間（目安）', PAD + 44, 480, { size: 28, color: theme.muted });
-  text(`約 ${hoursOf(card.minutes)}`, PAD + 40, 596, { size: 112, weight: 900, family: theme.num, max: INNER - 80 });
+  text('ミーグリとサイン会で話した時間（目安）', PAD + 44, 474, { size: 28, color: theme.muted });
+  text(`約 ${hoursOf(card.minutes)}`, PAD + 40, 570, { size: 96, weight: 900, family: theme.num, max: INNER - 80 });
 
   // 数字のタイル
-  const tiles: Array<[string, string, string]> = [
-    ['ライブ', card.live === null ? '—' : String(card.live), '本'],
-    ['サイン会', String(card.signEvents), '回'],
-    ['ミーグリ（オンライン）', String(card.onlineDays), '日'],
-    ['リアミ', String(card.realDays), '日'],
-    ['当選', String(card.won), '枚'],
-    ['当選率', card.rate === null ? '—' : pct(card.rate).replace('%', ''), card.rate === null ? '' : '%'],
+  const tiles: Array<{ label: string; value: string; unit?: string; right?: string; size?: number }> = [
+    { label: 'ライブ', value: card.live === null ? '—' : String(card.live), unit: '本' },
+    { label: 'サイン会', value: String(card.signEvents), unit: '回' },
+    { label: 'ミーグリ（オンライン）', value: String(card.onlineDays), unit: '日' },
+    { label: 'リアミ', value: String(card.realDays), unit: '日' },
+    { label: '当選', value: String(card.won), unit: '枚', right: card.rate === null ? undefined : `当選率 ${pct(card.rate)}` },
+    { label: 'いちばん当選した人', value: card.topMember?.name ?? '—', right: card.topMember ? `${card.topMember.won}枚` : undefined, size: 44 },
   ];
-  const tileW = (INNER - 24) / 2, tileH = 120;
-  tiles.forEach(([label, value, unit], index) => {
-    const x = PAD + (index % 2) * (tileW + 24), y = 668 + Math.floor(index / 2) * (tileH + 16);
+  const tileW = (INNER - 24) / 2, tileH = 128;
+  tiles.forEach(({ label, value, unit, right, size = 60 }, index) => {
+    const x = PAD + (index % 2) * (tileW + 24), y = 624 + Math.floor(index / 2) * (tileH + 14);
     box(ctx, x, y, tileW, tileH, theme.radius * 0.7);
     fill();
     text(label, x + 32, y + 40, { size: 24, color: theme.muted, weight: 700, max: tileW - 64 });
-    text(value, x + 32, y + 100, { size: 64, weight: 900, family: theme.num, max: tileW - 120 });
-    const width = (() => { ctx.font = `900 64px ${theme.num}`; return Math.min(ctx.measureText(value).width, tileW - 120); })();
-    if (unit) text(unit, x + 40 + width, y + 100, { size: 28, weight: 800, color: theme.muted });
+    const rightWidth = right ? 150 : 0;
+    text(value, x + 32, y + 100, { size, weight: 900, family: theme.num, max: tileW - 64 - rightWidth - (unit ? 40 : 0) });
+    if (unit) {
+      ctx.font = `900 ${size}px ${theme.num}`;
+      const width = Math.min(ctx.measureText(value).width, tileW - 64 - rightWidth - 40);
+      text(unit, x + 40 + width, y + 100, { size: 28, weight: 800, color: theme.muted });
+    }
+    if (right) text(right, x + tileW - 32, y + 100, { size: 28, weight: 800, color: theme.muted, align: 'right', max: rightWidth });
   });
-
-  // 一番当選した人
-  if (card.topMember) text(`いちばん当選した人：${card.topMember.name}（${card.topMember.won}枚）`, PAD, 1096, { size: 30, weight: 800, max: INNER });
 
   const { bars } = card.series;
   if (bars.length > 1) {
+    text(card.series.title, PAD, 1092, { size: 26, weight: 800 });
     const top = Math.max(1, ...bars.map((bar) => bar.won));
-    const gap = 16, barWidth = (INNER - gap * (bars.length - 1)) / bars.length, floor = 1226, maxHeight = 90;
+    const gap = 16, barWidth = (INNER - gap * (bars.length - 1)) / bars.length, floor = 1246, maxHeight = 100;
     const peak = bars.findIndex((bar) => bar.won === top);
     bars.forEach((bar, index) => {
       const x = PAD + index * (barWidth + gap), height = Math.max(6, (bar.won / top) * maxHeight);
@@ -173,6 +176,7 @@ export async function renderMiguriRecapImage(card: MiguriRecapCard, style: Migur
       box(ctx, x, floor - height, barWidth, height, theme.radius / 3);
       ctx.fill();
       ctx.fillRect(x, floor - Math.min(height, 8), barWidth, Math.min(height, 8));
+      if (index === peak) text(String(bar.won), x + barWidth / 2, floor - height - 10, { size: 24, weight: 800, color: theme.hi, align: 'center', family: theme.num, max: barWidth + gap });
       text(bar.label, x + barWidth / 2, floor + 30, { size: 22, weight: 700, color: theme.muted, align: 'center', max: barWidth + gap });
     });
   }
