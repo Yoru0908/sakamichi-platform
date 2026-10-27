@@ -50,8 +50,8 @@ async function copyImage(blob: Blob): Promise<boolean> {
 }
 
 const STYLE_KEY = "miguri-share-style";
-const STYLE_LABELS = { auto: "styleAuto", sakura: "styleSakura", nogi: "styleNogi", hinata: "styleHinata", receipt: "styleReceipt", forest: "styleForest", sunny: "styleSunny", swiss: "styleSwiss", night: "styleNight" } as const;
-const STYLE_DOTS: Record<MiguriShareStyleId, string> = { sakura: "#d6456b", nogi: "#7a2a8c", hinata: "#0a8fd0", receipt: "#161616", forest: "#124036", sunny: "#ffdc4a", swiss: "#e30613", night: "#1b181a" };
+const STYLE_LABELS = { auto: "styleAuto", sakura: "styleSakura", nogi: "styleNogi", hinata: "styleHinata", receipt: "styleReceipt", forest: "styleForest" } as const;
+const STYLE_DOTS: Record<MiguriShareStyleId, string> = { sakura: "#d6456b", nogi: "#7a2a8c", hinata: "#0a8fd0", receipt: "#161616", forest: "#124036" };
 
 function savedStyle(): MiguriShareStyle {
   try {

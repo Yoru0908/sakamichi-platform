@@ -140,7 +140,7 @@ export const H = 1350;
 export const PAD = 72;
 export const INNER = W - PAD * 2;
 
-export const MIGURI_SHARE_STYLES = ['sakura', 'nogi', 'hinata', 'receipt', 'forest', 'sunny', 'swiss', 'night'] as const;
+export const MIGURI_SHARE_STYLES = ['sakura', 'nogi', 'hinata', 'receipt', 'forest'] as const;
 export type MiguriShareStyleId = (typeof MIGURI_SHARE_STYLES)[number];
 /** 'auto' follows the group with the most 当選枚数. */
 export type MiguriShareStyle = MiguriShareStyleId | 'auto';
@@ -160,9 +160,6 @@ const THEMES: Record<MiguriShareStyleId, Theme> = {
   hinata: { ...base, bg: '#f7fbfe', ink: '#10283a', muted: '#5d7d92', panel: '#e3f2fb', acc: '#0a8fd0', hi: '#0a8fd0', lo: '#b4dcf1', track: '#d6ebf7', line: '#bfe0f1', titleColor: '#0a8fd0', brandColor: '#0a8fd0', body: ROUND, title: ROUND, strip: { kind: 'gradient', from: '#7fd0f2', to: '#0a8fd0' } },
   receipt: { ...base, bg: '#fdfdfb', ink: '#161616', muted: '#6a6a66', panel: null, acc: '#161616', hi: '#e03a22', lo: '#bdbdb6', track: '#e6e6e0', line: '#161616', titleColor: '#161616', brandColor: '#161616', radius: 0, lineWidth: 3, dashed: true, marker: 'box', num: MONO, strip: { kind: 'blocks', color: '#161616', on: 18, off: 12 } },
   forest: { ...base, bg: '#124036', ink: '#f6f3ea', muted: '#9fc4b6', panel: '#1a5547', acc: '#ffb13b', hi: '#ffb13b', lo: '#3d8672', track: '#24634f', line: '#2d705d', onAcc: '#124036', titleColor: '#ffb13b', brandColor: '#ffb13b', radius: 44, body: ROUND, title: ROUND, strip: { kind: 'gradient', from: '#ffb13b', to: '#ff7a3b' } },
-  sunny: { ...base, bg: '#ffdc4a', ink: '#2a1d00', muted: '#7a5d00', panel: '#fff6c9', acc: '#e8531a', hi: '#e8531a', lo: '#ffbf3a', track: '#ffe99a', line: '#2a1d00', titleColor: '#e8531a', brandColor: '#2a1d00', radius: 48, lineWidth: 3, body: ROUND, title: ROUND, strip: { kind: 'stripes', a: '#e8531a', b: '#2a1d00', size: 36 } },
-  swiss: { ...base, bg: '#ffffff', ink: '#0d0d0d', muted: '#5b5b5b', panel: '#f0f0f0', acc: '#0d0d0d', hi: '#e30613', lo: '#cfcfcf', track: '#e4e4e4', line: '#0d0d0d', titleColor: '#e30613', brandColor: '#0d0d0d', radius: 0, lineWidth: 6, marker: 'square', stripH: 30, strip: { kind: 'solid', color: '#0d0d0d' } },
-  night: { ...base, bg: '#1b181a', ink: '#f6eef0', muted: '#a8979c', panel: '#2a2528', acc: '#ff8fab', hi: '#ff8fab', lo: '#5a4650', track: '#3a3237', line: '#3a3237', onAcc: '#1b181a', titleColor: '#ff8fab', brandColor: '#ff8fab', strip: { kind: 'gradient', from: '#ff8fab', to: '#ffc9d6' } },
 };
 const GROUP_STYLE: Record<MiguriGroupId, MiguriShareStyleId> = { sakurazaka: 'sakura', nogizaka: 'nogi', hinatazaka: 'hinata' };
 
