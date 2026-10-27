@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { aggregateMiguriDashboard } from './meguri-helpers.ts';
-import { buildMiguriShareCard, inMiguriPeriod, miguriShareText, miguriYears } from './miguri-share.ts';
+import { buildMiguriShareCard, inMiguriPeriod, miguriShareText, miguriYears, resolveMiguriShareStyle } from './miguri-share.ts';
 import { miguriMessages, miguriTranslator } from '../../i18n/miguri.ts';
 
 const music = (id, member, date, applied, won, extra = {}) => ({
@@ -63,7 +63,6 @@ test('no prices → no 推しタイプ guess; empty period → zero card', () =>
   const c = card(2026, unpriced);
   assert.equal(c.spendYen, 0);
   assert.equal(c.oshiType, '—');
-  assert.equal(c.top, null);
   const empty = card(2024, []);
   assert.equal(empty.applied, 0);
   assert.equal(empty.rate, null);
@@ -75,8 +74,7 @@ test('post text is Japanese; the amount only when 金額を載せる is on', () 
   const withSpend = miguriShareText(year, true), without = miguriShareText(year, false);
   assert.match(withSpend, /^2026年ミーグリまとめ\n応募 38枚 → 当選 16枚（当選率 42%）\n支払総額 ¥[\d,]+\n/);
   assert.doesNotMatch(without, /¥/);
-  assert.doesNotMatch(without, /支出の/);
-  assert.match(withSpend, /支出の \d+% が /);
+  assert.doesNotMatch(withSpend, /支出の/); // the spend share per member is never posted
   assert.match(without, /#ミーグリまとめ\nhttps:\/\/46log\.com\/miguri$/);
 });
 
@@ -87,4 +85,21 @@ test('dashboard dictionary: placeholders fill in; en has its own text', () => {
   assert.equal(zh('autoBody', { n: 30 }), '每 30 分钟检查一次；登录失效时暂停并提示，单轮超过 10 分钟会自动清理并重试。');
   assert.equal(en('paid'), 'Amount paid');
   assert.equal(Object.keys(miguriMessages.en).length, Object.keys(miguriMessages.zh).length);
+});
+
+test('style follows the group with the most 当選枚数; monthly series stops at today', () => {
+  const mixed = [
+    music('a', '山川宇衣', '2026-03-02', 4, 3, { group: 'sakurazaka' }),
+    music('b', '遠藤さくら', '2026-05-09', 10, 8, { group: 'nogizaka' }),
+    music('c', '遠藤さくら', '2026-05-20', 4, 2, { group: 'nogizaka' }),
+    music('d', '山川宇衣', '2026-12-20', 3, 2, { group: 'sakurazaka' }),
+  ];
+  const c = card(2026, mixed);
+  assert.equal(c.topGroup, 'nogizaka'); // 10 vs 5
+  assert.equal(resolveMiguriShareStyle('auto', c), 'nogi');
+  assert.equal(resolveMiguriShareStyle('receipt', c), 'receipt');
+  assert.equal(resolveMiguriShareStyle('auto', { topGroup: null }), 'sakura');
+  assert.deepEqual(c.series.bars, [{ label: '3月', won: 3 }, { label: '4月', won: 0 }, { label: '5月', won: 10 }]);
+  assert.equal(c.series.title, '月ごとの当選枚数');
+  assert.equal(card('all', [...mixed, music('e', '山川宇衣', '2025-11-02', 2, 1, { group: 'sakurazaka' })]).series.title, '年ごとの当選枚数');
 });

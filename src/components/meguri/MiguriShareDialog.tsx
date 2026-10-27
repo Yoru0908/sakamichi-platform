@@ -3,10 +3,14 @@ import { Copy, Download, ImageIcon, Share2, X } from "lucide-react";
 import type { MiguriTranslate } from "@/i18n/miguri";
 import { copyText, shareOrDownloadImage } from "../seichi/route-share";
 import {
+  MIGURI_SHARE_STYLES,
   miguriShareText,
   renderMiguriShareImage,
+  resolveMiguriShareStyle,
   type MiguriPeriod,
   type MiguriShareCard,
+  type MiguriShareStyle,
+  type MiguriShareStyleId,
 } from "./miguri-share";
 
 // 共有画像 (2026-10-26): preview, then share / save / copy the post. The dialog follows the UI language; the image is Japanese.
@@ -41,6 +45,19 @@ async function copyImage(blob: Blob): Promise<boolean> {
   }
 }
 
+const STYLE_KEY = "miguri-share-style";
+const STYLE_LABELS = { auto: "styleAuto", sakura: "styleSakura", nogi: "styleNogi", hinata: "styleHinata", receipt: "styleReceipt", forest: "styleForest", sunny: "styleSunny", swiss: "styleSwiss", night: "styleNight" } as const;
+const STYLE_DOTS: Record<MiguriShareStyleId, string> = { sakura: "#d6456b", nogi: "#7a2a8c", hinata: "#0a8fd0", receipt: "#161616", forest: "#124036", sunny: "#ffdc4a", swiss: "#e30613", night: "#1b181a" };
+
+function savedStyle(): MiguriShareStyle {
+  try {
+    const value = localStorage.getItem(STYLE_KEY);
+    return value === "auto" || (MIGURI_SHARE_STYLES as readonly string[]).includes(value ?? "") ? (value as MiguriShareStyle) : "auto";
+  } catch {
+    return "auto";
+  }
+}
+
 const chip = (on: boolean) =>
   `min-h-10 rounded-full border px-4 text-xs font-semibold ${
     on
@@ -52,11 +69,22 @@ const action =
 
 export default function MiguriShareDialog({ card, empty, years, period, onPeriod, tr, onClose }: Props) {
   const [showSpend, setShowSpend] = useState(true);
+  const [style, setStyle] = useState<MiguriShareStyle>("auto");
   const [image, setImage] = useState<{ blob: Blob; url: string } | null>(null);
   const [failed, setFailed] = useState(false);
   const [status, setStatus] = useState("");
   const text = miguriShareText(card, showSpend);
   const filename = `46log-miguri-${period}.png`;
+
+  useEffect(() => setStyle(savedStyle()), []);
+  const pickStyle = (value: MiguriShareStyle) => {
+    setStyle(value);
+    try {
+      localStorage.setItem(STYLE_KEY, value);
+    } catch {
+      /* the choice just isn't remembered */
+    }
+  };
 
   useEffect(() => {
     setImage(null);
@@ -65,7 +93,7 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
     if (empty) return;
     let alive = true;
     let url = "";
-    renderMiguriShareImage(card, showSpend)
+    renderMiguriShareImage(card, showSpend, style)
       .then((blob) => {
         if (!alive) return;
         url = URL.createObjectURL(blob);
@@ -76,7 +104,7 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
       alive = false;
       if (url) URL.revokeObjectURL(url);
     };
-  }, [card, showSpend, empty]);
+  }, [card, showSpend, style, empty]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && onClose();
@@ -119,6 +147,14 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
           {(["all", ...years] as MiguriPeriod[]).map((value) => (
             <button key={value} type="button" aria-pressed={period === value} onClick={() => onPeriod(value)} className={chip(period === value)}>
               {value === "all" ? tr("periodAll") : tr("periodYear", { year: value })}
+            </button>
+          ))}
+        </div>
+        <div className="mt-3 flex flex-wrap items-center gap-2" role="group" aria-label={tr("shareStyle")}>
+          {(["auto", ...MIGURI_SHARE_STYLES] as MiguriShareStyle[]).map((value) => (
+            <button key={value} type="button" aria-pressed={style === value} onClick={() => pickStyle(value)} className={`${chip(style === value)} inline-flex items-center gap-1.5`}>
+              <span aria-hidden className="h-3 w-3 rounded-full border border-black/15" style={{ background: STYLE_DOTS[value === "auto" ? resolveMiguriShareStyle("auto", card) : value] }} />
+              {tr(STYLE_LABELS[value])}
             </button>
           ))}
         </div>
