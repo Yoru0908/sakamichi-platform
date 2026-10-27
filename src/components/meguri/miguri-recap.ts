@@ -2,7 +2,7 @@
 // Only what happened up to today counts, so a recap posted in December never shows a January date. Money is not on this card.
 import type { MiguriGroupId } from '@/utils/auth-api';
 import { isMiguriLotteryResult, lotteryResultCounts, entryLotteryCounts } from './meguri-helpers.ts';
-import { box, draw, drawStrip, H, INNER, PAD, pct, rule, themeOf, W, wonSeries, yearOf, type CardEntry, type MiguriShareCard, type MiguriShareStyle, type TextOptions } from './miguri-share.ts';
+import { box, draw, drawStrip, H, INNER, PAD, pct, rule, themeOf, W, yearOf, type CardEntry, type MiguriShareStyle, type TextOptions } from './miguri-share.ts';
 
 /** Seconds of talk per ticket, as the person gave them: online 9s; in person Tokyo about 6s, Kyoto about 8s. Estimates, shown as 約. */
 export const TALK_SECONDS = { online: 9, tokyo: 6, kyoto: 8 } as const;
@@ -22,7 +22,8 @@ export type MiguriRecapCard = {
   minutes: number;
   topMember: { name: string; won: number } | null;
   topGroup: MiguriGroupId | null;
-  series: MiguriShareCard['series'];
+  /** January to December: 当選枚数 up to today and the lives marked that month (null when the log is unavailable). */
+  months: Array<{ label: string; won: number; live: number | null }>;
 };
 
 type RecapEntry = CardEntry & { eventSlug?: string | null; eventTitle?: string | null; venue?: string | null; source?: string; group?: MiguriGroupId | null };
@@ -36,27 +37,39 @@ export function talkSecondsPerTicket(entry: RecapEntry): number {
 
 const NOT_A_LIVE = /ミーグリ|ミート|握手|サイン会|リアミ|Meet|オンライン/i;
 
+export type LiveRecord = { id: string; date: string; title: string };
+
 /** 参加ログ records of that year that are marked as attended (not planned) and are not a 握手会 / サイン会. */
-export function countAttendedLives(records: Array<{ id: string; date: string; title: string }>, year: number, today: string): number {
-  return new Set(records.filter((record) => yearOf(record.date) === year && record.date <= today && !NOT_A_LIVE.test(record.title)).map((record) => record.id)).size;
+export function attendedLives(records: LiveRecord[], year: number, today: string): LiveRecord[] {
+  const seen = new Map<string, LiveRecord>();
+  for (const record of records) {
+    if (yearOf(record.date) === year && record.date <= today && !NOT_A_LIVE.test(record.title)) seen.set(record.id, record);
+  }
+  return [...seen.values()];
 }
 
-export function buildMiguriRecapCard({ entries, year, live, today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }) }: {
+export const countAttendedLives = (records: LiveRecord[], year: number, today: string) => attendedLives(records, year, today).length;
+
+export function buildMiguriRecapCard({ entries, year, lives, today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }) }: {
   entries: RecapEntry[];
   year: number;
-  live: number | null;
+  /** 参加ログ records, or null when they could not be read. */
+  lives: LiveRecord[] | null;
   today?: string;
 }): MiguriRecapCard {
+  const attended = lives ? attendedLives(lives, year, today) : null;
   const own = entries.filter((entry) => yearOf(entry.date) === year);
   const results = own.filter(isMiguriLotteryResult);
   let applied = 0, won = 0, seconds = 0;
   const memberWon = new Map<string, number>();
+  const monthWon = Array.from({ length: 12 }, () => 0);
   const groupWon = new Map<MiguriGroupId, number>();
   const days = { online: new Set<string>(), real: new Set<string>() };
   for (const entry of results) {
     const counts = lotteryResultCounts(entry);
     applied += counts.applied;
     won += counts.won;
+    if (counts.won > 0 && entry.date <= today) monthWon[Number(entry.date.slice(5, 7)) - 1] += counts.won;
     if (counts.won > 0) {
       memberWon.set(entry.member, (memberWon.get(entry.member) ?? 0) + counts.won);
       if (entry.group) groupWon.set(entry.group, (groupWon.get(entry.group) ?? 0) + counts.won);
@@ -73,7 +86,7 @@ export function buildMiguriRecapCard({ entries, year, live, today = new Date().t
   const topGroup = [...groupWon.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
   return {
     year,
-    live,
+    live: attended ? attended.length : null,
     onlineDays: days.online.size,
     realDays: days.real.size,
     signEvents,
@@ -83,7 +96,7 @@ export function buildMiguriRecapCard({ entries, year, live, today = new Date().t
     minutes: Math.round(seconds / 60 + signings * SIGN_MINUTES),
     topMember: top ? { name: top[0], won: top[1] } : null,
     topGroup,
-    series: wonSeries(entries, year, today),
+    months: monthWon.map((won, index) => ({ label: `${index + 1}月`, won, live: attended ? attended.filter((record) => Number(record.date.slice(5, 7)) === index + 1).length : null })),
   };
 }
 
@@ -129,56 +142,85 @@ export async function renderMiguriRecapImage(card: MiguriRecapCard, style: Migur
 
   text('46log MIGURI', PAD, 108, { size: 28, color: theme.brandColor, weight: 800 });
   text(String(card.year), W - PAD, 108, { size: 28, color: theme.muted, weight: 800, align: 'right', family: theme.num });
-  text(`${card.year}年の`, PAD, 226, { size: 92, color: theme.titleColor, weight: 900, family: theme.title });
-  text('ふりかえり', PAD, 326, { size: 92, weight: 900, family: theme.title });
-  text('ミーグリ・ライブ・サイン会の記録から', PAD, 382, { size: 30, color: theme.muted, weight: 500 });
+  const lead = `${card.year}年の`;
+  text(lead, PAD, 204, { size: 88, weight: 900, family: theme.title });
+  ctx.font = `900 88px ${theme.title}`;
+  text('ふりかえり', PAD + ctx.measureText(lead).width, 204, { size: 88, weight: 900, family: theme.title, color: theme.titleColor });
 
   // 話した時間
-  box(ctx, PAD, 420, INNER, 180, theme.radius);
+  box(ctx, PAD, 244, INNER, 160, theme.radius);
   fill();
-  text('ミーグリとサイン会で話した時間（目安）', PAD + 44, 474, { size: 28, color: theme.muted });
-  text(`約 ${hoursOf(card.minutes)}`, PAD + 40, 570, { size: 96, weight: 900, family: theme.num, max: INNER - 80 });
+  text('ミーグリとサイン会で話した時間（目安）', PAD + 40, 296, { size: 26, color: theme.muted });
+  text(`約 ${hoursOf(card.minutes)}`, PAD + 36, 376, { size: 84, weight: 900, family: theme.num, max: INNER - 72 });
 
   // 数字のタイル
-  const tiles: Array<{ label: string; value: string; unit?: string; right?: string; size?: number }> = [
+  const tiles: Array<{ label: string; value: string; unit: string }> = [
     { label: 'ライブ', value: card.live === null ? '—' : String(card.live), unit: '本' },
     { label: 'サイン会', value: String(card.signEvents), unit: '回' },
-    { label: 'ミーグリ（オンライン）', value: String(card.onlineDays), unit: '日' },
-    { label: 'リアミ', value: String(card.realDays), unit: '日' },
-    { label: '当選', value: String(card.won), unit: '枚', right: card.rate === null ? undefined : `当選率 ${pct(card.rate)}` },
-    { label: 'いちばん当選した人', value: card.topMember?.name ?? '—', right: card.topMember ? `${card.topMember.won}枚` : undefined, size: 44 },
+    { label: 'ミーグリ', value: String(card.onlineDays + card.realDays), unit: '日' },
+    { label: '当選率', value: card.rate === null ? '—' : pct(card.rate).replace('%', ''), unit: card.rate === null ? '' : '%' },
   ];
-  const tileW = (INNER - 24) / 2, tileH = 128;
-  tiles.forEach(({ label, value, unit, right, size = 60 }, index) => {
-    const x = PAD + (index % 2) * (tileW + 24), y = 624 + Math.floor(index / 2) * (tileH + 14);
-    box(ctx, x, y, tileW, tileH, theme.radius * 0.7);
+  const tileGap = 14, tileW = (INNER - tileGap * 3) / 4, tileY = 424, tileH = 116;
+  tiles.forEach(({ label, value, unit }, index) => {
+    const x = PAD + index * (tileW + tileGap);
+    box(ctx, x, tileY, tileW, tileH, theme.radius * 0.7);
     fill();
-    text(label, x + 32, y + 40, { size: 24, color: theme.muted, weight: 700, max: tileW - 64 });
-    const rightWidth = right ? 150 : 0;
-    text(value, x + 32, y + 100, { size, weight: 900, family: theme.num, max: tileW - 64 - rightWidth - (unit ? 40 : 0) });
+    text(label, x + 22, tileY + 38, { size: 22, color: theme.muted, weight: 700, max: tileW - 36 });
+    text(value, x + 22, tileY + 94, { size: 56, weight: 900, family: theme.num, max: tileW - 36 - (unit ? 30 : 0) });
     if (unit) {
-      ctx.font = `900 ${size}px ${theme.num}`;
-      const width = Math.min(ctx.measureText(value).width, tileW - 64 - rightWidth - 40);
-      text(unit, x + 40 + width, y + 100, { size: 28, weight: 800, color: theme.muted });
+      ctx.font = `900 56px ${theme.num}`;
+      const width = Math.min(ctx.measureText(value).width, tileW - 66);
+      text(unit, x + 26 + width, tileY + 94, { size: 24, weight: 800, color: theme.muted });
     }
-    if (right) text(right, x + tileW - 32, y + 100, { size: 28, weight: 800, color: theme.muted, align: 'right', max: rightWidth });
   });
 
-  const { bars } = card.series;
-  if (bars.length > 1) {
-    text(card.series.title, PAD, 1092, { size: 26, weight: 800 });
-    const top = Math.max(1, ...bars.map((bar) => bar.won));
-    const gap = 16, barWidth = (INNER - gap * (bars.length - 1)) / bars.length, floor = 1246, maxHeight = 100;
-    const peak = bars.findIndex((bar) => bar.won === top);
-    bars.forEach((bar, index) => {
-      const x = PAD + index * (barWidth + gap), height = Math.max(6, (bar.won / top) * maxHeight);
-      ctx.fillStyle = index === peak ? theme.hi : theme.lo;
-      box(ctx, x, floor - height, barWidth, height, theme.radius / 3);
-      ctx.fill();
-      ctx.fillRect(x, floor - Math.min(height, 8), barWidth, Math.min(height, 8));
-      if (index === peak) text(String(bar.won), x + barWidth / 2, floor - height - 10, { size: 24, weight: 800, color: theme.hi, align: 'center', family: theme.num, max: barWidth + gap });
-      text(bar.label, x + barWidth / 2, floor + 30, { size: 22, weight: 700, color: theme.muted, align: 'center', max: barWidth + gap });
-    });
+  // 月ごとの当選枚数 (●= ライブ)
+  const hasLive = card.months.some((month) => month.live !== null);
+  text('月ごとの当選枚数', PAD, 608, { size: 30, weight: 900 });
+  if (hasLive) {
+    ctx.font = `900 30px ${theme.body}`;
+    text('（●=ライブ、5本以上は ×N）', PAD + ctx.measureText('月ごとの当選枚数').width + 16, 608, { size: 22, weight: 500, color: theme.muted });
+  }
+  const top = Math.max(1, ...card.months.map((month) => month.won));
+  const gap = 12, barWidth = (INNER - gap * 11) / 12, floor = 1080, maxHeight = 380;
+  const peak = card.months.findIndex((month) => month.won === top && top > 1);
+  card.months.forEach((month, index) => {
+    const x = PAD + index * (barWidth + gap), height = Math.max(6, (month.won / top) * maxHeight), cx = x + barWidth / 2;
+    ctx.fillStyle = index === peak ? theme.acc : theme.lo;
+    box(ctx, x, floor - height, barWidth, height, theme.radius / 3);
+    ctx.fill();
+    ctx.fillRect(x, floor - Math.min(height, 8), barWidth, Math.min(height, 8));
+    const lives = month.live ?? 0;
+    if (lives > 0) {
+      const dotColor = theme.dot ?? theme.ink;
+      ctx.fillStyle = dotColor;
+      if (lives <= 4) {
+        for (let i = 0; i < lives; i += 1) {
+          ctx.beginPath();
+          ctx.arc(cx + (i - (lives - 1) / 2) * 16, floor - height - 18, 7, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      } else {
+        ctx.beginPath();
+        ctx.arc(cx - 17, floor - height - 18, 7, 0, Math.PI * 2);
+        ctx.fill();
+        text(`×${lives}`, cx - 6, floor - height - 10, { size: 22, weight: 900, color: dotColor, family: theme.num, max: barWidth });
+      }
+    }
+    text(month.label, cx, floor + 34, { size: 22, weight: 700, color: theme.muted, align: 'center', max: barWidth + gap });
+  });
+
+  // いちばん当選した人
+  box(ctx, PAD, 1150, INNER, 92, theme.radius * 0.7);
+  fill();
+  text('いちばん当選した人', PAD + 36, 1208, { size: 28, weight: 900 });
+  if (card.topMember) {
+    const count = `${card.topMember.won.toLocaleString('ja-JP')}枚`;
+    text(count, W - PAD - 36, 1208, { size: 28, weight: 800, color: theme.muted, align: 'right', family: theme.num });
+    ctx.font = `800 28px ${theme.num}`;
+    text(card.topMember.name, W - PAD - 36 - ctx.measureText(count).width - 14, 1208, { size: 44, weight: 900, align: 'right', max: 420 });
+  } else {
+    text('—', W - PAD - 36, 1208, { size: 44, weight: 900, align: 'right' });
   }
 
   rule(ctx, theme, 1290);

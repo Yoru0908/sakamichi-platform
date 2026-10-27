@@ -3,7 +3,7 @@ import { Copy, Download, ImageIcon, Share2, X } from "lucide-react";
 import type { MiguriTranslate } from "@/i18n/miguri";
 import { getSakamichiHistory, type MiguriEntry } from "@/utils/auth-api";
 import { copyText, shareOrDownloadImage } from "../seichi/route-share";
-import { buildMiguriRecapCard, countAttendedLives, miguriRecapText, renderMiguriRecapImage } from "./miguri-recap";
+import { buildMiguriRecapCard, miguriRecapText, renderMiguriRecapImage } from "./miguri-recap";
 import {
   MIGURI_SHARE_STYLES,
   miguriShareText,
@@ -79,7 +79,7 @@ export default function MiguriShareDialog({ card, recapEntries, empty, years, pe
   const year = typeof period === "number" ? period : null;
   const recap = mode === "recap" && year !== null;
   const recapCard = useMemo(
-    () => (year !== null && lives ? buildMiguriRecapCard({ entries: recapEntries, year, live: lives.records ? countAttendedLives(lives.records, year, new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Tokyo" })) : null }) : null),
+    () => (year !== null && lives ? buildMiguriRecapCard({ entries: recapEntries, year, lives: lives.records }) : null),
     [recapEntries, year, lives],
   );
   const [image, setImage] = useState<{ blob: Blob; url: string } | null>(null);
