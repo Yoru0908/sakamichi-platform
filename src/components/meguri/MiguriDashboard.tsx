@@ -1346,6 +1346,7 @@ export default function MiguriDashboard({
       {sharing ? (
         <MiguriShareDialog
           card={shareCard}
+          recapEntries={periodEntries}
           empty={dashboard.totalApplied === 0}
           years={years}
           period={period}

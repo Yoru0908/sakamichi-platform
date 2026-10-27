@@ -7,9 +7,9 @@ import { miguriTranslator } from '../../i18n/miguri.ts';
 
 export type MiguriPeriod = 'all' | number;
 type Dashboard = ReturnType<typeof aggregateMiguriDashboard>;
-type CardEntry = Parameters<typeof isMiguriLotteryResult>[0];
+export type CardEntry = Parameters<typeof isMiguriLotteryResult>[0];
 
-const yearOf = (date: string) => (/^\d{4}-\d{2}-\d{2}$/.test(date) ? Number(date.slice(0, 4)) : null);
+export const yearOf = (date: string) => (/^\d{4}-\d{2}-\d{2}$/.test(date) ? Number(date.slice(0, 4)) : null);
 
 /** Years that have records, newest first. From the data, not the clock: a recap posted in January still finds last year. */
 export function miguriYears(entries: Array<Pick<MiguriEntry, 'date'>>): number[] {
@@ -47,7 +47,7 @@ export type MiguriShareCard = {
  * 当選枚数 by month (or by year when 全期間 spans several years). Only dates up to today: a future month would show the schedule.
  * Months in between with no win are 0, so the bars keep their calendar spacing.
  */
-function wonSeries(entries: CardEntry[], period: MiguriPeriod, today: string): MiguriShareCard['series'] {
+export function wonSeries(entries: CardEntry[], period: MiguriPeriod, today: string): MiguriShareCard['series'] {
   const rows = entries
     .filter(isMiguriLotteryResult)
     .map((entry) => ({ date: entry.date, won: lotteryResultCounts(entry).won }))
@@ -115,7 +115,7 @@ export function buildMiguriShareCard({ entries, dashboard, period, group, catego
   };
 }
 
-const pct = (value: number) => `${Math.round(value * 100)}%`;
+export const pct = (value: number) => `${Math.round(value * 100)}%`;
 const yen = (value: number) => `¥${value.toLocaleString('ja-JP')}`;
 
 /** The post that goes with the image. Japanese, like the card. */
@@ -135,10 +135,10 @@ const SANS = '"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans
 const SERIF = `"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP","Noto Serif CJK JP",${SANS}`;
 const ROUND = `"Hiragino Maru Gothic ProN","Zen Maru Gothic",${SANS}`;
 const MONO = `"SF Mono",Menlo,Consolas,"Liberation Mono",${SANS}`;
-const W = 1080;
-const H = 1350;
-const PAD = 72;
-const INNER = W - PAD * 2;
+export const W = 1080;
+export const H = 1350;
+export const PAD = 72;
+export const INNER = W - PAD * 2;
 
 export const MIGURI_SHARE_STYLES = ['sakura', 'nogi', 'hinata', 'receipt', 'forest', 'sunny', 'swiss', 'night'] as const;
 export type MiguriShareStyleId = (typeof MIGURI_SHARE_STYLES)[number];
@@ -146,7 +146,7 @@ export type MiguriShareStyleId = (typeof MIGURI_SHARE_STYLES)[number];
 export type MiguriShareStyle = MiguriShareStyleId | 'auto';
 
 type Strip = { kind: 'gradient'; from: string; to: string } | { kind: 'blocks'; color: string; on: number; off: number } | { kind: 'stripes'; a: string; b: string; size: number } | { kind: 'solid'; color: string };
-type Theme = {
+export type Theme = {
   bg: string; ink: string; muted: string; panel: string | null; acc: string; hi: string; lo: string; track: string; line: string; onAcc: string;
   titleColor: string; brandColor: string;
   radius: number; lineWidth: number; dashed: boolean; marker: 'dot' | 'box' | 'square';
@@ -166,11 +166,13 @@ const THEMES: Record<MiguriShareStyleId, Theme> = {
 };
 const GROUP_STYLE: Record<MiguriGroupId, MiguriShareStyleId> = { sakurazaka: 'sakura', nogizaka: 'nogi', hinatazaka: 'hinata' };
 
+export const themeOf = (style: MiguriShareStyle, card: Pick<MiguriShareCard, 'topGroup'>): Theme => THEMES[resolveMiguriShareStyle(style, card)];
+
 export function resolveMiguriShareStyle(style: MiguriShareStyle, card: Pick<MiguriShareCard, 'topGroup'>): MiguriShareStyleId {
   return style !== 'auto' ? style : card.topGroup ? GROUP_STYLE[card.topGroup] : 'sakura';
 }
 
-type Ctx = CanvasRenderingContext2D;
+export type Ctx = CanvasRenderingContext2D;
 
 /** Largest size ≤ `size` (down to `min`) at which the text fits; ellipsized if even `min` overflows. */
 function fit(ctx: Ctx, text: string, maxWidth: number, weight: number, size: number, family: string, min = size * 0.6) {
@@ -183,21 +185,21 @@ function fit(ctx: Ctx, text: string, maxWidth: number, weight: number, size: num
   return `${cut}…`;
 }
 
-type TextOptions = { weight?: number; size?: number; color?: string; align?: CanvasTextAlign; max?: number; family?: string };
+export type TextOptions = { weight?: number; size?: number; color?: string; align?: CanvasTextAlign; max?: number; family?: string };
 
-function draw(ctx: Ctx, text: string, x: number, y: number, { weight = 700, size = 32, color = '#000', align = 'left', max = INNER, family = SANS }: TextOptions = {}) {
+export function draw(ctx: Ctx, text: string, x: number, y: number, { weight = 700, size = 32, color = '#000', align = 'left', max = INNER, family = SANS }: TextOptions = {}) {
   ctx.fillStyle = color;
   ctx.textAlign = align;
   ctx.fillText(fit(ctx, text, max, weight, size, family), x, y);
   ctx.textAlign = 'left';
 }
 
-function box(ctx: Ctx, x: number, y: number, w: number, h: number, radius: number) {
+export function box(ctx: Ctx, x: number, y: number, w: number, h: number, radius: number) {
   ctx.beginPath();
   ctx.roundRect(x, y, w, h, Math.min(radius, h / 2, w / 2));
 }
 
-function drawStrip(ctx: Ctx, theme: Theme) {
+export function drawStrip(ctx: Ctx, theme: Theme) {
   const { strip, stripH } = theme;
   if (strip.kind === 'gradient') {
     const band = ctx.createLinearGradient(0, 0, W, 0);
@@ -219,7 +221,7 @@ function drawStrip(ctx: Ctx, theme: Theme) {
   }
 }
 
-function rule(ctx: Ctx, theme: Theme, y: number) {
+export function rule(ctx: Ctx, theme: Theme, y: number) {
   ctx.strokeStyle = theme.line;
   ctx.lineWidth = theme.lineWidth;
   ctx.setLineDash(theme.dashed ? [12, 9] : []);

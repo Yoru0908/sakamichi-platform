@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Copy, Download, ImageIcon, Share2, X } from "lucide-react";
 import type { MiguriTranslate } from "@/i18n/miguri";
+import { getSakamichiHistory, type MiguriEntry } from "@/utils/auth-api";
 import { copyText, shareOrDownloadImage } from "../seichi/route-share";
+import { buildMiguriRecapCard, countAttendedLives, miguriRecapText, renderMiguriRecapImage } from "./miguri-recap";
 import {
   MIGURI_SHARE_STYLES,
   miguriShareText,
@@ -16,6 +18,8 @@ import {
 // 共有画像 (2026-10-26): preview, then share / save / copy the post. The dialog follows the UI language; the image is Japanese.
 type Props = {
   card: MiguriShareCard;
+  /** The picked year's entries before the group / type filters: the recap covers everything. */
+  recapEntries: MiguriEntry[];
   empty: boolean;
   years: number[];
   period: MiguriPeriod;
@@ -67,14 +71,22 @@ const chip = (on: boolean) =>
 const action =
   "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[var(--border-primary)] px-3 text-xs font-bold text-[var(--text-primary)] hover:border-indigo-500/45 disabled:opacity-40";
 
-export default function MiguriShareDialog({ card, empty, years, period, onPeriod, tr, onClose }: Props) {
+export default function MiguriShareDialog({ card, recapEntries, empty, years, period, onPeriod, tr, onClose }: Props) {
   const [showSpend, setShowSpend] = useState(true);
   const [style, setStyle] = useState<MiguriShareStyle>("auto");
+  const [mode, setMode] = useState<"summary" | "recap">("summary");
+  const [lives, setLives] = useState<{ records: Array<{ id: string; date: string; title: string }> | null } | null>(null);
+  const year = typeof period === "number" ? period : null;
+  const recap = mode === "recap" && year !== null;
+  const recapCard = useMemo(
+    () => (year !== null && lives ? buildMiguriRecapCard({ entries: recapEntries, year, live: lives.records ? countAttendedLives(lives.records, year, new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Tokyo" })) : null }) : null),
+    [recapEntries, year, lives],
+  );
   const [image, setImage] = useState<{ blob: Blob; url: string } | null>(null);
   const [failed, setFailed] = useState(false);
   const [status, setStatus] = useState("");
-  const text = miguriShareText(card, showSpend);
-  const filename = `46log-miguri-${period}.png`;
+  const text = recap ? (recapCard ? miguriRecapText(recapCard) : "") : miguriShareText(card, showSpend);
+  const filename = `46log-miguri-${recap ? "recap-" : ""}${period}.png`;
 
   useEffect(() => setStyle(savedStyle()), []);
   const pickStyle = (value: MiguriShareStyle) => {
@@ -86,14 +98,33 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
     }
   };
 
+  // The recap needs the attendance log for its ライブ count: read it once, only when the recap is opened.
+  useEffect(() => {
+    if (!recap || lives) return;
+    let alive = true;
+    (async () => {
+      const records: Array<{ id: string; date: string; title: string }> = [];
+      for (let offset: number | null = 0, page = 0; offset !== null && page < 40; page += 1) {
+        const response = await getSakamichiHistory(offset);
+        if (!response.success || !response.data) return alive && setLives({ records: null });
+        records.push(...response.data.records);
+        offset = response.data.nextOffset;
+      }
+      if (alive) setLives({ records });
+    })().catch(() => alive && setLives({ records: null }));
+    return () => {
+      alive = false;
+    };
+  }, [recap, lives]);
+
   useEffect(() => {
     setImage(null);
     setFailed(false);
     setStatus("");
-    if (empty) return;
+    if (empty || (recap && !recapCard)) return;
     let alive = true;
     let url = "";
-    renderMiguriShareImage(card, showSpend, style)
+    (recap && recapCard ? renderMiguriRecapImage(recapCard, style) : renderMiguriShareImage(card, showSpend, style))
       .then((blob) => {
         if (!alive) return;
         url = URL.createObjectURL(blob);
@@ -104,7 +135,7 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
       alive = false;
       if (url) URL.revokeObjectURL(url);
     };
-  }, [card, showSpend, style, empty]);
+  }, [card, showSpend, style, empty, recap, recapCard]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && onClose();
@@ -114,7 +145,7 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
 
   const share = async () => {
     if (!image) return;
-    const result = await shareOrDownloadImage(image.blob, { filename, title: card.title.join(""), text });
+    const result = await shareOrDownloadImage(image.blob, { filename, title: recap && year !== null ? `${year}年のふりかえり` : card.title.join(""), text });
     if (result === "downloaded") setStatus(tr("shareSaved"));
   };
   const copy = async () => setStatus((await copyText(text)) ? tr("shareCopied") : "");
@@ -150,6 +181,12 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
             </button>
           ))}
         </div>
+        {year !== null ? (
+          <div className="mt-3 flex flex-wrap items-center gap-2" role="group" aria-label={tr("shareModeSummary")}>
+            <button type="button" aria-pressed={mode === "summary"} onClick={() => setMode("summary")} className={chip(mode === "summary")}>{tr("shareModeSummary")}</button>
+            <button type="button" aria-pressed={mode === "recap"} onClick={() => setMode("recap")} className={chip(mode === "recap")}>{tr("shareModeRecap")}</button>
+          </div>
+        ) : null}
         <div className="mt-3 flex flex-wrap items-center gap-2" role="group" aria-label={tr("shareStyle")}>
           {(["auto", ...MIGURI_SHARE_STYLES] as MiguriShareStyle[]).map((value) => (
             <button key={value} type="button" aria-pressed={style === value} onClick={() => pickStyle(value)} className={`${chip(style === value)} inline-flex items-center gap-1.5`}>
@@ -158,10 +195,10 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
             </button>
           ))}
         </div>
-        <label className="mt-3 flex min-h-10 items-center gap-2 text-sm text-[var(--text-secondary)]">
+        {recap ? null : <label className="mt-3 flex min-h-10 items-center gap-2 text-sm text-[var(--text-secondary)]">
           <input type="checkbox" checked={showSpend} onChange={(event) => setShowSpend(event.currentTarget.checked)} className="h-4 w-4 accent-indigo-600" />
           {tr("shareShowSpend")}
-        </label>
+        </label>}
 
         <div className="mt-3 grid aspect-[4/5] w-full place-items-center overflow-hidden rounded-2xl border border-[var(--border-primary)] bg-[var(--bg-secondary)]">
           {empty ? (
@@ -196,6 +233,8 @@ export default function MiguriShareDialog({ card, empty, years, period, onPeriod
           </button>
         </div>
         {status ? <p role="status" className="mt-2 text-xs font-semibold text-emerald-600">{status}</p> : null}
+        {recap ? <p className="mt-3 text-[11px] leading-5 text-[var(--text-tertiary)]">{tr("shareRecapNote")}</p> : null}
+        {recap && lives && lives.records === null ? <p role="status" className="mt-1 text-[11px] leading-5 text-amber-600">{tr("shareRecapLiveFailed")}</p> : null}
         <p className="mt-3 text-[11px] leading-5 text-[var(--text-tertiary)]">{tr("shareNote")}</p>
         <p className="mt-1 text-[11px] leading-5 text-[var(--text-tertiary)]">{tr("sharePrivacy")}</p>
       </div>
