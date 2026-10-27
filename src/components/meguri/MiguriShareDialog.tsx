@@ -10,7 +10,7 @@ import {
   renderMiguriShareImage,
   type MiguriPeriod,
   type MiguriShareCard,
-  type MiguriShareStyleId,
+  type MiguriShareStyle,
 } from "./miguri-share";
 
 // 共有画像 (2026-10-26): preview, then share / save / copy the post. The dialog follows the UI language; the image is Japanese.
@@ -47,8 +47,9 @@ async function copyImage(blob: Blob): Promise<boolean> {
   }
 }
 
-const randomStyle = (except?: MiguriShareStyleId): MiguriShareStyleId => {
-  const pool = MIGURI_SHARE_STYLES.filter((id) => id !== except);
+/** 'auto' (follows the group with the most wins) is part of the pool, so the default look stays one tap away. */
+const nextStyle = (except: MiguriShareStyle): MiguriShareStyle => {
+  const pool = (["auto", ...MIGURI_SHARE_STYLES] as MiguriShareStyle[]).filter((id) => id !== except);
   return pool[Math.floor(Math.random() * pool.length)];
 };
 
@@ -63,7 +64,7 @@ const action =
 
 export default function MiguriShareDialog({ card, recapEntries, empty, years, period, onPeriod, tr, onClose }: Props) {
   const [showSpend, setShowSpend] = useState(true);
-  const [style, setStyle] = useState<MiguriShareStyleId>(() => randomStyle());
+  const [style, setStyle] = useState<MiguriShareStyle>("auto");
   const [mode, setMode] = useState<"summary" | "recap">("summary");
   const [lives, setLives] = useState<{ records: Array<{ id: string; date: string; title: string }> | null } | null>(null);
   const year = typeof period === "number" ? period : null;
@@ -149,6 +150,9 @@ export default function MiguriShareDialog({ card, recapEntries, empty, years, pe
       >
         <div className="flex items-center justify-between gap-3">
           <h2 className="text-base font-bold text-[var(--text-primary)]">{tr("shareTitle")}</h2>
+          <button type="button" onClick={() => setStyle(nextStyle)} className={`${action} ml-auto min-h-10`}>
+            <Shuffle size={15} /> {tr("shareReroll")}
+          </button>
           <button type="button" onClick={onClose} aria-label={tr("close")} className="grid h-10 w-10 place-items-center rounded-xl text-[var(--text-tertiary)] hover:bg-[var(--bg-secondary)]">
             <X size={18} />
           </button>
@@ -204,9 +208,6 @@ export default function MiguriShareDialog({ card, recapEntries, empty, years, pe
             {tr("shareWeibo")}
           </button>
         </div>
-        <button type="button" onClick={() => setStyle((current) => randomStyle(current))} className={`${action} mt-2 w-full`}>
-          <Shuffle size={15} /> {tr("shareReroll")}
-        </button>
         {status ? <p role="status" className="mt-2 text-xs font-semibold text-emerald-600">{status}</p> : null}
         {recap ? <p className="mt-3 text-[11px] leading-5 text-[var(--text-tertiary)]">{tr("shareRecapNote")}</p> : null}
         {recap && lives && lives.records === null ? <p role="status" className="mt-1 text-[11px] leading-5 text-amber-600">{tr("shareRecapLiveFailed")}</p> : null}
