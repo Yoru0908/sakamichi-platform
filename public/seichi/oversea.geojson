@@ -7565,20 +7565,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          121.6578713,
-          31.1433969
+          121.6599,
+          31.14409
         ]
       },
       "properties": {
-        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:32d2ed04e83296e7b4f9",
-        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:32d2ed04e83296e7b4f9",
-        "name": "石森璃花 山下瞳月 - Shanghai Disneyland Park",
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:ea3a290c90e8dc360e7a",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:ea3a290c90e8dc360e7a",
+        "name": "石森璃花 山下瞳月 - Red Queen Imperial Garden",
         "category": "Private trip/photobook/others",
         "subcategory": "Private trip/photobook/others",
         "categoryColor": "#3b82f6",
         "address": "",
-        "sceneTitle": "石森璃花 山下瞳月 - Shanghai Disneyland Park",
-        "sceneNote": "description: inside the \"Alice lybrinth\"（爱丽丝迷宮） Note: URL: Tags: Comment: Title:",
+        "sceneTitle": "石森璃花 山下瞳月 - Red Queen Imperial Garden",
+        "sceneNote": "description: “紅皇后御花園” in Chinese Note: URL: Tags: Comment: Title:",
         "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
@@ -7587,7 +7587,7 @@
           "Private trip/photobook/others"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjJhXy-W7yodW7n3QGYL3PBtE2tKtwwuuvG9ygtNP49OF4K3Vfs9gceaK15XgJki2CKwwPmoAawocO2m4ybfh6uNoNATvzTmO8tARrmrA51fvwBgCVmxjTyWDim_pbSjlBhw2FgOdzQIwmHq79X0Ve8KOfUJFdLvQ71I32Oagh5Jf_mOS1Vw0PQ-j2W9pn47Iy6pzRPp92U5HSB6j1kWcte5lZziVkw79gETbPG2HdpuKY37QONgC1GIkA%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiuivI9_Cys5xTw_6SsS5uohTr6XJUBq6USY7HACI_CovMgfQq3yoW4Zn88q_pDZo5D1GnfB5U7mz0hgNTgIXn_TgpF5TBJ-tTM2jPEzTNv_mnc0nIltjOWRbNfGcYKVSAxpuu3d4FCj_HsLvzkwRZqdImULB5dQ-0uQ7DaPp6hJjUGuxxGBrghVfBgVa7u7zRu9NdXg3lebZtlB4ciVUKsQgI_OtLLuP_fwKkzZXzNDYt3COJL0HcNIfw%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -7599,7 +7599,7 @@
             "海外",
             "Private trip/photobook/others"
           ],
-          "name": "石森璃花 山下瞳月 - Shanghai Disneyland Park"
+          "name": "石森璃花 山下瞳月 - Red Queen Imperial Garden"
         },
         "classification": {
           "category": "Private trip/photobook/others",
