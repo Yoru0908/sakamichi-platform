@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Copy, Download, ImageIcon, Share2, X } from "lucide-react";
+import { Copy, Download, ImageIcon, Share2, Shuffle, X } from "lucide-react";
 import type { MiguriTranslate } from "@/i18n/miguri";
 import { getSakamichiHistory, type MiguriEntry } from "@/utils/auth-api";
 import { copyText, shareOrDownloadImage } from "../seichi/route-share";
@@ -8,10 +8,8 @@ import {
   MIGURI_SHARE_STYLES,
   miguriShareText,
   renderMiguriShareImage,
-  resolveMiguriShareStyle,
   type MiguriPeriod,
   type MiguriShareCard,
-  type MiguriShareStyle,
   type MiguriShareStyleId,
 } from "./miguri-share";
 
@@ -49,18 +47,10 @@ async function copyImage(blob: Blob): Promise<boolean> {
   }
 }
 
-const STYLE_KEY = "miguri-share-style";
-const STYLE_LABELS = { auto: "styleAuto", sakura: "styleSakura", nogi: "styleNogi", hinata: "styleHinata", receipt: "styleReceipt", forest: "styleForest", shuin: "styleShuin", sunset: "styleSunset", mint: "styleMint", film: "styleFilm", poster: "stylePoster", cocoa: "styleCocoa" } as const;
-const STYLE_DOTS: Record<MiguriShareStyleId, string> = { sakura: "#d6456b", nogi: "#7a2a8c", hinata: "#0a8fd0", receipt: "#161616", forest: "#124036", shuin: "#d6382b", sunset: "#ff8a5b", mint: "#0f9d76", film: "#0c0c0c", poster: "#ff5a36", cocoa: "#35241f" };
-
-function savedStyle(): MiguriShareStyle {
-  try {
-    const value = localStorage.getItem(STYLE_KEY);
-    return value === "auto" || (MIGURI_SHARE_STYLES as readonly string[]).includes(value ?? "") ? (value as MiguriShareStyle) : "auto";
-  } catch {
-    return "auto";
-  }
-}
+const randomStyle = (except?: MiguriShareStyleId): MiguriShareStyleId => {
+  const pool = MIGURI_SHARE_STYLES.filter((id) => id !== except);
+  return pool[Math.floor(Math.random() * pool.length)];
+};
 
 const chip = (on: boolean) =>
   `min-h-10 rounded-full border px-4 text-xs font-semibold ${
@@ -73,7 +63,7 @@ const action =
 
 export default function MiguriShareDialog({ card, recapEntries, empty, years, period, onPeriod, tr, onClose }: Props) {
   const [showSpend, setShowSpend] = useState(true);
-  const [style, setStyle] = useState<MiguriShareStyle>("auto");
+  const [style, setStyle] = useState<MiguriShareStyleId>(() => randomStyle());
   const [mode, setMode] = useState<"summary" | "recap">("summary");
   const [lives, setLives] = useState<{ records: Array<{ id: string; date: string; title: string }> | null } | null>(null);
   const year = typeof period === "number" ? period : null;
@@ -87,16 +77,6 @@ export default function MiguriShareDialog({ card, recapEntries, empty, years, pe
   const [status, setStatus] = useState("");
   const text = recap ? (recapCard ? miguriRecapText(recapCard) : "") : miguriShareText(card, showSpend);
   const filename = `46log-miguri-${recap ? "recap-" : ""}${period}.png`;
-
-  useEffect(() => setStyle(savedStyle()), []);
-  const pickStyle = (value: MiguriShareStyle) => {
-    setStyle(value);
-    try {
-      localStorage.setItem(STYLE_KEY, value);
-    } catch {
-      /* the choice just isn't remembered */
-    }
-  };
 
   // The recap needs the attendance log for its ライブ count: read it once, only when the recap is opened.
   useEffect(() => {
@@ -187,14 +167,6 @@ export default function MiguriShareDialog({ card, recapEntries, empty, years, pe
             <button type="button" aria-pressed={mode === "recap"} onClick={() => setMode("recap")} className={chip(mode === "recap")}>{tr("shareModeRecap")}</button>
           </div>
         ) : null}
-        <div className="mt-3 flex flex-wrap items-center gap-2" role="group" aria-label={tr("shareStyle")}>
-          {(["auto", ...MIGURI_SHARE_STYLES] as MiguriShareStyle[]).map((value) => (
-            <button key={value} type="button" aria-pressed={style === value} onClick={() => pickStyle(value)} className={`${chip(style === value)} inline-flex items-center gap-1.5`}>
-              <span aria-hidden className="h-3 w-3 rounded-full border border-black/15" style={{ background: STYLE_DOTS[value === "auto" ? resolveMiguriShareStyle("auto", card) : value] }} />
-              {tr(STYLE_LABELS[value])}
-            </button>
-          ))}
-        </div>
         {recap ? null : <label className="mt-3 flex min-h-10 items-center gap-2 text-sm text-[var(--text-secondary)]">
           <input type="checkbox" checked={showSpend} onChange={(event) => setShowSpend(event.currentTarget.checked)} className="h-4 w-4 accent-indigo-600" />
           {tr("shareShowSpend")}
@@ -232,6 +204,9 @@ export default function MiguriShareDialog({ card, recapEntries, empty, years, pe
             {tr("shareWeibo")}
           </button>
         </div>
+        <button type="button" onClick={() => setStyle((current) => randomStyle(current))} className={`${action} mt-2 w-full`}>
+          <Shuffle size={15} /> {tr("shareReroll")}
+        </button>
         {status ? <p role="status" className="mt-2 text-xs font-semibold text-emerald-600">{status}</p> : null}
         {recap ? <p className="mt-3 text-[11px] leading-5 text-[var(--text-tertiary)]">{tr("shareRecapNote")}</p> : null}
         {recap && lives && lives.records === null ? <p role="status" className="mt-1 text-[11px] leading-5 text-amber-600">{tr("shareRecapLiveFailed")}</p> : null}
