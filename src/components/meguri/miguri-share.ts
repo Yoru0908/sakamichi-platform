@@ -140,7 +140,7 @@ export const H = 1350;
 export const PAD = 72;
 export const INNER = W - PAD * 2;
 
-export const MIGURI_SHARE_STYLES = ['sakura', 'nogi', 'hinata', 'receipt', 'forest'] as const;
+export const MIGURI_SHARE_STYLES = ['sakura', 'nogi', 'hinata', 'receipt', 'forest', 'shuin', 'sunset', 'mint', 'film', 'poster', 'cocoa'] as const;
 export type MiguriShareStyleId = (typeof MIGURI_SHARE_STYLES)[number];
 /** 'auto' follows the group with the most 当選枚数. */
 export type MiguriShareStyle = MiguriShareStyleId | 'auto';
@@ -160,6 +160,12 @@ const THEMES: Record<MiguriShareStyleId, Theme> = {
   hinata: { ...base, bg: '#f7fbfe', ink: '#10283a', muted: '#5d7d92', panel: '#e3f2fb', acc: '#0a8fd0', hi: '#0a8fd0', lo: '#b4dcf1', track: '#d6ebf7', line: '#bfe0f1', titleColor: '#0a8fd0', brandColor: '#0a8fd0', body: ROUND, title: ROUND, strip: { kind: 'gradient', from: '#7fd0f2', to: '#0a8fd0' } },
   receipt: { ...base, bg: '#fdfdfb', ink: '#161616', muted: '#6a6a66', panel: null, acc: '#161616', hi: '#e03a22', lo: '#bdbdb6', track: '#e6e6e0', line: '#161616', titleColor: '#161616', brandColor: '#161616', radius: 0, lineWidth: 3, dashed: true, marker: 'box', num: MONO, strip: { kind: 'blocks', color: '#161616', on: 18, off: 12 } },
   forest: { ...base, bg: '#124036', ink: '#f6f3ea', muted: '#9fc4b6', panel: '#1a5547', acc: '#ffb13b', hi: '#ffb13b', lo: '#3d8672', track: '#24634f', line: '#2d705d', onAcc: '#124036', titleColor: '#ffb13b', brandColor: '#ffb13b', radius: 44, body: ROUND, title: ROUND, strip: { kind: 'gradient', from: '#ffb13b', to: '#ff7a3b' } },
+  shuin: { ...base, bg: '#fbfaf7', ink: '#1c1a19', muted: '#77706b', panel: '#f1eeea', acc: '#d6382b', hi: '#d6382b', lo: '#e9c3be', track: '#ebe6e1', line: '#d9d3cd', titleColor: '#d6382b', brandColor: '#d6382b', radius: 10, marker: 'square', title: SERIF, strip: { kind: 'solid', color: '#d6382b' } },
+  sunset: { ...base, bg: '#2b1220', ink: '#fff1e8', muted: '#d9a99a', panel: '#3d1b2e', acc: '#ff8a5b', hi: '#ffc857', lo: '#7a3b4e', track: '#52263a', line: '#5b2c43', onAcc: '#2b1220', titleColor: '#ffc857', brandColor: '#ff8a5b', radius: 40, strip: { kind: 'gradient', from: '#ffc857', to: '#ff5a8a' } },
+  mint: { ...base, bg: '#f2fbf7', ink: '#0e2f26', muted: '#5f8579', panel: '#dff4ea', acc: '#0f9d76', hi: '#0f9d76', lo: '#a9e0cd', track: '#cbeadc', line: '#bfe3d3', titleColor: '#0f9d76', brandColor: '#0f9d76', radius: 40, body: ROUND, title: ROUND, strip: { kind: 'gradient', from: '#7fe0bd', to: '#0f9d76' } },
+  film: { ...base, bg: '#0c0c0c', ink: '#f5f5f2', muted: '#9a9a94', panel: '#1a1a19', acc: '#f5f5f2', hi: '#ff4b3e', lo: '#4a4a47', track: '#2a2a28', line: '#f5f5f2', onAcc: '#0c0c0c', titleColor: '#f5f5f2', brandColor: '#f5f5f2', radius: 0, marker: 'box', num: MONO, stripH: 22, strip: { kind: 'blocks', color: '#f5f5f2', on: 22, off: 18 } },
+  poster: { ...base, bg: '#ff5a36', ink: '#fff7f0', muted: '#ffd7c9', panel: '#e8452a', acc: '#fff7f0', hi: '#1a0f0a', lo: '#ff9c85', track: '#e8452a', line: '#fff7f0', onAcc: '#ff5a36', titleColor: '#1a0f0a', brandColor: '#fff7f0', radius: 28, lineWidth: 4, strip: { kind: 'stripes', a: '#1a0f0a', b: '#fff7f0', size: 36 } },
+  cocoa: { ...base, bg: '#35241f', ink: '#fbeee0', muted: '#c3a590', panel: '#46322b', acc: '#e8b07a', hi: '#f2c48e', lo: '#7a5a49', track: '#57403a', line: '#5f463c', onAcc: '#35241f', titleColor: '#e8b07a', brandColor: '#e8b07a', radius: 32, title: SERIF, strip: { kind: 'gradient', from: '#e8b07a', to: '#c9784a' } },
 };
 const GROUP_STYLE: Record<MiguriGroupId, MiguriShareStyleId> = { sakurazaka: 'sakura', nogizaka: 'nogi', hinatazaka: 'hinata' };
 
