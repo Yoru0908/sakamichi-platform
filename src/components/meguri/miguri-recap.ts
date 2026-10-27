@@ -103,13 +103,19 @@ export function buildMiguriRecapCard({ entries, year, lives, today = new Date().
 const hoursOf = (minutes: number) => (minutes >= 60 ? `${Math.floor(minutes / 60)}時間${minutes % 60}分` : `${minutes}分`);
 
 export function miguriRecapText(card: MiguriRecapCard): string {
+  const days = card.onlineDays + card.realDays;
   return [
-    `${card.year}年のミーグリ振り返り`,
-    [card.live === null ? null : `ライブ ${card.live}本`, `ミーグリ ${card.onlineDays + card.realDays}日`, card.signEvents ? `サイン会 ${card.signEvents}回` : null].filter(Boolean).join(' · '),
-    `当選 ${card.won}枚 · 話した時間 約${hoursOf(card.minutes)}`,
-    '#ミーグリまとめ',
+    `🎫 ${card.year}年の推し活 振り返り`,
+    '',
+    card.live === null ? null : `🎤 ライブ ${card.live}本`,
+    `🤝 ミーグリ ${days}日 / 当選 ${card.won.toLocaleString('ja-JP')}枚`,
+    card.signEvents ? `✍️ サイン会 ${card.signEvents}回` : null,
+    `⏱ 推しと話した時間 約${hoursOf(card.minutes)}`,
+    card.topMember ? `💗 いちばん当たったのは ${card.topMember.name}（${card.topMember.won.toLocaleString('ja-JP')}枚）` : null,
+    '',
+    `#${card.year}年ミーグリ振り返り #ミーグリ`,
     'https://46log.com/miguri',
-  ].join('\n');
+  ].filter((line) => line !== null).join('\n');
 }
 
 export async function renderMiguriRecapImage(card: MiguriRecapCard, style: MiguriShareStyle = 'auto'): Promise<Blob> {
