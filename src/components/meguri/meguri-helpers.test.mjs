@@ -907,3 +907,13 @@ test('buildMiguriWinRateTrend: with no pending entries each member total equals 
   // A release without a date goes last instead of first.
   assert.equal(trend.releases.at(-1).key, '特別企画');
 });
+
+test('下一站 and member counts schedule only held tickets: a 失効 application is not a session to attend', () => {
+  const row = (id, member, lapsedTickets) => ({
+    id, member, date: '2026-10-31', slot: 3, tickets: 3, status: 'won', source: 'fortunemusic', category: '個別ミーグリ',
+    appliedTickets: 3, wonTickets: 3, lapsedTickets, unitPriceYen: 1200, spendYen: 0, sourceSyncedAt: '2026-10-28T00:00:00.000Z',
+  });
+  const dashboard = aggregateMiguriDashboard([row('a', '山崎天', 3), row('b', '谷口愛季', 1)], '2026-10-28');
+  assert.deepEqual(dashboard.nextStops.map((stop) => [stop.date, stop.tickets]), [['2026-10-31', 2]]);
+  assert.deepEqual(dashboard.nextStops[0].rows.map((r) => [r.member, r.tickets]), [['谷口愛季', 2]]);
+});

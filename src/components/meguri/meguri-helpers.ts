@@ -442,7 +442,10 @@ export function aggregateMiguriDashboard(
   today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }),
   meetsDiscountPct = 0,
 ) {
-  const scheduleEntries = entries.filter((entry) => (
+  // 失効 tickets were never paid for, so they are not a session you will attend: schedule what is still held.
+  const scheduleEntries = entries.map((entry) => (
+    entry.lapsedTickets ? { ...entry, tickets: Math.max(0, entry.tickets - entry.lapsedTickets) } : entry
+  )).filter((entry) => (
     entry.tickets > 0
     && /^\d{4}-\d{2}-\d{2}$/.test(entry.date)
     && entry.status !== 'lost'
@@ -453,7 +456,7 @@ export function aggregateMiguriDashboard(
   const memberTickets = new Map<string, number>();
   const memberSpend = new Map<string, number>();
   const roundSpend = new Map<string, number>();
-  const scheduledEntryIds = new Set(scheduleEntries.map((entry) => entry.id));
+  const heldTicketsById = new Map(scheduleEntries.map((entry) => [entry.id, entry.tickets]));
   let estimatedSpendYen = 0;
   let estimatedSpendEntries = 0;
   let wonSpendYen = 0;
@@ -470,7 +473,7 @@ export function aggregateMiguriDashboard(
       estimatedSpendEntries += 1;
     }
     unpricedWonTickets += resolvedSpend.unpricedTickets;
-    const scheduledTickets = scheduledEntryIds.has(entry.id) ? Math.max(0, entry.tickets) : 0;
+    const scheduledTickets = heldTicketsById.get(entry.id) ?? 0;
     categoryTickets.set(category, (categoryTickets.get(category) || 0) + scheduledTickets);
     categorySpend.set(category, (categorySpend.get(category) || 0) + spendYen);
     memberTickets.set(entry.member, (memberTickets.get(entry.member) || 0) + scheduledTickets);
