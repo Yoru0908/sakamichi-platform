@@ -21,29 +21,36 @@ function save(db, raw) {
   const r = normalizeImportRecord(raw);
   db.prepare(UPSERT_ENTRY_SQL).run('id-' + Math.random(), 'user-1', '', r.member, r.date, r.slot, r.tickets, r.status, r.source, r.sourceKey,
     r.category, r.venue, r.title, r.group, r.appliedTickets, r.wonTickets, r.paidTickets, r.unitPriceYen, r.spendYen, r.signLots, r.applicationRound, r.sourceSyncedAt,
-    r.rescueTickets, r.rescueWonTickets);
+    r.rescueTickets, r.rescueWonTickets, r.lapsedTickets);
   return db.prepare('SELECT won_tickets AS won, lapsed_tickets AS lapsed, status, spend_yen AS spend FROM miguri_user_entries').get();
 }
 
-test('失効 page: extension zeroes wonTickets, lotteryWon is the reduced count', () => {
-  const r = normalizeImportRecord(music({ wonTickets: 0, spendYen: 0, resultStatus: 'lost', lotteryWon: 2, lotteryReviewRequired: true }));
-  assert.equal(r.wonTickets, 2); assert.equal(r.spendYen, 2400); assert.equal(r.status, 'won');
+test('失効 page: the whole application is void, the page still lists the original 当選数', () => {
+  const r = normalizeImportRecord(music({ wonTickets: 0, spendYen: 0, resultStatus: 'lost', lotteryWon: 3, lotteryReviewRequired: true }));
+  assert.equal(r.wonTickets, 3); assert.equal(r.lapsedTickets, 3); assert.equal(r.spendYen, 0); assert.equal(r.status, 'won');
+  assert.equal(normalizeImportRecord(music()).lapsedTickets, 0);
 });
-test('re-import after an unpaid win lapsed keeps the lottery result and records lapsed tickets', () => {
+test('first import of a 失効 application stores the lottery result with every ticket lapsed', () => {
+  const db = database();
+  const lapsed = music({ wonTickets: 0, spendYen: 0, resultStatus: 'lost', lotteryWon: 3, lotteryReviewRequired: true });
+  assert.deepEqual({ ...save(db, lapsed) }, { won: 3, lapsed: 3, status: 'won', spend: 0 });
+  assert.deepEqual({ ...save(db, lapsed) }, { won: 3, lapsed: 3, status: 'won', spend: 0 });
+});
+test('an application imported as held and later seen as 失効 becomes lapsed', () => {
   const db = database();
   assert.deepEqual({ ...save(db, music()) }, { won: 3, lapsed: 0, status: 'won', spend: 3600 });
-  const lapsed = music({ wonTickets: 0, spendYen: 0, resultStatus: 'lost', lotteryWon: 2, lotteryReviewRequired: true });
-  assert.deepEqual({ ...save(db, lapsed) }, { won: 3, lapsed: 1, status: 'won', spend: 2400 });
-  assert.deepEqual({ ...save(db, lapsed) }, { won: 3, lapsed: 1, status: 'won', spend: 2400 });
-  const allLapsed = music({ wonTickets: 0, spendYen: 0, resultStatus: 'lost', lotteryWon: 0, lotteryReviewRequired: true });
-  assert.deepEqual({ ...save(db, allLapsed) }, { won: 3, lapsed: 3, status: 'won', spend: 0 });
+  const lapsed = music({ wonTickets: 0, spendYen: 0, resultStatus: 'lost', lotteryWon: 3, lotteryReviewRequired: true });
+  assert.deepEqual({ ...save(db, lapsed) }, { won: 3, lapsed: 3, status: 'won', spend: 0 });
 });
-test('a different applied count or a first import is taken as read', () => {
+test('a reduced count on a normal page still records the gap as lapsed', () => {
+  const db = database();
+  save(db, music());
+  assert.deepEqual({ ...save(db, music({ wonTickets: 2, lotteryWon: 2, spendYen: 2400 })) }, { won: 3, lapsed: 1, status: 'won', spend: 2400 });
+});
+test('a different applied count is taken as read', () => {
   const db = database();
   save(db, music());
   assert.deepEqual({ ...save(db, music({ appliedTickets: 6, lotteryApplied: 6, wonTickets: 2, spendYen: 2400 })) }, { won: 2, lapsed: 0, status: 'won', spend: 2400 });
-  const fresh = database();
-  assert.deepEqual({ ...save(fresh, music({ wonTickets: 0, lotteryWon: 1, lotteryReviewRequired: true })) }, { won: 1, lapsed: 0, status: 'won', spend: 1200 });
 });
 
 // Meets 保障 (R serials): 15th 全国 第3部 had 3 bought + 14 保障 applications (4 保障 wins).

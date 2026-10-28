@@ -40,6 +40,8 @@ export type NormalizedImportRecord = MiguriImportRecord & {
   tickets: number;
   status: 'planned' | 'won' | 'lost' | 'paid';
   resultStatus: 'pending' | 'won' | 'lost' | 'paid';
+  /** Won tickets that were never paid for: a 失効 application is void as a whole. */
+  lapsedTickets: number;
 };
 
 const GROUPS: MiguriImportGroup[] = ['nogizaka', 'hinatazaka', 'sakurazaka'];
@@ -139,13 +141,16 @@ export function normalizeImportRecord(input: unknown): NormalizedImportRecord | 
     || spendYen === null
   ) return null;
 
-  // 失効 page (unpaid wins dropped): the extension sends wonTickets=0 for the whole page, but lotteryWon is the
-  // count still shown. Use it; the upsert then compares with the saved lottery result (see LAPSED_SQL).
+  // 失効 page: the whole application is void (手続き期限切れキャンセル) yet the page still lists the original 当選数.
+  // The extension sends wonTickets=0 for it; lotteryWon is the lottery result. Keep that result for 当選率, but every
+  // one of those tickets is lapsed: nothing was paid, nothing can be attended.
+  let lapsedTickets = 0;
   if (source === 'fortunemusic' && raw.lotteryReviewRequired === true) {
     const shown = normalizeCount(raw.lotteryWon);
     if (shown !== null && shown <= appliedTickets) {
       wonTickets = shown;
-      spendYen = shown * unitPriceYen;
+      lapsedTickets = shown;
+      spendYen = 0;
       raw = { ...raw, resultStatus: shown > 0 ? 'won' : 'lost' };
     }
   }
@@ -218,6 +223,7 @@ export function normalizeImportRecord(input: unknown): NormalizedImportRecord | 
     group,
     rescueTickets: rescue,
     rescueWonTickets: rescueWon !== null && rescue !== null && rescueWon <= Math.min(rescue, wonTickets) ? rescueWon : null,
+    lapsedTickets,
   };
 }
 
@@ -423,10 +429,10 @@ export const UPSERT_ENTRY_SQL = `
       source, source_key, category, venue, import_title, import_group,
       applied_tickets, won_tickets, paid_tickets,
       unit_price_yen, spend_yen, sign_lots, application_round, source_synced_at,
-      rescue_tickets, rescue_won_tickets
+      rescue_tickets, rescue_won_tickets, lapsed_tickets
     )
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ON CONFLICT(user_id, source_key) WHERE source_key IS NOT NULL DO UPDATE SET
       event_slug = excluded.event_slug,
       member_name = excluded.member_name,
@@ -441,7 +447,7 @@ export const UPSERT_ENTRY_SQL = `
       import_group = excluded.import_group,
       applied_tickets = excluded.applied_tickets,
       won_tickets = CASE WHEN ${LAPSED_SQL} THEN miguri_user_entries.won_tickets ELSE excluded.won_tickets END,
-      lapsed_tickets = CASE WHEN ${LAPSED_SQL} THEN miguri_user_entries.won_tickets - excluded.won_tickets ELSE 0 END,
+      lapsed_tickets = CASE WHEN excluded.lapsed_tickets > 0 THEN excluded.lapsed_tickets WHEN ${LAPSED_SQL} THEN miguri_user_entries.won_tickets - excluded.won_tickets ELSE 0 END,
       paid_tickets = excluded.paid_tickets,
       unit_price_yen = excluded.unit_price_yen,
       spend_yen = excluded.spend_yen,
@@ -503,6 +509,7 @@ export async function handleImportMiguriEntries(req: Request, env: Env): Promise
     record.sourceSyncedAt,
     record.rescueTickets,
     record.rescueWonTickets,
+    record.lapsedTickets,
   ));
 
   for (const statementChunk of chunk(statements, WRITE_CHUNK_SIZE)) {
