@@ -74,9 +74,11 @@ export function buildMiguriRecapCard({ entries, year, lives, today = new Date().
       memberWon.set(entry.member, (memberWon.get(entry.member) ?? 0) + counts.won);
       if (entry.group) groupWon.set(entry.group, (groupWon.get(entry.group) ?? 0) + counts.won);
     }
-    if (counts.won > 0 && entry.date <= today) {
+    // 失効 (won but never paid) was not a session you could attend: it counts as a 当選, not as talk time or a day.
+    const held = Math.max(0, counts.won - (entry.lapsedTickets || 0));
+    if (held > 0 && entry.date <= today) {
       days[kindOf(entry) === 'real' ? 'real' : 'online'].add(entry.date);
-      seconds += counts.won * talkSecondsPerTicket(entry);
+      seconds += held * talkSecondsPerTicket(entry);
     }
   }
   const signed = own.filter((entry) => kindOf(entry) === 'sign' && entry.date <= today && entryLotteryCounts(entry).won > 0);

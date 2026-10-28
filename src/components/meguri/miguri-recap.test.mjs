@@ -60,3 +60,12 @@ test('recap post: no amounts, no dates', () => {
   assert.doesNotMatch(text, /¥|\d{4}-\d{2}/);
   assert.match(miguriRecapText(buildMiguriRecapCard({ entries, year: 2026, lives: null, today: TODAY })), /^2026年の推し活 振り返り\n\nミーグリ 3日/);
 });
+
+test('失効 tickets stay a 当選 but add no day and no talk time', () => {
+  const lapsedAll = online('x', '2026-04-01', 4, 4, { lapsedTickets: 4 });
+  const lapsedSome = online('y', '2026-04-02', 12, 12, { lapsedTickets: 2 });
+  const card = buildMiguriRecapCard({ entries: [lapsedAll, lapsedSome], year: 2026, lives: null, today: TODAY });
+  assert.equal(card.won, 16);
+  assert.equal(card.onlineDays, 1); // only 04-02 had tickets left to use
+  assert.equal(card.minutes, 2); // 10 held × 9 s = 90 s (the 4 lapsed and 2 lapsed add nothing)
+});
