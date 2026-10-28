@@ -9,8 +9,8 @@ test('the feature popup shows once, on desktop only, and is marked seen when it 
   assert.match(source, /const DESKTOP = '\(min-width: 1024px\) and \(hover: hover\) and \(pointer: fine\)'/);
   assert.match(source, /if \(window\.matchMedia\(DESKTOP\)\.matches && claim\(\)\) setOpen\(true\)/);
   assert.match(source, /localStorage\.getItem\(STORAGE_KEY\) === ANNOUNCEMENT_ID\) return false;\n\s*localStorage\.setItem\(STORAGE_KEY, ANNOUNCEMENT_ID\)/);
-  assert.match(source, /location\.pathname\.startsWith\('\/miguri'\)\) \{ claim\(\); return; \}/);
-  assert.match(source, /新功能：中签率和实际开销/);
+  assert.doesNotMatch(source, /pathname\.startsWith/); // this notice is for people already on the dashboard too
+  assert.match(source, /Music 履历已更新：请再同步一次/);
   assert.match(source, /href="\/miguri\/"/);
 });
 

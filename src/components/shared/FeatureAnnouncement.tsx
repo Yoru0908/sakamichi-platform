@@ -1,38 +1,38 @@
 import { useEffect, useState } from 'react';
-import { BarChart3, X } from 'lucide-react';
+import { RefreshCw, X } from 'lucide-react';
 import { useLanguage } from '@/i18n/use-language';
 import type { Language } from '@/stores/language';
 
-// One-time feature popup (2026-10-24): desktop only, marked seen as soon as it shows. Bump the id for the next one.
+// One-time popup (2026-10-28): desktop only, marked seen as soon as it shows. Bump the id for the next one.
 const STORAGE_KEY = 'feature-announcement-seen';
-const ANNOUNCEMENT_ID = 'miguri-stats-2026-10-24';
+const ANNOUNCEMENT_ID = 'miguri-lapse-resync-2026-10-28';
 const DESKTOP = '(min-width: 1024px) and (hover: hover) and (pointer: fine)';
 
 const COPY: Record<Language, { title: string; lead: string; points: string[]; note: string; go: string; close: string; x: string }> = {
   zh: {
-    title: '新功能：中签率和实际开销',
-    lead: '在「咪咕力管理」同步 forTUNE music / meets 履历后，可以看到：',
-    points: ['过往每一期的抽选中签率推移（按成员、按部、按会场）', '自己实际花了多少钱，按成员、按类别分开统计'],
-    note: 'Music 只算中签张数；Meets 用自己买的碟应募的中没中都算，保障应募不重复计费。',
-    go: '去看看',
+    title: 'Music 履历已更新：请再同步一次',
+    lead: '之前没付款而失效的 Music 当选，被算进了持有张数和金额里，现在已修正：',
+    points: ['手续期限已过、整笔申请被官方取消（失效）的当选，不再计入持有张数和金额', '请到「咪咕力管理」重新同步一次 Music，旧记录才会被更正'],
+    note: '还在手续期限内、未付款的当选，官方页面上看不出来，暂时仍会计入；过期变成失效后再同步一次即可去掉。',
+    go: '去同步',
     close: '知道了',
     x: '关闭',
   },
   ja: {
-    title: '新機能：当選率と実際の支払額',
-    lead: '「ミーグリ管理」で forTUNE music / meets の履歴を同期すると、次の内容が見られます：',
-    points: ['過去の抽選ごとの当選率の推移（メンバー別・部別・会場別）', '実際に支払った金額（メンバー別・種類別）'],
-    note: 'Music は当選枚数だけ、Meets は自分で買った CD での応募を当落に関係なく計上。保障応募は二重に計上しません。',
-    go: '見てみる',
+    title: 'Music 履歴を修正しました：もう一度同期してください',
+    lead: '未入金で失効した Music の当選が、所持枚数と金額に含まれていた問題を修正しました：',
+    points: ['手続き期限切れで応募ごとキャンセル（失効）になった当選は、所持枚数・金額に入らなくなります', '「ミーグリ管理」で Music をもう一度同期すると、これまでの記録が修正されます'],
+    note: '手続き期限内でまだ未入金の当選は公式ページから判別できないため、今は含まれます。失効になった後にもう一度同期すると外れます。',
+    go: '同期する',
     close: 'OK',
     x: '閉じる',
   },
   en: {
-    title: 'New: win rates and what you actually spent',
-    lead: 'Sync your forTUNE music / meets history in Miguri Manager to see:',
-    points: ['Your win rate over past lotteries, by member, part and venue', 'What you actually spent, by member and by category'],
-    note: 'Music counts won tickets only; Meets counts every entry made with CDs you bought, won or lost. Guarantee entries are not charged twice.',
-    go: 'Take a look',
+    title: 'Music history fixed: please sync again',
+    lead: 'Music wins that lapsed unpaid were counted as held tickets and spend. That is fixed:',
+    points: ['Wins from an application the official site cancelled for a missed payment deadline (失効) no longer count as held or as spend', 'Sync Music again in Miguri Manager to correct your existing records'],
+    note: 'Unpaid wins still inside the payment window cannot be told apart on the official page, so they count for now. Sync again after they lapse and they drop out.',
+    go: 'Go sync',
     close: 'Got it',
     x: 'Close',
   },
@@ -54,8 +54,6 @@ export default function FeatureAnnouncement() {
   const copy = COPY[lang] || COPY.zh;
 
   useEffect(() => {
-    // Already on the dashboard: nothing to announce, and it counts as seen.
-    if (location.pathname.startsWith('/miguri')) { claim(); return; }
     if (window.matchMedia(DESKTOP).matches && claim()) setOpen(true);
   }, []);
 
@@ -86,7 +84,7 @@ export default function FeatureAnnouncement() {
           <X size={18} />
         </button>
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--bg-secondary)] text-[var(--color-brand-nogi)]">
-          <BarChart3 size={22} />
+          <RefreshCw size={22} />
         </div>
         <h2 id="feature-announcement-title" className="mt-4 text-xl font-bold text-[var(--text-primary)]">
           {copy.title}
