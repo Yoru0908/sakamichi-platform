@@ -76,3 +76,13 @@ test('保障 counts are optional, validated leniently, and kept when an older ex
   save(db, meets({ rescueTickets: 14, rescueWonTickets: null }));
   assert.deepEqual(rescueRow(db), { rescue: 14, rescueWon: null });
 });
+
+// 失効 tickets must not reach either personal calendar (ICS download and subscription feed).
+import { readFileSync as readSource } from 'node:fs';
+test('personal calendar queries drop 失効 tickets and show the held count', () => {
+  for (const file of ['calendar-subscriptions.ts', 'miguri.ts']) {
+    const source = readSource(new URL(`./${file}`, import.meta.url), 'utf8');
+    assert.match(source, /e\.tickets - COALESCE\(e\.lapsed_tickets, 0\) AS tickets/, file);
+    assert.match(source, /AND e\.tickets - COALESCE\(e\.lapsed_tickets, 0\) > 0/, file);
+  }
+});

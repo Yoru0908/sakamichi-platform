@@ -725,7 +725,7 @@ async function loadCalendarEvents(req: Request, env: Env, entryId?: string | nul
   if (!userId) return null;
 
   const sql = `
-    SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets, e.updated_at,
+    SELECT e.id, e.event_slug, e.member_name, e.event_date, e.slot_number, e.tickets - COALESCE(e.lapsed_tickets, 0) AS tickets, e.updated_at,
            e.category, e.venue,
            COALESCE(m.title, e.import_title) AS event_title,
            COALESCE(m.group_id, e.import_group) AS group_id,
@@ -737,6 +737,7 @@ async function loadCalendarEvents(req: Request, env: Env, entryId?: string | nul
       ON s.event_slug = e.event_slug AND s.event_date = e.event_date AND s.slot_number = e.slot_number
     WHERE e.user_id = ?
       AND (e.status IN ('won', 'paid') OR COALESCE(e.source, 'manual') = 'manual')
+      AND e.tickets - COALESCE(e.lapsed_tickets, 0) > 0 -- 失効 tickets were never paid: not an event to attend
       ${entryId ? 'AND e.id = ?' : ''}
     ORDER BY e.event_date, e.slot_number, e.member_name
   `;

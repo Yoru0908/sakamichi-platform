@@ -218,7 +218,7 @@ export function icsResponse(body: string, filename: string, isPrivate = false): 
 
 async function loadPersonalCalendarEvents(env: Env, userId: string): Promise<CalendarEvent[]> {
   const rows = await env.MIGURI_DB.prepare(`
-    SELECT e.id, e.member_name, e.event_date, e.slot_number, e.tickets, e.updated_at,
+    SELECT e.id, e.member_name, e.event_date, e.slot_number, e.tickets - COALESCE(e.lapsed_tickets, 0) AS tickets, e.updated_at,
            e.category, e.venue,
            COALESCE(m.title, e.import_title) AS event_title,
            COALESCE(m.group_id, e.import_group) AS group_id,
@@ -230,6 +230,7 @@ async function loadPersonalCalendarEvents(env: Env, userId: string): Promise<Cal
       ON s.event_slug = e.event_slug AND s.event_date = e.event_date AND s.slot_number = e.slot_number
     WHERE e.user_id = ?
       AND (e.status IN ('won', 'paid') OR COALESCE(e.source, 'manual') = 'manual')
+      AND e.tickets - COALESCE(e.lapsed_tickets, 0) > 0 -- 失効 tickets were never paid: not an event to attend
     ORDER BY e.event_date, e.slot_number, e.member_name
   `).bind(userId).all<any>();
 
