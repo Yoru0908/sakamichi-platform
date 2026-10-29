@@ -85519,6 +85519,242 @@
         "coordSource": "article",
         "coordPrecision": "exact"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.770035,
+          35.709426
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:824d82a77ef4cd045303",
+        "sourceKey": "fumi-article:824d82a77ef4cd045303",
+        "name": "池之端一丁目交差点 / 不忍通り",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都台東区上野公園2",
+        "sceneTitle": "2026.10.29 櫻坂46 佐藤愛桜 「ふにんち」ではなく「しのばずのいけ」と読むこと忘れません!! blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都台東区上野公園2",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60122657.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60122657.html",
+        "tags": [
+          "櫻坂46",
+          "佐藤愛桜",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "佐藤愛桜"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60122657.html",
+          "mapId": "",
+          "layer": "2026.10.29 櫻坂46 佐藤愛桜 「ふにんち」ではなく「しのばずのいけ」と読むこと忘れません!! blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "佐藤愛桜",
+            "四期生"
+          ],
+          "name": "池之端一丁目交差点 / 不忍通り",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.772342,
+          35.712418
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:4a56211d4c9f76971377",
+        "sourceKey": "fumi-article:4a56211d4c9f76971377",
+        "name": "上野動物園 弁天門前",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都台東区上野公園2",
+        "sceneTitle": "2026.10.29 櫻坂46 佐藤愛桜 「ふにんち」ではなく「しのばずのいけ」と読むこと忘れません!! blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都台東区上野公園2",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60122657.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60122657.html",
+        "tags": [
+          "櫻坂46",
+          "佐藤愛桜",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "佐藤愛桜"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60122657.html",
+          "mapId": "",
+          "layer": "2026.10.29 櫻坂46 佐藤愛桜 「ふにんち」ではなく「しのばずのいけ」と読むこと忘れません!! blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "佐藤愛桜",
+            "四期生"
+          ],
+          "name": "上野動物園 弁天門前",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.77041,
+          35.710017
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:48fe5578ead48615e667",
+        "sourceKey": "fumi-article:48fe5578ead48615e667",
+        "name": "不忍池畔",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都台東区上野公園2",
+        "sceneTitle": "2026.10.29 櫻坂46 佐藤愛桜 「ふにんち」ではなく「しのばずのいけ」と読むこと忘れません!! blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都台東区上野公園2",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60122657.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60122657.html",
+        "tags": [
+          "櫻坂46",
+          "佐藤愛桜",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "佐藤愛桜"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60122657.html",
+          "mapId": "",
+          "layer": "2026.10.29 櫻坂46 佐藤愛桜 「ふにんち」ではなく「しのばずのいけ」と読むこと忘れません!! blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "佐藤愛桜",
+            "四期生"
+          ],
+          "name": "不忍池畔",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.713303,
+          35.632729
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:7eb7e221f8fc14d22416",
+        "sourceKey": "fumi-article:7eb7e221f8fc14d22416",
+        "name": "雅叙園東京 (旧目黒雅叙園)",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都目黒区下目黒1-8-1",
+        "sceneTitle": "2026.10.29 櫻坂46 佐藤愛桜 「ふにんち」ではなく「しのばずのいけ」と読むこと忘れません!! blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都目黒区下目黒1-8-1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60122657.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60122657.html",
+        "tags": [
+          "櫻坂46",
+          "佐藤愛桜",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "佐藤愛桜"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60122657.html",
+          "mapId": "",
+          "layer": "2026.10.29 櫻坂46 佐藤愛桜 「ふにんち」ではなく「しのばずのいけ」と読むこと忘れません!! blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "佐藤愛桜",
+            "四期生"
+          ],
+          "name": "雅叙園東京 (旧目黒雅叙園)",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
