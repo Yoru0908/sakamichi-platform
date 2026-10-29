@@ -247672,7 +247672,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ナウル",
-        "sceneNote": "",
+        "sceneNote": "https://x.com/nauru_japan/status/2114960391516352552",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -247725,7 +247725,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ナウル共和国政府観光局 日本事務所",
-        "sceneNote": "",
+        "sceneNote": "https://x.com/nauru_japan/status/2114960391516352552",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -247745,6 +247745,63 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "ナウル共和国政府観光局 日本事務所",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7756369,
+          35.61607
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:708529a96f1b6868bd3f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:708529a96f1b6868bd3f",
+        "name": "青海南ふ頭公園",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "青海南ふ頭公園",
+        "sceneNote": "FLASHスペシャルグラビアBEST 2022年新年号での上村ひなのソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjRgSe0-3VMZuUL5GvxsiBgfDRYt5VUczoF2oGXJWRVFtFHabJu9FnlGtYKIc2Wm8r-rkrN2YSjkHnz0X5tUD_3IpFp3MG6p2k4YHM-JJbT_MSnWS3F9ADBEa7iOVTtJJHACPPR_uuK1yqVtTsBUbPPZkZs1jWe-M_YSEbt_z7UvMmK_d3cEN-T81PhI4DGv2YLVJp3d9T9KxzyVJlx-gJtxuqtqeoEdr7rEf3ugepFZwgtX6FzU0ZLSEg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhfQPm4lRjm1DtwzbPw-MshOcErxfaJpUgiaJiGy02rZ22qWrKy1yeBgov13S9qVIoFI8EcKvc84J6oz2VZJexJZl-F2Ex91H5G_anzgn3_JZBLTEQy6eV-J-4rjzKLOiTFJ_YCrU1ScRDeX3Eq3NC5GexgFglmxNmIix_W8P2ux7lzPJ4b4oD0H1s3btTfh2KugmCf_2CREc3N_FyWqMXFF6k6T7iNCTZV4_QKrYlGFWNMHzFg5JzyLl4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZijts-QEHaGajF9-jgIQ--_-oWOSJuBKr3-sKwvvzu9uZhfx4nsey-tB7Ysxu1VMB9FAA-2HjvGmgXvkm1p8hH6HrojEkPVSXO-U9Mk82RrNOW6bd4F_2FVH4IO1SuJFxxP65lcqskiGW0KIxzNqRfQ4OD4P_AgJPp4kEZuUfMlG4vVwio1GCWfNKg2EYLjqnV1G5KSNKG4eFcb4LXEhbAovVoq2pvli71dD08trd1YxKdezHk8y7lIxIE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "青海南ふ頭公園",
           "group": "日向坂46"
         },
         "classification": {
