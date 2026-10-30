@@ -149324,7 +149324,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "宮古島じゅんき君",
-        "sceneNote": "20233月頃に松田好花が訪れた場所。https://www.instagram.com/p/CqIaNmQLL5U/?hl=ja&img_index=1 題名:",
+        "sceneNote": "2023年3月頃に松田好花が訪れた場所。https://www.instagram.com/p/CqIaNmQLL5U/?hl=ja&img_index=1 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -149379,7 +149379,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "サバウツガー",
-        "sceneNote": "20233月頃に松田好花が訪れた場所。https://www.instagram.com/p/CqIaNmQLL5U/?hl=ja&img_index=3 題名:",
+        "sceneNote": "2023年3月頃に松田好花が訪れた場所。https://www.instagram.com/p/CqIaNmQLL5U/?hl=ja&img_index=3 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -248227,6 +248227,122 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7748209,
+          35.6179823
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2639173b438802b5a61c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2639173b438802b5a61c",
+        "name": "IL NIDO. STUDIO お台場 / the SOHO studios.",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "IL NIDO. STUDIO お台場 / the SOHO studios.",
+        "sceneNote": "FLASHスペシャルグラビアBEST 2022年新年号での上村ひなのソログラビア撮影場所。赤い服は１F、白い服は2Fで撮影されたものと推定。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhVTAiUE9IGdTzsf9s2cu_yJZ0ckkCcsP6Avox9sbDeFzoH7fO1ROep98aATILMLvxzOUGz08cB2fB74U2M6Hd4y0hvl7ir1TZ-auQWTzVQaZa83ax4RhUR9jS_BR5Iev63r-LcYWUIMG-ZAXMeI8n826RN2kU-gmCJDUdigUT3NnP_ztK25wX2pEUmTcwNVInYU_WnoQqJZSPpKSEdOrKKxiVBCz579T_jzYZed2Gt8JCPwGt4m4sSIok%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh7xz0IfLI0hTNvS9VogAFrO9hP-VJNuSkz4uALEIflxP4O4OIxSQeU0hJw2VAjBYI6hwl83rR01lT_HBYTemT-2Qhtj7rtfrQSKBUQRVvMq7Mm5P9AY_aYdQ7tN5jMN80HUxvEM81aovEWXR7YKc95Qj5d060Ah5mk3-JFoFlwu2ZUQuw21TQgouWVHGDvmXzZfAtDGf2JXjLA6z6Ec7N6jOkwc0c_8dfPfddXW2MBthcDlJQTGl_Tuss%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj18VZUgELYiu9SX9gI2Q6I-U2teQp6E_vSUZueN2e-UpRkSusLzsZuUd00R-mq_LSAE-LcKS9nhYPznXGMhYuXnxmkYaMCvQGir2yRJ6MMfjNSwXzRqZMw2LciYp0-uQ2qz9ekoPMRT3TUeihho6j5htm2B3QXfZiKtg2SHwTEYBd27oTJRLD93Y1Tocu9mEhdS9ZRWQRAOz10APiznpBd5clw-siC1HhHtO-L7HqCHbJBxqX1NHNPLO4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZihZUHUaiAIlKIgrJo2W_5vswu6azIwqvCccKlMTOvoystuKfMbhEiEmwsPrtXb2gbsOQN4UxwfCMnP5u5HtJs7DkGQ62wJ2-u2nwBxpYRYuS3GykR4Koanuk7nVjoCo4o3c3MXklDzZnml3TW0_EzIzKR6ASBz7SwUqc42nQOn1_HEwS3VvOEHDbN6Ochbj-txmRCxlKTeJeGpEcqswNXwvLcRTl15GpGP9Ysn4K-I6i4k0Os7stweoL8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhpc4-4kbqH5ZnC8dx5ZPpon8h2hvNUvZwy5vdKZ5Z1Z6Y8A8E4pQ-VF4ynVXApFkcX-ymGXLsgSSZ2IQ0-J_0yzvCLrtCWP7tpbNRgGgemTZaW8O41Td56y9gJ0SODxzUj4bTFRb3SvIU6DdPuLyhE6CFkx8_e22f-ggpNYJHjn2KDzKPUaz6r2g7Id62k3xMX6UQQFr-IQqVzej1IJ75452u2R74bRVPpyIhNZorUu1dtvdKT0xkZv8c%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi-NADUjYzBekdBJzFyzV7TLscIH1k7LdgNk5rARcP0wZOWvUFquQOLU_3GNV3JX3tQjbELVmvqf7lbbgFJABtXpqKx9ZPScYA9nF6iKjNejpXylIMKda2uIxx0bXnks_qQbDGRqoEiM2mvQbJEFc_jHNcw7amS4cVDcaws6xaiR-vdpYXisKreOKYBNft6HQznf-ndd1EaqGN6_VASr0PBK3D82GADDsoUcL-gJSNxOw-hwLmOpKwamAY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiCGwt93ChguHDUJsVeMso42nF6JdeQmcLa6_pDb0lW9zNdK_3FAF-zjJBHG_53k1GmvY3PFadLngDQLMg83gDXcE132ljhmVlMFg8DBj6hE8n1cNNM92SLo9iRSyhTfyelMXofyDMDPidZ2429YODgkILLaZohZtrLKcuiFYMQeB_kCoRWBUWfcwLR3lVL3S5bnMjCQ0bqo4ryq5i5dPg5084RCIqSa93TZfrdkYMXeuysds8lR9xUtP0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "IL NIDO. STUDIO お台場 / the SOHO studios.",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.0077371,
+          35.8963578
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a60b13652afd7defccd8",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a60b13652afd7defccd8",
+        "name": "あけぼの山農業公園 風車",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "あけぼの山農業公園 風車",
+        "sceneNote": "週刊少年サンデー 2022年28号での神村ひなのソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhS2_4CftzqxZN0rvspXBdfsQW7-pPwCkFk62NIFXdvAieyBEpbEXHXi_ebpSxwc_sR9CffuE7Ysxh76qaisOYBwv3c3eqEtkcPm6ER-YTwh_mypvGSNANcc4prAoDgE8OLVWArTbXWu84z7ZwA6ilvvR2-87DdX71tU48Hp21FvFiS6UNXhVAx296GpCd2r8CqoAS8yapbSCwzQicDGSVwweRhTgKHJ9QT_OTu8vLKK7TrvWYlBRcL3j0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "あけぼの山農業公園 風車",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           131.4298222,
           31.9216389
         ]
@@ -248250,7 +248366,13 @@
         ],
         "images": [
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj0MnprgXg6A1eCJrYZdxwmS9rubBOzFx-DXG8UQ96EmRHJJPmiKR8id4JO7vdC7sn8N1kc9XeRVL2jeoBFUcdnSsg9GDUbwjSiXyAqpxdNH7yUSHPF98e-ny0tJCXrNL5-cPSp8MA9FxDH7gD0WW_APhBTchUD2US9LgvWD0raPBzFv73u8bs5PAy3F3_qpXt0vDma7W6P3VQ4BSybMVu6JIBrQf4lwhkK3mYCI3fk-H9T5BXhMPz0wRk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiykZtaQs6IKMf6HLlFhaU-oFtDNAy0ZyzeU5CagRzf_yxNkOOmQmGN2T_gbboehfdWCQKXnGilpXeDpDcHHLWigqFMSMcWFnNrd6Y_wV-muMLyQGXP1RG-qOJ4l4T0RvV6OQ5Fuhbmz11pLRLwvhU0thZOISDcI5_c7qRw5OzTAO53WqiO8ybhluoro4Qrapzx_wJtoxHcxt4442rk6U984FiTIz2vrCWzLkN0L3LxbCo3fDMYqbykh_4%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiykZtaQs6IKMf6HLlFhaU-oFtDNAy0ZyzeU5CagRzf_yxNkOOmQmGN2T_gbboehfdWCQKXnGilpXeDpDcHHLWigqFMSMcWFnNrd6Y_wV-muMLyQGXP1RG-qOJ4l4T0RvV6OQ5Fuhbmz11pLRLwvhU0thZOISDcI5_c7qRw5OzTAO53WqiO8ybhluoro4Qrapzx_wJtoxHcxt4442rk6U984FiTIz2vrCWzLkN0L3LxbCo3fDMYqbykh_4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh0N6LPWtjjD37Vlp_zYPBb2CEi_bRLbY7n8jvHD7Mx06K75WwWoAI3WBH8pj5zfvXfX0KPU64XPia_Iu7B1Qx05E5FLHDeA47lbVWo_TtY0p0MSmaxebBPF054djDQ7oE8Nkrgd4vVkbHaNzYyz9Hvuz1CLcSbtvRjwRtT9tBII57LyVEr7C7Ne7OG2T7f93PRoENhi8xzynJFs9siRiNsF40twsJha8YeVhOXimo_kkNxaLgOa9FHnhw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhUcYVqHA3qHDbsHEuHJAHwyydRPizf93-rMaC7Ys07luzm3w1gqHsmRVIUJiYGFFC9UFVchzwoI7nHPXqloV1mxhtPzgrxzZkQjqsRD0NcJcJFtgNFRUueQ9wKEYf1Blpvfe-IVtVi9E0rIJL0pjpIhRv6wdYrv3pLnVb5cChW5KAw9qhjBvoH9sOzwMKhVC-icZjYX78QB7zNmTHH35-7mkccRd6KdyTsq4yBG2QukIvO9wBtJ9gqlCE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgO7N1dxgLRB80EoIhVX30K1hY1KaHh2t7ISayIkjtqF9zE3YRempCDCTrMZ3P3CmHTltCnpb1ba-5zu_bhrU_jbVg13lR72yHCucpJwJzU7iMl5LtrYvBzWHlbqcQeVNJbAlubE4EtMmFv8ti4o4DHynE_W3byXav7guS7qCICdM9XSHIeXBQ0QkcvZal91ouiS2yhASSyv7m_Q8e9UcLT4wDN0s_2-RKBz87kNLScOXgBERvNqbz3GA4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhJ9lAbBas_vKHDa6MgG76sDG0dATTIR98pwHd3WJn9rUgBZWB08q3lc4sEI9suMIbjqD63TaLYG-LKsOBV7PnujnGfxFjmjflkd7NOngwPatEeRahSe3Zk9Cm3RnZvmMVdzafOk_MrS4qO130jzDEN4ovxno7cEmxYodThuatbvCBx3INg-GWFqp4_aSMDEBHgGwPzsGfsZ4j0k2i5rcq4eYiNHz-7IiJe-Tt_-3167z8NiUcThPoyrH4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgZ9DSEZSM8DedVA1popaF8XU4undnOl7-eA-dbe6i_TNkWVnVRj8hucJJPETdPTqk3tB4BOo7hJ-pjFR9o9lPElCbdlmBJn4_5aynrIvX9ESAeov90oRnTIOmpadkv8Dh-u6OYqnNcTsotW43TxUCrUJ37pcmJiZHDoy_lt_bEkNWs2xO06htvVWEANfc00uclnaNMIzuL4iudnAOTqzMal0cJgVztzcVgs6E3Y8xfXumfmfDWm9EGBGQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh6bqYJpb9rpHBNAo0Dm6hF3LKS4p85WkkJUQ6q3gNYgsP0WaJrEMMYJ1FcWhY7XNA1XIQ7R-Y_6Vrea8Jsr9m_cNvTBnYO2kwHlDFZ3eo-hVuaKfJJOh2A0NIe_c-K8wl2Vvx0XL2YrkDcZG_s3gKGSPXPC6sA_x1oz2OKQdauogaU5wCjG3Co7Pr3Q6_YGMUuRhLtIpUKmQainZxaC9E4WBgRCWrXH9ANwCJvMYkrGtKdsykE5pS4vco%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -248263,6 +248385,59 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "ひなたメドレータウン",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.2392293,
+          35.5114493
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3102eb6ab328b40a7f8c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3102eb6ab328b40a7f8c",
+        "name": "岡田商店 境港本店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "岡田商店 境港本店",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "岡田商店 境港本店",
           "group": "日向坂46"
         },
         "classification": {
