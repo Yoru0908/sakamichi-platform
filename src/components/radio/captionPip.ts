@@ -85,6 +85,11 @@ export class CanvasPip {
     await this.video.requestPictureInPicture();
   }
 
+  /** Leaves PiP but keeps the video ready, so the next tap can open it again. */
+  close(): void {
+    if (this.active) document.exitPictureInPicture().catch(() => {});
+  }
+
   destroy(): void {
     if (this.active) document.exitPictureInPicture().catch(() => {});
     (this.video.srcObject as MediaStream | null)?.getTracks().forEach(t => t.stop());

@@ -99,7 +99,7 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
   const togglePip = async () => {
     try {
       if (pipWindow) return pipWindow.close();
-      if (videoPipOn) return canvasPip.current?.destroy();
+      if (videoPipOn) return canvasPip.current?.close();
       if (pip === 'document') {
         const win = await openDocumentPip();
         win.addEventListener('pagehide', () => setPipWindow(null));
