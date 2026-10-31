@@ -12,9 +12,13 @@ const POLL_MS = 1500;
 const LINGER_MS = 4000;           // keep a line up this long after its audio ends
 const FALLBACK_DELAY_MS = 7000;   // listener lag assumed when the player has no PDT clock
 const KEEP = 40;
+const ROWS = 3;                   // lines on screen (transcript style)
+const LATE_MS = 500;              // a line that arrives this long after its audio started is marked late
 const SETTINGS_KEY = '46log-radio-captions';
 
 interface Caption { seq: number; t: number; dur: number; ja: string; zh: string }
+interface Pending { t: number; dur: number; ja: string }  // cut by the server, caption not ready yet ('' = still recognizing)
+interface Next { ja: string; heardMs: number }             // the pending phrase the listener is already hearing
 interface Settings { on: boolean; ja: boolean }
 
 interface Props {
@@ -49,22 +53,47 @@ function Toggle({ label, on, onClick }: { label: string; on: boolean; onClick: (
   );
 }
 
-function CaptionLines({ lines, showJa, stale, waiting, large = false }: {
-  lines: Caption[]; showJa: boolean; stale: boolean; waiting: string; large?: boolean;
+/** The line being heard has no caption yet: says whether it is still being recognized or translated, and for how long. */
+function NextLine({ next, showJa, large }: { next: Next; showJa: boolean; large: boolean }) {
+  return (
+    <div>
+      <p className={`flex items-center gap-1.5 text-[var(--text-tertiary)] ${large ? 'text-sm' : 'text-xs'}`}>
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+        {next.ja ? '翻訳中' : '認識中'}… +{(next.heardMs / 1000).toFixed(1)}s
+      </p>
+      {showJa && next.ja && (
+        <p className={`leading-snug text-[var(--text-secondary)] mt-0.5 ${large ? 'text-base' : 'text-sm'}`}>{next.ja}</p>
+      )}
+    </div>
+  );
+}
+
+function CaptionLines({ lines, showJa, stale, waiting, late, next, large = false }: {
+  lines: Caption[]; showJa: boolean; stale: boolean; waiting: string;
+  late: Map<number, number>; next?: Next; large?: boolean;
 }) {
-  if (!lines.length) return <p className="text-xs text-[var(--text-tertiary)]">{waiting}</p>;
+  if (!lines.length && !next) return <p className="text-xs text-[var(--text-tertiary)]">{waiting}</p>;
   return (
     <>
-      {lines.map((c, i) => (
-        <div key={c.seq} className={`transition-opacity duration-300 ${i < lines.length - 1 || stale ? 'opacity-40' : ''}`}>
-          <p className={`font-medium leading-snug text-[var(--text-primary)] ${large ? 'text-xl' : 'text-[15px] sm:text-base'}`}>
-            {c.zh || c.ja}
-          </p>
-          {showJa && c.zh && (
-            <p className={`leading-snug text-[var(--text-tertiary)] mt-0.5 ${large ? 'text-sm' : 'text-xs'}`}>{c.ja}</p>
-          )}
-        </div>
-      ))}
+      {lines.map((c, i) => {
+        const lateMs = late.get(c.seq);
+        return (
+          <div key={c.seq} className={`transition-opacity duration-300 ${i < lines.length - 1 || next || stale ? 'opacity-40' : ''}`}>
+            <p className={`font-medium leading-snug text-[var(--text-primary)] ${large ? 'text-xl' : 'text-[15px] sm:text-base'}`}>
+              {c.zh || c.ja}
+              {lateMs !== undefined && (
+                <span className="ml-2 align-middle text-[10px] font-normal text-amber-500" title="音声より遅れて届いた字幕">
+                  遅れ {(lateMs / 1000).toFixed(1)}s
+                </span>
+              )}
+            </p>
+            {showJa && c.zh && (
+              <p className={`leading-snug text-[var(--text-tertiary)] mt-0.5 ${large ? 'text-sm' : 'text-xs'}`}>{c.ja}</p>
+            )}
+          </div>
+        );
+      })}
+      {next && <NextLine next={next} showJa={showJa} large={large} />}
     </>
   );
 }
@@ -72,6 +101,7 @@ function CaptionLines({ lines, showJa, stale, waiting, large = false }: {
 export default function LiveCaptions({ path, playing, playhead, accent }: Props) {
   const [settings, setSettings] = useState<Settings>({ on: true, ja: true });
   const [captions, setCaptions] = useState<Caption[]>([]);
+  const [pending, setPending] = useState<Pending[]>([]);
   const [unavailable, setUnavailable] = useState(false);
   const [, setTick] = useState(0);
   const [pip, setPip] = useState<PipKind>(null);           // what this browser supports
@@ -79,6 +109,7 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
   const [videoPipOn, setVideoPipOn] = useState(false);
   const canvasPip = useRef<CanvasPip | null>(null);
   const lastSeq = useRef(0);
+  const late = useRef(new Map<number, number>());  // seq -> how far into its audio the line arrived, ms
   const skew = useRef(0);  // server clock minus client clock, ms
 
   useEffect(() => {
@@ -120,7 +151,9 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
   // New stream: start over.
   useEffect(() => {
     setCaptions([]);
+    setPending([]);
     lastSeq.current = 0;
+    late.current.clear();
   }, [path]);
 
   // Poll for new lines while the stream is playing.
@@ -131,12 +164,19 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
       try {
         const res = await fetch(`${API_BASE}/api/radio/live/captions/${path}?after=${lastSeq.current}`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data: { now?: number; items?: Caption[]; unavailable?: boolean } = await res.json();
+        const data: { now?: number; items?: Caption[]; pending?: Pending[]; unavailable?: boolean } = await res.json();
         if (stopped) return;
         if (data.now) skew.current = data.now - Date.now();
         setUnavailable(Boolean(data.unavailable));
+        setPending(data.pending ?? []);
         const items = data.items ?? [];
         if (!items.length) return;
+        // Lines that arrive after the listener already started hearing them (not the first backlog).
+        const head = playhead();
+        if (head !== null && lastSeq.current > 0) {
+          for (const c of items) if (head - c.t > LATE_MS) late.current.set(c.seq, head - c.t);
+          while (late.current.size > KEEP) late.current.delete(late.current.keys().next().value!);
+        }
         lastSeq.current = Math.max(lastSeq.current, ...items.map(c => c.seq));
         setCaptions(prev => [...prev, ...items].sort((a, b) => a.t - b.t).slice(-KEEP));
       } catch {
@@ -146,7 +186,7 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
     poll();
     const id = setInterval(poll, POLL_MS);
     return () => { stopped = true; clearInterval(id); };
-  }, [path, playing, settings.on]);
+  }, [path, playing, settings.on, playhead]);
 
   // Re-pick the visible lines as the playhead moves.
   useEffect(() => {
@@ -156,13 +196,19 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
   }, [playing, settings.on]);
 
   const now = playhead() ?? Date.now() + skew.current - FALLBACK_DELAY_MS;
-  // The last two lines the listener has reached stay up (transcript style); once the newest
-  // has been over for LINGER_MS (music, CM, silence) both fade instead of disappearing.
-  const lines = captions.filter(c => c.t <= now).slice(-2);
+  // The listener may already hear a phrase whose caption is still on its way: it gets the bottom row.
+  const waitingFor = pending.find(p => p.t <= now);
+  const next = waitingFor && { ja: waitingFor.ja, heardMs: now - waitingFor.t };
+  // The last lines the listener has reached stay up; once the newest has been over for
+  // LINGER_MS (music, CM, silence) they all fade instead of disappearing.
+  const lines = captions.filter(c => c.t <= now).slice(next ? 1 - ROWS : -ROWS);
   const newest = lines[lines.length - 1];
-  const stale = newest !== undefined && now > newest.t + newest.dur * 1000 + LINGER_MS;
+  const stale = !next && newest !== undefined && now > newest.t + newest.dur * 1000 + LINGER_MS;
   const waiting = unavailable ? '字幕サービスに接続できません' : playing ? '字幕を準備中…' : '再生すると字幕が表示されます';
-  if (videoPipOn) canvasPip.current?.draw(lines, settings.ja, stale, waiting);
+  if (videoPipOn) {
+    const nextRow = next && { seq: -1, ja: '', zh: next.ja ? `${next.ja} …` : '…' };
+    canvasPip.current?.draw(nextRow ? [...lines, nextRow] : lines, settings.ja, stale, waiting);
+  }
   const pipOpen = Boolean(pipWindow) || videoPipOn;
 
   return (
@@ -198,14 +244,14 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
       </div>
 
       {settings.on && (
-        <div aria-live="polite" className="mt-3 min-h-[5.75rem] flex flex-col justify-end gap-2.5">
-          <CaptionLines lines={lines} showJa={settings.ja} stale={stale} waiting={waiting} />
+        <div aria-live="polite" className="mt-3 min-h-[8.75rem] flex flex-col justify-end gap-2.5">
+          <CaptionLines lines={lines} showJa={settings.ja} stale={stale} waiting={waiting} late={late.current} next={next} />
         </div>
       )}
 
       {pipWindow && createPortal(
         <div className="h-screen box-border p-4 flex flex-col justify-end gap-3 bg-[var(--bg-primary)]">
-          <CaptionLines lines={lines} showJa={settings.ja} stale={stale} waiting={waiting} large />
+          <CaptionLines lines={lines} showJa={settings.ja} stale={stale} waiting={waiting} late={late.current} next={next} large />
         </div>,
         pipWindow.document.body,
       )}
