@@ -85755,6 +85755,63 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.713552,
+          35.642736
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:b5767fc7ea4ad39911e6",
+        "sourceKey": "fumi-article:b5767fc7ea4ad39911e6",
+        "name": "恵比寿ガーデンプレイス",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都渋谷区恵比寿4-20-3",
+        "sceneTitle": "2024.12.11 櫻坂46 増本綺良 4周年㊗️ blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都渋谷区恵比寿4-20-3",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60124125.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60124125.html",
+        "tags": [
+          "櫻坂46",
+          "増本綺良"
+        ],
+        "images": [],
+        "members": [
+          "増本綺良"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60124125.html",
+          "mapId": "",
+          "layer": "2024.12.11 櫻坂46 増本綺良 4周年㊗️ blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "増本綺良"
+          ],
+          "name": "恵比寿ガーデンプレイス",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
     }
   ]
 }
