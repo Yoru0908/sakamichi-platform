@@ -102,7 +102,11 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
   }, [playing, settings.on]);
 
   const now = playhead() ?? Date.now() + skew.current - FALLBACK_DELAY_MS;
-  const lines = captions.filter(c => c.t <= now && now <= c.t + c.dur * 1000 + LINGER_MS).slice(-2);
+  // The last two lines the listener has reached stay up (transcript style); once the newest
+  // has been over for LINGER_MS (music, CM, silence) both fade instead of disappearing.
+  const lines = captions.filter(c => c.t <= now).slice(-2);
+  const newest = lines[lines.length - 1];
+  const stale = newest !== undefined && now > newest.t + newest.dur * 1000 + LINGER_MS;
   const waiting = unavailable ? '字幕サービスに接続できません' : playing ? '字幕を準備中…' : '再生すると字幕が表示されます';
 
   return (
@@ -130,7 +134,7 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
             lines.map((c, i) => (
               <div
                 key={c.seq}
-                className={`transition-opacity duration-300 ${i < lines.length - 1 ? 'opacity-40' : ''}`}
+                className={`transition-opacity duration-300 ${i < lines.length - 1 || stale ? 'opacity-40' : ''}`}
               >
                 <p className="text-[15px] sm:text-base font-medium leading-snug text-[var(--text-primary)]">
                   {c.zh || c.ja}
