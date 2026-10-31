@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { Captions } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { Captions, PictureInPicture2 } from 'lucide-react';
+import { CanvasPip, openDocumentPip, pipKind, type PipKind } from './captionPip';
 
 // AI captions for the 坂道 live stream. The server (radio-caption on Homeserver) stamps each
 // line with the wall-clock time its audio reached the server; MediaMTX stamps HLS segments
@@ -47,15 +49,67 @@ function Toggle({ label, on, onClick }: { label: string; on: boolean; onClick: (
   );
 }
 
+function CaptionLines({ lines, showJa, stale, waiting, large = false }: {
+  lines: Caption[]; showJa: boolean; stale: boolean; waiting: string; large?: boolean;
+}) {
+  if (!lines.length) return <p className="text-xs text-[var(--text-tertiary)]">{waiting}</p>;
+  return (
+    <>
+      {lines.map((c, i) => (
+        <div key={c.seq} className={`transition-opacity duration-300 ${i < lines.length - 1 || stale ? 'opacity-40' : ''}`}>
+          <p className={`font-medium leading-snug text-[var(--text-primary)] ${large ? 'text-xl' : 'text-[15px] sm:text-base'}`}>
+            {c.zh || c.ja}
+          </p>
+          {showJa && c.zh && (
+            <p className={`leading-snug text-[var(--text-tertiary)] mt-0.5 ${large ? 'text-sm' : 'text-xs'}`}>{c.ja}</p>
+          )}
+        </div>
+      ))}
+    </>
+  );
+}
+
 export default function LiveCaptions({ path, playing, playhead, accent }: Props) {
   const [settings, setSettings] = useState<Settings>({ on: true, ja: true });
   const [captions, setCaptions] = useState<Caption[]>([]);
   const [unavailable, setUnavailable] = useState(false);
   const [, setTick] = useState(0);
+  const [pip, setPip] = useState<PipKind>(null);           // what this browser supports
+  const [pipWindow, setPipWindow] = useState<Window | null>(null);
+  const [videoPipOn, setVideoPipOn] = useState(false);
+  const canvasPip = useRef<CanvasPip | null>(null);
   const lastSeq = useRef(0);
   const skew = useRef(0);  // server clock minus client clock, ms
 
-  useEffect(() => setSettings(loadSettings()), []);
+  useEffect(() => {
+    setSettings(loadSettings());
+    setPip(pipKind());
+  }, []);
+
+  // Video PiP needs its canvas video ready before the click, or the browser drops the gesture.
+  useEffect(() => {
+    if (pip !== 'video' || !playing) return;
+    const c = new CanvasPip(() => setVideoPipOn(false));
+    canvasPip.current = c;
+    return () => { c.destroy(); canvasPip.current = null; setVideoPipOn(false); };
+  }, [pip, playing]);
+
+  useEffect(() => () => pipWindow?.close(), [pipWindow]);
+
+  const togglePip = async () => {
+    try {
+      if (pipWindow) return pipWindow.close();
+      if (videoPipOn) return canvasPip.current?.destroy();
+      if (pip === 'document') {
+        const win = await openDocumentPip();
+        win.addEventListener('pagehide', () => setPipWindow(null));
+        setPipWindow(win);
+      } else if (canvasPip.current) {
+        await canvasPip.current.open();
+        setVideoPipOn(true);
+      }
+    } catch { /* the user dismissed it, or the browser refused */ }
+  };
 
   const update = (patch: Partial<Settings>) => {
     const next = { ...settings, ...patch };
@@ -108,6 +162,8 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
   const newest = lines[lines.length - 1];
   const stale = newest !== undefined && now > newest.t + newest.dur * 1000 + LINGER_MS;
   const waiting = unavailable ? '字幕サービスに接続できません' : playing ? '字幕を準備中…' : '再生すると字幕が表示されます';
+  if (videoPipOn) canvasPip.current?.draw(lines, settings.ja, stale, waiting);
+  const pipOpen = Boolean(pipWindow) || videoPipOn;
 
   return (
     <div
@@ -121,6 +177,21 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
           BETA
         </span>
         <div className="ml-auto flex gap-1.5">
+          {settings.on && pip && playing && (
+            <button
+              type="button"
+              onClick={togglePip}
+              aria-pressed={pipOpen}
+              title="字幕を小窓で表示"
+              className={`flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full border transition-colors ${
+                pipOpen
+                  ? 'border-[var(--color-brand-sakura,#F19DB5)] text-[var(--color-brand-sakura,#F19DB5)] bg-[var(--color-brand-sakura,#F19DB5)]/10'
+                  : 'border-[var(--border-primary)] text-[var(--text-tertiary)]'
+              }`}
+            >
+              <PictureInPicture2 size={11} /> 小窓
+            </button>
+          )}
           {settings.on && <Toggle label="原文" on={settings.ja} onClick={() => update({ ja: !settings.ja })} />}
           <Toggle label={settings.on ? '字幕 ON' : '字幕 OFF'} on={settings.on} onClick={() => update({ on: !settings.on })} />
         </div>
@@ -128,24 +199,15 @@ export default function LiveCaptions({ path, playing, playhead, accent }: Props)
 
       {settings.on && (
         <div aria-live="polite" className="mt-3 min-h-[5.75rem] flex flex-col justify-end gap-2.5">
-          {lines.length === 0 ? (
-            <p className="text-xs text-[var(--text-tertiary)]">{waiting}</p>
-          ) : (
-            lines.map((c, i) => (
-              <div
-                key={c.seq}
-                className={`transition-opacity duration-300 ${i < lines.length - 1 || stale ? 'opacity-40' : ''}`}
-              >
-                <p className="text-[15px] sm:text-base font-medium leading-snug text-[var(--text-primary)]">
-                  {c.zh || c.ja}
-                </p>
-                {settings.ja && c.zh && (
-                  <p className="text-xs leading-snug text-[var(--text-tertiary)] mt-0.5">{c.ja}</p>
-                )}
-              </div>
-            ))
-          )}
+          <CaptionLines lines={lines} showJa={settings.ja} stale={stale} waiting={waiting} />
         </div>
+      )}
+
+      {pipWindow && createPortal(
+        <div className="h-screen box-border p-4 flex flex-col justify-end gap-3 bg-[var(--bg-primary)]">
+          <CaptionLines lines={lines} showJa={settings.ja} stale={stale} waiting={waiting} large />
+        </div>,
+        pipWindow.document.body,
       )}
 
       <p className="mt-3 text-[10px] text-[var(--text-tertiary)]">
