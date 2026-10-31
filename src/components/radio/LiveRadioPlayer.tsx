@@ -1,12 +1,17 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Hls from 'hls.js';
 import { Play, Pause, Volume2, VolumeX, Clock, Calendar, AlertCircle, Loader2, Radio } from 'lucide-react';
+import LiveCaptions from './LiveCaptions';
 
 // ─── Config ─────────────────────────────────────
 const API_BASE = 'https://api.46log.com';
 const POLL_INTERVAL = 15_000;
 const HLS_BUFFER_SEC = 18;
 const HLS_MAX_RETRIES = 3;
+// Preview deployments only: `?caption_test=<MediaMTX path>` adds a locally published test stream.
+const CAPTION_TEST_PATH = typeof window !== 'undefined' && window.location.hostname !== '46log.com'
+  ? new URLSearchParams(window.location.search).get('caption_test')
+  : null;
 // ─── Types ──────────────────────────────────────
 interface ActiveStream {
   task_id: string;
@@ -207,7 +212,13 @@ export default function LiveRadioPlayer() {
       const res = await fetch(`${API_BASE}/api/radio/now-playing`);
       if (!res.ok) return;
       const data = await res.json();
-      const streams: ActiveStream[] = data.status?.streams ?? [];
+      const streams: ActiveStream[] = [
+        ...(CAPTION_TEST_PATH ? [{
+          task_id: `caption-test-${CAPTION_TEST_PATH}`, station: 'CAPTION TEST', path: CAPTION_TEST_PATH,
+          engine_state: 'running', started_at: null, title: 'AI字幕テスト（preview 専用・録音を再生中）',
+        }] : []),
+        ...(data.status?.streams ?? []),
+      ];
       const status: NowPlayingStatus = {
         primary_running: data.status?.primary_running ?? false,
         active_count: data.status?.active_count ?? 0,
@@ -290,6 +301,15 @@ export default function LiveRadioPlayer() {
       });
     }
   }, [isPlaying, hlsReady, liveStatus, loadHls, activeStreamPath]);
+
+  // Wall-clock time of the audio being heard, from EXT-X-PROGRAM-DATE-TIME.
+  const playhead = useCallback((): number | null => {
+    const date = hlsRef.current?.playingDate;
+    if (date) return date.getTime();
+    const audio = audioRef.current as (HTMLAudioElement & { getStartDate?: () => Date }) | null;
+    const start = audio?.getStartDate?.().getTime();
+    return audio && start && !Number.isNaN(start) ? start + audio.currentTime * 1000 : null;
+  }, []);
 
   // ─── Volume ───────────────────────────────────
   useEffect(() => {
@@ -525,6 +545,10 @@ export default function LiveRadioPlayer() {
                       }}
                     />
                   </div>
+                )}
+
+                {isActive && (
+                  <LiveCaptions path={stream.path} playing={isPlaying} playhead={playhead} accent={color} />
                 )}
               </div>
             );
