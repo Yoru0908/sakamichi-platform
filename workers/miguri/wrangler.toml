@@ -3,7 +3,7 @@ main = "src/index.ts"
 compatibility_date = "2024-05-01"
 
 [vars]
-CORS_ORIGIN = "https://46log.com,https://sakamichi-tools.cn,https://test.sakamichi-tools.cn,https://sakamichi-platform-test.pages.dev"
+CORS_ORIGIN = "https://46log.com,https://sakamichi-platform-test.pages.dev"
 MIGURI_WEIBO_ENABLED = "true"
 MIGURI_WEIBO_WEBHOOK_URL = "https://blog-push.46log.com/webhook/weibo-publish"
 # Secrets (wrangler secret put): JWT_SECRET, MIGURI_SYNC_SECRET,
