@@ -234616,6 +234616,247 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          135.8178227,
+          34.7384201
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:da8434c3718c89814bbe",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:da8434c3718c89814bbe",
+        "name": "正覺寺",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "正覺寺",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちが最後のお勤めの発表を聞いたお寺。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh34RTML09kycfksHfR5oCtUkCM6vZQHljdmxdyIHuQLpp-T2O07RGhnOtYfS1zAOiE0OcR5Wxp99GWp0e1kgRoKBdYwxWAdjVfHWtgAI1z4vKCqyhTWX96bN-6iLaAjdCxDnpd3Y7mrxqsGDoehqe16wD802YCNlfmryFfY_LAfi8SaViyOC7Frii-uBsg1TQwOWCz7SK48p2EJOmjRD_MTQrrisEe0v-89sY8BpYNIsoBYteST0KvlCw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjlOcrUrBUfBxCOfvhkECyAYYWJU1OLAwWLziX2YVg_VN9-W4mPN7rOo1Z1kNPovCqI39N6Bj1jXSRvefDKgdRBnVmOYh8LD90FH91RU8ty7fwJjOiulzdRY1VAL7-8fWK_ZgUt-6qbZdwfsKOaY46tmhM-IxZuB38ji57rNbsG0R5WbiheEE1PNq3uiPBAmuNpdegYF9IOVSuEc1HrKcPp9DlAG8pbiFS4TDqymSrJQm-KnCXpWn25L2A%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgNevswfxpuVnseCYqQG8JNPykRE9OlmnuG3u7AAtQ0MvzG_RGyKTRqynW5M6ca4CzH-EinOofobeBlBBvMu0WR-hIORupgZypxXDY9P3g8Oq-IFDnvTsqgeUIwOG3Xdstn5GADKw8sat62V4JVPB08mk_bjIgazReyAY7HHRdZ4P22pvinnuqym5Wd0BeG1CR00-_CMBgX14PFv6nU1flTxVOi_yl5prz3fPPoU3yllJvZ99T6JAidGHE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi2helb4j_T6qo19lpOG0aVO8HJ7QFyYpvePVnZF0azvkGIosHiaceht5GkTRiYxepY_Zqm0T4jB7wpY6kOIjMCSQJDLIIEJTkZzTSAK2lCHpj1b5d-e5n19m7ra00IROjSt-2xn2zIcWW3pyti_GWmhd2nS6xVqbFIUqpWrnKaSAtuC7_ysCwnkT79L35wE-jJwBisqzVRm3Q8OHAfcOJEfYxRcO9ZHA3PdnQEal_rjUrJKGc6WLzl9FY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "正覺寺",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.822266,
+          34.732247
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:608fb6a60ca39aac3bb9",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:608fb6a60ca39aac3bb9",
+        "name": "川原田（バス）",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "川原田（バス）",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美がある重大なミスを犯したバス停。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgBx7CUneP1mqZAFg6FwXZo_PyW0CyY16FX9LQ-akA2qulfWuFEmzUhCAjyJRDLpJIxPeT2rwLUlrKwoK9OmB0TJrOvoeHD7lP26fi1k0bKaAImw2DaaU_fb2lFEFwCmjGYgMFg8JKTFfvms72drdpQepQ7CoNEllPACBGspnh3u35za0uVI7y5qomXeEejDJuiaqrqChqNjj3PzFwHNCZl8y7MuZkOkcAD8P36TJQF0ykSNXklZK9K4EQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjga8qlcGPXJGfDqNabrqNkY0vSTKax00KxTVwaEnK1BVG16xKKj2JXDOzrKhzFpzGoy-hyzPgOVdx6S9kKGKhebslwHkoRydQT4r99PkZWP_cAIgW0Uwo1YALqWuY80HpO_po4Lyl07x0PES2MbYJR0tpZYhIiAvhhwrh3WWK3K2iQlxMK6YxVgB5GlRTzBVwMVVEsCI5Rmn0W4svDzsbL3LoYs7A2lLlivqTGtO6AKAmIffhQnSSMG1U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZisXiz4vDLyMLZurvG2IMQt8QLjv6Fxit0jT4sQLl33J7Co2keL7lhzJNkDbkrf-c2uoa2y9gVJPjL6iLPLhWPv4kCGnxC8s7VjvfCfjtgCTOH2pQhX9QNn3-lvjbEIiY_B_KI4l84iPJR2u9ofbE7JB0OxKMRAlT59BFPFaoRnVLrLJtBOmGm3RiO83W1aQKHrGs2W71Lw-99W02pn7_Pyo5gS-OYn-wZfkDTmG-XtPc1u70Gt-_XQS3o%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiu0gKRJaelzeiVsItmh7ULtDZjhxhx7s_piha1NOk1KF88GCJeM_7uAI2FnnDFLq0JHDlUMTpGQsDSljuja_2HDc46b6iagHzdPKZ5FLurSwEniC0RnBF8wN12zCbO9cS8p0XgTXvUkYp7ECsnvok7-2ri1wzUIYk2J0aJ_OcC5hrQ1kn3kv89orbe7eFByEZtbzmBXckxfDrOBZA2_EfnoBDXkW7stKIi65r3wVbo639SDRiLsVvUGX4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiCtY0WixIqTkaXjMIX2S7WyCt6EYFRYiI4D2qfGABm2eDq9HecoS9bJkng93YNEWVvyTb0cc-y3u9rKGlQ5dfBnEYSq5NlsYyOu00dxUB6t1xyInEtnP2FgkubvTQtlqckYus0Xv55Fy3FFyEDP4IbHOmx9dBaTdvRCoMg0o3q5_rj8jWHtImCHHtuCNZ3BdfvqZdsg9qCmvU6sJV5q3F6q2pwC0LV3hzbfrGCXI8NysiQ_0WRI0Z3AZQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi6fSC7S-b-lkwUSW5jkpHYH_aoy--YSdFSRFEgBu-AfHPcskV2OAR6Vz3gBuqad5WgQL3HAAV11k9D_T8mAY2GMiSuf4Mv6WZZhtcduknXBgnAbSxw8iQcAwObvgIEx58RF33Q7SMdUIi01IB90TB6fYjVXcBkEc3Vsd_KOSKve188WIYxIObibjdrtzO7ye_3HPPC5tC-_10cmZdyIG-nkhJtze9q-VAOM9cLoSAUysTj-I8R7hJilYM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZihCdu8ofUVuZOg1ECbBpxy8xZuAnbmNSEb9r7Ww6QhJQ6E6-xwzhR1SxgGSSt7xQz_vLK0HYZkolpfYd5SSnGZctyVauNzlOZd_ylNKqmsKB6tDUz9paq5G--HsWiA8NnGUnjEasRGrLhNNuZ-qJMohPsfXDZ_enuktU7Ii3QbJrqaHx5sn6dsp4GR5wG_lkWzjlqBgig-3XFjnxL2C9o1unyS5hPKLgginFuDv_rK0Q7XXUdBp_2e5WA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh_ZQJJlA-epi7qwYZ_KBz8Js6EoUQ0XPqPAQP5H0xut8GScubL9EwOdrP6r26Gp-wl9dcDlWWCeOx83WRgfaGwG7OWdRC-Z5PYEehirTorjv8KagssN4FZ7vHh01iZRX1A__FU2Ap-fRXNWgjLl8DlOm6OIsuxqmC09OYj6qVU2RLmyrV3MzhIk6jROcXWY0-CpZ1KyuJO3g_ZUtglZrK5Wpuy1XagTo2Y5vS4YnQPZzJVjgZAAJ1hIOw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhv5bT_56A9KtzmJRUPmxN-iQdau2y6Uq3EIRN47UixIJVDU5RELgcnyWGrWuyfRAbczrpJWdPcqSNx2ybgbzIj0zB5MsaNwMdCmB27Y8oo38FUx76i5XRpUj0bJJ45jJ97Y8TIhLxtVs2JxpAIlj19CXIT9ylYRKoAcI6FvoMfg6naH5_--UVah4lKn6lW9XfHszLccua2uGsAkevADCCTFyUxvKUcvYEwMNkpsuKjCixydQMXshFPPVk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiioSVGhZBcxqEUBJRIFBVcxxIRzabFjBIESBxaWdQEISrTXHVDRpjdS4XJ_V05UJl9Vt9ijSTStT87UvvEQA1dXlEn7g3gA4QWnUMAGUmVCc0jFNHswxLER7_u-ddNu_qa9G3aGARkWz-zEvKz3YlSY78osW_tehCz7QsqOWIkpmaywrHgGgGqAVQ4AcZWvBd05QfXoV5pwn3sRHOEFuQPASTVqILgaDithXkwbFRqBGAPySRMrtUS4ZY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "川原田（バス）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8224764,
+          34.7312582
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d9419bd32c78c02815f2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d9419bd32c78c02815f2",
+        "name": "だし巻き専門店 京こっこ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "だし巻き専門店 京こっこ",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美がだし巻き卵を食べたお店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZguH2nNAWY9EezF9_MjTpuAHmZovsAaatOkD0rDfeKIWRoZeJkMRFE5VScIUqH2nzkk8UNkj2-EJWbYOjbyEiRlwZDNBP1BX9SFzMbTx0nODNddVq6VaYloa2qvfLO-T1CkWNkhg_azNE8xfswBZpVZ-QWrR5ZPRtSi2Ps_WI2oPMufSkx1IB0XdTayJ-8l-cijeIjFqa0XSjzxe0olSbUu6pcRS_XWfRr0U16uRq1x3kVcwstAvQqVME4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhCQ4C-PNjwudQ2RG69Kl2mKoZ8oRHya1StOYNSuDN2HYQHL-Tp-HaH3NTnSKBNJbUxTMBenWC3m705sMtfJ4nlgBtobi0YG7oejNRt9PAvwY5DUa-77fbhz8_XWlEBLwvw66w0DUs6kIpMnzdznMntnfSFDlfyhLZu07gHm5k72D_kXNjRKG_AS3hNUuGMeckt01XggssnpBKCmZyciKOGt517JPOt1oszE8l2joE3PGVH0VsdEni3dpQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZirDf6TnhjCCN36b43w3TTGNs1OPVf3t0AIUKum5exLNUjTgAvYF4SwfGBqPFQi4bc1iUPFjx4LBcx4nU2aSHcMWxJa9Eoi_KTsxFYnAepMpPQ7Z9mEUo4FcJMNumQutrhinLHjicLVUvWLZFYHx5YBdJ02kXZuMiDpLGc1G4RsqodXOF7PVLwgbAEDEY1S_QFVYo14AJVxPP6eNBX8RjM5iKfsqn5Q3DkkFZgxJKAMiprCatftXArL0l0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiLmZWJiLRPszT7l56u4-31xjFsfYyQtHa1RGvcdKrlVmYv6cwbehxR8TzwO_9Afw7TQO18LbU7Fe_-EPyBaSQ6WVzR4Z4-ojsouWlwMeYJSUjoObGUSqMfy0DuhGxvXgCfxVBjkd6tTjMH83xo24LEmeQ9CQuPnu5TwrLOvB43PTucPiVUUf-_a3T-ZojJllsKVtxQ1Mi_sttQndTxDcSr7HR34H812McJBqHXXuApmULcsiba0iHQCsA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhH3m5MtIiELPJA-fZpIxAq1E-12dddxww0lYcAtH_lj9hKosTMb_oMhf82cOcSsq-OeUzqz_rII8rf_MG3I-GxUKCbbsfTwzKi0wALF8LtYwWgSJxw-vfjVyQf22V6Q_5spFUgc7UOQCPs_VX-XnI65E4FkLF4nKlk-PpNjQOiD9r-w7DZ5xH6SgPkpVwFwYCK2nzykm70fjdVwAjLnglu5Mh0lnwJ9Qc6JpH1CF5nmAapDvPe1gNwwB4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "だし巻き専門店 京こっこ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8343701,
+          34.7053001
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8c17b78eb9a9e97e438d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8c17b78eb9a9e97e438d",
+        "name": "奈良阪（バス）",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "奈良阪（バス）",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美が延々2キロ以上歩いて発見したバス停。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj2VK16JJRSfMaWvjYy_UisaHhQe_QfEeYwU6KTKg2LyHG8pw5SrmFicFSEG8RTU7Ce-40rQdoBwDcn6aTcgu41hZQ3bSESTxUCQFIWyivRvSwnR6Qp0ChPRo9DYO4B4T6xO7bvW_qibenxEo-OMtclMKz8ErEVVDa_e0rDaBP4z5kdOY_EGVwzP15O2v9_XUtTajHCfaycR26isUkKgKBImAHcQgWDyJmNFUKN-HsgpZfxu3UMqPkdd54%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZidoZjQNAv9Fpqvo-JI7b0umWPAFq2ql2cCUvb7pfeLWmJtJh-Il7vzYrRihXI8z-nA5vH-PKsO94JdlkY0Rt_2k6a7H2F4l3Yn4bwTbQzEGqQcJZop9lN7phD_7sJEPE0zDSZ6PGqCL_DiD5ywB1pBTgC46jaxZ1mnt-Z-giuqRpjuwDxEcD7Il9RjrWTktUnbqPuLDEZAJ-jCWo10x32AdKCmH_JRDwYPNN1PdnxEq2mgs64geboggks%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhEd208sr4qsOuCta0K6ZcSGCOw661gyvC0f3Pe8D8ADODK0X1RRTBBACaGcaljulw63YQGR6QfatcZSqumkoRyAumZNT53PvR2UhPXLV41YF23lBfppmDOLU8p-UO2L3uK3s1nlv3QwYhtTMGFyGrpfPeUnWBt37Qa3mj3P9cMSnihengsFt7RKaJeAO2B9EA1SHMrAeWIjEEb2Ipa80QVS6-CxtvBI9yufqE5b9gU0Mz9bMYsHk2YPKc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhWES7PHedLa92DykUzLXSdf2SAN738J0XObl7B0laXjsNNeVU_J4zoKIMhKh1YPax15oNzMbOrUar0NhZfEalbJ3jPiqQLjVWs0MuzD_0F-LBsXmHGVSowiqmAr31bcPyFBY_6ogt5SUcEAtDWVRr_aWmCRcUMOTc0AgqI9gasZYsrAdjUOvWj_UJZUhXDQdusNYo9sRYOb5TxZbm9Td4vbLzot8365ABDAx2vXiOKlSLtXUSyUAlafx8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgGP3yE-_BuB0vZSIUumqKcCQhWzRc0aWHgWK2-ljfVMrYABCRYRDn5_8iUrikGQK0_Y9mwJnOtuFHcTyaqZlVenBBhJfCws8dPKMcItEJg0W7wEjJBg45NQp-E4yaUEvzFSkSB8X3m1dPUH171r_23x6Qupf7EOZY3nv-SCeysvMO_eFxKHBFUi54Squ5HiL5bj83hxXti4uO06_AM5D_oIbzsWuSLTrFnoqveKBJTl5xDiG75WBV-Fho%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi30d9DcoIT5hKcbjD5LCeI7nnI4l6QM8EQgG7ASQb5u1qEi1V0LuxJRfB_KGScmQLkb4v5b-paZaUuLg6aIXKTJzWm7drPdQ_eO6syGfq5Ri3PPbuym4NFQTmdzH_vpLYy_xET5kPYHkYBxPxg6laUboyXEgzBSYAajMUTO3heIPZdMWZwXfieDLcT0sYdJEPiWxJsrHMFN6pzxxON0erNMQ7F3Y3EFlVUQi6mCr-Qfw7skGeSh23As6o%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "奈良阪（バス）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           136.8397668,
           34.887556
         ]
@@ -248605,20 +248846,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.8178227,
-          34.7384201
+          138.7740967,
+          36.6863489
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:da8434c3718c89814bbe",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:da8434c3718c89814bbe",
-        "name": "正覺寺",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fb274aff49bf20d2e8ba",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fb274aff49bf20d2e8ba",
+        "name": "慶雲橋",
         "category": "映画・ドラマ・TV番組・雑誌・新聞",
         "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "正覺寺",
-        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美たちが最後のお勤めの発表を聞いたお寺。",
+        "sceneTitle": "慶雲橋",
+        "sceneNote": "2025.04.17O.A.「あの坂道を登って話そう」にて佐々木久美が息を止めて渡った四万温積善館前の橋。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -248627,10 +248868,11 @@
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh34RTML09kycfksHfR5oCtUkCM6vZQHljdmxdyIHuQLpp-T2O07RGhnOtYfS1zAOiE0OcR5Wxp99GWp0e1kgRoKBdYwxWAdjVfHWtgAI1z4vKCqyhTWX96bN-6iLaAjdCxDnpd3Y7mrxqsGDoehqe16wD802YCNlfmryFfY_LAfi8SaViyOC7Frii-uBsg1TQwOWCz7SK48p2EJOmjRD_MTQrrisEe0v-89sY8BpYNIsoBYteST0KvlCw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjlOcrUrBUfBxCOfvhkECyAYYWJU1OLAwWLziX2YVg_VN9-W4mPN7rOo1Z1kNPovCqI39N6Bj1jXSRvefDKgdRBnVmOYh8LD90FH91RU8ty7fwJjOiulzdRY1VAL7-8fWK_ZgUt-6qbZdwfsKOaY46tmhM-IxZuB38ji57rNbsG0R5WbiheEE1PNq3uiPBAmuNpdegYF9IOVSuEc1HrKcPp9DlAG8pbiFS4TDqymSrJQm-KnCXpWn25L2A%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgNevswfxpuVnseCYqQG8JNPykRE9OlmnuG3u7AAtQ0MvzG_RGyKTRqynW5M6ca4CzH-EinOofobeBlBBvMu0WR-hIORupgZypxXDY9P3g8Oq-IFDnvTsqgeUIwOG3Xdstn5GADKw8sat62V4JVPB08mk_bjIgazReyAY7HHRdZ4P22pvinnuqym5Wd0BeG1CR00-_CMBgX14PFv6nU1flTxVOi_yl5prz3fPPoU3yllJvZ99T6JAidGHE%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi2helb4j_T6qo19lpOG0aVO8HJ7QFyYpvePVnZF0azvkGIosHiaceht5GkTRiYxepY_Zqm0T4jB7wpY6kOIjMCSQJDLIIEJTkZzTSAK2lCHpj1b5d-e5n19m7ra00IROjSt-2xn2zIcWW3pyti_GWmhd2nS6xVqbFIUqpWrnKaSAtuC7_ysCwnkT79L35wE-jJwBisqzVRm3Q8OHAfcOJEfYxRcO9ZHA3PdnQEal_rjUrJKGc6WLzl9FY%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjVKudvDTC-HCP5SC4u-egneHqTYYiDVkhdMRD9EaFqoPo0bBenuxW0M7U_ogQiPlF0txjkucUd43jTV3imZHJTJVqG2HW6Dmoj00b9K4I8ya5gi7WtvqKPRx9elEgfJQefuNbGegT8CLCqHEpFssXP6SAixblv949yev-JgYrmf_6hp16trf08CZgjxm4EieYDT8qkU6R7f7pOY67yQkCxKFi5e9x1Om9OdFUNclgpWKqp6JLPGvgJxPs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZghPGpIYk-JMqBG9pRgp5asnt2kgm-uFqFjPZ9Lw_cieH28wdSp85LnRJwHAq7Gb5uf3evdg3kG450Z5LxdTzqDS5uEeK9P-g1Edob3x4w1hilzDOzrVNk_Ueugb58ZIW-GG1Z0Qp1PHpTfrL4xAWr4WpdzhCU3KETBo7noXdFd532uYkvRgUrCavVbBnfqcmyzjm2mudWCdldOJ8My97zNslUzLJT6sylqCPk8MRPG3wVodm_1o-SRA80%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj9QxTlPV1uTuwJt8dE8QNIvGxsC8po_786OIBp8uKsDUmZAOX3hbu5yGNE61reaTr2h-7uXHmr__5e2JimROhH-49JLIDhkyDRchygOKUxL7Mmm62gxhgJWAm6iUnsBApR1BsgjjMvfDIXoZwb8pFnXBVu2tgE61AAD3X4yRlYkuHcKUx9kEJcn73ABKCSgpanHGowIALQX5eh5snk3rqMYl6I3iep9ESLDOmArdH_I0VtskoBZctAVcc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZialBN2apntB6A14DWelpqUfiWyz9TmPLKGmkHgpaU0Aa499zHM0e4bCZ8x4tvhElmGpvB0vC4b07NVxanNsGSnBchRpJ6rF5E5JPk4Lu3cRTSB3FWaTKuXKGpLOZrVTyLGfi2FM_TQ_xaPJSbrRoamIA-icD_IlxNAA4oj3cgc5wkBS26Nwb1wp73NCFx-rHIKz283navJW5O9ytuSddHDUdedNidLurC6fAoFPp4wXADvyQQcnW6_6z8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZinbPdFj75qRamcCeB4FGt4jQgPnPPAJocslQt_IcB0zHZYkhHnbrsoSQtjksfj9Wm4Jc9YLBy65C040ssxpCDfla3ggThW1MDg0xL27-FTkdaCjVtIyQa5i_kuPG4heRCqWmZn48AM5-V2sR-WQ7VzupVg19wwoZCH25jE3Awtjj-k-_sfGDcety6bgdq-RC5Xm9G4O7xm7_yGPJRBvlm10Ks19gDMTKmfbKJKbRSz1c7qFaYrLO4_Su0%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -248642,7 +248884,7 @@
             "日向坂46",
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
-          "name": "正覺寺",
+          "name": "慶雲橋",
           "group": "日向坂46"
         },
         "classification": {
@@ -248663,20 +248905,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.822266,
-          34.732247
+          139.7729852,
+          35.709021
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:608fb6a60ca39aac3bb9",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:608fb6a60ca39aac3bb9",
-        "name": "川原田（バス）",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e2f2ccfb8a7d389c289f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e2f2ccfb8a7d389c289f",
+        "name": "楊国福 麻辣湯 上野店",
         "category": "映画・ドラマ・TV番組・雑誌・新聞",
         "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "川原田（バス）",
-        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美がある重大なミスを犯したバス停。",
+        "sceneTitle": "楊国福 麻辣湯 上野店",
+        "sceneNote": "2026.10.31配信の東村芽依Youtubeチャンネル「めいちゃんねる」に佐々木美玲がゲスト出演。 https://www.youtube.com/watch?v=48ZeE_m-Apk",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -248685,16 +248927,19 @@
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgBx7CUneP1mqZAFg6FwXZo_PyW0CyY16FX9LQ-akA2qulfWuFEmzUhCAjyJRDLpJIxPeT2rwLUlrKwoK9OmB0TJrOvoeHD7lP26fi1k0bKaAImw2DaaU_fb2lFEFwCmjGYgMFg8JKTFfvms72drdpQepQ7CoNEllPACBGspnh3u35za0uVI7y5qomXeEejDJuiaqrqChqNjj3PzFwHNCZl8y7MuZkOkcAD8P36TJQF0ykSNXklZK9K4EQ%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjga8qlcGPXJGfDqNabrqNkY0vSTKax00KxTVwaEnK1BVG16xKKj2JXDOzrKhzFpzGoy-hyzPgOVdx6S9kKGKhebslwHkoRydQT4r99PkZWP_cAIgW0Uwo1YALqWuY80HpO_po4Lyl07x0PES2MbYJR0tpZYhIiAvhhwrh3WWK3K2iQlxMK6YxVgB5GlRTzBVwMVVEsCI5Rmn0W4svDzsbL3LoYs7A2lLlivqTGtO6AKAmIffhQnSSMG1U%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZisXiz4vDLyMLZurvG2IMQt8QLjv6Fxit0jT4sQLl33J7Co2keL7lhzJNkDbkrf-c2uoa2y9gVJPjL6iLPLhWPv4kCGnxC8s7VjvfCfjtgCTOH2pQhX9QNn3-lvjbEIiY_B_KI4l84iPJR2u9ofbE7JB0OxKMRAlT59BFPFaoRnVLrLJtBOmGm3RiO83W1aQKHrGs2W71Lw-99W02pn7_Pyo5gS-OYn-wZfkDTmG-XtPc1u70Gt-_XQS3o%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiu0gKRJaelzeiVsItmh7ULtDZjhxhx7s_piha1NOk1KF88GCJeM_7uAI2FnnDFLq0JHDlUMTpGQsDSljuja_2HDc46b6iagHzdPKZ5FLurSwEniC0RnBF8wN12zCbO9cS8p0XgTXvUkYp7ECsnvok7-2ri1wzUIYk2J0aJ_OcC5hrQ1kn3kv89orbe7eFByEZtbzmBXckxfDrOBZA2_EfnoBDXkW7stKIi65r3wVbo639SDRiLsVvUGX4%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiCtY0WixIqTkaXjMIX2S7WyCt6EYFRYiI4D2qfGABm2eDq9HecoS9bJkng93YNEWVvyTb0cc-y3u9rKGlQ5dfBnEYSq5NlsYyOu00dxUB6t1xyInEtnP2FgkubvTQtlqckYus0Xv55Fy3FFyEDP4IbHOmx9dBaTdvRCoMg0o3q5_rj8jWHtImCHHtuCNZ3BdfvqZdsg9qCmvU6sJV5q3F6q2pwC0LV3hzbfrGCXI8NysiQ_0WRI0Z3AZQ%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi6fSC7S-b-lkwUSW5jkpHYH_aoy--YSdFSRFEgBu-AfHPcskV2OAR6Vz3gBuqad5WgQL3HAAV11k9D_T8mAY2GMiSuf4Mv6WZZhtcduknXBgnAbSxw8iQcAwObvgIEx58RF33Q7SMdUIi01IB90TB6fYjVXcBkEc3Vsd_KOSKve188WIYxIObibjdrtzO7ye_3HPPC5tC-_10cmZdyIG-nkhJtze9q-VAOM9cLoSAUysTj-I8R7hJilYM%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZihCdu8ofUVuZOg1ECbBpxy8xZuAnbmNSEb9r7Ww6QhJQ6E6-xwzhR1SxgGSSt7xQz_vLK0HYZkolpfYd5SSnGZctyVauNzlOZd_ylNKqmsKB6tDUz9paq5G--HsWiA8NnGUnjEasRGrLhNNuZ-qJMohPsfXDZ_enuktU7Ii3QbJrqaHx5sn6dsp4GR5wG_lkWzjlqBgig-3XFjnxL2C9o1unyS5hPKLgginFuDv_rK0Q7XXUdBp_2e5WA%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh_ZQJJlA-epi7qwYZ_KBz8Js6EoUQ0XPqPAQP5H0xut8GScubL9EwOdrP6r26Gp-wl9dcDlWWCeOx83WRgfaGwG7OWdRC-Z5PYEehirTorjv8KagssN4FZ7vHh01iZRX1A__FU2Ap-fRXNWgjLl8DlOm6OIsuxqmC09OYj6qVU2RLmyrV3MzhIk6jROcXWY0-CpZ1KyuJO3g_ZUtglZrK5Wpuy1XagTo2Y5vS4YnQPZzJVjgZAAJ1hIOw%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhv5bT_56A9KtzmJRUPmxN-iQdau2y6Uq3EIRN47UixIJVDU5RELgcnyWGrWuyfRAbczrpJWdPcqSNx2ybgbzIj0zB5MsaNwMdCmB27Y8oo38FUx76i5XRpUj0bJJ45jJ97Y8TIhLxtVs2JxpAIlj19CXIT9ylYRKoAcI6FvoMfg6naH5_--UVah4lKn6lW9XfHszLccua2uGsAkevADCCTFyUxvKUcvYEwMNkpsuKjCixydQMXshFPPVk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiioSVGhZBcxqEUBJRIFBVcxxIRzabFjBIESBxaWdQEISrTXHVDRpjdS4XJ_V05UJl9Vt9ijSTStT87UvvEQA1dXlEn7g3gA4QWnUMAGUmVCc0jFNHswxLER7_u-ddNu_qa9G3aGARkWz-zEvKz3YlSY78osW_tehCz7QsqOWIkpmaywrHgGgGqAVQ4AcZWvBd05QfXoV5pwn3sRHOEFuQPASTVqILgaDithXkwbFRqBGAPySRMrtUS4ZY%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg8TFQyBJPubMvmCNrRvQLUOUGfJu0W2aAeEph1Onl7orqnabMkJaOo1wEHZ-WZLoAUn7daMev35difu0sMMjoffJ9Jce7uohxqK4P_o07-K_seGBp7Oxe3g7sQv9cySPIYb4osSp4BmJO-X2evhLOAfpR8BKAHZScTEwLxJ5ThfH4I-AgNpqOBjhxOGAVIuk5izI49smt833QVhlKvVOY10F45zwiPsTJQOOipx2lb1cyDD2RO48Rxkp0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj67NRetpfOcffKMvSsoFW3wLf42RK6jVcR4PBSF0NROvbzlLDBFOcdjuH7uA-apqVM6FIVKs7HBsAHpCKkmqnEfAfYZv92eMxNtxCcs1CvEJGtsi4oiyRlqfSu_QeBoGxwB_amK31aTwsl8onURsId5XdkZMhxMUmvno-JHEF2sL3vMfGwlBKOVQFGAVVeMMGt7-8DM-KKwLAp1qN9g3QPqAv7LZzNa9V0JxcDYT7SbchWOV7YW6LDHt4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgViJliqHMRwwkqf-cyjDp44t7fdf9RBIbRuSP4F8ZQHsotrHZHRfO7CLZRSj4J1cxRDf4ODYEEXRLS5TOAeh_auH4SPDj5nAKRKXAme8EDntZi01YCI8QujcGIGZkUUwEHCH2YxihW-Z2jW_VpaMp1MgllFFu9vMPb34XQgCKtDiYv1fuDezG5O0eZD0yeHrzGqvsa96fKOcMJdOVuidPwxn965N-Jphi40ahZ0wED_YCGYmHz15Htf10%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiHsiYhL9C4DJBHraGjw8DzwImH4fh7zDFDQnk1heP6t50cVdFKAbzRzkXjBuBCpr_o1-Xd0iQY4v4j4EHpONe0HM8dFKJLYNfFMxDoqLlNrr5eUCbmOO_rGCgZ0VZ598jHe2kfpLBJrPNCNfG9zhCMslv-Tlfr7EaSaENGP1bTk4WwWsWOASoqcNlcRMCAlDotKZhR6S1ZzJDNpFBskIzx5VmRPcmOznGZtbPeuOP5nVn64Cy1fg-0XSM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZilMP1hgdWd9eruNbzIa9awwcR3Jjp3uuByThxwwSoK4DoU-5_pgN3tRZTttmS1_TSHdeosXlVIe0xPGT0jhXrwWkY7p-UapI7Uftv_1Gga7oADebDAGnX7Y6mtY2jcqu3SVOTZRoz0isFMVf1VrcqZPMnApvT4i_v9qrM0plN5NJQdq7Hd71fusx8xobPmCY0eipN06IESuu3tDTY9MO5TAz6lS0GAT9wzlKKhJx_neQewJe9ronvaz6Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgRleoL9nWcioLsxkU20QqeLVYlh7Yop2ybqH38z12XhrTZP2sXS2xxNK-d1FRKMIzAiHYT7Idn0Jv-1ovRnG3hiQ3ThCxGAaG2Wd9F7rHeuA41PNXCmdlHUw2re8Dp-1xckShG4d5cP2E31gKnu6ZWBaqERFxNjCS8NGafZLImmd3OlaRH9pv544a6dFgBJegTych-tIomFQi02L5bR2wn9ndziJKMwjL2A4TEFfzmnSiccMLG7z4Wiu0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgy7yuxzt99Z5vOYw9cgPi9cTYbG572si6PT-VbzaWwBwug6Ow7JTtUGhy3RoWZnDz97OaKaBNXjOL8r4LSVaCq6mvjb1ZV31UaPo0oxyBN2fs2kyyI6hJmFyiOx5ResWXHivTlWkc4skTVtaabxrz0yK-UBUB-ghSZfhMvSH3jE5xKhbmq0AJXm2LfW7--vimE6NFUmq3kshJBy78iMp39x26rcq_0BmFznCErXmYWZeZnQZYiLe7nEs4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj4NI2cFCnyeFRywpMn-HtYP0TKdfck8X46C1V49c1DL9qq-50_-pSiUSh9pFkulRuSIjhhe9RSmcyANGH323B99-0q03qHfAZxSIL4_zu-PDittfmcjHnlIzSdRt3h-ycWZHBZYffZgVgXtYkIankQTHXWR8IfiohQE_Gu17wcljrIsd4d-Os2q_JAT1FDOmGo3ul_ufCRUQc-qUByCGG74hk6B_6_1BYBeOmDZkPwPJ3ITFi3LzUl8os%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiUhGmP_myipCfpQP_CbqXaPeDiqdRtCfUG6GknOHxY1vi6ehzzlXo-7cNFYJDloPhtb_IBqKNg0rxX-fZ9YmwyTFcpa8cqM60M-28TBkTxyBRlsgpp3LeLgcJvo24-1WLd4Ld20_8N73rYg7kX8Bya23UOZqtUrOaBrOjVyyZRcJiiyzQFlwXgiOI8fQjL1VMzTpy-BxfeiiqPnJ-8XWFFj7J9f86zmgrdaGIvRNrM1i_FekRzLUm3vYU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj968qloN_FepbXUay-sdUsOjuvzU83z0Kw5SbyZiEzAJXvYRdyhNJCb6hEzzWiyB3NBUGMlZlSnsy3d1doX8DSd3_7xkWwqwPeOgKgebGkn1gi3BRUXpctSijNPHJr7ccYSVUEqYcvD83t5JpWvRBNkPwPmB2a5jdHiPSNIu5eqRW1ALFxNdG6iV2c3Jq3J1X_SC-RG2GU7EWdTcegB8poQNpggEFjymYemQEfp5py1AIIkecUwJ5vYfI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjob5r2J6ipab_QY8G-ADuCOf4u3YU1bF26TNu-0fHprCFPuuDslhULqSuTrorRMfZDBHvvTRhFhTouzzD2peNLWVeS0SRRLaS5rt8tRicULsau6FQmMHoIS_yYbT6BjiFShc6UtL6r4pu2sEPK8ljd6tDPo_2cU9eJfsqVeXD_rMMwAq3O6Z23ivI7-wem2kqHHPpVyED-lu_QX14Pq9cwUzpxFXz03GZmwePTz0ZmxKSUOPZGWhPpi78%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjP4HndjIesPyzdgRtQfqM8CFprdKwmHyLpCcGPYE8nSmOv-XKEsS2FLrO5D3iSqk3bJhH57WEmuPyetT3ib3d2w8eq08bfA-k0BrYKnXIYTALocIydu3rWoG0gLQpSKQ79k5MsF4rNi-Mz0xBEDM2DaEUGIi0KPf3wubRtakdUwkiDJkVBbzGQV9l1iHjzYWbAJVonzjzv5dZU4NaQcAluEwS0u16jiG7EI58epFzZrmVZInQ_GWcuXPI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg-7XwUeylj2cLQJ607lVwPDURYhkdqUJncgUEcDPHm3OIWCDOo2FH3oYtldeK-M7loAFOxEe0p4e9OOadd4p9pHZSkilX7zcJOv0VoubzZGbKw2on05-mkHg-wlUIfGWQfPvvjlgd-aDwfxMI0FBV61kvkNOdEhhBnhKiIj-4lF171I1GNeb8uViC15MWwppFONgZ7ygMmWrIK8sLsuk2_y9ExdChNROaGCbLjs07ie0u3SE7iXnfXXAc%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -248706,66 +248951,7 @@
             "日向坂46",
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
-          "name": "川原田（バス）",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.8224764,
-          34.7312582
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d9419bd32c78c02815f2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d9419bd32c78c02815f2",
-        "name": "だし巻き専門店 京こっこ",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "だし巻き専門店 京こっこ",
-        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美がだし巻き卵を食べたお店。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZguH2nNAWY9EezF9_MjTpuAHmZovsAaatOkD0rDfeKIWRoZeJkMRFE5VScIUqH2nzkk8UNkj2-EJWbYOjbyEiRlwZDNBP1BX9SFzMbTx0nODNddVq6VaYloa2qvfLO-T1CkWNkhg_azNE8xfswBZpVZ-QWrR5ZPRtSi2Ps_WI2oPMufSkx1IB0XdTayJ-8l-cijeIjFqa0XSjzxe0olSbUu6pcRS_XWfRr0U16uRq1x3kVcwstAvQqVME4%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhCQ4C-PNjwudQ2RG69Kl2mKoZ8oRHya1StOYNSuDN2HYQHL-Tp-HaH3NTnSKBNJbUxTMBenWC3m705sMtfJ4nlgBtobi0YG7oejNRt9PAvwY5DUa-77fbhz8_XWlEBLwvw66w0DUs6kIpMnzdznMntnfSFDlfyhLZu07gHm5k72D_kXNjRKG_AS3hNUuGMeckt01XggssnpBKCmZyciKOGt517JPOt1oszE8l2joE3PGVH0VsdEni3dpQ%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZirDf6TnhjCCN36b43w3TTGNs1OPVf3t0AIUKum5exLNUjTgAvYF4SwfGBqPFQi4bc1iUPFjx4LBcx4nU2aSHcMWxJa9Eoi_KTsxFYnAepMpPQ7Z9mEUo4FcJMNumQutrhinLHjicLVUvWLZFYHx5YBdJ02kXZuMiDpLGc1G4RsqodXOF7PVLwgbAEDEY1S_QFVYo14AJVxPP6eNBX8RjM5iKfsqn5Q3DkkFZgxJKAMiprCatftXArL0l0%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiLmZWJiLRPszT7l56u4-31xjFsfYyQtHa1RGvcdKrlVmYv6cwbehxR8TzwO_9Afw7TQO18LbU7Fe_-EPyBaSQ6WVzR4Z4-ojsouWlwMeYJSUjoObGUSqMfy0DuhGxvXgCfxVBjkd6tTjMH83xo24LEmeQ9CQuPnu5TwrLOvB43PTucPiVUUf-_a3T-ZojJllsKVtxQ1Mi_sttQndTxDcSr7HR34H812McJBqHXXuApmULcsiba0iHQCsA%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhH3m5MtIiELPJA-fZpIxAq1E-12dddxww0lYcAtH_lj9hKosTMb_oMhf82cOcSsq-OeUzqz_rII8rf_MG3I-GxUKCbbsfTwzKi0wALF8LtYwWgSJxw-vfjVyQf22V6Q_5spFUgc7UOQCPs_VX-XnI65E4FkLF4nKlk-PpNjQOiD9r-w7DZ5xH6SgPkpVwFwYCK2nzykm70fjdVwAjLnglu5Mh0lnwJ9Qc6JpH1CF5nmAapDvPe1gNwwB4%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "だし巻き専門店 京こっこ",
+          "name": "楊国福 麻辣湯 上野店",
           "group": "日向坂46"
         },
         "classification": {
