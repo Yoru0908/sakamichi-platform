@@ -144536,63 +144536,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7084125,
-          35.6701575
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:85c33911883c48157ed2",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:85c33911883c48157ed2",
-        "name": "旧渋谷川遊歩道路/GRAND表参道前",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "旧渋谷川遊歩道路/GRAND表参道前",
-        "sceneNote": "ヤングガンガン2024年4月19日号グラビアに河田陽菜登場。https://www.instagram.com/p/C5Xro2rJzpE/?hl=ja&img_index=1 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5hyRi6eKGKv3I3YAwUX0Aa_nWLv6I3f7rzKAE0rpfYK0J_d1W8czX9pKI8FnRair4pVhTd_atsEVVexFoYnBg_OX2OBiPqL2ctNlSoE7hEDNri-3iNL-pBmTPvqNkhD1ISKszJOU30ZxETI69iOSJrOdEorXehz_3hLM6DUPpXC0eUM5L1Z5UvvHpKWZdIRRhXHH9PczrqcWOGCy3wubLCbpzy7s1kOt2e7FEKEpumIgOHU0CKRTPbgOQ%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR69PP6IUBk8C3oy8LjL-BcJCFnm2_jHC_anUUENdcN_YJU6uBdP9WRftO_S4JM_2Fs2mUnNkk7sTRgDAdkr0oGAU9Ja5uZqhrwmWPjJYMZ8How1gfhNPQCS77SJySInIAUD6olE7eBJ8uzUdCKR6G11ZtlV-aUudfuVTjYqeoIJ5P2OfKqd40qfZKsqTWFSDMBhVq5XBgIY6M3YPGaYHlPIg1thxZU0-GcPvrqidGbwdDUdrCNQH04ZtqQ%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4LY26c-UibyO5wWGVrPx3lQMIfo7fD9_oS0K1Fpur6YENs94c-2Jgr2KRSW2PBqmwSBl7YlHZG8Xz1Ai4wzZRwbafnEzzGpNQ3c71If7b76LaH3O16G5mhbpCCj5v7h1gXt5ySFgMm24ftWZzjmppjba73u5frXwpJp_DLa2veNXGQ6JobtiuZvl93T82KX7CLRoq0qnk9c2HpZ0N7ZFucK2AcPjCkssZLDPXhd64aqu8wBjL3p1fC-Vs%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "旧渋谷川遊歩道路/GRAND表参道前",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.7083616,
           35.6706192
         ]
@@ -144606,7 +144549,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "原宿さくら亭（さくらてい）",
-        "sceneNote": "ヤングガンガン2024年4月19日号グラビアに河田陽菜登場。厳密にはさくら亭導入路脇のウォールアート（ただし現在は別のアートに変わっています。） 題名:",
+        "sceneNote": "ヤングガンガン2024年4月19日号グラビアに河田陽菜登場。厳密にはさくら亭導入路脇のウォールアート（ただし現在は別のアートに変わっています。）https://www.instagram.com/p/C5Xro2rJzpE/?hl=ja&img_index=4 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -144615,7 +144558,8 @@
           "メンバーブログ・SNS・その他"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4NYIoxcswXzzqG7kzPhfKMfIFILfOOppkiteoECvyy0-yZErvxpMvVyrAKtC60mKBxKa7mZrKM8J-dahexLRo1fD4UI0vfzbqXbYMOgGidLJMNXg_4fQ1XLGwhU2CY-Iip8iKbdyfEjxz6-GzfCVdgezNZzchSWQ-UBgRG1qAZx-LO6ERHPTYM7x7B6MtyYoqUIoyefwZVcWYVaCvZOmD5iLtbSV8mc3jX-1BrBS1JYu_5EjXGXSHEPhk%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4NYIoxcswXzzqG7kzPhfKMfIFILfOOppkiteoECvyy0-yZErvxpMvVyrAKtC60mKBxKa7mZrKM8J-dahexLRo1fD4UI0vfzbqXbYMOgGidLJMNXg_4fQ1XLGwhU2CY-Iip8iKbdyfEjxz6-GzfCVdgezNZzchSWQ-UBgRG1qAZx-LO6ERHPTYM7x7B6MtyYoqUIoyefwZVcWYVaCvZOmD5iLtbSV8mc3jX-1BrBS1JYu_5EjXGXSHEPhk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjw29DLnqpIpeaIS8OyMMIVCRnda9kJdRIQWFSpQoffCatjkdPiFptM6vLYk8RBfrDDcuGyoC5QjHlHw9p6VolG9AWqERg0Pi8iFs8DmMCpDLy8aKPH9PXs6IHdherh3dw7gWLzNZVrmv9EwZ-h35FRgydSAjzTF61YYqNX9iY-jma2T-bv_ZgUPQPGRcgtA0h8NFF2mLLJ7X1O37eMiiRPRTbo36yhLKgU0xMOEpsOB_3PHQcrSBfL4so%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -149541,6 +149485,232 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "サバウツガー",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7027893,
+          35.6600911
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1f2f1d72f50aa12d86d1",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1f2f1d72f50aa12d86d1",
+        "name": "シブヤボウリング・カフェ",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "シブヤボウリング・カフェ",
+        "sceneNote": "ヤングガンガン2024年4月19日号グラビアに河田陽菜登場。https://www.instagram.com/p/C5Xro2rJzpE/?hl=ja&img_index=3 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhS7dmyum81mv3SUc5w7JBxM1JvPkXFG2EE-qqKQ6PE3f8ByHdm3t-1AKuOmBnBeZkhQkq0TwvRQuezqLWdzEFi1QZIAvSlNo_oG7_zR-ij26y4OlJdVZEpAfdriZRtVDsD3z7cAbKE9f_Qqf9vPKO-DARCV6oKYNjP2hPDc-lebllMSb_-B_pPgIbnjjFhZo-9aPcWsfPMnNEK9RYNyCcnxlB-mO3KUkBLTcN2FGZNlb-kwqnspNFISec%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhi9dEum-MPA3MrBTThr13uu6PUyTlA_iTYU5g6g3iWPCJJ8N4NxTHmw7SKSMv7-ewAr9Kh4eAn-xjp7euJ4aU-5b9UkHHHDT2FCMnf_3md5Th-ipCbjmTUPeCz2fmYKYknJ6jQP4W8nz77rzIkZaTixalvkHa83qStjnT6rA8g8nxryN8BJBAgPGmR_klYtSqP_v3WqmLsJgHIC29DUmrN4grhuVGch67uYzzT0UypUzawJ12UAfqWPaQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "シブヤボウリング・カフェ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7084125,
+          35.6701575
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:85c33911883c48157ed2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:85c33911883c48157ed2",
+        "name": "旧渋谷川遊歩道路/GRAND表参道前",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "旧渋谷川遊歩道路/GRAND表参道前",
+        "sceneNote": "ヤングガンガン2024年4月19日号グラビアに河田陽菜登場。https://www.instagram.com/p/C5Xro2rJzpE/?hl=ja&img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5hyRi6eKGKv3I3YAwUX0Aa_nWLv6I3f7rzKAE0rpfYK0J_d1W8czX9pKI8FnRair4pVhTd_atsEVVexFoYnBg_OX2OBiPqL2ctNlSoE7hEDNri-3iNL-pBmTPvqNkhD1ISKszJOU30ZxETI69iOSJrOdEorXehz_3hLM6DUPpXC0eUM5L1Z5UvvHpKWZdIRRhXHH9PczrqcWOGCy3wubLCbpzy7s1kOt2e7FEKEpumIgOHU0CKRTPbgOQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR69PP6IUBk8C3oy8LjL-BcJCFnm2_jHC_anUUENdcN_YJU6uBdP9WRftO_S4JM_2Fs2mUnNkk7sTRgDAdkr0oGAU9Ja5uZqhrwmWPjJYMZ8How1gfhNPQCS77SJySInIAUD6olE7eBJ8uzUdCKR6G11ZtlV-aUudfuVTjYqeoIJ5P2OfKqd40qfZKsqTWFSDMBhVq5XBgIY6M3YPGaYHlPIg1thxZU0-GcPvrqidGbwdDUdrCNQH04ZtqQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4LY26c-UibyO5wWGVrPx3lQMIfo7fD9_oS0K1Fpur6YENs94c-2Jgr2KRSW2PBqmwSBl7YlHZG8Xz1Ai4wzZRwbafnEzzGpNQ3c71If7b76LaH3O16G5mhbpCCj5v7h1gXt5ySFgMm24ftWZzjmppjba73u5frXwpJp_DLa2veNXGQ6JobtiuZvl93T82KX7CLRoq0qnk9c2HpZ0N7ZFucK2AcPjCkssZLDPXhd64aqu8wBjL3p1fC-Vs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh4_xarRhrieLI5OY6FSAmU23m0BlgZqTpD-j_kudF6hLSeiLG4PypUYYc0sk2w__Lfk5hS98rKe95iyCLjIckIvasqnbWWLpCbLMv2z2HOuu-RokyPxlCBLHx0sG6eDsBlF6A9xi1iRYBflioOhh_ESVNUv3SPeSZoCYgwrigHjFBZvFKrkCmZkqm0dDKPoMKJcyyPA-to5cSbmGrRHUBBlM2tdP4vsVLylqG0_seTOyA0OLTR6FPa60o%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "旧渋谷川遊歩道路/GRAND表参道前",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7053,
+          35.6706966
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f65f547c1a69ebd2bb08",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f65f547c1a69ebd2bb08",
+        "name": "クローゼットチャイルド原宿vivienne westwood1号店 ヴィヴィアンウエストウッド専門フロア",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "クローゼットチャイルド原宿vivienne westwood1号店 ヴィヴィアンウエストウッド専門フロア",
+        "sceneNote": "ヤングガンガン2024年4月19日号グラビアに河田陽菜登場。https://www.instagram.com/p/C5Xro2rJzpE/?hl=ja&img_index=5 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjmqjksB7xsZErUpvTH2083R3oND_3mKSP1ja97E2CullId9BA6PckXUJFWmHJ5Vam3hBuweYx2o1jwM7WIzU0p7JHZX2TfrMWRIshyL6WpwjCu3Wzgg8c0hJbMNOkVfk12VGm7YsVonQwMnzs1Wcm4Pn42SThLJkSP5SHum4NL2KVGxu2I6xCkpUmCb299LpyXzBE88citdA9ciL1VUxE8tw0LgySMdHkDD6nXrrr2bHPIBueDv8BHOeg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiQxixRghYG0LbMPSLLl3D6wDKL-GSPmhN_qsqkEuKeE7WPcEg8jW-JZlP6BFY60Kv6fTLKfXTQDuErkSu2BUn1n-oW7zbHN2S_rDuqWnS8vYUakPlAN9KBRViMmpFDPV0pU340kA9T8FTc86nRqbLMejHLe5K-V-g2QDMjcIcv6QSJ8clMtOTvlhbpg1Djfm6E6nKnIwMIhZSZrQbW4oCOa7VIsoBVHORPOc3SbrGF3VYUGZkYIcQyaxs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "クローゼットチャイルド原宿vivienne westwood1号店 ヴィヴィアンウエストウッド専門フロア",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7053095,
+          35.6709561
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:25513f1553f740cded56",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:25513f1553f740cded56",
+        "name": "竹下通り",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "竹下通り",
+        "sceneNote": "ヤングガンガン2024年4月19日号グラビアに河田陽菜登場。左下の着ぐるみを着て立っているカットの撮影場所。くまの耳のあたりの黄色い遠景がムラサキスポーツの看板という推定。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjyDSYPR-MUJIVodymK53J3Sf8rPveIydpt7tU7eWbtM12suWaESk4aSHsIqur7J17JSzOkZ1VQndWz2XbMNtpCwR-ZH2kt6dTQtn5FAWsUrleOpndJef_aoar8o-qFviPg65FjhOtQdX0xgmgIDcTwxLWav_DoDeWQUol6f-6HmfDsgUpGRnWQuuz2vcj1LKELqp3YjP6pv8EJb5fC8UrQgYquxhXFSR4ZboC2J-0XV6O-Hpdz7gwpxHc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhYOkHm6YT14eI6qYx-mpP89CCMVvp6IrtK4dNJ3j78wfyZHpSYmzT_H94mUZs91kvo6cWbjpfDy-KA9OL4QEP2k4ePjbBYVudqei5FOs48fHmL9PaOWcb_xGRJgSAwlxyV9Bei60A_mud3OYGrkx9mB2J-K-1XygRQ3vGpTamWT8AbqNa6xTIHeS9Kwj4L0V1ohOltry8RG3rSsIJaYPLKDivAcRjIzRfeCDPkkrc0mL_w4wFZuXXE78c%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "竹下通り",
           "group": "日向坂46"
         },
         "classification": {
@@ -234857,6 +235027,120 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          135.8318698,
+          34.6838227
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3294005c3e2ddf7cb8bc",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3294005c3e2ddf7cb8bc",
+        "name": "興福寺北参道",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "興福寺北参道",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美がオードリー春日さんにまくられたゴール前のストレート。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh0lhLBqApVHD1OK97cipxGbcCb-SKsPmCSLi6emCVDEKOVo86H-T8IRhTPX9NncuRHyTmOfmQdme8mDiJqVOmOfM4gjNEDKu0PtWGJnFu4faQO-is7Iz3yElHa-vQem5Gankc6PTm3ynXSDpy20pYgUCsb1tTMcYH6hf9fPaMRIpQO0GIYwTDeoSsjK8yBKPX2sK5TjTJpGa3VwxG-ZcRr9mtMEXixRdVuiaJ_cE9_Q2e2-RGnDgQ983g%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgE5xlHhFlQJ0HG7Obua56Ot_Xw2rpkgvq9zNumH1hz6U_YMDpJFkvfHBmMC5L0O-btDDTTE_fsNhZIR5qyPEzgNFeo9BeDyWO9tNLseAhKImCZ3e5pXP5ythl9IN92WPG4CrwkkPIa_ocgahP5FoKqzGg3LZZl6Iu1pvjqyRTMuZNVY4oSG9-uPu8TTJByZLoDmsl5RsSvMg-jMBgJnWDF4jQJfwJEw6DBUqlfoXSEMUylj8KzdBO-y9U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhEUsHtg3-pjC3zcMMP8dOrEKIwlSWsv_Fyxrt8BNr46Kt9hp89osC_btjfrTMfY4LSUokIvjtMPqmGd2fpSTGOTE_bfl16JS0a9_CExP4r9TIgjowoWObvZW8ctALdNQM7-BD3Hez_2sqEV-EQNXK3JrMXxn7JdaW_lBWVsg6uCpiABMXj5YDM_1loeT2xxaJn6xvBm3V44JN2nJsGYB34XJYVbl-Y-d6G9fG-wxqraZ6TARWcGO-ps90%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgxA8_ZEMstNCzeqsv3HGi_ViPNeS8Aqac4S7SnXST3icO3iPACdYF1y-uOKWUqK58nM4Mia503V0H5T3Kteiq95nSBk2TBCfc-wemwRoknYdyx0J_Psn-ohanY3R8ToMFgKokZpGRxBIoev-3yam4BFmxCMb3Ji1FGERMaKmwMjDrsOqfJE4Zie3IJecs37i70Kcm2qlSPXNcmOebS0SsRyeBjipn5wkLyPRFxR0PXSGlFfHwgsLOFTLg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "興福寺北参道",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8305681,
+          34.6826148
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2abd80777d8f97d5a64d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2abd80777d8f97d5a64d",
+        "name": "南円堂 売店(納経所)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "南円堂 売店(納経所)",
+        "sceneNote": "2025.06.24 O.A.「ザキヤマの街道歩き旅12」で佐々木久美がラストで御朱印帳を提出した場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh88L9CvLanzR8_Nv4O_SVPvx2kYKdyMH-_WijLGlmVTaIkz99EEgGevQZcqa5h0lATM9XZz_C15Hes6d5LK0k4i3_BRHR4LGyDpP8GrgUghm9PpMGuvUlgMxxKL9hP1DOGh1ja-gEwc1jBCknql2AIi1gkqKjTuMh12sP2gJsQBP5m6U2vSHuaUNanB_pCnAdhakYrYrP4aJr9Yt5IwXMi2ZDyGWJGLOkypk0cETeDH1qDIC9Zcp-4-e0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhYKVn6L3rzg7yDekiROzakl7Y6Xd59CWQp4t-ks3jaTQhO8Ahx0SNncuv_g55n8dAKfrKTZF_X5ffpZnzLWc3t9qArEpUJm-shbCYoT4sLR4W58yNo6wQt3LJjRVN6UwGTCkFNRsQ8BzppCIkvFNUQSG5uJjnz-GMFzhCKQfqiCbN3EdUF2Hgdbo4AQcs7m25nSUir1OmGjMGTwZoStfdvF_9XVB9dgnSeKqWEyoRpNwS2ZjiRgUTg2FA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "南円堂 売店(納経所)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           136.8397668,
           34.887556
         ]
@@ -248952,6 +249236,64 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "楊国福 麻辣湯 上野店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.7737791,
+          36.6863394
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:66d8e249117f80eb3ff9",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:66d8e249117f80eb3ff9",
+        "name": "積善館",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "積善館",
+        "sceneNote": "2025.04.17O.A.「あの坂道を登って話そう」にて一行が訪れた佐々木久美リクエストの温泉旅館。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiKZCRKF8j86y0vAdaCqAILph26HjFJd9MNUvt-vtZH3w5IJOaFwT0FJTjzFPO5v_TXqJNjw4-ahkv4BbjU71KgTKtM2vmhFFJ_4QLOAdqf8QjjYyxC4as1iupy-Gn2im-cHOnoI4rvW-X5f1_g9nrtZr5d-CjS3UF3gwlM5vVypf1g9LDCO4bOH7Dm1B_PAln66i7wxM2v4h945Dv1hgH_HbHMt3-72KDnYZcum3EficdRz8XHEo6njyA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiMODV7CgfemvGW1E--Py6gc_0dvdWUOqDLEtWCPrz9EEiIj_ZIqYiInKJ4Hc8zMbiPSeJ6-gyDLas340P4nhGIdEe8GopA3lH3UAT9cjTn--W3pZVwKnK22h-t4fUG-0xhl_WIk8PX16Vt1fZ09s4BtPQf-6Oxtq_GhPLD2W-mhb96I_gVqgllJiTaEeljV1KQsyNHgoN29NB0ckmlANMtFPw8BBqXaYYbGeFC1-qHZY1A0YMkmI4a6ak%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgQidsxGb_gTBidX4kAyvNBpd-F0WnXX7C05RkxwnsJYkGbwXNkiUDHn4yWNR41wBM5mLwYD2sDefvyFFrF86lsBLq_8PsId21jsR2YqVkyQo1v5VMabeE4IjO2fK8q7LNoWFRpSoFcpCaDRY3ETNBMyMpuJKA7C8zVvnSelytz5WSbVKUsFPa_43mcMdoL5wX3v3ENeN_WuSuJusZ_Mj_S4a5BSfqOL_8gO-RFTB-rSu7LC--x4tQrx9Q%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgR6wGOdsEccNOGMSe8TM_NFrBKAwYPtE6C_mWC9WmVnAFmz4HVyIreY9OYxx1F1yxar-52du9G1OTPG6gi4pgb_YacHcXNd3xUjH4Y-jzgfKwO6G61fv0nRw8noWpieVbjeeijMQOJsaKw1Ty2txSdDe9Apc8lp61mlRKpcVv0yBMtrNAFqzGd6y-esWWd3T2hSIfD9ITs0z-qQtWE-6pKXySFgFp0R-8rxhw10rg0KquAVb4_6MlixCI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "積善館",
           "group": "日向坂46"
         },
         "classification": {
