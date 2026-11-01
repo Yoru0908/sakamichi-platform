@@ -10,7 +10,10 @@ import { CanvasPip, openDocumentPip, pipKind, type PipKind } from './captionPip'
 const API_BASE = 'https://api.46log.com';
 const POLL_MS = 1500;
 const LINGER_MS = 4000;           // keep a line up this long after its audio ends
-const FALLBACK_DELAY_MS = 7000;   // listener lag assumed when the player has no PDT clock
+// How far behind live the player sits. A caption is ready ~6.5–7.5 s after its phrase starts, plus up
+// to one poll, so the listener must be later than that. MediaMTX keeps 20 one-second segments.
+export const LIVE_DELAY_S = 10;
+const FALLBACK_DELAY_MS = LIVE_DELAY_S * 1000;   // listener lag assumed when the player has no PDT clock
 const KEEP = 40;
 const ROWS = 3;                   // lines on screen (transcript style)
 const LATE_MS = 500;              // a line that arrives this long after its audio started is marked late

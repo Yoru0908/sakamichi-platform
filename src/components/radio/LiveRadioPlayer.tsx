@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Hls from 'hls.js';
 import { Play, Pause, Volume2, VolumeX, Clock, Calendar, AlertCircle, Loader2, Radio } from 'lucide-react';
-import LiveCaptions from './LiveCaptions';
+import LiveCaptions, { LIVE_DELAY_S } from './LiveCaptions';
 
 // ─── Config ─────────────────────────────────────
 const API_BASE = 'https://api.46log.com';
@@ -148,8 +148,8 @@ export default function LiveRadioPlayer() {
         backBufferLength: 60,
         maxBufferLength: HLS_BUFFER_SEC + 5,
         maxMaxBufferLength: HLS_BUFFER_SEC + 15,
-        liveSyncDurationCount: 6,
-        liveMaxLatencyDurationCount: 12,
+        liveSyncDuration: LIVE_DELAY_S,
+        liveMaxLatencyDuration: LIVE_DELAY_S + 5,  // jump back to the delay before falling out of the 20 s playlist
         liveDurationInfinity: true,
         highBufferWatchdogPeriod: 3,
       });
