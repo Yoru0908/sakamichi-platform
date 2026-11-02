@@ -85936,6 +85936,183 @@
         "coordSource": "article",
         "coordPrecision": "exact"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.874329,
+          35.631264
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:4e512a0671b3a6e323a1",
+        "sourceKey": "fumi-article:4e512a0671b3a6e323a1",
+        "name": "東京ディズニーランド",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "千葉県浦安市舞浜1-1",
+        "sceneTitle": "2026.10.10 櫻坂46 松本和子 かぼちゃもさつまいもも梨も柿も巨峰も好きなので、世の中に美味しい食べ物が溢れていて困っています。 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。千葉県浦安市舞浜1-1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60126849.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60126849.html",
+        "tags": [
+          "櫻坂46",
+          "松本和子",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "松本和子"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60126849.html",
+          "mapId": "",
+          "layer": "2026.10.10 櫻坂46 松本和子 かぼちゃもさつまいもも梨も柿も巨峰も好きなので、世の中に美味しい食べ物が溢れていて困っています。 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "松本和子",
+            "四期生"
+          ],
+          "name": "東京ディズニーランド",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.881323,
+          35.63119
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:c056ad712b60aa8dd84d",
+        "sourceKey": "fumi-article:c056ad712b60aa8dd84d",
+        "name": "アリスのティーパーティー (Alice's Tea Party)",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "",
+        "sceneTitle": "2026.10.10 櫻坂46 松本和子 かぼちゃもさつまいもも梨も柿も巨峰も好きなので、世の中に美味しい食べ物が溢れていて困っています。 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60126849.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60126849.html",
+        "tags": [
+          "櫻坂46",
+          "松本和子",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "松本和子"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60126849.html",
+          "mapId": "",
+          "layer": "2026.10.10 櫻坂46 松本和子 かぼちゃもさつまいもも梨も柿も巨峰も好きなので、世の中に美味しい食べ物が溢れていて困っています。 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "松本和子",
+            "四期生"
+          ],
+          "name": "アリスのティーパーティー (Alice's Tea Party)",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.881442,
+          35.632262
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:c3d036d81e974ce01e89",
+        "sourceKey": "fumi-article:c3d036d81e974ce01e89",
+        "name": "白雪姫の願いの井戸 (Snow White's Wishing Well)",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "",
+        "sceneTitle": "2026.10.10 櫻坂46 松本和子 かぼちゃもさつまいもも梨も柿も巨峰も好きなので、世の中に美味しい食べ物が溢れていて困っています。 blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60126849.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60126849.html",
+        "tags": [
+          "櫻坂46",
+          "松本和子",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "松本和子"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60126849.html",
+          "mapId": "",
+          "layer": "2026.10.10 櫻坂46 松本和子 かぼちゃもさつまいもも梨も柿も巨峰も好きなので、世の中に美味しい食べ物が溢れていて困っています。 blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "松本和子",
+            "四期生"
+          ],
+          "name": "白雪姫の願いの井戸 (Snow White's Wishing Well)",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
     }
   ]
 }
