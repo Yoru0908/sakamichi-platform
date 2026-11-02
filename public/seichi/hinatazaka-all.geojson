@@ -249495,6 +249495,63 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          130.8410647,
+          34.3524664
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:56cee5da566be0e77276",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:56cee5da566be0e77276",
+        "name": "角島灯台",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "角島灯台",
+        "sceneNote": "「追跡！長州ツイートトラベル」で河田陽菜が訪れた場所",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjyqxh1PpQYJ200mBk3Lnzd7gQDt5pBPmJ8Y6E_u_0sxNYEqzsFPFg1EAF5Xve3Hj9AmV_n4gDELNU8alAUlT1qfhrruWJ4U40QyfQDnDyMVtfaWwCrSPmAZTpQ6zIvkdjO9iLlDA6NH-ZUWk41f8SnHED7oFXo6GUH4EnchDUXcIjurv7MiqqJdVKczeK-nikjtxujaUKHhBNlkCY2rFxklD4ibg8jWxTqruS9g8x1rzZ7dsVFJ27Su_M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgtOc5VBj8tbRMKhnSQjq6dWSFFICXbcjJV3e41jxC2gDRHoyqX8Z9jlWSRRtA5plUiujMSIT70XUTGjpC-0awowp4Fj8fkvbhAJvdegqf0BUEIsNVKhKrAZbz5XHrLvtzpRldZuILzAE0JWCYBRyFBGBc20yi7CqrD47sA_bJjqinTvfp0ZCp-rvUC698ZS5Buxc4d--WZh6thhtviP5vc0_34J0e2QfjnJGx2B_zwRMWUrOtiJ7QgvFI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZieKN5ZIObgZYOeeU-agruOGsjaxCUyZAcxDTneBNAaRV9NSyBHHek9ZKWJpVzVCayRrLkzbekNPsp8QrZHgTyyy87AZE9GkVWdz18SJdmUf2qTmk7VNPaPKqa6OpCs0mOvjsYW8YeKoP3wm46ms-sZwsdgtvWH30JcvnVi7s1pWZxqkIwEZ9M-WBCMHBU89YWS1wfTzOFdq2CREIWTsT5qtCfWTwstSEx_QvMPJEVzBtjV9mPwRg6UN_w%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "角島灯台",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           136.8453444,
           35.049002
         ]
