@@ -32329,6 +32329,193 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7086323,
+          35.6435287
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0b272bba872f9926c5e3",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0b272bba872f9926c5e3",
+        "name": "恵比寿南二公園(ブランコ)",
+        "category": "CD特典映像",
+        "subcategory": "CD特典映像",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "恵比寿南二公園(ブランコ)",
+        "sceneNote": "欅坂46 6thシングル「ガラスを割れ！」type-C特典映像「11輪の花物語」佐々木久美の撮影場所。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "CD特典映像"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhGMR19xBAH1ZPrb6XZUjSkUkVLuwkEhDyKjOi0gpEhe5z3WgawRyw5bjxGUZV-25aHMny31UgPGJqWX6qd8yjAQGyB_1lIB4IG28RBwA7fSfBu0DKrdciEE4rZyKCKDvB4vj7M02JTmWoeu5TphB8EAjXe8jZ7jZcAzWKEJ7kfUncV7K61GPV_V8XDPTgLwTjq4_vHwRRhquXROK-nmQ4oR5M6giGJXwMnd8eM8DBpmH0YqIcREHCl0iE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiZEBvC24V_g4i11zUp2OLT6dPE-t7IY-FFAvZFXQmtlAhNlBVHqNkX7iPM0pz3mVJsvmHHU_EnYbPNbeSY-uMUblVPKzVO8jMqWJbAQjHUsSrQsFsUbrB3tKwPwelrti8H6wD00bapZAdHr_LI37WbHoiyIqzS-jePzofHWwh0AR6FTgyeNqR6F2WuRcBzFoRtGUj_ofehV7vR8T4kvO3hFLxPvqCduDstkXA_-raIvfj7dUlM_EE6Dfc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi8cSgLJOTlgRLWbxeYVqbyQ95jLh-hbyrVZan938BstG4089kmKs9ifU0jSzQsuPNHdRJz0-loa8UTFvq-HIbhWXmntnLUTSTYN30vr_zk8lpcOwz1A7WD1HI0UlUz-8Env6GfVRjmdLzUBwoXYGsdTPZptBgIoVvqavD4u1hm-WIsbWQ8TXsr8MV0VK9PNgTqzTrHlafL_hQdfR1Vza6K5LSe44i9ijQLVKmmEbQdcGK1NCd35XhNyZM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhtuV3tzCZjD5PtKRt0fKvNNbJ6SG5KcqIqYnIVmm4ngp43zgENcScUW31ISi9fZi_4yU_TJI6md-KcsRrDr1TcBfXRv8OwFNQHrQJRuFaMa47p8mqI_ozFr2LJQBRrHDj2y2A74zqFZfbb3nnUxwLWThSyaQ3db-xhwxkwOAZUqw7OcN-Vec0-LyAS7YaSXSA5CbltCafrk4PT-1g20lVtL59UoazNKvdcJzYVXIV7oWwwTudikH6Dc-E%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjx3n-PcN8X0qeDut9vHBKgu2VkahKwQ0DILDggl2DI75GyVb30vy3PmN8eYok0PzgFrybaq4YywmMDPdP4wAY4h728x5dbHGRUzU5oO94bhFRTj3Bq9wsHW2WGmoGSu-pUZpjXwBrQFhCcqVKsoajsxR-eovaJk503ZCKiV4Fb3MZM9L6GvCu4tc33Pdo3zKCF1ZxjJnCa_9aMSZntKy5okwcwDvU4Acm_cMXSSX614MQqtAKfeYLgmOg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgwpZnPKlv_gUgU-6KKwqqE5DnK-Rdf6r8RHRW7UPrtX6poW-DPSVjZn-Yd_2Do5DL6fmHEKZI7xtClwjG48oG-aVGPo56sE2BaxwxXRfB_u8BvTQ1Vxn51A050bNrAKjEPfGA46GyEg_P4tfh2KZeNjzLafeogmmU791BI587eVG8dWGC6nntnlRpFMg7M4ucF_hGfd9g63WKTTFR0MCRCSBAuRuzcLSU6kls4-1i6td-L0zJgLQbCAT4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiPtoX8U6KcPPvgiabKgayf7XBbyxGoppG06Ni-PExAhu4Kk_-WPZuovZmNBD5rQ3oRVfAZpdRGdTeD8ryadaqbc-LrxWsfPchJVFNUgEffwnXyhog8FWPGrsYycJUIhIE8sOEuP3CjF5YhOHyXWsoote2QfBrdz04ErBE_kOuHcpLodd0ICVIv3sqXLKOdPJPLamB-6wYy63OzwfdnF_XuuuJ1TgxH9dWekFGOBml-ea8C5phTGkn_njM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiYW7mHpBXTmv2z4YFy8HETkP9WaBq4su9cAPodEpPtLIQ-_ldSX-9z7-jDPaHv8yEH_Iz94Qvivoq0709kpug1rDL98H-H328uR_spVBxrvewWMJaIR9YmREBO4xmBR56bVCBSM07L5jkyPnaQdyrNrQ_4_b4W2ves7yqJjL78AOXtvHvDXhJg8-wLFofQ0vAroG0gviISGr48WPtuYc2yHy1HKeHtCEXjf5yNj4Kil5lrYqldX_z3J2c%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "CD特典映像",
+          "tags": [
+            "日向坂46",
+            "CD特典映像"
+          ],
+          "name": "恵比寿南二公園(ブランコ)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "CD特典映像",
+          "subcategory": "CD特典映像",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7086056,
+          35.6440726
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8202346c22a0ba3eb8d3",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8202346c22a0ba3eb8d3",
+        "name": "(旧)planear恵比寿スタジオ(洗面所)",
+        "category": "CD特典映像",
+        "subcategory": "CD特典映像",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "(旧)planear恵比寿スタジオ(洗面所)",
+        "sceneNote": "欅坂46 6thシングル「ガラスを割れ！」type-C特典映像「11輪の花物語」 加藤史帆の撮影場所。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "CD特典映像"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjetIENcDnefxEBdECeSl5USrLVnImssz9PH8VQt57vxCh3xowR7G4KSsh9acMmePoz0ajg2uSUbLsYQdt7mjNcEpRSqn5M3gc7TZWpu9WNXFxci0zaCgPSs6tf9qEOTk5BpLLAvkSPEQ4X2RH81rKBQ4FTjJ2Xtfy6WTBN8Z4c7xC5E62N6_rCW5iibwm3Yb-U2Ph82NDGDXFW9huwYMwR3YwrqpdEA3tlwuNaX2qHHRfdgdWh0q_dEnI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgRrFINNXOz8nWK_w9y9V60_lRIi2zktWHr-vYD2rplL0I_otp_gplsT7rHibEw7pC3xBJ6KkS_Lh8LBZGBeqiUsZj2Sq1no7Zsk5ZJcP4Te5W9hRDVLOisKT17C995QDUu7k-nEXy946e5zJ7ppKfQdcoUJVaZUKfy0yLqqXykBzxdqtPHFZoCtnUXKpQ58y73pM-hbQy9RqbEfeL87IK0RkNG-n0d-tS2O0WFPf3BlrBKcYWLeHEqHWM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgsWH8ov5R0mAUoCLf6Wiz7YDWDwLxO8mqnxEouRE8iM7u6RZkERMOwE__qNDsNvsWdGIXz7IM_3s-cCGJ2wsu5pGkBj4U4j6731yA9y5-8MUsAzKaMUcsZat9paXjjPiUggz9nU8KOh6XwoSb3OtKw7e6C42dBcq372ye9BeqoB0GuURap-_6D6WKBxmHkrs_4UQ3DCRZ_zHwTJ25ggFoU1HOIvqcIakEjAP20n0qsIuY6P3rZa1CLqyM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZioZibSzzMsGmRVZbRtEA2q2YgIn5_My5hJYNd_7wXdOp80qu9758AaimvXafV7pRueoGOhgtzBVfif8-fGkBZ-HJ8RlM4gMYfYTnxnVA6WFVrv98JdWooajNCt_cxpbemanksVwsXeDgpc216B3BfklNXzzq439NqhihvhssF1kba6Z0NexBWv8ShuTfOgOYFuufGJMumAFsQVolfNhe5UyrJq3lXtLIou9pUM07ZJcIUn-2NrgwVHsFQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhkVRLH0cKqvxR6wA82tm1HlLxHJebwIb6AOMvai6yNcy6e-M1x3h4fTecvFGbAMy-Q1hS3bL0l9LomtshIDTB9D8SCh38C751V8de9jMaC9Car6acBsRMXOCgJEwPPLplFyRU7QAj88fxVFEufoKsYFgv3wy1zh0Je0W-QHR06WoXM7Uggukl8bPXHDw8QhS6jDjALX4Pwwu1VOcjVSSgBjS7cxDZ87aPccCOsdg7My0bIaDfbE5GrzEE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg4za_DjJ0m4ZG-oP5IBmpvwlfo9tIgjrLchBOMQfHCVr4Lgbd4PrDNbHtS4cJyMFqBtm0pagLIwSdTuQHEmdhUCIg7TudpmASomEoexUqpL1_uFw4JCvM_LaPSLfpjVIbpscMHr4-5qO8XcfqvJe8eLf-ltYUO-UsgDawcPpuuW0PyR1l5IRYxTaqByu2AU_44fYula94eiI-_O5na3_QZ6-LKrgp2_9N8adxAtJL3NA1aT9XwY2drCOQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhIV-PfoCYeRmIsy9asDvimPgloB59l1CQVJgNBZ-9cUnQ1__UJND0vgDi7MdIfnvB2ZzRZhSOUGe_ZfJGEK5rz9IHga6K8Y0rIHWmIIBeA2ReOSTuOPGHRi7jRR6xeUV2Bv4vivzwutFq5CRKQ_NXOUOlvXEdhk-yta4ll-J8IsAXFeTzdYlpw06Rytu-AfO9wZO3RXvGdJBceaSAs8OIDvdGDQ9v57XP_sdyXZ_ENf73dAqA561KlmLQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "CD特典映像",
+          "tags": [
+            "日向坂46",
+            "CD特典映像"
+          ],
+          "name": "(旧)planear恵比寿スタジオ(洗面所)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "CD特典映像",
+          "subcategory": "CD特典映像",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7085582,
+          35.64406
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7a98dc536031bdb31883",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7a98dc536031bdb31883",
+        "name": "(旧)planear恵比寿スタジオ(屋上)",
+        "category": "CD特典映像",
+        "subcategory": "CD特典映像",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "(旧)planear恵比寿スタジオ(屋上)",
+        "sceneNote": "欅坂46 6thシングル「ガラスを割れ！」type-C特典映像「11輪の花物語」影山優佳の撮影場所。茶色い屋根の隣家は現在マンションになっている。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "CD特典映像"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgSSa8NYC0Ii9Qd5kwiK6_M3AnOBJ2agZQlCYHiOldM6WjFtbc3pgZUDQp--OIH2RfBgmxIP-yhHSJ63HfUNOMK-8OY058rCJzLYlc6sTU_CDfMBECAAwxelYf9M2qxmpcvzjXyNpMjd0X9ZiRLYNfbhg8Ev4H66TGchDSEe1_wa8QfbfEb_88t6TtAsEbHlTkuP7fBZhimjV8ELD3SxKM9IdOXrEJlAkTCQ3I-HvyTj50zgVLtungHN7U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhzWYTBwBErWKyAKeV-3e4xVH6S_8qEzs2pwO4ooFU6DvxZTVL7hUswbtiJNz_ncCJ3zk7y2PZgWLUR2W_90SijkYkrIWjnEZGSO8eKIy2cZPtrH_1nAAjsez6e_uLRZuJdmuWRL5QjynKdDPaOxyXO7VhigTDsTSRYfM15JLyt0_B82h7ufwJ_SCmwKjyg9MxTVtBqA7b1ftVTy5OY-9Bd2hZ8zEFel6-xYA8x5AeCeVzy_3_Pb5Ri9ZE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg2t3l0Y4CrUSRdblwLP1ANiQIa9mjANyL_q7GTvetIGa-fyQlXWE9pQ_pFJ8gGLJuE7xlr6ikxCaZSutInKJEg0FPvavEdS_zqg7LI8ZCmSSvNWMdfFGB0mI7bC8n9SBKakc6nK5HCFCAmxTgj3u2tcmlNGHsopjdy3unl60ek6rb_PkDNiwx6c4Y90fWg_xqB2lX_RAvLRb1-3UEqewbxLhGuhNoHxgo7nEc6hYjrrmAz2PaUZjJavZI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiDt4yCMH51kJaphzpGBIGyP-9UnZOrtmubSK4rIMYlVedVPT_C-pmMwEFUbs3OGtZU5pc0U22NgOiRX5eA8Xp6WEybTPUOu8yewE15NcG3soROlXZhryANXgQfGfbu_HeOeN0lkl0HGAtEgUdWrc0_8IXZkgBIKr9pGOheDcd3VftLzDN7Hyk6rQNY76zJh0USlOA0kCMXBwxKvSwvUPrFJLtKZ2cDYG4HxjzpD5xFEZaMS9GO_ZXg_D8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjlG6VAlkmhoYevBppcmXoGOpQs_zbZDkIgfvIHYtUbJO27qIpzTR8_DtOxOQhmEZTEwhIH3G8UFCBSUeYbqB2Xkk4aIYumJJIZs4gdY-vbgjQMjvwTrMkL1XtifXHqysl8eXSNYMOrblhmucTskPQ0BQBDdwUkZEYoLiLwp2K44BlNi9doJHTlySQs-DkrvJwxa0plnNlrzozQ7FWPhEjywlOiUw-BxsBoFPUto2OTE1j8QQysjwV4AsU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj9Gxm25SwWHSbWUQtQb-7iwLqP38Rh0A1dPFxQbIaBgofcqyJVnogNBWMgN5IzCQVX_9MF2nDj9nVYZodxd8x5F_V6IufrT1iS2r7kwfOpA66IsCwE4tXzaU9TUoqvbftpkb685gHVuS-aFPjjbYyY-8817ws010DJYJQVcyyBi5VxPmiAAk_orN582tVvPcXUEp5irsai9cmU8EuENMwyVFA9O9UVAq48axfFKdbKY34Sd2WBy8ipNe4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg0TG-GGIYY8i3TnwOOsAXuEC9Kf0_QYtyPRS-JbtcbDP7S4QzyJVnBcsymEfiz4j_b4aTqu1dQvViyqwEWwFMngsYCSBqW9pEh-pkmzs4aisbW6WVQzKon-r1tk2nERyVz6R5MYTArWSOxmIVZvS3NujPOovCnnof_CIrJ1s-i2z4DEmP9Zi3cT7fnXLqTq-hSI4Kix4viGHyAQHcJTR9c_GGRsJqKUV1DfEnLYLZue37YKyR1VBRGgkk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj9G-FArLNZc13I_B43YwxY8d43heiZFSKN5Hr6zoSb9Ubddp70T9uaQz0L5hdu3Zw_GIj8IGojv70ccsl-rNtNzSqAelq_iapTzq-qsGeZ70nJDVumwCdHxOlPkOxKMrgH6EfQM7mfRvo_BWOv4NaU2_FKuwN8lHy2T9ZTGpsAuSALJQGgOtjAo_4dFKipnow4IKlmlE1mdoJ_yXsjheea62Hnxfk5Gfzgj0vDp2GrY3JZvni234VpnBE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZht1xbyOKR2lm46QUz9Ghj38ugP_VVcC8E_0GIionfupiCR4HCzW1-2ayNKvpBcDIRoBMszLsEPUCUVA31aQ4q7RjtyNMoCwQ1OPiBMPZ8pOooN48wImcoX1v3Brq9MfbbZ8upJuHLs3p3jsbcLJYZjNjReu70uJkGzNnEfoTj6hAaJp55p8EGqGVvjXcY5Hf-qgdmc2gzN_ZbutqnXGxTguS4xHpM7dEa7GVbf20lkw2w7a7oqIf8I5to%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgX54K9Fp7xZ2GUG_We7mdEM4VR7iYyGLRccRfDoDSb_oj66y5l4uu773pVbjlqiQ-DL_ORay4tfFbrn48Oiw72qWnv4JEd3bXV59KSqkd20fW3UmkQ2lAVImvFjwy29bH1T5Q4XDa_ApP-7lwXYQVfmq-R4Ibw5ySDzJYmiXbxSQQzuWntXTDtXTVHBnUt9R6iAOEqM0KUAkjEzJI0HcuVnP5g5FAsp37pMtbe4DLSFG3vpwE6on1ffvM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "CD特典映像",
+          "tags": [
+            "日向坂46",
+            "CD特典映像"
+          ],
+          "name": "(旧)planear恵比寿スタジオ(屋上)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "CD特典映像",
+          "subcategory": "CD特典映像",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.812386,
           35.65763
         ]
