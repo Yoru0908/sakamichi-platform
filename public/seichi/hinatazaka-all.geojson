@@ -32729,7 +32729,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "(旧)planear恵比寿スタジオ(玄関)",
-        "sceneNote": "欅坂46 6thシングル「ガラスを割れ！」type-C特典映像「11輪の花物語」佐々木美玲の撮影場所。 題名:",
+        "sceneNote": "欅坂46 6thシングル「ガラスを割れ！」type-C特典映像「11輪の花物語」佐々木美玲の撮影場所(1)。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -32760,6 +32760,62 @@
             "CD特典映像"
           ],
           "name": "(旧)planear恵比寿スタジオ(玄関)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "CD特典映像",
+          "subcategory": "CD特典映像",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.70856,
+          35.6439255
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4045452412900a10f7ae",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:4045452412900a10f7ae",
+        "name": "(旧)planear恵比寿スタジオ南の路上",
+        "category": "CD特典映像",
+        "subcategory": "CD特典映像",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "(旧)planear恵比寿スタジオ南の路上",
+        "sceneNote": "欅坂46 6thシングル「ガラスを割れ！」type-C特典映像「11輪の花物語」佐々木美玲の撮影場所(2)。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "CD特典映像"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiH_UVdMsd6b9EzTaz4lU0GqaHtou2I3jScVgO2dsBPOVmcZXORyPWPVtuWKRULELlXHiQST1WMU618pTm-Zu5C_Y-p94JUfw_PscCoN2ZH2kG0It8Ki8lvRXn58i0zhGldHCZOGokR8AqNSIMeNNI8bq2YXewTkzTZXeju_w-N9uNl5D2ENrOMch3KxYz6e0iTgs85P5XUf2zJH-vYO5aY-CkLHc-VGkViiTG5ade6UhHNJqDpaSOhDkM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgJJytFuTnVeRlGEDhGlxfeqfkxDexTd1zZrVUFa0LglsnborBdzHSkaARrNwnbGp_-Vz9zySDAQ5iIUNP7XQ8cYRtaQAgB2g-mMwIwK4KQgcOWwVdroFefgi2Mrch_5D-pslZGUvebtKYCD8aBGwn-S1HXf6u7faA1eXx3O-q7uSUl2bAeCG7M2KD91btYRcVOjPyqSUmMRxauOpRPyglnmjyfUDz2HhWMt6fU3W-WC3FZJztW3q9oG2g%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "CD特典映像",
+          "tags": [
+            "日向坂46",
+            "CD特典映像"
+          ],
+          "name": "(旧)planear恵比寿スタジオ南の路上",
           "group": "日向坂46"
         },
         "classification": {
