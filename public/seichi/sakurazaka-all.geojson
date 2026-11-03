@@ -86113,6 +86113,63 @@
         "coordSource": "article",
         "coordPrecision": "exact"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.739594,
+          35.635559
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:652cb23c4f75512ca6aa",
+        "sourceKey": "fumi-article:652cb23c4f75512ca6aa",
+        "name": "LOOPS",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都港区高輪2-21-1 ニュウマン高輪 LUFTBAUM 28F",
+        "sceneTitle": "櫻坂46 的野美青 2026年11月グリーティングカード写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都港区高輪2-21-1 ニュウマン高輪 LUFTBAUM 28F",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60127719.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60127719.html",
+        "tags": [
+          "櫻坂46",
+          "的野美青"
+        ],
+        "images": [],
+        "members": [
+          "的野美青"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60127719.html",
+          "mapId": "",
+          "layer": "櫻坂46 的野美青 2026年11月グリーティングカード写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "的野美青"
+          ],
+          "name": "LOOPS",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
