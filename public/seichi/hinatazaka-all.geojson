@@ -32771,6 +32771,70 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7086052,
+          35.6440565
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:18ff1f816a796c1e931c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:18ff1f816a796c1e931c",
+        "name": "(旧)planear恵比寿スタジオ(リビング)",
+        "category": "CD特典映像",
+        "subcategory": "CD特典映像",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "(旧)planear恵比寿スタジオ(リビング)",
+        "sceneNote": "欅坂46 6thシングル「ガラスを割れ！」type-C特典映像「11輪の花物語」高本彩花の撮影場所。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "CD特典映像"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjRWYihp_nJGF8hXs5Y2gTb6DBxSet4zD0SFF2hT5wK6ip-vumRWDmTnRpgEgN3puW4XTaRmIHWFIZoxWqrKz8Ih--r8kw9r9_Uosz-4j5KVYdOBqJ-lpUlq1MV6KpjLG7TfDnB7lDIhfmkoXOoF8bl04sn0X7vZNA_TEwyMNqkOL3fHaUrPFI2-N3hW4wAGMxb7CEHFB-Nnj2JQhMs5KHtg9qlme8ATGexAYUjzoPiL9UhqDEruON8VqY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhXRkur3pJ84YsK4ywqClnEWrSmejNWicdUe8IggfTWFJdui-MRrZVWKZsTJc8N3AO_pr19cKVBgVsPVWGVOFbeFKu8aD55UvQSWY1kB-uY5Ibc3C0HnoY51EWcxLKfQsjfMy48XbrgW-_ffPhtSWrv6macfaTpxaWhXjozS1r4dnTEgjsyu7xoAsQTwrXtNRL20D8RNucW_unu0PZPtkFRchzmaN1PkBCJcNTY_TUB0T4tU629CWIxJ7I%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjvJ6av04O9U5buTgF4OwQxpOHRTtpW5_8w9DGtXUBlxbaSUomzLZz_gNWc8KgkGmZfWB4SxB6MEVCh4IWI6HyU2gT7j_ouVlK_nFOUf7abik92wpbemMurw-39_SWHSibKhu5lm3-Ck0VMA9rxpdxMtfoa5m93FgmksEmtN-qiz504CCSBVxL1fFMdcJen0RdpprgpNz89SJoAW0xMPuA-_G1ZfjJaOre_lHO0I9mvqB3G8Z-uMMyl-5g%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjs5hmYFuplnx9Ef7meVAaeerLxruJHEjoLWGOxO4MnAOWZ7xsWCCYP0qMhSEXQPlf8MPmp2Q2DWi8TS0UloTsPpPQ7cgrgpxSoNoqZ-YwlhKuR3CVAz9RNpWzSrNFGAyR3RKznAcLf5lZk7Cpc1smPsFZdhkSIh6YM_QpAz0XXphjhxtEAKFBgyEWkB8XvMjxDmnPywIiZOCEbh8AC-_kX9Gayqn-Mu0UBSVMFSzA8lxjcZ3UQ6Iw8lBA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgxUuTl4fqBs45MqMKZEogG79BaOiOMEAxI2EdtHWzfPsVt8iiPZn7xeIwHUATpc9JsPsKmMSp1l-lYW72yrhQ8TW5fl23W5C__r6sojgrGSaB09l5egM63MhKRvfcYEQEu2y4b0t3MGu7EeiXa8YZe-7dE2w64yNfjlSISqexYswQTYWVmsSMqSQ---vXt1kfFZnlT5sJTYSVuohxPz88Ir5x4KmX1yMWkfsEvzDGj3QkyoFCdocT25JY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiywL_s2gmTZbfpsrTHM4i3KxRCzoFhBHnBAtPxZjlB8yI8f-7HKeeFlq07GDNOYKe13sQ5B97ajfvHKilVKXeDU1ufkvzgHrMpUJyJA189F43hj-um_Lkb9GFZedm2wBH0__8MbNUS4NA68cGxBi2XoRUtq60EeKGB8kap7ZKrPgaQh-kKzgskibvY19UI81Kh2P0mwd1Dz5uHIyJSxzdAVUFSMhnXeoIqeACD15Gp942DEILDQ-oDh48%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhKlfqqgA95c1HaHiVVS71SAn6cm0jyc7Dyy7GuNuGv1hsPtJXb7BmsIzFNq-8eTWgW3G9KFeL-4z8_Tpzw-_uH0Jt6JP7aZzei5tg_89IkRp_jMbCfQSSLwScPRqbu6jG_t_DbAOB1QZ2YpuW_uZuT32_nhupqWswAYX5Q-E60jZOlxFP-sAkBdzjg5wVAXo1Xpn2GxCReunaITnlD2nQ8nIcBU3dPldMZGGjMIlURd4_eAP1BiLRv3fo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhU4dj2pMh34z6P3SkY6RnPr-LnWBMJNlY3hBiHgkK5qHc1KwX3GfnXyHWX4mrDzanvFZI7MdR3nvb-0xnhh3C5ESfMZvclNqDO-sjB6YdSKUH3wcdpSwDBOtRIE4xegnlVaFbcTT7FKy8myYSRSX31hgctYdh3Vzf4P5zC2UJO647v3Obdc8-gLTH07LLaMnC1SOm4qp02vyPX8nTZAbBZ62ljRQr56KGz6obsdK_zK9Pzbh095FsrzKU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgD4MVpOuOxFgRQq2UkGopj8HIS0oT0HROkrbASrvKgbRWPbEcvSyMoRmpckjM4F65zOuNSVCAQ_L8UMGJ_YcbbjFS31YVY8isDYE79jpIjTokRC-rpLp44ZbupuJ7d7wjbBAQNIUkRsK1mOdT5R3vWvXg9kqLm8EuuCGiCl_D0AqXmoynFULupVY9jSbfwubvhYx7xZgEotRhGK028Nu4GvDiWXpnxslgcduYO9GMqy_A7PcpbLBfcZPY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgdD_hx5VszidP70EiMsV0ql-Z8WbCjfrSEOW-CzYjcsxFXbLYNj_yoFHvT5Vy0jx73Zz96g7gSmImQBNAd8rSOR8ALOKRYhWCxn8CVbpovc4FTNPYUg8jvVHh2ytLjIq2OOEgongFvRZ6K9frYD8dPVyjkY_jKg5rgMHMk926Ph1RlAOjzgMqSibeL3-Oyh8txrUOZ3wCaF5JVgKKQqxVf8Unio-NfbjkJ4O-FXs3OGEwxxgr_u5cI7gg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "CD特典映像",
+          "tags": [
+            "日向坂46",
+            "CD特典映像"
+          ],
+          "name": "(旧)planear恵比寿スタジオ(リビング)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "CD特典映像",
+          "subcategory": "CD特典映像",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.812386,
           35.65763
         ]
@@ -249917,6 +249981,62 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "展望台広場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.690511,
+          35.2858015
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:203f72f1f9ea026e36b5",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:203f72f1f9ea026e36b5",
+        "name": "猿島渡船航路(洋上)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "猿島渡船航路(洋上)",
+        "sceneNote": "アップトゥボーイ2023年8月号岸帆夏ソログラビアの撮影場所。（右上)北西方向のYokosuka Middle Schoolの位置から猿島寄りと推定。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgJ3NRsXuk7LUzntGBhKMAgZlK45SwN_oMhB219r2ew35VbCRGx6KRGhy6uCCmeSQHnXEWwiKNy8xuXixMpUF8FGulXAkIRI2PY_QwmjMoZF7sfP8ZnYvmxBNv4hfAYQZ2IP5DXTdA0FZ6rbOibq2fb7EL4ZFUNe_dtnbyW3eZHxl-oc4ClGY81_AqEZpNONOfzVYYGEB9q7ubtaYBSjerNfoiWNEjuGbbVRMOJo1xCPZ6Po2b0ArYb4dU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgCLSVqbHg2DhEKld5LDNG2htSOXRbAEWItn-KcrPFmFEZu8QnA6SiocEZROTUUIAC26qXEJvd9qfuEe_pYSN55wt7oZ_lix0aH3VCmbgOUbJgab63ZV0eiL8oJPw7lgTeIOlwoqI79Y26NiMTEE4kdPyT2fmeaZP27_C9wUOX6uK3pgcUG8z_YjfvZJsw5Glf3YeIZT-7dSY3-Wf3F3jrkk0XE1X-c7JX2Mk9hftFxsdQbwowi-wbFNpE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "猿島渡船航路(洋上)",
           "group": "日向坂46"
         },
         "classification": {
