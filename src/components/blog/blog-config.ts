@@ -9,10 +9,41 @@ export const DETAIL_LIMIT = 50;
 export const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 export const API_TIMEOUT = 15000;
 
-// Cloudinary 国内不可用，直接返回原始 URL（未来可接 img.46log.com 图片代理 Worker）
+// 官网博客图片归档在 Homeserver /vol1/blog-images/<host>/<path>。
+// 候选顺序：优选 img.saka46log.com → 普通 CF img.46log.com → 官网原图；<img> onerror 逐个降级。
+const ARCHIVED_IMAGE_HOSTS = ['www.nogizaka46.com', 'sakurazaka46.com', 'cdn.hinatazaka46.com'];
+const IMAGE_MIRRORS = ['https://img.saka46log.com', 'https://img.46log.com'];
+
+export function imageCandidates(originalUrl: string): string[] {
+  try {
+    const u = new URL(originalUrl);
+    if (ARCHIVED_IMAGE_HOSTS.includes(u.hostname) && !u.search) {
+      return [...IMAGE_MIRRORS.map(m => `${m}/${u.hostname}${u.pathname}`), `https://${u.hostname}${u.pathname}`];
+    }
+  } catch { /* not an absolute URL */ }
+  return [originalUrl];
+}
+
+// 函数名沿用历史（曾经走 Cloudinary），调用方不变；width 目前无作用。
 export function getCloudinaryUrl(originalUrl: string, width = 600): string {
   if (!originalUrl || !originalUrl.startsWith('http')) return originalUrl;
-  return originalUrl;
+  return imageCandidates(originalUrl)[0];
+}
+
+// For HTML-string rendering: src + remaining candidates + inline onerror that walks them.
+const IMG_ONERROR = "var f=(this.dataset.fb||'').split('|').filter(Boolean);if(f.length){this.dataset.fb=f.slice(1).join('|');this.src=f[0]}else{this.onerror=null}";
+
+export function imageSrcAttrs(originalUrl: string): string {
+  const [src, ...rest] = imageCandidates(originalUrl);
+  return rest.length ? `src="${src}" data-fb="${rest.join('|')}" onerror="${IMG_ONERROR}"` : `src="${src}"`;
+}
+
+// For React <img onError>.
+export function nextImageCandidate(e: { currentTarget: HTMLImageElement }, originalUrl: string): void {
+  const img = e.currentTarget;
+  const list = imageCandidates(originalUrl);
+  const i = list.indexOf(img.getAttribute('src') || '');
+  if (i >= 0 && i < list.length - 1) img.src = list[i + 1];
 }
 
 export type GroupKey = 'nogizaka' | 'sakurazaka' | 'hinatazaka';

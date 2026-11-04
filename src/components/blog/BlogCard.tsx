@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import type { BlogItem } from './blog-api';
-import { getCloudinaryUrl, getGroupColor, mapGroupName } from './blog-config';
+import { getCloudinaryUrl, getGroupColor, mapGroupName, nextImageCandidate } from './blog-config';
 
 interface Props {
   blog: BlogItem;
@@ -44,8 +44,7 @@ function BlogCard({ blog, index, onNavigate }: Props) {
         {imageUrl ? (
           <img
             src={getCloudinaryUrl(imageUrl, 400)}
-            srcSet={`${getCloudinaryUrl(imageUrl, 400)} 400w, ${getCloudinaryUrl(imageUrl, 600)} 600w`}
-            sizes="(max-width: 640px) 50vw, 300px"
+            onError={e => nextImageCandidate(e, imageUrl)}
             alt={blog.title}
             loading={index < 8 ? 'eager' : 'lazy'}
             fetchPriority={index < 8 ? 'high' : undefined}
