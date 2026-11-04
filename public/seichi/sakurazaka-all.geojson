@@ -86170,6 +86170,110 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.784882,
+          35.616001
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:ee03e4ee09cf31a91aec",
+        "sourceKey": "fumi-article:ee03e4ee09cf31a91aec",
+        "name": "TACS ODAIBA STUDIO",
+        "category": "番組・イベント",
+        "subcategory": "キスが苦い",
+        "categoryColor": "#2563eb",
+        "address": "東京都江東区青海4-4-18 TACS 6F",
+        "sceneTitle": "櫻坂46「キスが苦い」Dance Practice撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都江東区青海4-4-18 TACS 6F",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60128361.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60128361.html",
+        "tags": [
+          "櫻坂46",
+          "四期生",
+          "森田ひかる",
+          "田村保乃",
+          "藤吉夏鈴",
+          "守屋麗奈",
+          "山﨑天",
+          "大園玲",
+          "松田里奈",
+          "的野美青",
+          "山下瞳月",
+          "谷口愛季",
+          "村井優",
+          "中嶋優月",
+          "向井純葉",
+          "山川宇衣",
+          "佐藤愛桜",
+          "浅井恋乃未"
+        ],
+        "images": [],
+        "members": [
+          "森田ひかる",
+          "田村保乃",
+          "藤吉夏鈴",
+          "守屋麗奈",
+          "山﨑天",
+          "大園玲",
+          "松田里奈",
+          "的野美青",
+          "山下瞳月",
+          "谷口愛季",
+          "村井優",
+          "中嶋優月",
+          "向井純葉",
+          "山川宇衣",
+          "佐藤愛桜",
+          "浅井恋乃未"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60128361.html",
+          "mapId": "",
+          "layer": "櫻坂46「キスが苦い」Dance Practice撮影場所",
+          "tags": [
+            "櫻坂46",
+            "四期生",
+            "森田ひかる",
+            "田村保乃",
+            "藤吉夏鈴",
+            "守屋麗奈",
+            "山﨑天",
+            "大園玲",
+            "松田里奈",
+            "的野美青",
+            "山下瞳月",
+            "谷口愛季",
+            "村井優",
+            "中嶋優月",
+            "向井純葉",
+            "山川宇衣",
+            "佐藤愛桜",
+            "浅井恋乃未"
+          ],
+          "name": "TACS ODAIBA STUDIO",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "キスが苦い",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
