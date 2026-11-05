@@ -117662,7 +117662,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "馬の背洞門(1)",
-        "sceneNote": "金村美玖が2023年夏に訪れた場所 題名:",
+        "sceneNote": "金村美玖が2023年夏に訪れた場所https://www.instagram.com/p/Cv1-ai9xjt3/?img_index=1 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -150281,6 +150281,59 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "竹下通り",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6033691,
+          35.7052639
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:03bc40f83aa62dbfe654",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:03bc40f83aa62dbfe654",
+        "name": "sweetolive 金木犀茶店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "sweetolive 金木犀茶店",
+        "sceneNote": "https://www.instagram.com/p/DehBIDsmHib/?img_index=1 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "sweetolive 金木犀茶店",
           "group": "日向坂46"
         },
         "classification": {
@@ -250275,6 +250328,117 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "児童遊園地（戸山ハイツ28~30号棟）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7095017,
+          35.7036279
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2e42453db6961625bd91",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2e42453db6961625bd91",
+        "name": "都営戸山ハイツアパート30号棟",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "都営戸山ハイツアパート30号棟",
+        "sceneNote": "2024.03.13発売「B.L.T. Graduation 2024 中学卒業」渡辺莉奈ソログラビアの撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiUDa-vmlbV9oGmmBva1oIlpF24Tj4fFqyJz87Iy4iNrtglvuMxl2Hd92o85TL1nqS2TIo87jg771rxs3xjbmW7_FDSuUnB1VupcI7JS4-XEBUuytLOsE4YDeVEAkSNSKefjq5rk1xhKiRqnSei56_zpz2kezqJIFEyXZDYeA6uA3jAzKa9Q5Kiw3Z6KCQ8-uCMDq1vfxvLtL4LToczcVETFG19NRjPH_gcFa4Y8L2XRLi5RKvC_hDEnZQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "都営戸山ハイツアパート30号棟",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7093236,
+          35.7031759
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:43046a0f1bbc3d80e008",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:43046a0f1bbc3d80e008",
+        "name": "都営戸山ハイツアパート31号棟",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "都営戸山ハイツアパート31号棟",
+        "sceneNote": "2024.03.13発売「B.L.T. Graduation 2024 中学卒業」渡辺莉奈ソログラビアの撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjBMjsQ6xfsftLYBKR16JKOw4pmKXsOvvvXVoI6fcgukGVoaC2_n5NIIW0n0MYxFL_s5zN3RVmlH_RquxJvcOSmC99BcHrUNtbmNDmyBGIpbNyCSsXCHsbGeOxJnTiAcSrX0EvdfCLEjkG4IxZsm3mG6B5iKgOL49La7c1W-ZXldujxsl1foJb0IVjOVoruzO7pBknx4IwMpNx7BYzLfOorxFa1mAQ4je0mbFNV5n8ei9SBy7z85Q1pr9M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjsPwreysbVXivRkD68fW3XFnpSZxtfEzadgopR6J-rNeCjfS1yombPOG_Ld6BJa-DQ6amPCWZvUXQQ0HHFNVZAwqp-uvOjPfjf84UlSMpbTzGcG1C4Ac2FPLOboyHrevbh60HNBp3Uo84DNp7donLivu1-Z4ufnk8FwtrIq_6XF6uuwTOmZHGsRSNctrZrWrRFqR4YF1re0bP0ixCuwojPHcY3UqCfupYauvXG7O2zknCqB-bpKddeuT4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "都営戸山ハイツアパート31号棟",
           "group": "日向坂46"
         },
         "classification": {
