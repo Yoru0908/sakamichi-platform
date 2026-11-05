@@ -33,9 +33,15 @@ export function getCloudinaryUrl(originalUrl: string, width = 600): string {
 // For HTML-string rendering: src + remaining candidates + inline onerror that walks them.
 const IMG_ONERROR = "var f=(this.dataset.fb||'').split('|').filter(Boolean);if(f.length){this.dataset.fb=f.slice(1).join('|');this.src=f[0]}else{this.onerror=null}";
 
-export function imageSrcAttrs(originalUrl: string): string {
+function imageSrcAttrs(originalUrl: string): string {
   const [src, ...rest] = imageCandidates(originalUrl);
   return rest.length ? `src="${src}" data-fb="${rest.join('|')}" onerror="${IMG_ONERROR}"` : `src="${src}"`;
+}
+
+// Rewrite every archived-host <img src="..."> in rendered blog HTML (bilingual_content or markdown output).
+export function withArchivedImages(html: string): string {
+  return html.replace(/<img\b([^>]*?)\ssrc=(["'])(https?:\/\/[^"']+)\2/gi,
+    (m, before, _q, url) => imageCandidates(url).length > 1 ? `<img${before} ${imageSrcAttrs(url)}` : m);
 }
 
 // For React <img onError>.

@@ -6,7 +6,7 @@ import SharePanel from '@/components/shared/SharePanel';
 import { proxyImageUrl } from '@/utils/proxy-image';
 import { fetchBlogById, fetchMemberBlogs, fetchMemberImages, type BlogItem } from './blog-api';
 import {
-  getGroupDisplayName, getGroupColor, imageSrcAttrs,
+  getGroupDisplayName, getGroupColor, withArchivedImages,
   extractDateParts, mapGroupName,
 } from './blog-config';
 
@@ -52,7 +52,7 @@ function renderContent(content: string): string {
     clean = clean.replace(/\[IMAGE:(\d+)\]/g, (_, idx) => {
       const i = parseInt(idx);
       if (i < images.length) {
-        return `<div class="blog-image-wrapper"><img ${imageSrcAttrs(images[i])} alt="" loading="lazy" onload="this.classList.add('loaded')"></div>`;
+        return `<div class="blog-image-wrapper"><img src="${images[i]}" alt="" loading="lazy" onload="this.classList.add('loaded')"></div>`;
       }
       return '';
     });
@@ -68,7 +68,7 @@ function renderContent(content: string): string {
   // Fallback: basic markdown rendering
   // Images
   clean = clean.replace(/!\[(.*?)\]\((https?:\/\/[^)]+)\)/g, (_, alt, url) => {
-    return `<div class="blog-image-wrapper"><img ${imageSrcAttrs(url)} alt="${alt}" loading="lazy" onload="this.classList.add('loaded')"></div>`;
+    return `<div class="blog-image-wrapper"><img src="${url}" alt="${alt}" loading="lazy" onload="this.classList.add('loaded')"></div>`;
   });
   // Bold
   clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -245,9 +245,9 @@ export default function BlogDetail({ blogId, onNavigate }: Props) {
 
   // Content
   const rawContent = blog.bilingual_content || blog.translated_content || '';
-  const contentHtml = blog.bilingual_content
+  const contentHtml = withArchivedImages(blog.bilingual_content
     ? rawContent
-    : renderContent(typeof rawContent === 'string' ? rawContent : '');
+    : renderContent(typeof rawContent === 'string' ? rawContent : ''));
 
   // Calendar
   const now = new Date();
