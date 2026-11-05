@@ -150354,6 +150354,66 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7871652,
+          35.5195095
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3f789f5be7aa20546703",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3f789f5be7aa20546703",
+        "name": "浮島バスターミナル",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "浮島バスターミナル",
+        "sceneNote": "2020.01.16発売「blt graph. vol.51」上村ひなのソログラビア撮影場所。https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=21&dy=20200117 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg5xhykFI3Q1_giuaK2IL963JjXfTNoz7Ldxg1MSbOzWdDdiW48iNLYVBz4d3YRXsX8KFcm0kFGuNXh_TbbvX3diSdTTZIwZ6-1wZQhdoW_8EeTMBGeRjZkt2gPDcjgU9Wr6QdIdkQrPNzakh00kJSbrvPm3njaMU9gxCdlpHpFMIU9L50WQZL6-Sem0F3GqDOjuNebR513r5aA70G7_Zq04eNC4Ok5OzaxqoU6K3UZy345pR1w389o9DM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh3w4itRM30nUHmmDCCbzRQWt5q6hOCOWs01-7ScNBmM4Kjwgi_8yHITtXRaHvDuQtgd2nAOxjrbHxGzYpX0Eqr_272U1KtYHTRySs2-OX0-3yf4Op-KIT9UHzJx1ZqIsjV9WY1dl1aGouK1eqQU_QniF6abSygsrKoxQ0w7IVEVBxJZdkh6WB9T2x-1bLHIji7MpJjmm2RnjA3-pt-oBdgJ79DDprSrB-vRJlaq4okMMmJCAX5pCy3t1A%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhsoJEcxmCL1VarnRkV2ehlQpcadEMQP1FruWDpGxXKXcQC5OJrtX3WjfJ_NTL52l-Bf5DC6kyh4uLFANwdxWlxlII-K5g968vBrY8UizNjO5wscm3wGNxxnuv_-h9BzlOpDsmTHOh6sh_x3YCccN7F2DX37IAxJgkVaJhrZ3915JqZfdYjleV02lT9TET4m-yQBFRaZXKG9NkZyo8yHuheiuZGwVWcrd1nz-ESQySP1ZLWraX-uA7_a3Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj77X3fRvHPvDsRlG9Ao5md0ZwdZRUzulm-PNudjehF8jw2J1IyRda4sA9ZsFDXluDDVWvwRV71m5_jTPPxff5j8xRFWTVtZeNit1R-XIigjKsPKipJ2MSGKvoDdZMG0r5kYecKVoUmh6sifFWvNbYexSoRcNJ_JOx1Fb-__4HL0bDb2OEEOFXJjQZO_hUerrTfDaKHtrAQNRlptxKHfWyuk0aYhh2NtaJLJJ81TnxoWI2E__AdICovsfM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjx0Q0bAU7rQm44z-gy_OT_zaBMgqo6G0f7La9DuHFg6yH1OgpIAgEWo1ME3XYT6tHlpZ5l9SqffBTi2tOOLxgSJzvR6nd6wYP9bS8x3QqAFSFY3S-79rHPPmEkfQIMRG8a99BslD-Z4DdCFco1QDDJAI9UttByJnTrPm__U708h9xa6qQ3YeI7fMGLRYX6KOLWB5ZXIqMm2U6dU6MYpRNQfZJIQ18RpNizbO3oDn32I1kPu7NBOzVMUI8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiuvYgrLwpw2nf5Gl0uZqGufP30OAkF8i9i85Pw6jYq8-nF9FDbTNAmuQY5SoD--iV7_cK92YjxYeGO1I1XDmUDlrL0-riFVaoOzdAX1AN0IddhpwozTAt0RhazCYoJqgncg7bFyV0ksp2RmtL3Rt5a2LKq4MLZH_TxnPd7aZRCPytWk3fHivTrIuypoxf45oTncJJ-VbhPQsh2p2tCOYWutMdZU_V4UK-8sS68qXgaRcLsqQyEuWVKrHc%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "浮島バスターミナル",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
@@ -250439,6 +250499,63 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "都営戸山ハイツアパート31号棟",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7489527,
+          35.534705
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ff522ec6bba7275f05c3",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ff522ec6bba7275f05c3",
+        "name": "いつくしま跨線橋",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "いつくしま跨線橋",
+        "sceneNote": "2020.01.16発売「blt graph. vol.51」上村ひなのソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg6Yd8XoDOTMWBtrWxZsJnIL7ZMOVmA50_hVYzTqDaOogZC83X437si2VgcBV0sta8fVXVEIMXzgSjiMg5mI4C1n02nU-FsE0rLwZPyq9oK3HcDOy-4HVKKdYCc200KjJa-kB2h_MeCU_C5Gf4x6uaYX_xGyVfZGhGS4xz8SfSxb2eJ3tn88E473V57jprLRfftIwxROs0qVOcgJ-IzVQ7H63qzl5tw37wg_mq4Q1q0puQ2hBnO0DPhHY8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi4JxhVNiAapHActWgcu6_N9SLM8AY8awbYd_duppFR_pnYMGUuA1zEvBP_bJxfuVyr2pcSCCC-GorBqfut1968VswYcd-xa4aPJzsVVudSQR-NITVtL2px8wYDQtysVFUDmX38jNOIq2nJqu3n6q3apdzLTLKAlKR1BwtMG4IWN08efHWmwZhC2eZ01ozCFq03ysEZYAS5H65BYJJh0_NLV1yL-PDG9K6bE4foCX83MOLN9htEkjHPtpk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj6arCgHCTZ5Cq1BH9qcfdsXLfzG-4Q7THrHIY-5AtaRR9HIfYMtORLvL_yzHVvl-nTdsg7jKvg5NEmTlaZz8KO1GWFVB34EUYENgoBWiN9SYSRF0pfSxfxN3lDy-KK9l7UWQaeV7HS-J1VBsQ6HS7c8BKOVye7nOQQB6gOHHfGudgKozOSCDYhmPBQD5czWmn4O_JjYo6GoCg_itBWRB-T2CZh5zCGOEx1mlPsAUmTQxyP_mQlCOITILA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "いつくしま跨線橋",
           "group": "日向坂46"
         },
         "classification": {
