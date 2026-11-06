@@ -216,6 +216,10 @@ export default function PhotocardGenerator() {
   // Crop modal
   const [showCropModal, setShowCropModal] = useState(false);
   const [rawImageSrc, setRawImageSrc] = useState<string | null>(null);
+  const rawImageTypeRef = useRef('');
+
+  // imageSrc is a blob: URL owned by this component — release the old one when replaced/unmounted.
+  useEffect(() => () => { if (imageSrc?.startsWith('blob:')) URL.revokeObjectURL(imageSrc); }, [imageSrc]);
 
   // Group & text
   const [group, setGroup] = useState<GroupStyle>('櫻坂46');
@@ -255,6 +259,7 @@ export default function PhotocardGenerator() {
   const [generating, setGenerating] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [mobileImageUrl, setMobileImageUrl] = useState<string | null>(null);
+  const [mobileFile, setMobileFile] = useState<File | null>(null);
   const [showPublishConfirm, setShowPublishConfirm] = useState(false);
   const [allowDownload, setAllowDownload] = useState(true);
   const [isAnonymous, setIsAnonymous] = useState(false);
@@ -344,6 +349,7 @@ export default function PhotocardGenerator() {
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    rawImageTypeRef.current = file.type;
     const reader = new FileReader();
     reader.onload = (ev) => {
       setRawImageSrc(ev.target?.result as string);
@@ -354,15 +360,27 @@ export default function PhotocardGenerator() {
   };
 
   // Crop confirm
+  // Output is capped at 3000px wide: the card exports at most ~1500px (desktop, x3), so this still covers
+  // 2x zoom, and stays under iOS Safari's ~16.7M-pixel canvas limit (48MP photos would otherwise come out blank).
+  // A blob (not a base64 PNG string) keeps a 12MP crop at ~2MB instead of ~21MB. PNG input stays PNG (alpha).
   const handleCropConfirm = () => {
-    if (cropperRef.current) {
-      const croppedDataUrl = cropperRef.current.getCroppedCanvas().toDataURL('image/png');
-      setImageSrc(croppedDataUrl);
-      setImageState({ scale: 1, translateX: 0, translateY: 0 });
-      cropperRef.current.destroy();
-      cropperRef.current = null;
-    }
+    const cropper = cropperRef.current;
+    if (!cropper) { setShowCropModal(false); return; }
+    const type = rawImageTypeRef.current === 'image/png' ? 'image/png' : 'image/jpeg';
+    const canvas = cropper.getCroppedCanvas({
+      maxWidth: 3000,
+      maxHeight: Math.round(3000 * 127 / 89),
+      imageSmoothingQuality: 'high',
+      ...(type === 'image/jpeg' ? { fillColor: '#fff' } : {}),
+    });
+    cropper.destroy();
+    cropperRef.current = null;
     setShowCropModal(false);
+    canvas.toBlob((blob) => {
+      if (!blob) return;
+      setImageSrc(URL.createObjectURL(blob));
+      setImageState({ scale: 1, translateX: 0, translateY: 0 });
+    }, type, 0.95);
   };
 
   // Crop cancel
@@ -540,7 +558,11 @@ export default function PhotocardGenerator() {
       const dataUrl = canvas.toDataURL('image/png');
       const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
       if (isMobile) {
+        setMobileFile(null);
         setMobileImageUrl(dataUrl);
+        // Show the preview first; the file for the save button is encoded in the background.
+        const name = `photocard_${memberName || 'card'}_${Date.now()}.png`;
+        canvas.toBlob(b => b && setMobileFile(new File([b], name, { type: 'image/png' })), 'image/png');
       } else {
         const link = document.createElement('a');
         link.download = `photocard_${memberName || 'card'}_${Date.now()}.png`;
@@ -552,6 +574,22 @@ export default function PhotocardGenerator() {
     } finally {
       setGenerating(false);
     }
+  };
+
+  // Mobile save: system share sheet (iOS/Android → 保存到相册) when files can be shared, else a file download.
+  // Long-press on the preview still works; this covers browsers/webviews where it doesn't.
+  const handleMobileSave = async () => {
+    if (!mobileFile) return;
+    if (navigator.canShare?.({ files: [mobileFile] })) {
+      try { await navigator.share({ files: [mobileFile] }); return; }
+      catch (err: any) { if (err?.name === 'AbortError') return; }
+    }
+    const url = URL.createObjectURL(mobileFile);
+    const link = document.createElement('a');
+    link.download = mobileFile.name;
+    link.href = url;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
   };
 
   // Publish to community
@@ -1211,8 +1249,15 @@ export default function PhotocardGenerator() {
               style={{ WebkitTouchCallout: 'default' }}
             />
             <div className="px-4 py-3 text-center">
-              <p className="text-sm font-semibold text-gray-800">長押しして画像を保存</p>
-              <p className="text-xs text-gray-500 mt-0.5">长按上方图片 → 保存到相册</p>
+              <button
+                type="button"
+                onClick={handleMobileSave}
+                disabled={!mobileFile}
+                className="w-full disabled:opacity-60 mb-2 px-4 py-2.5 text-sm font-semibold text-white rounded-lg hover:opacity-90"
+                style={{ backgroundColor: 'var(--color-brand-sakura)' }}
+              >{mobileFile ? '保存图片' : '准备中...'}</button>
+              <p className="text-xs text-gray-500">也可长按上方图片 → 保存到相册</p>
+              <p className="text-[10px] text-gray-400 mt-0.5">若无法保存，请在浏览器中打开本页</p>
             </div>
           </div>
         </div>
