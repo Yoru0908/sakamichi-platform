@@ -23005,7 +23005,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "東京薬科大学 薬用植物園",
-        "sceneNote": "日向坂46の3rd.シングル特典映像「ひなたの休日」において、上村ひなのが訪問した場所 題名: 3rdシングル",
+        "sceneNote": "3rd.シングル特典映像「ひなたの休日」において、上村ひなのが訪問した場所 題名: 3rdシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -23031,116 +23031,6 @@
             "CD特典映像"
           ],
           "name": "東京薬科大学 薬用植物園",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "CD特典映像",
-          "subcategory": "CD特典映像",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7127059,
-          35.723214
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f7bf11713572eba31385",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f7bf11713572eba31385",
-        "name": "弦巻通り",
-        "category": "CD特典映像",
-        "subcategory": "CD特典映像",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "弦巻通り",
-        "sceneNote": "「君しか勝たん」TYPE-B収録 潮紗理菜の個人PV 『潮紗理菜の世界民族楽器の旅』 https://www.youtube.com/watch?v=tnGnp2Lur-0 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "CD特典映像"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7qlK6pnIKjvWAQ3iAzdgMhxlWiWK9b2kbJgxix52M4IwKWBLFSuS8Ms8-rzjFiYHSocyOURD3gPtJUCZmS2OuvXTzWpSbRjSQGIL7koXCDJrycIf-mtOlt7dCrrKcOmrizzaY5XMokIe1VIQqSYqQYQGTf-ORsZTyFriSwql_Mhm3wjmttz7CEifLksbrjtx39JIs3IJZ_-PPDGflmBXaKRaSXyA632-VUG1d-KIZJTqMd-OCT11Ug59I%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "CD特典映像",
-          "tags": [
-            "日向坂46",
-            "CD特典映像"
-          ],
-          "name": "弦巻通り",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "CD特典映像",
-          "subcategory": "CD特典映像",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.712352,
-          35.7226932
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6997cd76e07d5c539705",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6997cd76e07d5c539705",
-        "name": "東京音楽大学付属 民族音楽研究所",
-        "category": "CD特典映像",
-        "subcategory": "CD特典映像",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "東京音楽大学付属 民族音楽研究所",
-        "sceneNote": "「君しか勝たん」TYPE-B収録 潮紗理菜の個人PV 『潮紗理菜の世界民族楽器の旅』 https://www.youtube.com/watch?v=tnGnp2Lur-0 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "CD特典映像"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7LCAtYtpq_Pc5VHU5H85RShcIANw0K_P_29q6EAWqLwezfagiKFPgZEG0wuhFSdES4kEHEBImQTufVxsrcV95kfmRU1HNHZfdmldbwZXU0g8fatDd4-4CQI4rRYtcAh3DHTEoGo7sERkD4pnNn2fvpo46j5tfr6gfEqLA7H4fgGpOYtGiHjKu3psXtGqjGoM1XlEbPX4KYyu-4sW2fzD9N5qAmAsclmPVO16RoT7qBvVE3lYPFPcIol8M%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "CD特典映像",
-          "tags": [
-            "日向坂46",
-            "CD特典映像"
-          ],
-          "name": "東京音楽大学付属 民族音楽研究所",
           "group": "日向坂46"
         },
         "classification": {
@@ -23361,6 +23251,116 @@
             "CD特典映像"
           ],
           "name": "ロピタル花房山",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "CD特典映像",
+          "subcategory": "CD特典映像",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7127059,
+          35.723214
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f7bf11713572eba31385",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f7bf11713572eba31385",
+        "name": "弦巻通り",
+        "category": "CD特典映像",
+        "subcategory": "CD特典映像",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "弦巻通り",
+        "sceneNote": "「君しか勝たん」TYPE-B収録 潮紗理菜の個人PV 『潮紗理菜の世界民族楽器の旅』 https://www.youtube.com/watch?v=tnGnp2Lur-0 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "CD特典映像"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7qlK6pnIKjvWAQ3iAzdgMhxlWiWK9b2kbJgxix52M4IwKWBLFSuS8Ms8-rzjFiYHSocyOURD3gPtJUCZmS2OuvXTzWpSbRjSQGIL7koXCDJrycIf-mtOlt7dCrrKcOmrizzaY5XMokIe1VIQqSYqQYQGTf-ORsZTyFriSwql_Mhm3wjmttz7CEifLksbrjtx39JIs3IJZ_-PPDGflmBXaKRaSXyA632-VUG1d-KIZJTqMd-OCT11Ug59I%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "CD特典映像",
+          "tags": [
+            "日向坂46",
+            "CD特典映像"
+          ],
+          "name": "弦巻通り",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "CD特典映像",
+          "subcategory": "CD特典映像",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.712352,
+          35.7226932
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6997cd76e07d5c539705",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6997cd76e07d5c539705",
+        "name": "東京音楽大学付属 民族音楽研究所",
+        "category": "CD特典映像",
+        "subcategory": "CD特典映像",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "東京音楽大学付属 民族音楽研究所",
+        "sceneNote": "「君しか勝たん」TYPE-B収録 潮紗理菜の個人PV 『潮紗理菜の世界民族楽器の旅』 https://www.youtube.com/watch?v=tnGnp2Lur-0 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "CD特典映像"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7LCAtYtpq_Pc5VHU5H85RShcIANw0K_P_29q6EAWqLwezfagiKFPgZEG0wuhFSdES4kEHEBImQTufVxsrcV95kfmRU1HNHZfdmldbwZXU0g8fatDd4-4CQI4rRYtcAh3DHTEoGo7sERkD4pnNn2fvpo46j5tfr6gfEqLA7H4fgGpOYtGiHjKu3psXtGqjGoM1XlEbPX4KYyu-4sW2fzD9N5qAmAsclmPVO16RoT7qBvVE3lYPFPcIol8M%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "CD特典映像",
+          "tags": [
+            "日向坂46",
+            "CD特典映像"
+          ],
+          "name": "東京音楽大学付属 民族音楽研究所",
           "group": "日向坂46"
         },
         "classification": {
@@ -129456,7 +129456,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ガラスのピラミッド HIDAMARI",
-        "sceneNote": "めいめいが訪れた場所。 題名:",
+        "sceneNote": "東村芽依が訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -129511,7 +129511,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "純喫茶ジンガロ",
-        "sceneNote": "お寿司が訪れたレトロ喫茶。 題名:",
+        "sceneNote": "金村美玖が訪れたレトロ喫茶。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -129570,7 +129570,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "阿於喜食堂",
-        "sceneNote": "にぶちゃんが2026年カレンダー撮影の際に訪れた中華食堂。 題名:",
+        "sceneNote": "丹生明里が2026年カレンダー撮影の際に訪れた中華食堂。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -129625,7 +129625,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "郷音-G.O.A.T.- 山梨 グランピング＆サウナ by ReZARD",
-        "sceneNote": "まなふぃが訪れたリゾート施設。 題名:",
+        "sceneNote": "高瀬愛奈が訪れたリゾート施設。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -129794,7 +129794,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "金鱗湖",
-        "sceneNote": "くみてん、なっちょ、めいめいが湯布院に旅行した際に訪れた場所。 題名:",
+        "sceneNote": "佐々木久美、潮紗理奈、東村芽依が湯布院に旅行した際に訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -129909,7 +129909,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "華厳滝 無料観瀑台",
-        "sceneNote": "くみてんが水卜麻美アナと一緒に旅行した際に訪れた場所。 題名:",
+        "sceneNote": "佐々木久美が水卜麻美アナと一緒に旅行した際に訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -129965,7 +129965,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "中禅寺湖橋",
-        "sceneNote": "くみてんが水卜麻美アナと一緒に旅行した際に訪れた場所。 題名:",
+        "sceneNote": "佐々木久美が水卜麻美アナと一緒に旅行した際に訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130020,7 +130020,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "大観望展望台",
-        "sceneNote": "2026年春にまなふぃが訪れた場所。 題名:",
+        "sceneNote": "2026年春に高瀬愛奈が訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130077,7 +130077,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "「うどん県PR団ヤドン」ラッピングフェリー",
-        "sceneNote": "2026年春にまなふぃが訪れた場所。 題名:",
+        "sceneNote": "2026年春に高瀬愛奈が訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130134,7 +130134,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "台湾点心専門店 101美食",
-        "sceneNote": "ひらほーとなのチャンがひな誕祭の下調べ（という名目）で遊びに行った場所。お店の前の交差点で撮影。 題名:",
+        "sceneNote": "平尾帆夏と上村ひなのがひな誕祭の下調べ（という名目）で遊びに行った場所。お店の前の交差点で撮影。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130191,7 +130191,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "横浜大世界",
-        "sceneNote": "ひらほーとなのチャンがひな誕祭の下調べ（という名目）で遊びに行った場所、 題名:",
+        "sceneNote": "平尾帆夏と上村ひなのがひな誕祭の下調べ（という名目）で遊びに行った場所、 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130249,7 +130249,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "よこはまコスモワールド",
-        "sceneNote": "ひらほーとなのチャンがひな誕祭の下調べ（という名目）で遊びに行った場所、お休みの日だった。 題名:",
+        "sceneNote": "平尾帆夏と上村ひなのがひな誕祭の下調べ（という名目）で遊びに行った場所、お休みの日だった。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130305,7 +130305,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "東京ドームホテル北側の高架歩道。",
-        "sceneNote": "すーじーが振袖で写真撮影をしたポイント。 題名:",
+        "sceneNote": "富田鈴花が振袖で写真撮影をしたポイント。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130360,7 +130360,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "セントラルパーク",
-        "sceneNote": "すーじーが謎にお辞儀をしている場所。相手は前後の写真からミホワタ鍋と推定。 題名:",
+        "sceneNote": "富田鈴花が謎にお辞儀をしている場所。相手は前後の写真から渡邉美穂と推定。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130471,7 +130471,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "緒駕多",
-        "sceneNote": "2025年の春にひよたんが行ったもんじゃ屋さん。 題名:",
+        "sceneNote": "2025年の春に濱岸ひよりが訪れたもんじゃ屋さん。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130588,7 +130588,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "明治神宮外苑 軟式グラウンド",
-        "sceneNote": "東京クリスマスマーケット2025in神宮会場。ミホワタナベとすーじー、ひよたんが訪れた。 題名:",
+        "sceneNote": "東京クリスマスマーケット2025in神宮会場。渡邉美穂と富田鈴花、濱岸ひよりが訪れた。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130646,7 +130646,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "チュラビスタ 福生(2)",
-        "sceneNote": "EX大衆2024年10月号撮影ロケ地 題名:",
+        "sceneNote": "EX大衆2024年10月号 三期生（上村ひなの、髙橋未来虹、森本茉莉、山口陽世）グラビアの撮影場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130703,7 +130703,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "デルマースタジオ 福生(1)",
-        "sceneNote": "EX大衆2024年10月号撮影ロケ地 題名:",
+        "sceneNote": "EX大衆2024年10月号 三期生（上村ひなの、髙橋未来虹、森本茉莉、山口陽世）グラビアの撮影場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130776,7 +130776,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "スイートハウス わかば",
-        "sceneNote": "丹生ちゃんが２０２６年カレンダー撮影で訪れたお店。 題名:",
+        "sceneNote": "丹生明里が2026年カレンダー撮影で訪れたお店。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130831,7 +130831,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "警視庁 原宿警察署",
-        "sceneNote": "丹生ちゃんが一日警察署長の委嘱を受けた警察署。 題名:",
+        "sceneNote": "丹生明里が一日警察署長の委嘱を受けた警察署。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130888,7 +130888,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "若草HUTTE & co-ba MIYAZAKI",
-        "sceneNote": "丹生ちゃんとみくにんがグループを代表して宮崎県ふるさと大使の委嘱を受けるため宮崎入りした際に訪れたお店。 題名:",
+        "sceneNote": "丹生明里と髙橋未来虹がグループを代表して宮崎県ふるさと大使の委嘱を受けるため宮崎入りした際に訪れたお店。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -130943,7 +130943,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "雷門(4)",
-        "sceneNote": "お寿司がにこちゃんと一緒に着物デートをした際に訪れた場所。 題名:",
+        "sceneNote": "金村美玖が鶴崎仁香と一緒に着物デートをした際に訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -131001,7 +131001,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "浅草寺 鳥居付近",
-        "sceneNote": "お寿司がにこちゃんと一緒に着物デートをした時の撮影ポイント。 題名:",
+        "sceneNote": "金村美玖が鶴崎仁香と一緒に着物デートをした際に訪れた撮影場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -131229,7 +131229,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Uvanceとどろきスタジアム by Fujitsu",
-        "sceneNote": "2025.8.31にぃたんがご贔屓の川崎フロンターレの試合を観戦。 題名:",
+        "sceneNote": "2025.8.31坂井新奈がご贔屓の川崎フロンターレの試合を観戦。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -131339,7 +131339,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "クロスクラブ(2)",
-        "sceneNote": "SPA!2017年6月号グラビアにかとし、きょんこ、くみ(当時はキャプテン就任前)登場。 題名:",
+        "sceneNote": "SPA!2017年6月号 加藤史帆、齊藤京子、佐々木久美のグラビア撮影場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -250617,6 +250617,65 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "いつくしま跨線橋",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.647664,
+          35.4374136
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7a611514e8b6c26a8bdb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7a611514e8b6c26a8bdb",
+        "name": "山手46番館（旧アイリン・ヴェロス邸）",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "山手46番館（旧アイリン・ヴェロス邸）",
+        "sceneNote": "IDOL AND READ #011佐々木久美ソログラビア撮影場所(敷地内立入禁止)",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhbitllM_nX3njGy3PzPqf99ZoaKA9WElT4tgNvgYdIZx5wk0nQCDmHusYU1WEXbeZilpqOOQhg3HruElWIhXtYBfamnQLzQV6PQDnJ8ZEcK9S8E5mRAyzJW3qYCxh1VrcqvsjQl1PoIP-AWTqVWY_XGGEmbV0qDiyu8hFnATpvT9vYKfNagZTwpju-QmDjFN8yr4u4cfk2IjLphH2mTLQsLj9y-GO0mLPmriVcigu8L8HWQxedQKlFQ7k%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgl63Fz6sBTU55UmsY0w2zAN-EnGTcvm52b8d1FjJPk05DThY21WIJs4ZTAe7nxuGiPfVnexIMegEave61YGDFl3DnCXnXWj-M33NV36kFPPjHlT7ETLB7ZMFpMQUBpge62fhluOjtNN196JBNjGr284gawluQEXEW5zMHnfwFnCiswpBukjWGrgAfspAsiRs9eJ7JM8WuTDOWITnppSfUZstm4VOqKbIBZm_6BdlhfqenI34wjacQh0k4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiu8atxt8rNWi1PSAPtJUugOu_qv_JDGW2AzTyUdgxB7JQoZtsJHH-CtqytRHkpuWhomCtg4gPKx7rcpsxt8fz9ozPOjJ6lO-fc0PIp3RflcxF8z8Opj4heX-mR_Sa1qxfFpEs8mmu4oLbrfqiJEPUEyrWaOTPFonPr2R2tf5duWvVbQDZRZwfzOzFZVdmhUsOhBjFEZRCcqQarcqJOHwusF33EuEUpAWJg6_N6h-TqOIxwVxBKOovbCxo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjBJGV0Q9tIOB-VVkzpgxQKJh-RX6KXZ3upPQ_D2kUykUZbvZSHHqXEzP42tCIYYhm-zpAaOg6oauMc1uPqvFT6uyxqolA8loJ2L3fTWk3Vc2v2S7oSAFxRSzcShysFQeG2qvOm5bSohlN4Wffqv2-fKAvC7ZwH9ccNn8yejdhWVfDSAvgysF-kmsr75Y5eYSanYdSkQ5FpGlgQqQGJIY3Bj7wNHNBk9DCC18GpOXf-6fP_Pbzdq6TStgQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjGAq1JDtG6N36fWLmOz-_QTWe6xtaQ2E5wujuvWCKMgM-MuNcuYf2ASyQaa1fjKykcfSlb2Su0u7r05QlrQ5rH5C2brvKmzeDl2RUnrNrEj3RkdJRi1fA6B5CiF6MCbjWzsL-uarmqIk3gAkOkzJw0doIVsAkLHH7LmQrkaKX-_1Y7y249osB6Uux5opwA7Er5sCl-59CoyR0EM6NFnkL3Mv9kKZwQtNh6nAJjCW4I83pucm51cUrLJHQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "山手46番館（旧アイリン・ヴェロス邸）",
           "group": "日向坂46"
         },
         "classification": {
