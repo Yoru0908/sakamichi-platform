@@ -35,6 +35,17 @@ class JobAlertTest(unittest.TestCase):
         self.assertIn("unexpected fumi source URL", text)
         self.assertIn("fumi", text)
 
+    def test_failure_alert_goes_private_not_group(self):
+        import contextlib, io, os, tempfile
+        with tempfile.TemporaryDirectory() as d, contextlib.redirect_stdout(io.StringIO()) as out:
+            MODULE.STATE_PATH = Path(d) / "state.json"
+            os.environ["SEICHI_ALERT_DRY_RUN"] = "1"
+            try:
+                MODULE.main(["job_alert.py", "shimizu-hinata", "1"])
+            finally:
+                del os.environ["SEICHI_ALERT_DRY_RUN"]
+        self.assertIn("[dry-run alert → 314389463]", out.getvalue())
+
 
 if __name__ == "__main__":
     unittest.main()

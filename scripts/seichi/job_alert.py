@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""QQ alert for the seichi sync jobs: once on the first failure, once on recovery — never on every run.
+"""Private QQ alert for the seichi sync jobs: once on the first failure, once on recovery — never on every run.
 
 Called from each run_*.sh via `trap ... EXIT` after the job holds its locks:
     python3 job_alert.py <job> <exit_status> [log_file]
@@ -16,6 +16,8 @@ from pathlib import Path
 RUNTIME_DIR = Path(os.environ.get("SEICHI_RUNTIME_DIR", "/vol1/seichi-sync"))
 STATE_PATH = RUNTIME_DIR / "state" / "job-alerts.json"
 ENV_PATH = Path(os.environ.get("SEICHI_ALERT_ENV", "/home/srzwyuu/blog-push-service/.env"))
+# Failure/recovery alerts are private only (user request 2026-11-07: not to the group).
+ALERT_QQ = os.environ.get("SEICHI_ALERT_QQ", "314389463")
 
 
 def load_env(path: Path) -> dict:
@@ -97,7 +99,7 @@ def main(argv: list[str]) -> int:
     kind = transition(state, job, status)
     if kind:
         text = message(kind, job, state[job], log_file)
-        sent = send(text)
+        sent = send(text, user_id=ALERT_QQ)
         if kind == "recover":
             state[job]["failures"] = 0
         if kind == "fail" and not sent:
