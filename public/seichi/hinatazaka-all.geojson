@@ -150772,6 +150772,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.697658,
+          35.7119748
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ee3f08a80a49c8693a5",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ee3f08a80a49c8693a5",
+        "name": "art school U",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "art school U",
+        "sceneNote": "2024.03.13発売「B.L.T. Graduation 2024 中学卒業」渡辺莉奈ソログラビアのオフショット撮影場所。https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=36&dy=20240313 https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=000&dy=20250207 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhDIbACxdSHt6snf2CU9rknqnsZ7g5Rt36_xlt1q0tTvXqjq3DjABR2iSkO3DwBOFb_NsrtaDC7WNPlmT4VTWgK55n85_0l7tvnpaIV7u7qrOdWc6EqVo6jygBzOyYmaSlfJi0tyIzxV8FrHfxeSBDm2zpeIFNjAvqfdr_ZJplsKuV0UVljbyWeuzfoZNCiEKhxVK4CcKw8dSxXtt3dPkwcRmz-LOqT5vu-nZYCEU6jKASZ0eSia76ps7E%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZifvHedt6FWE0N1StMhWo0-Niwa6Y3IR9ZSJvcKkBqANGOUz5dvYyJU_DMxICk-Sd7xRMv50xLEusfOSB800NsE1Q4Y6JYC8uA3_Z9kqGbrVYRzBPZf4jqGogDQeP7uZxfEsLqi048p5LRUaqmwxTdkdyhiPLZWk4zG_fzOsm2MGYlc3irGEZYLKBMybs5W8m_7taNAtwa5VWwfPzmKBAGCirlYy7WhVbreY_yuWLujAB0eYAzNGt7gbSA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "art school U",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
@@ -250800,6 +250856,62 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "都営戸山ハイツアパート30号棟",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8698757,
+          35.2188037
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:029348feb0f01a57342c",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:029348feb0f01a57342c",
+        "name": "幸ヶ原踏切",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "幸ヶ原踏切",
+        "sceneNote": "「グラビアチャンピオン」vol.10坂井新奈ソログラビア撮影場所。東から西へ渡っている。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjbcUwXlldX4LI_YLu_TO05IoRcH_XECxrQWFE-g6QpP7v5oRq8iUHV8f6brK7jwS3qTumGP5qkQddiLaWN8xnLjQAghWyROGS2DhaNeJZnHmy0ZMhb1m31nzbtPy7DPTxtQazxtJcpTwDEA3C6mJkQNy6_9aTyw21LPzSadlIw1V5e_QvweDDwpU6oCFZJHSUfi-unKXrBanjJBd28tgDG5bObh3A6qagPQeXbWgIVlHzaqZRK72oj0Q8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhAeOxSH3tGQqmGtxLQd56bi-NQI78QlhQE-_a6WyenCJstsl8-EehxX4P3H3B2eBSaTxMKZlUEwUwkiR9T7L8EXLfCB3xld9_fsuMDcOQ_rktPe4OZUJq_B8mC1n3upHtxIvqq8wFVUwD_KObJ_e-c49bOq8jLnim29w0dQ2z6vPGYLN6IsHBJxodUyT-wahKUdr0kXQ7svWWKJvg15MbnemAaPIRL2szXdQazbhKts0_Yi6JTfJVQpGE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "幸ヶ原踏切",
           "group": "日向坂46"
         },
         "classification": {
