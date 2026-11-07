@@ -56175,7 +56175,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "トーテムポール",
-        "sceneNote": "松田好花写真集",
+        "sceneNote": "松田好花写真集/少年マガジン2024年25号掲載アザーカット",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -56183,7 +56183,10 @@
           "日向坂46",
           "写真集関連"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZghZGuTOCF2J8r30TKgMay2DsgE6vl4x1ddJ-23XXfzAKPsNnIE-TrERqh-5kVamYx2p61sajDLcDALrhJ8dVAO0f-saDfXo1ulaXMMoaX_wWc77llB3RDTKfSjSxlHLGAfJsV74PQg-w8p-ayuY6uWnlLz6s3kddEGPq2DnmJ_yFYNo6yldvcsu62AXVUAHd5eiZrKlAHLkGUfW7aCCBYFWK_SfdjYf6a-2QbZmNDi6smqZ6c2LMy_MUs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjbdPGF-O2_ynU0WcaUkNpF_L-5Q_S2lb71UwhSDKFEtwbIUQPMG_87DMjtslSXDVesg5IaKGFu7tvTwuho9ESL46q5teRpShQzAMOJujUp_LobdgPNY_1qfD1DlriRkl2Q9waxaNGrJ9J8b6DYPdaJXti8j3PqgfgziGKhtOq1Hu3V5sSZfH9EzTPH31o3lYflEENpzJr4QCUSFjy5LBnX-vrxhWW1MEMQhNDqxmsmUVcHBr7J4cAQlBA%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "清水ひなた 日向坂46聖地マイマップ",
@@ -56195,59 +56198,6 @@
             "写真集関連"
           ],
           "name": "トーテムポール",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -123.117067,
-          49.30082
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:685aeef28d80b362cce0",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:685aeef28d80b362cce0",
-        "name": "ブロックトン・ポイント灯台",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "ブロックトン・ポイント灯台",
-        "sceneNote": "松田好花写真集",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "ブロックトン・ポイント灯台",
           "group": "日向坂46"
         },
         "classification": {
@@ -150415,6 +150365,118 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7050067,
+          35.7137245
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6bc3419f1b6804ff7e02",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6bc3419f1b6804ff7e02",
+        "name": "(旧)喫茶ロマン 高田馬場駅前",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "(旧)喫茶ロマン 高田馬場駅前",
+        "sceneNote": "2024.03.13発売「B.L.T. Graduation 2024 中学卒業」渡辺莉奈ソログラビアのオフショット撮影場所。https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=36&dy=20240313 https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=000&dy=20250207 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgI6ONlDoimc9DYhZUfvGvpPgvJ_eqRsAQhKg5i8v2IEU2727bcZXgnGMV2AnLJKtOvLz9cMi-lmHOSebwho9cTh69Ll6PWLj9qZN9aBzLgWEBpREvnOnpw4IiMqZZPtupWxLwGqS44xDqYWbsZyKXGluclLHoXfkKQy26cwpKUHPMUlWD86gXNVjyx03jHLhEyEDLXV-dNhrbKHMUaCne8RJP2NJk5faov3bRdf_s_ceusyDq0_nJp7VA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjrsyzQcKbJFoztAXma0kKwiIVvjqcnaiYdxJprFCMkKgoxx6KlWgTpGLaGkIHrp60wPEnB_dkbdXhz8bYKHnmTnK10dUxeHDBQiBgSIGEVW0T80hDACJpn_4-EtwXZBLgLWFUdRkQBHJjsVRfI-eh3UopIwbgWwVCjRChGHv_2FVEBQvknX8-Xohp-XA4NbhQG6QPm5wD1t3HESoA96lH7zCyduWmM-PQMxsi3YibKbJjjl4xv9dbhCL0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "(旧)喫茶ロマン 高田馬場駅前",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.697658,
+          35.7119748
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ee3f08a80a49c8693a5",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ee3f08a80a49c8693a5",
+        "name": "art school U",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "art school U",
+        "sceneNote": "2024.03.13発売「B.L.T. Graduation 2024 中学卒業」渡辺莉奈ソログラビアのオフショット撮影場所。https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=36&dy=20240313 https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=000&dy=20250207 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhDIbACxdSHt6snf2CU9rknqnsZ7g5Rt36_xlt1q0tTvXqjq3DjABR2iSkO3DwBOFb_NsrtaDC7WNPlmT4VTWgK55n85_0l7tvnpaIV7u7qrOdWc6EqVo6jygBzOyYmaSlfJi0tyIzxV8FrHfxeSBDm2zpeIFNjAvqfdr_ZJplsKuV0UVljbyWeuzfoZNCiEKhxVK4CcKw8dSxXtt3dPkwcRmz-LOqT5vu-nZYCEU6jKASZ0eSia76ps7E%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZifvHedt6FWE0N1StMhWo0-Niwa6Y3IR9ZSJvcKkBqANGOUz5dvYyJU_DMxICk-Sd7xRMv50xLEusfOSB800NsE1Q4Y6JYC8uA3_Z9kqGbrVYRzBPZf4jqGogDQeP7uZxfEsLqi048p5LRUaqmwxTdkdyhiPLZWk4zG_fzOsm2MGYlc3irGEZYLKBMybs5W8m_7taNAtwa5VWwfPzmKBAGCirlYy7WhVbreY_yuWLujAB0eYAzNGt7gbSA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "art school U",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7871652,
           35.5195095
         ]
@@ -150475,62 +150537,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7050067,
-          35.7137245
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6bc3419f1b6804ff7e02",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6bc3419f1b6804ff7e02",
-        "name": "(旧)喫茶ロマン 高田馬場駅前",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "(旧)喫茶ロマン 高田馬場駅前",
-        "sceneNote": "2024.03.13発売「B.L.T. Graduation 2024 中学卒業」渡辺莉奈ソログラビアのオフショット撮影場所。https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=36&dy=20240313 https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=000&dy=20250207 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgI6ONlDoimc9DYhZUfvGvpPgvJ_eqRsAQhKg5i8v2IEU2727bcZXgnGMV2AnLJKtOvLz9cMi-lmHOSebwho9cTh69Ll6PWLj9qZN9aBzLgWEBpREvnOnpw4IiMqZZPtupWxLwGqS44xDqYWbsZyKXGluclLHoXfkKQy26cwpKUHPMUlWD86gXNVjyx03jHLhEyEDLXV-dNhrbKHMUaCne8RJP2NJk5faov3bRdf_s_ceusyDq0_nJp7VA%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjrsyzQcKbJFoztAXma0kKwiIVvjqcnaiYdxJprFCMkKgoxx6KlWgTpGLaGkIHrp60wPEnB_dkbdXhz8bYKHnmTnK10dUxeHDBQiBgSIGEVW0T80hDACJpn_4-EtwXZBLgLWFUdRkQBHJjsVRfI-eh3UopIwbgWwVCjRChGHv_2FVEBQvknX8-Xohp-XA4NbhQG6QPm5wD1t3HESoA96lH7zCyduWmM-PQMxsi3YibKbJjjl4xv9dbhCL0%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "(旧)喫茶ロマン 高田馬場駅前",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.7663163,
           35.7209092
         ]
@@ -150544,7 +150550,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "三浦坂",
-        "sceneNote": "2026年1月23日発売「アップトゥボーイズ」vol.359清水理央ソログラビアの撮影場所。https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=28&dy=20260204 題名:",
+        "sceneNote": "2026年1月23日発売「アップトゥボーイ」vol.359清水理央ソログラビアの撮影場所。https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=28&dy=20260204 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -150600,7 +150606,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "赤字坂",
-        "sceneNote": "2026年1月23日発売「アップトゥボーイズ」vol.359清水理央ソログラビアの撮影場所。https://www.instagram.com/p/DT5N5yPEzpT/?img_index=5 題名:",
+        "sceneNote": "2026年1月23日発売「アップトゥボーイ」vol.359清水理央ソログラビアの撮影場所。https://www.instagram.com/p/DT5N5yPEzpT/?img_index=5 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -150752,62 +150758,6 @@
             "メンバーブログ・SNS・その他"
           ],
           "name": "(旧)スタジオプレステージ根津スタジオ付近借景",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "メンバーブログ・SNS・その他",
-          "subcategory": "メンバーブログ・SNS・その他",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.697658,
-          35.7119748
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ee3f08a80a49c8693a5",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0ee3f08a80a49c8693a5",
-        "name": "art school U",
-        "category": "メンバーブログ・SNS・その他",
-        "subcategory": "メンバーブログ・SNS・その他",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "art school U",
-        "sceneNote": "2024.03.13発売「B.L.T. Graduation 2024 中学卒業」渡辺莉奈ソログラビアのオフショット撮影場所。https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=36&dy=20240313 https://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=000&dy=20250207 題名:",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "メンバーブログ・SNS・その他"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhDIbACxdSHt6snf2CU9rknqnsZ7g5Rt36_xlt1q0tTvXqjq3DjABR2iSkO3DwBOFb_NsrtaDC7WNPlmT4VTWgK55n85_0l7tvnpaIV7u7qrOdWc6EqVo6jygBzOyYmaSlfJi0tyIzxV8FrHfxeSBDm2zpeIFNjAvqfdr_ZJplsKuV0UVljbyWeuzfoZNCiEKhxVK4CcKw8dSxXtt3dPkwcRmz-LOqT5vu-nZYCEU6jKASZ0eSia76ps7E%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZifvHedt6FWE0N1StMhWo0-Niwa6Y3IR9ZSJvcKkBqANGOUz5dvYyJU_DMxICk-Sd7xRMv50xLEusfOSB800NsE1Q4Y6JYC8uA3_Z9kqGbrVYRzBPZf4jqGogDQeP7uZxfEsLqi048p5LRUaqmwxTdkdyhiPLZWk4zG_fzOsm2MGYlc3irGEZYLKBMybs5W8m_7taNAtwa5VWwfPzmKBAGCirlYy7WhVbreY_yuWLujAB0eYAzNGt7gbSA%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "メンバーブログ・SNS・その他",
-          "tags": [
-            "日向坂46",
-            "メンバーブログ・SNS・その他"
-          ],
-          "name": "art school U",
           "group": "日向坂46"
         },
         "classification": {
@@ -185502,7 +185452,9 @@
         ],
         "images": [
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4Y4SBFxYLHyKIiUluaUTzTFPLcqYc5GqzGcjYUYxGsbkyrSRrbQhYAJScDgqHZIpdjwY6OSCkwxf_ujXiTWfbzSpbt5kwxgzfTkLDCNTHQpdWzF6voiW0E3x2VkOeB0RSfiJW-ToNL3_eF3P7vkp7X4aDP_iN2RlKWe_Casn7KksariU6ddcr3dbdb1J1R-x34NOSv0XFIb4ngQEwKq6ru_GEXND8on2prZizxAlfx5psMO0lQK25iTf4%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5wh8GYv9J5TdAk5-_RhF_GxPjpzMR1gYi0ZZ0DYIisnMGC3AiP0hhrUAeJbg5eZq_MbtZctXMkeAklAVvtoUTY3Mb0XOYh1U70i7bpDSVKw87S_8Ga5Vc5K7N4WHHsZMETkYAe0HAdeYC3BZyowBFHUQof1ysN_ZI85pvx3C8y_704pkTdzWpy2yFHSKQ4Y4LFD_bw4e4p5Z3yFVTHrJg4DfnefbYkmr_x3Oig7-a_sczWMOhgjKjhJD0%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5wh8GYv9J5TdAk5-_RhF_GxPjpzMR1gYi0ZZ0DYIisnMGC3AiP0hhrUAeJbg5eZq_MbtZctXMkeAklAVvtoUTY3Mb0XOYh1U70i7bpDSVKw87S_8Ga5Vc5K7N4WHHsZMETkYAe0HAdeYC3BZyowBFHUQof1ysN_ZI85pvx3C8y_704pkTdzWpy2yFHSKQ4Y4LFD_bw4e4p5Z3yFVTHrJg4DfnefbYkmr_x3Oig7-a_sczWMOhgjKjhJD0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgYf0cvbjWyIZeuqULbwB2LkFvgJ-hh4uXSvzrVnllvJ44nVMDV6TWxORef-HVMlLEiVe2KyEMFoCvi-Dv09UjXgGRSqLm2Ws0L_zSTX5NOs85Z8TjTu4Zi3gDoVO1zS6QsLsWXA-SDVnwRVpgfuF2vx8z7BsgLkcfJG4PGCQiC7RWhH8UDXhFm2PGBzkRH6ESdGbXvhzxXa4LlRTrKjwB157CH969ImdbYyYI9KgcgZo80E8mFZQ8YuDY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhGDviaJBAinFUdWxNBEBKazTrwGEFolV7VTmX5DOBoJ0A_gVsK65ttharpBAOOl0Rf4_7WqKOqjggdhweIY2dNF-0k16BCyQ8gKmkEJLG-ZJCBL0165yunMOSAjVFgQC4oxnZkxBh8IhSF5wie8BX6B7uT2CKCgp5cy5vxs5wVkbRI7-1eGBF7FBZDnVYhFipIC1ewI3v9VsE5ekF7ngUers-gNdgf84E_CDBs-DrP2VE5af2ZUAoEeKk%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -185557,7 +185509,9 @@
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7rVW40wK6GSw1ZQovl_NzwaA2Onnm03ZpPfykosn1SxibbniVDqSzFsasQ2w-p23TLMgne_6gLGZl1ChswaLTCze20KaCMmDW4utHJemE23VwP5fWHIVgYiqzP0gwwySN4QsLcYPw7Ryq195o893tJQMGac0e9IlNBIRupoMY5pMmtVZj4jgj16iLersN04X6B7A1k_Mjf8jTb7TcSmgVwKvn6A0NKTpvOb-gmo5Fve6K8YiuFzaARVOI%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7rVW40wK6GSw1ZQovl_NzwaA2Onnm03ZpPfykosn1SxibbniVDqSzFsasQ2w-p23TLMgne_6gLGZl1ChswaLTCze20KaCMmDW4utHJemE23VwP5fWHIVgYiqzP0gwwySN4QsLcYPw7Ryq195o893tJQMGac0e9IlNBIRupoMY5pMmtVZj4jgj16iLersN04X6B7A1k_Mjf8jTb7TcSmgVwKvn6A0NKTpvOb-gmo5Fve6K8YiuFzaARVOI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjAgXtuCBgsHp90Nydk5aiXU0dPGAGvkO9R4vcssx54YMZRB7V72P2N81DAd5TrVMj9YMP4Z89M17JN1D_VJMEf0vCDLCJPbTYcNVczMqTcqQsCiaJwdRy6Pb6bkcdGL6-AE4rsZKj-fGW4uGUreesMzB2pcDQsCa1fUuDBc7qhrcUtaamdcNpWJ6Pgwcx0HkGycLKxx6soGd78udFOkrE4BppDsVQslowQQk_bXi9pb9K5Og_6NOTOllk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgwWxftlPyO2ZbBFVVpx0cXlI1kbKbpuvmG2T_8NTt7odSf1aSWOfjoAew8P9S_bhs2VL4NHUJFxA1TI9Z2a_wQnDJ2m2x5kbln8NoKZeqYHmU39FK0oDO_LleNGjRTUJDO9IrQXwqYm0h-l6UqmYJo4BFNFRdHojf4RinvcBRfCKViFVfvkEIc9FOd381lGVEjEkuzvqxh5yTQ3AfhWmof7Wi1_mns3JCzKSVlu1Xrq-kNX8dWc3cdf58%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -250917,6 +250871,115 @@
         "classification": {
           "category": "映画・ドラマ・TV番組・雑誌・新聞",
           "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.201376,
+          49.2754388
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e3f3c3f61de8e19d5873",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e3f3c3f61de8e19d5873",
+        "name": "ジェリコ・セーリング・センター",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ジェリコ・セーリング・センター",
+        "sceneNote": "松田好花1st.写真集「振り向いて」の少年マガジン2024年25号掲載アザーカット(背後の「The Galley Patio & Grill」のロゴからの推定）",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgSCCoPM-r-EvoD9LGi4cSbElAjME-f91aJSyVvb5dqnRVTx18vYT82-6MyTU7J6BaFs6A9ACk7pVxkuRjSHHyzVdpfQtEYgI4VxufIZfZvyNj4GrjiNlXLjQbyyq8g07Ga1g7I7dxBBfWtUvXLKVCmM_7onH-dWdxgEnxE7JovAqKHCvYXQ_xZnUn7PyLDByqWvZRf9SDb43t-wErw2FhoKglCC5ciE8L9gYUkmnd0SZ1mTolesxvKNfg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjJkHdJvOTQh_fnoFDlfbKyYSCqwfnIylqwFnCR4CO5znySOI4WWtXjeaJvAYq-po-KN8WvGppURjMAZyhxKFCxYFzAQ0y0I3flQi-6atPuDG7FkhsUlrf1p-pCFwLnF0RPjn_0-IjY2X9WwXtXfsuuGIYvFaiVUeXN1YDoDG43ZzpvhiVuzLKGnVJTSNgx6L_d1fFvlKhCr2YqCQ-b4Izj_Q3Dke2LE3ISU0obWLunXqM2Jla4OAiR4ms%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ジェリコ・セーリング・センター",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.117067,
+          49.30082
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:685aeef28d80b362cce0",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:685aeef28d80b362cce0",
+        "name": "ブロックトン・ポイント灯台",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ブロックトン・ポイント灯台",
+        "sceneNote": "松田好花写真集",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "ブロックトン・ポイント灯台",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
           "method": "source-layer",
           "status": "source"
         },
