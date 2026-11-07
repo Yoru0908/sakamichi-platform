@@ -57,7 +57,7 @@ seichi_stage() {
 }
 echo "[$(date -Is)] fumi sync started"
 vol1_percent=$(df -P /vol1 | awk 'NR==2 {gsub(/%/, "", $5); print $5}')
-if (( vol1_percent >= 85 )); then
+if (( vol1_percent >= 95 )); then
   echo "[$(date -Is)] /vol1 usage is ${vol1_percent}%; refusing to write"
   exit 1
 fi
