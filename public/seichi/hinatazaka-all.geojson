@@ -13974,77 +13974,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.8699593,
-          35.2214218
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:95a0a746254403dd1fc4",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:59391f45c8c0163bfe4f",
-        "name": "Palms 22(5)",
-        "category": "シングル・アルバム（ロケ地）",
-        "subcategory": "シングル・アルバム（ロケ地）",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "Palms 22(5)",
-        "sceneNote": "17thシングル Kind of loveのジャケット写真タイプBの撮影地 タイプDのメンバーもここが待機場所だった模様 https://www.hinatazaka46.com/s/official/diary/detail/68955 https://www.hinatazaka46.com/s/official/diary/detail/68965 題名: 17thシングル",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "シングル・アルバム（ロケ地）"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57yVbdVbuchSxpZ0wc3IQSK2wJj3WX_tZUSG6EFirdjni2gW8PdIn6sNlL1iGmNkANb4pCT6zjeEf2qf3W4z9XCGHao-r8Gjty1tikgUI17ZG6NPtroqsoEYitohMO4aRXrz8qSe2M3JgC2NQae8Fa_JcCYN_MCf0JElSwnDxU3pZ3DZ2sxM1x83apGs4DuYML5Yhlm9MCKNBUGZHxU-YT53Ysv9HLsrUilVM-cBbgjjBpVzYKIV9EFwk%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6s073Hdfl_JnOV36pe9QpTt0eN86vN1lSFshpj1vwlAsn0UyPgcfpGXX0uVf3XN9xeGlUlPZVPfV4DDGJZkkx5dmNT3QI_8AZ0zXCCAbKix5gBhCSNMUhmiNkGAlTCv_OFrwCTGiOjqCo7i8sS4GmHMJB2CgZfcooBP6uqHRZ2cZulrkc4X8M7lugluqjmhaTX6QEleXyPVx_1yfLFGFwFAgJWx9r37PG7JC5SgZh8leFTHgs2Wn4KG3E%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6o7Njo1O1BzGHYEeCNi_2XMcN5f_FcJ2TjnRWDaxbXr_qERFJuYUQwz1ju8V-4XYxb252zWf-8mPEEm4WxZQ327mf-NYbr7vVDMIGu_zCNyMNt0RsY6u2lgWkylqBWQlkteo2AZBtEuMC8N7ZSS7megvwHFsBJ5aTzrsWqsBoidOVCDLQoIpkYNaurm9KFrDp9eDIMDXo2468DPIX5qgxItJv_1LiuAhcUdkRVPrnDgQWVxKjBLWa_Xpo%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4P36NvlAI3lyp7Jd6F9n_hAjjZqSphEZkfFqYBJGDa6J64hSGII82YJ5hrOiuWOdOBBwDjFbVio4SnC9bz1uCfpgFQl5zoQo--3m6HIeQW8mKNtLfqceMYT3dL_VW1dcdptC8VOO0l2MfY06Nj1VyilCbdabiLKGn2tbdXdCfELIrXuwR5gizVMd9BDErul85X5KQPXfvMjCJvV4AOMCdlFp5BVx9o1TsUiuT7mRqQw58lz1eeoX1gV68%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "シングル・アルバム（ロケ地）",
-          "tags": [
-            "日向坂46",
-            "シングル・アルバム（ロケ地）"
-          ],
-          "name": "Palms 22(5)",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "シングル・アルバム（ロケ地）",
-          "subcategory": "シングル・アルバム（ロケ地）",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.869592,
           35.2223229
         ]
       },
       "properties": {
         "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1d7fe7c3e22cd6c23fc6",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6cbf7722e25200be97f6",
-        "name": "上総湊海水浴場(3)",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ecfecf433be603fe0e5d",
+        "name": "上総湊海水浴場(4)",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "上総湊海水浴場(3)",
+        "sceneTitle": "上総湊海水浴場(4)",
         "sceneNote": "17thシングル Kind of loveのジャケット写真タイプDの撮影地 題名: 17thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -14067,7 +14009,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "上総湊海水浴場(3)",
+          "name": "上総湊海水浴場(4)",
           "group": "日向坂46"
         },
         "classification": {
@@ -150711,6 +150653,499 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          133.7718111,
+          34.5944199
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0fbeda75f69bd5bdbfdd",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:0fbeda75f69bd5bdbfdd",
+        "name": "廣榮堂 倉敷雄鶏店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "廣榮堂 倉敷雄鶏店",
+        "sceneNote": "小西夏菜実と山下葉留花が（OFFで？）訪れたお店。（2026.11.2 小西夏菜実 公式インスタグラムに投稿されたVlog） https://www.instagram.com/reel/DfPKGRqPNpk/ 二人がいただいたもの： ロング調布（500円：テイクアウト用） 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgWE2HF6SEQfbWY6ho-iBckbcwhK58GjpH1QKpRf9AVOIHWKMzzVXTIPhfJDqwYk24w-Kx-hWESkRPtObXeae82EGFd3PClwc4xLpQYMqwUf_5O6G42SE3vU0Eiztzs2JTUuV8koTV4VZM2_8eg_WNgY-RKBU-QhEE2ogFXQM47emSSkLLzJdpURVDht3x9XeXsK7PZuhe472fhUV5yKaol_8UcgkdMtF3tbznQYEvvrDDvEefCIER5zL4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "廣榮堂 倉敷雄鶏店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.7719015,
+          34.5949888
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:90bf3216fcf80f0a5575",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:90bf3216fcf80f0a5575",
+        "name": "手打ちうどん おおにし",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "手打ちうどん おおにし",
+        "sceneNote": "小西夏菜実と山下葉留花が（OFFで？）訪れたお店。（2026.11.2 小西夏菜実 公式インスタグラムに投稿されたVlog） https://www.instagram.com/reel/DfPKGRqPNpk/ 二人がいただいたもの： 小西：瀬戸内おろしレモンうどん（950円） 山下：映っていないため不明 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh9J33mkpsTQqAssv2TJvY65b-bRessym52FgNxkRlxugOOXz8kvxI7yqixy0s-cR47BbsElLhJwIMPEMFAdwBct8UBn7QtdyKCIbgIvwlXXgVBXymXrUsKpOgN595RE2T_g8my1jqNRULPEMp7FDBFBduiPOjI8Ewq7K1KSlm7WdXuYglxD2LGe3GXzu031bMtTLJA7aKoTJQ-2fvOycUs64Fns3VzUsrP2UJ_s8Ii66cF7UOpn1xAyvA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "手打ちうどん おおにし",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.7726108,
+          34.5961572
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8aca6a307480bd22ac52",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8aca6a307480bd22ac52",
+        "name": "金賞コロッケ 倉敷店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "金賞コロッケ 倉敷店",
+        "sceneNote": "小西夏菜実と山下葉留花が（OFFで？）訪れたお店。（2026.11.2 小西夏菜実 公式インスタグラムに投稿されたVlog） https://www.instagram.com/reel/DfPKGRqPNpk/ 二人がいただいたもの： 倉敷コロッケ（200円） 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "金賞コロッケ 倉敷店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.0466155,
+          34.3506576
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:820e44d30bf5f3c51d4d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:820e44d30bf5f3c51d4d",
+        "name": "高松駅 アンパンマンキャラクターベンチ",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "高松駅 アンパンマンキャラクターベンチ",
+        "sceneNote": "小西夏菜実と山下葉留花が（OFFで？）訪れた場所。（2026.11.2 小西夏菜実 公式インスタグラムに投稿されたVlog） https://www.instagram.com/reel/DfPKGRqPNpk/ ※JR高松駅構内1・2番線ホームの根元あたりにある多目的トイレと救護室の間あたりにあります。屋島に行く高徳線のりばのすぐ近くです。 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZibDqpOk-8-sz6Jb7HWGQmDkF3gSK6xMM3tKUW7SQIRFatpYQGoHwyLcwyRagUFyOq-5Rrewi0GgdbUia2yVhb0c8ic9y-aib4gk-vexQeztk7mDvSmPfvdwM2IPD-6moxSmm2ZoVgtjYhFXOzg_ZqP-w_jSSy2XcZezP4hhBYq7hdyv8DSN1_QPjkUnPEW0dyuV_IwZ0WaH7GMrHdkHXzKkdimsuguZeIVYsMzrM6vSZetNR8US1P7BEI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "高松駅 アンパンマンキャラクターベンチ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.1091028,
+          34.3366632
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ebb71c26d7cc5ea22e1d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ebb71c26d7cc5ea22e1d",
+        "name": "屋島駅",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "屋島駅",
+        "sceneNote": "小西夏菜実と山下葉留花が（OFFで？）訪れた場所。（2026.11.2 小西夏菜実 公式インスタグラムに投稿されたVlog） https://www.instagram.com/reel/DfPKGRqPNpk/ 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgrZ_nxLLERab8gWaF3XdlSjw_iKyeck1jmmmfJlulWG8iFdnsbXG-AWk6yqQiQVs__7vEVUnnv4tpERCzfLU2W8y3jhMYfV8JMR4IZ_HCzCnYi6W2SV_82uU-alg-SEcyKW-jp81kaPU5bB1W6zP2ku6kfIwXovf9BNYXA84S626Tw90--d06KBuuItZS34bogNN6cfWp87jHkzGPVzyf-Skk-J2jgkg-vnWOPiCeb-uo6HUno8uddEoM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "屋島駅",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.108235,
+          34.343744
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d3c72c4f9469c66b12ad",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d3c72c4f9469c66b12ad",
+        "name": "ざいごうどん 本家わら家",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ざいごうどん 本家わら家",
+        "sceneNote": "小西夏菜実と山下葉留花が（OFFで？）訪れたお店。（2026.11.2 小西夏菜実 公式インスタグラムに投稿されたVlog） https://www.instagram.com/reel/DfPKGRqPNpk/ 二人がいただいたもの： ざるうどん（並：630円） 天ぷら盛り合わせ（小：800円） 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg6fOBlniQso5HqaBJr0a5Ol5fVo_oJf3Ai5VFrqKn9m__q1AqZgwO1_um-SINi9dX9jFI3YWSgn0qkPDEcYMqeP_8RfAfwqSfviLNekSam_xtaXTMXC4FsAUX61qzQqD24s_z_YMMeigI78vA0jRuLAHa4HnH6aFY8DqQNdqqJMPDFt8bDSywnw-xEkqEXBC_EKM9LRes-pVJ0-o6y5NjhiDkysHakyfl9ZFKxPYdXK-3uzBE_alKINTc%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "ざいごうどん 本家わら家",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.1086528,
+          34.3439801
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bd9aed2b7663495272cb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bd9aed2b7663495272cb",
+        "name": "四国村カフェ",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "四国村カフェ",
+        "sceneNote": "小西夏菜実と山下葉留花が（OFFで？）訪れたお店。（2026.11.2 小西夏菜実 公式インスタグラムに投稿されたVlog） https://www.instagram.com/reel/DfPKGRqPNpk/ 二人がいただいたもの： 小西： ブルーベリーのレアチーズケーキ（700円）？※1 アイスコーヒー（600円）※2 山下：濃厚バニラソフトクリーム（500円） ※1：夏限定メニューのようです。 ※2：ケーキとのセットで100円引き 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjLMh6ZtPVgkK9QGZVP-b-C7tUZNt8_499LXc-0F0Ez_RPfhNKgjmDZvNwjzBoUzzrJwx9C12uvfhWcNb-YigVZspakNGMjZfu6Du7maW3UHv1LSX-BQwdQ4gdRAmDTC9f3rwUslC-HEdfotlOskpuHIWgijsa67PxT08grzk4OVT4lyyx-NlIT5bfQLp1SYTsJs89ojPUwh9d05_OgbC3lWyIKvU6ZekHwzinwDpom40d4ocyv2IbYXNY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "四国村カフェ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.1013011,
+          34.357939
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7029a50aef44f7dd7863",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7029a50aef44f7dd7863",
+        "name": "第84番札所 屋島寺",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "第84番札所 屋島寺",
+        "sceneNote": "小西夏菜実と山下葉留花が（OFFで？）訪れた場所。（2026.11.2 小西夏菜実 公式インスタグラムに投稿されたVlog） https://www.instagram.com/reel/DfPKGRqPNpk/ 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgoRe4c6wyUgMIZCBtUflprfxOii9k4x3oO2kPLe2SePhAc5MEUhBajDhq0KGN2Cu1UdgdoYXgC7dAeCQLBAH8CHFUXhDi7DnZttFsVvrHZQX4tyyRO3Lziaah__kxlVmbkC7Soudgb9Bp969l6F5KjXqJEBhPgYLvYiZlbd-jFXc1aGB6em0cKWixeQ_egtzjw6gaOJEodMwZs3bWORcWde1WyeZy3_Oz87P_MDu4W6phSYfX4FsVTKZs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "第84番札所 屋島寺",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.1037945,
+          34.3551927
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fe8830d9be44cbcbb717",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:fe8830d9be44cbcbb717",
+        "name": "屋島展望台",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "屋島展望台",
+        "sceneNote": "小西夏菜実と山下葉留花が（OFFで？）訪れた場所。（2026.11.2 小西夏菜実 公式インスタグラムに投稿されたVlog） https://www.instagram.com/reel/DfPKGRqPNpk/ 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZijFgKL5tWe0cJxkOx9-anuYtzkpcz3jdfw7-sdbOMapOClirLAbLIQKhvNQMRcjFD9XN3r7ocF-pnESbBA7Biw1Y7gT4M-CajBUdr9rHwSYMQQshFJif8Oa1MPD7PSui9zeJ_1tgstntgytJfnzIVrcQxU7jaYjtYYZXdUa0TSIZcE5xUpp7BaeJj-744soLEfda1o9nFIMGG7I20A5uahSYOH_MN9CsifQoZPw1WzCHzUmCbaC33rppM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "屋島展望台",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
@@ -246973,7 +247408,13 @@
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjRlEbqOUyHdnuXAtA7we6nAtLPu8Dc1xWtVMuT2FAh-p4ld9YAMTu69E9M26ZHHcvFBuNcR1rUmhb6wbdx9UxqWxWkv0RE8GzoHUJxq_KSnt-1OtzFemETvSMIPTVctbahaN71OruWjUUMnF6ON6__XjArmLHUUFsmNnlTA9iwSLiWmP8fr8acZl7MmPi5PomKDgCt7tiOd7hgOjpPRNT1fCCPTukZmwWwE3qk4D9nyx4IdVJsKA8t-gU%3Ffife%3Ds16383",
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZisVkPg1EyChvxVETyHdsPQUB7_fxja5T_SYpoezkG5vBcsiy4NHZYwMwYUyLJdPdwjV_GcYnqiHw78Ou3i4AVv1w6xgp8wKFcDG_Z51i08L1raYAf2Sndcj5ah2ZMVgZXcmrD4f-QDX-sLD_KxsIlJfFT0eRCL9iWKm5zqZRC9y7ZvXBJVdt1V6ttHeu1ABlMNXNYlNLQvF1_T_ahnX5Qi6UpEbz3Q9a7jizKNHU2OA2_6MakyF-341Cw%3Ffife%3Ds16383",
           "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiOIY4-03PEyJKzKOVSPSHsQOWFgUCDtOUA5_wENTNDL-DZfzKFoeMEL_yU2vNzR3EHYNcAjBevWpv5iCg3ZAYXjgTAW-CtmsvbupSyi_kMVvbDusONWyfQ3iEtqHm9ljHXim8gC4bEKv_dL_4n0l2Y50YVCR81RX0dLx9uHYtueoRlgpfW2KsduowVr0QgIdWbJ7vfbb4GdLbB9-gabIlNkmnqLKZa4jzxwEUoUWqGh0a_bVrD3OMX3T0%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhoRCkgFBlF8XntGf6dU9sNCtTm6KRYOJ60F8bjeEHInqcVUnoeHQ3Y7pNeafg1luYheaUfd_IG58wlCdurqgsnBGwUVhZpYZwzZSwaww_FG0Ol1FUbk3zkiGBh4oQ5GocFJ_4Q79nN9eIHgDzh6fVGqk3rwZbNflQ8JCZ_Spo6Am6Y3k7D8ejMftRxYZwhUpHZu6a7tFqrMPZ8E5b3PEsfK_VYI0qX83Si-2MUUAw-M6bnLTD0UcHCzcc%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhoRCkgFBlF8XntGf6dU9sNCtTm6KRYOJ60F8bjeEHInqcVUnoeHQ3Y7pNeafg1luYheaUfd_IG58wlCdurqgsnBGwUVhZpYZwzZSwaww_FG0Ol1FUbk3zkiGBh4oQ5GocFJ_4Q79nN9eIHgDzh6fVGqk3rwZbNflQ8JCZ_Spo6Am6Y3k7D8ejMftRxYZwhUpHZu6a7tFqrMPZ8E5b3PEsfK_VYI0qX83Si-2MUUAw-M6bnLTD0UcHCzcc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZizmYqGk8O96TWlgDxuiuywjyCbSFXMUMlpyBmRjYtPBa2K86KjC39vT_wuwydNsIw5k0wjhgCgvNJnBkOmcHaZpnSPslHzJSLDRo2On4QCGM_5ZXYpRXSKqk-CyrykpN-l7riY978rC5HMJZtI8AqZsyVRjCF4nVbX9zxnxtl9UYX9MjjdRIcoBAdifQf_u_tan5d5UGNMZDXlUMLP5HIagK3zjM-HBzcVCFdk6NjZVCkqzBqjgsDrzX0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZguJNYnooPlL2-BCfORGk6CZVvSAmjN7b0onspbZPFYcy1k7tr54RWm_UWFQKef9Edz8JKfGRaN8pLLauHgSpxSriDJam9Ba8UcpdPU7y3JMk-DHEv9nLY5SBj7D4O4Vj-MzI91Cpb0ovJECg21OrVRAIQSGFgjeDGT-qr6Q32y8UGyzeOKHX7_OnLBYf5pSd_iittbuq4GvhlnqsBinqI0LJLclNP1pH6NH4mTKJUfdoaNXlz6jGB5sGo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjZNz2_WNJSheB56_eLUvOocOlnxvfPStPFtdweEJ8PqJCQ-3cSuppPZ5TAqJXtE9WLR3Vvk8qXLqlRc2gJaG3CvJ-vo9dbAvppr-9wKYdiSP8qEVy90YjmachgXFa7OVpa5yT-wJSUUw1Gn-LsmEGSaQxV0a8A5NpqIzB0ofv_q6qpQMNjCr0GHkHDMeZouHns3EVn9e-jn6WXu1KEm7a2C9t1T7nfJ5edYEjhroUqYoghrL_JN7TxKog%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh8VCBkqcUUNNBV4zd_LyJ_-v4k-3ElA8YWwpMlqJIX2z1FsRdSYMvviCb7euvB_AAQP_82TYgoj4yqMqstD0A9RM7VEE_gS1n1kmKv0eokdugTnd8zuyutfg-XVrAIVnW5VuKon7I_JhEgNEgv-03pNGbeeSri6Yc5CjIXGziVggJy_u1YGbc67htr6DxTq7_p4WlyUcCZU4EW5sZkkgSXc6N5HcXIHCedIqXNHMat5gbY1c3uHx294qg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZglwCwcT6mzxpJT5N-9rbHjmACg51zkltl4phrduWwNf7G1hsOC10YqBuhRWQJLBBkCvSg3gQL11ZFq8DXPV4c4V7xSTXPnnDS_VtYY6jsS23H-WPi5mTTxyExv-ole6VcmlBgoecNGVQ9ZXEtKpiytYUvi8mi39z2b2B9FYqEz4B0Ov039wmzLZTjxOdmiCDx5_ztGiBmQfcMr7lVjNQYbPZD1O4Vmq86VogOb-tz8Ee36zd_WvmeVN9Q%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgUHE6LRT0Qfs_upCEBgamRXhiUu1Cfk35FBwrujKsVZAC9U7w1Om3P6Y_tiCnYFocA0yT2Ck9W4jDgG1Jb77kpWmmraruovFTQJ630EoFtvORh9r5p1ch5A6xJCcNe8MwGckvDvcMOjf3xmFxrNPUj6VGmZQJDLDmVzs2BLDcuHJ8-kwqwcjQK5sXGyZk86ZFA6W3Ld8DLq2OesPUKOpvci2XiKdQPjA9-gdiPBuCPBzoSHF-SaBKTAH4%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -250819,6 +251260,286 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.8695666,
+          35.2224302
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:596583b618ed49831732",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:596583b618ed49831732",
+        "name": "上総湊海水浴場(3)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "上総湊海水浴場(3)",
+        "sceneNote": "「グラビアチャンピオン」vol.10坂井新奈ソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjhQM2eXh-Hs9ds5ZFlxQtRU8_hcgv1LqqL846RQSll_9o4WanM2cEGk8-_XvYwiUCEkaHJOHVLzl5517YfPT_-WQJ9IgsBc_hxLKbw5cAzAsEB1aJ2KZgJVS3NvLkSwGXdL3t8T1w2v2BKumccfayH8HW6LpcnwMiOrn_Sqipz_JNDdXIRBkNde2S0sdKgPolWFMSlnOzZeJKAFTfjFFDN9phmNqYdv4RsK5SjU3yDOEC2enhwnMeduAQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgPPpVaVT9FLxIF71ExgPs9XoPe_zOfXObny6fCDkgt3UlYUDCcd7H_Adk94sjEivnN5JePnyqa6ZwZaPNHOsvJmMIWlMQ-bPy9o9wVmdUqLySgaxFTN5KzprhvNwAZjokpT5-BbdO9mfYN_tBawz1fmQGquovo8TU3cQzIC1TFcxgUL1pTsEE31ybcB_HcShnQb_2kCk0wBBs95s8a5JtvZguGhT3XHmOJatNXCA30wjBKOhzgrqQNnjo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "上総湊海水浴場(3)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8699567,
+          35.2214203
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3aedac9850f6ce34a987",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3aedac9850f6ce34a987",
+        "name": "Palms 22（5）",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Palms 22（5）",
+        "sceneNote": "「グラビアチャンピオン」vol.10坂井新奈ソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg8rB_3D4XfOdZhjFDO59NFXKtOOA_C6sYwmsiJCsKiHmqzbnnngrWuF-AA668Vet0DlTMbyWx9sL_rWYfBn32eggsbbuEQ7etGyh2IBO44nvDOUfCCmVJVw0gl78cgYT-1EVSQGrYfhGlDNMxRRnM0magH5etK0t039gqII9TQgZznMqNz-HYHk4pSTJ9M1fgTlff--Kglpaq0knRXNaMAlgiIqAPVDf89Pik1qW_3Lz6_TkgCadWiOgU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhZ3S3pAcQxs5cBh-5_qLkcSaFPMW2RvE76owxhOVYnhD4l7nBbhr749jPcMyKYAgfIYGbcMpEV6IPUjOHdtcXs6LHbZZqJ34lnZ4K9wJSr0JALV4yVQofWzRGcR5-cjIN4_oZhAM71kDBWZrw5G-33B-adfS2F4TKqaJMWjHSWiRXN_jKQAPTS6P9tBe8VuzN-7cWgVkVp342bIu-xmmd9rBu-4icV-zQI2_OlxH4FWnigDKWFMgwEdhI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg4QTLyIEqiAtTdsD9nwUcCTv8N4ZSOwcqaTJWXrQBm6jHfcxqS5XN-cRX_nmUMj9G6QKwVwqZUmHXGsFB3IENJMD2oDno_rib8Y1kOQWJEYG0fxiavQ69G-BTNliGH6bRYld0uaZTrEH8Ypot481qVh9lKaFu1GvmcDsnqNjkRrAykNYOQe2ew3iO-W_1hmapgJuznYLn9xbJQVVh36l0dGXfkZnneWBCm4AYFBiFHZgQ6gMugF5pVGp0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiPT6ObT5apCOua6JZLqxubIL9eNdFx3r5AyZ8lgy8ohzzIJYXC-rBFQh75hLCBhsJuO2rJKF5h6PU7PIw6vBsS7pd6OUUrSD4JiWj-n0PtcT6sVTD18h4U5XIWDbRzPCbAPAhLHN4Fhnj3rinJRa2A5uIl5d5KIs-yu1MjUTTfgA_NM28e7YxgYYIA7HI4LE5OcsYwe4256t6V459JcmcnLWf1fQLfp6dl35IETJI780txDDBDPBT4WqM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "Palms 22（5）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.870309,
+          35.2199174
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bad56da0d84251b9ecda",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bad56da0d84251b9ecda",
+        "name": "内房線沿線路上",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "内房線沿線路上",
+        "sceneNote": "「グラビアチャンピオン」vol.10坂井新奈ソログラビア撮影場所(下段中央)。釣り船「鈴孝丸」の看板が目印。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjt99WUxGHM_4usfxkAYKlX9Am9zDq6omqNBcOciIxgDvrVfEZWHRLpAFnphHotyArJuaR5w-u0Laeq-iqP6XpF4wfBEZoXP86mhhG-lyzwKstK_Nsy3AdmGJJTeaB6QSr5U2qjFpXjNc5UF5uBihXztypbZN8kP8FmKD_GQM_8ja6jc7exeRVc7Invpl-dAfIi9cL2Z6CHgQTrSsP5bhjWQr1rI2ljKaPMwlEffXmXqT5p1itou5W0Gic%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "内房線沿線路上",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8690699,
+          35.2185346
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:85b2eae3b00acb7e8366",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:85b2eae3b00acb7e8366",
+        "name": "御嶽神社",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "御嶽神社",
+        "sceneNote": "「グラビアチャンピオン」vol.10坂井新奈ソログラビア撮影場所(下段左)。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgUtnaHaTlzwTrciqwoIRmZR5WOx-rAs05DoNj0xGatQGJX-VbPFeiZWSK_Pi05OwkNfwD6vmWY__isnel9fPOjM0hSvKMQ-8GhvfDZTJKZN5W7k0mtMXQAeJnrVQCnWLQ2c9N78JI0A4QSp5t2g8wg_y1AkmK4TPGiI_Rp7kTCfh5U1AoVdcSmek74s8Xsze2I4LQeRCZGnSNhN4tJO9iMCRCwIXkWSyYdnNVnP71kGpU7_fqF3RVM4S8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgBctONdPd4FjwHCJyjw1qlZHmgBaON5gOWQMGDvP8nW84ETHoDTHwG1W4CVzozM0JU4-ogOxskWNsAlH8jk9Vz1Pi8Xyvg6gbA1e2U6vvLyJ-wlmm1FyB25tZNdD7CqdP4q9OPVkcp0jaE_b7D25eAuaYgDbPS1JFggmjMtuUQicZBkCbWTzKgvcHvh7ppeSOvrQBdVWVyG2_4bmaf3-YGmtf2aZXm6TnwYDD3UVBjGV6tbckrEO2Q80U%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "御嶽神社",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8690013,
+          35.2178799
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1c61e7a44d2b8d8bab4f",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1c61e7a44d2b8d8bab4f",
+        "name": "久留里鹿野山湊線/内房線ガード下",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "久留里鹿野山湊線/内房線ガード下",
+        "sceneNote": "「グラビアチャンピオン」vol.10坂井新奈ソログラビア撮影場所(上段＆下段右)。竹岡方面側のレンガ壁面を背にして立っている。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjK0KhyUCiHQxBUK5MquFk1bUDRg5FvJxq_EDdk1LoGqNi_H-DB2vukmardmDRk7AZf7kV_FKfRfVb0xHWVStNRcdn21HtEBnwgnhHboMpVc8KhOHLgAPN_n0dIADXFq2F1P552HODIWztVUJWgTGQ9qz0B14JCuRfN6PD3k1lalAiARYTEZxluXOQv7uB88Ys1wczZEHBh57pf-eW2NW5v8arVXbS_6a-tFhoBcZAUPiMUvWY4RbHlQ_k%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "久留里鹿野山湊線/内房線ガード下",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -123.201376,
           49.2754388
         ]
@@ -251082,6 +251803,123 @@
         "classification": {
           "category": "映画・ドラマ・TV番組・雑誌・新聞",
           "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.1889865,
+          35.6121455
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f31051387dff70ab807b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:f31051387dff70ab807b",
+        "name": "勝瀬観光株式会社・ニュースワン丸",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "勝瀬観光株式会社・ニュースワン丸",
+        "sceneNote": "「B.L.T Graph」2019年08月号松田好花ソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhScZ0qPtlDoA45vosul3rb0w0KY702GKprJoJQV_CKz88PHFU22lBv-KaE5NDNfeMaEyi9hSNLT47z8aI4Hfb5lljv0rBCCbpQdaOo98y7l7tMZJxEbSP8kBIx1rZdZjQIfUjIcHBxPbTOhfyv4Jj-ksJDs9BZjja_o7KBDiq7kHPyED4eQy1ZGrzJGvgX0EgIBLTwETeNIuvbJ8ov3lq5ZFDpv8haz-USUsOsSDBcgYO4STdGIoW-C8k%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiLRQ7QRXtH2pEr23HKVERkTFYu-pQvXx2MccV7glzyOr9nu7J4BZFC6VXm54xLiLQkCyTxKw5E7gbAUwwXM8MiO5CXvzSLNw1FMgcOEPLlxqZXzj64FrIn82cj2Fd_T4NV2pZ9vjFZpg8r8MzPrgxC8jjepG7oCbCigqzj_BAm1n8I2O0ScbsiwMJ3OJ3veZ3Cgy3FzxqSS4G9CQNXIZZNOmGkIQKHMrPZb-yZZa9vhuwRs7WXP3Tuug4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgMKbLTB08Zc145M1Wg2Bqr4IaflzuxN-fVynidPWhls39Sq0oAlwIJuFJt487Mq-Gn_Ou8sjkPnsutUlnPkDYOt1gewD90ZkSshCd4Cik8V2HS2CPGVcULiDP_1lM_1pbGignhb60o_qVusrxLzix2cbNzysXcslbWJ7Voa8oBdujDy5-Y5oE7tl7JAlnRHpoG95vSZPT_po3Sw4vb44tLgttX2fVoQB4B0v7NT0DfeSs5TD_IzpqWfUA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgumi_2jNwF971B4e7skGvqzdA2jXDYjhemTVEHYy9qSErGrGOJtGinnhopQO4a5dymTbDNDHrF6IzdnmURXsm0NeseZtL-bm-CzgbP2S9pOm90e4KvM0-1GRZQY1dDklg0SNhBo_eF2JpEFu1iVwIXhGmTOlMWxfklnUNbLIdRt215d9NnLpvzDZux_QVpMi-TCsPjhtZOIc_rlkVyHjGhjuJrhMNp3eHe9hOphNWWyWDSFYHCmCyJ4tA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiCLEoSLGoNyFoc0hvrl-KhKA_tfm9utYOXBrrTQFvxnpATj_XPBNn1OlHhgsb03PopVc6pHKZLFEYGAZHd5v1ReRqqDCY-T-MF-VYlc6ZbAvXbn8KKlHDrDQ32kr3pYSuU1jcioK4K3f7LdpSsa9laoVVID4au9qijiRXITOvfSS8Jy8ZinSnsUxFES4BuPD40UAhjL2ay3JtXEbld7U_qe2R0mpN6neg6U0IylffkwjPWIMb_i4Q8GAw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "勝瀬観光株式会社・ニュースワン丸",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8699593,
+          35.2214218
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:95a0a746254403dd1fc4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:59391f45c8c0163bfe4f",
+        "name": "Palms 22(5)",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Palms 22(5)",
+        "sceneNote": "17thシングル Kind of loveのジャケット写真タイプBの撮影地 タイプDのメンバーもここが待機場所だった模様 https://www.hinatazaka46.com/s/official/diary/detail/68955 https://www.hinatazaka46.com/s/official/diary/detail/68965 題名: 17thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR57yVbdVbuchSxpZ0wc3IQSK2wJj3WX_tZUSG6EFirdjni2gW8PdIn6sNlL1iGmNkANb4pCT6zjeEf2qf3W4z9XCGHao-r8Gjty1tikgUI17ZG6NPtroqsoEYitohMO4aRXrz8qSe2M3JgC2NQae8Fa_JcCYN_MCf0JElSwnDxU3pZ3DZ2sxM1x83apGs4DuYML5Yhlm9MCKNBUGZHxU-YT53Ysv9HLsrUilVM-cBbgjjBpVzYKIV9EFwk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6s073Hdfl_JnOV36pe9QpTt0eN86vN1lSFshpj1vwlAsn0UyPgcfpGXX0uVf3XN9xeGlUlPZVPfV4DDGJZkkx5dmNT3QI_8AZ0zXCCAbKix5gBhCSNMUhmiNkGAlTCv_OFrwCTGiOjqCo7i8sS4GmHMJB2CgZfcooBP6uqHRZ2cZulrkc4X8M7lugluqjmhaTX6QEleXyPVx_1yfLFGFwFAgJWx9r37PG7JC5SgZh8leFTHgs2Wn4KG3E%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6o7Njo1O1BzGHYEeCNi_2XMcN5f_FcJ2TjnRWDaxbXr_qERFJuYUQwz1ju8V-4XYxb252zWf-8mPEEm4WxZQ327mf-NYbr7vVDMIGu_zCNyMNt0RsY6u2lgWkylqBWQlkteo2AZBtEuMC8N7ZSS7megvwHFsBJ5aTzrsWqsBoidOVCDLQoIpkYNaurm9KFrDp9eDIMDXo2468DPIX5qgxItJv_1LiuAhcUdkRVPrnDgQWVxKjBLWa_Xpo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4P36NvlAI3lyp7Jd6F9n_hAjjZqSphEZkfFqYBJGDa6J64hSGII82YJ5hrOiuWOdOBBwDjFbVio4SnC9bz1uCfpgFQl5zoQo--3m6HIeQW8mKNtLfqceMYT3dL_VW1dcdptC8VOO0l2MfY06Nj1VyilCbdabiLKGn2tbdXdCfELIrXuwR5gizVMd9BDErul85X5KQPXfvMjCJvV4AOMCdlFp5BVx9o1TsUiuT7mRqQw58lz1eeoX1gV68%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "Palms 22(5)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
           "method": "source-layer",
           "status": "source"
         },
