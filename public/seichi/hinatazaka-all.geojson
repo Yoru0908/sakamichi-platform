@@ -251877,6 +251877,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.6503506,
+          35.6146027
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:093b57cc5e52d2ba7275",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:093b57cc5e52d2ba7275",
+        "name": "更家内科クリニック付近路上",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "更家内科クリニック付近路上",
+        "sceneNote": "「グラビアチャンピオン」vol.1渡辺莉奈ソログラビア撮影場所",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjC-K579sJyQOaR2NIjZNIyV4ZT6ecWqdYPAflkN6Wd723r7W6B0lP62q6_2QzQ9_KbVj1RVGqiPvjj5UT9IhtnMRMtk7jmCmy1PhK-q4swpn8v8mmI8_MZeQs2UWDURTBT06gPgoZoI9bufhoGJ1tvoEVEqhSLJGqKKQ8nemrmDHcsKFbpyLmHcf3D7cGHCD4Gp8GikkZcv6Bbv8W75pwBlpFpdt7r1mcGoPoIeSJ2E3jIFCZ_ddCKsaE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "更家内科クリニック付近路上",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.8699593,
           35.2214218
         ]
