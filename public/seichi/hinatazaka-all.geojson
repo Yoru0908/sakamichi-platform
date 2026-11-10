@@ -251945,7 +251945,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "味の素スタジアム東側",
-        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで正源司陽子が立っていた場所。",
+        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで正源司陽子が立っていた場所。https://www.youtube.com/watch?v=BVQ-vz4bDV4",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -252000,7 +252000,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ロケ用ファミレス",
-        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで正源司陽子と石塚瑶季のファミレスシーンの撮影場所。",
+        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで正源司陽子と石塚瑶季のファミレスシーンの撮影場所。https://www.youtube.com/watch?v=BVQ-vz4bDV4",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -252055,7 +252055,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "太秦映画村 日本橋付近",
-        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで藤嶌果歩と竹内希来里が橋をバックに立っていた場所。（２０２６年のリニューアルで出来た橋なのでgoogle mapに表示はありません。）",
+        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで藤嶌果歩と竹内希来里が橋をバックに立っていた場所。（２０２６年のリニューアルで出来た橋なのでgoogle mapに表示はありません。）https://www.youtube.com/watch?v=BVQ-vz4bDV4",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -252097,6 +252097,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          135.506023,
+          34.6818307
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1a1a829303ce007b2775",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1a1a829303ce007b2775",
+        "name": "船場ミューラルパーク",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "船場ミューラルパーク",
+        "sceneNote": "映画「ゼンブ・オブ・ワールド」メイキングで宮地すみれが立っていた場所。https://www.youtube.com/watch?v=BVQ-vz4bDV4 https://www.youtube.com/embed/BVQ-vz4bDV4",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "https://img.youtube.com/vi/BVQ-vz4bDV4/hqdefault.jpg",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj4SIeo2-31Yov0XE2_5in0ffnJ72VOS555I_Zpmgladv4LaNATKyf_T-fvMwy56pJ1MgJZR_E_Z-dQNC7CyMCyzTXHOv5Kvw4ydW2Zo-1WahJEW96QiGN6XOnktzxlRTskw7NBalSgXDV0JDltZ7Rq3krVmob5XmCI5GQ7i3koA1vN5znG9IIQGN0UrepnE26goKxUuRRFyW42lU-hw2QffoSrM9vD8QWzMh3S_zfXhQ6Jl09Jrhrsdfs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "船場ミューラルパーク",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           135.5055602,
           34.6502846
         ]
@@ -252110,7 +252166,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "スパワールド世界の大温泉",
-        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで宮地すみれ、石塚瑶季、清水理央、山下葉留花が通天閣をバックに踊るシーンの撮影場所。（スパワールドの通抜通路）",
+        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで宮地すみれ、石塚瑶季、清水理央、山下葉留花が通天閣をバックに踊るシーンの撮影場所。（スパワールドの通抜通路）https://www.youtube.com/watch?v=BVQ-vz4bDV4",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -252165,7 +252221,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "御津公園 （三角公園）",
-        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで小西夏菜実、竹内希来里、藤嶌果歩、平岡海月の撮影場所。",
+        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで小西夏菜実、竹内希来里、藤嶌果歩、平岡海月の撮影場所。https://www.youtube.com/watch?v=BVQ-vz4bDV4",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -252220,7 +252276,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "道頓堀 グリコサイン対岸",
-        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで全員集合したタイトルコールシーンの撮影場所。",
+        "sceneNote": "https://www.youtube.com/embed/BVQ-vz4bDV4 映画「ゼンブ・オブ・ワールド」メイキングで全員集合したタイトルコールシーンの撮影場所。https://www.youtube.com/watch?v=BVQ-vz4bDV4",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
