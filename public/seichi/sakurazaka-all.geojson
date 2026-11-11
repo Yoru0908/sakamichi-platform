@@ -86274,6 +86274,63 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.628891,
+          35.622395
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:1b08fd3a96139ec6a8fd",
+        "sourceKey": "fumi-article:1b08fd3a96139ec6a8fd",
+        "name": "NewInspiration studio",
+        "category": "雑誌・グラビア",
+        "subcategory": "週刊少年サンデー 2026年47号",
+        "categoryColor": "#7c3aed",
+        "address": "東京都世田谷区瀬田4-29-14 タツミビル5F",
+        "sceneTitle": "櫻坂46 藤吉夏鈴 週刊少年サンデー 2026年47号写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都世田谷区瀬田4-29-14 タツミビル5F",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60135647.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60135647.html",
+        "tags": [
+          "櫻坂46",
+          "藤吉夏鈴"
+        ],
+        "images": [],
+        "members": [
+          "藤吉夏鈴"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60135647.html",
+          "mapId": "",
+          "layer": "櫻坂46 藤吉夏鈴 週刊少年サンデー 2026年47号写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "藤吉夏鈴"
+          ],
+          "name": "NewInspiration studio",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "週刊少年サンデー 2026年47号",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
