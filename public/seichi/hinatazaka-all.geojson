@@ -252318,6 +252318,72 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.6500744,
+          35.6144912
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c563ec540291daea82ab",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:c563ec540291daea82ab",
+        "name": "Rapture Studio",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Rapture Studio",
+        "sceneNote": "「少年チャンピオン」2023年26号渡辺莉奈ソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjHZfYX7SNlO--t1C7smUI-P3TfvQQD5T0p3bLlHdUJknyEGirCZMozONSLJ8gUuBbMiNyYICwFtU0QGt9xH93GoPRVM0T6FT0SSnC3qwCQpBpyk7WI0BRiGkqAvaMmPyKTpegpVd6nlFyZTvjrgwXpItEwvi2G299SoOmGOpD2NVXlbWyNqi_4OHVzPgAGRwvwEI0RjD3cNYHRaQf7qCJt73rHWU7eLnIQQO57hOuohqcT13td4-LDTzY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhUaT3r_yYopCVr9SVUd0x-xley9C0pbkZyKxNAvtjwiC2tx1xR7mULyeXBCofLwLgnxpDJvP_dJuQABMlnKL2N1r7Hqqo0wtmiBiCoewKLvPfsOtJuJNIMA5mD3Hyh6tWFZIDatuEY1Xfe4JYk4GOtNRjoFFlkptPLWVSSqhMHfo-5wcZZAKtKfkMpVEmmwhb7eorOF0wTJa2qa8InuLZldKRvy0ldIdJY5M8is2650aVoCr4NTNFSm7I%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhnUPuV1VimUBxry3ggI5Zjuu1OK-so41vujNvkgkvCS8-YCu7Y0YdaIJcycr7HcWEcYjGouzQ4IJJXm1MMI_07ilmyI_ztcOU_jRmqeARyRDuQVw9RD6RJQpnle1SABgmus3QKD3g8N5T3D4w0DB7NBIZnxAqxyOtyfGpS503n3opKJ_-z41UxYDxX7PkIt8IR43Ln1UEW8iPKdQskAVR4xtC0f9giBp2aYC35ITi7tF2Fxh-wM9RyZKc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhR4GI0Sp2_LGg0MUnI8tND87QqH832Tq93-0xMUI_4aD3G74Lwap8Jw_7vuVP7ozLVaEyBTR8VOLYxysF_1HjtLrxrCkB6EqRrlwXwve33FUyJi-DisKGlmBn8zGaN3hPS8k3UOECfCKPATrxKX6U31_zaYdbflvfoQyfVDVys0puVjai463HYTlxHciZ1yxdZI7a5MbowW1u0HMxFnpkWGDF1AoI0YAnRany3B0DgL7GYsUmoIxbeTXY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZilwwZ4HZx1xRkkRqHyBPPw1XG6KaDiZZfLO71KmjaBD3GobGMid7rXb8nBvuUFC8Nr9M599KMiBeUVxXzAE-QqgSizm7MwIs-_j5Y9MzanT24Y8h1wqkOe_yC9fVrdUCO4hSNDw7BNRidzgag3HQ43-_DlLF4YtSX5ATM5sC9kWzzyVcrVgqmOWgfTJ_XjVc1eaMPg7Rsn91GlQwCtEcm9olSUHDQeYuM5qtbmzs1CK3343YMI-jgp0mw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgoM0dJlVEa2l3LJv6to2c0hXzoVsWeDiFQuws9ebTyvPIBSGerOyZZLtWNEPc1xiWUIlp7wr_n3jUJD8EqhGi5e4zUP391yw7atNVFM5POZ_qokkIoAHFHtNFZya91gJiy6zH7n1EZ5hjAdJof6tLCPkqyC4Lw8vRQUnxI5EyV6mN3D2khzGpqGO96NH3XCJS0iRbEHH50KKURH2MVTcTJEjfB5X0423OVIhf0JY5972F8RosWuETk2no%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgMMPKwHk2_jM4a0PahPsalEflOf_KK6zrYk1Yqy4rxSUYjjDYbd0MJ9kdXDphfAqXlwkMJ68PY7Nd9kJ5gHd3FsQ-zwO2ekvZ5eIV_nzyzcQ8yBLZ8X79RpyvmDLfsmL-PwgC2cQAzrzucgUUVCxTFJAhnijViNFKJWTpJNCZ3BRrVSv5qnkVvLxdgy9TWL4KDebInm0VoWwI4NL73VkVYpoHp6fqfTsHAqwVWWEel21XIVnhoyw73Jmg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgR-XrMSihmvxmjN_8jJan9rCdNJZWzyEuLKRd7G9PKJ-5jfosdmsubA7zEOvEi5rhKL8ySZhVFCeGlpj66jWvEI9XW4LaQjUpU2U3o0a_iF10pu7sV4XD528UX2tXVfOmh3xDyVWMIBJDubGdpG56t5o9J0cdk06vNfA5c17_cjRtV7aV76ww15M6G93kgqoGvDoww1SE0RVuMJ5HSIGfWuO8957N4ndo3h3buCGLKQxknDJame-wsuYU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhgR8IE6q2oLBaW2Ycl20TvkyKAlDs6IryYW8zrpq24-s-gPFk5h2Ym7-O6shd7OTIFr3eTz9c4ABEU1UKPlD6rWo5fx4bWA2wBhzXw2QJN0dQSs5oomF5JLU65tVopIRuqe0qwAxFIAPDmZ0TKr7rRr1_dT0EfJn_yIYAXwI5bTO0eSGNJJf4E5RvS35VGxDn7lGw0vnTlY0X2ri9OzXkEhpc_Ubj9Gr6BT0mCwDPmweHfmgmPwCLs178%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhH62doQzmqWrEwtmkWRfsNd570_qNprJlZKgnjEpH1Rmyw9Boosm7OOK7KFnmqshvKVTpw5FocbLSKOXKyxDPTSWJW_XDwEKvTfQEcUEn1tZmkWqNZ6xDGA20DdQKNHR9_bEBxFvBn5cGzDAKQG9qwQS_AewJdAP2JnXAv2NVodAp-qW3pt03yEPU54qQf8m3qC10QDc4ACBtacx_XdknIfHtaowMhr3ehfrbYyVgSa4RAqLHaDRg2vcU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjQrQmfH2NBXPAJBtsIzpq95Gb12KIGLE2O4jdq-Prm6lCiFb1grVnAtOCu4F1ds9V6PXvnXThy9N1V61fMg7YMC8YPOSqNDZbLV3OAPsoObHKdONkCjKJ1ZFvkUrp47NXOKV2FQCHlyVTx9LgMu9AD2Z_JrGuF_2lYwDWQLEFu8lBlk9SUeFIQI7Q2GbCFQWEtkT8qtakaMqW0exjxfBq6EQLZfV4hWOTe3qILN_P97EJa7dYxTUdqcAM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgpoJqjGGefz0Eghw7FAHnxDfEcHhUnyTElLUIkCWLFSoM3stKCZNFdgvicWn8C2X9ILqwksgGIzygk9UXOdj5zuqvvTsyWJ_ONxd7dv2a37Y4uEH9trvRFMTEEteVTewoZ2LYcbozIdMdGV4t_kdNzlCJh0oes5Gl-L9xss1kvEPVLbwukXhnK8jmvZkuuNPoVknF_AB5x8Fpw1sv5tiCrtowP5ccrioyhMWM-nE7BvpdEyTvmSv99fqg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "Rapture Studio",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.8699593,
           35.2214218
         ]
