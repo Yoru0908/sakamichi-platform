@@ -15044,13 +15044,13 @@
       },
       "properties": {
         "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:48204c860c930b8a15bf",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:48204c860c930b8a15bf",
-        "name": "野口ボクシングジム",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:dc93bec5bb02902d0047",
+        "name": "野口ボクシングジム(2)",
         "category": "シングル・アルバム（ロケ地）",
         "subcategory": "シングル・アルバム（ロケ地）",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "野口ボクシングジム",
+        "sceneTitle": "野口ボクシングジム(2)",
         "sceneNote": "日向坂46 18thシングル表題曲「イチャイチャ虫」MVロケ地 （森本・小西・平岡・佐藤＋正源司） https://www.youtube.com/watch?v=mgFUz_c4ToM 題名: 18thシングル",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -15073,7 +15073,7 @@
             "日向坂46",
             "シングル・アルバム（ロケ地）"
           ],
-          "name": "野口ボクシングジム",
+          "name": "野口ボクシングジム(2)",
           "group": "日向坂46"
         },
         "classification": {
@@ -252427,6 +252427,292 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "道頓堀 グリコサイン対岸",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7919407,
+          35.73208
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ff5981dc10695f021993",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ff5981dc10695f021993",
+        "name": "ジョイフル三の輪商店街",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ジョイフル三の輪商店街",
+        "sceneNote": "2026.01.28発売「B.L.T.」2026年3月号 正源司洋子、藤嶌果歩、渡辺莉奈のグラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhgJnIC6gHjPEvMrfGoxcIgmQCsUioFykvsdCv1DAYXjfshGxwzt05QkZKKXVaJrYQ9htEl3wTX8vqJYprjCKO2hhhnuHA2Whh6S6DMJlU29DaYOL4KiVjgP0Qw70FAa53M27HRgtYDKQOSoKdOKkiA5F9sb2DOCsbxeQQo7dNgY7nePKj9H05Sfnxa25QGLpB85Tk__aw6yMyrh-b9y-2Pn9itnuKOWoByjGbx1mE6Bhz19kBElPD_HgE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhG8S2g53-IlkHxoCU5WszpgvZt70SywxFUhp6KOOtseWySrUICKt5MjXbdZCWo_ZGaP97k56Y5qLNtn1m-FSO-qVt3GefvP0bR6780SkmO04Cq_2DM2BqteNxA1dPDk8WKfsKn_1PzLCfH6xQtjzk-lEOiArKNug4_XKt_iBQ3X8_oISBgmSFodKoMDjF1-ESP9fKIw4mU86e-hRSBTrTJtcjWgAaQMzukTddBiL_N-MqvpDWii4yK_jU%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ジョイフル三の輪商店街",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7920165,
+          35.7324197
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7b5d0f9989e72baaad65",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7b5d0f9989e72baaad65",
+        "name": "焼きとり釜飯 玄付近",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "焼きとり釜飯 玄付近",
+        "sceneNote": "2026.01.28発売「B.L.T.」2026年3月号 正源司洋子、藤嶌果歩、渡辺莉奈のグラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgSE8PYIadjiFYcKSaxTL1UX9vXEzXmXBoAGVeC1PTIyafj98qUgcTKmNt2KI_dnCem5x6ukdmx_cmX0yg3OCVxJwQG24d3VAdTgC6SiiA0Qqsi1EFZumQHp1NcWq6IzXTpQuBb1ZY8GGF2TFgqVW27kpWbAIqDv8_uao0ECl0rR9jVu-Yhuqh4KAc8xfQd83H5dicW1XMEvsmPQt9Wa3bHSskrt67Fssk1njZKzMh64iNqr7QgbIBCAwU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZigYSULMu3b3ueDCvwSuLQxzXvESx0hdbLSBXoVrzAwMrBDWL6jzX0BLag0jFCJgEIdW2o9JO3r1MXM9VVYlE6NN9HPI2iFgRpqDg6tdrGdDVcvtyv7fgAY_t41yu_3toDVcTO3ocU6-hWjfohm6ZrLMo0wsqwkEf4A4aK21eDn7eBSnsmfS4azJTvgo6RCL5eno2fxBUGTyWMe1RyVJeN_nsOLpUUnxS3hJCIP-qB_OSEGurxYIxmpk68%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "焼きとり釜飯 玄付近",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.791204,
+          35.7330045
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:75bde74d5719f026f408",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:75bde74d5719f026f408",
+        "name": "パンのオオムラ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "パンのオオムラ",
+        "sceneNote": "2026.01.28発売「B.L.T.」2026年3月号 正源司洋子、藤嶌果歩、渡辺莉奈のグラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgPBbExb3K5oOZTUy6CCFuHvWq_Sl7_9fQaINSQpcKl8ajRmuV1_Iw2gsNaGVXes1NPPH7N-yGh2v8cMWN82drWTSi_VOvpaYRyd1UuE_u5zOKa9KXDhNEsiOv1g2YYG1faOKmj5diSn6PsnIslGF11LcpQ-R1R2MDojUKZSgyTRE-nk4qstITJqOy1mFa3dhaiRwg917aU5Rsqsj4wOUNBoHp3lme6pZ4J5hX-3jlJWnIY8zW5Zdguc6Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi4Xms_eFm7TkoiaJ0OXYpzF6L_y4V_uYvJDYJJvSCjJIew_2-JCMjKs5o7Gksi4dgsKE0Er2iPPAbgutESXeQfgfKfb3zAM8x7jB_0u9xpWH4LlbRZewM6cOljv7Ewgifm-_N3e6v1Dr7iWzvcbmn-UEMnNk3vyCWZJfyFF_RJjPocPhMuES8SW_rfzLcviE5c3qwab2ov0Iyk-Fy2xph_Mk_l8n7rtVeuucGuEAqXkCbMCURBKxtMFkM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "パンのオオムラ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.796399,
+          35.7522041
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e6e4c5700e3e9493c091",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e6e4c5700e3e9493c091",
+        "name": "野口ボクシングジム(1)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "野口ボクシングジム(1)",
+        "sceneNote": "2026.01.28発売「B.L.T.」2026年3月号 正源司洋子、藤嶌果歩、渡辺莉奈のグラビア撮影場所。後日、18thシングル「イチャイチャ虫」MV撮影でも使用された。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgInamtxCleefrfHn6Yi9HAhMUKkmBRM8FxAal8Dm0ROEhuSKMJm87k9oQRnzvZ1EJWr_ZHx4OnxAjFauB1Sznf1e7gyH8yjz_R1nFqta9R8yAkGkZ3mVR2Kmbl9-h_tWWf41no8TOBZPW6pyPdktTogkfAegKLKnfK2PArnaslIGELMyTPXWbukqSxE0wxucm4K5xfnx7-dYaZxdTiW0EeePNFwNBMmTJN565KqvqwK_B9sbfUT7Rcbn8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhqSUMniVhu-IWWkeYQpF0jdsAY81p7u0aqWrjKYgP0YHxwe6tuqltbjn5fjDBbQPylQgpHWuLF53F5i3rMKmcw3c0E32NOCaFW6CaUhwGjEk4s1rKavTJYBhU1wCqJbjVEUNJOpPozfm_R7LZ5JuXU4MFSN_yZJ1Zs-yaPQUYXCa_QSzZn6TIaN1ZsNSxhia9QOkUwuJTwnDqoVYlR9LCjwmMKLILY_tI0vYB36fmsyb3tiGU9pwTcb5w%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhKUOByunsCAZxep84OcQc35mRrr7pYiLMxdYXLtT5EL1-YlpgOFcRcHj1APe8yPNb5P7lPoUjHt41U5uKdnGZTBIutiBwcL_VMSahxWQ_oxeTXOUz1wuH1bcyyUiNkD523Sd5IvHRhQ8ltxQ23akRIXpRV2BTp1UZUZzHMYsVz7hzJoZvAu5y0FrYBYNWEUfs0pA7qOXerMWtxgz9bpwMAcZRRGkpzZ7S_8i6CaScpoobPct1dRQ_9dFM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgSo5SDN5NxKIJsJbs6M_Xy97-mSPBLSwBHGs-AdOpmByFaYmOkMRtLYlue6ig0Uf2cu-aiWoM492anfyCGUYgnODGmwNcxelOkfrCTOcAmZjXTAxPji-FshD_WqaoD96i4v08vb5z-1cRfwg3Wz2Q8lRBw3VbPnAdaWl5j8ZjPC2uAPHppQj8Ka_XQ_W1LynqUo1VAoPAHHdoohw2VD2dNd2Q_WsA6eGlseVnZ-M9780gPYokZ0U6bJFA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjYGT-wEfVAfKdJoOFk7OpSfNE3Y6fXf5_y2VIIQ4honB0-mZuyJ1NFLHQNh8d_QlAM1eSuULtrlGfOGJXdm3AA9Qh9VXr7e49r2yMT6ikJ7XttjRmcxmVIItrRmtwYaRh07nZ1Nk_0Q2S_Wy2SqbvCKN1qcKoKrsKkhZjmktbhIdrjHe1mqnF8yGuNPbJQnsmxgp1DmmctnZ5858eyG5ObJtWZCSIEcK9DvZoYSalbg0Sjdfl1s-MUVuM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjHi8MbocFhX0_hhhOpEit0wreOXMxnxV8rsbLUseC_B8NNQMqYfScGba5l819iybzoVym5Dfw-MqFA6FYPjyx7CsuC9Clow3NyRGW3-tsQvMd2wYGuArJ0vXvaAzG4Z4_rZ13vIpcztJ4giYTCH1JQHIe8IazCui0FnXn5rCsbtXhCFMSeoUwKT54sIW392u2Tzn9P_-YMRSlQ2YN-jmV79vYV40zGJCZdSIusErOILdefb02rfzYjfPA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhoRD81fcNmyM9xkHc9Lg4AhWkeU4prSWQyFvfrzNgET_upJDMTOn8LhBkxiDCROucdWFNJyiLKsPdOeV3BYKDE5DnnwM9n3lVDgV8UDV-YvzWTWyCSInKWvZiQwFUv7vP2zr4hZ7YsL3idl1e7Ohg27xlylb4h_f-H2nSXLZUdwPh14EnTOhw4_VNXx3MSQAH4n7-8gECgFZoXJZltgrYs6Np33_qnIYaqDR9u2Kbw6WuisjlR6gEEuC0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "野口ボクシングジム(1)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7903307,
+          35.7334215
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:be7c2dfd41e42ce11c4b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:be7c2dfd41e42ce11c4b",
+        "name": "ジョイフル三ノ輪商店街アーケード上(あんプラス三ノ輪付近）",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ジョイフル三ノ輪商店街アーケード上(あんプラス三ノ輪付近）",
+        "sceneNote": "2026.01.28発売「B.L.T.」2026年3月号 正源司洋子、藤嶌果歩、渡辺莉奈のグラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjZ0nN5GfFigfktuIWjEFQf4VaN_QcNHazP4oHSEr5AUy7ZOwY0nZvAFrPkWopBf6uWFk53UxvRUWS1OHPJh0SwJfuxkkxRJj3gavIpoSkUMqeRsoVVv2y1Kvq85ny0RTZ2uc-qfJZKqbiXpEHeCOgV1WNItkiMwssPBshU3av7MUrOTLvRCVM7WYWfu0xwdX13TaTnAmmboHb_P4HlNqlXIpi7aSO9eJF1u2Zb0fIRai9WXSNekgX_pE8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhzKu44T9L1MdO-20XKOSlq0K3Mljr7nPZ-B_8Fbsttdbb3RjyfPZvv7aWN0eiYTS4Z6DRBisOMUiNa_eGKATXftqrjgWU8TRokULHCpJiR49VpuRh9Q_4TwcdzwastWnUSzwO4dAIxgQHC_EXH8o3tgwyX1Jxz3A9nuU3UyuBNdj0b7-a59spc-lRAfOJ2nMGhculNYO1PrfN0cOUpnaEu1OXd1CnIvD80kiy_oQUpX0dZH_QWvVinTik%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgtXVeCiMz3ZEI9kEbiCq5qS7W5lcPBF7LDnnHYiiLEkAEtFVrD86mofTceKbd_-50MaKKjqMTKFEM3Wl8jFXvnGbUgUTM1lDbtB_FXLeDgsBQa1SFfEeeqFHYIoilr8wrXNgypm-4TfAUMFip2Vb07IoCLwkmr0wD-F9CQDl3kbZiUnxF2TML7tDQwEsuPtFQabus7MEhcHB3AeCQxq9Qot-jOpk1zsRGFWkBjHCd0ElmVU-psN3tZitc%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ジョイフル三ノ輪商店街アーケード上(あんプラス三ノ輪付近）",
           "group": "日向坂46"
         },
         "classification": {
