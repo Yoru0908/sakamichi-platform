@@ -41,23 +41,30 @@ function drawRoundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, w:
   ctx.closePath();
 }
 
-function wrapTextLines(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
-  const lines: string[] = [];
-  for (const para of text.split('\n')) {
-    if (!para) { lines.push(''); continue; }
-    let line = '';
-    for (const char of para) {
-      const test = line + char;
-      if (ctx.measureText(test).width > maxWidth && line) {
-        lines.push(line);
-        line = char;
+// Read the lines exactly as the browser laid them out, so the exported canvas
+// always matches the preview (own wrapping / innerText newlines drifted from the DOM).
+function domTextLines(root: HTMLElement): { text: string; left: number; top: number }[] {
+  const lines: { text: string; left: number; top: number; bottom: number }[] = [];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const range = document.createRange();
+  for (let n = walker.nextNode() as Text | null; n; n = walker.nextNode() as Text | null) {
+    const str = n.data;
+    let i = 0;
+    for (const ch of str) {
+      range.setStart(n, i);
+      range.setEnd(n, i + ch.length);
+      i += ch.length;
+      const r = range.getClientRects()[0];
+      if (!r || r.width === 0) continue;
+      const last = lines[lines.length - 1];
+      if (last && r.top < last.bottom - r.height / 2 && r.top > last.top - r.height / 2) {
+        last.text += ch;
       } else {
-        line = test;
+        lines.push({ text: ch, left: r.left, top: r.top, bottom: r.bottom });
       }
     }
-    if (line) lines.push(line);
   }
-  return lines;
+  return lines.map((l) => ({ text: l.text.replace(/\s+$/, ''), left: l.left, top: l.top })).filter((l) => l.text);
 }
 
 async function imageToDataUrl(url: string): Promise<string> {
@@ -644,13 +651,8 @@ export default function MsgGenerator() {
               ctx.font = `${tCs.fontWeight} ${fontSize}px ${tCs.fontFamily}`;
               ctx.textAlign = 'left';
               ctx.textBaseline = 'top';
-              const tR = textEl.getBoundingClientRect();
-              const padL = parseFloat(tCs.paddingLeft);
-              const padT = parseFloat(tCs.paddingTop);
-              const maxW = tR.width - padL - parseFloat(tCs.paddingRight);
-              const lines = wrapTextLines(ctx, text, maxW);
-              for (let k = 0; k < lines.length; k++) {
-                ctx.fillText(lines[k], rx(tR) + padL, ry(tR) + padT + k * lh);
+              for (const line of domTextLines(textEl)) {
+                ctx.fillText(line.text, line.left - rect.left, line.top - rect.top);
               }
             }
           }
