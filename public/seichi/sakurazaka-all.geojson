@@ -86331,6 +86331,130 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.874329,
+          35.631264
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:1c070804859eeae9442d",
+        "sourceKey": "fumi-article:1c070804859eeae9442d",
+        "name": "東京ディズニーランド",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "千葉県浦安市舞浜1-1",
+        "sceneTitle": "2026.11.12 櫻坂46 佐藤愛桜 りこさんとの夢の国は夢のような時間でした(*´꒳`*) blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。千葉県浦安市舞浜1-1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60136661.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60136661.html",
+        "tags": [
+          "櫻坂46",
+          "佐藤愛桜",
+          "遠藤理子",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "佐藤愛桜",
+          "遠藤理子"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60136661.html",
+          "mapId": "",
+          "layer": "2026.11.12 櫻坂46 佐藤愛桜 りこさんとの夢の国は夢のような時間でした(*´꒳`*) blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "佐藤愛桜",
+            "遠藤理子",
+            "四期生"
+          ],
+          "name": "東京ディズニーランド",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.880306,
+          35.632978
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:69a8f2dc863ccd5836b3",
+        "sourceKey": "fumi-article:69a8f2dc863ccd5836b3",
+        "name": "キャッスル・フォアコート",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "",
+        "sceneTitle": "2026.11.12 櫻坂46 佐藤愛桜 りこさんとの夢の国は夢のような時間でした(*´꒳`*) blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60136661.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60136661.html",
+        "tags": [
+          "櫻坂46",
+          "佐藤愛桜",
+          "遠藤理子",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "佐藤愛桜",
+          "遠藤理子"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60136661.html",
+          "mapId": "",
+          "layer": "2026.11.12 櫻坂46 佐藤愛桜 りこさんとの夢の国は夢のような時間でした(*´꒳`*) blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "佐藤愛桜",
+            "遠藤理子",
+            "四期生"
+          ],
+          "name": "キャッスル・フォアコート",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
     }
   ]
 }
