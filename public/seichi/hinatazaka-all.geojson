@@ -252733,6 +252733,131 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.7862622,
+          35.6749199
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e3c5b4586d038564a072",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:e3c5b4586d038564a072",
+        "name": "中央区立新川公園",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "中央区立新川公園",
+        "sceneNote": "2019.12.26発売「FLASHスペシャルグラビアBEST」2020年新年号 加藤史帆、齊藤京子、小坂菜緒のグラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhbe8_l2R0mB_zOdaYXalG14c4quxMf1GPWlcjDU6YajPzmpvt_Pg1I4vHCmVL4Ltr2fn343ilOnxZD2IWSc-OX-UH7GTGIipGTH7kyZz2n4OqGd4Z5GFV1qovhz-4oInTxvKkYCNGstHh0wxDCxVlXuMCBdPvUiwNSOF-LtiALVNogMdnbSIX_xIfLwr-CbOBCgRgmu8-FRq-0-c4I_5W56XnsUThsSXQ5Y5c4TZko5rRaqF2bOPdm-mQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjQKx_UhEecBgUsP9YU4lxPzzWxefUrbVNVCJ613-7OY71SGv7pleWNvKJ8Z5aeOWYYU9-eMFgd1wdY1P-hG9Z5AX633A4qEx0mhrNFQ3cbBjVsHtvX2WpC-I3xS1xze0SJEzWmc-CUbSy6xZwczB9D8LYqdGXaxvf5vVoa_A1i7LKd1ac_QnUhGxIRgNabnmGNGg0-jxyWd82q9N3CxtvPLv7Ovp32kReuc-lw5p63WTYcZqOK7ufXV4I%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjwt_GMjdpFAOn65MBdLjVGU8SscaTrdeGyTzTbn5hW6d8EjUqlXvdDxkKaJ4jgTI9wOTl_8lQyrkRRlSxVWCYAmktvkpEqsDtZgMRZOx-zYA3MLQvjTqcqBaZqQOGQuG6rBVxlk_LVumHwccXjzkzWTme83AXJWt72vjmNkl3S7BFsOn7H2BEZwb6Jn5OGFQIXpJG7y5Ld_T5URAEIigOjumTUuSzsuxvjQMcTyuEV3jm34Tw1bE0qKJg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjf0l8FSgPXyB19USKvJ3-loWr64-poYM0woRbp4-g3Tu_jR4UfcAdfCXTwWPbOa_yRzhaQgXhMdwLuHn-eEHbqlMOLdyTSdS8Y69v_5Cjx6TUrzPuFjoC_H-v4cngIJcHNS47qyH2A8kOuPlNZT3V4_gIKtCC5muuFFNn3Is2KFQaBmkVvLxYUYVQ69N09eGzQnQrpTayKAj6LjrNAJhRxbAerf6NWUujZIivZTAe8mvlCuQq-wSCfUKc%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "中央区立新川公園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7862639,
+          35.6757774
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:05697966476e09beefc2",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:05697966476e09beefc2",
+        "name": "STUDIO FROD",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "STUDIO FROD",
+        "sceneNote": "",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg-Xx95rxfLE6I-pBQ7v0D4bm-IqMGC9cf9uqunA-tLnXeU6lI1c4Ar7Tk0vJrc8jsGGSjWSQsNbnVN9UyoFoQZyPtSS06vQVTYqAj2mf8NaAZ7qdYwfqNl1eCTrBlkQuKxmt_PunziCNUn_0Qorx1hEzB1LT8xwc6tfUOV1PoHF4O6R3YXgSJkOQ2Hf7388Y0gUBqMJnqOUe2IOpB1A8J7dzuSpVsmdVr0pyM5JvHA9nDfTUKVx-5m6ZQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhUYxm-Kq-jIEMYgZHBFDQBLMJ5EKhTkESSrQJR5tASQpCuvNG3P585ZIOx0vtDYSc715_WWeXzsu3Zl_awr0URsHpWZv24LOj2Gle-WZ5-G3AcMAucnqLngcRGvHz72wDwx4X2Dui97a0faGVQCc1lPZJ1fSEnJGe1gsy_HJ0aVxSrMrqh1qGR-XypDPV_BXob55LRw34ZNBAPpJToZM7-dgV8dzHpuo4SikUTTcwYnnpEMIVVuMorY6w%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi9kLls7sM1W2uFgsMnJrAeTL_tLE9IoowGGzT7RwRYR3FEjPvzUA9zmW1otCm5KxGFpoiFzlI5KC4vyixcsBez1MOMhJySnY5vXGcrCVqCuGN_zf9Noga5HhTUK-rl9WsLNtydCGIcewY97GR-FVrLiPA3xN6KoNYMKQjIDtUydw4FdBqM1x1azn2-GHfQ11iu9XJFzcOawjgcjpPp-qjYfGumKJgVXpbH01kYRXo0MYshanSKZk9Zyno%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhzLog6iDTBRNpNCYNMrJP2_i2plt6yh4wAEC4vn27bUdFPN_KGHG28zrvNbhDkcOaPU_1YVlGkAIL9jK7Kzhdx4UruGR1dOov21TKqzsQnnwzMS1pbeCDHksYbOVp_36JlzhVRi9OHZakbJ7HG1D_TaXlcJC990EE7RVpTH0YIDzjfdApMw3XAMjzBBTmMT5Jy0d5t6FQUeKEtB5pS_naL6aJ4HIwb9Tz0E6poAkxM-2kP68Vkubc7Hpk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjG_ZmfcTj6AezoJYel9MwoTjBGUEGxLDnc0izt9K_I1yrZNalj0GN7KVa7rn5PjqceE3GUhDYC5kr5N134yIjfe-RbSUl-PRBIfKuwHzePKNNZSvdtXNgrp1a-H1TR9g4wlbvg5oT6XsAGyGXYGEY9KTz0NvnGoOC0cXvH0C9GxqUZIF9m89l3Ejl3dbe8GNppgUCco4ZmaIH3hTKS_y5qI9JyI6K9pMCosJeOKvZT89_khlS5GgJI0Ds%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiocmaMx7jDnjDBidBFZbtnLgZvWImVAs3TNdBu1E-kWeZiEZABufIflVZczZrWaSPjaTaF5S7vZbzDEmGQ0nMFxI-JpVL5k8hZGJiQ9Vd1h9cA1mUBlhnYXEl0OVfAIwLGidRKmE34M3bLddMtaSVbMSgV5-lqmu-Kf7GqofsAJ5lDDBo5OJM9cP5_R5R7WU6siHxpWnNG-A4YYnkLKaTOXOsh1ahcP_hBUCcGtDXoL0deuWRaDq0hUsc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhSOM-_eaUSotLBAW8rV5rMxYIK3Et3gaU359e3zW4lPLKFtRO8honJxeMMVA0nT3VjYQduUqAg69O83E4Y0yD7UWL4WozzQFkfhKEyRpEYAjXaKNB6_7_67okEl3w4ntwl9OsQa0YhbIERV4ZFOyRFW9NjNyV9Sp7XcWcU405xJQYNg7oEmj5gh-umdDtlPquDGx9ehDkc5rdBOZvmxzTAX7sa0TT7NsaUTyjAOYKXmsCrK6Bpid8T894%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi1bw6HvJo-VnxojcJ-SH7ZkTDw_JWkBN4OjUU_GcUUYe7eAMsGtuw--4T9UYobWPnQ4f1dMdd49sYxNh1Nu4FAERokZr1KIlQp8zVCSMHlGdxEaMooSqTcB3vMqvfWJPPW9ts5QVJhDHHxkuIlQ1mMBGIFIUr7lSG0OWKwu_VJgsPoIdQuWnm9oE0c44rqFHIzVY85prei2DTHvRgekL4c3J7e8JuhUAHfXS2ejgaG3cCw1dGG3aNF_DE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgYThjXVXKVxrGDcJXwtNLpszFcTt_E6koM8u2D3Xk0SBoUYJjJRMFiqFVU9O-QXI1kYYeB3CmY4mRE18fn84DbSnTbP8sTSPeJIBWKP5v00zZyH2KHLhytMAQFeL7FPCbB8BDbD1xr6Nw5sV2ckWVl3Cgb-lVxZ_2iBFKK5akJwLDbWcypI9DFN-lZx71nKGNXSgINw2QDu7eLM0qrNYcbLxeW8VeSYYotgZd38FLQj09Qf-8Rx2diXnY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjnwYWIY8R9HXgukA0N91mHQYQ06O91ig5k8syVTQFfCt7OHnudsFs2Gg9HsE3U3PoNpJSGxETwes4A3SPlEpUxm79LgSazI0r1vKQ3Orfw20RwRggxPI-s8UMFWMVOzqLsmr9mFrjTqW5GfZbjMjRDny4teUKMhcmJB5sIsZOR3wQnprhEyRMgOVcX-IVOtEUY2yqPG7EeDLMRL8-PIr9Kutg-vx9YWI6zzPYuOKuLYVzP1Xn2uBxsJho%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjtoQ-_UeqxTWKMy4BQaL7rquZ202XT5O-HvsqRe2_f58g8Ez_ZUXGM6Teg73pdAxh-td5ER4IZB7uSzqeJbJS6JkHA8F-4AnQlrZOsXi8cBqdeH_yc_o71qltaFXnYsDm1Ik1tCW50gAn5FEdBkIGiP7hjICi-9t7rfHDgCEumHymeA-RmO7eFodnqqiWA7LdWYO5NDKet38yw456Adc2uS8zB_-a1B1CowHgxswNt5tESLX3uimgrY40%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj8C2Sv5wfM-tCKNUUjdI6AzsLOBl36xwEL3sNWtQf6qr0zDleePNmGQHpcN5Psd0n1z0-1KmLx2cIy2cFH6ot76OtoOHIg6a32JbuRPBIoy3tu7lglsAfaq1CqHi9QAp0aUJ2vGvI2UaFuKfKXN3JW0v8VJwUtWiqWEQ7tOaeEHMKqpkAPOTrEJjriMB4v9GejHt2lmBlpjvOxcVaT_TXM5_YOrZanLW1GoTwn8jKo-3PHQ0UbSLvpet4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiPX1kJLqjfD4OrRx94W9G4qzg_deQbJ0U4QWyGZtkKgA4gm_ufDdysD2_e6ZIk9J1YLOtEUIHFmUqCtUbDJx8c2Q50yDWOxqr6CZoq12IhN3lr39B86ybl9zC8zYC3VSCGVdVdvxWx4o_OtjN7_RjvoX83ZVdyly7WiR5qSE36o_xKd2rY069A07Rpmbgcjos_VdUa9ZpUbQnxjHOnn7FNrOJpmkmjm8p6OWROTbgmAp1p_GcKfzAvOxk%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "STUDIO FROD",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.6500744,
           35.6144912
         ]
