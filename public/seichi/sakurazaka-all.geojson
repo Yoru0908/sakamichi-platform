@@ -86455,6 +86455,67 @@
         "coordSource": "article",
         "coordPrecision": "exact"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.759552,
+          35.674088
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:c66eac3a73360edc5d9e",
+        "sourceKey": "fumi-article:c66eac3a73360edc5d9e",
+        "name": "TOHOシネマズ 日比谷",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "東京都千代田区有楽町1-1-2 東京ミッドタウン日比谷4F",
+        "sceneTitle": "2026.11.09 櫻坂46 小田倉麗奈 ゴジラ ギドラ オダクラ ってことー！？ blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都千代田区有楽町1-1-2 東京ミッドタウン日比谷4F",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60138299.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60138299.html",
+        "tags": [
+          "櫻坂46",
+          "小田倉麗奈",
+          "ゴジラ",
+          "ギドラ"
+        ],
+        "images": [],
+        "members": [
+          "小田倉麗奈"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60138299.html",
+          "mapId": "",
+          "layer": "2026.11.09 櫻坂46 小田倉麗奈 ゴジラ ギドラ オダクラ ってことー！？ blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "小田倉麗奈",
+            "ゴジラ",
+            "ギドラ"
+          ],
+          "name": "TOHOシネマズ 日比谷",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
