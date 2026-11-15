@@ -86634,6 +86634,120 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.601273,
+          35.628857
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:861338b550502276342f",
+        "sourceKey": "fumi-article:861338b550502276342f",
+        "name": "SENS",
+        "category": "雑誌・グラビア",
+        "subcategory": "BLT 2026年12月号",
+        "categoryColor": "#7c3aed",
+        "address": "東京都世田谷区喜多見5",
+        "sceneTitle": "櫻坂46 松田里奈 BLT 2026年12月号写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都世田谷区喜多見5",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60139615.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60139615.html",
+        "tags": [
+          "櫻坂46",
+          "松田里奈"
+        ],
+        "images": [],
+        "members": [
+          "松田里奈"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60139615.html",
+          "mapId": "",
+          "layer": "櫻坂46 松田里奈 BLT 2026年12月号写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "松田里奈"
+          ],
+          "name": "SENS",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "BLT 2026年12月号",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "town"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.599274,
+          35.62904
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:d1ae5c4eea252b642fb0",
+        "sourceKey": "fumi-article:d1ae5c4eea252b642fb0",
+        "name": "喜多見5-21遊び場 (竹山緑地)",
+        "category": "雑誌・グラビア",
+        "subcategory": "BLT 2026年12月号",
+        "categoryColor": "#7c3aed",
+        "address": "東京都世田谷区喜多見5-21-18",
+        "sceneTitle": "櫻坂46 松田里奈 BLT 2026年12月号写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都世田谷区喜多見5-21-18",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60139615.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60139615.html",
+        "tags": [
+          "櫻坂46",
+          "松田里奈"
+        ],
+        "images": [],
+        "members": [
+          "松田里奈"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60139615.html",
+          "mapId": "",
+          "layer": "櫻坂46 松田里奈 BLT 2026年12月号写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "松田里奈"
+          ],
+          "name": "喜多見5-21遊び場 (竹山緑地)",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "雑誌・グラビア",
+          "subcategory": "BLT 2026年12月号",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
