@@ -86516,6 +86516,124 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.104473,
+          35.233246
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:9894173ac31e927c0dea",
+        "sourceKey": "fumi-article:9894173ac31e927c0dea",
+        "name": "早川土手",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "神奈川県足柄下郡箱根町湯本",
+        "sceneTitle": "2026.11.06 櫻坂46 勝又春 温泉に行きました どーこだ blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。神奈川県足柄下郡箱根町湯本",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60139225.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60139225.html",
+        "tags": [
+          "櫻坂46",
+          "勝又春",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "勝又春"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60139225.html",
+          "mapId": "",
+          "layer": "2026.11.06 櫻坂46 勝又春 温泉に行きました どーこだ blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "勝又春",
+            "四期生"
+          ],
+          "name": "早川土手",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "article",
+        "coordPrecision": "exact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.10379,
+          35.232964
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:ddd79b8faea2b6564f0d",
+        "sourceKey": "fumi-article:ddd79b8faea2b6564f0d",
+        "name": "菊川商店",
+        "category": "Blog・MSG",
+        "subcategory": "公式Blog・写真",
+        "categoryColor": "#f59e0b",
+        "address": "神奈川県足柄下郡箱根町湯本706",
+        "sceneTitle": "2026.11.06 櫻坂46 勝又春 温泉に行きました どーこだ blog写真撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。神奈川県足柄下郡箱根町湯本706",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60139225.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60139225.html",
+        "tags": [
+          "櫻坂46",
+          "勝又春",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "勝又春"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60139225.html",
+          "mapId": "",
+          "layer": "2026.11.06 櫻坂46 勝又春 温泉に行きました どーこだ blog写真撮影場所",
+          "tags": [
+            "櫻坂46",
+            "勝又春",
+            "四期生"
+          ],
+          "name": "菊川商店",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式Blog・写真",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
