@@ -503,10 +503,10 @@
         "categoryColor": "#0891b2",
         "address": "宮城県宮城郡松島町松島町内112-2",
         "sceneTitle": "さくら雪見団子 / 利久 松島五大堂店",
-        "sceneNote": "桜味の団子を選んだくだりの店舗。",
+        "sceneNote": "デビューVlogで桜味の団子を選んだ店舗。公式ブログ #59では、映像には出ていないずんだ団子も食べたことを明かしています。",
         "sourceLabel": "fumi Diary 2号店",
         "sourceUrl": "http://blog.livedoor.jp/fumichen2/archives/59133579.html",
-        "referenceUrl": "https://www.rikyu-gyutan.co.jp/corpo/info/mg/",
+        "referenceUrl": "https://sakurazaka46.com/s/s46/diary/detail/71803?cd=blog",
         "tags": [
           "山川宇衣",
           "Vlog",
@@ -6283,10 +6283,10 @@
         "categoryColor": "#6d28d9",
         "address": "宮城県仙台市若林区木ノ下1-16-29",
         "sceneTitle": "あらあらかしこ / 紅茶専門カフェ",
-        "sceneNote": "番組内で山川宇衣が訪れた、2026年7月11日オープンの紅茶専門カフェ。老舗青果店「いたがき」の旬フルーツを使った季節のフルーツサンドウィッチと、アッサム茶葉を牛乳だけで抽出した濃厚煮出しミルクティーを紹介。地元でよく食べるという「いたがき」の2色のぶどうタルト（5号 4,050円）も話題に。",
+        "sceneNote": "あらあらかしこのロケで山川宇衣が訪れた紅茶専門カフェ。公式ブログ #59でも、濃厚煮出しミルクティーと季節のぶどうのフルーツサンドを紹介しています。",
         "sourceLabel": "仙台放送「あらあらかしこ」",
         "sourceUrl": "https://www.ox-tv.jp/arakashi/",
-        "referenceUrl": "https://kahoku.news/articles/20260831khn000035.html",
+        "referenceUrl": "https://sakurazaka46.com/s/s46/diary/detail/71803?cd=blog",
         "tags": [
           "山川宇衣",
           "あらあらかしこ",
@@ -6594,6 +6594,578 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          140.9154084,
+          38.0372756
+        ]
+      },
+      "properties": {
+        "id": "tv-261114-gohiiki-arahama-port",
+        "name": "荒浜漁港（亘理町）",
+        "category": "番組・テレビ",
+        "subcategory": "漁推しメシ発見ツアー",
+        "categoryColor": "#6d28d9",
+        "address": "宮城県亘理郡亘理町荒浜字築港通り",
+        "sceneTitle": "漁推しメシ発見ツアー / 荒浜漁港ロケ",
+        "sceneNote": "山川宇衣と酒井健太が荒浜漁港の漁師に話を聞き、港で北限のしらすやホッキ飯などを味わうロケ。地図は港全体の代表点で、収録した岸壁の厳密な位置ではありません。",
+        "sourceLabel": "宮城テレビ「今が旬の三陸 常磐 漁推しメシ発見ツアー！」",
+        "sourceUrl": "https://www.bilibili.com/video/BV1cVsp6FEhR/?t=120",
+        "referenceUrl": "https://www.pref.miyagi.jp/soshiki/sdsgsin-sg/suarahama.html",
+        "tags": [
+          "山川宇衣",
+          "漁推しメシ発見ツアー",
+          "三陸常磐",
+          "亘理町",
+          "荒浜漁港",
+          "本人訪問"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "漁推しメシ発見ツアー",
+          "三陸常磐",
+          "亘理町",
+          "荒浜漁港",
+          "本人訪問"
+        ],
+        "source": {
+          "provider": "宮城テレビ「今が旬の三陸 常磐 漁推しメシ発見ツアー！」",
+          "url": "https://www.bilibili.com/video/BV1cVsp6FEhR/?t=120",
+          "mapId": "",
+          "layer": "番組・テレビ",
+          "tags": [
+            "山川宇衣",
+            "漁推しメシ発見ツアー",
+            "三陸常磐",
+            "亘理町",
+            "荒浜漁港",
+            "本人訪問"
+          ],
+          "name": "荒浜漁港（亘理町）"
+        },
+        "classification": {
+          "category": "番組・テレビ",
+          "subcategory": "漁推しメシ発見ツアー",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "tv"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.91519579716712,
+          38.039620529071655
+        ]
+      },
+      "properties": {
+        "id": "tv-261114-gohiiki-torinoumi-market",
+        "name": "鳥の海ふれあい市場",
+        "category": "番組・テレビ",
+        "subcategory": "漁推しメシ発見ツアー",
+        "categoryColor": "#6d28d9",
+        "address": "宮城県亘理郡亘理町荒浜字築港通り6-22 きずなぽーと「わたり」内",
+        "sceneTitle": "漁推しメシ発見ツアー / 鳥の海ふれあい市場",
+        "sceneNote": "山川宇衣と酒井健太が港前の産直市場を訪れ、はらこ飯、海苔、ホッキ貝や舌ビラメなど地元の海産物を紹介。06:10頃に店名のテロップが映ります。",
+        "sourceLabel": "宮城テレビ「今が旬の三陸 常磐 漁推しメシ発見ツアー！」",
+        "sourceUrl": "https://www.bilibili.com/video/BV1cVsp6FEhR/?t=340",
+        "referenceUrl": "https://www.pref.miyagi.jp/soshiki/sdsgsin-n/cyokubaijyo-sd-torinoumi.html",
+        "tags": [
+          "山川宇衣",
+          "漁推しメシ発見ツアー",
+          "三陸常磐",
+          "亘理町",
+          "鳥の海",
+          "本人訪問"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "漁推しメシ発見ツアー",
+          "三陸常磐",
+          "亘理町",
+          "鳥の海",
+          "本人訪問"
+        ],
+        "source": {
+          "provider": "宮城テレビ「今が旬の三陸 常磐 漁推しメシ発見ツアー！」",
+          "url": "https://www.bilibili.com/video/BV1cVsp6FEhR/?t=340",
+          "mapId": "",
+          "layer": "番組・テレビ",
+          "tags": [
+            "山川宇衣",
+            "漁推しメシ発見ツアー",
+            "三陸常磐",
+            "亘理町",
+            "鳥の海",
+            "本人訪問"
+          ],
+          "name": "鳥の海ふれあい市場"
+        },
+        "classification": {
+          "category": "番組・テレビ",
+          "subcategory": "漁推しメシ発見ツアー",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "tv"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.8726611,
+          38.2602178
+        ]
+      },
+      "properties": {
+        "id": "tv-261114-gohiiki-keyaki-cafe",
+        "name": "ケヤキカフェ（藤崎本館3F）",
+        "category": "番組・テレビ",
+        "subcategory": "漁推しメシ発見ツアー",
+        "categoryColor": "#6d28d9",
+        "address": "宮城県仙台市青葉区一番町3-2-17 藤崎本館3F",
+        "sceneTitle": "番組紹介 / 漁推しメシ発見ツアー ケヤキカフェ",
+        "sceneNote": "「海の幸せフェア」の紹介VTRで、北限のしらすのペペロンチーノが登場。番組で紹介された店舗で、山川宇衣本人の来店場面は確認されていません。",
+        "sourceLabel": "宮城テレビ「今が旬の三陸 常磐 漁推しメシ発見ツアー！」",
+        "sourceUrl": "https://www.bilibili.com/video/BV1cVsp6FEhR/?t=1403",
+        "referenceUrl": "https://machico.mu/special/detail/3202",
+        "tags": [
+          "山川宇衣",
+          "漁推しメシ発見ツアー",
+          "海の幸せフェア",
+          "仙台",
+          "番組紹介",
+          "本人訪問未確認"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "漁推しメシ発見ツアー",
+          "海の幸せフェア",
+          "仙台",
+          "番組紹介",
+          "本人訪問未確認"
+        ],
+        "source": {
+          "provider": "宮城テレビ「今が旬の三陸 常磐 漁推しメシ発見ツアー！」",
+          "url": "https://www.bilibili.com/video/BV1cVsp6FEhR/?t=1403",
+          "mapId": "",
+          "layer": "番組・テレビ",
+          "tags": [
+            "山川宇衣",
+            "漁推しメシ発見ツアー",
+            "海の幸せフェア",
+            "仙台",
+            "番組紹介",
+            "本人訪問未確認"
+          ],
+          "name": "ケヤキカフェ（藤崎本館3F）"
+        },
+        "classification": {
+          "category": "番組・テレビ",
+          "subcategory": "漁推しメシ発見ツアー",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "tv"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.8736545,
+          38.2588089
+        ]
+      },
+      "properties": {
+        "id": "tv-261114-gohiiki-oden-shiruku",
+        "name": "おでん 汁句（しるく）",
+        "category": "番組・テレビ",
+        "subcategory": "漁推しメシ発見ツアー",
+        "categoryColor": "#6d28d9",
+        "address": "宮城県仙台市青葉区一番町2-3-30 壱弐参横丁内59号",
+        "sceneTitle": "番組紹介 / 漁推しメシ発見ツアー おでん汁句",
+        "sceneNote": "「海の幸せフェア」の紹介VTRで、三陸産タコのしんじょうが登場。番組で紹介された店舗で、山川宇衣本人の来店場面は確認されていません。",
+        "sourceLabel": "宮城テレビ「今が旬の三陸 常磐 漁推しメシ発見ツアー！」",
+        "sourceUrl": "https://www.bilibili.com/video/BV1cVsp6FEhR/?t=1455",
+        "referenceUrl": "https://machico.mu/special/detail/3202",
+        "tags": [
+          "山川宇衣",
+          "漁推しメシ発見ツアー",
+          "海の幸せフェア",
+          "仙台",
+          "壱弐参横丁",
+          "番組紹介",
+          "本人訪問未確認"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "漁推しメシ発見ツアー",
+          "海の幸せフェア",
+          "仙台",
+          "壱弐参横丁",
+          "番組紹介",
+          "本人訪問未確認"
+        ],
+        "source": {
+          "provider": "宮城テレビ「今が旬の三陸 常磐 漁推しメシ発見ツアー！」",
+          "url": "https://www.bilibili.com/video/BV1cVsp6FEhR/?t=1455",
+          "mapId": "",
+          "layer": "番組・テレビ",
+          "tags": [
+            "山川宇衣",
+            "漁推しメシ発見ツアー",
+            "海の幸せフェア",
+            "仙台",
+            "壱弐参横丁",
+            "番組紹介",
+            "本人訪問未確認"
+          ],
+          "name": "おでん 汁句（しるく）"
+        },
+        "classification": {
+          "category": "番組・テレビ",
+          "subcategory": "漁推しメシ発見ツアー",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "tv"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.8684269,
+          38.2676839
+        ]
+      },
+      "properties": {
+        "id": "tv-261114-gohiiki-trattoria-gin",
+        "name": "トラットリア銀（trattoria銀）",
+        "category": "番組・テレビ",
+        "subcategory": "漁推しメシ発見ツアー",
+        "categoryColor": "#6d28d9",
+        "address": "宮城県仙台市青葉区国分町3-8-12 根岸ビル2F",
+        "sceneTitle": "番組紹介 / 漁推しメシ発見ツアー トラットリア銀",
+        "sceneNote": "「海の幸せフェア」の紹介VTRで、ホヤ入りの三陸産アヒージョと宮城県産マダイのアクアパッツァが登場。番組で紹介された店舗で、山川宇衣本人の来店場面は確認されていません。",
+        "sourceLabel": "宮城テレビ「今が旬の三陸 常磐 漁推しメシ発見ツアー！」",
+        "sourceUrl": "https://www.bilibili.com/video/BV1cVsp6FEhR/?t=1498",
+        "referenceUrl": "https://machico.mu/special/detail/3202",
+        "tags": [
+          "山川宇衣",
+          "漁推しメシ発見ツアー",
+          "海の幸せフェア",
+          "仙台",
+          "国分町",
+          "番組紹介",
+          "本人訪問未確認"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "漁推しメシ発見ツアー",
+          "海の幸せフェア",
+          "仙台",
+          "国分町",
+          "番組紹介",
+          "本人訪問未確認"
+        ],
+        "source": {
+          "provider": "宮城テレビ「今が旬の三陸 常磐 漁推しメシ発見ツアー！」",
+          "url": "https://www.bilibili.com/video/BV1cVsp6FEhR/?t=1498",
+          "mapId": "",
+          "layer": "番組・テレビ",
+          "tags": [
+            "山川宇衣",
+            "漁推しメシ発見ツアー",
+            "海の幸せフェア",
+            "仙台",
+            "国分町",
+            "番組紹介",
+            "本人訪問未確認"
+          ],
+          "name": "トラットリア銀（trattoria銀）"
+        },
+        "classification": {
+          "category": "番組・テレビ",
+          "subcategory": "漁推しメシ発見ツアー",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "tv"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          141.053917,
+          38.366722
+        ]
+      },
+      "properties": {
+        "id": "blog-71803-le-roman",
+        "name": "le Roman（ロマン）",
+        "category": "Blog・MSG",
+        "subcategory": "公式ブログ",
+        "categoryColor": "#f59e0b",
+        "address": "宮城県宮城郡松島町松島字犬田10-174",
+        "sceneTitle": "公式ブログ #59 / 松島のお気に入りカフェ le Roman",
+        "sceneNote": "公式ブログ「あぺたいとを止めないと、」で、お気に入りの松島のカフェとして紹介。デビューVlogの展望台の隣にあり、夕日が差す時間帯をおすすめしています。",
+        "sourceLabel": "櫻坂46 山川宇衣 公式ブログ",
+        "sourceUrl": "https://sakurazaka46.com/s/s46/diary/detail/71803?cd=blog",
+        "referenceUrl": "https://visitmiyagi.com/contents/roman/",
+        "tags": [
+          "山川宇衣",
+          "公式ブログ",
+          "松島",
+          "le Roman",
+          "ロマン",
+          "西行戻しの松公園"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "公式ブログ",
+          "松島",
+          "le Roman",
+          "ロマン",
+          "西行戻しの松公園"
+        ],
+        "source": {
+          "provider": "櫻坂46 山川宇衣 公式ブログ",
+          "url": "https://sakurazaka46.com/s/s46/diary/detail/71803?cd=blog",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "公式ブログ",
+            "松島",
+            "le Roman",
+            "ロマン",
+            "西行戻しの松公園"
+          ],
+          "name": "le Roman（ロマン）"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式ブログ",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "blog"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7003717,
+          35.6598479
+        ]
+      },
+      "properties": {
+        "id": "blog-71397-shibuya-tsutaya",
+        "name": "SHIBUYA TSUTAYA B2F",
+        "category": "Blog・MSG",
+        "subcategory": "公式ブログ",
+        "categoryColor": "#f59e0b",
+        "address": "東京都渋谷区宇田川町21-6 QFRONT B2F",
+        "sceneTitle": "公式ブログ #58 / SHIBUYA TSUTAYA 訪店・サイン",
+        "sceneNote": "公式ブログ「僕のものになってよ」で、「愛MUST BE」のパネル展示への訪店とサインを紹介。当時の展示は2026年10月19日で終了したため、現在の展示内容は店舗情報を確認してください。",
+        "sourceLabel": "櫻坂46 山川宇衣 公式ブログ",
+        "sourceUrl": "https://sakurazaka46.com/s/s46/diary/detail/71397?cd=blog",
+        "referenceUrl": "https://www.sonymusic.co.jp/Music/Info/sakurazaka46/shoplist/261014-2/",
+        "tags": [
+          "山川宇衣",
+          "公式ブログ",
+          "渋谷",
+          "SHIBUYA TSUTAYA",
+          "愛MUST BE",
+          "本人訪問",
+          "過去の展示"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "公式ブログ",
+          "渋谷",
+          "SHIBUYA TSUTAYA",
+          "愛MUST BE",
+          "本人訪問",
+          "過去の展示"
+        ],
+        "source": {
+          "provider": "櫻坂46 山川宇衣 公式ブログ",
+          "url": "https://sakurazaka46.com/s/s46/diary/detail/71397?cd=blog",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "公式ブログ",
+            "渋谷",
+            "SHIBUYA TSUTAYA",
+            "愛MUST BE",
+            "本人訪問",
+            "過去の展示"
+          ],
+          "name": "SHIBUYA TSUTAYA B2F"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "公式ブログ",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "blog"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8789337,
+          35.627859
+        ]
+      },
+      "properties": {
+        "id": "msg-260920-tds-peterpan",
+        "name": "ピーターパンのネバーランドアドベンチャー",
+        "category": "Blog・MSG",
+        "subcategory": "ブログ写真・グリーティング",
+        "categoryColor": "#f59e0b",
+        "address": "千葉県浦安市舞浜1-13 東京ディズニーシー ファンタジースプリングス",
+        "sceneTitle": "260920msg / 東京ディズニーシー ピーターパン",
+        "sceneNote": "2026年9月20日のトークで、ピーターパンのアトラクションに乗ったことを紹介。同日の写真に写るファンタジースプリングス内の施設です。",
+        "sourceLabel": "山川宇衣 トーク（2026-09-20）",
+        "sourceUrl": "",
+        "referenceUrl": "https://www.tokyodisneyresort.jp/tds/attraction/detail/257/",
+        "tags": [
+          "山川宇衣",
+          "MSG",
+          "260920msg",
+          "東京ディズニーシー",
+          "ファンタジースプリングス",
+          "ピーターパン",
+          "本人訪問"
+        ],
+        "images": [],
+        "members": [
+          "山川宇衣",
+          "MSG",
+          "260920msg",
+          "東京ディズニーシー",
+          "ファンタジースプリングス",
+          "ピーターパン",
+          "本人訪問"
+        ],
+        "source": {
+          "provider": "山川宇衣 トーク（2026-09-20）",
+          "url": "https://www.tokyodisneyresort.jp/tds/attraction/detail/257/",
+          "mapId": "",
+          "layer": "Blog・MSG",
+          "tags": [
+            "山川宇衣",
+            "MSG",
+            "260920msg",
+            "東京ディズニーシー",
+            "ファンタジースプリングス",
+            "ピーターパン",
+            "本人訪問"
+          ],
+          "name": "ピーターパンのネバーランドアドベンチャー"
+        },
+        "classification": {
+          "category": "Blog・MSG",
+          "subcategory": "ブログ写真・グリーティング",
+          "method": "manual-review",
+          "status": "confirmed"
+        },
+        "classificationCandidates": {
+          "members": [
+            "山川宇衣"
+          ],
+          "projects": [],
+          "contentTypes": [
+            "message"
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.688675,
           35.694054
         ]
@@ -6660,6 +7232,110 @@
         "classification": {
           "category": "MV・楽曲",
           "subcategory": "元凶",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.784882,
+          35.616001
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:ee03e4ee09cf31a91aec",
+        "sourceKey": "fumi-article:ee03e4ee09cf31a91aec",
+        "name": "TACS ODAIBA STUDIO",
+        "category": "番組・イベント",
+        "subcategory": "キスが苦い",
+        "categoryColor": "#2563eb",
+        "address": "東京都江東区青海4-4-18 TACS 6F",
+        "sceneTitle": "櫻坂46「キスが苦い」Dance Practice撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都江東区青海4-4-18 TACS 6F",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60128361.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60128361.html",
+        "tags": [
+          "櫻坂46",
+          "四期生",
+          "森田ひかる",
+          "田村保乃",
+          "藤吉夏鈴",
+          "守屋麗奈",
+          "山﨑天",
+          "大園玲",
+          "松田里奈",
+          "的野美青",
+          "山下瞳月",
+          "谷口愛季",
+          "村井優",
+          "中嶋優月",
+          "向井純葉",
+          "山川宇衣",
+          "佐藤愛桜",
+          "浅井恋乃未"
+        ],
+        "images": [],
+        "members": [
+          "森田ひかる",
+          "田村保乃",
+          "藤吉夏鈴",
+          "守屋麗奈",
+          "山﨑天",
+          "大園玲",
+          "松田里奈",
+          "的野美青",
+          "山下瞳月",
+          "谷口愛季",
+          "村井優",
+          "中嶋優月",
+          "向井純葉",
+          "山川宇衣",
+          "佐藤愛桜",
+          "浅井恋乃未"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60128361.html",
+          "mapId": "",
+          "layer": "櫻坂46「キスが苦い」Dance Practice撮影場所",
+          "tags": [
+            "櫻坂46",
+            "四期生",
+            "森田ひかる",
+            "田村保乃",
+            "藤吉夏鈴",
+            "守屋麗奈",
+            "山﨑天",
+            "大園玲",
+            "松田里奈",
+            "的野美青",
+            "山下瞳月",
+            "谷口愛季",
+            "村井優",
+            "中嶋優月",
+            "向井純葉",
+            "山川宇衣",
+            "佐藤愛桜",
+            "浅井恋乃未"
+          ],
+          "name": "TACS ODAIBA STUDIO",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "番組・イベント",
+          "subcategory": "キスが苦い",
           "method": "source-article",
           "status": "source"
         },
