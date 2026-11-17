@@ -254251,6 +254251,231 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.5465258,
+          35.3141514
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a06f3c8bdaca8005ac13",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a06f3c8bdaca8005ac13",
+        "name": "江ノ島電鉄 和田塚駅東の踏切",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "江ノ島電鉄 和田塚駅東の踏切",
+        "sceneNote": "「週刊少年マガジン」2023年no.8渡辺莉奈ソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjuxN1gYxARXQ-P8SAWBg1zY85ubvxANl8meptnowp2eb77oaC1zX-5ESnZ7XUqZ_fAIAxRLG8Nob7PiIwc6QtPDsGMif3_HiE2yMOoHsKSf0eMg2HNa-w-wvBq-wjgDRtMbfJ1iPfj0YUTzveNIlFBufzOhw_aWeSZoC1AMxvTgTWMzR75LSozzzThgMuK14037-HVRskIUBZH0aN8S1tCIU3S4SrzAg2_Kif8QlpLza97zBJyJeOdXFg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgUbmlkF0zU9Z7sxo2z_2sjXj_GjUNiB7q1vVaNW8dGrE3QiYte9aGmUvgVx6Yob25-I8TSSbpsW_Z76MY9wStUDp9jp1PUsDTZyeu7QR3ChGiiLivXguvJdxi6zcyX5BbNJW_Ofww2AAGeDJ4B_5TIBqaIzJoRx2OYHcrQpMS3E3dLiX3PVkADWZ9YjuET0h17RFD2XwNA0bODv_V4_dr5p-t60FUWU-0M9V0phAvlcDRRBFEMcuD7b40%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "江ノ島電鉄 和田塚駅東の踏切",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5469367,
+          35.3136251
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d480df67e923d1147626",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:d480df67e923d1147626",
+        "name": "駐日ロシア大使館鎌倉別荘付近の路地",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "駐日ロシア大使館鎌倉別荘付近の路地",
+        "sceneNote": "「週刊少年マガジン」2023年no.8渡辺莉奈ソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjy1_esnT_yJEdAXkfG6d5DhRUymEwQiMfLw2qkz1x4MTTVHioFss5zGBrSPN56lr9L6RnxoxvodpQHZa9iTHSHJCdohhxC8VaO-0nWzQobInWkY8xKJwfM4OlG5sHV_6aP0mcDGkpk-exSLgNxdRsdb_fYtbjI-cHHkNkxGgHz9lk8myDlHMhSIHORer91BV0I1k9zfWqgLhnoX9mSM3cgkNHCllIfCLRqmFhUdLGhf9x4wY9ISJsoSco%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhkCFQyb0k6nJz8Nr70oFto9T5gY0oT4LuliDIGXtbx8HWS9_NJLshRp4JjuacxJM9qYEdo_hW3vXkVaERnR44zGIx_lNs3ojPFgZSV8qdJv_JFEqbnfDLopohhpymtN4kpl8UozE-CGFjSMoWiV7X-erIv3BWmbVNW7zbfHBa0SO7nz6aX6ahP5Fr7HH_pTVmPs5NVL75PXKik4VBrHF7kXB_SPUL1pim6wB7ZCqtg0dUvq4GZMWIli10%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "駐日ロシア大使館鎌倉別荘付近の路地",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5467627,
+          35.3138504
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bb3f528e6eb98d807f63",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:bb3f528e6eb98d807f63",
+        "name": "由比ヶ浜二丁目18番付近の路地",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "由比ヶ浜二丁目18番付近の路地",
+        "sceneNote": "「週刊少年マガジン」2023年no.8渡辺莉奈ソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg13bACbtHWf32z-3v85jK1uzP0-vrcLbrHdf6832R0t0iooZCaa039cBjNl8CZpedbCHlObT6e1ZHWQKe-ADOK98OeAUA2kQmBMoe9UDJgofXb786jzwHWFFqDQHnn_sRSPYqJeirRMNgvLmOAS7sUnoJG19BVKC9XL203zUl_vef6vysBluiMgEPs6-ehjpv9iRJ69vUInQ8dikOh3LhQXDe0PKUdcze1kzPaYrndiwuDadxTNVcGr-w%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjQeE01yEXXykR7UoE3IHIL1fSHJs8-YFWXITeKEU-PFQ4gtDq2BnrlFrRHUlRvCbC2PWaXYYAvQRn6r6-E-jxLR8h2Y7meOOCnYE--KrhHm_rHPqxfXL5WoYNGGaaJmBEDYOWaqHgPP7u0wjDA4EOIzNMqLzNOnRX1WjqbMPfiBcn4FifT-jt8UX8vv9XkQqRItq0UaoMjlKFEi-sOa8EDe8ajnzFJIn-aSdG9LMEl-YGqh6UXjFjDXYg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "由比ヶ浜二丁目18番付近の路地",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.5426621,
+          35.3091293
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:266688c09f877bd03e99",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:266688c09f877bd03e99",
+        "name": "由比ガ浜海水浴場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "由比ガ浜海水浴場",
+        "sceneNote": "「週刊少年マガジン」2023年no.8渡辺莉奈ソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiIfKJv0QWaK7EH38tLnZEDMoTT6jA4AXPvhYPBQbOiOTD9aBxUyP0hTxIJ3cuuPIF7Qn5aCh96eqaNwmOjjOa2jpiobdU9MSPr3EIwfutGxYR91cQKeBSLVVvDBHPIJSB1GweBSLxq91vtwY_hTk6oFcTjZZznt-mcLC36uk_ewrdhbneY9PC6ACdK2ktG7JEoWsSa9BjulQ0Mv6Zit3w3ZJTnR-1qhY6feBFLJH0GKvgI9J8FOwqW_7A%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhMddQUMBzc9weUJkLpZVKSMl0DDhqcKguLRVAHmYn-8fzIJOKc2pNKrKCrvR5YV0Bjje44DjzUPe-T6MecB9lx8OMaRAvuly16oPqdC3m9OfDV6OYbzxH74H1TsIVMP7l0N6TMBNLuzemEpD-mFSIUGS2FGiI46qkWFV0h_fu1QLkwYBHYSybmNGkKj7mWDdHCKTHg_zx0NNuNtkZG57z-7wLo8yJOZUROWUXN4qN48lH-vBxi0dqSfeE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgXxrY8wLFYBDcjLxI3Wsb9myj3te0yvlnGd278s8PpeVs_AUI3PvpnoKXFv4wvLQMkrF0xrdcXEJp7LhV6d_ijWIEe8ijAfHRrLPZUdW39GNPXFtvomAbjC9Hlde5qlFwOFeOytnNhHRaItGVLHt7SDHbc1mwQT1pB3NsIGvfK5Pfcd-zL37WI0o-wV3vnxNtumb1Kyj457vpXzAZC26yut-D5KvoriUWr-fdA_uM8HZeOGlqr_j3Waso%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "由比ガ浜海水浴場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7748209,
           35.6179823
         ]
