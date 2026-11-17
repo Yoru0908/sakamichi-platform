@@ -254476,6 +254476,139 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.9355611,
+          35.2460715
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:05a36219602dd11f60e1",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:05a36219602dd11f60e1",
+        "name": "マザー牧場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "マザー牧場",
+        "sceneNote": "2020.12.21 O.A.「CDTVライブ！ライブ！クリスマスSP」で、乃木坂46さんのSPメドレーに参加。ガールズルール（加藤史帆:C)、サヨナラの(金村美玖:C)、シンクロニシティ(小坂菜緒:日向坂側C）を担当。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjQJLrKsEzPdI_2OV0bAQqzZk29SQWhfhJ8aqoUZZm6tveWzxWyHogj9SxDArnt4b1TQtAkN3CwrI7mZkVFVD81cwt5ublZrZYxKVKJbWP-wmTxSQ6wXTNSSnQfGZnKSWOYHfvo9WjWDv8hsWtaMcaCiRZZXkxijCSqR0eUCswgEg7UzgRH4tcXTo9QFZkTeAGSXa4FfWHyqE7KvwvqQAWYC8B1qpdrzxJbT0doydbj9cgycNMHhhgeSwo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgkbJBAMF8Euh76Wewy5MOlz4LTo1CBZ85jEaFZ9A5Boe_JH-57iITATfQnNHZesSKCcfUEylt3W-Ti_ZuUeWBllWyYnWoSIujHyJkIPLRV_7ggAjsY5aH8Lz8qQK_v274Ebv3Ry0y5-9Oe6_mUmKAreTxbkuVoGXOh74cPyAEbB9su85WIMXD6EL470_CryES_SA7KR-CA_UAAcLSGqbIblKK7wSEE4Jc-SgbzN2FGmIyabL-vus6_B3o%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgIHx5xUWdZy9GSexOPAR7sPenDcBPQuJpIJ3Sopw8OeKKDKFBCoxsEAq19gNRu_IjZuULEDNH0nA619MwjrJwf6RF7V8t5O9zfKPSSByyGvh1GtmgPF3XvMCRgZJW8fYyUt-xYFVctnBPCEV-7diaPjAYL8RKk85EgjtCXKbIOyYXzswZaMZotaV1JoFoaVSQgHTUijAHdXxu0dOuMMOnZzLmv2ZDYliFpYKNevSc1fm3Yd2xu8Ot60ag%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgtCkMa-0My--qt3zRJZtS55aAe_xZBlWapjHyaWNU1_9NjoRfvudJ7aBQT6zQgyPZ9gNrCYS97G94i2Vp9Hm5tfpXnWNmimRDvQwMU_R1-Z1O3rOzlemzYcGXD2SIsxdwoj6ts6YxKJBOWD0mvy6E9YGKIBi2tb6UjnPR8fFCIb4csc77nSJiCTaiPFlAPAi56kcyeyEXnyL1ParFd9Vb5qfVWTfIhbNpbk7MR_s6dGAVE5wSpKO98-uY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjGsCkwv7PDJKrxYvU0dCZeclsYRNBIL1efV8FEY-j6dbO94WNLPknVqS41NoyfGalDLC3BQQiR_NBc2m8m6lhooE_QU_PjFMyqOWCtFzTGUYGh6ShcrAL_MwkuWyKxtOgizHo3FjmixeBMpgpKYApwcqiESojiss2qcWd-vVL-mbkXJkzj7rQvjMwLyyhjvONOmcWmc2VUav1TeHErZlyBVLuSLhjkQAB4IYMUw5il0W_r6yP4xow7VKo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgja9GFgUs33S5CzwjyxMO-n8Kp-KXwYPbPAII6QQma3EfMsfYJUYo_4qHbCzlx1mrOXQjgHVvbWR0csj5xWP3Nu1o8CUn2HvappxSJBma1zdUAuMdzWGdhpBpHzkAcOo_hlIVRSCgzTe0Ee7Sms3XCNO39KdTCozn6rXR8cP08HghHNvcvoyLM1AdVgLbEC1ewTpOn5O2yoSmCcKscrupwI3wGEKwtTUFr7GHaUY_e4SsmWWy57f9XdJ4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiwr0W1fkU8Tei1BY4hRB5s0mNMCMRbDpf7OlX89nYXAnRa1Kk_kKCfH1z1CbRe0--omCRu-LHOGQ-utKnw46zsby4-GRn5FKdxSnc7Cep1v9s_gEZ3Jdk_EwwteZDUHEj18G3qoiK5LWcvuo2FV-zEB5vlYo8UXP8tlQrcJ0jkNxxwKUnpbqUCInzi75pqKwpCPd9PEQJcfqeltzGazScR3aQdprUTk6iYph0D8wOQJY4Vu8xwRIod6HU%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZitswXC8u39PYm9ZDSxw-WwBTQ-q7V3Hc3aOVWmp6QyhhCOZyKHSf3R30ELNQfO5FulIdANQC0FpKl1N7O8aJbbOR6edG-NijZqJ0umgBCR6c7bKKo5cJqG9MfkbbQ_BPe4S-j5NNSfmbmbIdy4O0w_gpa56_7bKFehyY44pMHyWT628tg35Zl6vpIte6NIC_kt1nPzcxyuZ1PtCTx2QQValqIRMAJkmw0fZLY4gzS--P-yjNdhe9j8arc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjkaZkYzViMQFLFtRup-Hf_WMyrg2EtkUXfAzILGe8yS1hxFVlQUpYvBjWy7mqkW6b10WYxT0fYZgbH-8mCz1oABKfGfAwQ6mnXOr3WP8tKODJhC-yvS3luYTCr7l5NinMePFrKUh84PPB0z3ZIOSScvB4dQhT3MeybPr-ICZ8grmBkAT7OEz2T-WBYXMVd3m46EYnLX3P6Og2SU5hRQEg79SqXZ3RuTm00fJa-jbh_OD2wjh0kO5XAhwI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiyedmkx98ujWjvUUox7v-NqVuZAKicmXvtEO0l32CVEw2_nvLDq8b7-U5MMkN3DtY4t_DMHTKGodivehK-xQ5SktpiCNEt2ia2Ov1KVnWupH11c3SJgHva9bf0pWfFt3X1H9dXXECWgyKd0QnsuljgNv9QB6RmpQ79pfVway1OXbfOpecYHzVq1TgIcptE-2BELFfU3FrxlfPY8HvAo9-A37BobF-1g6U1cgz4bj8uPbI-81YdouvSIz8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhTGKArgDq0EN4PwvliwecrMzWwVw3JC9DAOQKtjKBkfVRQUiGJew363X-TnMu38Y5qdj2p2sf8Q68vBFMolSliTS2EGuOQK3Oh8ijQY8meiD0Y8rYEJ-FBX536YD-HeBnFuR2ZAyc6LbtlStZ5h9bIIcLyPBEuKNZpaqTQdl3_PsO6cIaEpUXL0JDM7Otj85tA0qpOwe7gyfTgbAXABHdjexMCet6eh0d9PbMwo-6W4UQxIPw0SNAmg2c%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjz_IbnBDQcze0FD6yg9xfklM77gklbPtMAiMiZbSUQb9SKaXFlN9Qdt0K6T0f9tPGMHhbiuTn8aY8S-7-nHAlJr9uGNMm5Jj6FdoQHbKpRZAKYpLETJbBUHLuGVzYtiqz3ZotcgLCJGUykFE55fSdnVKx0RLEtRNbeC-Qsx5G-qIu6C_mxGo5toeJud7p9KEcqWDgTfB5WEjp08nt7DP1NW58SbddPm-ERm1idazoMhN1Z0oy-xi_cKfY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiyNidH-uRp_eyKUPuTaEqIv9EGU2ZhbD7tYc5p9BFTIVvW6oiXtpXVuxq7OR7MfHq13XF-HjKZyX9_eldZQDFN_O5uRxQghUa4a-yiIsWT_MW8gyIq3RB7GC-FzICRL6wBAHSZRA6_8y4DqX65_eOZjpVdeytc4kQAv0IEeZJI09_7afQso98RSmOhnrQuS21lXh5AvBzT7crGQA3cvADKRq8iveYrXREy-MMCn-RgdGUlNoRJa7x5mtg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi3XYp9Hw30KWJxOnE_yDWfkf2_r_cdE4cLoQvTbmfXj_4KxBtIxyAphuhiai_hv2WfVT5iWiikRkiBdKDWa2aZem5-M5c0Tq0bK50UZmWYPxh611lLUtkGlKtsTWy4xKtN-5XT9KSAan3C9hzUlyZZ5887-syEf-zhT8PvXm0O2hjd8ANbJ0G0Ui7RB7166MFgECULyYsEW0z2bJ8c1K2WlR5zHwo-di4uhksClMslx_5Mm6IoXbnl73c%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhsSvk6jwiRhkSnCjT_OTzxBnF6urHcrGUgN7cQPTUdZcGU454CVSsXkLFKVxePxAmP_T5ypuQPvL9QvU4nH51h7NVW-EBHrl7Y4PTc2ewKLM_jSF7c1bkI1FyvmlyfKkRm7dztkZspdCq-OGeaT-EkBX6y1zmftrQiWfLMMD-1ly03GJNuRcKx7F927vMLIleb2jRA_ODcWCg0DqDliX6LJ0Qjxwzz-POOUunsx1FFNz-UitKqvsYotYY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg0CE4HYzTvdlGWiQyaerkfOxZiGzTSe38KP56ZV4FM5tPDgygQawrmxcRLRmSBV0wPL5uHLRBJB5xyx3JGJpQdyhp5XWWagmbD7kKguB_yFyae5UhGiak4Pr7yY92IVD9KBfD9YpysnACiBB20t_UwygCUIQb4jtpeFsK0o5rybAdYJDR5syz4lCIjosz_8mDeGYHWHQEfULkSv8I35v2DBCI-hTIu0h7U8efi7DTzxw5829ygG02Pk3k%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgo3Xp8ke1ICpcaOIuPtivEx9L6E7Se_2xF-DGaIlzrllYVro05CsGBC7ykUreOGVrX65GbrZ3nmnIL1baQBUXMBftxisTUDb9hKtInkrQ3KiT4is_46IiJz_pZItThHBRUombmEkcI-9wUsu8kigOCDCT9AbD9XfW4EOY_kbxIPqphhN_DkFAtyXe6VqE73vF7JxSXrK1u0A5cgzgXknDE1995t22O6JELcSMf3rI_hTig7h_pYFy2l-4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjTMMZD9S6L1MofRNKLMw3hJU1gUi4yFWjvJQmfqPAKLCwXiRuZ4NMLJZQIRbfu4TKbwdLEiV8gD6Kj8xEH-CBKvggkzKeFEh1qc3YQ2ne4Wl8GF3ZIbRdawzVk34_KHXW_8LaF8ih5Z4HIbLjBlWEgbOjzDOBxRWJoaoSf-1jBXrEGzvP9UrDcgHCzpul9LYBD-0-AVVM9kA9pPwsNbxmPYKK7GowkEU5flDoYU7cwjt5bAPTL53LBObE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiL0fUhvJygsHC1-d9LEMGc1686_eqmZZG980H-pKVPis7ZLuv7BHSuzP23-ctSi3JPG7VIlsC__HZChnuThEGHN2eJP5v6khRi2ork8ogdF80894oy_Ov4SUmUxd_zq7jrJyQXWKPTxRPEULXr-cge2D_YVwJ5AE4bHJQ9URlPfqrZUGEy9vNDIpW8nMUO0OGN_rFbz7HBvuLmYaZp7oyte9j1l-v-_eRLTJCoREwilAgE4geqrHDqpzg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZie2S4rinvTgDI7V35D7RYVANTOqIlsWO_5GTTj_46oU_ZAlt_64crZZxEvB7UI7UpOC2uzoow9hwvp6yBN3A-_rE3mY3SScZL7-Fk_nz1mPsSHtQcZ94qKf3GmulNUS2R32fXi_XlvlatzqebbAOrJ9GdB_Zx5gBjrKKzQui8Y5NdpyIpNXF3dZZXpxkjORNBQxlKyCEAvN_nDUBfSoOx8oRkEWN_1Zg5CADeWIEr1wRbYYrofZJQHu_Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhP31tXuzi_a9V8jeTcgBF13RyvJGKr7eQMoCajsDWl484OEwLVxQMXEGMkslzXh54dxQYze8yOvF1xlma1Dm1ev5FeAhHOF-aVXfN7alV6KEZB6xzCrdrp4-IO9jmvu_rHlA8NbmuqJ0x155ruhzpSikGcOsXbjJ6JMYR5lBzkcWcsNTMk0cQ6fEOAeDS_eULHn5-sSIzBGtHBMvoDkOi8h35mOL9iBcIejjIKb-HZUpzfgQT9N-IRQqs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh05gDN2AFVtN33xPoftJX_NLeJnIoA730YxEpOwozx0B_HvTltzBNzWCk5r2Q4WeNZdrNy0jNj0LzCDnlU1jLk0hflRUkz8dc2KcfzlYElUmdpkLghLTxXcQoRpPHb8JteKFXGp1rcD_9-YLIKwMYg2cJ4QKFa2lHTU7vPU3cunYmA_G6ItSwqt_I56lEHyWoh06ibP1x5KElfkQS374025LdebA449gOvYzaVvAymF7FtqQdo1Pfq_io%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "マザー牧場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0774662,
+          35.1025933
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:89ad06533080d3698adb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:89ad06533080d3698adb",
+        "name": "磯揚げ まる天 熱海駅店",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "磯揚げ まる天 熱海駅店",
+        "sceneNote": "2026.07.18 O.A.「三つ星MAP」で富田鈴花が聞き込みをしたお店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhwf7Q5dmLQ6nv0QnPDILa--Qr9B99eXSKmVSz9rVrSBtTfD1veZfJijTtyET4haPMtsbrY04nZSml6t39u271P_roe-R4kYkSw-KpntPVnFi2pL_TAa92vzE8oBcsPe533GLaap_bfdYbOGObZWPMovYLFAgS05J9w2AY5-pWC1xwP3qg-rJG51t_vqKA-1STEaf6nAxpk7KPAJGK6jsNYxC4k3qFowmsLJh9nzHdTM64wWghtwxN5OY4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhZwXXhUsN-9RZRtad0KKEb2oZNFHZVRsPq4RXu8-lh7yxr28qfDKbbmPSwFRox2mGF_DXW3gb4a8mgZxCXVaHw4qqZPsRlEADUcCJXgsi92g0cIMY9c9QKdrDJLPuQ2brusr4lQoQi-jtRWKzCCSm0y06pf8ItpKECejTklT0wUep54anEYx06NypFQpMZlbVckTmdcoiPg4MRFnDdUocEpbPmFrYTkTMpO13sX6iNqsCIIcK_Wakuq3M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhC-H07L9_yQBiB1c5jfh0JXDE8eP0jvKcWXIIFoLqv0hso6b3pCElaYJWSSbqha2F6BOtn9BwafYH4xofGKWA7u4Iv8ABNhmM9b0gguB2lwsAv9_iTGa4cZJUYquoBbyG6MRptpa5TzU1O4snc5Kwe-QZTHIBADM8vpXJPX_LL9BxTUplnDwi8_N4V4Wyc6UWsf17cjI0zbs312JqZKNvBSSqPGRfa8SKtP825ZggZeSJAT7tZhd7JzyM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "磯揚げ まる天 熱海駅店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7748209,
           35.6179823
         ]
