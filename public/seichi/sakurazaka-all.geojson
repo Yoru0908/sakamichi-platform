@@ -87192,6 +87192,61 @@
         },
         "sourceKey": "blog-71397-shibuya-tsutaya"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.653702,
+          35.663704
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:91ae292fe42405e900b4",
+        "sourceKey": "fumi-article:91ae292fe42405e900b4",
+        "name": "国際武術研修センター",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "東京都世田谷区松原5-54-5",
+        "sceneTitle": "2026.11.12 櫻坂46 二期生でご褒美&罰ゲームを賭けて気配斬り!撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都世田谷区松原5-54-5",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60142050.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60142050.html",
+        "tags": [
+          "櫻坂46",
+          "櫻坂チャンネル"
+        ],
+        "images": [],
+        "members": [],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60142050.html",
+          "mapId": "",
+          "layer": "2026.11.12 櫻坂46 二期生でご褒美&罰ゲームを賭けて気配斬り!撮影場所",
+          "tags": [
+            "櫻坂46",
+            "櫻坂チャンネル"
+          ],
+          "name": "国際武術研修センター",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
