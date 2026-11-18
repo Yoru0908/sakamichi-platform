@@ -7613,6 +7613,114 @@
           "contentTypes": []
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4703579,
+          13.7217762
+        ]
+      },
+      "properties": {
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:a5869dc8e5ac93c06249",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:a5869dc8e5ac93c06249",
+        "name": "大園玲 - Wat Paknam Phasi Charoen",
+        "category": "Private trip/photobook/others",
+        "subcategory": "Private trip/photobook/others",
+        "categoryColor": "#3b82f6",
+        "address": "",
+        "sceneTitle": "大園玲 - Wat Paknam Phasi Charoen",
+        "sceneNote": "description: from instagram Note: URL: Tags: Comment: Title:",
+        "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "tags": [
+          "海外",
+          "Private trip/photobook/others"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjDsY7aunMFGM5KRRyBF-oTvJ3B_8FXIjdfI-pZno5eTXKq0XOK0RAs9nFFnsuNFrCQo8NBkQr9RX6FtDyjo4Lpof7bWR40g-ue1gY2MbhjkyZkIOoHug31Lx_CqSbyf4rS_TqU562KTxQvIEmcDc29dGgpIVso4WBD8onxblN6_F65tXrHiXQBAbhkpChm917s4_cg1hy6f_ls-VnZBezjyeY36ftY4s1_EXNao8hNx0PPN57xfSNdPy0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "FULL of Sakurazaka46 OVERSEA Map",
+          "url": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "layer": "Private trip/photobook/others",
+          "tags": [
+            "海外",
+            "Private trip/photobook/others"
+          ],
+          "name": "大園玲 - Wat Paknam Phasi Charoen"
+        },
+        "classification": {
+          "category": "Private trip/photobook/others",
+          "subcategory": "Private trip/photobook/others",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.1414795,
+          13.7014064
+        ]
+      },
+      "properties": {
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:71de0d1f05356a41e518",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:71de0d1f05356a41e518",
+        "name": "大園玲 - Wat Saman Rattanaram",
+        "category": "Private trip/photobook/others",
+        "subcategory": "Private trip/photobook/others",
+        "categoryColor": "#3b82f6",
+        "address": "",
+        "sceneTitle": "大園玲 - Wat Saman Rattanaram",
+        "sceneNote": "description: from instagram Note: URL: Tags: Comment: Title:",
+        "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "tags": [
+          "海外",
+          "Private trip/photobook/others"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiJSXe1PZUGfMyD1oESBcx0Y9H8uYuKqBBOVIZwqn8xY1QPLJeluLEmqwZ4NxHArksJt5iyYYu3nJck6chui59qJYqdL7qLTPVYvUghAiPqCK9j29HHR2jR3KSJuLYT7rS6SkUCb2S9XsR68PTeyd91EVP2rxw-xYNGdAo2s_lifEOWkZHhDITBw2Rz0q8Z5PioAt_bWAAXwzHi_NVofgnfECknsYboo68ZjAsDoAnaq-3WTGJhdUsT3u0%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "FULL of Sakurazaka46 OVERSEA Map",
+          "url": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "layer": "Private trip/photobook/others",
+          "tags": [
+            "海外",
+            "Private trip/photobook/others"
+          ],
+          "name": "大園玲 - Wat Saman Rattanaram"
+        },
+        "classification": {
+          "category": "Private trip/photobook/others",
+          "subcategory": "Private trip/photobook/others",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
     }
   ]
 }
