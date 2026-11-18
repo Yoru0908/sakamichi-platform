@@ -128213,7 +128213,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "エトワール凱旋門",
-        "sceneNote": "映画「恋愛裁判」のプロモーションで渡仏したきょんこが訪れた場所。 題名:",
+        "sceneNote": "映画「恋愛裁判」のプロモーションで渡仏した齊藤京子が訪れた場所。 題名:",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -163487,7 +163487,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "Eiffel Croisières - Péniche TOSCA",
-        "sceneNote": "パリ五輪取材で現地についた佐々木久美がエッフェル塔と記念撮影した場所の付近 https://x.com/kanedakenshi/status/1819318998699593833",
+        "sceneNote": "パリ五輪取材で現地についた佐々木久美がエッフェル塔と記念撮影した場所の付近(2024.08.07の当時のブログより) https://x.com/kanedakenshi/status/1819318998699593833",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -163496,7 +163496,8 @@
           "映画・ドラマ・TV番組・雑誌・新聞"
         ],
         "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4l3cfqa-aQn9N8qJ3Z0rzm-cLQ7YA92R-ubEWIeAeYmgBKWFK6WVCIreGLoM-q3vwqUMUCAxJbYurATGHFVtufWy5eKXrmB4zBK-pmTLaHmUaBSQ-bttiyjh6laxekdTz8IpRYZwJm98wn6eYtrpUxUAj0tenLX3IJ5ZkBgnGkL_GKkjJ2y8V3Duq_ZSwFwwlZmCdy2GS-QnDNf4p3uiQ84ajMoBBw_cseiFx9bsHVIheRZDFGl15EpK0%3Ffife%3Ds16383"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4l3cfqa-aQn9N8qJ3Z0rzm-cLQ7YA92R-ubEWIeAeYmgBKWFK6WVCIreGLoM-q3vwqUMUCAxJbYurATGHFVtufWy5eKXrmB4zBK-pmTLaHmUaBSQ-bttiyjh6laxekdTz8IpRYZwJm98wn6eYtrpUxUAj0tenLX3IJ5ZkBgnGkL_GKkjJ2y8V3Duq_ZSwFwwlZmCdy2GS-QnDNf4p3uiQ84ajMoBBw_cseiFx9bsHVIheRZDFGl15EpK0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi4zwKS0qNC-Qr_z8KWsTvD4VBJUjKRYs9JzX7paKMg7LNpS2xHwCnoMVutQ0vtC4LxTJdXkdCXnrs8c6lpHjX5aEY_9OtbmIgBLU7nzNTEM9ut2dXzPqX_aGqd-4EaJuGgOs1zeVJkAvNPTUWyJKSJnl8y4XTw1qD72UM17JjEwIAT5OJ1g7TUBSznZYpw53s5RCWvh99Rcfo8CaQ1J53UDBEB3tQs7AycEQMO9a3WyTFvhXuLmQDwOjs%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -163509,62 +163510,6 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "Eiffel Croisières - Péniche TOSCA",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.2948719,
-          48.8741851
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3aee7bd7a223490410c7",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3aee7bd7a223490410c7",
-        "name": "エトワール凱旋門",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "エトワール凱旋門",
-        "sceneNote": "佐々木久美がパリ五輪の中継をした場所 https://x.com/tvtokyosports/status/1819572576986726433 https://x.com/hinatazaka46/status/1819569385713107005",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6FSsi7cB4Ier11lkvUnEnYCW_VkHzdKerFTaD2VZCUzYxn06nrjsTgUHqHNV4FgbYX3VzF4puVDDnFfPoysvcyGvPTemwRvW1S1oW_3IbD9FYogQIHzA63FQo-mQrRNo113bNsilZMrOrDIxfB3ZCwJzjUHGKmP9umNBHALGvzESm_mrP2co8ISFQoioK2Q2pBFU2eoS-pPxTVMGN38lhnf7ILkawUOX5ZJNge8TrXCnGjINTK_wWx5WE%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR70wr3htYTCKjo9LxLEm-G2oZCdFskTS_CmKcpAvuxQgOCnSe6LXh3wZMHXi4hme7Gye23wNcoVTRIa1oYzgsVT5_v666JPMZuHVaiJUx6RJiXtEsXcq1NDd_eHD08omRj4netCEGJC9x-jAH5FU8ANmG4Y8iJn-DB9H6izne7LfQiGmKoUj70Di7IJwTt9KIFljZkVPWsKDZrmQvkphUkh2aE2-xCUacseT7J7LIYRSs7KMFJwzKrrUZk%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "エトワール凱旋門",
           "group": "日向坂46"
         },
         "classification": {
@@ -163709,7 +163654,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "エッフェル塔",
-        "sceneNote": "五輪中継でパリにいった佐々木久美が記念撮影していた場所 https://www.hinatazaka46.com/s/official/diary/detail/56846?ima=0000&utm_source=dlvr.it&utm_medium=twitter",
+        "sceneNote": "五輪中継でパリにいった佐々木久美が記念撮影していた場所(2024.08.07の当時のブログより)",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -254589,6 +254534,230 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "磯揚げ まる天 熱海駅店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0771679,
+          35.1022509
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a1adf29b397ff084fafe",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a1adf29b397ff084fafe",
+        "name": "魚とや",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "魚とや",
+        "sceneNote": "2026.07.18 O.A.「三つ星MAP」で富田鈴花が聞き込みをしたお店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiw1DFAjdbWw2SDskCIW6BRtpjvoEp1_oT-DgfL0iozJUgoxGoIO1XIZ08qMcdQmHjipaZ1MfruF-CyVHUG9iFuUnIsgktlFkx6vN3Eur-pIxrQTeiHOSE3PFplkMQB5cG3599aMcINXGNTuCTs6-oF_kBihocrNX3rk7wWxZL-SdqigX8MeBPc6XyiX_SdwDf1s8zgNNWGa25Tnbt6iGbxsO8B8B0qoHQHjhDqL_DLg-Aj0zJsimWyW_Y%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgkm613-9u0McuNIt2FwCoaAjTVYkJIDRVMBEo3oCOIqY5Lfc9e7qalx6XSiIQSQw16XsXvpbB7pl30RxZ4_hCYjM41GIVAJgMFXYxxvuiCrCtxVtYhHHpLzt3usVsZlnjIjsczDwxoSyQA1IgxekRqjAicjPeJZnrGOrgOxmAwE-o2XAL4EEfdsrFbXAWMGDs2_vPNHQ4mfmCyKxMsbEpA8UZ2AlvXYSzgw1pcYN_qGBa_NdsRw1HBq6I%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZggz-B-53WuXTscRCkEywxiOyAUYrgbfdDv1tJYJACN1_LOhxnydv0LTtUI-KH762xC20MDzP6TatmtyQN8KGyxjjXUMCHorxnbPaoqe3diGEfyuIkjybUJkrl4z1FhA7Dz3sqorH9KrTGZaj8rUdoc_MuCOaDHsJbVJff9mnErBa-VLYVo_qNHeQn0JS6ZNCt7rIGNTvsEa4ji_n_4Mp99wM9Vyyyrx0qmjH5vZBBWPqGJbZcSqPfdGO0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhJtvL_QEwFrL6i574uCoxv_4FdaV4QgURgD-ce8MydHTFuFEGnrIo55h9EGkKnhm1VXLAgcbWKwXgGUqVgROsBs-vIKnrjJFsrDKwdGH8_BU55UVRykqjhULmqRZDTX4ukV-dH_7ld7YTzFlfeIiR2F5HX39i9nIOlgb-DoIrVvRWR_Temk8XNGmGb2QlXw2aPGPxfT6VqkiA3swWCqHlG77kpxFYbAwabHPmv-r6U5TNegA6_1M_1BRs%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "魚とや",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.2887807,
+          48.831363
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9dffffb6111e4369d23e",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9dffffb6111e4369d23e",
+        "name": "パリ五輪2024オブジェ",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "パリ五輪2024オブジェ",
+        "sceneNote": "五輪中継でパリにいった佐々木久美が記念撮影していた場所。右側の白っぽい建物がPavillon 4。(2024.08.07の当時のブログより)",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZim8fQlqyfmhWYGOGdWOSzmvsrSDDZts13Vgop027ZekPDoXdT3JQq5ZT08HerD5ytliCyakhs-3Z2NTGr2f0CfZEKnxjBK91UHTet6pW8bsIOSMwC3Erevt-wlLtMIJTFeHOcxM1sqkeaef2cRAfJBTauY5vBLUsn2_PYvA7h88jifL1vCbe5btyYAj7Hsd8X3C32QbLd9_-fH_CQ4SjBKl8J4x5FesBxOgJmr4rN81C8AY7OtJRbxF1g%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "パリ五輪2024オブジェ",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.0012347,
+          32.8385422
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3cb08313896e8e370adb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3cb08313896e8e370adb",
+        "name": "山水苑",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "山水苑",
+        "sceneNote": "2026.11.14 O.A.「たくなる」で濱岸ひよりが囲炉裏料理と日本酒に舌鼓を打ったお店。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjLZU573P-ior5oPg1RarlwqMrEwT6iFyYTrboA6B7SoEttvW4cUfWko3ndo4LDaPn6J9dGbo2Oo50DHq2bDBWUEdi800EP-nf0qYtY_cSVSGyQJFh70QR6Ip3PNnMafRt4lmSTD8fGoye25gGvlPmuaY0EhFZHINaS-YQ1lC8d-3cudkiNybzBZsNRK4k40fafK1W0G0lz4j3FrsZJsEcBI_-U0U7igl60EeIQ5mtoP8S61MY5ZNKQy5o%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "山水苑",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.2948719,
+          48.8741851
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3aee7bd7a223490410c7",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3aee7bd7a223490410c7",
+        "name": "エトワール凱旋門",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "エトワール凱旋門",
+        "sceneNote": "佐々木久美がパリ五輪の中継をした場所 https://x.com/tvtokyosports/status/1819572576986726433 https://x.com/hinatazaka46/status/1819569385713107005",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6FSsi7cB4Ier11lkvUnEnYCW_VkHzdKerFTaD2VZCUzYxn06nrjsTgUHqHNV4FgbYX3VzF4puVDDnFfPoysvcyGvPTemwRvW1S1oW_3IbD9FYogQIHzA63FQo-mQrRNo113bNsilZMrOrDIxfB3ZCwJzjUHGKmP9umNBHALGvzESm_mrP2co8ISFQoioK2Q2pBFU2eoS-pPxTVMGN38lhnf7ILkawUOX5ZJNge8TrXCnGjINTK_wWx5WE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR70wr3htYTCKjo9LxLEm-G2oZCdFskTS_CmKcpAvuxQgOCnSe6LXh3wZMHXi4hme7Gye23wNcoVTRIa1oYzgsVT5_v666JPMZuHVaiJUx6RJiXtEsXcq1NDd_eHD08omRj4netCEGJC9x-jAH5FU8ANmG4Y8iJn-DB9H6izne7LfQiGmKoUj70Di7IJwTt9KIFljZkVPWsKDZrmQvkphUkh2aE2-xCUacseT7J7LIYRSs7KMFJwzKrrUZk%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "エトワール凱旋門",
           "group": "日向坂46"
         },
         "classification": {
