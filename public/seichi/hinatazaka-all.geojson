@@ -41917,116 +41917,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7140266,
-          35.6595715
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3269dd75e956c98cc5bb",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3269dd75e956c98cc5bb",
-        "name": "ヨックモックミュージアム",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "ヨックモックミュージアム",
-        "sceneNote": "加藤史帆写真集 https://twitter.com/katoshi_aloha/status/1657219117684862981",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7U3HOMvPDozpKiVSiZpvGheQ90gvwMjuRJDq3Rj2TRrQ-Me7rmE0YkOERMeRELPSpPN277V4kQ5IhjwsfbHr7Wvt41IkT7SHhM3J6kIWJV04P9WpgvGqv9NTeSHI_0KqUBtW79RYk-H0awV9BzgUIYNO3HHoj8UhnorAfjfNB4h4wVYS87E0VTAAW9ytNVCKjZDw7EUm-v2J5BxSu88G3qNOQUNcbdNXMXqdED6fkH1hWfTf2LZXmB9xQ%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "ヨックモックミュージアム",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.7142961,
-          35.6591955
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a12eaf6c63d5d0cedd18",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a12eaf6c63d5d0cedd18",
-        "name": "ROJU MINAMIAOYAMA",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "ROJU MINAMIAOYAMA",
-        "sceneNote": "加藤史帆写真集 https://twitter.com/katoshi_aloha/status/1657234214624870401",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7xvCwraPgL7bNBn5D1DP0bDX6zHU9VY75A_Le-nXepnUH1k5pAZ9QKZXy4ZbkCgECoLFHdL1EN7QlR4ghuR2rf4RvbZZLjID3nY4YN_8w7J1yViHUWOAe_4rEDIkaoaER2yBzJFdsqwDgSrbn_vyDB2EV61E3Y8sF5XPu4zAHwqgf4KSMmymgfrWosN0_eB3NuZYDoQlIgIelDz6YzpcXN_Q_hPQRXdUbrxPNCqLCCaW3fhU1vaeOPNHY%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "ROJU MINAMIAOYAMA",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.6959053,
           35.6504643
         ]
@@ -42172,61 +42062,6 @@
             "写真集関連"
           ],
           "name": "叙々苑 代官山店",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "写真集関連",
-          "subcategory": "写真集関連",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.6949693,
-          35.6522829
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:743c7c75ae3c1d0d4cf8",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:743c7c75ae3c1d0d4cf8",
-        "name": "代官山鳳鳴館",
-        "category": "写真集関連",
-        "subcategory": "写真集関連",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "代官山鳳鳴館",
-        "sceneNote": "加藤史帆写真集 https://twitter.com/katoshi_aloha/status/1657332358524157956",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "写真集関連"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4eXAv4n5b8TFlxXnfh93FdbypO-ohZ87n6IimiqQe1TCDdaF8zGJfgLAhGkQgA4L-HhxuDV4bZccp2aEfayrNE3yst0AhGviInqI-ube6Sg_Lfil-W-M_yHm9A1pAA1TviDM2IkyIuPZ-GPh1IU4PDqo9grCg1KkRcepO7yThhnHxDyczTjQtiQbdncKEHWHCHh20MyWFgMbUa-BRbEzbdNie_ywXA_JknOmzT24bs3IZOUI6gY2FbDBg%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "写真集関連",
-          "tags": [
-            "日向坂46",
-            "写真集関連"
-          ],
-          "name": "代官山鳳鳴館",
           "group": "日向坂46"
         },
         "classification": {
@@ -101071,7 +100906,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "鼓門",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM&t=46 https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM&t=46 https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101127,7 +100962,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "兼六園観光協会",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101183,7 +101018,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "桂の木",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101241,7 +101076,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "噴水",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101298,7 +101133,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "瓢池",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101354,7 +101189,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "石川門",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101411,7 +101246,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "三の丸広場",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101467,7 +101302,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "菱櫓 ・ 五十間長屋 ・橋爪門続櫓石垣",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101523,7 +101358,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "五十間長屋",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101581,7 +101416,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "玉泉院丸庭園",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101638,7 +101473,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "鶴丸倉庫",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101695,7 +101530,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "天狗乃肉の前",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101751,7 +101586,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "近江町コロッケ",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101808,7 +101643,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "あまつぼ",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101864,7 +101699,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "舟楽 近江町市場本店",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101922,7 +101757,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "近江町いちば館広場",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -101978,7 +101813,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "ひがし茶屋街",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -102033,7 +101868,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "茶ゆ （甘味カフェ茶ゆ）",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -102092,7 +101927,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "能加万菜 THE SHOP東山",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -102149,7 +101984,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "秋聲のみち",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -102205,7 +102040,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "梅ノ橋",
-        "sceneNote": "日向坂チャンネルで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
+        "sceneNote": "日向坂ちゃんねるで上村ひなのが訪れた場所 https://youtu.be/-4ghhGwyWHo?si=jaHKlMrm7J647NIM https://www.youtube.com/embed/-4ghhGwyWHo",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -102248,20 +102083,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.2885655,
-          36.3616842
+          140.2217965,
+          36.3464533
         ]
       },
       "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7f4e30bd1ff0f5f9191b",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7f4e30bd1ff0f5f9191b",
-        "name": "北山公園",
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2a23b3005852c4151844",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2a23b3005852c4151844",
+        "name": "笠間クラインガルテン",
         "category": "日向ちゃんねる関連",
         "subcategory": "日向ちゃんねる関連",
         "categoryColor": "#5BC2AE",
         "address": "",
-        "sceneTitle": "北山公園",
-        "sceneNote": "https://www.youtube.com/embed/KNQKDl7kFuk 【芸術の秋】画伯No.1決定戦！情熱のお絵描きクラブ爆誕🔥出演：石塚瑶季 小西夏菜実 渡辺莉奈 坂井新奈 蔵盛妃那乃https://www.youtube.com/watch?v=KNQKDl7kFuk",
+        "sceneTitle": "笠間クラインガルテン",
+        "sceneNote": "【ひな栗】蔵盛妃那乃の栗拾い！大量収穫で絶品栗ご飯作り🌰 https://youtu.be/14fPwLy3efc",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -102270,7 +102105,7 @@
           "日向ちゃんねる関連"
         ],
         "images": [
-          "https://img.youtube.com/vi/KNQKDl7kFuk/hqdefault.jpg"
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi9WX0jErpc7-nw-ULnT2O2fByAxUFKIo1geMRJZVfhiJOvcKYh2dX6TV1k-h-BbE_B02edEyiVUixt9rxeZj_XTDVkQPo-Tam4iLZZdJlcLl0MDKDLBKq8kkwYKjzkPbh7Ttmp-gQo8iflAM2342V3VOimfWOzzEzAxLhqsyITwwA2i6t8YZMkajBhuXvhhROw6su-2GNZbqHTRrxnXhgUAcmS5s2xSKhB_-O2fsY2d2jTlCaQ7xdcMhc%3Ffife%3Ds16383"
         ],
         "members": [],
         "source": {
@@ -102282,7 +102117,62 @@
             "日向坂46",
             "日向ちゃんねる関連"
           ],
-          "name": "北山公園",
+          "name": "笠間クラインガルテン",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "日向ちゃんねる関連",
+          "subcategory": "日向ちゃんねる関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.2885155,
+          36.3629321
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6e97c82807996c71a051",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6e97c82807996c71a051",
+        "name": "市立北山公園 管理事務所&休憩所",
+        "category": "日向ちゃんねる関連",
+        "subcategory": "日向ちゃんねる関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "市立北山公園 管理事務所&休憩所",
+        "sceneNote": "【ひな栗】蔵盛妃那乃の栗拾い！大量収穫で絶品栗ご飯作り🌰 エンディング 石塚・小西・渡辺・蔵盛・坂井 https://youtu.be/14fPwLy3efc",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "日向ちゃんねる関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiTp-tv9DM_zQfkGgwfUwUgWr3Po0PbPdfvf2gN94pVKugIK2X7OT9AEejOCu54xA7fPYwuLq4i5I-uslGelhmRw8yl6xVSAsGb8sKobfY8F7RpUC1-JfLX2QNQp-xduVi-gZXDQi3zPVilN8oWEXRWEYHnIVJ6cyh-TlMF6IG4R1aSyNjPO7o8WkTnIicXqAkf_bQMIYyE331r1jFbATTlJT1pydpsUyLhM5qv0w8EQiOo1AexeMvNi4Y%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "日向ちゃんねる関連",
+          "tags": [
+            "日向坂46",
+            "日向ちゃんねる関連"
+          ],
+          "name": "市立北山公園 管理事務所&休憩所",
           "group": "日向坂46"
         },
         "classification": {
@@ -254822,6 +254712,355 @@
         "classification": {
           "category": "映画・ドラマ・TV番組・雑誌・新聞",
           "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8031171,
+          35.6629657
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9211a557ffae5252f7fa",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:9211a557ffae5252f7fa",
+        "name": "Purple STUDIO",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Purple STUDIO",
+        "sceneNote": "「週刊少年チャンピオン」2025年no.42 渡辺莉奈ソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZin9-hu4A07IrT6O6NR_qekYLspEvArlpqVsWcgpCWj7qpJYc2vxGBUOnKCQdSnjZgPpN0tRbX66UFtaUeY2sAJuKFctD3qFI5ApwZbLMMNhYK6NeobxOpV6McFH0AIS0W9hUhThXSv_7Ycv_4jt7gAB7JlS8Ls9ILVOfwpOvn9ZzhHlx7WGP3Ccm9JSjo-q9HWsYJm_DuS_7otC4oUkE0k7s79UQ14e_tuWBAmwnsU9fI5R7wEUIHE7oA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgAiZlCvohO1DVzBlUgTPZjwhR-YUi5C0p8yHc6WN5Yxzy91O-JAlEQC6rLdCmGlWW87NgwSHRyxEkKYvAXtNY0PkIZH7sL-6h9dk6zVnkBPmfe_inNn_fcf6G5_eH9kopiuVWk4dRImyfbm9wPy0uXOAL8zejtyBRU8UQ9HT_T-AX3SspAYcQCWqd0XQSlBJUujWUeqqeSqf0iw3ITHUEy2Aweh4WEbiVvlbWj02ZTM3o6DD4m7NEPbww%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjzgvKPwvI15XkxKeaX9YpQQigKVhsRC0Ir-mtZFCMpGGCSPs76dbqq4c8iLj7ZuLCmMGYPk7Rr9XrVZ02BX6GgGCJ0ym4eZo7T7UWrW5po-iaYSimnStI_SAkYMnNftLtFGd7Sagcc2ISlO9x9NoR-sQxBz3BHF2Ssa4_bXVek_cJHxbepvcMqwh3Y09K8w-RxeODDqtpE9oqN83WLpnRdJHU-bzpKcFamnO93QdoLZ-T-uR2eICFOZMw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj1EPCZsKpibLoQv7uImaiGuIqTwKL1BwUqfg3Enr2ubI4VRPEIKS41wgaBZ6rYavKp74ztp6HyqxvXC6YU4KPCjLYKmUx-jHcmc4RHzshSBNKni4o-VxpS9PDiQsdEUCVs0WmQ4O_ukK8r6tmn1Vz-4iYCO4S5P5LGY09GUomHp3E03yzuD8MFqeQCI558exmAqfmjT33PmxQpFwhjXoj8ixItt_O9YBo_N5hRO0nAvPQuooZyLW1bvrA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhZ2Wk1lVaKY5HOI6F5Tb5zGPxCPkuz96GERtdlfLSU-x9WOyzLzMbsWS_4ML-6nY_Nz1LpxEDKRZrsZ2Ki6UknzmdpZAqm9kcP2RL04MnNQXXKvxDnUIuNdOi2WzK_qAIUU3BIU2kQbaYrj1HOUc6s4PSY1rSmTtv8qDRYR6TSdOD3LUVd-qZo39J5Fefb7InxiWcMh7Hpe2OtzEaqKUSiJCBVQ9-GaMfBGZ2vxDd0pxhNF3G-DYX_6NM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZieBC_F2Io_E07ZCSMUPF4EP_E5ukuwUrqLPPEhJTy_ijPB9PlXHYfwv7gaX_eZ8b050l9OiTpgWsetBrL7wa455k2wiajBncOu4-D_401iY71F8Qvjy8vQW8PWcILhUqRG8wBEkGhjjhnX_bX2dQq0EBorWU72_z5Rog4CwFkzO45AxM40yygK-buGQw8oMd_UnWVT33aij_L78KWV8u8Q3JmnfM9poZaCX2TJcZFmxhj1an_5NtRzmrw%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi602LeTtFPOT5Y9abGWa7df7xDBC14GXGFm7xJlBnVjofBF6Uv9YCbTyWWGjZEzUXfPGFlhq-MsF9PMkOCKMeY9va2DblU_g0SBgtRzSgyTJNQjF0S0a6xsUOd-g4qpUH13fXOHJV9alv_tLasm_J2gqZPDLVOsBRA5miHfxY1_zrT0dXUBtpCR5vnQq_4fSrgtZ8qI3N-G-4-ZBsGgkKKx_MndcsnwZ7WXV7kNbmGY-2VVZpUvc8_I9o%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjJhFfY3OZrDIurXDwKsX63Qw6HM8gjkFCstlOSSPHH-DaZH4Vv5q1_a-_O_DueWWtLegehRJkhkBgLBfXAAeaidPdYS43Se3dT1KAB_gqrrMrSvztJck6lYkqhM8dZf2bsitEf5hPmDubiRknQOfPTk3O8Ib6LZA_qFbP27rehj7l0bVjNsU4nKypX98jETW9PNZGmTel9RaMEg6MeHhqbGo1GB4WbOeFajzD5tOaFmD5w2ISlruroL-U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg5HPKyc-6N_Ki02uMH6V1Kt7AAGTrAxqp9_eNcaLUEy7aWTtTaXRy9ZsVLWQ3XwnBs4e_YejbHFqz7G6YaJ-uU-wm-hNZ6dTFYX5oa24rixX2_gxDezjBkiWVPp0lBKKyOYl3OVqYKLDHvmOEEksw59bZvtdxJg8yZfGj4fUGp-QtOxAOkLvNextgWVoTXAaVXT3JGhUQSgq-Wg5fhaOH3iSTt30rfrekw88JAwxCsKLvA3-9BZC6f0Oc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhbiUEpNx_w8gn9uzQnZXLMn0_9Dz1Kq6cSWXERVrZ21DRa2afLfJpPN0bRVG1HebxgW0wlaDRfCCCjnSnVVkTWDkYFOBe46wVBNMIyUNTR5IZvx1mu4RnbiX_GphbOZlfX0V0WJukCYsR14VwytKgq68sOScsonDgasLgUz8W_cUvZtligjYQirH-hX_VhhX2omT6gRtG9AlR-uyUz7o0__8mzEv0j7Or8c1nSxOOqZSeTejZWBXjJHJI%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh0jb0w545L1vlqB5mI5k71ryG8uOD2hpIEHU_DlMcVMSKtLZOtDPpN39-PchmEn3mOpkhtaqZl8xo63YybzycmEdCZ5T7k9jndlLqV_xGjHzVZlqxzb0aJcz-Tj-mwtp3RiiLrAA3_jP0UxWJAMdUWyh4HpLUBcIT3ngBycm1vtZIqBeILUOmBigfokI_w318NhEJr4mmkER8cnT-iiU6B3OqthuG3m-9xW5fvB5hxkzlu_zKOFWzfgrc%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh6eYXxt3HJeitAz-eJNLwj7INX5XtJM9VgeDZl7jP8s71BbhU411qdXc-2WoRIiLC5sjzOdxuJ6Qg_zLtgy5KsOeknsJqOx2Y94xIi0EiV8VWrTx_3wvIvGlcJRso-vRiU1leGWqgKx81vVMGtlKZBrcWLg_nWkBPCiMzK-JZ9AP87JwTFiLM7y9NBrrso2orOcpL4HOTnEiQnNSL20tTPZMzIJCAGeNNNHu1kj6tsiM2Wye2wpwr610s%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjSTqjjGGBFQSxb0PTyPRfpuJAcCR71X-6TIx7bJ_ClgKlL8KSxjMNaulrBQzDIinwGKb9GYP8V6Xp1DmsZ8z8W4JJu0qxVL7mAdv2HdSPQBwFK7lqhOyu69CgGEeL1EAOAG5e0ABAQxppEFFKaRn_YX3QhbvGygcsj_56AwuDtq-uVPvnikz51lIkKxC93YED3jopWpsMKuMCFbf3axowZ0-MbgskBeIN2rw0f5g7FTqQKHeyqBKeASyM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh3iEgQx87rrCwUWgKJlWX1Ze30MMRcqxBhjDbw0d7fG77OKFi0r7Gzi9Sp2VextVA4E0-e7M7J6wuFGZT8bTw1WWMOfDexyPGpOA9_5Fs5bqvx-NqhnF50_8JY4mDShODfDQRt3q8gs1Az1X01vUiWucKeNllAHfx4WOEF7UTdDU7i0arhljZmfXzts5D6v9tXctF45Cd_HmT0l0mev4X4IleJWGMPr0RqLayIb2tyaMiSq5YGX5TAzgM%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgPnV8PNQTbZCfWhymW1MqdMepR_xd278tOzyf8LFar_xfefN82q7rH4Mid6MVgi0GlJcavMiwMboUVZSlguUEBecOpSxiACGAmWTkPbivHrHCPoh4crKvvzFVV2_c3jwMij-TKTIw1H9bNqDpeX79d7MFFqKr9pvlBa4_ngJ-YJ0sgXYWAjMUUfKLaByBXGsi6o37xv2pKB0WjIWQfu9wQymJ3PxjLfpfYS_9ovdQ-3qdQNgT0cYncvJE%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "Purple STUDIO",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.8031171,
+          35.6629657
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3e264557ae40d0193dec",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3e264557ae40d0193dec",
+        "name": "ヒキタカ木場ビル(屋上)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ヒキタカ木場ビル(屋上)",
+        "sceneNote": "「週刊少年チャンピオン」2025年no.42 渡辺莉奈ソログラビア撮影場所。背景の東京スカイツリーとイトーヨーカドー木場店からの推定。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgmgbGMwfQlv6xthSBD-pLhtg704Mdu9LGLk0EMD99WNw4MxKiP5KveU2zDnSgtUKuanJOEV-Y2hsKUD8LKQsMhghHwv-YCGzme1MMIRnmPiBYV_gTKlSUvmRdjn86M25j04bNv4iNYGzFlfM_jheJPkVwY47xfYckLJDhFknGsuNbG0mQEYDN1xF_bsr4MBVv8P1bG1-dOkZ5kDb61GF4oAZctcvEySeynX9no9RtAWiLciALwaLLbiho%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhD53DxXQks6hMOdcFRb77lGsy5gDfPa0lIN0YvM25ePNgUZTDj2aATFkuwoSbcihPTG1acaSLkEdDyIN9j9Mw-YBh57-PQ2B8IXwmIQpulyYh1Y1G6ifyV8q8m2LPlf_P307cvke9TbtAXWJVeYKQ24vuNbogj3zDWh8zRSMmoar81__-aQUdELp7vqGxqI38eeg0S3iWNJ5aaqTIV7dADJrJ_yw11jWiAQsgKr0UemRSp8HBgagHLMfY%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjrMa1OButQi-1OpANB9AM1ZXFLjABQc08g9Yh-zgjT4S9Di6cNRPwLRy6dxKqnYdMAGxvv4CH13wj91xPMV_litWvwkfBg0QkJDHg0OFnCE1GP-7E6M-efzGAMEIHuwR4xivIKECbB1q-EzamxHfL38TLA0ankbQChSStPvEOWzvsmIlGGlxajWBmhhyBUYEhdw2L0fKg17o6wdZh2J6s9n6yCl2IcfcLuGNmb6cfsG7yfeeuHxF7F_lA%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg7o7pOwzpzJQozIwpKlitSYhre8KuR4w59iwcCQ6h2au05Br3KLSUu6VldbzRkNjg5ItIelBc1LCpzTx4gY2wZ8JqzkB5vMiYfTGAIVThv0AYKWoL1lilacdIw2G2u577j1Xf4H5nc1MWNJrgXEMSzSAJL1QDM34RB1ArdsptWyfZ6o3jXgiuoBXwdjpsaZdqXzqOoUy4r_3nJHdbIzwPKkcNNgIc9XCvxaybA-MlqTWl4TjmjU0P2LPk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiQGvrEyPA8UO8pnlYcilBrSU1j2u2e6sp0ryspTFAkTtbdUN5bK5JFjefsEhOC__M5ZPujhSO96cIIGCADou41TYIe-bHp9adwG9RlfHgM4-tiDFMdJ1pG7Ft9bB9Ot4N95nisbLeeObJUSsQlr3Y88e8whZO2wKogT9PqPCuiKy3qyiAtv2rtYm_XzeXWS4pD9vB3eaUxZ2vt50AwgTf9wGuySCMkZRvJsgeyEmPT7GHq03gHNgHNFN8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZh8OL7FGg6Nd6zWMgVMJ7waM9DwP3-WXJQFeuxjnqs42ROYAX99M3dYXtKaWCzL4TseMhoTGqC2G_Z-QZpQPDoa4EZ7q2LOOmmhiGQDD26WTK0srJNm2c5u_PRpFu3WlUfPhXWFSu044EzqoJ8pcgCoDpySTh973TwFQyrlU6L-6x8_0bGSMD-tQAqepB1EQp2dlEA7IDoIyUrBxaJr4VZRx-I96fyz8z0d1NGT1upGekIZRG3hLwyVHCM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ヒキタカ木場ビル(屋上)",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7140266,
+          35.6595715
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3269dd75e956c98cc5bb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3269dd75e956c98cc5bb",
+        "name": "ヨックモックミュージアム",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ヨックモックミュージアム",
+        "sceneNote": "加藤史帆写真集 https://twitter.com/katoshi_aloha/status/1657219117684862981",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7U3HOMvPDozpKiVSiZpvGheQ90gvwMjuRJDq3Rj2TRrQ-Me7rmE0YkOERMeRELPSpPN277V4kQ5IhjwsfbHr7Wvt41IkT7SHhM3J6kIWJV04P9WpgvGqv9NTeSHI_0KqUBtW79RYk-H0awV9BzgUIYNO3HHoj8UhnorAfjfNB4h4wVYS87E0VTAAW9ytNVCKjZDw7EUm-v2J5BxSu88G3qNOQUNcbdNXMXqdED6fkH1hWfTf2LZXmB9xQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "ヨックモックミュージアム",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7142961,
+          35.6591955
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a12eaf6c63d5d0cedd18",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:a12eaf6c63d5d0cedd18",
+        "name": "ROJU MINAMIAOYAMA",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ROJU MINAMIAOYAMA",
+        "sceneNote": "加藤史帆写真集 https://twitter.com/katoshi_aloha/status/1657234214624870401",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR7xvCwraPgL7bNBn5D1DP0bDX6zHU9VY75A_Le-nXepnUH1k5pAZ9QKZXy4ZbkCgECoLFHdL1EN7QlR4ghuR2rf4RvbZZLjID3nY4YN_8w7J1yViHUWOAe_4rEDIkaoaER2yBzJFdsqwDgSrbn_vyDB2EV61E3Y8sF5XPu4zAHwqgf4KSMmymgfrWosN0_eB3NuZYDoQlIgIelDz6YzpcXN_Q_hPQRXdUbrxPNCqLCCaW3fhU1vaeOPNHY%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "ROJU MINAMIAOYAMA",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6949693,
+          35.6522829
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:743c7c75ae3c1d0d4cf8",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:743c7c75ae3c1d0d4cf8",
+        "name": "代官山鳳鳴館",
+        "category": "写真集関連",
+        "subcategory": "写真集関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "代官山鳳鳴館",
+        "sceneNote": "加藤史帆写真集 https://twitter.com/katoshi_aloha/status/1657332358524157956",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "写真集関連"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR4eXAv4n5b8TFlxXnfh93FdbypO-ohZ87n6IimiqQe1TCDdaF8zGJfgLAhGkQgA4L-HhxuDV4bZccp2aEfayrNE3yst0AhGviInqI-ube6Sg_Lfil-W-M_yHm9A1pAA1TviDM2IkyIuPZ-GPh1IU4PDqo9grCg1KkRcepO7yThhnHxDyczTjQtiQbdncKEHWHCHh20MyWFgMbUa-BRbEzbdNie_ywXA_JknOmzT24bs3IZOUI6gY2FbDBg%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "写真集関連",
+          "tags": [
+            "日向坂46",
+            "写真集関連"
+          ],
+          "name": "代官山鳳鳴館",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "写真集関連",
+          "subcategory": "写真集関連",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.2885655,
+          36.3616842
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7f4e30bd1ff0f5f9191b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:7f4e30bd1ff0f5f9191b",
+        "name": "北山公園",
+        "category": "日向ちゃんねる関連",
+        "subcategory": "日向ちゃんねる関連",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "北山公園",
+        "sceneNote": "https://www.youtube.com/embed/KNQKDl7kFuk 【芸術の秋】画伯No.1決定戦！情熱のお絵描きクラブ爆誕🔥出演：石塚瑶季 小西夏菜実 渡辺莉奈 坂井新奈 蔵盛妃那乃https://www.youtube.com/watch?v=KNQKDl7kFuk",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "日向ちゃんねる関連"
+        ],
+        "images": [
+          "https://img.youtube.com/vi/KNQKDl7kFuk/hqdefault.jpg"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "日向ちゃんねる関連",
+          "tags": [
+            "日向坂46",
+            "日向ちゃんねる関連"
+          ],
+          "name": "北山公園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "日向ちゃんねる関連",
+          "subcategory": "日向ちゃんねる関連",
           "method": "source-layer",
           "status": "source"
         },
