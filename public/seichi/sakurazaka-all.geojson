@@ -87247,6 +87247,88 @@
         "coordSource": "gsi",
         "coordPrecision": "lot"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.389984,
+          35.691425
+        ]
+      },
+      "properties": {
+        "id": "fumi-article:17619e63cceab41e26d4",
+        "sourceKey": "fumi-article:17619e63cceab41e26d4",
+        "name": "たちかわ創造舎 (旧多摩川小学校)",
+        "category": "Vlog・企画",
+        "subcategory": "櫻坂チャンネル",
+        "categoryColor": "#0891b2",
+        "address": "東京都立川市富士見町6-46-1",
+        "sceneTitle": "2026.11.18 櫻坂46 学校貸切って隠れ鬼ごっこ!制服で爆走!撮影場所",
+        "sceneNote": "fumi Diary 2号店 の公開記事に掲載されたロケ地。東京都立川市富士見町6-46-1",
+        "sourceLabel": "fumi Diary 2号店",
+        "sourceUrl": "https://fumichen2.livedoor.blog/archives/60145711.html",
+        "referenceUrl": "https://fumichen2.livedoor.blog/archives/60145711.html",
+        "tags": [
+          "櫻坂46",
+          "石森璃花",
+          "遠藤理子",
+          "小島凪紗",
+          "向井純葉",
+          "村井優",
+          "稲熊ひな",
+          "中川智尋",
+          "山田桃実",
+          "櫻坂チャンネル",
+          "四期生"
+        ],
+        "images": [],
+        "members": [
+          "石森璃花",
+          "遠藤理子",
+          "小島凪紗",
+          "向井純葉",
+          "村井優",
+          "稲熊ひな",
+          "中川智尋",
+          "山田桃実"
+        ],
+        "source": {
+          "provider": "fumi Diary 2号店",
+          "url": "https://fumichen2.livedoor.blog/archives/60145711.html",
+          "mapId": "",
+          "layer": "2026.11.18 櫻坂46 学校貸切って隠れ鬼ごっこ!制服で爆走!撮影場所",
+          "tags": [
+            "櫻坂46",
+            "石森璃花",
+            "遠藤理子",
+            "小島凪紗",
+            "向井純葉",
+            "村井優",
+            "稲熊ひな",
+            "中川智尋",
+            "山田桃実",
+            "櫻坂チャンネル",
+            "四期生"
+          ],
+          "name": "たちかわ創造舎 (旧多摩川小学校)",
+          "group": "櫻坂46"
+        },
+        "classification": {
+          "category": "Vlog・企画",
+          "subcategory": "櫻坂チャンネル",
+          "method": "source-article",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        },
+        "coordSource": "gsi",
+        "coordPrecision": "lot"
+      }
     }
   ]
 }
