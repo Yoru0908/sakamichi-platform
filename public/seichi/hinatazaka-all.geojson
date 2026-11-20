@@ -157904,6 +157904,64 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.9690606,
+          35.7623443
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8fd1f850037bf08f9a87",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8fd1f850037bf08f9a87",
+        "name": "大慶園",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "大慶園",
+        "sceneNote": "2023.05.08発売「週刊ヤングマガジン」2023年no.23 渡辺莉奈ソログラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhsuMvOPKXkx8pniWB2nQEE62uNg86IZgv-dy1kujPz1PxMoV_13FqRUy8zfjyB08T9hAkjb_1wIhdqSzKkj1MwO9xU1_QgelXqdR-7PYEac8wIUJ2t-7UJEn8GObvTSsiEkl5qnaLfGRVDIRQdKK3LW6QuWLFpOl7OdpHvWNv3k0ly1lNnJhm6UCWmUAYAA9I7JDlFzYEIT2MVg-l_9M0itTt0UXflvr4MurOAUsTZlV1yR7gmW9NpQo4%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgZEpg8ZDmZBXX_YgmwgUs7iqVEZc-E6FttLUW3EKtSEvrhRpRk_aIlWrNJIgpf6vI3EbgaHvWf-EzKKA85WYwbeieAp6ZDL8Q2oXceXiWxLQi0XGTAfnUnMAO87PuPnpqknj_uLq6iS5TETWzdYbNpeLDbXZdvcuo9HIBvePLIgph2vSYTGQXLagfVRexGrQShitWnWXFF4LlDFlPEMrR-Bj79JwsqkD5C42spC3D7yrc3U5YHQcH0qKs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgPzL2CAsETwHBOw2CzBgGj62K9cdQcjwjjx6hIDU0wr7uZuj53ZUBdEvUFAVjryl-Bb2zpysGv3YWZAPgiEI4o0JWfQPUYLf1xeej3wY4p_2JAl_U_rcfngZJbRP_v4heM50JIVkPn0RGK9w3hhMaZvW-QETb7O15RJqhwT-Ph6O6g451fND3EDS4KEys-MeNaeFZJIFJR1VsiM2kz4GGLcXGJZTK4sYvI_jlpgfDfZ1t_uouLhoc7IY0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiz47Zz0qbJQmGR0Sges0PuCWfIINIp8ycayrsEBQRG9nS1cIEG8EazJM3AS7qO5MXQoak8R5CYy2SE6Mc_lQ4IqJEGgEsE6L49HwDrRSgfH_tPmgOc6v1fP1TSzeES-S4yR_nO8PDwEPjRTDA9K6rC7dQT316oUB2xnou_NYEvjNim_uIF0mtRl_HT4gksQGXXT94pEqJ0cRAnHpO-GskRleYsfTBE8bElDmvo7NznrdgzAbGe1a4OWJc%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "大慶園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.9352441,
           35.2460194
         ]
@@ -254592,64 +254650,6 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "ランデヴードブロカント rendez-vous de brocante",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.9690606,
-          35.7623443
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8fd1f850037bf08f9a87",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8fd1f850037bf08f9a87",
-        "name": "大慶園",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "大慶園",
-        "sceneNote": "「週刊ヤングマガジン」2023年no.23 渡辺莉奈ソログラビア撮影場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhsuMvOPKXkx8pniWB2nQEE62uNg86IZgv-dy1kujPz1PxMoV_13FqRUy8zfjyB08T9hAkjb_1wIhdqSzKkj1MwO9xU1_QgelXqdR-7PYEac8wIUJ2t-7UJEn8GObvTSsiEkl5qnaLfGRVDIRQdKK3LW6QuWLFpOl7OdpHvWNv3k0ly1lNnJhm6UCWmUAYAA9I7JDlFzYEIT2MVg-l_9M0itTt0UXflvr4MurOAUsTZlV1yR7gmW9NpQo4%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgZEpg8ZDmZBXX_YgmwgUs7iqVEZc-E6FttLUW3EKtSEvrhRpRk_aIlWrNJIgpf6vI3EbgaHvWf-EzKKA85WYwbeieAp6ZDL8Q2oXceXiWxLQi0XGTAfnUnMAO87PuPnpqknj_uLq6iS5TETWzdYbNpeLDbXZdvcuo9HIBvePLIgph2vSYTGQXLagfVRexGrQShitWnWXFF4LlDFlPEMrR-Bj79JwsqkD5C42spC3D7yrc3U5YHQcH0qKs%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgPzL2CAsETwHBOw2CzBgGj62K9cdQcjwjjx6hIDU0wr7uZuj53ZUBdEvUFAVjryl-Bb2zpysGv3YWZAPgiEI4o0JWfQPUYLf1xeej3wY4p_2JAl_U_rcfngZJbRP_v4heM50JIVkPn0RGK9w3hhMaZvW-QETb7O15RJqhwT-Ph6O6g451fND3EDS4KEys-MeNaeFZJIFJR1VsiM2kz4GGLcXGJZTK4sYvI_jlpgfDfZ1t_uouLhoc7IY0%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiz47Zz0qbJQmGR0Sges0PuCWfIINIp8ycayrsEBQRG9nS1cIEG8EazJM3AS7qO5MXQoak8R5CYy2SE6Mc_lQ4IqJEGgEsE6L49HwDrRSgfH_tPmgOc6v1fP1TSzeES-S4yR_nO8PDwEPjRTDA9K6rC7dQT316oUB2xnou_NYEvjNim_uIF0mtRl_HT4gksQGXXT94pEqJ0cRAnHpO-GskRleYsfTBE8bElDmvo7NznrdgzAbGe1a4OWJc%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "大慶園",
           "group": "日向坂46"
         },
         "classification": {
