@@ -15977,6 +15977,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.739776,
+          35.6983579
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:56f7ed7745ed167795e4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:56f7ed7745ed167795e4",
+        "name": "東京日仏学院（旧アンスティチュ・フランセ 東京）",
+        "category": "シングル・アルバム（ロケ地）",
+        "subcategory": "シングル・アルバム（ロケ地）",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "東京日仏学院（旧アンスティチュ・フランセ 東京）",
+        "sceneNote": "19th『アーカイブ』ティザー https://x.com/hinatazaka46/status/2124104681156935892 題名: 19thシングル",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "シングル・アルバム（ロケ地）"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg7GDJtdIzw69C82MDfFqd3ImLBO5V4GqQ4bJUGJtEWJGl1x_X8MWPdAKCivMvYFESlFV7stNoPC2Q2NLX6uir8EdnfCTq41oZcSxb_1MCjRRpAQqTRPIhPWoofhnl6nvSd_A_scAU-xNY9MwtZ86mjfM1_8T4XUldWPPggjaD1S1tcU2Zq2_xaUZJdY470stphXczaaCp5pRWAooMPuWrq0uy9sVFyR9qMTC5YNT4sFq0GBXFL_I0z5tc%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "シングル・アルバム（ロケ地）",
+          "tags": [
+            "日向坂46",
+            "シングル・アルバム（ロケ地）"
+          ],
+          "name": "東京日仏学院（旧アンスティチュ・フランセ 東京）",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "シングル・アルバム（ロケ地）",
+          "subcategory": "シングル・アルバム（ロケ地）",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           137.4590857,
           35.3996834
         ]
@@ -254776,6 +254831,61 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "Purple STUDIO",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7252375,
+          35.6100785
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec6689776c9b987c4cb3",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:ec6689776c9b987c4cb3",
+        "name": "品川学藝高等学校",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "品川学藝高等学校",
+        "sceneNote": "【豪華YouTube特番】『抜き打ち！胸キュン♡テスト』 https://youtu.be/31R9xW9So4U",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiAr-9ZxtFOzo_A5cnyBUgfwJciO-UN3WSuySOqkLc9XlAWwmIxw4G4i0yc5TCjWhlAbq2PuSJshK4FP7ELAqE9CLMYofy_vO0vCohMR1HZl2934SQqHU-rQHUv3vS0EZrKSJpUiOpm33ql9OuZOrIeuC6bmpV56gvDTHJgB6ZtGUAh3UFeLLDTgw9pydWcnE1iwOIzx9JO9ZSjxLL2wYiLKpEStscEFPi_IMQkHQsmh0QWsH1jMCTvMDw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "品川学藝高等学校",
           "group": "日向坂46"
         },
         "classification": {
