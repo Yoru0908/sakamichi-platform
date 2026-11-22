@@ -233151,6 +233151,63 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          139.0772562,
+          35.1022046
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6fa6a3bba7e1f27c45f4",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6fa6a3bba7e1f27c45f4",
+        "name": "熱海仲見世商店街から田原本町交差点へ抜ける路地",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "熱海仲見世商店街から田原本町交差点へ抜ける路地",
+        "sceneNote": "2026.07.18 O.A.「三つ星MAP」で富田鈴花が地元の店員さんに穴場スポットへの道筋のレクチャを受けた場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi7hju_Qrr3jP1fSJzz1AP5SSAZaT5AaxFHYSRc8jwT17Rtt1zARz8J23FTYY-1qt3vTU_bVpmFsh9s_HbQsohildeNKGDLvPeRcIscNZs5C-tm9Ct1vqNKAZaQtaUpZ_RpYpoLdGsdencFo1L8ZnPlYD5qvSXpbr5mDRy_67dsfGWNOjCDlioIiZXCxmEHDS-W0fvrzTzT8zxLqIw0GtUoJQXgYP8sPDdCaBIizFxeUkoDPs0-ViUOXqo%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj_0Tg97CSo3xF0vjV5WU2tNjLdfSHaOJMnYS_mxcvM4TivWcXpM6fgI8UWeDKuh6hnW_2a5FGtvl2pTM9NMIlRqRaSzKK2YXt6aDLUuu7t-DhgpN5OgG2pLEL8ChM6C2-wafSLGsoLBuB1KtwP0WI-W9R9XpFRAyFyWh9fZeUu8F4-8l9j42cRNSVQhCQ1S5SZXvTrawIetnBa40EkJ8FqOqCMTaEBisBCPVLUaarNsNNEP8OXr07PrhQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjjas9hXB-w8-HE0fD6WNkIA6TcZIOiart_KSsv20PpP8XJHEOOhfZRSE-LNYdjMngSSkOkhUkypMAr6sE5boSoG3ph5rNT9La6DFIXRTaY6EQzcd1PrmdGPpWVUhLO-J890nFit3BppchASoEHCPu1m_a8gYyjOuen6-z2_BwALRNDcKLuvHOWplnp4dHq7PtRmNgygrRV-0gszYE-vwp8rZlM7mNt8AbFkawW1ecxQwqAN5UTjiQoztQ%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "熱海仲見世商店街から田原本町交差点へ抜ける路地",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7051675,
           35.7132606
         ]
@@ -254707,63 +254764,6 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "ランデヴードブロカント rendez-vous de brocante",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          139.0772562,
-          35.1022046
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6fa6a3bba7e1f27c45f4",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:6fa6a3bba7e1f27c45f4",
-        "name": "熱海仲見世商店街から田原本町交差点へ抜ける路地",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "熱海仲見世商店街から田原本町交差点へ抜ける路地",
-        "sceneNote": "2026.07.18 O.A.「三つ星MAP」で富田鈴花が地元の店員さんに穴場スポットへの道筋のレクチャを受けた場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi7hju_Qrr3jP1fSJzz1AP5SSAZaT5AaxFHYSRc8jwT17Rtt1zARz8J23FTYY-1qt3vTU_bVpmFsh9s_HbQsohildeNKGDLvPeRcIscNZs5C-tm9Ct1vqNKAZaQtaUpZ_RpYpoLdGsdencFo1L8ZnPlYD5qvSXpbr5mDRy_67dsfGWNOjCDlioIiZXCxmEHDS-W0fvrzTzT8zxLqIw0GtUoJQXgYP8sPDdCaBIizFxeUkoDPs0-ViUOXqo%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZj_0Tg97CSo3xF0vjV5WU2tNjLdfSHaOJMnYS_mxcvM4TivWcXpM6fgI8UWeDKuh6hnW_2a5FGtvl2pTM9NMIlRqRaSzKK2YXt6aDLUuu7t-DhgpN5OgG2pLEL8ChM6C2-wafSLGsoLBuB1KtwP0WI-W9R9XpFRAyFyWh9fZeUu8F4-8l9j42cRNSVQhCQ1S5SZXvTrawIetnBa40EkJ8FqOqCMTaEBisBCPVLUaarNsNNEP8OXr07PrhQ%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjjas9hXB-w8-HE0fD6WNkIA6TcZIOiart_KSsv20PpP8XJHEOOhfZRSE-LNYdjMngSSkOkhUkypMAr6sE5boSoG3ph5rNT9La6DFIXRTaY6EQzcd1PrmdGPpWVUhLO-J890nFit3BppchASoEHCPu1m_a8gYyjOuen6-z2_BwALRNDcKLuvHOWplnp4dHq7PtRmNgygrRV-0gszYE-vwp8rZlM7mNt8AbFkawW1ecxQwqAN5UTjiQoztQ%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "熱海仲見世商店街から田原本町交差点へ抜ける路地",
           "group": "日向坂46"
         },
         "classification": {
