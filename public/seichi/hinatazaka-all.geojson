@@ -232923,61 +232923,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.0791272,
-          35.1011561
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2b4df4a8a62529eac1ac",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2b4df4a8a62529eac1ac",
-        "name": "熱海市春日 KTX付近の坂道",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "熱海市春日 KTX付近の坂道",
-        "sceneNote": "2026.07.18 O.A.「三つ星MAP」で富田鈴花が歩いていた下り坂。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhjue84rh-S5Faz0gAAKuVjN2y335KgqjnCZcDkUL8Cw9VO7v2XeO65t2yMu4f1HTWJXo2kmapN_5KzULiUxu8-Nb-V8sAoNKN2Uf0DvWcdfzp_q4NO2e9bDXcrsuN1uvTiXCgV6iVkPALyyrl9iuecfRWp5GZZ2u013SaWJNur7-GiLgV_K-czuE-NVbb6CW7oye-54H7jyATB66dfrgbDDRQvN4_0SbAO3EZIYZL3qWs9RLltvVZEtMM%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "熱海市春日 KTX付近の坂道",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.077242,
           35.103925
         ]
@@ -254944,6 +254889,286 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "品川学藝高等学校",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0779999,
+          35.1019573
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8b180ce2b087ea0f6328",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:8b180ce2b087ea0f6328",
+        "name": "熱海温泉 湯宿一番地付近の路地",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "熱海温泉 湯宿一番地付近の路地",
+        "sceneNote": "2026.07.18 O.A.「三つ星MAP」で富田鈴花が地元の方に教わった穴場の絶景スポットに向かって歩いた路地。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhW9jctPHcdAyr3iedb47wMoYI55Ht2hP8Wbrggo8ebZlLZ9rfAzWtRiSIe3zFfvvqHSSx1M60mizVGtqVz-sacQCRVcygSgzuZ9mSx_jtU-IUvBPYrhGe0noJFiy417Te-B1YSJ5iv82w7LvY-M0cIiVS_vjpCPx4z7kJhifA1_1Jcoz6SjUHpkoNtKljRVNnDn38yDclm1ebg4nMwCl5lHl8NeHc8UxtCBGA2weZWWq1BYh-bR-OLikQ%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhPg2sEyzAbmpQNZMfMw_drYwctXPWvBRFnzqaqShxiMlxLUooy7Ts8UN7lz8wrInJTlej4oiLLM_mYEtoDW3UdZpcphhT8AHmBwiuKDD3anMNIIPsUc5s-dKGX0ZcQodUY-qAPad2UhKb7XIIaMRYtVzWp6o8onoSzCPUkmW12UbcVg9nhG2rYeibV65OS1gKySBXrZduEkxdIICuFLCThyQSPzJ_8V9aoC60-ERvbrXkH7Og7uhiirA8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiw4XsAwpqKwjZWHcQQ0KU58OR6MADlJAna0z3FeBb64UcGPv3h-V8qWgonvOJaGOfxLO7cACEKg99Je2vk8_6Id79bWb1MP3qRRY-YuD9hougQZliB_kWdn9YUAYA7cy8cYJ98dZohww1BCXfh1rANQLxwPcbEEWBhHkC7owFk6zDoaIOZ4SKmAYLQNY-szpPwcg1iBkLOjJD0c4L-dH3S7cBpzohoRIiwNX_jt939rcM_PLJHY5xGn7k%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhp8Iy7SxoKXmxO0RgZSPFPVHqWI-Aym5Gf1eqvKGVgwoBRPV7suParNHgFtpuSuVfzIcA9ALxmmZ4ha0QwIKfNqi66bQ6ZgCtIYF0fvQ5E4U0l7Rnb1C1e3zFJdfaM4v1tGI7ELhpfA89YtxnBrgXd8u1vWv_dsd24Q5lxDI4ZyJuWF6MBBRBQ6luSHRx_gH90LpErJOImrNE6iOv7Kcq4HTFeRDiYhF9jUu4aHxRMmXh4ZTf3kTJcOII%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "熱海温泉 湯宿一番地付近の路地",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0792736,
+          35.1014943
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cf04f2d94f72b4f853f9",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:cf04f2d94f72b4f853f9",
+        "name": "熱海市春日町1番付近の路地",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "熱海市春日町1番付近の路地",
+        "sceneNote": "2026.07.18 O.A.「三つ星MAP」で富田鈴花たちが絶景スポットを発見できずウロウロしていた場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZixNlUv5WlLVWOgNH1GqbDC_VdhP6PvW2PrO4kqjq-q0IhLVdYRPk72luUr-HzCurZVBSFRIXsN9Yfv619cl_NvX_iVrDU8HaTC01NiYWOGUMGTI5SCqtueBuMPia6iBXT54zkBiIHtEvg_rS25B6c8WJL5aWCgTyVIiyylzYySr5Jc2gjqct8u3frwbIkG4QBXPtQ9vC_ciDP_daHJs2k1d70Zs6cH6gBzQ7hreoK8yH1cAbHu5ewkWdI%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "熱海市春日町1番付近の路地",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0806875,
+          35.1014987
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1bd34fe169c38b9be9dd",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:1bd34fe169c38b9be9dd",
+        "name": "熱海市春日町６番付近の路地",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "熱海市春日町６番付近の路地",
+        "sceneNote": "2026.07.18 O.A.「三つ星MAP」で富田鈴花たちが絶景スポットを発見できずウロウロしていた場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjKqTS2H3f4RWhho1WnnEJPAb0QGjuiZR6r5opYyUzcEpBtXerTcJGXCk2GG5UfPQGhMnTj5wxhxsZjtqvwJ77f9t9PhINAO7b_B0ElsMZoyNQuLSoyliNm8w-ysyWYZAcjMQWV7zd1FkpjZfMRlEUxpwuAP1mEXSU_ZlaGPn06iuCGOfU0swB1l0C2Onc_pfWWLrLs7Wmnu9YoZR3U5NeBbnSK3ShksmiKAhW4UPmAS-Vp63NZzVhHJ0M%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "熱海市春日町６番付近の路地",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0779005,
+          35.1029405
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b133572b74b8a5c1a87d",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:b133572b74b8a5c1a87d",
+        "name": "熱海駅 駅前広場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "熱海駅 駅前広場",
+        "sceneNote": "2026.07.18 O.A.「三つ星MAP」で富田鈴花が国民的大スターの何たるかを思い知った場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgQB0V3LmFm-UEcz_XWO8yfF1PY6IAJdsLQVg7tnN_o0wMeykwD3BtjkNGBebojIDg1l9fIFsUTEOFXZSoD_A5UD3m0ma0ORWXcL8XYW0GHGAkqBAyqbmGo1IRqCaMNhYzC8NFdfv-w8ab7CgwKyT1_waGbWfPZ4zVMeaUNpgWBr_-uAb7-cIRmG6XErmccScXLI0Wf72uWmvgXl6MairZtdtVLph6BDpDy7583Au1jrKCEPSc_F9UGDb8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgWyu0q1S2Wzq0kJ-evJjy04EU-kbCbjhxo6HiZcb4fZgvtn2QgkkSESA8v5Gj7DO6bevWLjKm3fGjXpqhshvolcKhSoXdgzNRZrKbe1LAGFwEnhKYGYn1GeNbLEHGb5mOAOSng4UiGSzRpb5qFyD_ckaKU4goR4t4yuZc3-BmZQtTggIprqdU0jq71gnY_JRqbPtvShTQgpLUay_Eks5yKbRajX9cSrY4tLv80Tl-KQQbloln6dIVzd3M%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiKqnsKSG_gyq1Jw08gdx3WL3bgS1B74K7phASHF14Yl0hmvioZ8-lplbVDQqrYV31RX3aFR1rZKhnCR4hkcbiUU-3PYeCkpgq8IPtI7nTXjX-jXtmo7GtSWxRElu_bqC9DBNh48Piz3z8mEZPFsvQPYkzZSL__3VW4AkKpPANMD2nwMFMzr_BBrJz7dWitKFYqTtuFI6XRy2HpZM9t5xoBg3H3F1eRZqpAFdtKNQDxtKz3AmxzJmYdbTA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "熱海駅 駅前広場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.0791272,
+          35.1011561
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2b4df4a8a62529eac1ac",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2b4df4a8a62529eac1ac",
+        "name": "熱海市春日 KTX付近の坂道",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "熱海市春日 KTX付近の坂道",
+        "sceneNote": "2026.07.18 O.A.「三つ星MAP」で富田鈴花が歩いていた下り坂。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhjue84rh-S5Faz0gAAKuVjN2y335KgqjnCZcDkUL8Cw9VO7v2XeO65t2yMu4f1HTWJXo2kmapN_5KzULiUxu8-Nb-V8sAoNKN2Uf0DvWcdfzp_q4NO2e9bDXcrsuN1uvTiXCgV6iVkPALyyrl9iuecfRWp5GZZ2u013SaWJNur7-GiLgV_K-czuE-NVbb6CW7oye-54H7jyATB66dfrgbDDRQvN4_0SbAO3EZIYZL3qWs9RLltvVZEtMM%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "熱海市春日 KTX付近の坂道",
           "group": "日向坂46"
         },
         "classification": {
