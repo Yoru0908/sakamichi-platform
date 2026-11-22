@@ -151426,6 +151426,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          135.5034302,
+          34.6673793
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:41754c8ed411a8c440ce",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:41754c8ed411a8c440ce",
+        "name": "河童ラーメン本舗 千日前店",
+        "category": "メンバーブログ・SNS・その他",
+        "subcategory": "メンバーブログ・SNS・その他",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "河童ラーメン本舗 千日前店",
+        "sceneNote": "蔵盛妃那乃がひなくり2026兵庫公演のケータリングで再会した上京前にずっと通ってたラーメン屋さん。（写真で「千日前」とあるので、こちらにピンを打ってますが、種々の状況より箕面店あるいは高槻店の可能性も推定されます。）蔵盛の推しメニューは「黒河童ラーメン」。2026.11.22ブログよりhttps://www.hinatazaka46.com/s/official/diary/member/list?ima=0000&ct=40&dy=20261122 題名:",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "メンバーブログ・SNS・その他"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg8yHI0KtVPaRzOTgVw1PebAcDnZVGRxtbTTokcPOIIl5tl9zAlM2T0x9pblOl-RxwUbm6AuY62ol7fZUM3a-ZQaoGwyT1j3dttk4Xi5PE0dzWM4NX0oaKMsABldX0Ee3kG7jroDO8iVbWIVTJ6vm4-bSzzOsbJgHm2L0Kc2r9jYOYt6hleQXEcDkNKXS2HRs3npAhZDQjU0scyA6WSL-2dIvETVfI0CzBoAx93zeS33VUJpCSDowcQmIE%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi4HmciF39EMhDoKypstA16wCCj6pXAXb3Y_kHilmpJEpIthZ4f8u7WoMDKgl-k7TBGJMuJ5PnpmeENUALDwykau-xTdRImQPd4LuQD4_ifNZ1go0GmpnKzUsK2a2H45Yu-1ZtCHfupo1YdIXK2ATIqHoGaYszRWrFPysBTqc8XmIKubRhVdd_UMnVScz4uP7Cv3GXjnZhkpYVPeM4n6VT6ESrRRvcoy1PU4vwYCyt5HMMm76FR7_0xLfk%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "メンバーブログ・SNS・その他",
+          "tags": [
+            "日向坂46",
+            "メンバーブログ・SNS・その他"
+          ],
+          "name": "河童ラーメン本舗 千日前店",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "メンバーブログ・SNS・その他",
+          "subcategory": "メンバーブログ・SNS・その他",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           139.7387671,
           35.652231
         ]
