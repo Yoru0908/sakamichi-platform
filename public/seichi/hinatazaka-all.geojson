@@ -153949,62 +153949,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          139.7458189,
-          35.6570216
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:08f033ee83deff4ba67b",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:08f033ee83deff4ba67b",
-        "name": "東京タワー下",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "東京タワー下",
-        "sceneNote": "週刊ヤングマガジン2018年19号の高瀬愛奈と東村芽依のペアグラビア撮影場所。",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgWB8TVj0PYU2lxzEsCUcQgACy65qLpYXnjmsWCT87oMcXhkGsJGGhclvR_Z2KqkzPx3BaA9c21vcq48kI0QxYj4VUiKsEA1I3GyIHTYcHCob8qBJ46n7D_wu_pB1v9Jy_KQoV2NbKaV3_BHE2crLQLBnuowRHZWR3sAvSjCubTO0-NrT8syuUIfLN7u15WfPCIFTbiYtVpX7_5JKeMm10GFBZrpjPD7ESy-uJMg-KI0rOCAag8DIg3bA0%3Ffife%3Ds16383",
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjFRVRlJEUKhBXU83u4IJfZnSE8jCzkrPaWlpUJ7iz3aa-Ohzo3j90AyBjM7eavMOdFzwNvci90k0iLl2DKRI_tfzBNYM-77ZFYOWS_Xnd15ScHUPdykfU8VxlX658T0kyZ9JLBLsln3rb9bux1T0oS0wQ5IIjhfay8rNpAY3UrTmZDKfqwOf8plqoXUdqN68UQtXG5tZkpFsQSwT5Zz7YujPzyjf-7Z_o-pjPhPtNN5nieOCg8FvkxE-8%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "東京タワー下",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.7374728,
           35.5790009
         ]
@@ -154018,7 +153962,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "atelier NORA 大森 -studio laMOMO グループ-",
-        "sceneNote": "ENTAME2018年５月号での高本彩花と東村芽依のペアグラビアの撮影場所のひとつ。",
+        "sceneNote": "2018.03.30発売「ENTAME」2018年５月号での高本彩花と東村芽依のペアグラビアの撮影場所のひとつ。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -154076,7 +154020,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "美原児童公園",
-        "sceneNote": "ENTAME2018年５月号での高本彩花と東村芽依のペアグラビアの撮影場所のひとつ。(筒状遊具とは別の公園)",
+        "sceneNote": "2018.03.30発売「ENTAME」2018年５月号での高本彩花と東村芽依のペアグラビアの撮影場所のひとつ。(筒状遊具とは別の公園)",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -154132,7 +154076,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "大森東一丁目第一公園",
-        "sceneNote": "ENTAME2018年５月号での高本彩花と東村芽依のペアグラビアの撮影場所のひとつ。(ジャングルジムとは別の公園）",
+        "sceneNote": "2018.03.30発売「ENTAME」2018年５月号での高本彩花と東村芽依のペアグラビアの撮影場所のひとつ。(ジャングルジムとは別の公園）",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -154154,6 +154098,63 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "大森東一丁目第一公園",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7458189,
+          35.6570216
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:08f033ee83deff4ba67b",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:08f033ee83deff4ba67b",
+        "name": "東京タワー下",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "東京タワー下",
+        "sceneNote": "2018.04.09発売「週刊ヤングマガジン」2018年no.19の高瀬愛奈と東村芽依のペアグラビア撮影場所。",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgWB8TVj0PYU2lxzEsCUcQgACy65qLpYXnjmsWCT87oMcXhkGsJGGhclvR_Z2KqkzPx3BaA9c21vcq48kI0QxYj4VUiKsEA1I3GyIHTYcHCob8qBJ46n7D_wu_pB1v9Jy_KQoV2NbKaV3_BHE2crLQLBnuowRHZWR3sAvSjCubTO0-NrT8syuUIfLN7u15WfPCIFTbiYtVpX7_5JKeMm10GFBZrpjPD7ESy-uJMg-KI0rOCAag8DIg3bA0%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZjFRVRlJEUKhBXU83u4IJfZnSE8jCzkrPaWlpUJ7iz3aa-Ohzo3j90AyBjM7eavMOdFzwNvci90k0iLl2DKRI_tfzBNYM-77ZFYOWS_Xnd15ScHUPdykfU8VxlX658T0kyZ9JLBLsln3rb9bux1T0oS0wQ5IIjhfay8rNpAY3UrTmZDKfqwOf8plqoXUdqN68UQtXG5tZkpFsQSwT5Zz7YujPzyjf-7Z_o-pjPhPtNN5nieOCg8FvkxE-8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgSY_YxySw-qLgywDM1nU7WC3y6QoB8H5uqqpDhIbXq534ydVNjS1Hx1tMvj7hktpOLrUKhDXNyDxMnKO1wHVNHsWN-FJqgFrqimFpX8D5jhqRsPDPsTSzZg7biBnqPrsNax6xZao2ovPmuNsNUVy01lH5F_pNacLKZ1MY2UYG7Ov4KfU5snLYw6BjKd0LpY9Rzg9F0LMT9I3F5zU_tgpDJEygw9oWQFvc5V4NiKV24eF2gQZtZARw8cXo%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "東京タワー下",
           "group": "日向坂46"
         },
         "classification": {
@@ -154643,7 +154644,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "小籠包専門店 七福",
-        "sceneNote": "2018.09.15発売 「EX大衆2018年10月号」 東村芽依グラビアの撮影場所。",
+        "sceneNote": "2018.09.15発売 「EX大衆」2018年10月号 東村芽依グラビアの撮影場所。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -154804,7 +154805,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "台南小路",
-        "sceneNote": "2018.09.15発売 「EX大衆2018年10月号」 東村芽依グラビアの撮影場所。",
+        "sceneNote": "2018.09.15発売 「EX大衆」2018年10月号 東村芽依グラビアの撮影場所。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -155721,7 +155722,7 @@
         "categoryColor": "#5BC2AE",
         "address": "",
         "sceneTitle": "レインボーブリッジ下",
-        "sceneNote": "EX大衆2019年4月号掲載の柿崎芽実と齊藤京子のペアグラビアにて、お台場から水上バスに乗船しての撮影ポイント。",
+        "sceneNote": "2019.03.15発売「EX大衆」2019年4月号掲載の柿崎芽実と齊藤京子のペアグラビアにて、お台場から水上バスに乗船しての撮影ポイント。",
         "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
@@ -157771,6 +157772,234 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "震災遺構 たろう観光ホテル",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          142.4913056,
+          43.5425977
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3ba8b2236616f0cddee1",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3ba8b2236616f0cddee1",
+        "name": "ファームズ千代田 ふれあい牧場",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ファームズ千代田 ふれあい牧場",
+        "sceneNote": "2022.06.01発売「週刊少年マガジン」2022年No.27で小坂菜緒がグラビアで訪れた場所 https://f-chiyoda.com/media-4/",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5mTN0eNc6VTcdfjvubndlO4qHnbAGA-UJ8BAECaKlKz3-OMlH_AFgXl4lPEHBF-uvD0kZ5TXN0s6btGuUhFmpYIl_4KDbOFjzmlbw_jwEYxGo50Y14FLYbbhkxXPu-R4k0e0DXf1o13hg1KxA9m1tgAand4z4VT9vh0azp4QgjLXhl7pttPoLGiphnUyGZ6n_2eMeFnH7m0dSP6IaWUxYHTxnDWwg2-uzPL0rOPuRLmPs4K2EUxPO1OHg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiiKMApV42rXur3I326XmyIMMD5G4nos_JPNRMc4xG9nmxooWqOaQn8boGu3FbNhj2VJah9jOZmZbSFq8uKR5JvZ1ghuWEiY9RBrmxVhxN1htSkRGg48oOf9guyKcyq-pdVDtXCiDmvIwmm2-B8gMVmEtlZe6-EhyDZqPHf5T2wzsstwyiqV15wS-H06COrsCjWBr0WWGnASzJtxYppOPXenNNelpIexPm14071U1aZLMwp7544ZPAHgwk%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZg2RtAYggt_K0kzB-H7t2i2boL6bXbzpnZCN-BO1R_SOHi59DIZuu5USrsJALvhkHThRwzlz6RV-g1uKWrWnFvDPW8FcJHE5S20WDndesY1wfK3yZY-P3Vb51To_3qfSnHOAfZRAan3djv7yV2Y60XFroQltIhVix2790QTwrxZ7bWbZTSPuRlvnekL_hFk989Go_ha9If_8HCL9muASxUl-V-PZ45G66KgM3-EXORHiXADRpLUIIOUyj8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhGb_W3vAtoQHQI1PxWFBwobG1iN_FH5BSCoDOw38Y7UXzLWE8BWxrhn_yGcE43VmRZa74ECqCdjCmcyqMTUyIInJwUzwdKseKg98EtSnyefe0_jFXhKo-1Qnc2xPLwh96R_uj83DqSeiL-6Si8lIgVjtbMMnoG0ldhD6WXwoDtjC_oy2xtJKdKhzHcEozuteegLQMjGL39cDT-JSrpgEsxqOM5QF1BrKVTm2YDH0N2nmWp1gnEa5JIAO8%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiweQchH2RsZGcFfodOlmouAavEZSoHGRnd4-0WUNa6h9S6MtB0-sP-6jv03XjlSYIBdevtZjroZXu2eEdXEcbQx6B1H4Jf6smYP_oJkImcJQ_RWfofu0ICERyuXU9vjQ8RalpfE-dfkIa_DdJIgOMFVxzGEhut4DRUwQLzSDR0tldqjnTuH3TTmQejn8-Gwyd_CpzAQFe1X9O0OF3azVtjzVoBhDZV0n7H3ATYKuygpHuPreXcCMddm3A%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ファームズ千代田 ふれあい牧場",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          142.4670921,
+          43.5292391
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:58fee81d8801666a1bbb",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:58fee81d8801666a1bbb",
+        "name": "Ritz Garden Niji Pension & Restaurant (リッツ ガーデン 虹 )",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "Ritz Garden Niji Pension & Restaurant (リッツ ガーデン 虹 )",
+        "sceneNote": "2022.06.01発売「週刊少年マガジン」2022年 no.27 小坂菜緒の撮影地",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiBD_VX6mbPQ_p_dToXzORXywI7ld1BZDSXE-qhCmHMbBJ19PeGgJ3AzCJjNcSSPiSix3b5ZxTKf7g1BLo9nHfmuklXUlARIpqLaXalX7hksdX3P8gSZmEsoTx2VBd2gzDC20zXVUwdhjLewi42pN3DHiHaAFxCWOfLCHKd4kcj53xq-o6j6s20AvDCojlh3dSFEK7GuLC_cRPsrVVf6BFFr5sfhUPP4sbnbaIzxdQLKnymlHY9-W-XK3E%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhClMpXzWUC6eyc-tLngldwqWR84dwFR986i3FBlYDu9mYC461dSAT8xI6L4Y4cq30vAeS3igqtJNUaFxk8rUgnXDCApFyw3ql2fcHMH-RSI80sVMFBLjFNNWq1T1qVZ_UPpuG6Cjj0rqlDRObUJWUsFWeI-f7_u2ImQsmk-kYBcKLBydQkKwvVJP-x_YA80s3uqv5Dt4yv4677-UF3sjp219zAuaVRsQlq6vVoSmsYR53DRB7WWhy0ywg%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhm2uMKzO0cNL31sIk2uOFEdhkRqgHJR6BYwqmkxT8HbZ2J-0O6PwEBYkxai-w41rOJbKrE5qU49yjG45Pn2jhCQ4fPw-iyIqWKIA9q32U_LzG6LLmeE_ljUOI_ju3RaaLi3JmFWdKKvnTqc6Qg7EXIPTEdI5Nlov7ZWUOTxlNLyjo6UxaKHpRns2hmlxntlCw0tPhmUQZt8bJDv65cDuYt-EM74kE6N8y71NQfYi8WnMtS1crYPk88XcU%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "Ritz Garden Niji Pension & Restaurant (リッツ ガーデン 虹 )",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          142.4650234,
+          43.5291183
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:37e2b7be452fa625e623",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:37e2b7be452fa625e623",
+        "name": "四季彩の丘",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "四季彩の丘",
+        "sceneNote": "2022.06.01発売「週刊少年マガジン」2022年 no.27 小坂菜緒の撮影地",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6KEO0_iUHk9XkHyXkd2swqKmJvVPoTI46w4O23ySNyhnvpTB8RlQVCdDcHGm7C1nEAdUSycKRbMps3DUf0QQaZ-Rsstp8OHubgCSb2AmHbxHZv41zU-B6IQDivBQHRlCuNT2oBGkGEnjTH1RxB3aVsaa7TlaiV1bUWgFQGvsXA82wzHOxE4yLoQRQUSuWrWMW6GJWjGWpl9Q9swxyuR2rBnWKaqwoxR-Ua7tcifon2JLWrqv12VQbH_G4%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "四季彩の丘",
+          "group": "日向坂46"
+        },
+        "classification": {
+          "category": "映画・ドラマ・TV番組・雑誌・新聞",
+          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          142.3747128,
+          43.3006718
+        ]
+      },
+      "properties": {
+        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2c539c7b8c8a192c33f5",
+        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2c539c7b8c8a192c33f5",
+        "name": "ゴリョウゲストハウス(Goryo Guesthouse)",
+        "category": "映画・ドラマ・TV番組・雑誌・新聞",
+        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
+        "categoryColor": "#5BC2AE",
+        "address": "",
+        "sceneTitle": "ゴリョウゲストハウス(Goryo Guesthouse)",
+        "sceneNote": "2022.06.01発売「週刊少年マガジン」2022年 no.27 小坂菜緒の撮影地",
+        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+        "tags": [
+          "日向坂46",
+          "映画・ドラマ・TV番組・雑誌・新聞"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgyiZ-sAcCgKeBSL-V36RRnbwprzkbrmq2_3TcCsQXVEGS22fVXw1T1BmaAnqu7VO3l1obulGSjkGJYqbImKCXAokSMBPvHyWIBJwzs1QUaFADZRLK5AOLE_-TKVLhDoaC3pK361KNu1KANephVjTw-XYXIEB55K6VWP-tmg7L2Azj_H89krhB2Sx_8WPvMt-9glQA2_dBeD-ta7F933_S2DXSHUUxIc9MwrSqVEtdgw7ftRGp4nv0knDs%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhvsYXnRnELnx-VoskMhZN6Kuuxi_IbOtLenEPNRUTYZwdxSX_ZCC7WvTuLJE64RIrDqUZno6bNVARNri4IhSjAdmk0j2dhXeleGWEYAH0xGfzCPEJnz1jvfdPn2updZS-Kg2YGS3B-dRPc0sRK0fY8MNlhniTiH7KNcrT3iqnC7sUmr2O5WHkdRG-zu2njvjfm3DjBgL_DBOW7CdAfr_TPfJQqamlVnBIZhMmOVFcZDdgAbrmDWe2a07U%3Ffife%3Ds16383",
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZilFPNiTHXGNMSQucx7HLk5MLsB6HrDENl4rp03EXJlgYGkrXjyWn-aKVB1jUcU_NrOVKsdSy5qHeqz8ntpLFJv_EB-8YupXTr80M2TYyB1dAy1BEnmad5KnAbdMLWmDqm_1EB4k9UdSNDZrfYUk5tkErRfLnpf0FQm-KqAQ0hauqYrOrPyRCXzepA2ZtEeDZ-IsRb1m_nZFQSB4KyMa5xVfTt3DEdk7UZBO7SiQgIk2-fZFW-a2ryjDgA%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "清水ひなた 日向坂46聖地マイマップ",
+          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
+          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
+          "tags": [
+            "日向坂46",
+            "映画・ドラマ・TV番組・雑誌・新聞"
+          ],
+          "name": "ゴリョウゲストハウス(Goryo Guesthouse)",
           "group": "日向坂46"
         },
         "classification": {
@@ -192819,61 +193048,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          142.4913056,
-          43.5425977
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3ba8b2236616f0cddee1",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:3ba8b2236616f0cddee1",
-        "name": "ファームズ千代田 ふれあい牧場",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "ファームズ千代田 ふれあい牧場",
-        "sceneNote": "週刊少年マガジン2022年No.27で小坂菜緒がグラビアで訪れた場所 https://f-chiyoda.com/media-4/",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR5mTN0eNc6VTcdfjvubndlO4qHnbAGA-UJ8BAECaKlKz3-OMlH_AFgXl4lPEHBF-uvD0kZ5TXN0s6btGuUhFmpYIl_4KDbOFjzmlbw_jwEYxGo50Y14FLYbbhkxXPu-R4k0e0DXf1o13hg1KxA9m1tgAand4z4VT9vh0azp4QgjLXhl7pttPoLGiphnUyGZ6n_2eMeFnH7m0dSP6IaWUxYHTxnDWwg2-uzPL0rOPuRLmPs4K2EUxPO1OHg%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "ファームズ千代田 ふれあい牧場",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           139.0878352,
           36.4697911
         ]
@@ -200016,167 +200190,6 @@
             "映画・ドラマ・TV番組・雑誌・新聞"
           ],
           "name": "大和ホースパーク",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          142.4650234,
-          43.5291183
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:37e2b7be452fa625e623",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:37e2b7be452fa625e623",
-        "name": "四季彩の丘",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "四季彩の丘",
-        "sceneNote": "週刊少年マガジン 2022年 27号 小坂菜緒の撮影地",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [
-          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3AAjQbR6KEO0_iUHk9XkHyXkd2swqKmJvVPoTI46w4O23ySNyhnvpTB8RlQVCdDcHGm7C1nEAdUSycKRbMps3DUf0QQaZ-Rsstp8OHubgCSb2AmHbxHZv41zU-B6IQDivBQHRlCuNT2oBGkGEnjTH1RxB3aVsaa7TlaiV1bUWgFQGvsXA82wzHOxE4yLoQRQUSuWrWMW6GJWjGWpl9Q9swxyuR2rBnWKaqwoxR-Ua7tcifon2JLWrqv12VQbH_G4%3Ffife%3Ds16383"
-        ],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "四季彩の丘",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          142.4670921,
-          43.5292391
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:58fee81d8801666a1bbb",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:58fee81d8801666a1bbb",
-        "name": "Ritz Garden Niji Pension & Restaurant (リッツ ガーデン 虹 )",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "Ritz Garden Niji Pension & Restaurant (リッツ ガーデン 虹 )",
-        "sceneNote": "週刊少年マガジン 2022年 27号 小坂菜緒の撮影地",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "Ritz Garden Niji Pension & Restaurant (リッツ ガーデン 虹 )",
-          "group": "日向坂46"
-        },
-        "classification": {
-          "category": "映画・ドラマ・TV番組・雑誌・新聞",
-          "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-          "method": "source-layer",
-          "status": "source"
-        },
-        "classificationCandidates": {
-          "members": [],
-          "projects": [],
-          "contentTypes": []
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          142.3747128,
-          43.3006718
-        ]
-      },
-      "properties": {
-        "id": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2c539c7b8c8a192c33f5",
-        "sourceKey": "mymaps:14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ:2c539c7b8c8a192c33f5",
-        "name": "ゴリョウゲストハウス(Goryo Guesthouse)",
-        "category": "映画・ドラマ・TV番組・雑誌・新聞",
-        "subcategory": "映画・ドラマ・TV番組・雑誌・新聞",
-        "categoryColor": "#5BC2AE",
-        "address": "",
-        "sceneTitle": "ゴリョウゲストハウス(Goryo Guesthouse)",
-        "sceneNote": "週刊少年マガジン 2022年 27号 小坂菜緒の撮影地",
-        "sourceLabel": "清水ひなた 日向坂46聖地マイマップ",
-        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-        "tags": [
-          "日向坂46",
-          "映画・ドラマ・TV番組・雑誌・新聞"
-        ],
-        "images": [],
-        "members": [],
-        "source": {
-          "provider": "清水ひなた 日向坂46聖地マイマップ",
-          "url": "https://www.google.com/maps/d/viewer?mid=14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "mapId": "14Otcijw10dc-Fyu1P-q-BygLgiLK2sQ",
-          "layer": "映画・ドラマ・TV番組・雑誌・新聞",
-          "tags": [
-            "日向坂46",
-            "映画・ドラマ・TV番組・雑誌・新聞"
-          ],
-          "name": "ゴリョウゲストハウス(Goryo Guesthouse)",
           "group": "日向坂46"
         },
         "classification": {
