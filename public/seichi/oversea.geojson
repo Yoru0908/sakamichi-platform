@@ -1238,7 +1238,7 @@
         "categoryColor": "#3b82f6",
         "address": "",
         "sceneTitle": "Karin greeting card",
-        "sceneNote": "",
+        "sceneNote": "2024 Nov",
         "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
         "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
         "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
@@ -1246,7 +1246,9 @@
           "海外",
           "2024 HK (tenkarin & clockenflap"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhKgMjyZgcFGCDV4TBf2atZJJNhvoaqe4GeDBe6n3gYJS2dblZPH4iSAUtk-ZerFdsm7luUO-8XfbrsDWD2mCBV2nNcDI9PRMdSHtVM57M7PE_FmS6d5wLjE0sW-BUdI1mGqFwIpcUfRHfGX7WQoRVOogaxjM7gZnu4BYOK-GuvL2PTl-jAQe0Aku5VTSvrLB397pxkXQfHfpWvIjrhrOk4fMuUJP0VQamDBTRinkyF51ABsohnV1yMaW8%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -3017,7 +3019,9 @@
           "海外",
           "2025&2026 Taipei"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZi5igU0Ibj_-uNCafcx6yARmhaTKlMk1RNAQk5rc7tNrds3T_eRXBMSWub3THKWJ9GLeKCifSzXL36RpPvZq51zeFtGckUf-qn5tj7SpY85UZ05FFg9U7YcOQ8x3pJpfRR60cDTFnDchYFl8Mdxbo4BIUICIOWTs7rk1oW-gCY1tbM4fQawohjIgjyMOWrp--X0OWk1jgU-e3GcrCbmOxgJ6QvQXHO7FrafuW5Fb_Wy-dSKHJwIZvsahos%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -3029,6 +3033,60 @@
             "2025&2026 Taipei"
           ],
           "name": "25°03'15.4\"N 121°31'05.7\"E"
+        },
+        "classification": {
+          "category": "2025&2026 Taipei",
+          "subcategory": "2025&2026 Taipei",
+          "method": "source-layer",
+          "status": "source"
+        },
+        "classificationCandidates": {
+          "members": [],
+          "projects": [],
+          "contentTypes": []
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.5617463,
+          25.0313696
+        ]
+      },
+      "properties": {
+        "id": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:007b7eb549c00271e767",
+        "sourceKey": "mymaps:16UuI7FsZ44eye0vxkXhEnBNu44I2NqE:007b7eb549c00271e767",
+        "name": "44 South Military Village",
+        "category": "2025&2026 Taipei",
+        "subcategory": "2025&2026 Taipei",
+        "categoryColor": "#3b82f6",
+        "address": "",
+        "sceneTitle": "44 South Military Village",
+        "sceneNote": "Note: Tenkarin dancing UDAGEN, saku ig Thank you @__shi22__ on threads! URL: 25.0313696, 121.5617463 Tags: Comment:",
+        "sourceLabel": "FULL of Sakurazaka46 OVERSEA Map",
+        "sourceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "referenceUrl": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+        "tags": [
+          "海外",
+          "2025&2026 Taipei"
+        ],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZhvDt7hQv7PCUhSo70ODu1ToF86jCMhWytj6EQPNvE5WtTvMWgGZd0rrJAL4BUzcBFFRtRRsk36EcmDvQfCHqNCw_0TdPtJZd5jlwtGhLwW9qchjr3cQTyoIUnt92GqvhXXQ89ECxYa6t2AhbhmSvCbRq4bMlJWdOdKPh_b19VfLkIbLL_2eorrZYFBp1zKPTsgbwIXy_4_UFFZW1dPMuZMMpbUfQ-t7w0Z9vdIRYoYzzgWYaC5A3KaWWw%3Ffife%3Ds16383"
+        ],
+        "members": [],
+        "source": {
+          "provider": "FULL of Sakurazaka46 OVERSEA Map",
+          "url": "https://www.google.com/maps/d/viewer?mid=16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "mapId": "16UuI7FsZ44eye0vxkXhEnBNu44I2NqE",
+          "layer": "2025&2026 Taipei",
+          "tags": [
+            "海外",
+            "2025&2026 Taipei"
+          ],
+          "name": "44 South Military Village"
         },
         "classification": {
           "category": "2025&2026 Taipei",
@@ -3177,7 +3235,9 @@
           "海外",
           "2025&2026 Taipei"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZgxZhgzvz5a2n2Xg4m8mki3kSfCIJX5mEfcxDUDVxloEVcnLN8Tlq_fOE_Td32uHXzeVAnUJ_nSIjG8bK81Wsz1gHwG-ls5DDCiEPm5gY3GDdAPCEmrSLXUB8sdHL-IBr2xei_WD_hIEJUMez2QyS9lhX4on7LRl6LovJxpflYNNenHhj5-8uggGKVHtglUwh-YrMmd5MbV0lzJ2Uv-9-TPAIHwLOtZqQhgwwpwiH39uraSiHL9-czL3MM%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -3229,7 +3289,9 @@
           "海外",
           "2025&2026 Taipei"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiVWxLlP0lvwZPg32Gt-OeEtFiHmKrdZ5LBOfPEqgq8cEsbyBxpmoPQKDV0WVoQm6xb8wwMScZ5KijfFqpTS8tilJ6C3DGjfKSlTZX1DgmIjkhsAJ2o-AzTE0LR9B_4SeETX9ibLv4jA0_RdQvB6ECvFSDwptF7LhzYppF6iD2Zn1fiCQuH4GptqWmAzji2sNFh8Wy6sxd_doUqkc07Bkl7K4bx-9iKAxuZaNArOtU-HzZckTCIZcTy8SA%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
@@ -3281,7 +3343,9 @@
           "海外",
           "2025&2026 Taipei"
         ],
-        "images": [],
+        "images": [
+          "/api/proxy-image?url=https%3A%2F%2Fmymaps.usercontent.google.com%2Fhostedimage%2Fm%2F%2A%2F3ABkJAZiGcazUKqNpGxXVN-Ss5cWa54G3b6JCl5srcH-jJG9PSVxujTWRKOP8D0xGSMjKfbZ4W47eXK_e0QNi1fANx6cw95IFGBCdrFPvuHxZz11O8uFGaNJ1RtVbFk3KZEQ4nES3w1M0MUwh2pX1FAieTXnIFMrIHH3wm7xCuh-6yn71uIZSqFFVryAr_bLssBnBQi9PSgegDLQrB26lwLKhmCsRp7hALUthRy28SfVikRlUvG5G-y_cEC9mR0M%3Ffife%3Ds16383"
+        ],
         "members": [],
         "source": {
           "provider": "FULL of Sakurazaka46 OVERSEA Map",
